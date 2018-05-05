@@ -14,8 +14,10 @@ module.exports = {
   env: {
     browser: true
   },
-  rules: {
+  globals: {
+    'Prismic': true
   },
+  rules: {},
   overrides: [
     // node files
     {
