@@ -15,7 +15,8 @@ module.exports = {
     browser: true
   },
   globals: {
-    'Prismic': true
+    'Prismic': true,
+    'PrismicDOM': true,
   },
   rules: {},
   overrides: [

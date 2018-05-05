@@ -1,10 +1,3 @@
-<h1>It works!</h1>
+<h1>Liste des articles de blog:</h1>
 
-<ul>
-  {{#each model as |document|}}
-    <li>
-      {{log document.data.blog_post.title}}
-      {{document.data.blog_post.title}}
-    </li>
-  {{/each}}
-</ul>
+{{blog-post-list posts=model}}

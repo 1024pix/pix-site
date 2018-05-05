@@ -21,6 +21,7 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import('node_modules/prismic.io/dist/prismic.io.js');
+  app.import('node_modules/prismic-dom/dist/prismic-dom.js');
 
   return app.toTree();
 };
