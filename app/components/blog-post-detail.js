@@ -12,4 +12,9 @@ export default Component.extend({
     return PrismicDOM.RichText.asText(post.rawJSON.title);
   }),
 
+  content: computed('post', function() {
+    const post = this.get('post');
+    return PrismicDOM.RichText.asHtml(post.rawJSON.content);
+  })
+
 });

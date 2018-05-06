@@ -1,5 +1,5 @@
 <ul>
   {{#each posts as |post|}}
-    {{blog-post-item post=post}}
+    {{#link-to 'posts.get' post.uid}}{{blog-post-item post=post}}{{/link-to}}
   {{/each}}
 </ul>
