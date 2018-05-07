@@ -1,0 +1,6 @@
+<h1>FAQ</h1>
+<ul>
+  {{#each model.rawJSON.questions as |faq_item|}}
+    {{faq-item model=faq_item.question.data}}
+  {{/each}}
+</ul>

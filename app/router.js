@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('posts', function() {
     this.route('get', { path: '/:uid' });
   });
+  this.route('faq');
 });
 
 export default Router;
