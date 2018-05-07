@@ -11,6 +11,8 @@ Router.map(function() {
     this.route('get', { path: '/:uid' });
   });
   this.route('faq');
+  this.route('404');
+  this.route('cms-page', { path: '/*path' });
 });
 
 export default Router;
