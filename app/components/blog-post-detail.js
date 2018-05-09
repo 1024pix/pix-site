@@ -3,7 +3,10 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
 
-  // Props
+  // Inherited props
+  classNames: ['blog-post-detail'],
+
+  // Data props
   post: null,
 
   // CPs
@@ -15,6 +18,6 @@ export default Component.extend({
   content: computed('post', function() {
     const post = this.get('post');
     return PrismicDOM.RichText.asHtml(post.rawJSON.content);
-  })
+  }),
 
 });

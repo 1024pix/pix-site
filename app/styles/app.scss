@@ -1,0 +1,59 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  background-color: #F2F4F7;
+  color: #21314D;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  line-height: 100px;
+  background-color: #FFFFFF;
+
+  .app-logo {
+
+    .app-logo__link {
+      display: inline-block;
+      height: 100%;
+
+      .app-logo__image {
+        padding: 20px;
+        height: 60px;
+      }
+    }
+  }
+
+  .app-navbar {
+
+    .navigation-links {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      display: flex;
+
+      .navigation-link {
+        padding: 0;
+        margin: 0;
+
+        .navigation-link__anchor {
+          display: inline-block;
+          height: 100%;
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}
+
+.app-body {
+  padding-top: 20px;
+}
+
+.blog-post-detail {
+  .blog-post-detail__header {
+    background-color: #3d68ff;
+    color: #FFFFFF;
+  }
+}

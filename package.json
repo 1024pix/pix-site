@@ -28,6 +28,7 @@
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-qunit": "^4.1.1",
+    "ember-cli-sass": "^7.1.7",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
@@ -39,8 +40,8 @@
     "ember-source": "~3.1.0",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
-    "prismic.io": "^3.6.1",
-    "prismic-dom": "^2.1.0"
+    "prismic-dom": "^2.1.0",
+    "prismic.io": "^3.6.1"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
