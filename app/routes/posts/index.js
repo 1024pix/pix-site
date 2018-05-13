@@ -9,7 +9,10 @@ export default Route.extend({
     return this.get('prismic').getApi()
       .then(api => api.query(
         Prismic.Predicates.at('document.type', 'blog_post'),
-        { orderings: '[my.blog_post.date desc]' }
+        {
+          fetchLinks: ['author.name'],
+          orderings: '[my.blog_post.date desc]'
+        }
       ))
       .then((response) => {
         return response.results;

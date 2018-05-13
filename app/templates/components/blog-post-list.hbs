@@ -1,5 +1,3 @@
-<ul>
-  {{#each posts as |post|}}
-    {{#link-to 'posts.get' post.uid}}{{blog-post-item post=post}}{{/link-to}}
-  {{/each}}
-</ul>
+{{#each posts as |post|}}
+  {{blog-post-list-item post=post}}
+{{/each}}

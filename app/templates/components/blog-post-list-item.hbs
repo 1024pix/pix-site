@@ -1,0 +1,12 @@
+{{#link-to 'posts.get' uid}}
+  <header class="blog-post-list-item__header">
+    <span class="blog-post-list-item__publication-date">{{publicationDate}}</span>
+  </header>
+  <section class="blog-post-list-item__body">
+    <h2 class="blog-post-list-item__title">{{title}}</h2>
+    <div class="blog-post-list-item__content">{{{firstParagraph}}}</div>
+  </section>
+  <footer class="blog-post-list-item__footer">
+    Par <span class="blog-post-list-item__author">{{author}}</span>
+  </footer>
+{{/link-to}}
