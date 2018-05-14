@@ -12,6 +12,22 @@ export default Service.extend({
         resolve(api);
       });
     });
+  },
+
+  getUid(document) {
+    return document.uid;
+  },
+
+  getLastPublicationDate(document) {
+    return PrismicDOM.Date(document.lastPublicationDate);
+  },
+
+  getText(fragment) {
+    return PrismicDOM.RichText.asText(fragment);
+  },
+
+  getHtml(fragment) {
+    return PrismicDOM.RichText.asHtml(fragment);
   }
 
 });

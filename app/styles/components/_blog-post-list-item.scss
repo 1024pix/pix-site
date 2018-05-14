@@ -1,0 +1,29 @@
+.blog-post-list-item {
+
+  a {
+    background-color: #FFFFFF;
+    display: block;
+    padding: 40px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
+  .blog-post-list-item__body {
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .blog-post-list-item__footer {
+    margin-top: 20px;
+
+    .blog-post-list-item__author {
+      font-weight: 600;
+    }
+  }
+}

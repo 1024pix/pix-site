@@ -1,0 +1,32 @@
+.cms-page {
+
+  .cms-page__header {
+    text-align: center;
+    padding: 80px 0 40px;
+
+    .cms-page__title {
+      margin: 0 0 20px;
+    }
+  }
+
+  .cms-page__body {
+    background-color: #FFFFFF;
+    display: block;
+    padding: 80px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .3);
+
+    .page-header {
+
+    }
+
+    .page-body {
+
+    }
+
+    .page-footer {
+
+    }
+  }
+}

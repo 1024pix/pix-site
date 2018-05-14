@@ -1,0 +1,341 @@
+{
+  "page": 1,
+  "results_per_page": 20,
+  "results_size": 3,
+  "total_results_size": 3,
+  "total_pages": 1,
+  "next_page": null,
+  "prev_page": null,
+  "results": [
+    {
+      "id": "Wu9_6igAAKhyU9dp",
+      "uid": "lorem-ipsum",
+      "type": "blog_post",
+      "href": "https://pix-corporate.cdn.prismic.io/api/v2/documents/search?ref=WvhF5CgAALoFemDF&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Wu9_6igAAKhyU9dp%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2018-05-06T22:21:39+0000",
+      "last_publication_date": "2018-05-13T08:21:20+0000",
+      "slugs": [
+        "lorem-ipsum"
+      ],
+      "linked_documents": null,
+      "lang": "fr-fr",
+      "alternate_languages": [],
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Lorem ipsum",
+            "spans": []
+          }
+        ],
+        "content": [
+          {
+            "type": "heading2",
+            "text": "Le passage de Lorem Ipsum standard, utilisé depuis 1500",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "spans": []
+          },
+          {
+            "type": "heading2",
+            "text": "Section 1.10.32 du \"De Finibus Bonorum et Malorum\" de Ciceron (45 av. J.-C.)",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+            "spans": []
+          },
+          {
+            "type": "heading2",
+            "text": "Traduction de H. Rackham (1914)",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"",
+            "spans": []
+          },
+          {
+            "type": "heading2",
+            "text": "Section 1.10.33 du \"De Finibus Bonorum et Malorum\" de Ciceron (45 av. J.-C.)",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"",
+            "spans": []
+          },
+          {
+            "type": "heading2",
+            "text": "Traduction de H. Rackham (1914)",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\"",
+            "spans": []
+          }
+        ],
+        "author": {
+          "id": "WvfyHCgAAJ2LePAT",
+          "type": "author",
+          "tags": [],
+          "slug": "jeremy-buget",
+          "lang": "fr-fr",
+          "data": {
+            "name": [
+              {
+                "type": "heading1",
+                "text": "Jérémy Buget",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    },
+    {
+      "id": "Wu2-lCgAABxzTB7m",
+      "uid": "bienvenue-sur-pix-fr",
+      "type": "blog_post",
+      "href": "https://pix-corporate.cdn.prismic.io/api/v2/documents/search?ref=WvhF5CgAALoFemDF&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22Wu2-lCgAABxzTB7m%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2018-05-05T14:25:00+0000",
+      "last_publication_date": "2018-05-13T14:04:20+0000",
+      "slugs": [
+        "bienvenue-sur-pix.fr-",
+        "bienvenue-sur-pix.fr--hhuhuh-uih-u-hu-huhu-huh-uh-u"
+      ],
+      "linked_documents": null,
+      "lang": "fr-fr",
+      "alternate_languages": [],
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Bienvenue sur Pix.fr !",
+            "spans": []
+          }
+        ],
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "PIX est un projet public de plateforme en ligne d’évaluation et de certification des compétences numériques, en cours de développement.",
+            "spans": []
+          },
+          {
+            "type": "heading2",
+            "text": "Le service sera accessible gratuitement et ouvert à tous les francophones :",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Son objectif est d’accompagner l’élévation du niveau général de connaissances et de compétences numériques et ainsi de préparer la transformation digitale de l’ensemble de notre société et de notre économie.",
+            "spans": []
+          },
+          {
+            "type": "heading2",
+            "text": "Mesurer ses compétences numériques",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "PIX permettra d’obtenir un profil de compétences associé à un score global sur 1024 pix. En conformité avec le cadre de référence européen DIGCOMP, PIX évaluera les compétences numériques sur 8 niveaux et 5 grands domaines :",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "Informations et données",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "Communication et collaboration",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "Création de contenu",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "Protection et sécurité",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "Environnement numérique",
+            "spans": []
+          },
+          {
+            "type": "list-item",
+            "text": "Les épreuves évalueront les connaissances mais également les savoir-faire et la capacité à identifier les enjeux du numérique.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Des modalités innovantes d’évaluation seront proposées, dépassant le cadre habituel des QCM et privilégiant la mesure in vivo de compétences à partir d’activités réalisées dans leur environnement numérique réel : interactions, manipulations de fichiers, résolutions de problèmes, productions créatives, évaluations par les pairs, etc.",
+            "spans": []
+          },
+          {
+            "type": "image",
+            "url": "https://pix-corporate.cdn.prismic.io/pix-corporate/b44612c6fe28d13d6cb94fd58610a195a3ca82c3_chateau_grouchy.jpg",
+            "alt": null,
+            "copyright": null,
+            "dimensions": {
+              "width": 900,
+              "height": 350
+            }
+          },
+          {
+            "type": "heading2",
+            "text": "Développer ses compétences numériques",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Les apports de PIX au développement des compétences de chacun sont triples :",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "1. PIX permettra d’apprendre en se testant. Une part importante des épreuves PIX sont conçues sous la forme de défis à relever au cours desquels on développe ses compétences.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "2. En s’appuyant sur les résultats des épreuves, PIX offrira également des recommandations ciblées de formation.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "3. Le service proposera enfin un accès dédié aux équipes pédagogiques (collège, lycée, enseignement supérieur) et aux responsables de formation continue. Ils pourront suivre l’évolution des compétences des publics qu’ils encadrent, et concevoir des stratégies de formation sur mesure.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Pour témoigner des progrès de manière continue et stimulante, les utilisateurs disposeront d’un compte personnel sécurisé qui leur permettra de faire valoir leurs nouveaux acquis à leur rythme et tout au long de la vie.",
+            "spans": []
+          },
+          {
+            "type": "heading2",
+            "text": "Valoriser ses compétences numériques",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "PIX proposera, de manière optionnelle, un mode « certifiant », permettant d’obtenir une certification officielle fiable et reconnue par l’éducation nationale, l’enseignement supérieur et le monde professionnel.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Ce test complémentaire nécessitera, dans un premier temps, une passation en présentiel dans les centres agréés par PIX : collèges, lycées, établissements d’enseignement supérieur, structures partenaires.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "Des solutions de passation du mode certifiant à distance seront étudiées par la suite, à destination des professionnels.",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "PIX se substituera au Brevet informatique et internet (B2i) et à la Certification informatique et internet (C2i) progressivement à partir de la rentrée 2017–2018.",
+            "spans": []
+          }
+        ],
+        "author": {
+          "id": "WvfyHCgAAJ2LePAT",
+          "type": "author",
+          "tags": [],
+          "slug": "jeremy-buget",
+          "lang": "fr-fr",
+          "data": {
+            "name": [
+              {
+                "type": "heading1",
+                "text": "Jérémy Buget",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    },
+    {
+      "id": "WvgIiCgAAJyLeVK9",
+      "uid": "comment-ajouter-une-page-editoriale",
+      "type": "blog_post",
+      "href": "https://pix-corporate.cdn.prismic.io/api/v2/documents/search?ref=WvhF5CgAALoFemDF&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22WvgIiCgAAJyLeVK9%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2018-05-13T09:42:36+0000",
+      "last_publication_date": "2018-05-13T09:46:54+0000",
+      "slugs": [
+        "comment-ajouter-une-page-editoriale-"
+      ],
+      "linked_documents": null,
+      "lang": "fr-fr",
+      "alternate_languages": [],
+      "data": {
+        "title": [
+          {
+            "type": "heading1",
+            "text": "Comment ajouter une page éditoriale ?",
+            "spans": []
+          }
+        ],
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Cet article décrit comment publier, en tant que responsable du contenu éditorial du site institutionnel, une nouvelle page accessible sur le site.",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Se connecter à prismic.io",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "Ajouter, éditer et publier un contenu de type \"simple-page\"",
+            "spans": []
+          },
+          {
+            "type": "o-list-item",
+            "text": "la page est accessible via l'URL définie dans le champs UID du contenu CMS",
+            "spans": []
+          }
+        ],
+        "author": {
+          "id": "WvfyHCgAAJ2LePAT",
+          "type": "author",
+          "tags": [],
+          "slug": "jeremy-buget",
+          "lang": "fr-fr",
+          "data": {
+            "name": [
+              {
+                "type": "heading1",
+                "text": "Jérémy Buget",
+                "spans": []
+              }
+            ]
+          },
+          "link_type": "Document",
+          "isBroken": false
+        }
+      }
+    }
+  ],
+  "version": "332287f",
+  "license": "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/."
+}
