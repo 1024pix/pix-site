@@ -2,24 +2,24 @@
   <h1 class="cms-page__title">{{title}}</h1>
 </div>
 
-<div class="cms-page__body">
-  {{#if pageHeader}}
-    <div class="page-header">
-      {{{pageHeader}}}
-    </div>
-  {{/if}}
+<main class="app-page">
+  <div class="cms-page__body">
+    {{#if pageHeader}}
+      <div class="page-header">
+        {{{pageHeader}}}
+      </div>
+    {{/if}}
 
-  {{#if pageBody}}
-    <div class="page-body">
-      {{{pageBody}}}
-    </div>
-  {{/if}}
+    {{#if pageBody}}
+      <div class="page-body">
+        {{{pageBody}}}
+      </div>
+    {{/if}}
 
-  {{#if pageFooter}}
-    <div class="page-footer">
-      {{{pageFooter}}}
-    </div>
-  {{/if}}
-</div>
-
-
+    {{#if pageFooter}}
+      <div class="page-footer">
+        {{{pageFooter}}}
+      </div>
+    {{/if}}
+  </div>
+</main>

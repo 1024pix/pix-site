@@ -8,12 +8,9 @@ export default Route.extend({
   model() {
     return this.get('prismic').getApi()
       .then(api => api.query(
-        Prismic.Predicates.at('document.type', 'faq_page'),
+        Prismic.Predicates.at('document.type', 'faq_category'),
         { 'fetchLinks': ['faq_item.question', 'faq_item.answer'] }))
-      .then((response) => {
-        const document = response.results[0];
-        return document;
-      });
+      .then((response) => response.results);
   }
 
 });
