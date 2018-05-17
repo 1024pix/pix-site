@@ -1,0 +1,11 @@
+<h2 class="faq-category-title">{{categoryTitle}}</h2>
+<ul class="faq-category-items">
+  {{#each faqItems as |faqItem|}}
+    <li class="faq-category-item">
+      <h3 class="faq-category-item__question">{{{faqItem.question}}}</h3>
+      <p class="faq-category-item__answer">{{{faqItem.answer}}}</p>
+    </li>
+  {{else}}
+    Pas de questions
+  {{/each}}
+</ul>

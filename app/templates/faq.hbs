@@ -1,43 +1,14 @@
 <main class="faq-page">
 
-  <header class="faq-header">
-    <h1 class="faq-header__title">Nous sommes à votre service</h1>
+  <header class="faq-page-header">
+    <h1 class="faq-page-header__title">Nous sommes à votre service</h1>
   </header>
 
-  <section class="faq-body">
-    <div class="faq-category">
-      <h2 class="faq-category__title">Pix comment ça marche ?</h2>
-
-      <ul class="faq-items">
-        <li class="faq-item">
-          <h3 class="faq-item__question">Qu’est-ce que Pix ?</h3>
-          <p class="faq-item__answer">Pix est un service public en ligne d’évaluation et de certification des compétences numériques. Sur le site web de Pix, vous pouvez passer des tests pour évaluer votre niveau dans 5 domaines, couvrant un large champ des compétences numériques.</p>
-        </li>
-        <li class="faq-item">
-          <h3 class="faq-item__question">Qui est derrière Pix ?</h3>
-        </li>
-        <li class="faq-item">
-          <h3 class="faq-item__question">Qui peut utiliser Pix ?</h3>
-        </li>
-      </ul>
-    </div>
-
-    <nav class="faq-navbar">
-      <ul class="faq-category-links">
-        <li class="faq-category-link"><a href="">Pix comment ça marche ?</a></li>
-        <li class="faq-category-link"><a href="">Mon compte</a></li>
-        <li class="faq-category-link"><a href="">Configuration technique</a></li>
-        <li class="faq-category-link"><a href="">Les tests et épreuves</a></li>
-        <li class="faq-category-link"><a href="">Établissements</a></li>
-        <li class="faq-category-link"><a href="">Certification</a></li>
-        <li class="faq-category-link"><a href="">Bêta testeur</a></li>
-        <li class="faq-category-link"><a href="">Support</a></li>
-      </ul>
-    </nav>
+  <section class="faq-page-body">
+    {{outlet}}
   </section>
 
-  <footer class="faq-footer">
-
+  <footer class="faq-page-footer">
   </footer>
 
 </main>

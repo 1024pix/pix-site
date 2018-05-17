@@ -5,9 +5,9 @@ export default Route.extend({
 
   prismic: service(),
 
-  model() {
-    return this.get('prismic').getApi()
-      .then(api => api.getSingle('faq_menu'))
+  async model() {
+    const api = await this.get('prismic').getApi();
+    return api.getSingle('faq_menu');
   },
 
   afterModel(model) {

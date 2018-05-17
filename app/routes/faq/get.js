@@ -5,9 +5,17 @@ export default Route.extend({
 
   prismic: service(),
 
-  model(params) {
+  async model(params) {
     const faqCategoryUID = params.uid;
-    return this.get('prismic').getApi()
-      .then(api => api.getByUID('faq_category', faqCategoryUID));
+    const api = await this.get('prismic').getApi();
+    const faqMenu = (await api.query(
+      Prismic.Predicates.at('document.type', 'faq_menu'),
+      { 'fetchLinks': 'faq_category.title' }))
+      .results[0];
+    const faqItems = (await api.query(
+      Prismic.Predicates.at('my.faq_category.uid', faqCategoryUID),
+      { 'fetchLinks': ['faq_item.question', 'faq_item.answer'] }))
+      .results[0];
+    return { faqMenu, faqItems };
   }
 });

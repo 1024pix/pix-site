@@ -1,0 +1,9 @@
+<ul class="faq-menu-entries">
+  {{#each menuEntries as |menuEntry|}}
+    <li class="faq-menu-entry">
+      {{#link-to 'faq.get' menuEntry.uri class="faq-menu-entry__link" }}
+        <span class="faq-menu-entry__title">{{menuEntry.title}}</span>
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>
