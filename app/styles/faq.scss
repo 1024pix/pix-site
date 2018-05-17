@@ -1,0 +1,72 @@
+.faq-page {
+  color: #333333;
+
+  .faq-header {
+    height: 260px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #388AFF 0%, #985FFF 100%);
+    text-align: center;
+
+    .faq-header__title {
+      color: #FFFFFF;
+      margin: 0;
+      padding-top: 110px;
+      font-family: 'Maven Pro', Arial, sans-serif;
+    }
+  }
+
+  .faq-body {
+    width: 1120px;
+    margin: 0 auto;
+    padding-top: 40px;
+    display: flex;
+
+    .faq-category {
+      border-right: 1px solid #CCCCCC;
+      padding-right: 60px;
+      margin-right: 60px;
+      flex: 3;
+
+      .faq-category__title {
+        margin-top: 0;
+        margin-bottom: 40px;
+      }
+
+      .faq-items {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        .faq-item {
+          margin-bottom: 40px;
+
+          .faq-item__question {
+            font-family: Lato, Arial, sans-serif;
+            font-size: 18px;
+            color: #3D68FF;
+            margin: 0 0 10px;
+          }
+
+          .faq-item__answer {
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0 0 10px;
+          }
+        }
+      }
+    }
+
+    .faq-navbar {
+      flex: 1;
+
+      .faq-category-links {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        .faq-category-link {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

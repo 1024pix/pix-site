@@ -10,7 +10,9 @@ Router.map(function() {
   this.route('posts', function() {
     this.route('get', { path: '/:uid' });
   });
-  this.route('faq');
+  this.route('faq', function() {
+    this.route('get', { path: '/:uid' });
+  });
   this.route('404');
   this.route('cms-page', { path: '/*path' });
 });
