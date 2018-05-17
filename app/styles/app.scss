@@ -1,20 +1,11 @@
 // General
 @import "./fonts";
-// Components
-@import "./components/blog-post-detail";
-@import "./components/blog-post-list";
-@import "./components/cms-page";
 // Pages
 @import "./faq";
-
-/*
-background: linear-gradient(135.25deg, #388AFF 0%, #985FFF 100%);
-*/
 
 body, html {
   padding: 0;
   margin: 0;
-  /*background-color: #F2F4F7;*/
   background-color: #FFFFFF;
   color: #21314D;
 }
@@ -31,7 +22,6 @@ a {
 
 .app-header {
   background-color: #FFFFFF;
-  /*box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);*/
   box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
 
   .app-header-container {
