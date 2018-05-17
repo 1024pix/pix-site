@@ -1,0 +1,31 @@
+.faq-item {
+
+  .faq-item__question {
+    font-family: Lato, Arial, sans-serif;
+    font-size: 18px;
+    color: #3D68FF;
+    margin: 0 0 10px;
+    cursor: pointer;
+  }
+
+  .faq-item__answer {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin-bottom: 40px;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  &.closed {
+    .faq-item__answer {
+      display: none;
+    }
+  }
+
+  &.opened {
+    .faq-item__answer {
+      display: block;
+    }
+  }
+}

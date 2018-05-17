@@ -1,0 +1,21 @@
+.faq-category {
+  border-right: 1px solid #CCCCCC;
+  padding-right: 60px;
+  margin-right: 60px;
+  flex: 3;
+
+  .faq-category-title {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+
+  .faq-category-items {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+
+    .faq-category-item {
+      margin-bottom: 20px;
+    }
+  }
+}

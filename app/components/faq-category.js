@@ -24,15 +24,17 @@ export default Component.extend({
 
     return document.rawJSON.questions.map((item) => {
       const prismic = this.get('prismic');
+      const documentId = item.question.id;
       const uid = item.question.uid;
       const question = prismic.getText(item.question.data.question);
       const answer = prismic.getHtml(item.question.data.answer);
       return {
+        documentId,
         uid,
         question,
-        answer
+        answer,
+        statusClass: 'closed'
       }
     });
   })
-
 });

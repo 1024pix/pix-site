@@ -2,8 +2,7 @@
 <ul class="faq-category-items">
   {{#each faqItems as |faqItem|}}
     <li class="faq-category-item">
-      <h3 class="faq-category-item__question" id="{{faqItem.uid}}">{{{faqItem.question}}}</h3>
-      <div class="faq-category-item__answer">{{{faqItem.answer}}}</div>
+      {{faq-item faqItem=faqItem}}
     </li>
   {{else}}
     Pas de questions
