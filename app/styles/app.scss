@@ -42,16 +42,27 @@ a {
     margin: 0 auto;
     width: 1120px;
 
-    .app-logo {
+    .app-logo-pix {
+      display: inline-block;
 
-      .app-logo__link {
+      .app-logo-pix__link {
         display: inline-block;
         height: 100%;
 
-        .app-logo__image {
+        .app-logo-pix__image {
           padding: 20px 0;
           height: 80px;
         }
+      }
+    }
+
+    .app-logo-marianne {
+      display: inline-block;
+      margin-left: 40px;
+
+      .app-logo-marianne__image {
+        padding: 30px 0;
+        height: 60px;
       }
     }
 
