@@ -1,10 +1,10 @@
 {
-  "name": "corporate",
+  "name": "pix-faq",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for corporate goes here",
-  "license": "MIT",
-  "author": "",
+  "description": "The FAQ of Pix platform",
+  "license": "AGPL-3.0",
+  "author": "The Pix team",
   "directories": {
     "doc": "doc",
     "test": "tests"

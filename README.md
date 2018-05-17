@@ -1,4 +1,4 @@
-# corporate
+# pix-faq
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -14,8 +14,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd corporate`
+* `git clone git@github.com:1024pix/pix-faq.git` this repository
+* `cd pix-faq`
 * `npm install`
 
 ## Running / Development
