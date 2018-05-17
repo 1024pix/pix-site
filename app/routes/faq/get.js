@@ -14,7 +14,7 @@ export default Route.extend({
       .results[0];
     const faqItems = (await api.query(
       Prismic.Predicates.at('my.faq_category.uid', faqCategoryUID),
-      { 'fetchLinks': ['faq_item.question', 'faq_item.answer'] }))
+      { 'fetchLinks': ['faq_item.uid', 'faq_item.question', 'faq_item.answer'] }))
       .results[0];
     return { faqMenu, faqItems };
   }

@@ -24,9 +24,11 @@ export default Component.extend({
 
     return document.rawJSON.questions.map((item) => {
       const prismic = this.get('prismic');
+      const uid = item.question.uid;
       const question = prismic.getText(item.question.data.question);
       const answer = prismic.getHtml(item.question.data.answer);
       return {
+        uid,
         question,
         answer
       }

@@ -26,7 +26,10 @@
 
       .faq-category-item__answer {
         font-family: 'Open Sans', Arial, sans-serif;
-        margin: 0 0 10px;
+
+        p {
+          margin-top: 0;
+        }
       }
     }
   }
