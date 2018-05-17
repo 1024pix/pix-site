@@ -1,3 +1,8 @@
+@import "./components/faq-category";
+@import "./components/faq-item";
+@import "./components/faq-menu";
+@import "./components/faq-searchbar";
+
 .faq-page {
   color: #333333;
 
@@ -10,8 +15,11 @@
     .faq-page-header__title {
       color: #FFFFFF;
       margin: 0;
-      padding-top: 110px;
-      font-family: 'Maven Pro', Arial, sans-serif;
+      padding-top: 70px;
+      padding-bottom: 30px;
+      font-family: 'Raleway', Arial, sans-serif;
+      font-size: 36px;
+      font-weight: 200;
     }
   }
 

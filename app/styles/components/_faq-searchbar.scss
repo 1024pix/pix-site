@@ -1,0 +1,30 @@
+.faq-searchbar {
+  display: inline-flex;
+  width: 700px;
+  height: 56px;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+
+  .faq-searchbar-input {
+    width: 100%;
+    border: none;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 3px;
+    color: #000000;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #888888;
+    }
+  }
+
+  .faq-searchbar-icon {
+    color: #666666;
+    padding: 10px 16px;
+    font-size: 24px;
+  }
+}

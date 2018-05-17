@@ -10,8 +10,8 @@ module.exports = function(environment) {
     googleFonts: [
       'Open+Sans',
       'Roboto',
-      'Maven+Pro',
-      'Lato'
+      'Lato',
+      'Raleway:200,300,400,600'
     ],
 
     // Set or update content security policies
