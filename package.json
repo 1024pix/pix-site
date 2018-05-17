@@ -1,19 +1,23 @@
 {
   "name": "pix-faq",
-  "version": "0.0.0",
-  "private": true,
-  "description": "The FAQ of Pix platform",
+  "version": "1.0.0",
+  "private": false,
+  "description": "La FAQ de Pix, plateforme en ligne d’évaluation et de certification des compétences numériques pour tous les français.",
   "license": "AGPL-3.0",
-  "author": "The Pix team",
+  "author": "Team PIX",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:1024pix/pix-faq.git"
+  },
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
-    "start": "ember serve",
+    "start": "ember serve --environment production --liveReload false",
+    "dev": "ember serve",
     "test": "ember test"
   },
   "devDependencies": {
