@@ -1,5 +1,5 @@
 {
-  "name": "pix-faq",
+  "name": "pix-site",
   "version": "1.0.0",
   "private": false,
   "description": "La FAQ de Pix, plateforme en ligne d’évaluation et de certification des compétences numériques pour tous les français.",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:1024pix/pix-faq.git"
+    "url": "git@github.com:1024pix/pix-site.git"
   },
   "scripts": {
     "build": "ember build",

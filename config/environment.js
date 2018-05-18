@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'pix-faq',
+    modulePrefix: 'pix-site',
     environment,
     rootURL: '/',
     locationType: 'auto',

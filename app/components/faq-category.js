@@ -22,12 +22,12 @@ export default Component.extend({
   faqItems: computed('document', function() {
     const document = this.get('document');
 
-    return document.rawJSON.questions.map((item) => {
+    return document.rawJSON.faq_items.map((faqItemDocument) => {
       const prismic = this.get('prismic');
-      const documentId = item.question.id;
-      const uid = item.question.uid;
-      const question = prismic.getText(item.question.data.question);
-      const answer = prismic.getHtml(item.question.data.answer);
+      const documentId = faqItemDocument.faq_item.id;
+      const uid = faqItemDocument.faq_item.uid;
+      const question = prismic.getText(faqItemDocument.faq_item.data.question);
+      const answer = prismic.getHtml(faqItemDocument.faq_item.data.answer);
       return {
         documentId,
         uid,

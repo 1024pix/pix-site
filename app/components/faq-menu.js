@@ -16,9 +16,9 @@ export default Component.extend({
 
   // CPs
   menuEntries: computed('document', function() {
-    return this.get('document').rawJSON.categories.map((category) => {
-      const categoryUri = category.category.uid;
-      const categoryTitle = this.get('prismic').getText(category.category.data.title);
+    return this.get('document').rawJSON.faq_categories.map((faqCategoryDocument) => {
+      const categoryUri = faqCategoryDocument.faq_category.uid;
+      const categoryTitle = this.get('prismic').getText(faqCategoryDocument.faq_category.data.title);
       return {
         uri: categoryUri,
         title: categoryTitle

@@ -11,7 +11,7 @@ export default Route.extend({
   },
 
   afterModel(model) {
-    const firstFaqCategoryUri = model.rawJSON.categories[0].category.uid;
+    const firstFaqCategoryUri = model.rawJSON.faq_categories[0].faq_category.uid;
     if (firstFaqCategoryUri) {
       return this.transitionTo('faq.get', firstFaqCategoryUri);
     }
