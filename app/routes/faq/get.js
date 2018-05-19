@@ -7,8 +7,15 @@ export default Route.extend({
 
   async model(params) {
     const faqMenu = await this._fetchFaqMenuDocument();
-    const faqItems = await this._fetchFaqItems(params.uid);
-    return { faqMenu, faqItems };
+    const faqCategory = await this._fetchFaqItems(params.uid);
+    return { faqMenu, faqCategory };
+  },
+
+  async afterModel(model) {
+    const api = await this.get('prismic').getApi();
+    const faqItemIds = model.faqCategory.rawJSON.faq_items.map(document => document.faq_item.id);
+    model.faqItems = (await api.getByIDs(faqItemIds)).results;
+    return model;
   },
 
   async _fetchFaqMenuDocument() {
@@ -19,7 +26,7 @@ export default Route.extend({
 
   async _fetchFaqItems(faqCategoryUid) {
     const api = await this.get('prismic').getApi();
-    const document = await api.query(Prismic.Predicates.at('my.faq_category.uid', faqCategoryUid), { 'fetchLinks': ['faq_item.uid', 'faq_item.question', 'faq_item.answer'] });
+    const document = await api.query(Prismic.Predicates.at('my.faq_category.uid', faqCategoryUid));
     return document.results[0];
   }
 });

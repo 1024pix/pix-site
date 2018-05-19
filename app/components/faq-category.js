@@ -11,30 +11,12 @@ export default Component.extend({
   classNames: ['faq-category'],
 
   // Data props
-  document: null,
+  faqCategory: null,
+  faqItems: null,
 
   // CPs
-  categoryTitle: computed('document', function() {
-    const document = this.get('document');
+  categoryTitle: computed('faqCategory', function() {
+    const document = this.get('faqCategory');
     return this.get('prismic').getText(document.rawJSON.title);
-  }),
-
-  faqItems: computed('document', function() {
-    const document = this.get('document');
-
-    return document.rawJSON.faq_items.map((faqItemDocument) => {
-      const prismic = this.get('prismic');
-      const documentId = faqItemDocument.faq_item.id;
-      const uid = faqItemDocument.faq_item.uid;
-      const question = prismic.getText(faqItemDocument.faq_item.data.question);
-      const answer = prismic.getHtml(faqItemDocument.faq_item.data.answer);
-      return {
-        documentId,
-        uid,
-        question,
-        answer,
-        statusClass: 'closed'
-      }
-    });
   })
 });
