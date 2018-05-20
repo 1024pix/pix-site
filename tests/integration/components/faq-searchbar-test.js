@@ -4,23 +4,14 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | faq-searchbar', function(hooks) {
+
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    // when
+    await render(hbs`{{faq-category}}`);
 
-    await render(hbs`{{faq-searchbar}}`);
-
+    // then
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#faq-searchbar}}
-        template block text
-      {{/faq-searchbar}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
