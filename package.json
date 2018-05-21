@@ -47,7 +47,8 @@
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
     "prismic-dom": "^2.1.0",
-    "prismic.io": "^3.6.1"
+    "prismic.io": "^3.6.1",
+    "qunit-dom": "^0.6.2"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
