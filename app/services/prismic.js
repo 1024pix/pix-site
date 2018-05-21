@@ -14,16 +14,23 @@ export default Service.extend({
     });
   },
 
-  getUid(document) {
-    return document.uid;
+  async getFaqMenu() {
+    const api = await this.getApi();
+    const document = await api.query(Prismic.Predicates.at('document.type', 'faq_menu'), { 'fetchLinks': 'faq_category.title' });
+    return document.results[0];
   },
 
-  getText(fragment) {
-    return PrismicDOM.RichText.asText(fragment);
+  async getFaqCategoryByUid(faqCategoryUid) {
+    const api = await this.getApi();
+    const document = await api.query(Prismic.Predicates.at('my.faq_category.uid', faqCategoryUid));
+    return document.results[0];
   },
 
-  getHtml(fragment) {
-    return PrismicDOM.RichText.asHtml(fragment);
+  async findFaqItemsByFaqCategory(faqCategory) {
+    const api = await this.getApi();
+    const faqItemIds = faqCategory.rawJSON.faq_items.map(document => document.faq_item.id);
+    const documents = await api.getByIDs(faqItemIds);
+    return documents.results;
   }
 
 });
