@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module.only('Integration | Component | faq-item', function(hooks) {
+module('Integration | Component | faq-item', function(hooks) {
 
   setupRenderingTest(hooks);
 

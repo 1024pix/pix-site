@@ -4,14 +4,18 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Helper | as-text', function(hooks) {
+
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+    const prismicFragment = [{
+      type: 'heading1',
+      text: 'Some heading 1'
+    }];
+    this.set('fragment', prismicFragment);
 
-    await render(hbs`{{as-text inputValue}}`);
+    await render(hbs`{{as-text fragment}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.innerHTML, 'Some heading 1');
   });
 });
