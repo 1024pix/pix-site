@@ -11,6 +11,9 @@ Router.map(function() {
     this.route('get', { path: '/:uid' });
   });
   this.route('404');
+  this.route('jobs', function() {
+    this.route('get', { path: '/:uid' });
+  });
 });
 
 export default Router;

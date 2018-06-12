@@ -1,7 +1,7 @@
 // General
 @import "./fonts";
 // Pages
-@import "./faq";
+@import "./pages";
 
 body, html {
   padding: 0;
@@ -11,7 +11,7 @@ body, html {
 }
 
 a {
-  color: inherit;
+  color: #3D68FF;
   text-decoration: none;
 
   &:hover,

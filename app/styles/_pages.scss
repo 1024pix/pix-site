@@ -1,11 +1,10 @@
-@import "./components/faq-category";
-@import "./components/faq-item";
-@import "./components/faq-menu";
+@import "./pages/faq";
+@import "./pages/jobs";
 
-.faq-page {
+.page {
   color: #333333;
 
-  .faq-page-header {
+  .page-header {
     height: 260px;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
     background: linear-gradient(135deg, #388AFF 0%, #985FFF 100%);
@@ -15,7 +14,7 @@
     align-items: center;
     justify-content: center;
 
-    .faq-page-header__title {
+    .page-header__title {
       color: #FFFFFF;
       margin: 0;
       font-family: 'Raleway', Arial, sans-serif;
@@ -24,7 +23,7 @@
     }
   }
 
-  .faq-page-body {
+  .page-body {
     width: 1120px;
     margin: 0 auto;
     padding-top: 40px;

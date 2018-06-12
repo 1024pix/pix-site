@@ -31,6 +31,18 @@ export default Service.extend({
     const faqItemIds = faqCategory.rawJSON.faq_items.map(document => document.faq_item.id);
     const documents = await api.getByIDs(faqItemIds);
     return documents.results;
+  },
+
+  async findJobs() {
+    const api = await this.getApi();
+    const documents = await api.query(Prismic.Predicates.at('document.type', 'job'));
+    return documents.results;
+  },
+
+  async getJobByUid(jobUid) {
+    const api = await this.getApi();
+    const document = await api.query(Prismic.Predicates.at('my.job_offer.uid', jobUid));
+    return document.results[0];
   }
 
 });
