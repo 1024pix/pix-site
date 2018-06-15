@@ -16,7 +16,7 @@
   "scripts": {
     "build": "ember build",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
-    "start": "ember serve --environment production --liveReload false",
+    "start": "ember serve --environment production",
     "dev": "ember serve",
     "test": "ember test"
   },
