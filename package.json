@@ -16,9 +16,9 @@
   "scripts": {
     "build": "npx ember build",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
+    "start": "npx ember serve --environment production --liveReload false --port $PORT",
     "dev": "npx ember serve",
-    "test": "npx ember test",
-    "scalingo-postbuild": "npx ember build --environment production"
+    "test": "npx ember test"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
