@@ -14,11 +14,11 @@
     "url": "git@github.com:1024pix/pix-site.git"
   },
   "scripts": {
-    "build": "ember build",
+    "build": "npx ember build",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
-    "start": "ember serve --environment production",
-    "dev": "ember serve",
-    "test": "ember test"
+    "dev": "npx ember serve",
+    "test": "npx ember test",
+    "scalingo-postbuild": "npx ember build --environment production"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -53,8 +53,5 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || 7.* || 8.* || 9.*"
-  },
-  "dependencies": {
-    "fastboot-app-server": "^1.1.2-beta.1"
   }
 }
