@@ -1,5 +1,6 @@
 @import "./pages/faq";
 @import "./pages/jobs";
+@import "./pages/partners";
 
 .page {
   color: #333333;
@@ -26,7 +27,10 @@
   .page-body {
     width: 1120px;
     margin: 0 auto;
-    padding-top: 40px;
-    display: flex;
+    padding: 40px 0;
+
+    .page-section {
+      padding: 20px;
+    }
   }
 }

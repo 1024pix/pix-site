@@ -43,6 +43,12 @@ export default Service.extend({
     const api = await this.getApi();
     const document = await api.query(Prismic.Predicates.at('my.job_offer.uid', jobUid));
     return document.results[0];
+  },
+
+  async getPartnersPage() {
+    const api = await this.getApi();
+    const document = await api.getSingle('partners_page');
+    return document;
   }
 
 });

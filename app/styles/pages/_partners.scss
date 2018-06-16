@@ -1,0 +1,28 @@
+@import "../components/partners-school-list";
+
+.page.partners {
+
+  .page-section__title {
+    text-align: center;
+  }
+
+  .page-section__organizations {
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .organization {
+
+      .organization__link {
+        display: inline-block;
+
+        .organization__logo {
+          width: 180px;
+          margin: 40px;
+        }
+      }
+    }
+  }
+}

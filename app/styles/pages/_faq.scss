@@ -2,3 +2,9 @@
 @import "../components/faq-item";
 @import "../components/faq-menu";
 
+.page.faq {
+
+  .page-body {
+    display: flex;
+  }
+}

@@ -6,14 +6,15 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
-  this.route('faq', function() {
+Router.map(function () {
+  this.route('faq', function () {
     this.route('get', { path: '/:uid' });
   });
   this.route('404');
-  this.route('jobs', function() {
+  this.route('jobs', function () {
     this.route('get', { path: '/:uid' });
   });
+  this.route('partners', { path: 'partenaires' });
 });
 
 export default Router;
