@@ -26,57 +26,35 @@ a {
 
 .app-header {
   background-color: #FFFFFF;
-  box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3);
 
   .app-header-container {
     display: flex;
     justify-content: space-between;
-    height: 120px;
-    line-height: 120px;
     margin: 0 auto;
+    height: 120px;
     width: 1120px;
 
-    .app-logo-pix {
-      display: inline-block;
+    .app-logos {
+      display: flex;
+      align-items: center;
 
-      .app-logo-pix__link {
-        display: inline-block;
-        height: 100%;
+      .app-logo-pix {
+        margin-right: 40px;
 
-        .app-logo-pix__image {
-          padding: 20px 0;
-          height: 80px;
+        .app-logo-pix__link {
+          display: inline-block;
+
+          .app-logo-pix__image {
+            height: 80px;
+          }
         }
       }
-    }
 
-    .app-logo-marianne {
-      display: inline-block;
-      margin-left: 40px;
+      .app-logo-marianne {
 
-      .app-logo-marianne__image {
-        padding: 30px 0;
-        height: 60px;
-      }
-    }
-
-    .app-navbar {
-
-      .navigation-links {
-        padding: 0;
-        margin: 0;
-        list-style-type: none;
-        display: flex;
-
-        .navigation-link {
-          padding: 0;
-          margin: 0;
-
-          .navigation-link__anchor {
-            display: inline-block;
-            height: 100%;
-            padding: 0 20px;
-          }
+        .app-logo-marianne__image {
+          height: 60px;
         }
       }
     }
