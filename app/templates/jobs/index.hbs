@@ -1,5 +1,3 @@
-{{log model}}
-
 <div class="jobs">
   {{#each model as |jobOffer|}}
     <div class="job">
@@ -7,7 +5,7 @@
         <h2 class="job__title">{{as-text jobOffer.rawJSON.title}}</h2>
       {{/link-to}}
       <div class="job__meta">
-        Date de publication : <span class="job__last-publication-date">{{jobOffer.lastPublicationDate}}</span><br>
+        Date de publication : <span class="job__last-publication-date">{{moment-from-now jobOffer.lastPublicationDate}}</span><br>
         Lieu de travail : <span class="job__location">{{as-text jobOffer.rawJSON.location}}</span><br>
         Type de contrat : <span class="job__contract">{{as-text jobOffer.rawJSON.contract}}</span><br>
         Salaire : <span class="job__salary">{{as-text jobOffer.rawJSON.salary}}</span><br>

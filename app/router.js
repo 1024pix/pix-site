@@ -11,7 +11,7 @@ Router.map(function () {
     this.route('get', { path: '/:uid' });
   });
   this.route('404');
-  this.route('jobs', function () {
+  this.route('jobs', { path: 'recrutement'}, function () {
     this.route('get', { path: '/:uid' });
   });
   this.route('partners', { path: 'partenaires' });
