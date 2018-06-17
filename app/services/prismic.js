@@ -35,7 +35,7 @@ export default Service.extend({
 
   async findJobs() {
     const api = await this.getApi();
-    const documents = await api.query(Prismic.Predicates.at('document.type', 'job'));
+    const documents = await api.query(Prismic.Predicates.at('document.type', 'job_offer'));
     return documents.results;
   },
 

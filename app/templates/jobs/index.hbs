@@ -1,1 +1,11 @@
-{{outlet}}
+{{log model}}
+
+<section class="page-section">
+  <div class="jobs">
+    {{#each model as |jobOffer|}}
+      <div class="job">
+        {{#link-to "jobs.get" jobOffer.uid}}{{as-text jobOffer.rawJSON.title}}{{/link-to}}
+      </div>
+    {{/each}}
+  </div>
+</section>
