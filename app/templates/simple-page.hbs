@@ -1,0 +1,26 @@
+<main class="page simple-page">
+
+  <header class="page-header">
+    <h1 class="page-header__title">{{as-text model.rawJSON.title}}</h1>
+  </header>
+
+  <div class="page-body">
+    {{#unless (is-empty model.rawJSON.header)}}
+      <div class="page-body__header">
+        {{{as-html model.rawJSON.header}}}
+      </div>
+    {{/unless}}
+
+    {{#unless (is-empty model.rawJSON.body)}}
+      <div class="page-body__body">
+        {{{as-html model.rawJSON.body}}}
+      </div>
+    {{/unless}}
+
+    {{#unless (is-empty model.rawJSON.footer)}}
+      <div class="page-body__footer">
+        {{{as-html model.rawJSON.footer}}}
+      </div>
+    {{/unless}}
+  </div>
+</main>

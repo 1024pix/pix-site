@@ -15,6 +15,7 @@ Router.map(function () {
     this.route('get', { path: '/:uid' });
   });
   this.route('partners', { path: 'partenaires' });
+  this.route('simple-page', { path: '/*path' });
 });
 
 export default Router;
