@@ -7,7 +7,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function () {
-  this.route('faq', function () {
+  this.route('faq', { path: 'aide'}, function () {
     this.route('get', { path: '/:uid' });
   });
   this.route('404');
@@ -16,6 +16,9 @@ Router.map(function () {
   });
   this.route('partners', { path: 'partenaires' });
   this.route('simple-page', { path: '/*path' });
+  this.route('school-education');
+  this.route('higher-education');
+  this.route('employers');
 });
 
 export default Router;

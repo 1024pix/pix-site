@@ -1,11 +1,22 @@
 .faq-category {
-  border-right: 1px solid #CCCCCC;
-  padding-right: 60px;
-  margin-right: 60px;
-  flex: 3;
+  border-bottom: 1px solid #CCC;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+
+  @media (min-width: 769px) {
+    border-bottom: none;
+    border-right: 1px solid #CCC;
+    margin-right: 20px;
+    padding-right: 20px;
+    flex: 3;
+  }
+
 
   .faq-category-title {
     margin-top: 0;
+    font-size: 36px;
+    line-height: 49px;
+    font-weight: 300;
     margin-bottom: 40px;
   }
 
@@ -15,7 +26,7 @@
     list-style-type: none;
 
     .faq-category-item {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
   }
 }

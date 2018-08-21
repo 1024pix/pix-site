@@ -1,10 +1,11 @@
 @import "./pages/faq";
 @import "./pages/jobs";
+@import "./pages/organization";
 @import "./pages/partners";
 @import "./pages/simple-page";
 
 .page {
-  color: #333333;
+  color: #222222;
 
   .page-header {
     height: 260px;
@@ -18,15 +19,21 @@
       color: #FFFFFF;
       margin: 0;
       font-family: 'Raleway', Arial, sans-serif;
-      font-size: 36px;
+      font-size: 30px;
+      line-height: 36px;
       font-weight: 200;
+      text-align: center;
+
+      @media (min-width: 600px) {
+      }
+      @media (min-width: 769px) {
+      }
     }
   }
 
   .page-body {
-    width: 1120px;
-    margin: 0 auto;
-    padding: 40px 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
 
     .page-section {
       padding: 20px;

@@ -1,0 +1,118 @@
+footer {
+  background-color: #F5F5F5;
+  padding-top: 34px;
+  padding-bottom: 64px;
+
+  @media (min-width: 769px) {
+    padding-top: 114px;
+    padding-bottom: 64px;
+  }
+
+  .icon-parent {
+    background-color: #3D68FF;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    margin-right: 5px;
+    transition: all ease-in 0.2s;
+
+    &:hover {
+      background-color: #3257D9;
+      transition: all ease-out 0.25s;
+    }
+  }
+
+  .sitelogo {
+    margin-bottom: 40px;
+
+    @media (min-width: 769px) {
+      margin-bottom: 0;
+      width: 43%;
+    }
+
+    .ministere {
+      max-width: 280px;
+
+      @media (min-width: 600px) {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .sitenav {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+
+    @media (min-width: 600px) {
+      flex-flow: row;
+    }
+
+    @media (min-width: 769px) {
+      justify-content: flex-end;
+    }
+
+    .mb-2 {
+      margin-bottom: 12px;
+
+      @media (min-width: 600px) {
+        margin-bottom: 26px;
+      }
+    }
+
+    .mb-3 {
+      margin-bottom: 12px;
+
+      @media (min-width: 600px) {
+        margin-bottom: 32px;
+      }
+    }
+
+    .column {
+      padding-right: 50px;
+      margin-bottom: 26px;
+
+      @media (min-width: 600px) {
+        margin-bottom: 0;
+      }
+    }
+
+    .padding {
+
+      @media (min-width: 769px) {
+        padding-left: 10px;
+      }
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+
+  a {
+    line-height: 28px !important;
+
+    &:hover {
+      color: #3D68FF !important;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-flow: column;
+
+    @media (min-width: 769px) {
+      flex-flow: row;
+    }
+  }
+}
+
+
