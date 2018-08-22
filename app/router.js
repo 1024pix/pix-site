@@ -7,6 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function () {
+  this.route('school-education', { path: 'enseignement-scolaire'});
+  this.route('higher-education', { path: 'enseignement-superieur'});
+  this.route('employers', { path: 'employeurs'});
   this.route('faq', { path: 'aide'}, function () {
     this.route('get', { path: '/:uid' });
   });
@@ -16,9 +19,6 @@ Router.map(function () {
   });
   this.route('partners', { path: 'partenaires' });
   this.route('simple-page', { path: '/*path' });
-  this.route('school-education');
-  this.route('higher-education');
-  this.route('employers');
 });
 
 export default Router;
