@@ -1,0 +1,121 @@
+$white: #ffffff;
+$marigold: #ffbe00;
+$charcoal-grey: #3e4149;
+$font-semi-bold: 600;
+$font-lato: 'Lato', Arial, sans-serif;
+
+.page.index {
+
+  .hero {
+    transform-origin: top left;
+    background: url('../images/background-hero-index.jpg') no-repeat;
+    background-size: cover;
+    padding: 100px 0 72px;
+
+    .hero__title {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 300;
+      font-size: 90px;
+      line-height: 90px;
+      text-shadow: 10px 12px 18px 0 rgba(0, 0, 0, 0.33);
+      color: #222222;
+      margin-bottom: 20px;
+    }
+
+    .hero__subtitle {
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-weight: 300;
+      color: #000000;
+      font-size: 28px;
+      line-height: 38px;
+      margin-bottom: 40px;
+    }
+
+  }
+
+  /* Features
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+  .section-features {
+    padding: 100px 80px;
+
+    .title {
+      margin-bottom: 40px;
+      font-size: 40px;
+      color: #222222;
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 40px;
+      justify-content: space-between;
+
+      .feature {
+        width: 220px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        .feature__icon {
+          height: 107px;
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .feature__title {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 22px;
+          margin-bottom: 20px;
+        }
+
+        .feature__description {
+          font-size: 15px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    .learn-more-button {
+      text-align: center;
+    }
+  }
+
+
+  /*
+  .index-page-features {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .index-page-features__project-button {
+      margin-top: 40px;
+      border-radius: 20px;
+      background-color: $marigold;
+      text-transform: uppercase;
+      color: $charcoal-grey;
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 1px;
+      font-weight: $font-semi-bold;
+      font-family: $font-lato;
+      padding: 10px 30px;
+
+      &:hover,
+      &:focus,
+      &:active {
+        text-decoration: none;
+        color: $charcoal-grey;
+      }
+
+      @media (min-width: 600px) {
+        font-size: 13px;
+      }
+    }
+  }
+  */
+}

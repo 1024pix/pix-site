@@ -252,6 +252,35 @@ a {
   }
 }
 
+.btn-primary {
+  font-family: 'Roboto', Arial, sans-serif;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  position: relative;
+  background: #3D68FF;
+  color: #FFFFFF;
+  border-radius: 5px;
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+
+  &:hover {
+    background-color: #3257D9;
+    transition: all ease-out 0.25s;
+  }
+
+  span {
+    position: relative;
+    z-index: 3;
+  }
+}
+
 .btn-nav {
   font-family: 'Roboto', Arial, sans-serif;
   display: inline-block;
