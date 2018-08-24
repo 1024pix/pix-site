@@ -232,21 +232,6 @@ a {
     transition: opacity 0.5s ease-out;
     background: linear-gradient(180deg, #FF9D00 0%, #FF7900 100%);
   }
-  /*
-  &:after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0.3em;
-    background: linear-gradient(180deg, #FF9D00 0%, #FF7900 100%);
-    transition: opacity 0.5s ease-out;
-    z-index: 2;
-    opacity: 0;
-  }
-  */
 
   &:hover:after {
     opacity: 1;
