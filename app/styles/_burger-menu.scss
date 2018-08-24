@@ -1,7 +1,20 @@
 .ember-burger-menu {
 
-  & > .bm-outlet > .bm-content {
-    background: none;
+  &.translucent-overlay.is-open > .bm-outlet::after {
+    opacity: 0;
+  }
+
+  & > .bm-outlet {
+
+    & > .bm-content {
+      background: none;
+    }
+
+    & > .bm-menu-container .bm-menu {
+      position: fixed;
+      height: calc(var(--vh, 1vh) * 100);
+      overflow: hidden;
+    }
   }
 
   .bm-menu {
@@ -53,13 +66,6 @@
     .nav-bottom a:hover {
       text-decoration: underline;
     }
-
-  }
-
-  & > .bm-outlet > .bm-menu-container .bm-menu {
-    position: fixed;
-    height: calc(var(--vh, 1vh) * 100);
-    overflow: hidden;
   }
 
   .hamburger {

@@ -1,14 +1,14 @@
 {{#burger-menu
   animation="push"
   width=230
-  translucentOverlay=false
+  translucentOverlay=true
 as |burger|}}
 
   {{#burger.menu dismissOnItemClick=true itemTagName="li" as |menu|}}
 
     <nav class="nav-top">
       <ul>
-        {{#menu.item}}{{link-to 'Compétences' 'index' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
+        {{#menu.item}}<a href="https://pix.fr/competences" class="text mb-3 text-left semi-bold text-white">Compétences</a>{{/menu.item}}
         {{#menu.item}}{{link-to 'Aide' 'faq' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
         {{#menu.item}}<a href="https://pix.fr/connexion" class="text mb-3 text-left semi-bold text-white">Se connecter</a>{{/menu.item}}
         {{#menu.item}}<a href="https://pix.fr/inscription" class="btn-nav-mobile">S'inscrire</a>{{/menu.item}}
