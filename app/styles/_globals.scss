@@ -228,6 +228,11 @@ a {
   -webkit-backface-visibility: hidden;
   z-index: 1;
 
+  &:hover {
+    transition: opacity 0.5s ease-out;
+    background: linear-gradient(180deg, #FF9D00 0%, #FF7900 100%);
+  }
+  /*
   &:after {
     position: absolute;
     content: '';
@@ -241,6 +246,7 @@ a {
     z-index: 2;
     opacity: 0;
   }
+  */
 
   &:hover:after {
     opacity: 1;
