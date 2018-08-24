@@ -23,6 +23,7 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
+    "ember-burger-menu": "^3.3.1",
     "ember-cli": "~3.1.4",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
@@ -55,5 +56,9 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || 7.* || 8.* || 9.*"
+  },
+  "dependencies": {
+    "hamburgers": "^0.9.3",
+    "reset-css": "^4.0.1"
   }
 }

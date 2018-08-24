@@ -20,6 +20,8 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
+  app.import('node_modules/reset-css/reset.css');
+  app.import('node_modules/hamburgers/dist/hamburgers.css');
   app.import('node_modules/prismic.io/dist/prismic.io.js');
   app.import('node_modules/prismic-dom/dist/prismic-dom.js');
 

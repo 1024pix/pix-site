@@ -9,7 +9,7 @@
 <div class="nav-principal mobile">
   <div class="container padding-container">
     <div class="switch2">
-      <div id="nav_list" class="hamburger hamburger--3dx">
+      <div class="hamburger hamburger--3dx {{burger.state.position}} {{if burger.state.open 'is-active'}}" {{action burger.state.actions.toggle}}>
         <div class="hamburger-box">
           <div class="hamburger-inner"></div>
         </div>

@@ -1,0 +1,79 @@
+.ember-burger-menu {
+
+  & > .bm-outlet > .bm-content {
+    background: none;
+  }
+
+  .bm-menu {
+    background: linear-gradient(134.72deg, #12A3FF 0%, #3D68FF 100%);
+    width: 230px;
+    z-index: 1000;
+    transition: left .2s ease-out;
+    position: fixed;
+    padding: 34px 25px 40px 25px;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+
+    .bm-menu-item > a {
+      display: block;
+    }
+
+    .nav-top a {
+      text-decoration: none;
+      display: block;
+      transition: 0.3s;
+      font-size: 16px;
+      line-height: 24px;
+    }
+    .nav-bottom {
+      position: absolute;
+      bottom: 40px;
+
+      hr {
+        width: 180px;
+        height: 1px;
+        opacity: .5;
+        border: 1px solid #DDDDDD;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        display: inline-block;
+      }
+
+      a {
+        text-decoration: none;
+        display: block;
+        transition: 0.3s;
+        font-size: 12px;
+        line-height: 17px;
+      }
+    }
+
+    .nav-top a:hover,
+    .nav-bottom a:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+  & > .bm-outlet > .bm-menu-container .bm-menu {
+    position: fixed;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+  }
+
+  .hamburger {
+
+    .hamburger-box {
+      width: 24px;
+    }
+
+    .hamburger-inner,
+    .hamburger-inner:before,
+    .hamburger-inner:after {
+      width: 24px !important;
+      height: 3px;
+    }
+  }
+}
+

@@ -339,3 +339,56 @@ a {
   padding: 0 20px;
 }
 
+body,
+body > .ember-view,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* FORMS */
+input {
+  outline: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  height: 2px;
+  width: 36px;
+  border: 2px solid #FFFFFF;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.desktop {
+  display: none !important;
+
+  @media (min-width: 769px) {
+    display: block !important;
+  }
+}
+
+.mobile {
+  display: block;
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+

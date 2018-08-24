@@ -1,6 +1,8 @@
+// Vendors
+@import 'ember-burger-menu';
 // General
 @import "./globals";
-@import "./reset";
+@import "./burger-menu";
 // Components
 @import "./components/app-header";
 @import "./components/app-navbar";
@@ -8,103 +10,5 @@
 // Pages
 @import "./pages";
 
-body {
-  font-family: 'Open Sans', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-}
 
-* {
-  box-sizing: border-box;
-}
 
-/* FORMS */
-input {
-  outline: none;
-  border: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-hr {
-  height: 2px;
-  width: 36px;
-  border: 2px solid #FFFFFF;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  display: inline-block;
-}
-
-.desktop {
-  display: none !important;
-
-  @media (min-width: 769px) {
-    display: block !important;
-  }
-}
-
-.mobile {
-  display: block;
-
-  @media (min-width: 769px) {
-    display: none;
-  }
-}
-
-/*
-
-body, html {
-  padding: 0;
-  margin: 0;
-  background: #FEFEFE;
-  color: #21314D;
-}
-
-h1, h2, h3, h4, h5 {
-  margin-top: 0;
-}
-
-a {
-  color: #3D68FF;
-  text-decoration: none;
-
-  &:hover,
-  &:active {
-    text-decoration: underline;
-  }
-}
-
-.app-body {
-  padding-bottom: 80px;
-}
-
-.background-banner {
-  display: block;
-  height: 340px;
-  width: 100%;
-  background: linear-gradient(135.25deg, #388AFF 0%, #985FFF 100%);
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
-}
-
-.app-page {
-  max-width: 70rem;
-  margin: 0 auto;
-
-  .app-page__header {
-    padding: 80px 0 40px;
-
-    .app-page__title {
-      margin: 0 0 20px;
-    }
-  }
-}
-
-.app-page--with-background-banner {
-  margin-top: -240px;
-}
-
-*/
