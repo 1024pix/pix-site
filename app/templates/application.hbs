@@ -8,7 +8,8 @@ as |burger|}}
 
     <nav class="nav-top">
       <ul>
-        {{#menu.item}}<a href="https://pix.fr/competences" class="text mb-3 text-left semi-bold text-white">Compétences</a>{{/menu.item}}
+        {{#menu.item}}{{link-to 'Accueil' 'index' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
+        {{#menu.item}}{{link-to 'Compétences' 'competences' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
         {{#menu.item}}{{link-to 'Aide' 'faq' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
         {{#menu.item}}<a href="https://pix.fr/connexion" class="text mb-3 text-left semi-bold text-white">Se connecter</a>{{/menu.item}}
         {{#menu.item}}<a href="https://pix.fr/inscription" class="btn-nav-mobile">S'inscrire</a>{{/menu.item}}

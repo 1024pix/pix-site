@@ -19,6 +19,7 @@ Router.map(function () {
   });
   this.route('partners', { path: 'partenaires' });
   this.route('simple-page', { path: '/*path' });
+  this.route('competences');
 });
 
 export default Router;
