@@ -9,7 +9,7 @@ module.exports = function(environment) {
 
     googleFonts: [
       'Open+Sans:300,400,600,700,400i',
-      'Roboto:500',
+      'Roboto:400,500,600',
       'Raleway:300,400,600,800',
       'Lato:300,400,600'
     ],

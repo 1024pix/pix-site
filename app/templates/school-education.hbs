@@ -5,7 +5,7 @@
     </div>
     <div class="container padding-container">
       <h1 class="text text-ll text-left bold text-white mb-1">Évaluez et développez<br>les compétences<br>numériques des élèves</h1>
-      <a class="btn" href=""><span>J'inscris mon établissement</span></a>
+      {{#link-to 'formable-pages.school-education-establishement-registration' class="btn"}}<span>J'inscris mon établissement</span>{{/link-to}}
     </div>
   </section>
 
@@ -107,7 +107,9 @@
         <hr class="text-left mb-2 mt-2">
         <p class="text text-xs text-left regular text-white">En fin d’année, valorisez leurs compétences en organisant des sessions de certification dans votre collège ou lycée.</p>
       </div>
-      <div style="margin:auto;"><a class="btn mt-6" href=""><span>J'inscris mon établissement</span></a></div>
+      <div style="margin:auto;">
+        {{#link-to 'formable-pages.school-education-establishement-registration' class="btn mt-6"}}<span>J'inscris mon établissement</span>{{/link-to}}
+      </div>
     </div>
   </section>
 

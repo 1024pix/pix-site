@@ -4,7 +4,7 @@
     <div class="hero-background gradient-pro"></div>
     <div class="container padding-container">
       <h1 class="text text-ll text-left bold text-white mb-1 block-pro">Évaluez et développez les compétences numériques dans votre organisation</h1>
-      <a class="btn" href=""><span>Contactez-nous</span></a>
+      {{#link-to 'formable-pages.pix-orga-registration' class="btn"}}<span>Contactez-nous</span>{{/link-to}}
     </div>
   </section>
 
@@ -37,7 +37,7 @@
     </div>
     <div class="container">
       <div class="box">
-        <img src="images/img-developpez-competences-pro.jpg">
+        <img src="{{rootURL}}/images/img-developpez-competences-pro.jpg">
       </div>
       <div class="txt">
         <div class="column">
@@ -68,7 +68,9 @@
         <h4 class="text text-ms text-left regular text-black mb-0">Un référentiel européen</h4>
         <p class="text text-s text-left light text-black">Déclinée du référentiel européen DIGCOMP, la certification Pix favorise la mobilité de vos collaborateurs en Europe.</p>
       </div>
-      <div style="margin:auto;"><a class="btn mt-5" href=""><span>Contactez-nous</span></a></div>
+      <div style="margin:auto;">
+        {{#link-to 'formable-pages.pix-orga-registration' class="btn"}}<span>Contactez-nous</span>{{/link-to}}
+      </div>
     </div>
   </section>
 
@@ -76,19 +78,19 @@
     <h2 class="text text-lm text-center regular text-black mb-6 mt-2">Ils nous font confiance</h2>
     <div class="container">
       <div class="column">
-        <div class="block box-1"><img src="images/logo-gendarmerie.svg"></div>
+        <div class="block box-1"><img src="{{rootURL}}/images/logo-gendarmerie.svg"></div>
       </div>
       <div class="column">
-        <div class="block box-2"><img src="images/logo-vinci.svg"></div>
+        <div class="block box-2"><img src="{{rootURL}}/images/logo-vinci.svg"></div>
       </div>
       <div class="column">
-        <div class="block box-3"><img src="images/logo-CA-IFCAM.svg"></div>
+        <div class="block box-3"><img src="{{rootURL}}/images/logo-CA-IFCAM.svg"></div>
       </div>
       <div class="column">
-        <div class="block box-4"><img src="images/logo-prefecture-bretagne.svg"></div>
+        <div class="block box-4"><img src="{{rootURL}}/images/logo-prefecture-bretagne.svg"></div>
       </div>
       <div class="column">
-        <div class="block box-5"><img src="images/logo-ministere-du-travail.svg"></div>
+        <div class="block box-5"><img src="{{rootURL}}/images/logo-ministere-du-travail.svg"></div>
       </div>
     </div>
   </section>
@@ -152,7 +154,9 @@
   <section class="section-collaborateurs">
     <h2 class="text text-lm text-center regular text-white mb-3">Accompagnez vos collaborateurs avec Pix</h2>
     <div class="container">
-      <div style="margin:auto;"><a class="btn" href=""><span>Contactez-nous</span></a></div>
+      <div style="margin:auto;">
+        {{#link-to 'formable-pages.pix-orga-registration' class="btn"}}<span>Contactez-nous</span>{{/link-to}}
+      </div>
     </div>
   </section>
 

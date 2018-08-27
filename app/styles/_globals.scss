@@ -333,6 +333,14 @@ a {
       justify-content: space-between;
     }
   }
+
+  &.sm {
+    max-width: 600px;
+  }
+
+  &.md {
+    max-width: 900px;
+  }
 }
 
 .padding-container {

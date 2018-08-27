@@ -1,5 +1,15 @@
 .page.organization {
 
+  .formable-link {
+    display: block;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   /* Hero image */
 
   .hero {
@@ -246,10 +256,7 @@
 
   .section-mesurer-pro {
     position: relative;
-    padding-top: 70px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 70px 20px 40px;
 
     @media (min-width: 600px) {
       padding-left: 0;
@@ -294,12 +301,13 @@
     .container {
       display: flex;
       flex-flow: column;
+
       @media (min-width: 600px) {
         flex-flow: row wrap;
       }
     }
 
-    .section-mesurer-pro .column {
+    .column {
       width: 100%;
 
       @media (min-width: 600px) {

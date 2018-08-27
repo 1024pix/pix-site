@@ -10,11 +10,11 @@
   <section class="section-infos">
     <div class="container padding-container justify">
       <div class="column">
-        <div class="margin-bot" style="width:120px; height:73px; display:inline-block; text-align:center;" ><img style="width:100%;height:auto;" alt="ministere de l education" src="images/marianne-logo.svg"></div>
+        <div class="margin-bot" style="width:120px; height:73px; display:inline-block; text-align:center;" ><img style="width:100%;height:auto;" alt="ministere de l education" src="{{rootURL}}/images/marianne-logo.svg"></div>
         <p class="text text-sm text-center light text-black">Une initiative du ministère de l’Éducation nationale, de l'Enseignement supérieur, de la Recherche et de l'Innovation.</p>
       </div>
       <div class="column">
-        <div class="mb-1" style="width:80px; height:auto; display:inline-block; text-align:center;" ><img style="width:100%;height:auto;" alt="ministere de l education" src="images/icn-certification.svg"></div>
+        <div class="mb-1" style="width:80px; height:auto; display:inline-block; text-align:center;" ><img style="width:100%;height:auto;" alt="ministere de l education" src="{{rootURL}}/images/icn-certification.svg"></div>
         <p class="text text-sm text-center light text-black">Pix remplacera le C2i Niveau 1<br>à la rentrée 2019.</p>
       </div>
     </div>
@@ -59,12 +59,12 @@
           <p class="text text-s text-left regular text-white mb-5">A l’issue d’un test, des indices et des tutos répondent à la curiosité suscitée par les épreuves. Ils engagent les étudiants dans une dynamique de progression en appui à la formation que vous dispensez.</p>
           <h4 class="text text-r text-left semi-bold text-white mb-0">Des ressources pédagogiques partagées</h4>
           <p class="text text-s text-left regular text-white mb-5">Les tutos sont des liens vers des vidéos et des textes, de sources diverses. Ils constituent un ensemble de ressources que vous pouvez contribuer à enrichir.</p>
-          <a href="" style="text-decoration:underline;display:block;" class="text text-s text-left semi-bold text-white mb-0">Suivre l’actualité du service Pix Orga</a>
-          <a href="" style="text-decoration:underline;" class="text text-s text-left semi-bold text-white">Obtenir plus d’informations sur les conditions d’accès</a>
+          {{link-to 'Suivre l’actualité du service Pix Orga' 'formable-pages.pix-orga-newsletter-subscription' class="formable-link text text-s text-left semi-bold text-white mb-0"}}
+          {{link-to 'Obtenir plus d’informations sur les conditions d’accès' 'formable-pages.higher-education-establishement-registration' class="formable-link text text-s text-left semi-bold text-white"}}
         </div>
       </div>
       <div class="box">
-        <img class="margin-top" src="images/mobilisez-pix-dans-votre-pedagogie.jpg">
+        <img class="margin-top" src="{{rootURL}}/images/mobilisez-pix-dans-votre-pedagogie.jpg">
       </div>
     </div>
   </section>
@@ -86,8 +86,8 @@
         <p class="text text-s text-left light text-black">Incontournable sur le CV, la certification Pix favorise l’insertion professionnelle des étudiants. Déclinée du référentiel européen DIGCOMP, elle facilite leur mobilité en Europe.</p>
       </div>
       <div class="column">
-        <a href="" style="text-decoration:underline;display:block" class="text text-s text-left semi-bold text-blue mb-0 mt-2">Voir la liste des établissements pionniers</a>
-        <a href="" style="text-decoration:underline;" class="text text-s text-left semi-bold text-blue">Connaître les conditions pour devenir centre de certification Pix</a>
+        {{link-to 'Voir la liste des établissements pionniers' 'partners' class="formable-link text text-s text-left semi-bold text-blue mb-0 mt-2"}}
+        {{link-to 'Connaître les conditions pour devenir centre de certification Pix' 'formable-pages.certification-center-eligibility' class="text text-s text-left semi-bold text-blue"}}
       </div>
     </div>
   </section>
@@ -151,7 +151,7 @@
   <section class="section-agenda">
     <div class="hero-background"></div>
     <div class="container">
-      <img style="margin: auto; max-width: 90px;" src="images/icn-calendar.svg">
+      <img style="margin: auto; max-width: 90px;" src="{{rootURL}}/images/icn-calendar.svg">
       <h2 class="text text-ls text-center regular text-black mb-6 mt-3">Calendrier 2018-2019 :</h2>
       <div style="margin:auto;">
         <div class="column mb-0-2">
