@@ -11,6 +11,13 @@
 
     .job {
       margin-bottom: 60px;
+
+      .job__title {
+        font-weight: 400;
+        margin-bottom: 6px;
+        font-size: 20px;
+        line-height: 27px;
+      }
     }
   }
 }
