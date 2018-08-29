@@ -1,4 +1,11 @@
-<div class="page-body-topbar">
-  {{#link-to "jobs.index" class="link-to-back"}}« Retour{{/link-to}}
-</div>
-{{job-offer jobOffer=model}}
+<header class="page-header">
+  <h1 class="page-header__title">{{as-text model.rawJSON.title}}</h1>
+</header>
+
+<main class="page-body container md padding-container">
+  <div class="page-body-topbar">
+    {{#link-to "jobs.index" class="link-to-back"}}« Revenir à la liste des offres d'emplois{{/link-to}}
+  </div>
+  {{job-offer jobOffer=model}}
+</main>
+

@@ -1,5 +1,58 @@
 .page.organization {
 
+  p {
+    margin: 0;
+
+    &.mb-0 {
+      margin-bottom: 6px;
+    }
+
+    &.mb-1 {
+      margin-bottom: 20px;
+    }
+
+    &.mb-0-1 {
+      margin-bottom: 12px;
+    }
+
+    &.mb-5 {
+      margin-bottom: 48px;
+    }
+
+    &.mb-6 {
+      margin-bottom: 60px;
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+
+    &::after {
+      display: none;
+    }
+
+    &.mt-2 {
+      margin-top: 26px;
+    }
+
+    &.mt-3 {
+      margin-top: 32px;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    &.mb-4 {
+      margin-bottom: 40px;
+    }
+
+    &.mb-7 {
+      margin-bottom: 72px;
+    }
+  }
+
   .formable-link {
     display: block;
 

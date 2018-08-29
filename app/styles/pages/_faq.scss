@@ -67,20 +67,5 @@
       width: 100%;
       height: 100%;
     }
-
-    .gradient-faq {
-      background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url(../images/background-hero-mobile-faq.jpg);
-      transform-origin: top left;
-      background-repeat: no-repeat;
-      background-size: cover;
-
-      @media (min-width: 600px) {
-        background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url(../images/background-hero-faq.jpg);
-        transform-origin: top left;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
-      }
-    }
   }
 }

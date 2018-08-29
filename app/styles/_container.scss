@@ -1,0 +1,29 @@
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+
+  &.flex {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 769px) {
+      flex-direction: row;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &.sm {
+    max-width: 600px;
+  }
+
+  &.md {
+    max-width: 900px;
+  }
+
+  &.padding-container {
+    padding: 0 20px;
+  }
+}
+
+

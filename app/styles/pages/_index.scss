@@ -22,7 +22,6 @@ $font-lato: 'Lato', Arial, sans-serif;
       font-size: 44px;
       line-height: 48px;
       text-shadow: 10px 12px 18px 0 rgba(0, 0, 0, 0.33);
-      color: #222222;
       margin-bottom: 20px;
 
       @media (min-width: 769px) {
@@ -37,10 +36,15 @@ $font-lato: 'Lato', Arial, sans-serif;
       font-size: 16px;
       line-height: 22px;
       margin-bottom: 40px;
+      margin-top: 0;
+
+      &::after {
+        display: none;
+      }
 
       @media (min-width: 769px) {
-      font-size: 28px;
-      line-height: 38px;
+        font-size: 28px;
+        line-height: 38px;
       }
     }
 
@@ -53,6 +57,19 @@ $font-lato: 'Lato', Arial, sans-serif;
     }
   }
 
+  .title {
+    margin-bottom: 40px;
+    margin-top: 0;
+    font-size: 32px;
+    text-align: center;
+    font-weight: 800;
+    color: #4A4A4A;
+
+    @media (min-width: 769px) {
+      margin-bottom: 40px;
+    }
+  }
+
   /* Demo courses
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -62,18 +79,6 @@ $font-lato: 'Lato', Arial, sans-serif;
 
     @media (min-width: 769px) {
       padding: 100px 80px;
-    }
-
-    .title {
-      margin-bottom: 40px;
-      font-size: 32px;
-      text-align: center;
-      font-weight: 800;
-      color: #4A4A4A;
-
-      @media (min-width: 769px) {
-        margin-bottom: 60px;
-      }
     }
 
     .courses {
@@ -171,18 +176,10 @@ $font-lato: 'Lato', Arial, sans-serif;
       padding: 100px 80px;
     }
 
-    .title {
-      margin-bottom: 60px;
-      font-size: 32px;
-      text-align: center;
-      font-weight: 800;
-      color: #4A4A4A;
-    }
-
     .features {
       display: flex;
       flex-direction: row;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
       justify-content: center;
       flex-wrap: wrap;
 
@@ -214,11 +211,13 @@ $font-lato: 'Lato', Arial, sans-serif;
           font-size: 16px;
           line-height: 22px;
           margin-bottom: 20px;
+          margin-top: 0;
         }
 
         .feature__description {
           font-size: 15px;
           line-height: 18px;
+          margin-top: 0;
         }
       }
     }

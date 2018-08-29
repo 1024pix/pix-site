@@ -1,31 +1,22 @@
 .page.competences {
 
-  .page-header {
-    padding: 0 20px;
-  }
-
-  .page-body {
-    padding: 0;
-  }
-
   .area {
-    padding: 60px 0;
+    padding: 40px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
 
     &:nth-child(even) {
       background-color: #F5F5F5;
     }
 
-    .area-title {
-      font-size: 36px;
-      line-height: 49px;
-      font-weight: 400;
-      margin-bottom: 40px;
-    }
-
     .competence {
-      border-top: 1px solid #DDDDDD;
-      padding-top: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
 
       .competence__title {
         font-weight: 400;

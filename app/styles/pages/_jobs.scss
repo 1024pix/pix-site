@@ -1,5 +1,3 @@
-@import "../components/job-offer";
-
 .page.jobs {
 
   .link-to-back {
@@ -7,16 +5,17 @@
     padding: 20px 0;
   }
 
-  .jobs {
+  .job-list {
 
-    .job {
+    .job-item {
       margin-bottom: 60px;
 
-      .job__title {
-        font-weight: 400;
-        margin-bottom: 6px;
-        font-size: 20px;
-        line-height: 27px;
+      .job__meta {
+        padding: 20px 0;
+
+        p {
+          margin: 0;
+        }
       }
     }
   }

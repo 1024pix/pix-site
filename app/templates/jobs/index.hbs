@@ -1,15 +1,22 @@
-<div class="jobs">
-  {{#each model as |jobOffer|}}
-    <div class="job">
-      {{#link-to "jobs.get" jobOffer.uid}}
-        <h2 class="job__title">{{as-text jobOffer.rawJSON.title}}</h2>
-      {{/link-to}}
-      <div class="job__meta">
-        Date de publication : <span class="job__last-publication-date">{{moment-from-now jobOffer.lastPublicationDate}}</span><br>
-        Lieu de travail : <span class="job__location">{{as-text jobOffer.rawJSON.location}}</span><br>
-        Type de contrat : <span class="job__contract">{{as-text jobOffer.rawJSON.contract}}</span><br>
-        Salaire : <span class="job__salary">{{as-text jobOffer.rawJSON.salary}}</span><br>
+<header class="page-header">
+  <h1 class="page-header__title">PIX recrute !</h1>
+</header>
+
+<main class="page-body container md padding-container">
+  <div class="job-list">
+    {{#each model as |jobOffer|}}
+      <div class="job-item">
+        {{#link-to "jobs.get" jobOffer.uid}}
+          <h2 class="job__title">{{as-text jobOffer.rawJSON.title}}</h2>
+        {{/link-to}}
+        <div class="job__meta">
+          <p>Date de publication : <span class="job__last-publication-date">{{moment-from-now jobOffer.lastPublicationDate}}</span></p>
+          <p>Lieu de travail : <span class="job__location">{{as-text jobOffer.rawJSON.location}}</span></p>
+          <p>Type de contrat : <span class="job__contract">{{as-text jobOffer.rawJSON.contract}}</span></p>
+          <p>Salaire : <span class="job__salary">{{as-text jobOffer.rawJSON.salary}}</span></p>
+        </div>
       </div>
-    </div>
-  {{/each}}
-</div>
+    {{/each}}
+  </div>
+</main>
+
