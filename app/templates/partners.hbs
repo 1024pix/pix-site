@@ -1,57 +1,31 @@
-<main class="page partners">
+<div class="page partners">
 
   <header class="page-header">
-    <h1 class="page-header__title">{{as-text model.rawJSON.page_title}}</h1>
+    <div class="container padding-container">
+      <h1 class="page-header__title">
+        {{as-text model.rawJSON.page_title}}
+      </h1>
+    </div>
   </header>
 
   <div class="page-body">
 
-    {{#unless (is-empty model.rawJSON.page_description)}}
-      <section class="page-section">
-        <div class="page-header__description">
-          {{{as-html model.rawJSON.page_description}}}
-        </div>
-      </section>
-    {{/unless}}
-
-    <section class="page-section">
-      <h2 class="page-section__title">{{as-text model.rawJSON.organizations_section_title}}</h2>
-      {{#unless (is-empty model.rawJSON.organizations_section_description)}}
-        <div class="page-section__description">
-          {{{as-html model.rawJSON.organizations_section_description}}}
-        </div>
-      {{/unless}}
-
-      <div class="page-section__organizations">
-        {{#each model.rawJSON.organizations as |organization|}}
-          <div class="organization">
-            <a class="organization__link"
-               href="{{organization.organization_website.url}}"
-               title="{{organization.organization_name}}"
-               target="{{organization.organization_name}}">
-              <img class="organization__logo" src="{{organization.organization_logo.url}}">
-            </a>
+    <section class="page-section section-schools">
+      <div class="container padding-container">
+        <h2 class="page-section__title">{{as-text model.rawJSON.schools_section_title}}</h2>
+        {{#unless (is-empty model.rawJSON.organizations_section_description)}}
+          <div class="page-section__description">
+            {{{as-html model.rawJSON.schools_section_description}}}
           </div>
-        {{/each}}
-      </div>
-
-    </section>
-
-    <section class="page-section">
-      <h2 class="page-section__title">{{as-text model.rawJSON.schools_section_title}}</h2>
-      {{#unless (is-empty model.rawJSON.organizations_section_description)}}
-        <div class="page-section__description">
-          {{{as-html model.rawJSON.schools_section_description}}}
+        {{/unless}}
+        <div class="page-section__schools">
+          {{partners-school-list documents=model.rawJSON.schools}}
         </div>
-      {{/unless}}
-      <div class="page-section__schools">
-        {{partners-school-list documents=model.rawJSON.schools}}
+        <div style="text-align:center;">
+          {{#link-to 'formable-pages.higher-education-establishement-registration' class="btn mt-6"}}Demander une inscription{{/link-to}}
+        </div>
       </div>
     </section>
-
   </div>
 
-  <footer class="page-footer">
-  </footer>
-
-</main>
+</div>

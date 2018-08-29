@@ -4,7 +4,7 @@
     <h1 class="page-header__title">{{as-text model.rawJSON.title}}</h1>
   </header>
 
-  <div class="page-body">
+  <main class="page-body container padding-container">
     {{#unless (is-empty model.rawJSON.header)}}
       <div class="page-body__header">
         {{{as-html model.rawJSON.header}}}
@@ -22,5 +22,6 @@
         {{{as-html model.rawJSON.footer}}}
       </div>
     {{/unless}}
-  </div>
+  </main>
+
 </main>

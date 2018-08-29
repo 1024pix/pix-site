@@ -6,5 +6,81 @@
 
   .page-body {
     display: flex;
+    flex-direction: column;
+
+    @media (min-width: 769px) {
+      flex-direction: row;
+    }
+
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+
+    @media (min-width: 600px) {
+      padding: 121px 0 100px 50px;
+      height: 300px;
+    }
+    @media (min-width: 769px) {
+      height: 300px;
+      padding: 121px 0 100px 0;
+    }
+
+    h1 {
+      padding: 40px 10px 3px 10px;
+
+      @media (min-width: 600px) {
+        padding: 0;
+      }
+    }
+
+    .container {
+      text-align: left;
+
+      a {
+        margin-left: 10px;
+
+        @media (min-width: 600px) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    .block-pro {
+      @media (min-width: 600px) {
+        width: 450px;
+      }
+      @media (min-width: 769px) {
+        width: 600px;
+      }
+    }
+
+    .hero-background {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gradient-faq {
+      background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url(../images/background-hero-mobile-faq.jpg);
+      transform-origin: top left;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      @media (min-width: 600px) {
+        background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url(../images/background-hero-faq.jpg);
+        transform-origin: top left;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+    }
   }
 }

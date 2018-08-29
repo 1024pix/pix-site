@@ -1,57 +1,14 @@
+// Vendors
+@import 'ember-burger-menu';
 // General
-@import "./fonts";
+@import "./globals";
+@import "./burger-menu";
 // Components
 @import "./components/app-header";
+@import "./components/app-navbar";
+@import "./components/app-footer";
 // Pages
 @import "./pages";
 
-body, html {
-  padding: 0;
-  margin: 0;
-  background: #FEFEFE;
-  color: #21314D;
-}
 
-h1, h2, h3, h4, h5 {
-  margin-top: 0;
-}
-
-a {
-  color: #3D68FF;
-  text-decoration: none;
-
-  &:hover,
-  &:active {
-    text-decoration: underline;
-  }
-}
-
-.app-body {
-  padding-bottom: 80px;
-}
-
-.background-banner {
-  display: block;
-  height: 340px;
-  width: 100%;
-  background: linear-gradient(135.25deg, #388AFF 0%, #985FFF 100%);
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
-}
-
-.app-page {
-  max-width: 70rem;
-  margin: 0 auto;
-
-  .app-page__header {
-    padding: 80px 0 40px;
-
-    .app-page__title {
-      margin: 0 0 20px;
-    }
-  }
-}
-
-.app-page--with-background-banner {
-  margin-top: -240px;
-}
 

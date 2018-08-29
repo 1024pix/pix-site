@@ -8,10 +8,8 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     googleFonts: [
-      'Open+Sans',
-      'Roboto',
-      'Lato',
-      'Raleway:200,300,400,600'
+      'Open+Sans:300,400,600,700,400i',
+      'Roboto:400,500,600',
     ],
 
     moment: {

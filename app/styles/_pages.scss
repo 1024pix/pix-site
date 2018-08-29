@@ -1,13 +1,17 @@
+@import "./pages/competences";
 @import "./pages/faq";
+@import "./pages/formable-page";
+@import "./pages/index";
 @import "./pages/jobs";
+@import "./pages/organization";
 @import "./pages/partners";
 @import "./pages/simple-page";
 
 .page {
-  color: #333333;
+  color: #222222;
 
   .page-header {
-    height: 260px;
+    height: 240px;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
     background: linear-gradient(135deg, #388AFF 0%, #985FFF 100%);
     display: flex;
@@ -17,16 +21,22 @@
     .page-header__title {
       color: #FFFFFF;
       margin: 0;
-      font-family: 'Raleway', Arial, sans-serif;
-      font-size: 36px;
+      font-family: 'Open Sans', Arial, sans-serif;
+      font-size: 30px;
+      line-height: 36px;
       font-weight: 200;
+      text-align: center;
+
+      @media (min-width: 600px) {
+      }
+      @media (min-width: 769px) {
+      }
     }
   }
 
   .page-body {
-    width: 1120px;
-    margin: 0 auto;
-    padding: 40px 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
 
     .page-section {
       padding: 20px;

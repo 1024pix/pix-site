@@ -1,5 +1,38 @@
-{{app-header}}
+{{#burger-menu
+  animation="push"
+  width=230
+  translucentOverlay=true
+as |burger|}}
 
-<div class="app-body">
-  {{outlet}}
-</div>
+  {{#burger.menu dismissOnItemClick=true itemTagName="li" as |menu|}}
+
+    <nav class="nav-top">
+      <ul>
+        {{#menu.item}}{{link-to 'Accueil' 'index' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
+        {{#menu.item}}{{link-to 'Compétences' 'competences' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
+        {{#menu.item}}{{link-to 'Aide' 'faq' class="text mb-3 text-left semi-bold text-white"}}{{/menu.item}}
+        {{#menu.item}}<a href="https://pix.fr/connexion" class="text mb-3 text-left semi-bold text-white">Se connecter</a>{{/menu.item}}
+        {{#menu.item}}<a href="https://pix.fr/inscription" class="btn-nav-mobile">S'inscrire</a>{{/menu.item}}
+      </ul>
+    </nav>
+
+    <div class="nav-bottom">
+      <hr class="mb-2">
+      <ul>
+        {{#menu.item}}{{#link-to 'school-education' class="text mb-1 text-left text-up regular text-white"}}Enseignement scolaire<span style="font-size:10px;margin-left:5px;">&gt;</span>{{/link-to}}{{/menu.item}}
+        {{#menu.item}}{{#link-to 'higher-education' class="text mb-1 text-left text-up regular text-white"}}Enseignement supérieur<span style="font-size:10px;margin-left:5px;">&gt;</span>{{/link-to}}{{/menu.item}}
+        {{#menu.item}}{{#link-to 'employers' class="text mb-1 text-left text-up regular text-white"}}Employeurs<span style="font-size:10px;margin-left:5px;">&gt;</span>{{/link-to}}{{/menu.item}}
+      </ul>
+    </div>
+
+  {{/burger.menu}}
+
+  {{#burger.outlet}}
+    {{app-navbar burger=burger}}
+
+    {{outlet}}
+
+    {{app-footer}}
+  {{/burger.outlet}}
+
+{{/burger-menu}}
