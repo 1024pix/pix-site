@@ -1,24 +1,28 @@
 <main class="page simple-page">
 
   <header class="page-header">
-    <h1 class="page-header__title">{{as-text model.rawJSON.title}}</h1>
+    <div class="container md padding-container">
+      <h1 class="page-header__title">
+        {{as-text model.rawJSON.title}}
+      </h1>
+    </div>
   </header>
 
-  <main class="page-body container padding-container">
+  <main class="page-body">
     {{#unless (is-empty model.rawJSON.header)}}
-      <div class="page-body__header">
+      <div class="page-body__header container md padding-container">
         {{{as-html model.rawJSON.header}}}
       </div>
     {{/unless}}
 
     {{#unless (is-empty model.rawJSON.body)}}
-      <div class="page-body__body">
+      <div class="page-body__body container md padding-container">
         {{{as-html model.rawJSON.body}}}
       </div>
     {{/unless}}
 
     {{#unless (is-empty model.rawJSON.footer)}}
-      <div class="page-body__footer">
+      <div class="page-body__footer container md padding-container">
         {{{as-html model.rawJSON.footer}}}
       </div>
     {{/unless}}
