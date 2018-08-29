@@ -47,8 +47,12 @@ export default Service.extend({
 
   async getPartnersPage() {
     const api = await this.getApi();
-    const document = await api.getSingle('partners_page');
-    return document;
+    return await api.getSingle('partners_page');
+  },
+
+  async getTermsOfServicePage() {
+    const api = await this.getApi();
+    return await api.getSingle('cgu_page');
   }
 
 });
