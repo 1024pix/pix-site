@@ -26,7 +26,7 @@
     "ember-burger-menu": "^3.3.2",
     "ember-cli": "~3.3.0",
     "ember-cli-app-version": "^3.2.0",
-    "ember-cli-babel": "^6.17.0",
+    "ember-cli-babel": "^7.0.0",
     "ember-cli-code-coverage": "^0.4.2",
     "ember-cli-dependency-checker": "^3.0.0",
     "ember-cli-eslint": "^4.2.3",
@@ -55,7 +55,7 @@
     "qunit-dom": "^0.7.1"
   },
   "engines": {
-    "node": "^4.5 || 6.* || 7.* || 8.* || 9.*"
+    "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
     "hamburgers": "^0.9.3",
