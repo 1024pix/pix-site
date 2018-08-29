@@ -1,0 +1,39 @@
+.page.legal-notices {
+
+  h2 {
+    font-size: 36px;
+    line-height: 49px;
+    margin-bottom: 18px;
+  }
+
+  section {
+    margin-bottom: 60px;
+  }
+
+  .section-members-gip {
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin: 15px;
+    }
+  }
+
+  .section-personnal-data {
+
+    ul {
+      list-style: disc;
+      padding: 20px;
+    }
+
+    li {
+      margin-left: 20px;
+    }
+  }
+}

@@ -23,6 +23,7 @@ Router.map(function() {
   this.route('jobs', { path: 'recrutement' }, function() {
     this.route('get', { path: '/:uid' });
   });
+  this.route('legal-notices', { path: 'mentions-legales' });
   this.route('partners', { path: 'etablissements-pionniers' });
   this.route('simple-page', { path: '/*path' });
   this.route('competences');
