@@ -25,6 +25,8 @@ module.exports = function(defaults) {
   app.import('node_modules/hamburgers/dist/hamburgers.css');
   app.import('node_modules/prismic.io/dist/prismic.io.js');
   app.import('node_modules/prismic-dom/dist/prismic-dom.js');
+  app.import('node_modules/cookieconsent/build/cookieconsent.min.js');
+  app.import('node_modules/cookieconsent/build/cookieconsent.min.css');
 
   return app.toTree();
 };

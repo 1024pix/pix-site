@@ -33,5 +33,28 @@
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     </script>
 
+    <script>
+      window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#EEE",
+              "text": "#222222"
+            },
+            "button": {
+              "background": "#fff",
+              "text": "#222222"
+            }
+          },
+          "theme": "classic",
+          "position": "bottom",
+          "content": {
+            "message": "En naviguant sur les espaces du site Pix.fr, vous acceptez l’utilisation de cookies qui nous permettront de recueillir des traces techniques en cas d'erreur et réaliser des statistiques de visite.",
+            "dismiss": "J'accepte",
+            "link": "En savoir plus",
+            "href": "/donnees-personnelles"
+          }
+        })});
+    </script>
   </body>
 </html>
