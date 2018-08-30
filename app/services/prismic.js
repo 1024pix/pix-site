@@ -53,6 +53,11 @@ export default Service.extend({
   async getTermsOfServicePage() {
     const api = await this.getApi();
     return await api.getSingle('cgu_page');
+  },
+
+  async getPrivacyPolicyPage() {
+    const api = await this.getApi();
+    return await api.getSingle('privacy_policy_page');
   }
 
 });
