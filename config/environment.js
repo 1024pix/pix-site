@@ -8,7 +8,7 @@ module.exports = function(environment) {
     locationType: 'auto',
 
     googleFonts: [
-      'Open+Sans:300,400,600,700,400i',
+      'Open+Sans:300,400,500,600,700,400i',
       'Roboto:400,500,600',
     ],
 

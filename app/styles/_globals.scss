@@ -38,30 +38,20 @@ hr {
 }
 
 h2 {
-  margin-top: 40px;
+  margin-top: 60px;
   font-size: 24px;
   line-height: 32px;
-
-  &::after {
-    margin-top: 20px;
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: #EEEEEE;
-    content: ' ';
-  }
 }
 
 h3 {
-  color: #3D68FF;
-  margin: 20px 0;
+  margin-top: 30px;
   font-weight: 600;
   font-size: 18px;
   line-height: 26px;
 }
 
 p {
-  margin: 20px 0;
+  margin: 10px 0 20px;
 }
 
 strong {
