@@ -43,14 +43,14 @@
   line-height: 60px;
   padding: 0 20px;
   position: relative;
-  background: #3D68FF;
-  color: #FFFFFF;
+  background: $blue-1;
+  color: $white;
   border-radius: 5px;
   -webkit-backface-visibility: hidden;
   z-index: 1;
 
   &:hover {
-    background-color: #3257D9;
+    background-color: $blue-3;
     transition: all ease-out 0.25s;
   }
 
@@ -71,13 +71,13 @@
   height: 40px;
   line-height: 40px;
   padding: 0 25px;
-  color: #3D68FF;
+  color: $blue-1;
   border-radius: 20px;
-  border: 1px solid #3D68FF;
+  border: 1px solid $blue-1;
   text-transform: uppercase;
 
   &:hover {
-    background-color: #3D68FF;
+    background-color: $blue-1;
     color: white !important;
   }
 }
@@ -102,7 +102,7 @@
 
   &:hover {
     background-color: white;
-    color: #3D68FF !important;
+    color: $blue-1 !important;
     text-decoration: none !important;
   }
 }

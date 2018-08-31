@@ -18,7 +18,7 @@
   }
 
   .bm-menu {
-    background: linear-gradient(134.72deg, #12A3FF 0%, #3D68FF 100%);
+    background: linear-gradient(134.72deg, $blue-2 0%, $blue-1 100%);
     width: 230px;
     z-index: 1000;
     transition: left .2s ease-out;

@@ -1,11 +1,11 @@
 .faq-category {
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid $grey-4;
   padding-bottom: 20px;
   margin-bottom: 40px;
 
   @media (min-width: 769px) {
     border-bottom: none;
-    border-right: 1px solid #CCC;
+    border-right: 1px solid $grey-4;
     margin-right: 20px;
     padding-right: 20px;
     flex: 3;

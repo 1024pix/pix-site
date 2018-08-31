@@ -9,7 +9,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  color: #222222;
+  color: $grey-1;
 }
 
 * {
@@ -30,7 +30,7 @@ a {
 hr {
   height: 2px;
   width: 36px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid $white;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -67,7 +67,7 @@ ul {
 
     &::before {
       content: "● ";
-      color: #3D68FF;
+      color: $blue-1;
       margin-right: 5px;
     }
   }
@@ -95,7 +95,7 @@ ol {
     &::before {
       content: counter(item) ".";
       margin-right: 8px;
-      color: #3D68FF;
+      color: $blue-1;
       font-weight: 600;
     }
   }

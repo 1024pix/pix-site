@@ -10,10 +10,10 @@
       margin-bottom: 20px;
 
       .faq-menu-entry__link {
-        color: #666666;
+        color: $grey-5;
 
         &.active {
-          color: #000000;
+          color: $black;
           font-weight: 900;
         }
       }

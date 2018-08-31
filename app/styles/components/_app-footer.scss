@@ -9,7 +9,7 @@ footer {
   }
 
   .icon-parent {
-    background-color: #3D68FF;
+    background-color: $blue-1;
     width: 36px;
     height: 36px;
     display: flex;
@@ -19,7 +19,7 @@ footer {
     transition: all ease-in 0.2s;
 
     &:hover {
-      background-color: #3257D9;
+      background-color: $blue-3;
       transition: all ease-out 0.25s;
     }
   }
@@ -101,7 +101,7 @@ footer {
     line-height: 28px !important;
 
     &:hover {
-      color: #3D68FF !important;
+      color: $blue-1 !important;
     }
   }
 

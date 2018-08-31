@@ -3,7 +3,7 @@ nav {
   .nav-switch {
     display: none;
     height: 30px;
-    background-color: #F5F5F5;
+    background-color: $grey-3;
 
     @media (min-width: 769px) {
       display: block;
@@ -22,11 +22,11 @@ nav {
 
       a {
         margin-left: 3px;
-        color: #222 !important;
+        color: $grey-1 !important;
         margin-right:18px;
 
         &:hover {
-          color: #3D68FF !important;
+          color: $blue-1 !important;
         }
 
         &:last-child {
@@ -37,10 +37,10 @@ nav {
   }
 
   .nav-principal {
-    background-color: #fff;
+    background-color: $white;
 
     a:hover {
-      color: #3D68FF;
+      color: $blue-1;
     }
 
     .switch {
