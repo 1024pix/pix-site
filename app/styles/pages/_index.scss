@@ -14,6 +14,7 @@ $font-lato: 'Lato', Arial, sans-serif;
 
     @media (min-width: 769px) {
       background: url('../images/background-hero-index.jpg') no-repeat;
+      background-size: cover;
       padding: 100px 0;
     }
 
