@@ -37,6 +37,7 @@ Router.map(function() {
     this.route('certification-center-eligibility', { path: 'eligibilite-centre-de-certification' });
     this.route('pix-orga-registration', { path: 'inscription-pix-orga' });
   });
+  this.route('certifications');
 });
 
 export default Router;
