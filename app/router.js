@@ -28,7 +28,7 @@ Router.map(function() {
   this.route('partners', { path: 'etablissements-pionniers' });
   this.route('privacy-policy', { path: 'donnees-personnelles' });
   this.route('simple-page', { path: '/*path' });
-  this.route('terms-of-service', { path: 'cgu'});
+  this.route('terms-of-service', { path: 'conditions-generales-d-utilisation'});
 
   this.route('formable-pages', { path: 'formulaire' }, function() {
     this.route('school-education-establishement-registration', { path: 'inscription-etablissement-scolaire' });
