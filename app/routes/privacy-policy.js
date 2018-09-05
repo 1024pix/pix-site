@@ -7,7 +7,7 @@ export default Route.extend({
 
   async model() {
     const prismic = this.get('prismic');
-    return await prismic.getPrivacyPolicyPage();
+    return await prismic.getPage('privacy_policy_page');
   }
 
 });

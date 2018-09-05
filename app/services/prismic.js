@@ -45,19 +45,9 @@ export default Service.extend({
     return document.results[0];
   },
 
-  async getPartnersPage() {
+  async getPage(pageName) {
     const api = await this.getApi();
-    return await api.getSingle('partners_page');
+    return await api.getSingle(pageName);
   },
-
-  async getTermsOfServicePage() {
-    const api = await this.getApi();
-    return await api.getSingle('cgu_page');
-  },
-
-  async getPrivacyPolicyPage() {
-    const api = await this.getApi();
-    return await api.getSingle('privacy_policy_page');
-  }
 
 });
