@@ -23,7 +23,7 @@ module.exports = function(defaults) {
 
   app.import('node_modules/reset-css/reset.css');
   app.import('node_modules/hamburgers/dist/hamburgers.css');
-  app.import('node_modules/prismic.io/dist/prismic.io.js');
+  app.import('node_modules/prismic-javascript/dist/prismic-javascript.min.js');
   app.import('node_modules/prismic-dom/dist/prismic-dom.js');
   app.import('node_modules/cookieconsent/build/cookieconsent.min.js');
   app.import('node_modules/cookieconsent/build/cookieconsent.min.css');

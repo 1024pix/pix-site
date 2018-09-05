@@ -3,7 +3,7 @@
   <header class="page-header">
     <div class="container md padding-container">
       <h1 class="page-header__title">
-        {{as-text model.rawJSON.title}}
+        {{as-text model.data.title}}
       </h1>
     </div>
   </header>
@@ -13,7 +13,7 @@
     <section class="page-section section-schools">
       <div class="container md padding-container">
         <div class="page-section__description">
-          {{{as-html model.rawJSON.body}}}
+          {{{as-html model.data.body}}}
         </div>
       </div>
     </section>

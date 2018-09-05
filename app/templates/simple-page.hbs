@@ -3,27 +3,27 @@
   <header class="page-header">
     <div class="container md padding-container">
       <h1 class="page-header__title">
-        {{as-text model.rawJSON.title}}
+        {{as-text model.data.title}}
       </h1>
     </div>
   </header>
 
   <main class="page-body">
-    {{#unless (is-empty model.rawJSON.header)}}
+    {{#unless (is-empty model.data.header)}}
       <div class="page-body__header container md padding-container">
-        {{{as-html model.rawJSON.header}}}
+        {{{as-html model.data.header}}}
       </div>
     {{/unless}}
 
-    {{#unless (is-empty model.rawJSON.body)}}
+    {{#unless (is-empty model.data.body)}}
       <div class="page-body__body container md padding-container">
-        {{{as-html model.rawJSON.body}}}
+        {{{as-html model.data.body}}}
       </div>
     {{/unless}}
 
-    {{#unless (is-empty model.rawJSON.footer)}}
+    {{#unless (is-empty model.data.footer)}}
       <div class="page-body__footer container md padding-container">
-        {{{as-html model.rawJSON.footer}}}
+        {{{as-html model.data.footer}}}
       </div>
     {{/unless}}
   </main>

@@ -6,6 +6,7 @@ export default Route.extend({
 
   async model() {
     const prismic = this.get('prismic');
-    return await prismic.getPage('partners_page');
+    const partners = await prismic.getPage('partners_page');
+    return partners;
   }
 });
