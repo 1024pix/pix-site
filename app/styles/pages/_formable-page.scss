@@ -2,8 +2,12 @@
   padding-bottom: 40px;
   font-family: Roboto, Arial, sans-serif;
 
-  .Formable__Title {
+  h1.Formable__Title {
     display: none;
+  }
+
+  h2.Formable__Title {
+    margin: 40px 0 20px;
   }
 
   .Formable__Label {
