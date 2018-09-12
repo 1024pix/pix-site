@@ -55,11 +55,12 @@
 
   .formable-link {
     display: block;
+    text-decoration: underline;
 
     &:active,
     &:focus,
     &:hover {
-      text-decoration: underline;
+      color: #FFBE00;
     }
   }
 
