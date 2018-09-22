@@ -45,6 +45,7 @@
     "ember-font-awesome": "^4.0.0-rc.4",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-metrics": "^0.12.1",
     "ember-moment": "^7.7.0",
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.4.0",

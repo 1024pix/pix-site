@@ -21,7 +21,12 @@ module.exports = function(environment) {
     // Set or update content security policies
     contentSecurityPolicy: {
       'font-src': "'self' fonts.gstatic.com",
-      'style-src': "'self' fonts.googleapis.com"
+      'style-src': "'self' fonts.googleapis.com",
+      'default-src': "'none'",
+      'script-src': "'self' www.google-analytics.com",
+      'connect-src': "'self' www.google-analytics.com",
+      'img-src': "'self'",
+      'media-src': "'self'"
     },
 
     EmberENV: {
@@ -38,7 +43,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    metricsAdapters: [{
+      name: 'Piwik',
+      environments: ['production'],
+      config: {
+        piwikUrl: '//stats.data.gouv.fr',
+        siteId: 29
+      }
+    }]
   };
 
   if (environment === 'development') {
