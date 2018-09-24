@@ -33,7 +33,6 @@ Router.map(function() {
   this.route('faq', { path: 'aide' }, function() {
     this.route('get', { path: '/:uid' });
   });
-  this.route('404');
   this.route('jobs', { path: 'recrutement' }, function() {
     this.route('get', { path: '/:uid' });
   });
@@ -51,6 +50,8 @@ Router.map(function() {
     this.route('pix-orga-registration', { path: 'contact-pix-pro' });
   });
   this.route('certifications');
+
+  this.route('404', { path: '/*path'});
 });
 
 export default Router;
