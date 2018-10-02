@@ -14,7 +14,7 @@
     "url": "git@github.com:1024pix/pix-site.git"
   },
   "scripts": {
-    "build": "npx ember build",
+    "build": "npx ember build --environment production",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
     "start": "npx ember serve --environment production --liveReload false --port $PORT",
     "dev": "npx ember serve",
