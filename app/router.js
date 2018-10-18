@@ -49,7 +49,9 @@ Router.map(function() {
     this.route('pix-orga-newsletter-subscription', { path: 'abonnement-actualites-pix-orga' });
     this.route('pix-orga-registration', { path: 'contact-pix-pro' });
   });
+
   this.route('certifications');
+  this.route('certifications', { path: 'certifications/*path'});
 
   this.route('404', { path: '/*path'});
 });
