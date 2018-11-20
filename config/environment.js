@@ -49,8 +49,8 @@ module.exports = function(environment) {
       name: 'Piwik',
       environments: ['production'],
       config: {
-        piwikUrl: '//stats.data.gouv.fr',
-        siteId: 29
+        piwikUrl: '//matomo.pix.fr',
+        siteId: 3
       }
     }]
   };
