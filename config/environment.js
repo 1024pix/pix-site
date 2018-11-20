@@ -49,7 +49,7 @@ module.exports = function(environment) {
       name: 'Piwik',
       environments: ['production'],
       config: {
-        piwikUrl: '//matomo.pix.fr',
+        piwikUrl: '//stats.pix.fr',
         siteId: 3
       }
     }]
