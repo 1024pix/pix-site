@@ -1,4 +1,5 @@
 import Service from '@ember/service';
+import PrismicJS from 'prismic-javascript';
 
 export default Service.extend({
 
