@@ -9,7 +9,6 @@ module.exports = function(defaults) {
     }
   });
 
-
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
@@ -25,8 +24,6 @@ module.exports = function(defaults) {
 
   app.import('node_modules/reset-css/reset.css');
   app.import('node_modules/hamburgers/dist/hamburgers.css');
-  app.import('node_modules/prismic-javascript/dist/prismic-javascript.min.js');
-  app.import('node_modules/prismic-dom/dist/prismic-dom.js');
   app.import('node_modules/cookieconsent/build/cookieconsent.min.js');
   app.import('node_modules/cookieconsent/build/cookieconsent.min.css');
 

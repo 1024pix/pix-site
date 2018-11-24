@@ -10,7 +10,6 @@ const Router = EmberRouter.extend(RouterScroll, {
   rootURL: config.rootURL,
   metrics: service(),
 
-  // cf. https://romulomachado.github.io/2016/12/20/resetting-scroll-on-route-changes.html
   didTransition() {
     this._super(...arguments);
     this._trackPage();
@@ -20,7 +19,6 @@ const Router = EmberRouter.extend(RouterScroll, {
     scheduleOnce('afterRender', this, () => {
       const page = this.get('url');
       const title = this.getWithDefault('currentRouteName', 'unknown');
-
       get(this, 'metrics').trackPage({ page, title });
     });
   }
