@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'pix-site',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'router-scroll',
 
     googleFonts: [
       'Open+Sans:300,400,500,600,700,400i',
@@ -61,6 +61,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.historySupportMiddleware = true;
   }
 
   if (environment === 'test') {
