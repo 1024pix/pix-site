@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'pix-site',
     environment,
     rootURL: '/',
-    locationType: 'router-scroll',
+    locationType: 'auto',
 
     googleFonts: [
       'Open+Sans:300,400,500,600,700,400i',
