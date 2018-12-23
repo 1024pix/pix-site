@@ -10,7 +10,7 @@
           <h2 class="job__title">{{as-text jobOffer.data.title}}</h2>
         {{/link-to}}
         <div class="job__meta">
-          <p>Date de publication : <span class="job__last-publication-date">{{moment-from-now jobOffer.lastPublicationDate}}</span></p>
+          <p>Date de publication : <span class="job__last-publication-date">{{moment-from-now jobOffer.last_publication_date}}</span></p>
           <p>Lieu de travail : <span class="job__location">{{as-text jobOffer.data.location}}</span></p>
           <p>Type de contrat : <span class="job__contract">{{as-text jobOffer.data.contract}}</span></p>
           <p>Salaire : <span class="job__salary">{{as-text jobOffer.data.salary}}</span></p>

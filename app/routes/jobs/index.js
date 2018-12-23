@@ -5,7 +5,7 @@ export default Route.extend({
 
   prismic: service(),
 
-  async model() {
+  model() {
     return this.get('prismic').findJobs();
   }
 
