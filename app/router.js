@@ -45,6 +45,8 @@ Router.map(function() {
     this.route('higher-education-establishement-registration', { path: 'inscription-etablissement-superieur' });
     this.route('pix-orga-newsletter-subscription', { path: 'abonnement-actualites-pix-orga' });
     this.route('pix-orga-registration', { path: 'contact-pix-pro' });
+    this.route('pix-orga-higher-school-registration', {path: 'finalisation-pix-orga-sup'});
+    this.route('pix-certification-application', {path: 'demande-agrement-centre-certification'});
   });
 
   this.route('certifications');
