@@ -30,9 +30,6 @@ Router.map(function() {
   this.route('faq', { path: 'aide' }, function() {
     this.route('get', { path: '/:uid' });
   });
-  this.route('jobs', { path: 'recrutement' }, function() {
-    this.route('get', { path: '/:uid' });
-  });
   this.route('competences');
   this.route('legal-notices', { path: 'mentions-legales' });
   this.route('partners', { path: 'etablissements-pionniers' });
