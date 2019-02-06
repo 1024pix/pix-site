@@ -10,7 +10,7 @@ module('Integration | Component | faq-category', function(hooks) {
   hooks.beforeEach(function() {
     const faqCategory = {
       uid: 'faq_category_uid',
-      rawJSON: {
+      data: {
         title: [{ type: 'heading1', text: 'Titre de la catégorie' }]
       }
     };
@@ -38,7 +38,7 @@ module('Integration | Component | faq-category', function(hooks) {
     // given
     const faqItemA = {
       uid: 'faq_item_A',
-      rawJSON: {
+      data: {
         question: [{
           text: 'Question A',
           type: 'heading1'
@@ -48,7 +48,7 @@ module('Integration | Component | faq-category', function(hooks) {
     };
     const faqItemB = {
       uid: 'faq_item_B',
-      rawJSON: {
+      data: {
         question: [{
           text: 'Question B',
           type: 'heading1'
@@ -58,7 +58,7 @@ module('Integration | Component | faq-category', function(hooks) {
     };
     const faqItemC = {
       uid: 'faq_item_C',
-      rawJSON: {
+      data: {
         question: [{
           text: 'Question C',
           type: 'heading1'

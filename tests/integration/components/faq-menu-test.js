@@ -8,7 +8,7 @@ module('Integration | Component | faq-menu', function(hooks) {
   setupRenderingTest(hooks);
 
   const faqMenu = {
-    rawJSON: {
+    data: {
       faq_categories: [{
         faq_category: {
           uid: 'faq_category_a',

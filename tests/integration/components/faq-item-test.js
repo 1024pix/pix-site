@@ -9,7 +9,7 @@ module('Integration | Component | faq-item', function(hooks) {
 
   const faqItem = {
     uid: 'faq_item_uid',
-    rawJSON: {
+    data: {
       question: [{
         text: 'Question title ?',
         type: 'heading1'

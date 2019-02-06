@@ -8,7 +8,7 @@ module('Integration | Component | job-offer', function(hooks) {
 
   const jobOffer = {
     uid: 'job_offer_uid',
-    rawJSON: {
+    data: {
       title: [{
         text: 'Job title',
         type: 'heading1'
