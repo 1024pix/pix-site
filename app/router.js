@@ -49,7 +49,7 @@ Router.map(function() {
   this.route('certifications');
   this.route('certifications', { path: 'certifications/*path'});
 
-  this.route('404', { path: '/*path'});
+  this.route('404');
 });
 
 export default Router;
