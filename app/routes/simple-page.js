@@ -7,7 +7,7 @@ export default Route.extend({
 
   model(params) {
     const pageUid = params.path;
-    return this.get('prismic').getApi()
+    return this.prismic.getApi()
       .then(api => api.getByUID('simple_page', pageUid));
   },
 

@@ -12,7 +12,7 @@ export default Component.extend({
 
   // CPs
   menuEntries: computed('document', function() {
-    return this.get('document').data.faq_categories.map((faqCategoryDocument) => {
+    return this.document.data.faq_categories.map((faqCategoryDocument) => {
       return {
         uri: faqCategoryDocument.faq_category.uid,
         title: faqCategoryDocument.faq_category.data.title

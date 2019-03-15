@@ -43,7 +43,7 @@ module('Integration | Component | faq-menu', function(hooks) {
     // then
     const $menuEntries = this.element.querySelectorAll('.faq-menu-entry .faq-menu-entry__link');
     assert.equal(this.element.querySelectorAll('li.faq-menu-entry a.faq-menu-entry__link').length, 2);
-    assert.equal($menuEntries[0].textContent.trim(), 'FAQ category A');
-    assert.equal($menuEntries[1].textContent.trim(), 'FAQ category B');
+    assert.dom($menuEntries[0]).hasText('FAQ category A');
+    assert.dom($menuEntries[1]).hasText('FAQ category B');
   });
 });

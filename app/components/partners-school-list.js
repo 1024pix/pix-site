@@ -11,7 +11,7 @@ export default Component.extend({
 
   // CPs
   columnASchools: computed('documents', function () {
-    const documents = this.get('documents');
+    const documents = this.documents;
     const nbColumnDocuments = this._nbDocumentsForColumnA();
     const begin = 0;
     const end = nbColumnDocuments;
@@ -19,7 +19,7 @@ export default Component.extend({
   }),
 
   columnBSchools: computed('documents', function () {
-    const documents = this.get('documents');
+    const documents = this.documents;
     const nbColumnDocuments = this._nbDocumentsForColumnB();
     const begin = this._nbDocumentsForColumnA();
     const end = begin + nbColumnDocuments;
@@ -27,7 +27,7 @@ export default Component.extend({
   }),
 
   columnCSchools: computed('documents', function () {
-    const documents = this.get('documents');
+    const documents = this.documents;
     const nbColumnDocuments = this._nbDocumentsForColumnC();
     const begin = this._nbDocumentsForColumnA() + this._nbDocumentsForColumnB();
     const end = begin + nbColumnDocuments;
@@ -35,19 +35,19 @@ export default Component.extend({
   }),
 
   _nbDocumentsForColumnA() {
-    const documents = this.get('documents');
+    const documents = this.documents;
     const nbDocuments = documents.length;
     return Math.ceil(nbDocuments / 3) + Math.ceil(((nbDocuments % 3) / 2));
   },
 
   _nbDocumentsForColumnB() {
-    const documents = this.get('documents');
+    const documents = this.documents;
     const nbDocuments = documents.length;
     return Math.floor(nbDocuments / 3) + Math.floor(((nbDocuments % 3) / 2));
   },
 
   _nbDocumentsForColumnC() {
-    const documents = this.get('documents');
+    const documents = this.documents;
     const nbDocuments = documents.length;
     return Math.floor(nbDocuments / 3);
   },

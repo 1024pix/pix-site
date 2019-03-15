@@ -46,7 +46,7 @@ module('Integration | Component | faq-item', function(hooks) {
 
     // then
     const itemQuestion = this.element.querySelector('h3.faq-item__question');
-    assert.equal(itemQuestion.textContent.trim(), 'Question title ?');
+    assert.dom(itemQuestion).hasText('Question title ?');
   });
 
   test('item’s answer should be collapsed by default', async function(assert) {

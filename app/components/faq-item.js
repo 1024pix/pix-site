@@ -12,7 +12,7 @@ export default Component.extend({
   // Actions
   actions: {
     displayFaqItemAnswer() {
-      if (this.get('_statusClass') === 'closed') {
+      if (this._statusClass === 'closed') {
         this.set('_statusClass', 'opened');
       } else {
         this.set('_statusClass', 'closed');

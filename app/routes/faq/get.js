@@ -6,7 +6,7 @@ export default Route.extend({
   prismic: service(),
 
   async model(params) {
-    const prismic = this.get('prismic');
+    const prismic = this.prismic;
     const faqMenu = await prismic.getFaqMenu();
     const faqCategory = await prismic.getFaqCategoryByUid(params.uid);
     const faqItems = await prismic.findFaqItemsByFaqCategory(faqCategory);
