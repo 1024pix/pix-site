@@ -29,6 +29,7 @@ Router.map(function() {
   this.route('faq', { path: 'aide' }, function() {
     this.route('get', { path: '/:uid' });
   });
+  this.route('about', { path: 'qui-sommes-nous'});
   this.route('competences');
   this.route('legal-notices', { path: 'mentions-legales' });
   this.route('partners', { path: 'etablissements-pionniers' });
