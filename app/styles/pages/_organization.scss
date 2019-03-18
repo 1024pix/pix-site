@@ -122,13 +122,13 @@
     }
 
     .gradient-sco {
-      background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url(../images/background-hero-mobile-sco.jpg);
+      background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url('/images/background-hero-mobile-sco.jpg');
       transform-origin: top left;
       background-repeat: no-repeat;
       background-size: cover;
 
       @media (min-width: 600px) {
-        background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url(../images/background-hero-sco.jpg);
+        background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url('/images/background-hero-sco.jpg');
         transform-origin: top left;
         background-repeat: no-repeat;
         background-size: cover;
@@ -137,13 +137,13 @@
     }
 
     .gradient-sup {
-      background: linear-gradient(135deg, rgba(18, 163, 255, 0.7) 0%, rgba(61, 104, 255, 0.7) 100%), url(../images/background-hero-mobile-sup.jpg);
+      background: linear-gradient(135deg, rgba(18, 163, 255, 0.7) 0%, rgba(61, 104, 255, 0.7) 100%), url('/images/background-hero-mobile-sup.jpg');
       transform-origin: top left;
       background-repeat: no-repeat;
       background-size: cover;
 
       @media (min-width: 600px) {
-        background: linear-gradient(135deg, rgba(18, 163, 255, 0.7) 0%, rgba(61, 104, 255, 0.7) 100%), url(../images/background-hero-sup.jpg);
+        background: linear-gradient(135deg, rgba(18, 163, 255, 0.7) 0%, rgba(61, 104, 255, 0.7) 100%), url('/images/background-hero-sup.jpg');
         transform-origin: top left;
         background-repeat: no-repeat;
         background-size: cover;
@@ -152,13 +152,13 @@
     }
 
     .gradient-pro {
-      background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0%, #213371 100%), url(../images/background-hero-mobile-pro.jpg);
+      background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0%, #213371 100%), url('/images/background-hero-mobile-pro.jpg');
       transform-origin: top left;
       background-repeat: no-repeat;
       background-size: cover;
 
       @media (min-width: 600px) {
-        background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0%, #213371 100%), url(../images/background-hero-pro.jpg);
+        background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0%, #213371 100%), url('/images/background-hero-pro.jpg');
         transform-origin: top left;
         background-repeat: no-repeat;
         background-size: cover;
@@ -687,7 +687,7 @@
 
   .section-utiliser-pix {
     position: relative;
-    background: linear-gradient(180deg, rgba(18, 163, 255, 0.9) 0%, rgba(61, 104, 255, 0.9) 100%), url(../images/background-utiliser-pix.jpg);
+    background: linear-gradient(180deg, rgba(18, 163, 255, 0.9) 0%, rgba(61, 104, 255, 0.9) 100%), url('/images/background-utiliser-pix.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -727,7 +727,7 @@
 
   .section-comment-ca-marche {
     position: relative;
-    background: url(../images/background-comment-ca-marche.jpg) no-repeat center center;
+    background: url('/images/background-comment-ca-marche.jpg') no-repeat center center;
     background-size: cover;
     padding-top: 80px;
     padding-bottom: 108px;

@@ -8,12 +8,12 @@ $font-lato: 'Lato', Arial, sans-serif;
 
   .hero {
     transform-origin: top left;
-    background: url('../images/background-hero-mobile-home.jpg') no-repeat;
+    background: url('/images/background-hero-mobile-home.jpg') no-repeat;
     background-size: cover;
     padding: 60px 0;
 
     @media (min-width: 769px) {
-      background: url('../images/background-hero-index.jpg') no-repeat;
+      background: url('/images/background-hero-index.jpg') no-repeat;
       background-size: cover;
       padding: 100px 0;
     }
