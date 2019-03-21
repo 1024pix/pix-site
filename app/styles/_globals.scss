@@ -112,6 +112,14 @@ ol {
   }
 }
 
+.desktop-inline {
+  display: none;
+
+  @media (min-width: 769px) {
+    display: inline;
+  }
+}
+
 .mobile {
   display: block;
 
