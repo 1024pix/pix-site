@@ -45,6 +45,7 @@ Router.map(function() {
     this.route('pix-orga-registration', { path: 'contact-pix-pro' });
     this.route('pix-orga-higher-school-registration', {path: 'finalisation-pix-orga-sup'});
     this.route('pix-certification-application', {path: 'demande-agrement-centre-certification'});
+    this.route('contact-digital-mediation', {path: 'contact-mediation-numerique'});
   });
 
   this.route('certifications');
