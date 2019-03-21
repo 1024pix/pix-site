@@ -23,6 +23,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('digital-mediation', { path: 'mediation-numerique' });
   this.route('school-education', { path: 'enseignement-scolaire' });
   this.route('higher-education', { path: 'enseignement-superieur' });
   this.route('employers', { path: 'employeurs' });
