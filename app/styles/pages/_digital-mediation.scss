@@ -4,7 +4,7 @@
   h1 {
     font-family: "Open Sans", Arial, sans-serif;
     font-weight: bold;
-    margin: 0;
+    margin: 0 0 30px;
     font-size: 1.875rem;
     line-height: 2.375rem;
 
@@ -146,16 +146,21 @@
     }
 
     .container-column {
-      width: 50%;
+      width: 100%;
+
+      @media (min-width: 769px) {
+        width: 50%;
+      }
     }
 
     &.hero {
       height: 395px;
       overflow: hidden;
       color: white;
-      padding: 200px 0 100px;
+      padding-top: 60px;
 
       @media (min-width: 769px) {
+        padding: 200px 0 100px;
         height: 520px;
         padding-top: 160px;
       }
@@ -206,13 +211,20 @@
       .partners {
 
         .partner {
+          margin-bottom: 30px;
+
           @media (min-width: 769px) {
             margin: 0 60px;
           }
 
           img {
-            height: 100px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            max-width: 100%;
+
+            @media (min-width: 769px) {
+              height: 100px;
+              margin-bottom: 10px;
+            }
           }
         }
       }
@@ -220,9 +232,11 @@
     }
 
     &.diagnostic {
+      padding-bottom: 30px;
 
       @media (min-width: 769px) {
         padding-top: 90px;
+        padding-bottom: 80px;
       }
 
       h2 {
@@ -256,7 +270,12 @@
 
     &.certification {
       color: white;
-      height: 790px;
+      padding: 30px 0 140px;
+
+      @media (min-width: 769px) {
+        height: 790px;
+        padding-bottom: 60px;
+      }
 
       .background {
         position: absolute;
@@ -275,6 +294,10 @@
       h2 {
         text-align: left;
         padding-top: 0;
+
+        @media (min-width: 769px) {
+          margin-top: 30px;
+        }
       }
 
       h4 {
@@ -291,25 +314,49 @@
 
         .feature {
           text-align: left;
-          margin-top: 60px;
+          margin-top: 30px;
+
+          @media (min-width: 769px) {
+            margin-top: 60px;
+          }
         }
       }
 
       .certification-illustration {
-        background: url('/images/certif-illustration@2x.png');
+        background: url(/images/certif-illustration.png);
         background-repeat: no-repeat;
+        display: block;
+        height: 240px;
+        width: 200px;
+        content: " ";
         background-size: 100%;
         position: absolute;
-        top: 40px;
-        height: 100%;
-        width: 600px;
-        max-width: 50%;
+        left: 20%;
+
+        @media (min-width: 769px) {
+          display: block;
+          background: url('/images/certif-illustration@2x.png');
+          background-repeat: no-repeat;
+          background-size: 100%;
+          position: absolute;
+          top: 40px;
+          left: auto;
+          height: 100%;
+          width: 600px;
+          max-width: 50%;
+        }
       }
     }
 
     &.prescription {
-      margin-top: -90px;
+      padding-top: 140px;
       padding-bottom: 0;
+      margin-top: -30px;
+
+      @media (min-width: 769px) {
+        margin-top: -90px;
+        padding-top: 60px;
+      }
 
       h2 {
         padding-bottom: 10px;
@@ -343,7 +390,6 @@
 
     &.abc-pix {
       padding: 0;
-      /*margin-top: -90px;*/
       margin-bottom: 90px;
 
       img {
@@ -354,7 +400,10 @@
         color: white;
         text-align: left;
         padding-top: 0;
-        margin-bottom: 40px;
+
+        @media (min-width: 769px) {
+          margin-bottom: 40px;
+        }
       }
 
       h4 {
@@ -367,26 +416,49 @@
         line-height: 1.875rem;
         font-weight: 400;
         margin-bottom: 40px;
-        width: 430px;
+        max-width: 430px;
       }
 
-      .container-column {
+      .trapeze {
+        background: linear-gradient(to right, #FFBE00 0%, #FF9F00 100%);
+        border-radius: 20px;
+        padding: 15px;
+        padding-bottom: 0;
 
+        @media (min-width: 769px) {
+          padding: 70px;
+        }
+
+        img {
+          width: 200px;
+        }
       }
 
       .info {
 
+        &:before {
+          display: block;
+          content: ' ';
+          margin: 30px auto;
+
+          @media (min-width: 769px) {
+            position: absolute;
+            display: inline-block;
+          }
+        }
+
         .info__body {
-          padding-left: 74px;
+
+          @media (min-width: 769px) {
+            padding-left: 74px;
+          }
         }
       }
 
       .info--experiment {
+
         &:before {
-          position: absolute;
-          display: inline-block;
           background: url('/images/experiment-results-icon.svg') no-repeat;
-          content: ' ';
           width: 51px;
           height: 65px;
         }
@@ -395,10 +467,7 @@
       .info--forthcoming {
 
         &:before {
-          position: absolute;
-          display: inline-block;
           background: url('/images/a-venir-icon.svg') no-repeat;
-          content: ' ';
           width: 64px;
           height: 64px;
         }
@@ -450,13 +519,6 @@
       }
     }
       */
-
-      & > .container {
-        background: linear-gradient(to right, #FFBE00 0%, #FF9F00 100%);
-        border-radius: 20px;
-        padding: 70px;
-        padding-bottom: 0;
-      }
 
     }
   }
