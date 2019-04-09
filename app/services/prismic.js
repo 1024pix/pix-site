@@ -26,18 +26,6 @@ export default Service.extend({
     return documents.results;
   },
 
-  async findJobs() {
-    const api = await this.getApi();
-    const documents = await api.query(PrismicJS.Predicates.at('document.type', 'job_offer'));
-    return documents.results;
-  },
-
-  async getJobByUid(jobUid) {
-    const api = await this.getApi();
-    const document = await api.query(PrismicJS.Predicates.at('my.job_offer.uid', jobUid));
-    return document.results[0];
-  },
-
   async getPage(pageName) {
     const api = await this.getApi();
     return await api.getSingle(pageName);
@@ -51,6 +39,12 @@ export default Service.extend({
       orderings : '[document.first_publication_date desc]'
     });
     return documents.results;
-  }
+  },
+
+  async getNewsItemByUid(newsItemUid) {
+    const api = await this.getApi();
+    const document = await api.query(PrismicJS.Predicates.at('my.news_item.uid', newsItemUid));
+    return document.results[0];
+  },
 
 });

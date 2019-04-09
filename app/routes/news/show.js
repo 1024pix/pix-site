@@ -8,6 +8,6 @@ export default Route.extend({
   async model(params) {
 
     const prismic = this.prismic;
-    return await prismic.findNewsItems(params);
+    return await prismic.getNewsItemByUid(params.uid);
   }
 });

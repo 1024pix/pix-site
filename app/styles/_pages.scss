@@ -6,10 +6,11 @@
 @import "./pages/index";
 @import "./pages/legal-notices";
 @import "./pages/organization";
-@import "./pages/news";
+@import "./pages/news/index";
+@import "./pages/news/show";
 @import "./pages/partners";
 @import "./pages/simple-page";
-@import "./pages/_terms-of-service";
+@import "./pages/terms-of-service";
 
 .page {
 

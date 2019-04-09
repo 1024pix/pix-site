@@ -31,6 +31,7 @@ Router.map(function() {
     this.route('get', { path: '/:uid' });
   });
   this.route('news', { path: 'actualites' }, function() {
+    this.route('show', { path: '/:uid' });
   });
   this.route('about', { path: 'qui-sommes-nous' });
   this.route('competences');

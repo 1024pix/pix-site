@@ -12,6 +12,7 @@ $news-item-card-footer-height: 100px;
   background: #fff;
   box-shadow: 0 5px 15px 0 rgba(112, 128, 175, 0.2);
   transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
+  color: $grey-1;
 
   &:hover {
     box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
@@ -24,8 +25,7 @@ $news-item-card-footer-height: 100px;
   }
 
   &__body {
-    padding: 30px 30px 0;
-    margin-bottom: $news-item-card-footer-height;
+    padding: 30px 30px $news-item-card-footer-height;
 
     h1, h2, h3, h4, h5, h6, p {
       margin: 0;
@@ -103,6 +103,17 @@ $news-item-card-footer-height: 100px;
     background-size: cover;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+  }
+
+  &__link {
+    color: $grey-1;
+
+    &:active,
+    &:focus,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+    }
   }
 
   &__publication {

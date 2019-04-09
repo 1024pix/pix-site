@@ -1,0 +1,22 @@
+<div class="page news-show">
+
+  <header class="page-header">
+    <div class="container md padding-container">
+      <h1 class="page-header__title">
+        Actualités
+      </h1>
+    </div>
+  </header>
+
+  <main class="page-body">
+
+    <div class="news__list container padding-container">
+      {{#each model as |newsItem|}}
+        {{news-item-card newsItem=newsItem}}
+      {{else}}
+        <p>Il n’y a pas encore d'actualités.</p>
+      {{/each}}
+    </div>
+  </main>
+
+</div>
