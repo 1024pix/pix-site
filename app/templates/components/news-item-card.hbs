@@ -1,24 +1,22 @@
 {{#link-to 'news.show' newsItem.uid class="news-item-card__link"}}
   <header class="news-item-card__header">
-    <div class="news-item-card__illustration"
-         style="background-image: url('{{{newsItem.data.illustration.url}}}')"></div>
+
+    <!-- /!\ We keep this line if we think that an image would be better -->
+    <div class="news-item-card__illustration" style="background-image: url('{{{newsItem.data.illustration.url}}}')"></div>
   </header>
 
   <div class="news-item-card__body">
-    <p class="news-item-card__category {{categoryClassName}}">{{categoryLabel}}</p>
+
+    <p class="news-item-card__meta">
+      <span class="news-item-card__category {{categoryClassName}}">{{categoryLabel}}</span>
+      •
+      <span class="news-item-card__date">le {{moment-format newsItem.last_publication_date 'LL'}}</span>
+    </p>
+
     <h1 class="news-item-card__title">{{as-text newsItem.data.title}}</h1>
+
     <div class="news-item-card__excerpt">
       {{{as-html newsItem.data.excerpt}}}
     </div>
   </div>
-
-  <footer class="news-item-card__footer">
-    <div class="news-item-card__publication">
-      <img class="news-item-card__avatar" src="{{rootURL}}/images/logo-pix-blanc.svg" alt="">
-      <div class="news-item-card__info">
-        <p class="news-item-card__author">{{newsItem.data.author}}</p>
-        <p class="news-item-card__date">{{moment-format newsItem.last_publication_date 'DD/MM/YYYY'}}</p>
-      </div>
-    </div>
-  </footer>
 {{/link-to}}

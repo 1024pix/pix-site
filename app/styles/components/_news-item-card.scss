@@ -3,12 +3,10 @@
   2. Elements (alphabetical order)
 */
 
-$news-item-card-footer-height: 100px;
-
 .news-item-card {
   position: relative;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0 5px 15px 0 rgba(112, 128, 175, 0.2);
   transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
@@ -22,10 +20,11 @@ $news-item-card-footer-height: 100px;
   /* === LAYOUT === */
 
   &__header {
+    padding: 0;
   }
 
   &__body {
-    padding: 30px 30px $news-item-card-footer-height;
+    padding: 30px;
 
     h1, h2, h3, h4, h5, h6, p {
       margin: 0;
@@ -34,13 +33,6 @@ $news-item-card-footer-height: 100px;
   }
 
   &__footer {
-    position: absolute;
-    padding: 30px;
-    background: #fff;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    min-height: $news-item-card-footer-height;
   }
 
 
@@ -61,8 +53,7 @@ $news-item-card-footer-height: 100px;
   }
 
   &__category {
-    margin: 0;
-    font-size: 0.85rem;
+    margin-bottom: 20px!important;
     font-weight: 600;
 
     &--announcement {
@@ -88,10 +79,10 @@ $news-item-card-footer-height: 100px;
 
   &__date {
     margin: 0;
-    color: #6b6c7a;
   }
 
   &__excerpt {
+    margin-bottom: 20px;
   }
 
   &__illustration {
@@ -101,8 +92,8 @@ $news-item-card-footer-height: 100px;
     border: 1px solid rgba(0, 0, 0, .15);
     background-origin: border-box;
     background-size: cover;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
   &__link {
@@ -116,11 +107,18 @@ $news-item-card-footer-height: 100px;
     }
   }
 
+  &__meta {
+    color: #6b6c7a;
+    font-size: 0.85rem;
+    font-weight: 300;
+    margin: 0 0 20px!important;
+  }
+
   &__publication {
     display: flex;
     align-items: center;
-    font-size: 0.85rem;
     line-height: 1.2rem;
+    font-weight: 300;
   }
 
   &__title {
@@ -128,7 +126,7 @@ $news-item-card-footer-height: 100px;
     line-height: 1.8rem;
     color: #222222;
     font-weight: 600;
-    margin-top: 15px !important;
+    margin-top: 0;
     margin-bottom: 20px !important;
   }
 }

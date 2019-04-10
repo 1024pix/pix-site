@@ -16,7 +16,6 @@ module('Integration | Component | news-item-card', function(hooks) {
         category: 'Announcement',
         title: [{ spans:[], text: 'The title of the news post', type: 'heading1' }],
         excerpt: [{ spans:[], text: 'The excerpt of the news post', type: 'paragraph' }],
-        author: 'Goliath'
       }
     };
     this.set('newsItem', newsItem);
@@ -61,16 +60,6 @@ module('Integration | Component | news-item-card', function(hooks) {
     assert.dom('.news-item-card__excerpt').hasText('The excerpt of the news post');
   });
 
-  test('it renders the author', async function(assert) {
-
-    // when
-    await render(hbs`{{news-item-card newsItem=newsItem}}`);
-
-    // then
-    assert.dom('.news-item-card__author').exists();
-    assert.dom('.news-item-card__author').hasText('Goliath');
-  });
-
   test('it renders the last publication date', async function(assert) {
 
     // when
@@ -78,6 +67,6 @@ module('Integration | Component | news-item-card', function(hooks) {
 
     // then
     assert.dom('.news-item-card__date').exists();
-    assert.dom('.news-item-card__date').hasText('09/04/2019');
+    assert.dom('.news-item-card__date').hasText('le 9 avril 2019');
   });
 });
