@@ -1,0 +1,26 @@
+<header class="news-item-post__header">
+  <h1 class="news-item-post__title">{{as-text newsItem.data.title}}</h1>
+  <p class="news-item-post__meta">
+    <span class="news-item-post__category {{categoryClassName}}">{{categoryLabel}}</span>
+    •
+    <span class="news-item-post__date">le {{moment-format newsItem.last_publication_date 'LL'}}</span>
+  </p>
+</header>
+
+<div class="news-item-post__body">
+  <div class="news-item-post__excerpt">
+    {{{as-html newsItem.data.body}}}
+  </div>
+</div>
+
+<footer class="news-item-post__footer">
+<!--
+  <div class="news-item-post__publication">
+    <img class="news-item-post__avatar" src="{{rootURL}}/images/logo-pix-blanc.svg" alt="">
+    <div class="news-item-post__info">
+      <p class="news-item-post__author">{{newsItem.data.author}}</p>
+      <p class="news-item-post__date">{{moment-format newsItem.last_publication_date 'DD/MM/YYYY'}}</p>
+    </div>
+  </div>
+-->
+</footer>
