@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 const categoryTranslations = {
   'Announcement': 'Annonce',
   'Engineering': 'Ingénierie',
-  'Event': 'Évènement',
+  'Event': 'Événement',
   'Feature': 'Nouveauté',
   'Society': 'Société',
 };
