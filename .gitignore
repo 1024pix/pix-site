@@ -30,3 +30,5 @@ package.json.ember-try
 
 # VS Code
 *.code-workspace
+
+.DS_Store
