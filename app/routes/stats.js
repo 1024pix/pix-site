@@ -16,6 +16,18 @@ export default Route.extend({
           }],
         },
       },
+      campaigns: {
+        data: {
+          labels: ['05/18', '06/18', '07/18', '08/18', '09/18', '10/18', '11/18', '12/18', '01/19', '02/19', '03/19', '04/19'],
+          datasets: [{
+            label: 'Campagnes d’évaluation',
+            data: [0, 0, 0, 10, 31, 64, 261, 687, 1272, 1896, 2487, 3034],
+            type: 'line',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgb(75, 192, 192)',
+          }],
+        },
+      },
       certifications: {
         data: {
           labels: ['05/18', '06/18', '07/18', '08/18', '09/18', '10/18', '11/18', '12/18', '01/19', '02/19', '03/19', '04/19'],
@@ -46,7 +58,7 @@ export default Route.extend({
           datasets: [{
             label: 'Organisations partenaires',
             data: [1181, 98, 106],
-            backgroundColor:['rgb(54, 162, 235)','rgb(255, 205, 86)', 'rgb(255, 99, 132)'],
+            backgroundColor:['rgb(54, 162, 235)','rgb(255, 205, 86)', 'rgb(153, 102, 255)'],
           }],
         },
       }
