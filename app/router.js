@@ -55,6 +55,7 @@ Router.map(function() {
   this.route('certifications', { path: 'certifications/*path' });
 
   this.route('404');
+  this.route('stats');
 });
 
 export default Router;
