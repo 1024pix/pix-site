@@ -23,8 +23,8 @@ export default Route.extend({
             label: 'Campagnes d’évaluation',
             data: [0, 0, 0, 10, 31, 64, 261, 687, 1272, 1896, 2487, 3034],
             type: 'line',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(255, 205, 86, 0.2)',
+            borderColor: 'rgb(255, 205, 86)',
           }],
         },
       },
@@ -35,8 +35,8 @@ export default Route.extend({
             label: 'Certifications Pix délivrées',
             data: [7277, 8471, 8554, 8677, 9083, 9366, 10697, 18333, 23859, 24171, 27567, 38235],
             type: 'line',
-            backgroundColor: 'rgba(255, 205, 86, 0.2)',
-            borderColor: 'rgb(255, 205, 86)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgb(75, 192, 192)',
           }],
         },
       },
@@ -54,16 +54,16 @@ export default Route.extend({
       },
       organizations: {
         data: {
-          labels: ['Établissements scolaires', 'Établissements d’enseignement supérieur', 'Autres partenaires'],
+          labels: ['05/18', '06/18', '07/18', '08/18', '09/18', '10/18', '11/18', '12/18', '01/19', '02/19', '03/19', '04/19'],
           datasets: [{
             label: 'Organisations partenaires',
-            data: [1181, 98, 106],
-            backgroundColor:['rgb(54, 162, 235)','rgb(255, 205, 86)', 'rgb(153, 102, 255)'],
+            data: [309, 321, 340, 357, 362, 365, 575, 874, 1076, 1236, 1381, 1517],
+            type: 'line',
+            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            borderColor: 'rgb(153, 102, 255)',
           }],
         },
       }
     }
   }
 });
-
-
