@@ -8,9 +8,12 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL,
   metrics: service(),
 
-  didTransition() {
+  init() {
     this._super(...arguments);
-    this._trackPage();
+    this.on('routeDidChange', () => {
+      this._trackPage();
+      window.scrollTo(0, 0);
+    });
   },
 
   _trackPage() {
