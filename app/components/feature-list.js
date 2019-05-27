@@ -8,23 +8,23 @@ export default Component.extend({
     this._super(...arguments);
     this.features = [{
       icon: 'cafe',
-      title: 'Vivez l’expérience PIX',
+      title: 'Vivez l’expérience Pix',
       description: 'Un parcours d’évaluation convivial, accessible et interactif.'
     }, {
       icon: 'monde',
-      title: 'PIX est pour tout le monde',
+      title: 'Pix est pour tout le monde',
       description: 'Collégiens, lycéens, étudiants, professionnels, citoyens…'
     }, {
       icon: 'reference',
-      title: 'PIX est la référence',
+      title: 'Pix est la référence',
       description: 'La certification nationale de la culture numérique made in France au standard européen.'
     }, {
       icon: 'evolutif',
-      title: 'PIX est évolutif',
+      title: 'Pix est évolutif',
       description: 'Le référentiel de compétences s’adapte en permanence aux évolutions du monde numérique.'
     }, {
       icon: 'gratuit',
-      title: 'PIX est gratuit',
+      title: 'Pix est gratuit',
       description: 'Entraînez-vous et progressez gratuitement à votre rythme avant d’être certifié.'
     }];
   }
