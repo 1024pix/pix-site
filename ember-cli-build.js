@@ -5,7 +5,12 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     fingerprint: {
-      exclude: ['images/logo-pix_250x250.png'],
+      exclude: [
+        'images/social-icons/facebook.png',
+        'images/social-icons/linkedin.png',
+        'images/social-icons/twitter.png',
+        'images/logo-pix_250x250.png',
+      ],
     }
   });
 
