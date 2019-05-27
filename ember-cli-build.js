@@ -6,9 +6,7 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     fingerprint: {
       exclude: [
-        'images/social-icons/facebook.png',
-        'images/social-icons/linkedin.png',
-        'images/social-icons/twitter.png',
+        'images/email-signature/*',
         'images/logo-pix_250x250.png',
       ],
     }
