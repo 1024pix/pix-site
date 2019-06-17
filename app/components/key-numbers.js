@@ -22,10 +22,10 @@ export default Component.extend({
             desc: 'parcours de tests passées'  
         }, {
             number: '1 500',
-            desc: 'organisation partenaires'
+            desc: 'organisations partenaires'
         }, {
             number: '35 000',
-            desc: 'certification Pix délivrées'
+            desc: 'certifications Pix délivrées'
         }]); 
     }
 });
