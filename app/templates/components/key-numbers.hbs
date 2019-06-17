@@ -1,0 +1,9 @@
+<h2 class="key-numbers__title">{{title}}</h2>
+<div class="key-numbers__list container padding-container">
+    {{#each keynumbers as |keynumber|}}
+    <div class="key-number__item key-number">
+        <h3 class="key-number__value">{{keynumber.number}}</h3>
+        <p class="key-number__description">{{keynumber.desc}}</p>
+    </div>
+    {{/each}}
+</div>
