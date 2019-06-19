@@ -12,14 +12,14 @@ export default Component.extend({
     init() {
         this._super(...arguments);
         this.set('keynumbers', [{
-            number: '250 000',
+            number: '280 000',
             desc: 'comptes créés'
         }, {
             number: '27 millions',
             desc: 'de questions répondues'
         }, {
             number: '3 000',
-            desc: 'parcours de tests passées'  
+            desc: 'parcours de tests passés'  
         }, {
             number: '1 500',
             desc: 'organisations partenaires'
