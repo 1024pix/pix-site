@@ -12,7 +12,7 @@ export default Component.extend({
     init() {
         this._super(...arguments);
         this.set('keynumbers', [{
-            number: '250 000',
+            number: '280 000',
             desc: 'comptes créés'
         }, {
             number: '27 millions',
