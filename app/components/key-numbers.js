@@ -19,7 +19,7 @@ export default Component.extend({
             desc: 'de questions répondues'
         }, {
             number: '3 000',
-            desc: 'parcours de tests passées'  
+            desc: 'parcours de tests passés'  
         }, {
             number: '1 500',
             desc: 'organisations partenaires'
