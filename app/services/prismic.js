@@ -1,15 +1,22 @@
 import Service from '@ember/service';
 import PrismicJS from 'prismic-javascript';
+import config from 'pix-site/config/environment'; 
 
 export default Service.extend({
 
   getApi() {
-    return PrismicJS.getApi('https://pix-site.cdn.prismic.io/api/v2');
+    const apiEndpoint = config.prismic.apiEndpoint;
+    const options = {
+      accessToken: config.prismic.apiToken,
+    };
+    return PrismicJS.getApi(apiEndpoint, options);
   },
 
   async getFaqMenu() {
     const api = await this.getApi();
-    const document = await api.query(PrismicJS.Predicates.at('document.type', 'faq_menu'), { 'fetchLinks': 'faq_category.title' });
+    const document = await api.query(PrismicJS.Predicates.at('document.type', 'faq_menu'), {
+      'fetchLinks': 'faq_category.title'
+    });
     return document.results[0];
   },
 
@@ -36,7 +43,7 @@ export default Service.extend({
     const documents = await api.query(PrismicJS.Predicates.at('document.type', 'news_item'), {
       page,
       pageSize,
-      orderings : '[document.first_publication_date desc]'
+      orderings: '[document.first_publication_date desc]'
     });
     return documents.results;
   },

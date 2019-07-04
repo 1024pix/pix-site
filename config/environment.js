@@ -52,7 +52,12 @@ module.exports = function(environment) {
         piwikUrl: 'https://stats.pix.fr/',
         siteId: 1
       }
-    }]
+    }],
+
+    prismic: {
+      apiEndpoint: process.env.PRISMIC_API_ENDPOINT,
+      apiToken: process.env.PRISMIC_API_TOKEN
+    }
   };
 
   if (environment === 'development') {
