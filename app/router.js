@@ -1,28 +1,16 @@
 import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
-import { inject as service } from '@ember/service';
-import { scheduleOnce } from '@ember/runloop';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL,
-  metrics: service(),
 
   init() {
     this._super(...arguments);
     this.on('routeDidChange', () => {
-      this._trackPage();
       window.scrollTo(0, 0);
     });
   },
-
-  _trackPage() {
-    scheduleOnce('afterRender', this, () => {
-      const page = this.url;
-      const title = this.getWithDefault('currentRouteName', 'unknown');
-      this.metrics.trackPage({ page, title });
-    });
-  }
 });
 
 Router.map(function() {
