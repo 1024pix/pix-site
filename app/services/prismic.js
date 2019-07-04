@@ -38,7 +38,7 @@ export default Service.extend({
     return await api.getSingle(pageName);
   },
 
-  async findNewsItems({page, pageSize}) {
+  async findNewsItems({ page, pageSize }) {
     const api = await this.getApi();
     const documents = await api.query(PrismicJS.Predicates.at('document.type', 'news_item'), {
       page,
@@ -54,4 +54,19 @@ export default Service.extend({
     return document.results[0];
   },
 
+  async getPreviewDocumentRoute(documentId, token) {
+    const api = await this.getApi();
+    const url = await api.previewSession(token, resolveDocumentLink, '/');   
+    return url; 
+  },
+
 });
+
+function resolveDocumentLink(doc) { 
+  if (doc.type === 'news_item') {
+    return ['news.show', doc.uid];
+  }  else if(doc.type === 'faq') {
+    return ['faq',doc.uid];
+  } 
+  return [doc.uid];
+}
