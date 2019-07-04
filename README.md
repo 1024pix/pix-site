@@ -1,4 +1,6 @@
 # pix-site
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F1024pix%2Fpix-site.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F1024pix%2Fpix-site?ref=badge_shield)
+
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
@@ -55,3 +57,7 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F1024pix%2Fpix-site.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2F1024pix%2Fpix-site?ref=badge_large)
