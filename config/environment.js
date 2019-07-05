@@ -45,19 +45,14 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    metricsAdapters: [{
-      name: 'Piwik',
-      environments: ['production'],
-      config: {
-        piwikUrl: 'https://stats.pix.fr/',
-        siteId: 1
-      }
-    }],
-
     prismic: {
       apiEndpoint: process.env.PRISMIC_API_ENDPOINT,
       apiToken: process.env.PRISMIC_API_TOKEN
-    }
+    },
+
+    matomo: {
+      url: 'https://stats.pix.fr/js/container_92A3uEgU.js',
+    },
   };
 
   if (environment === 'development') {
@@ -67,6 +62,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.historySupportMiddleware = true;
+    ENV.matomo.debug = true;
   }
 
   if (environment === 'test') {
