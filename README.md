@@ -18,6 +18,12 @@ You will need the following things properly installed on your computer.
 * `cd pix-site`
 * `npm install`
 
+## Configuration 
+
+* Environment variables are needed in .env at the root of the project : 
+  * `PRISMIC_API_ENDPOINT # ex: https://example-site.prismic.api/` 
+  * `PRISMIC_API_TOKEN # ex: huhdTdiehGYGD56789xxxxxxxxxx`
+
 ## Running / Development
 
 * `ember serve`
