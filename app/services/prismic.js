@@ -1,6 +1,6 @@
 import Service from '@ember/service';
 import PrismicJS from 'prismic-javascript';
-import config from 'pix-site/config/environment'; 
+import config from 'pix-site/config/environment';
 
 export default Service.extend({
 
@@ -56,17 +56,16 @@ export default Service.extend({
 
   async getPreviewDocumentRoute(documentId, token) {
     const api = await this.getApi();
-    const url = await api.previewSession(token, resolveDocumentLink, '/');   
-    return url; 
+    return await api.previewSession(token, resolveDocumentLink, '/');
   },
 
 });
 
-function resolveDocumentLink(doc) { 
+function resolveDocumentLink(doc) {
   if (doc.type === 'news_item') {
     return ['news.show', doc.uid];
-  }  else if(doc.type === 'faq') {
-    return ['faq',doc.uid];
-  } 
+  } else if (doc.type === 'faq') {
+    return ['faq', doc.uid];
+  }
   return [doc.uid];
 }
