@@ -59,6 +59,7 @@ Router.map(function() {
 
   this.route('404');
   this.route('stats');
+  this.route('preview');
 });
 
 export default Router;

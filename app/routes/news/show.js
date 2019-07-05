@@ -5,9 +5,8 @@ export default Route.extend({
 
   prismic: service(),
 
-  async model(params) {
-
-    const prismic = this.prismic;
-    return await prismic.getNewsItemByUid(params.uid);
-  }
+  model({ uid }) {
+    return this.prismic.getNewsItemByUid(uid);
+  },
+  
 });
