@@ -20,7 +20,13 @@
     "start": "npx ember serve --environment production --liveReload false --port $PORT",
     "test": "npx ember test",
     "dev": "npx ember serve",
-    "upgrade": "ember update"
+    "upgrade": "ember update",
+    "release": "npm run release:minor",
+    "release:patch": "npm version patch -m \"Release v%s\"",
+    "release:minor": "npm version minor -m \"Release v%s\"",
+    "release:major": "npm version major -m \"Release v%s\"",
+    "preversion": "git checkout dev && git pull --rebase && npm test && git checkout master && git pull && git fetch -t",
+    "postversion": "git merge dev && git push origin master && git push --tags"
   },
   "devDependencies": {
     "@ember/jquery": "^0.6.1",
