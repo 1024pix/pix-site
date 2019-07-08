@@ -3,16 +3,19 @@
   <p class="news-item-post__meta">
     <span class="news-item-post__category {{categoryClassName}}">{{categoryLabel}}</span>
     •
+    {{#if newsItem.last_publication_date}}
     <span class="news-item-post__date">le {{moment-format newsItem.last_publication_date 'LL'}}</span>
+    {{else}} 
+    <span class="news-item-post__date">Preview</span>
+    {{/if}}
   </p>
 </header>
 
 <div class="news-item-post__body">
   <div class="news-item-post__excerpt">
     {{{as-html newsItem.data.body}}}
-    {{{web-snippet newsItem.data.body1}}} 
+    {{slices/slice-zone slices=newsItem.data.slices}}
   </div>
 </div>
-
 <footer class="news-item-post__footer">
 </footer>
