@@ -1,0 +1,11 @@
+@media (min-width: 600px) {
+  .multiple-column {
+    display: flex;
+    justify-content: space-between; 
+  }
+}
+
+.column {
+  flex-basis: 50%;
+  padding: 0 5px;
+} 
