@@ -45,6 +45,7 @@
     "ember-cli-dotenv": "^2.2.3",
     "ember-cli-eslint": "^5.1.0",
     "ember-cli-google-fonts": "^2.16.2",
+    "ember-cli-head": "^0.4.1",
     "ember-cli-htmlbars": "^3.1.0",
     "ember-cli-htmlbars-inline-precompile": "^2.1.0",
     "ember-cli-inject-live-reload": "^2.0.1",
