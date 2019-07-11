@@ -6,6 +6,21 @@
     <title>Pix - Cultivez vos compétences numériques</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Pix - Cultivez vos compétences numériques">
+    <meta name="twitter:description"
+      content="Pix est un service public en ligne d’évaluation, de développement et de certification des compétences numériques.">
+    <meta name="twitter:site" content="@Pix_officiel">
+    <meta name="twitter:image" content="https://pix.fr/images/logo-pix_250x250.png">
+
+    <meta property="og:title" content="Pix - Cultivez vos compétences numériques" />
+    <meta property="og:description"
+      content="Pix est un service public en ligne d’évaluation, de développement et de certification des compétences numériques." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://pix.fr" />
+    <meta property="og:image" content="https://pix.fr/images/logo-pix_250x250.png" />
+    <meta property="og:site_name" content="Pix.fr" />
+
     <link rel="apple-touch-icon" sizes="180x180" href="{{rootURL}}apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="{{rootURL}}favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="{{rootURL}}favicon-16x16.png">
@@ -16,6 +31,7 @@
 
     {{content-for "head-footer"}}
   </head>
+
   <body>
     {{content-for "body"}}
 
@@ -25,7 +41,7 @@
     {{content-for "body-footer"}}
 
     <script>
-      window.addEventListener("load", function(){
+      window.addEventListener("load", function () {
         window.cookieconsent.initialise({
           "palette": {
             "popup": {
@@ -45,12 +61,15 @@
             "link": "",
             "href": "/donnees-personnelles"
           }
-        })});
+        })
+      });
+
     </script>
     <script>
       window.prismic = {
         endpoint: 'https://pix-site.cdn.prismic.io/api/v2'
       };
+
     </script>
     <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js"></script>
   </body>
