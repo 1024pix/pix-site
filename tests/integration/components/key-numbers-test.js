@@ -12,6 +12,6 @@ module('Integration | Component | key-numbers', function(hooks) {
 
     // then
     assert.dom('.key-numbers__list').exists();
-    assert.dom('.key-number__item').exists({ count: 5 });
+    assert.dom('.key-number__item').exists({ count: 4 });
   });
 });
