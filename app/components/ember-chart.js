@@ -12,6 +12,7 @@ export default Component.extend({
   data: null,
   width: null,
   height: null,
+  legendPosition: 'bottom',
   chart: null,
 
   didInsertElement() {
@@ -20,6 +21,11 @@ export default Component.extend({
       this.chart = new Chart(document.getElementById(this.elementId).children, {
         type: this.type,
         data: this.data,
+        options: {
+          legend: {
+            poisition: this.legendPosition,
+          }
+        }
       });
     }
   },
