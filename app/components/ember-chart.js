@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 import { Chart } from 'chart.js';
-import ENV from 'pix-site/config/environment';
 
 export default Component.extend({
 
@@ -17,7 +16,7 @@ export default Component.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    if (this.data !== null) {
+    if (this.data) {
       this.chart = new Chart(document.getElementById(this.elementId).children, {
         type: this.type,
         data: this.data,
@@ -30,8 +29,8 @@ export default Component.extend({
     }
   },
 
-  didDestroyElement() {
-    if (!ENV.environnement === 'test') {
+  willDestroyElement() {
+    if (this.chart) {
       this.chart.destroy();
     }
   },
