@@ -42,5 +42,6 @@ module.only('Integration | Component | ember-chart', function(hooks) {
     await render(hbs`{{ember-chart data=data}}`);
     // then
     assert.dom('.ember-chart').exists();
+    assert.dom('.chartjs-render-monitor').exists();
   });
 });
