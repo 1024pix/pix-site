@@ -1,6 +1,6 @@
 {{#if nav}}
   {{#each nav.data.body as |item|}}
-    <div><a class="text text-s text-left regular text-black" href="{{item.primary.link.url}}">{{as-text item.primary.title}}</a></div>
+    <div><a class="text text-s text-left regular text-black" href="{{as-url item.primary.link.url}}">{{as-text item.primary.title}}</a></div>
   {{/each}}
 {{/if}}
 <div><a class="text text-s text-left regular text-black" href="https://app.pix.fr/">Se connecter</a></div>
