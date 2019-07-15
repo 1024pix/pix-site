@@ -59,7 +59,7 @@ module('Integration | Component | slices/multiple-column', function (hooks) {
     //then
     assert.dom('.multiple-column>.column:first-child').hasText('Column 1');
     assert.dom('.multiple-column>.column:nth-child(2)').hasText('Column 2');
-    assert.dom('.multiple-column>.column:nth-child(3)>.block-img').exists(); 
-  
+    assert.dom('.column').exists({ count: 3 });
+    assert.dom('.block-img').exists();
   });
 });
