@@ -14,15 +14,15 @@
         <div class="container md padding-container">
           <h2 class="area-title">{{area.title}}</h2>
 
-        {{#each area.competences as |competence|}}
-          <div class="competence">
-            <h3 class="competence__title">{{competence.title}}</h3>
-            <p class="competence__description">{{competence.description}}</p>
-            <h4 class="competence__theme-title">Thématiques associées</h4>
-            <p class="competence__themes">{{competence.themes}}</p>
-          </div>
+          {{#each area.competences as |competence|}}
+            <div class="competence">
+              <h3 class="competence__title">{{competence.title}}</h3>
+              <p class="competence__description">{{competence.description}}</p>
+              <h4 class="competence__theme-title">Thématiques associées</h4>
+              <p class="competence__themes">{{competence.themes}}</p>
+            </div>
 
-        {{/each}}
+          {{/each}}
         </div>
       </section>
     {{/each}}
