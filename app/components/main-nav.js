@@ -7,9 +7,14 @@ export default Component.extend({
   classNames: ['navigation'],
   prismic: service(),
 
-  async init() {
+  init() {
     this._super(...arguments);
-    const nav = await this.prismic.getMenus();
-    await this.set('nav', nav);
+    this.prismic.getMenus().then(nav => {
+      if(this.isDestroyed) {
+        return;
+      }
+      this.set('nav', nav);
+
+    })
   },
 });
