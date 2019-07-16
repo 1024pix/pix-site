@@ -13,8 +13,13 @@ export default Component.extend({
       if(this.isDestroyed) {
         return;
       }
-      this.set('nav', nav);
-
+      const items = nav.data.body.filter(body => {
+        if(body.primary.type === 'main-nav') {
+          return true;
+        }
+        return false;
+      });
+      this.set('items', items);
     })
   },
 });

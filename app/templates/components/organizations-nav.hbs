@@ -1,0 +1,7 @@
+<div class="nav-switch">
+  <div class="container padding-container">
+    {{#each items as |item|}}
+      <div><a class="text text-xs text-left text-up regular text-black" href="{{as-url item.primary.link.url}}">{{as-text item.primary.title}}</a></div>
+    {{/each}}
+  </div>
+</div>
