@@ -5,21 +5,18 @@ export default Component.extend({
 
   //props
   classNames: ['navigation'],
-  prismic: service(),
+  navigations: service(),
+  nav: null,
 
   init() {
     this._super(...arguments);
-    this.prismic.getMenus().then(nav => {
-      if(this.isDestroyed) {
-        return;
+    const nav = this.navigations.nav;
+    const items = nav.data.body.filter(body => {
+      if(body.primary.type === 'main-nav') {
+        return true;
       }
-      const items = nav.data.body.filter(body => {
-        if(body.primary.type === 'main-nav') {
-          return true;
-        }
-        return false;
-      });
-      this.set('items', items);
+      return false;
     })
+    this.set('items', items);
   },
 });

@@ -7,8 +7,14 @@ module('Integration | Component | main-nav', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
+    // Given
+    const navigations = this.owner.lookup('service:navigations');
+    await navigations.load();
+
+    // When
     await render(hbs`<MainNav />`);
 
+    // Then
     assert.dom('.navigation').exists();
   });
 });
