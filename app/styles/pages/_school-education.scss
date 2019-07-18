@@ -1,4 +1,7 @@
 .page.school-education {
+  a {
+    text-decoration: underline;
+  }
 
   p {
     margin: 0;
@@ -109,6 +112,10 @@
       grid-auto-flow: dense;
       grid-gap: 40px 100px;
       padding: 0 20px;
+    }
+
+    &.top {
+      margin-bottom: 40px;
     }
 
     .feature {

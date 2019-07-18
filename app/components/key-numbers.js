@@ -1,4 +1,4 @@
-import Component from '@ember/component'; 
+import Component from '@ember/component';
 
 export default Component.extend({
 
@@ -19,10 +19,10 @@ export default Component.extend({
             desc: 'de questions répondues'
         }, {
             number: '3 000',
-            desc: 'parcours de tests passés'  
+            desc: 'parcours de tests passés'
         }, {
-            number: '40 000',
+            number: '48 000',
             desc: 'certifications Pix délivrées'
-        }]); 
+        }]);
     }
 });
