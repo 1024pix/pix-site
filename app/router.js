@@ -27,7 +27,6 @@ Router.map(function() {
   this.route('about', { path: 'qui-sommes-nous' });
   this.route('competences');
   this.route('legal-notices', { path: 'mentions-legales' });
-  this.route('partners', { path: 'etablissements-pionniers' });
   this.route('privacy-policy', { path: 'donnees-personnelles' });
   this.route('simple-page', { path: '/*path' });
   this.route('terms-of-service', { path: 'conditions-generales-d-utilisation' });
