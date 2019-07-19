@@ -1,26 +1,17 @@
-.page.organization {
+.page.school-education {
+  a {
+    text-decoration: underline;
+  }
 
   p {
     margin: 0;
-
-    &.mb-0 {
-      margin-bottom: 6px;
-    }
 
     &.mb-1 {
       margin-bottom: 20px;
     }
 
-    &.mb-0-1 {
-      margin-bottom: 12px;
-    }
-
     &.mb-5 {
       margin-bottom: 48px;
-    }
-
-    &.mb-6 {
-      margin-bottom: 60px;
     }
   }
 
@@ -43,24 +34,110 @@
   h3 {
     margin-top: 0;
     margin-bottom: 0;
+  }
 
-    &.mb-4 {
-      margin-bottom: 40px;
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .section {
+    padding: 40px 0;
+
+    &__header {
+      margin-bottom: 60px;
+      text-align: center;
     }
 
-    &.mb-7 {
-      margin-bottom: 72px;
+    &__title {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-weight: 400;
+      color: #222222;
+      font-size: 36px;
+      line-height: 49px;
+      padding: 0 20px;
+    }
+
+    &__subtitle {
+      color: #222222;
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 30px;
+      padding: 0 20px;
+    }
+
+    &__body {
+      padding: 0 20px;
+    }
+
+    &.skewed {
+      position: relative;
+      padding: 60px 0;
+      margin: 60px 0;
+
+      @media (min-width: 769px) {
+        padding-bottom: 100px;
+      }
+
+      &:after {
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: skewY(3deg);
+      }
+
+      &--negative {
+
+        &:after {
+          transform: skewY(-3deg);
+        }
+      }
     }
   }
 
-  .formable-link {
-    display: block;
-    text-decoration: underline;
+  .feature-list {
+    display: flex;
+    flex-direction: column;
 
-    &:active,
-    &:focus,
-    &:hover {
-      color: #FFBE00;
+    @media (min-width: 769px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: dense;
+      grid-gap: 40px 100px;
+      padding: 0 20px;
+    }
+
+    &.top {
+      margin-bottom: 40px;
+    }
+
+    .feature {
+      margin-bottom: 40px;
+
+      @media (min-width: 769px) {
+        margin-bottom: 0;
+      }
+
+      &__title {
+        color: #000000;
+        font-size: 20px;
+        line-height: 27px;
+        font-weight: 400;
+        margin-bottom: 6px;
+      }
+
+      &__body {
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 24px;
+      }
     }
   }
 
@@ -76,7 +153,7 @@
       height: 395px;
     }
     @media (min-width: 769px) {
-      height: 500px;
+      height: 540px;
       padding: 121px 0 100px 0;
     }
 
@@ -185,16 +262,11 @@
     }
 
     .container {
-      display: flex;
-      flex-flow: column;
       text-align: center;
-
-      @media (min-width: 600px) {
-        flex-flow: row wrap;
-      }
 
       .margin-bot {
         margin-bottom: 22px;
+
         @media (min-width: 600px) {
           margin-bottom: 32px;
         }
@@ -213,13 +285,13 @@
       width: 100%;
       margin-bottom: 36px;
 
-      @media (min-width: 600px) {
+      @media (min-width: 769px) {
         margin-bottom: 0;
         width: 33.33%;
         text-align: center;
 
         p {
-          padding: 0 20px;
+          padding: 0 40px;
         }
       }
     }
@@ -236,74 +308,6 @@
   /* Section mesurer SCO & SUP */
 
   .section-mesurer {
-    position: relative;
-    padding-top: 70px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    @media (min-width: 600px) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-
-    @media (min-width: 769px) {
-      padding-top: 140px;
-      padding-bottom: 90px;
-    }
-
-    .mb-6 {
-      margin-bottom: 36px;
-
-      @media (min-width: 600px) {
-        margin-bottom: 60px;
-      }
-    }
-
-    h3 {
-
-      @media (min-width: 600px) {
-        padding: 0 90px;
-      }
-      @media (min-width: 769px) {
-        padding: 0 0;
-      }
-    }
-
-    .hero-background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: $grey-3;
-      transform: skewY(-3deg);
-      transform-origin: bottom right;
-    }
-
-    .container {
-      display: flex;
-      flex-flow: column;
-
-      @media (min-width: 600px) {
-        flex-flow: row wrap;
-      }
-    }
-
-    .column {
-      width: 100%;
-
-      @media (min-width: 600px) {
-        width: 50%;
-        padding: 0 38px;
-      }
-      @media (min-width: 769px) {
-        padding: 0 50px;
-      }
-    }
   }
 
   /* Section mesurer PRO */
@@ -377,307 +381,140 @@
   /* Section developper SCO & SUP */
 
   .section-developper {
-    position: relative;
-    padding: 60px 0 70px 0;
 
-    @media (min-width: 600px) {
-      padding: 100px 0 100px 0;
-    }
-    @media (min-width: 769px) {
-      padding: 100px 0 180px 0;
+    &.skewed {
+      padding-top: 120px;
+      padding-bottom: 180px;
+      margin-bottom: 0;
     }
 
-    .box {
-      width: 100%;
-      @media (min-width: 600px) {
-        width: 471px;
-        height: 581px;
-      }
+    &:after {
+      background: linear-gradient(135.25deg, #388AFF 0%, #985FFF 100%);
     }
 
-    .margin-top {
-      margin-top: 48px;
+    .section-developper__illustration {
+      display: none;
 
-      @media (min-width: 600px) {
-        margin-top: 0;
-      }
-    }
-
-    .column-sup {
-      @media (min-width: 600px) {
-        padding: 0 43px 0 0;
-      }
       @media (min-width: 769px) {
-        padding: 0 46px;
+        display: inline-block;
+      }
+
+      & > img {
+        height: 580px;
       }
     }
 
-    .title-top {
-      max-width: 1140px;
-      margin: auto;
-      margin-bottom: 64px;
-      padding-left: 20px;
+    .section-developper__text {
+      max-width: 600px;
+      padding: 0;
 
-      @media (min-width: 600px) {
-        padding-left: 38px;
-      }
       @media (min-width: 769px) {
-        padding-left: 46px;
+        display: inline-block;
+        padding: 0 40px;
       }
     }
 
-    .container {
+    .section__header {
+      margin-bottom: 40px;
+    }
+
+    .section__title {
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .feature-list {
       display: flex;
-      flex-flow: column;
-      padding: 0 20px;
+      flex-direction: column;
 
-      @media (min-width: 600px) {
-        padding: 0 38px;
-        flex-flow: row;
-      }
       @media (min-width: 769px) {
-        padding: 0 0;
+        padding: 0;
       }
 
-      .txt {
-        display: flex;
-        flex-flow: column;
-
-        @media (min-width: 600px) {
-          flex-flow: row;
-          width: 600px;
-        }
-      }
-
-      .column {
-        @media (min-width: 600px) {
-          padding: 0 0 0 46px;
-        }
-        @media (min-width: 769px) {
-          padding: 60px 46px;
-        }
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 0 0 0 0;
+      .feature {
         margin-bottom: 24px;
 
-        @media (min-width: 600px) {
-          margin-bottom: 0;
+        &__title {
+          font-weight: 500;
+          color: #ffffff;
+        }
+
+        &__body {
+          font-weight: 400;
+          color: #ffffff;
         }
       }
-    }
-
-    .hero-background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135.25deg, #388AFF 0%, #985FFF 100%);
-      transform: skewY(3deg);
-      transform-origin: bottom right;
-    }
-  }
-
-  /* Section Developper PRO */
-
-  .section-developper-pro {
-    position: relative;
-    padding: 80px 0 110px 0;
-
-    @media (min-width: 600px) {
-      padding: 100px 0 100px 0;
-    }
-    @media (min-width: 769px) {
-      padding: 100px 0 180px 0;
-    }
-
-    .box {
-      width: 100%;
-      @media (min-width: 600px) {
-        width: 514px;
-        height: 786px;
-      }
-    }
-
-    .margin-top {
-      margin-top: 48px;
-
-      @media (min-width: 600px) {
-        margin-top: 0;
-      }
-    }
-
-    .container {
-      display: flex;
-      flex-flow: column;
-      padding: 0 20px;
-
-      @media (min-width: 600px) {
-        padding: 0 38px;
-        flex-flow: row;
-      }
-      @media (min-width: 769px) {
-        padding: 0 0;
-      }
-
-      .txt {
-        display: flex;
-        flex-flow: column;
-
-        @media (min-width: 600px) {
-          flex-flow: row;
-          width: 600px;
-        }
-      }
-
-      .column {
-        @media (min-width: 600px) {
-          padding: 0 0 0 46px;
-        }
-        @media (min-width: 769px) {
-          padding: 0 20px 60px 46px;
-        }
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 0 0 0 0;
-        margin-bottom: 24px;
-
-        @media (min-width: 600px) {
-          margin-bottom: 0;
-        }
-      }
-
-    }
-
-    .hero-background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135.25deg, #388AFF 0%, #985FFF 100%);
-      transform: skewY(3deg);
-      transform-origin: bottom right;
     }
   }
 
   /* Section Agenda */
 
   .section-agenda {
-    position: relative;
-    overflow: hidden;
-    padding: 80px 20px;
 
-    @media (min-width: 600px) {
-      padding: 0 0;
+    &.skewed {
+      margin-top: -60px;
+      padding-top: 140px;
     }
 
-    .container {
-      display: flex;
-      flex-flow: column;
-
-      @media (min-width: 600px) {
-        padding: 80px 38px;
-      }
-      @media (min-width: 769px) {
-        padding: 100px 0 160px 0;
-      }
-
-      .column {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        background-color: $white;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        padding: 20px 20px;
-
-        @media (min-width: 769px) {
-          width: 760px;
-          padding: 26px 90px;
-        }
-      }
-    }
-
-    .hero-background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    &:after {
       background-color: $grey-3;
-      transform: skewY(-3deg);
-      transform-origin: top left;
+    }
+
+    .steps {
+      max-width: 760px;
+      margin: 0 auto 60px;
+    }
+
+    .step {
+      position: relative;
+      background-color: $white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .05);
+      border-radius: 4px;
+      margin-bottom: 10px;
+      padding: 20px;
+
+      @media (min-width: 769px) {
+        padding: 20px 100px;
+      }
+
+      &__date {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      &__body {
+        font-size: 15px;
+        line-height: 24px;
+      }
     }
   }
 
   /* Section Valoriser */
 
   .section-valoriser {
-    position: relative;
-    padding-top: 60px;
-    padding-bottom: 70px;
-    padding-left: 20px;
-    padding-right: 20px;
 
-    @media (min-width: 600px) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @media (min-width: 769px) {
-      padding-top: 60px;
-      padding-bottom: 100px;
-    }
+    &.skewed {
+      margin-top: -140px;
+      padding-top: 140px;
+      padding-bottom: 0;
 
-    .mb-6 {
-      margin-bottom: 36px;
-
-      @media (min-width: 600px) {
-        margin-bottom: 60px;
+      &:after {
+        transform-origin: top left;
+        background: #FFFFFF;
       }
     }
 
-    .container {
-      display: flex;
-      flex-flow: column;
+    .certification-video {
+      text-align: center;
+      margin-bottom: 40px;
 
-      @media (min-width: 600px) {
-        flex-flow: row wrap;
-      }
-    }
+      iframe {
+        max-width: 100%;
 
-    .column {
-      width: 100%;
-
-      @media (min-width: 600px) {
-        width: 50%;
-        padding: 0 38px;
-      }
-      @media (min-width: 769px) {
-        padding: 0 50px;
-      }
-
-      &:nth-child(1) {
-        margin-bottom: 48px;
-        @media (min-width: 600px) {
-          margin-bottom: 0;
+        @media (min-width: 769px) {
+          width: 480px;
+          height: 270px;
         }
       }
     }
@@ -704,7 +541,7 @@
       padding: 0 20px;
 
       @media (min-width: 600px) {
-        width: 33.33%;
+        width: 25%;
         padding: 0 38px;
       }
       @media (min-width: 769px) {
@@ -909,5 +746,14 @@
       }
     }
   }
-}
 
+  /* Section Pourquoi Pix */
+
+  .section-pourquoi-pix {
+
+    &:after {
+      background-color: $grey-3;
+    }
+  }
+
+}

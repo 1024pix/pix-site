@@ -1,4 +1,4 @@
-import Component from '@ember/component'; 
+import Component from '@ember/component';
 
 export default Component.extend({
 
@@ -12,21 +12,17 @@ export default Component.extend({
     init() {
         this._super(...arguments);
         this.set('keynumbers', [{
-            number: '280 000',
+            number: '300 000',
             desc: 'comptes créés'
         }, {
-            number: '27 millions',
+            number: '28 millions',
             desc: 'de questions répondues'
         }, {
             number: '3 000',
-            desc: 'parcours de tests passés'  
+            desc: 'parcours de tests passés'
         }, {
-            number: '1 500',
-            desc: 'organisations partenaires'
-        }, {
-            number: '35 000',
+            number: '48 000',
             desc: 'certifications Pix délivrées'
-        }]); 
+        }]);
     }
 });
-

@@ -11,6 +11,9 @@
       flex-flow: row wrap;
       justify-content: space-between;
     }
+    .child {
+      flex: 1;
+    }
   }
 
   &.sm {
