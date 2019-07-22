@@ -10,12 +10,7 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     const nav = this.navigations.nav;
-    const items = nav.data.body.filter(body => {
-      if(body.primary.type === 'about-nav') {
-        return true;
-      }
-      return false;
-    })
+    const items = nav.data.body.filter(body => body.primary.type === 'about-nav');
     this.set('items', items);
   },
 });
