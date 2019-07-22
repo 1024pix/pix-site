@@ -1,6 +1,6 @@
 <h4 class="text text-sm text-up text-left text-black mb-2 semi-bold">Ressources</h4>
 <ul class="unstyled">
   {{#each items as |item|}}
-    <li><a class="text text-xs text-left regular text-black-l" target="{{if item.primary.link.target "_blank"}}" href="{{as-url item.primary.link.url}}">{{as-text item.primary.title}}</a></li>
+    <li><a class="text text-xs text-left regular text-black-l" target="{{if item.primary.link.target "_blank"}}" href="{{handle-url item.primary.link.url}}">{{as-text item.primary.title}}</a></li>
   {{/each}}
 </ul>

@@ -1,6 +1,6 @@
 import { helper } from '@ember/component/helper';
 
-export function asUrl(url) {
+export function handleUrl(url) {
   var doc = document.createElement('a');
   doc.href = url;
   if(doc.hostname === 'pix.fr') {
@@ -9,4 +9,4 @@ export function asUrl(url) {
   return url;
 }
 
-export default helper(asUrl);
+export default helper(handleUrl);
