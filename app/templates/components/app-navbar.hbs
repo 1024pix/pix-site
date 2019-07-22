@@ -1,11 +1,4 @@
-<div class="nav-switch">
-  <div class="container padding-container">
-    {{#link-to 'digital-mediation' class="text text-xs text-left text-up regular text-black"}}Médiation numérique{{/link-to}}
-    {{#link-to 'school-education' class="text text-xs text-left text-up regular text-black"}}Enseignement scolaire{{/link-to}}
-    {{#link-to 'higher-education' class="text text-xs text-left text-up regular text-black"}}Enseignement supérieur{{/link-to}}
-    {{#link-to 'employers' class="text text-xs text-left text-up regular text-black"}}Employeurs{{/link-to}}
-  </div>
-</div>
+<OrganizationsNav />
 
 <div class="nav-principal mobile">
   <div class="container padding-container">
@@ -27,14 +20,8 @@
   <div class="container padding-container">
     {{#link-to 'index'}}<img alt="Accueil du site pix.fr" class="logo" src="{{rootURL}}/images/pix-logo.svg">{{/link-to}}
     <img alt="Logo de la Marianne" src="{{rootURL}}/images/marianne-logo.svg">
-    <div style="width:100%;" class="desktop">
-      <div class="navigation">
-        <div>{{#link-to 'about' class="text text-s text-left regular text-black"}}Qui sommes-nous ?{{/link-to}}</div>
-        <div>{{#link-to 'competences' class="text text-s text-left regular text-black"}}Compétences{{/link-to}}</div>
-        <div>{{#link-to 'faq' class="text text-s text-left regular text-black"}}FAQ{{/link-to}}</div>
-        <div><a class="text text-s text-left regular text-black" href="https://app.pix.fr/">Se connecter</a></div>
-        <div><a style="transition: all ease-in .2s;" class="btn-nav" href="https://app.pix.fr/inscription">S'inscrire</a></div>
-      </div>
+    <div class="desktop">
+      <MainNav />
     </div>
   </div>
 </div>

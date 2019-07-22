@@ -59,6 +59,10 @@ export default Service.extend({
     return await api.previewSession(token, resolveDocumentLink, '/');
   },
 
+  async getMenus() {
+    const api = await this.getApi();
+    return await api.getByUID('navigation','navigation');
+  },
 });
 
 function resolveDocumentLink(doc) {
