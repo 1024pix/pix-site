@@ -1,0 +1,46 @@
+.hot-news {
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 100%;
+
+  color: $white;
+  background-color: $blue-1;
+  padding: 2px;
+
+  display: flex;
+  flex-direction: row;
+
+  @media (min-width: 769px) {
+    padding: 5px;
+    height: 60px;
+  }
+
+  p {
+    text-align: center;
+    line-height: 1rem;
+    font-size: 0.875rem;
+    margin: 0 auto;
+    align-self: center;
+
+    @media (min-width: 769px) {
+      width: 700px;
+      line-height: 1.375rem;
+    }
+  }
+
+  .close {
+    margin-right: 20px;
+    opacity: .5;
+    transition: .5s;
+    cursor: pointer;
+
+    @media (min-width: 769px) {
+      margin-right: 32px;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
