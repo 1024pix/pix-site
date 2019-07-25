@@ -1,4 +1,46 @@
-.arrow {
-  font-size:10px;
-  margin-left:5px;
+
+.bm-menu {
+
+  .nav-top a {
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .nav-bottom {
+    position: absolute;
+    bottom: 40px;
+
+    .arrow {
+      font-size:10px;
+      margin-left:5px;
+    }
+
+    hr {
+      width: 180px;
+      height: 1px;
+      opacity: .5;
+      border: 1px solid #DDDDDD;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      display: inline-block;
+    }
+
+    a {
+      text-decoration: none;
+      display: block;
+      transition: 0.3s;
+      font-size: 12px;
+      line-height: 17px;
+    }
+  }
+
+  .nav-top a:hover,
+  .nav-bottom a:hover {
+    text-decoration: underline;
+  }
+
 }

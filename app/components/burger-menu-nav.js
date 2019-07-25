@@ -10,9 +10,9 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    const nav = this.navigations.nav;
-    const itemsTop = nav.data.body.filter(body => body.primary.type === 'burger-menu-top');
-    const itemsBottom = nav.data.body.filter(body => body.primary.type === 'burger-menu-bottom');
+    const navBody = this.navigations.nav.data.body;
+    const itemsTop = navBody.filter(body => body.primary.type === 'burger-menu-top');
+    const itemsBottom = navBody.filter(body => body.primary.type === 'burger-menu-bottom');
     this.set('itemsTop', itemsTop);
     this.set('itemsBottom', itemsBottom);
   },
