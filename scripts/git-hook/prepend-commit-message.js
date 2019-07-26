@@ -63,7 +63,7 @@ const messageTitle = message.split('\n')[0];
 
 const issueTag = getIssueTagFromBranchName(branchName);
 console.log(issueTag);
-
+return
 if (issueTag && isCommitMessageToBePrepended(messageTitle) && isBranchModifiable(branchName)) {
 
   // Apply the issue tag to message title
