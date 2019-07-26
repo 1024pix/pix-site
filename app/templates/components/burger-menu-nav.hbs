@@ -1,18 +1,18 @@
 <nav class="nav-top">
-  <ul class="unstyled">
+  <ul>
     {{#each itemsTop as |item|}}
-    <li><a class="text mb-0-1 text-left semi-bold text-white" target="{{if item.primary.link.target "_blank"}}" href="{{handle-url item.primary.link.url}}">{{as-text item.primary.title}}</a></li>
+    <li><a class="nav-top__link" target="{{if item.primary.link.target "_blank"}}" href="{{handle-url item.primary.link.url}}">{{as-text item.primary.title}}</a></li>
     {{/each}}
-    <li><a href="https://app.pix.fr/" class="text mb-0-1 text-left semi-bold text-white">Se connecter</a></li>
+    <li><a href="https://app.pix.fr/" class="nav-top__link">Se connecter</a></li>
     <li><a href="https://app.pix.fr/inscription" class="btn-nav-mobile">S'inscrire</a></li>
   </ul>
 </nav>
 
 <div class="nav-bottom">
-  <hr class="mb-0-1">
-  <ul class="unstyled">
+  <hr class="nav-bottom__bar">
+  <ul>
     {{#each itemsBottom as |item|}}
-    <li><a class="text mb-1 text-left text-up regular text-white" target="{{if item.primary.link.target "_blank"}}" href="{{handle-url item.primary.link.url}}">{{as-text item.primary.title}}<span class="show-page-icon">&gt;</span></a></li>
+    <li><a class="nav-bottom__link" target="{{if item.primary.link.target "_blank"}}" href="{{handle-url item.primary.link.url}}">{{as-text item.primary.title}}<span class="show-page-icon">&gt;</span></a></li>
     {{/each}}
   </ul>
 </div>

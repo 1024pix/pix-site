@@ -1,21 +1,52 @@
 
 .bm-menu {
 
-  .nav-top a {
+  .nav-top {
+
+    &__link {
+      font-weight: 600;
+      color: $white;
+      text-align: left;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      padding-left: 0;
+    }
+
+    a {
     text-decoration: none;
     display: block;
     transition: 0.3s;
     font-size: 1rem;
     line-height: 1.5rem;
+    }
   }
+
 
   .nav-bottom {
     position: absolute;
     bottom: 40px;
 
+    &__link {
+      font-weight: 400;
+      color: $white;
+      text-align: left;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
     .show-page-icon {
       font-size:10px;
       margin-left:5px;
+    }
+
+    &__bar {
+      margin-bottom: 12px;
+    }
+
+    ul {
+      padding-left: 0;
     }
 
     hr {
