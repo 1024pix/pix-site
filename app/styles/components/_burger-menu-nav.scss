@@ -1,6 +1,18 @@
 
 .bm-menu {
 
+  ul {
+    padding-left: 0;
+
+    & > li {
+      padding-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
   .nav-top {
 
     &__link {
@@ -8,10 +20,6 @@
       color: $white;
       text-align: left;
       margin-bottom: 12px;
-    }
-
-    ul {
-      padding-left: 0;
     }
 
     a {
@@ -43,10 +51,6 @@
 
     &__bar {
       margin-bottom: 12px;
-    }
-
-    ul {
-      padding-left: 0;
     }
 
     hr {
