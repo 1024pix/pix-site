@@ -6,7 +6,13 @@ export default Route.extend({
   prismic: service(),
 
   model({ uid }) {
-    return this.prismic.getNewsItemByUid(uid);  
+    return this.prismic.getNewsItemByUid(uid);
   },
+
+  afterModel(model) {
+    if(!model) {
+      this.transitionTo('index');
+    }
+  }
 
 });
