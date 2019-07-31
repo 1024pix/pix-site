@@ -14,35 +14,35 @@ module('Integration | Component | slices/multiple-column', function (hooks) {
   test('it should have columns', async function (assert) {
     //given
     this.set('slice', {
-      "slice_type": "multiple_column",
-      "slice_label": null,
-      "items": [
+      slice_type: "multiple_column",
+      slice_label: null,
+      items: [
         {
-          "column_content": [
+          column_content: [
             {
-              "type": "paragraph",
-              "text": "Column 1",
-              "spans": []
+              type: "paragraph",
+              text: "Column 1",
+              spans: []
             }
           ]
         },
         {
-          "column_content": [
+          column_content: [
             {
-              "type": "paragraph",
-              "text": "Column 2",
-              "spans": []
+              type: "paragraph",
+              text: "Column 2",
+              spans: []
             }
           ]
         },
         {
-          "column_content": [
+          column_content: [
             {
-              "type": "image",
-              "url": "https://pix-site.cdn.prismic.io/pix-site/3a29bf3168b1357d462651dde9526d427e98eced_recruitment.jpg",
-              "alt": null,
-              "copyright": null,
-              "dimensions": {
+              type: "image",
+              url: "https://pix-site.cdn.prismic.io/pix-site/3a29bf3168b1357d462651dde9526d427e98eced_recruitment.jpg",
+              alt: null,
+              copyright: null,
+              dimensions: {
                 "width": 350,
                 "height": 200
               }
@@ -50,7 +50,9 @@ module('Integration | Component | slices/multiple-column', function (hooks) {
           ]
         }
       ],
-      "primary": {}
+      primary: {
+        vertical_align_center: true,
+      }
     });
 
     //when
@@ -61,5 +63,41 @@ module('Integration | Component | slices/multiple-column', function (hooks) {
     assert.dom('.multiple-column>.column:nth-child(2)').hasText('Column 2');
     assert.dom('.column').exists({ count: 3 });
     assert.dom('.block-img').exists();
+  });
+
+  test('it should have vertical_align_center class', async function (assert) {
+    //given
+    this.set('slice', {
+      slice_type: "multiple_column",
+      slice_label: null,
+      primary: {
+        vertical_align_center: "true",
+      },
+      items: [
+        {
+          column_content: [
+            {
+              type: "paragraph",
+              text: "Column 1",
+              spans: []
+            }
+          ]
+        },
+        {
+          column_content: [
+            {
+              type: "paragraph",
+              text: "Column 2",
+              spans: []
+            }
+          ]
+        },
+      ],
+    });
+
+    //when
+    await render(hbs `{{slices/multiple-column slice=slice}}`);
+    //then
+    assert.dom('.column.vertical_align_center').exists();
   });
 });
