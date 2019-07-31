@@ -1,5 +1,5 @@
 {{#each slice.items as |column|}}
-  <div class="column">
+  <div class="column {{if verticalAlignCenter "vertical_align_center"}}">
     {{as-html column.column_content}}
   </div>
 {{/each}}
