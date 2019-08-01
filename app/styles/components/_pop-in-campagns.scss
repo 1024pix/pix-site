@@ -59,6 +59,19 @@
       border-radius: 2px 2px 0 0;
     }
 
+    &__close {
+      position: absolute;
+      top: 12.67px;
+      right: 12.3px;
+      opacity: .7;
+      transition: opacity .4s;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+
     &__logo {
       width: 62.5px;
       height: 62.5px;
