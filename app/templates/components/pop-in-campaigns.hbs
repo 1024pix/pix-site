@@ -1,0 +1,11 @@
+<div class="pop-in-campaigns-content" onclick={{if isClose (action 'togglePopIn')}}>
+  {{#unless isClose}}
+    <img class="pop-in-campaigns-content__close" {{action "togglePopIn"}} alt="close button" src="{{rootURL}}/images/close-icon.svg">
+    <img class="pop-in-campaigns-content__logo" alt="Logo rejoindre une campagne" src="{{rootURL}}/images/logo-join-campaign.svg">
+  {{/unless}}
+  <span class="pop-in-campaigns-content__title">{{title}}</span>
+</div>
+{{#unless isClose}}
+  <a class="pop-in-campaigns__btn btn-primary" href="https://app.pix.fr/campagnes">Saisir mon code</a>
+{{/unless}}
+
