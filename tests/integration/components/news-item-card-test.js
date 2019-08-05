@@ -12,6 +12,7 @@ module('Integration | Component | news-item-card', function(hooks) {
   hooks.beforeEach(function() {
     newsItem = {
       last_publication_date: '2019-04-09T13:19:32+0000',
+      first_publication_date: '2019-03-09T13:19:32+0000',
       data: {
         category: 'Announcement',
         title: [{ spans:[], text: 'The title of the news post', type: 'heading1' }],
@@ -60,13 +61,13 @@ module('Integration | Component | news-item-card', function(hooks) {
     assert.dom('.news-item-card__excerpt').hasText('The excerpt of the news post');
   });
 
-  test('it renders the last publication date', async function(assert) {
+  test('it renders the first publication date', async function(assert) {
 
     // when
     await render(hbs`{{news-item-card newsItem=newsItem}}`);
 
     // then
     assert.dom('.news-item-card__date').exists();
-    assert.dom('.news-item-card__date').hasText('le 9 avril 2019');
+    assert.dom('.news-item-card__date').hasText('le 9 mars 2019');
   });
 });
