@@ -11,6 +11,5 @@ export default Route.extend({
 
   _loadNavigation() {
     return this.navigations.load();
-  }
-
+  },
 });
