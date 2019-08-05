@@ -1,0 +1,15 @@
+.error {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 769px) {
+    width: 500px;
+  }
+
+  .logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
