@@ -28,11 +28,16 @@ nav {
         &:hover {
           color: $blue-1 !important;
         }
+      }
 
+      div {
         &:last-child {
-          margin-right:0;
+          a {
+            margin-right: 0;
+          }
         }
       }
+
     }
   }
 
