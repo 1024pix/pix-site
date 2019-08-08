@@ -2,7 +2,7 @@
 
   margin:0 -10px;
 
-  @media (min-width: 600px) {
+  @include device-is('large-mobile') {
     display: flex;
     justify-content: space-between;
   }

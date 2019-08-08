@@ -3,7 +3,7 @@ footer {
   padding-top: 34px;
   padding-bottom: 64px;
 
-  @media (min-width: 769px) {
+  @include device-is('tablet') {
     padding-top: 114px;
     padding-bottom: 64px;
   }
@@ -28,7 +28,7 @@ footer {
     margin-bottom: 40px;
     width: 50%;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       margin-bottom: 0;
       width: 43%;
     }
@@ -36,7 +36,7 @@ footer {
     .ministere {
       max-width: 280px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         max-width: 100%;
         height: auto;
         display: block;
@@ -57,18 +57,18 @@ footer {
     flex-flow: column;
     width: 100%;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       flex-flow: row;
     }
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       justify-content: flex-end;
     }
 
     .mb-2 {
       margin-bottom: 12px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 26px;
       }
     }
@@ -76,7 +76,7 @@ footer {
     .mb-3 {
       margin-bottom: 12px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 32px;
       }
     }
@@ -85,14 +85,14 @@ footer {
       padding-right: 50px;
       margin-bottom: 26px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 0;
       }
     }
 
     .padding {
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding-left: 10px;
       }
 
@@ -114,7 +114,7 @@ footer {
     display: flex;
     flex-flow: column;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       flex-flow: row;
     }
   }

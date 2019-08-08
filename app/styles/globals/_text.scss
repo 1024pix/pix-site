@@ -15,12 +15,12 @@ $open-sans: 'Open Sans';
   font-size: 16px;
   line-height: 24px;
 
-  @media (min-width: 600px) {
+  @include device-is('large-mobile') {
     font-size: 14px;
     line-height: 19px;
   }
 
-  @media (min-width: 769px) {
+  @include device-is('tablet') {
     font-size: 16px;
     line-height: 24px;
   }
@@ -40,7 +40,7 @@ $open-sans: 'Open Sans';
   font-size: 18px;
   line-height: 24px;
 
-  @media (min-width: 769px) {
+  @include device-is('tablet') {
     font-size: 22px;
     line-height: 30px;
   }
@@ -61,7 +61,7 @@ $open-sans: 'Open Sans';
   font-size: 30px;
   line-height: 38px;
 
-  @media (min-width: 769px) {
+  @include device-is('tablet') {
     font-size: 46px;
     line-height: 62px;
   }

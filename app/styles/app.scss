@@ -1,14 +1,15 @@
 // Vendors
 @import 'ember-burger-menu';
-// Constants
-@import "./colors";
-// General
-@import "./globals";
-@import "./margins";
-@import "./text";
-@import "./buttons";
-@import "./container";
-@import "./burger-menu";
+
+// Globals
+@import "./globals/breakpoints";
+@import "./globals/colors";
+@import "./globals/text";
+@import "./globals/globals";
+@import "./globals/margins";
+@import "./globals/buttons";
+@import "./globals/container";
+@import "./globals/burger-menu";
 // Components
 @import "./components";
 // Pages

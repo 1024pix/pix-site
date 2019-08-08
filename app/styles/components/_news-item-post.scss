@@ -16,7 +16,7 @@
     padding: 30px;
     text-align: center;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding: 70px 150px 30px;
     }
   }
@@ -24,7 +24,7 @@
   &__body {
     padding: 0 30px 30px;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding: 0 150px 70px;
     }
 
@@ -170,7 +170,7 @@
     font-size: 1.875rem;
     line-height: 2.375rem;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       font-size: 2.875rem;
       line-height: 3.875rem;
     }
