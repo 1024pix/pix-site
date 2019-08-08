@@ -1,0 +1,7 @@
+{{#if url}}
+  {{#if path}}
+    <LinkTo @route='{{as-route path}}' class="{{linkClass}}">{{{text}}}</LinkTo>
+  {{else}}
+    <a href="{{url}}" class="{{linkClass}}" target="{{target}}">{{{text}}}</a>
+  {{/if }}
+{{/if}}
