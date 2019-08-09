@@ -10,4 +10,8 @@ module('Unit | Helper | as-route', function() {
   test('it should return index for inexistant path', function(assert) {
     assert.equal(asRoute(['/bad-path']), 'index');
   });
+
+  test('it should return digital-mediation for IE path', function(assert) {
+    assert.equal(asRoute(['mediation-numerique']), 'digital-mediation');
+  });
 });
