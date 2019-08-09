@@ -155,4 +155,11 @@
   line-height: 1.375rem;
   white-space: nowrap;
   transform: rotate(-90deg);
+
+  /*  Support IE */
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    position: relative;
+    top: 42px;
+    left: 40px;
+  }
 }
