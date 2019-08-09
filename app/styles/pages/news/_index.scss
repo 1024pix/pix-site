@@ -1,9 +1,15 @@
 .page.news {
 
   .news__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 30px;
-    grid-row-gap: 45px;
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 700px) {
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
   }
 }
