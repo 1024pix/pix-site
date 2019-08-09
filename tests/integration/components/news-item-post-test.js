@@ -14,6 +14,7 @@ module('Integration | Component | news-item-post', function(hooks) {
       last_publication_date: '2019-04-09T13:19:32+0000',
       first_publication_date: '2019-03-09T13:19:32+0000',
       data: {
+        date: '2019-03-10',
         category: 'Announcement',
         title: [{ spans:[], text: 'The title of the news post', type: 'heading1' }],
         body: [{ spans:[], text: 'The body of the news post', type: 'paragraph' }],
@@ -42,14 +43,14 @@ module('Integration | Component | news-item-post', function(hooks) {
     assert.dom('.news-item-post__title').hasText('The title of the news post');
   });
 
-  test('it renders the first publication date', async function(assert) {
+  test('it renders the chosen date on prismic', async function(assert) {
 
     // when
     await render(hbs`{{news-item-post newsItem=newsItem}}`);
 
     // then
     assert.dom('.news-item-post__date').exists();
-    assert.dom('.news-item-post__date').hasText('le 9 mars 2019');
+    assert.dom('.news-item-post__date').hasText('le 10 mars 2019');
   });
 
   test('it renders the body', async function(assert) {

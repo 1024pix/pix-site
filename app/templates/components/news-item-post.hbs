@@ -1,10 +1,11 @@
 <header class="news-item-post__header">
+  {{log newsItem}}
   <h1 class="news-item-post__title">{{as-text newsItem.data.title}}</h1>
   <p class="news-item-post__meta">
     <span class="news-item-post__category {{categoryClassName}}">{{categoryLabel}}</span>
     •
     {{#if newsItem.first_publication_date}}
-    <span class="news-item-post__date">le {{moment-format newsItem.first_publication_date 'LL'}}</span>
+    <span class="news-item-post__date">le {{moment-format newsItem.data.date 'LL'}}</span>
     {{else}}
     <span class="news-item-post__date">Preview</span>
     {{/if}}
