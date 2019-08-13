@@ -10,7 +10,7 @@
     <p class="news-item-card__meta">
       <span class="news-item-card__category {{categoryClassName}}">{{categoryLabel}}</span>
       •
-      <span class="news-item-card__date">le {{moment-format newsItem.first_publication_date 'LL'}}</span>
+      <span class="news-item-card__date">le {{moment-format newsItem.data.date 'LL'}}</span>
     </p>
 
     <h1 class="news-item-card__title">{{as-text newsItem.data.title}}</h1>

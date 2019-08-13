@@ -43,7 +43,7 @@ export default Service.extend({
     const documents = await api.query(PrismicJS.Predicates.at('document.type', 'news_item'), {
       page,
       pageSize,
-      orderings: '[document.first_publication_date desc]'
+      orderings: '[my.news_item.date desc]'
     });
     return documents.results;
   },
