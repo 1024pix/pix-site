@@ -1,8 +1,14 @@
 .ember-burger-menu {
 
-  position: absolute;
-  height: 100%;
-  width: 100%;
+  @supports not (-webkit-overflow-scrolling: touch) {
+    position: absolute;
+  }
+
+  @media (min-width: 600px) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
 
   &.translucent-overlay.is-open > .bm-outlet::after {
     opacity: 0;
