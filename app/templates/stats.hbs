@@ -1,39 +1,32 @@
 <main class="page stats-page">
-
   <header class="page-header">
     <div class="container md padding-container">
       <h1 class="page-header__title">
-        Chiffres clés
+        {{as-html model.doc.data.title}}
       </h1>
     </div>
   </header>
-
   <main class="page-body">
 
     <div class="container md padding-container">
 
       <section>
-        <h2>Comptes utilisateurs</h2>
-        <p>Depuis le lancement de la plateforme en septembre 2017, près de <b>300 000 utilisateurs</b> - élèves, étudiants, professionnels, demandeurs d’emploi, retraités - se sont inscrits sur Pix afin d'évaluer, développer et valoriser leurs compétences numériques.</p>
+        {{as-html model.doc.data.accounts}}
         {{ember-chart type='line' data=model.accounts.data width=300 height=110}}
       </section>
 
       <section>
-        <h2>Évaluation des compétences numériques</h2>
-        <p>À ce jour, les utilisateurs de Pix ont répondu à plus de <b>28 millions d'épreuves</b> adaptatives portant sur les 5 grands domaines sur 16 compétences numériques en correspondance avec le Cadre de Référence des Compétences Numériques français et le cadre européen DigComp.</p>
-        <p>Depuis octobre 2018, plus de <b>4 500 campagnes d'évaluation</b> ciblées et trans-compétences ont été élaborées par les organisations partenaires mettant en oeuvre Pix dans leur établissement et proposées aux personnes qu'ils accompagnent (collaborateurs, élèves, étudiants, demandeurs d’emploi et personnes éloignées du numérique).</p>
+        {{as-html model.doc.data.campaigns}}
         {{ember-chart type='line' data=model.campaigns.data width=300 height=110}}
       </section>
 
       <section>
-        <h2>Certifications Pix</h2>
-        <p>Depuis décembre 2017, plus de 3 000 sessions de certifications ont eu lieu dans les différents centres agréés répartis dans toute la France. Près de <b>50 000 certifications Pix</b> , reconnues par l’Etat et le monde professionnel, ont été délivrées permettant de valoriser les compétences de leurs titulaires.</p>
+        {{as-html model.doc.data.certifications}}
         {{ember-chart type='line' data=model.certifications.data width=300 height=110}}
       </section>
 
       <section>
-        <h2>Déploiement</h2>
-        <p>Pix est déployé et utilisé pour le diagnostic et l'accompagnement du développement des compétences numériques au sein de plus de <b>1 700 organisations</b> telles que des établissements scolaires ou d'enseignement supérieur, des organismes publics et des services administratifs, ainsi que des structures ou entreprises du secteur privé.</p>
+        {{as-html model.doc.data.organizations}}
         {{ember-chart type='line' data=model.organizations.data width=300 height=110}}
       </section>
     </div>
