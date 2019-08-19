@@ -1,5 +1,5 @@
 {{#each items as |item|}}
-  <div><a class="text text-s text-left regular text-black" target="{{if item.primary.link.target "_blank"}}" href="{{handle-url item.primary.link.url}}">{{as-text item.primary.title}}</a></div>
+  <div><HandleLink @url="{{item.primary.link.url}}" @linkClass="text text-s text-left regular text-black" @target="{{if item.primary.link.target "_blank"}}" @text="{{as-text item.primary.title}}" /></div>
 {{/each}}
 <div><a class="text text-s text-left regular text-black" href="https://app.pix.fr/">Se connecter</a></div>
 <div><a class="btn-nav" href="https://app.pix.fr/inscription">S'inscrire</a></div>

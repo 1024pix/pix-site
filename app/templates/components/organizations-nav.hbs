@@ -1,7 +1,7 @@
 <div class="nav-switch">
   <div class="container padding-container">
     {{#each items as |item|}}
-      <a class="text text-xs text-left text-up regular text-black" target="{{if item.primary.link.target "_blank"}}" href="{{handle-url item.primary.link.url}}">{{as-text item.primary.title}}</a>
+      <HandleLink @url="{{item.primary.link.url}}" @linkClass="text text-xs text-left text-up regular text-black" @target="{{if item.primary.link.target "_blank"}}" @text="{{as-text item.primary.title}}" />
     {{/each}}
   </div>
 </div>
