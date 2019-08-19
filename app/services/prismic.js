@@ -63,6 +63,11 @@ export default Service.extend({
     const api = await this.getApi();
     return await api.getByUID('navigation','navigation');
   },
+
+  async getHotNews() {
+    const api = await this.getApi();
+    return await api.getSingle('hot_news');
+  }
 });
 
 function resolveDocumentLink(doc) {
