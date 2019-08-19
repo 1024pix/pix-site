@@ -23,6 +23,13 @@ export default Component.extend({
         options: {
           legend: {
             poisition: this.legendPosition,
+          },
+          scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
           }
         }
       });
