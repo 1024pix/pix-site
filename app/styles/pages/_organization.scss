@@ -71,11 +71,11 @@
     overflow: hidden;
     height: 395px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding: 121px 0 100px 50px;
       height: 395px;
     }
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       height: 500px;
       padding: 121px 0 100px 0;
     }
@@ -83,7 +83,7 @@
     h1 {
       padding: 40px 10px 3px 10px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 0;
       }
     }
@@ -94,17 +94,17 @@
       a {
         margin-left: 10px;
 
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           margin-left: 0;
         }
       }
     }
 
     .block-pro {
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 450px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         width: 600px;
       }
     }
@@ -127,7 +127,7 @@
       background-repeat: no-repeat;
       background-size: cover;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         background: linear-gradient(-135deg, rgba(56, 138, 255, 0.7) 0%, rgba(152, 95, 255, 0.7) 100%), url('/images/background-hero-sco.jpg');
         transform-origin: top left;
         background-repeat: no-repeat;
@@ -142,7 +142,7 @@
       background-repeat: no-repeat;
       background-size: cover;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         background: linear-gradient(135deg, rgba(18, 163, 255, 0.7) 0%, rgba(61, 104, 255, 0.7) 100%), url('/images/background-hero-sup.jpg');
         transform-origin: top left;
         background-repeat: no-repeat;
@@ -157,7 +157,7 @@
       background-repeat: no-repeat;
       background-size: cover;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0%, #213371 100%), url('/images/background-hero-pro.jpg');
         transform-origin: top left;
         background-repeat: no-repeat;
@@ -174,12 +174,12 @@
     padding-top: 40px;
     padding-bottom: 15px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding-top: 50px;
       padding-bottom: 50px;
     }
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-top: 80px;
       padding-bottom: 80px;
     }
@@ -189,13 +189,13 @@
       flex-flow: column;
       text-align: center;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         flex-flow: row wrap;
       }
 
       .margin-bot {
         margin-bottom: 22px;
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           margin-bottom: 32px;
         }
       }
@@ -204,7 +204,7 @@
     .mb-3 {
       margin-bottom: 5px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 32px;
         width: 100%;
       }
@@ -214,7 +214,7 @@
       width: 100%;
       margin-bottom: 36px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 0;
         width: 33.33%;
         text-align: center;
@@ -243,12 +243,12 @@
     padding-left: 20px;
     padding-right: 20px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding-left: 0;
       padding-right: 0;
     }
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-top: 140px;
       padding-bottom: 90px;
     }
@@ -256,17 +256,17 @@
     .mb-6 {
       margin-bottom: 36px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 60px;
       }
     }
 
     h3 {
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 0 90px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 0;
       }
     }
@@ -289,7 +289,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         flex-flow: row wrap;
       }
     }
@@ -297,11 +297,11 @@
     .column {
       width: 100%;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 50%;
         padding: 0 38px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 50px;
       }
     }
@@ -313,28 +313,28 @@
     position: relative;
     padding: 70px 20px 40px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding-left: 0;
       padding-right: 0;
     }
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-top: 80px;
       padding-bottom: 140px;
     }
 
     .mb-6 {
       margin-bottom: 36px;
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 60px;
       }
     }
 
     h3 {
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 0 90px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 0;
       }
     }
@@ -357,7 +357,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         flex-flow: row wrap;
       }
     }
@@ -365,11 +365,11 @@
     .column {
       width: 100%;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 50%;
         padding: 0 38px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 50px;
       }
     }
@@ -381,16 +381,16 @@
     position: relative;
     padding: 60px 0 70px 0;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding: 100px 0 100px 0;
     }
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding: 100px 0 180px 0;
     }
 
     .box {
       width: 100%;
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 471px;
         height: 581px;
       }
@@ -399,16 +399,16 @@
     .margin-top {
       margin-top: 48px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-top: 0;
       }
     }
 
     .column-sup {
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 0 43px 0 0;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 46px;
       }
     }
@@ -419,10 +419,10 @@
       margin-bottom: 64px;
       padding-left: 20px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding-left: 38px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding-left: 46px;
       }
     }
@@ -432,11 +432,11 @@
       flex-flow: column;
       padding: 0 20px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 0 38px;
         flex-flow: row;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 0;
       }
 
@@ -444,17 +444,17 @@
         display: flex;
         flex-flow: column;
 
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           flex-flow: row;
           width: 600px;
         }
       }
 
       .column {
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           padding: 0 0 0 46px;
         }
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           padding: 60px 46px;
         }
       }
@@ -466,7 +466,7 @@
         border-radius: 0 0 0 0;
         margin-bottom: 24px;
 
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           margin-bottom: 0;
         }
       }
@@ -493,16 +493,16 @@
     position: relative;
     padding: 80px 0 110px 0;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding: 100px 0 100px 0;
     }
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding: 100px 0 180px 0;
     }
 
     .box {
       width: 100%;
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 514px;
         height: 786px;
       }
@@ -511,7 +511,7 @@
     .margin-top {
       margin-top: 48px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-top: 0;
       }
     }
@@ -521,11 +521,11 @@
       flex-flow: column;
       padding: 0 20px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 0 38px;
         flex-flow: row;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 0;
       }
 
@@ -533,17 +533,17 @@
         display: flex;
         flex-flow: column;
 
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           flex-flow: row;
           width: 600px;
         }
       }
 
       .column {
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           padding: 0 0 0 46px;
         }
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           padding: 0 20px 60px 46px;
         }
       }
@@ -555,7 +555,7 @@
         border-radius: 0 0 0 0;
         margin-bottom: 24px;
 
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           margin-bottom: 0;
         }
       }
@@ -584,7 +584,7 @@
     overflow: hidden;
     padding: 80px 20px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding: 0 0;
     }
 
@@ -592,10 +592,10 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 80px 38px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 100px 0 160px 0;
       }
 
@@ -607,7 +607,7 @@
         border-radius: 4px;
         padding: 20px 20px;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           width: 760px;
           padding: 26px 90px;
         }
@@ -638,11 +638,11 @@
     padding-left: 20px;
     padding-right: 20px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding-left: 0;
       padding-right: 0;
     }
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-top: 60px;
       padding-bottom: 100px;
     }
@@ -650,7 +650,7 @@
     .mb-6 {
       margin-bottom: 36px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 60px;
       }
     }
@@ -659,7 +659,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         flex-flow: row wrap;
       }
     }
@@ -667,17 +667,17 @@
     .column {
       width: 100%;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 50%;
         padding: 0 38px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 50px;
       }
 
       &:nth-child(1) {
         margin-bottom: 48px;
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           margin-bottom: 0;
         }
       }
@@ -704,11 +704,11 @@
       width: 100%;
       padding: 0 20px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 33.33%;
         padding: 0 38px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 20px;
       }
 
@@ -716,7 +716,7 @@
       &:nth-child(2) {
         margin-bottom: 48px;
 
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           margin-bottom: 0;
         }
       }
@@ -750,11 +750,11 @@
       width: 100%;
       padding: 0 20px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 33.33%;
         padding: 0 10px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 0 10px;
       }
     }
@@ -763,7 +763,7 @@
     .column:nth-child(2) {
       margin-bottom: 48px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 0;
       }
     }
@@ -776,7 +776,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-top: 60px;
       padding-bottom: 116px;
     }
@@ -785,7 +785,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         flex-flow: row wrap;
       }
     }
@@ -793,10 +793,10 @@
     .column {
       margin-bottom: 30px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 50%;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         width: 20%;
         margin-bottom: inherit;
       }
@@ -813,7 +813,7 @@
     padding-bottom: 100px;
     background: linear-gradient(132.01deg, #388AFF 0%, #5427AB 100%);
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-left: 0;
       padding-right: 0;
       padding-top: 150px;
@@ -824,7 +824,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         flex-flow: row wrap;
         align-items: center;
       }
@@ -841,7 +841,7 @@
     padding-right: 20px;
     background-color: $grey-3;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-top: 60px;
       padding-bottom: 116px;
       padding-left: 0;
@@ -852,7 +852,7 @@
       text-align: center;
       margin-bottom: 30px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         margin-bottom: 0;
       }
 
@@ -891,7 +891,7 @@
       display: flex;
       flex-flow: column;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         flex-flow: row wrap;
         align-items: center;
       }
@@ -900,11 +900,11 @@
     .column {
       margin-bottom: 30px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 50%;
       }
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         width: 20%;
         margin-bottom: inherit;
       }

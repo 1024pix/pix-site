@@ -8,7 +8,7 @@
     font-size: 1.875rem;
     line-height: 2.375rem;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       font-size: 2.875rem;
       line-height: 3.875rem;
     }
@@ -23,7 +23,7 @@
     text-align: center;
     padding: 40px 0;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding-bottom: 10px;
     }
   }
@@ -60,7 +60,7 @@
     flex-direction: column;
     flex-wrap: wrap;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       flex-direction: row;
       justify-content: space-between;
     }
@@ -73,7 +73,7 @@
       text-align: center;
       box-sizing: border-box;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         margin: 0;
       }
 
@@ -88,7 +88,7 @@
   section {
     position: relative;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding: 60px 0 80px;
     }
 
@@ -96,7 +96,7 @@
       display: flex;
       flex-direction: column;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         flex-direction: row;
         justify-content: space-between;
       }
@@ -105,7 +105,7 @@
         display: flex;
         flex-direction: column;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           max-width: 50%;
 
           &.features--left {
@@ -121,12 +121,12 @@
           text-align: left;
           margin-bottom: 15px;
 
-          @media (min-width: 769px) {
+          @include device-is('tablet') {
             margin-bottom: 0;
           }
 
           p {
-            @media (min-width: 769px) {
+            @include device-is('tablet') {
               min-height: 140px;
             }
           }
@@ -138,7 +138,7 @@
       display: flex;
       flex-direction: column;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         flex-direction: row;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -148,7 +148,7 @@
     .container-column {
       width: 100%;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         width: 50%;
       }
     }
@@ -159,7 +159,7 @@
       color: white;
       padding-top: 60px;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding: 200px 0 100px;
         height: 520px;
         padding-top: 160px;
@@ -181,7 +181,7 @@
         width: 100%;
         height: 100%;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           background: linear-gradient(180deg, rgba(18, 163, 255, 0.8) 0, rgba(61, 104, 255, 0.8) 100%), url('/images/bg-hero-mednum@2x.jpg');
           background-repeat: no-repeat;
           background-size: cover;
@@ -195,7 +195,7 @@
 
       h1 {
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           max-width: 686px;
         }
       }
@@ -213,7 +213,7 @@
         .partner {
           margin-bottom: 30px;
 
-          @media (min-width: 769px) {
+          @include device-is('tablet') {
             margin: 0 60px;
           }
 
@@ -221,7 +221,7 @@
             margin-bottom: 20px;
             max-width: 100%;
 
-            @media (min-width: 769px) {
+            @include device-is('tablet') {
               height: 100px;
               margin-bottom: 10px;
             }
@@ -234,7 +234,7 @@
     &.diagnostic {
       padding-bottom: 30px;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         padding-top: 90px;
         padding-bottom: 80px;
       }
@@ -248,7 +248,7 @@
         max-width: 760px;
         margin: 0 auto 60px;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           margin-bottom: 90px;
         }
       }
@@ -272,7 +272,7 @@
       color: white;
       padding: 30px 0 140px;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         height: 790px;
         padding-bottom: 60px;
       }
@@ -295,7 +295,7 @@
         text-align: left;
         padding-top: 0;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           margin-top: 30px;
         }
       }
@@ -316,7 +316,7 @@
           text-align: left;
           margin-top: 30px;
 
-          @media (min-width: 769px) {
+          @include device-is('tablet') {
             margin-top: 60px;
           }
         }
@@ -333,7 +333,7 @@
         position: absolute;
         left: 20%;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           display: block;
           background: url('/images/certif-illustration@2x.png');
           background-repeat: no-repeat;
@@ -353,7 +353,7 @@
       padding-bottom: 0;
       margin-top: -30px;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         margin-top: -90px;
         padding-top: 60px;
       }
@@ -367,7 +367,7 @@
         max-width: 760px;
         margin: 0 auto 60px;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           margin-bottom: 90px;
         }
       }
@@ -401,7 +401,7 @@
         text-align: left;
         padding-top: 0;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           margin-bottom: 40px;
         }
       }
@@ -425,7 +425,7 @@
         padding: 15px;
         padding-bottom: 0;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           padding: 70px;
         }
 
@@ -441,7 +441,7 @@
           content: ' ';
           margin: 30px auto;
 
-          @media (min-width: 769px) {
+          @include device-is('tablet') {
             position: absolute;
             display: inline-block;
           }
@@ -449,7 +449,7 @@
 
         .info__body {
 
-          @media (min-width: 769px) {
+          @include device-is('tablet') {
             padding-left: 74px;
           }
         }

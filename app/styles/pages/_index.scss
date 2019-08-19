@@ -12,7 +12,7 @@ $font-lato: 'Lato', Arial, sans-serif;
     background-size: cover;
     padding: 60px 0;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       background: url('/images/background-hero-index.jpg') no-repeat;
       background-size: cover;
       padding: 100px 0;
@@ -25,7 +25,7 @@ $font-lato: 'Lato', Arial, sans-serif;
       text-shadow: 10px 12px 18px 0 rgba(0, 0, 0, 0.33);
       margin-bottom: 20px;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         font-size: 90px;
         line-height: 90px;
       }
@@ -43,7 +43,7 @@ $font-lato: 'Lato', Arial, sans-serif;
         display: none;
       }
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         font-size: 28px;
         line-height: 38px;
       }
@@ -52,7 +52,7 @@ $font-lato: 'Lato', Arial, sans-serif;
     .hero__connection-button {
       text-align: center;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         text-align: left;
       }
     }
@@ -66,7 +66,7 @@ $font-lato: 'Lato', Arial, sans-serif;
     font-weight: 800;
     color: #4A4A4A;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       margin-bottom: 40px;
     }
   }
@@ -78,7 +78,7 @@ $font-lato: 'Lato', Arial, sans-serif;
     background-color: #EEEEEE;
     padding: 60px 0;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding: 100px 80px;
     }
 
@@ -87,7 +87,7 @@ $font-lato: 'Lato', Arial, sans-serif;
       justify-content: center;
       flex-wrap: wrap;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         flex-direction: row;
         flex-wrap: nowrap;
       }
@@ -95,11 +95,11 @@ $font-lato: 'Lato', Arial, sans-serif;
       .course {
         width: 220px;
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-        background: #FFFFFF;
+        background: $white;
         border-radius: 5px;
         margin: 0 10px 20px;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           margin-bottom: 0;
         }
 
@@ -170,10 +170,10 @@ $font-lato: 'Lato', Arial, sans-serif;
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   .section-features {
-    background: #ffffff;
+    background: $white;
     padding: 60px 0;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       padding: 100px 80px;
     }
 
@@ -184,7 +184,7 @@ $font-lato: 'Lato', Arial, sans-serif;
       justify-content: center;
       flex-wrap: wrap;
 
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         flex-wrap: nowrap;
         justify-content: space-between;
       }
@@ -196,7 +196,7 @@ $font-lato: 'Lato', Arial, sans-serif;
         flex-direction: column;
         margin: 0 10px 40px;
 
-        @media (min-width: 769px) {
+        @include device-is('tablet') {
           margin: 0;
         }
 

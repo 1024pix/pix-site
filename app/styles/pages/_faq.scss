@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       flex-direction: row;
     }
 
@@ -16,11 +16,11 @@
     overflow: hidden;
     height: 300px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       padding: 121px 0 100px 50px;
       height: 300px;
     }
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       height: 300px;
       padding: 121px 0 100px 0;
     }
@@ -28,7 +28,7 @@
     h1 {
       padding: 40px 10px 3px 10px;
 
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         padding: 0;
       }
     }
@@ -39,17 +39,17 @@
       a {
         margin-left: 10px;
 
-        @media (min-width: 600px) {
+        @include device-is('large-mobile') {
           margin-left: 0;
         }
       }
     }
 
     .block-pro {
-      @media (min-width: 600px) {
+      @include device-is('large-mobile') {
         width: 450px;
       }
-      @media (min-width: 769px) {
+      @include device-is('tablet') {
         width: 600px;
       }
     }

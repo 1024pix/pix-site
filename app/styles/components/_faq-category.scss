@@ -3,7 +3,7 @@
   padding-bottom: 20px;
   margin-bottom: 40px;
 
-  @media (min-width: 769px) {
+  @include device-is('tablet') {
     border-bottom: none;
     border-right: 1px solid $grey-4;
     margin-right: 20px;

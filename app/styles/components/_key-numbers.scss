@@ -14,11 +14,11 @@
   &__item {
     margin-bottom: 30px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       width: 50%;
     }
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       width: 25%;
       margin-bottom: inherit;
     }
@@ -41,12 +41,12 @@
     color: $grey-1;
     text-align: center;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       font-size: 14px;
       line-height: 19px;
     }
 
-    @media (min-width: 769px) {
+    @include device-is('tablet') {
       font-size: 16px;
       line-height: 24px;
     }

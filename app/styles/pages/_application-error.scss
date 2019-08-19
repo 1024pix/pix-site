@@ -3,7 +3,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  @media (min-width: 769px) {
+  @include device-is('tablet') {
     width: 500px;
   }
 

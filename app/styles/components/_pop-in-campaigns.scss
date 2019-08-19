@@ -15,7 +15,7 @@
   flex-direction: row;
   transition: height .6s ease-in, width .6s;
 
-  @media (min-width: 600px) {
+  @include device-is('large-mobile') {
     right: 23px;
     width: 397px;
     height: 289px;
@@ -44,7 +44,7 @@
     line-height: 1.25rem;
     text-align: center;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       width: 190px;
       height: 50px;
       margin-top: 35px;
@@ -67,7 +67,7 @@
   background: $gradient-purple;
   border-radius: 6px 0 0 6px;
 
-  @media (min-width: 600px) {
+  @include device-is('large-mobile') {
     margin: 6px 6px;
     height: 163px;
     width: 385px;
@@ -77,7 +77,7 @@
   &__close {
     display: none;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       position: absolute;
       top: 20px;
       right: 20px;
@@ -98,7 +98,7 @@
     margin-top: 13px;
     margin-left: 9px;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       width: 135px;
       height: 135px;
       margin-top: 28px;
@@ -117,7 +117,7 @@
     color: $white;
     transition: none;
 
-    @media (min-width: 600px) {
+    @include device-is('large-mobile') {
       width: 214px;
       height: 107px;
       margin-top: 57.5px;
