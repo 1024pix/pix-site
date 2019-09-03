@@ -170,6 +170,7 @@
 
       a {
         margin-left: 10px;
+        text-decoration: none;
 
         @include device-is('large-mobile') {
           margin-left: 0;
