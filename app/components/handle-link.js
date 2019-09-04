@@ -10,6 +10,9 @@ export default Component.extend({
       return doc.pathname;
     }
   }),
+  useLinkTo: computed('path', function() {
+    return this.path && !this.path.includes('documents/');
+  }),
   linkClass: null,
   text: null,
   target: null,

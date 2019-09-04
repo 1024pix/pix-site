@@ -35,6 +35,18 @@ module('Integration | Component | handle-link', function(hooks) {
     assert.equal(this.element.querySelector('a').getAttribute('href'), '/mediation-numerique');
   });
 
+  test('it should return path of url if it\'s a Pix url for documents', async function(assert) {
+    // given
+    const url = "https://pix.fr/documents/document_1233.pdf";
+    this.set('url', url);
+
+    // when
+    await render(hbs`<HandleLink @url={{this.url}} />`);
+
+    // then
+    assert.equal(this.element.querySelector('a').getAttribute('href'), '/documents/document_1233.pdf');
+  });
+
   test('it should add class for external link', async function(assert) {
     // given
     const url = "https://youtube.fr";
