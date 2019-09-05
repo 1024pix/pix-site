@@ -1,5 +1,9 @@
-{{#if useLinkTo}}
-  <LinkTo @route="{{as-route path}}" class="{{linkClass}}">{{{text}}}</LinkTo>
+{{#if internalLink}}
+  {{#if inDocuments}}
+    <a href="{{internalLink}}" class="{{linkClass}}" target="{{target}}">{{{text}}}</a>
+  {{else}}
+    <LinkTo @route="{{as-route internalLink}}" class="{{linkClass}}">{{{text}}}</LinkTo>
+  {{/if}}
 {{else}}
-  <a href="{{if path path url}}" class="{{linkClass}}" target="{{target}}">{{{text}}}</a>
+  <a href="{{url}}" class="{{linkClass}}" target="{{target}}">{{{text}}}</a>
 {{/if }}
