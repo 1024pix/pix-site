@@ -10,8 +10,8 @@ export default Component.extend({
       return doc.pathname;
     }
   }),
-  useLinkTo: computed('path', function() {
-    return this.path && !this.path.includes('documents/');
+  needInternalLink: computed('path', function() {
+    return this.path && this.path.indexOf('documents/') === -1;
   }),
   linkClass: null,
   text: null,
