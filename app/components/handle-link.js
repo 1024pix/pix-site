@@ -3,15 +3,15 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   url: null,
-  path: computed('url', function() {
+  internalLink: computed('url', function() {
     const doc = document.createElement('a');
     doc.href = this.url;
     if(doc.hostname === 'pix.fr') {
       return doc.pathname;
     }
   }),
-  useLinkTo: computed('path', function() {
-    return this.path && !this.path.includes('documents/');
+  inDocuments: computed('path', function() {
+    return this.internalLink && this.internalLink.indexOf('documents/') !== -1;
   }),
   linkClass: null,
   text: null,
