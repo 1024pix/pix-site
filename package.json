@@ -10,8 +10,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest",
-    "prettier": "prettier"
+    "test": "jest"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -36,5 +35,8 @@
     "prettier": "^1.16.4",
     "sass-loader": "^8.0.0",
     "vue-jest": "^4.0.0-0"
+  },
+  "engines": {
+    "node": "10.15.3"
   }
 }
