@@ -1,0 +1,131 @@
+$roboto: 'Roboto';
+$open-sans: 'Open Sans';
+
+.text-xs {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.text-s {
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.text-sm {
+  font-size: 16px;
+  line-height: 24px;
+
+  @include device-is('large-mobile') {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  @include device-is('tablet') {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.text-r {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.text-ms {
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.text-mm {
+  font-size: 18px;
+  line-height: 24px;
+
+  @include device-is('tablet') {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+}
+
+.text-ls {
+  font-size: 28px;
+  line-height: 38px;
+}
+
+.text-lm {
+  font-size: 36px;
+  line-height: 49px;
+}
+
+.text-ll {
+  font-size: 30px;
+  line-height: 38px;
+
+  @include device-is('tablet') {
+    font-size: 46px;
+    line-height: 62px;
+  }
+}
+
+.text-lxl {
+  font-size: 58px;
+  line-height: 68px;
+}
+
+.text-xl {
+  font-size: 48px;
+  line-height: 65px;
+}
+
+.text.text-up {
+  text-transform: uppercase;
+}
+
+.text.text-center {
+  text-align: center;
+}
+
+.text.text-left {
+  text-align: left;
+}
+
+.text.text-right {
+  text-align: right;
+}
+
+.text.text-white {
+  color: #fff;
+}
+
+.text.text-black {
+  color: $grey-1;
+}
+
+.text.text-black-l {
+  color: $grey-2;
+}
+
+.text.text-blue {
+  color: $blue-1;
+}
+
+.text.light {
+  font-weight: 300;
+}
+
+.text.italic {
+  font-style: italic;
+}
+
+.text.regular {
+  font-weight: 400;
+}
+
+.text.semi-bold {
+  font-weight: 600;
+}
+
+.text.bold {
+  font-weight: 700;
+}
+
