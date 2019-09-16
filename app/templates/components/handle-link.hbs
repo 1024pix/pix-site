@@ -1,9 +1,0 @@
-{{#if internalLink}}
-  {{#if inDocuments}}
-    <a href="{{internalLink}}" class="{{linkClass}}" target="{{target}}">{{{text}}}</a>
-  {{else}}
-    <LinkTo @route="{{as-route internalLink}}" class="{{linkClass}}">{{{text}}}</LinkTo>
-  {{/if}}
-{{else}}
-  <a href="{{url}}" class="{{linkClass}}" target="{{target}}">{{{text}}}</a>
-{{/if }}

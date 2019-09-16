@@ -1,8 +1,0 @@
-{{#if hotNews.news}}
-  {{#unless isClose}}
-    <div class="hot-news">
-      {{as-html hotNews.news.data.description}}
-      <img class="close" src="{{rootUrl}}/images/close-icon.svg" {{action "closeBanner"}}/>
-    </div>
-  {{/unless}}
-{{/if}}
