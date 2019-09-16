@@ -3,7 +3,7 @@
     <div class="container padding-container">
       <a
         v-for="item in organizationNavItems"
-        v-bind:key="item.id"
+        :key="item.id"
         class="text text-xs text-left text-up regular text-black"
         :href="item.primary.link.url"
       >
@@ -16,7 +16,12 @@
 <script>
 export default {
   components: {},
-  props: ['organizationNavItems']
+  props: {
+    organizationNavItems: {
+      type: Array,
+      default: null
+    }
+  }
 }
 </script>
 

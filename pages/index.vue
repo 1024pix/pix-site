@@ -1,7 +1,7 @@
 <template>
   <div class="index">
     <header>
-      <organization-nav :organizationNavItems="organizationNavItems" />
+      <organization-nav :organization-nav-items="organizationNavItems" />
     </header>
     <div></div>
   </div>
