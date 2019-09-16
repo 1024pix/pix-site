@@ -1,0 +1,32 @@
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+
+  &.flex {
+    display: flex;
+    flex-direction: column;
+
+    @include device-is('tablet') {
+      flex-direction: row;
+      flex-flow: row wrap;
+      justify-content: space-between;
+    }
+    .child {
+      flex: 1;
+    }
+  }
+
+  &.sm {
+    max-width: 600px;
+  }
+
+  &.md {
+    max-width: 900px;
+  }
+
+  &.padding-container {
+    padding: 0 20px;
+  }
+}
+
+
