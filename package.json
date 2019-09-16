@@ -10,7 +10,13 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "jest --passWithNoTests",
+    "release": "npm run release:minor",
+    "release:patch": "npm version patch -m \"Release v%s\"",
+    "release:minor": "npm version minor -m \"Release v%s\"",
+    "release:major": "npm version major -m \"Release v%s\"",
+    "preversion": "git checkout v2-dev && git pull --rebase && npm test",
+    "postversion": "git push && git checkout v2-master && git pull && git fetch -t && git merge v2-dev --no-edit && git push origin v2-master && git push --tags && git checkout v2-dev"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
