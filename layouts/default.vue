@@ -1,13 +1,6 @@
 <template>
   <div class="app-viewport">
-    <header class="app-header">
-      <div class="app-brand">
-        Pix | Site vitrine
-      </div>
-    </header>
-    <main class="app-body">
-      <nuxt />
-    </main>
+    <nuxt />
   </div>
 </template>
 
