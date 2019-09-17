@@ -8,9 +8,8 @@
 </template>
 
 <script>
-import Prismic from 'prismic-javascript'
-import PrismicConfig from '~/prismic.config.js'
 import OrganizationNav from '~/components/organization-nav'
+import DocumentFetcher from '~/services/document-fetcher'
 
 export default {
   components: {
@@ -19,8 +18,7 @@ export default {
 
   async asyncData({ context, error, req }) {
     try {
-      const api = await Prismic.getApi(PrismicConfig.apiEndpoint, { req })
-      const response = await api.getSingle('navigation')
+      const response = await DocumentFetcher.getNavigation()
       const organizationNavItems = response.data.body.filter(
         (body) => body.primary.type === 'organizations-nav'
       )
