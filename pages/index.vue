@@ -18,7 +18,7 @@ export default {
 
   async asyncData({ context, error, req }) {
     try {
-      const response = await DocumentFetcher.getNavigation()
+      const response = await DocumentFetcher().getNavigation()
       const organizationNavItems = response.data.body.filter(
         (body) => body.primary.type === 'organizations-nav'
       )
