@@ -65,7 +65,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'nuxt-i18n'
   ],
   styleResources: {
     scss: ['assets/scss/app.scss']
@@ -75,6 +76,10 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'fr'
+  },
   /*
    ** Build configuration
    */
