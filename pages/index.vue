@@ -17,8 +17,7 @@ export default {
   },
   async asyncData({ app, error }) {
     try {
-      const locale = app.i18n.locale || app.i18n.defaultLocale
-      const response = await DocumentFetcher(locale).getNavigation()
+      const response = await DocumentFetcher(app.i18n).getNavigation()
       const organizationNavItems = response.data.body.filter(
         (body) => body.primary.type === 'organizations-nav'
       )
