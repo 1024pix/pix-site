@@ -77,8 +77,8 @@ export default {
    */
   axios: {},
   i18n: {
-    locales: ['en', 'fr'],
-    defaultLocale: 'fr'
+    locales: ['en-gb', 'fr-fr'],
+    defaultLocale: 'fr-fr'
   },
   /*
    ** Build configuration

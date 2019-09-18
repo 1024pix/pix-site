@@ -15,10 +15,10 @@ export default {
   components: {
     OrganizationNav
   },
-
-  async asyncData({ context, error, req }) {
+  async asyncData({ app, error }) {
     try {
-      const response = await DocumentFetcher().getNavigation()
+      const locale = app.i18n.locale || app.i18n.defaultLocale
+      const response = await DocumentFetcher(locale).getNavigation()
       const organizationNavItems = response.data.body.filter(
         (body) => body.primary.type === 'organizations-nav'
       )
