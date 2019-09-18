@@ -1,5 +1,8 @@
 <template>
   <div class="nav-switch">
+    <div class="nav-switch__languages">
+      <language-dropdown></language-dropdown>
+    </div>
     <div class="container padding-container">
       <a
         v-for="item in organizationNavItems"
@@ -14,8 +17,11 @@
 </template>
 
 <script>
+import LanguageDropdown from '~/components/language-dropdown'
 export default {
-  components: {},
+  components: {
+    LanguageDropdown
+  },
   props: {
     organizationNavItems: {
       type: Array,
@@ -32,7 +38,7 @@ export default {
   background-color: $grey-3;
 
   @include device-is('tablet') {
-    display: block;
+    display: flex;
   }
 
   .container {
