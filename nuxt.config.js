@@ -22,7 +22,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css?family=Lato:300,400|Nunito:300,400,600,700&display=swap'
+          'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,400i|Roboto:400,500,600'
       }
     ],
     script: [
