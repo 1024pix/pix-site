@@ -1,19 +1,37 @@
 <template>
-  <div class="index">
-    <header>
-      <organization-nav :organization-nav-items="organizationNavItems" />
-    </header>
-    <div></div>
+  <div class="nav">
+    <div class="index app-navbar">
+      <header>
+        <organization-nav :organization-nav-items="organizationNavItems" />
+        <div class="nav-principal desktop">
+          <div class="container padding-container">
+            <nuxt-link to="/">
+              <img
+                alt="Accueil du site pix.fr"
+                class="logo"
+                src="/images/pix-logo.svg"
+              />
+            </nuxt-link>
+            <img alt="Logo de la Marianne" src="/images/marianne-logo.svg" />
+            <div class="desktop">
+              <main-nav :main-nav-items="mainNavItems" />
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
   </div>
 </template>
 
 <script>
 import OrganizationNav from '~/components/organization-nav'
+import MainNav from '~/components/main-nav'
 import DocumentFetcher from '~/services/document-fetcher'
 
 export default {
   components: {
-    OrganizationNav
+    OrganizationNav,
+    MainNav
   },
   async asyncData({ app, error }) {
     try {
@@ -21,8 +39,12 @@ export default {
       const organizationNavItems = response.data.body.filter(
         (body) => body.primary.type === 'organizations-nav'
       )
+      const mainNavItems = response.data.body.filter(
+        (body) => body.primary.type === 'main-nav'
+      )
       return {
-        organizationNavItems
+        organizationNavItems,
+        mainNavItems
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })

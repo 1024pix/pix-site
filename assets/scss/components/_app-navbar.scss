@@ -1,0 +1,90 @@
+.nav {
+
+  .nav-switch {
+    display: none;
+    height: 30px;
+    background-color: $grey-3;
+
+    @include device-is('tablet') {
+      display: block;
+    }
+
+    .container {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      flex-flow: row;
+      justify-content: flex-end;
+
+      span, a {
+        font-size: 12px;
+      }
+
+      a {
+        margin-left: 3px;
+        color: $grey-1 !important;
+        margin-right:18px;
+
+        &:hover {
+          color: $blue-1 !important;
+        }
+      }
+
+      div {
+        &:last-child {
+          a {
+            margin-right: 0;
+          }
+        }
+      }
+
+    }
+  }
+
+  .nav-principal {
+    background-color: $white;
+
+    a:hover {
+      color: $blue-1;
+    }
+
+    .switch {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .container {
+      height: 90px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 82px;
+      height: 62px;
+      margin-right: 18px;
+
+      @include device-is('tablet') {
+        margin-right: 35px;
+      }
+    }
+
+    .navigation {
+      display: flex;
+      flex-flow: row;
+      justify-content: flex-end;
+      width: 100%;
+      align-items: center;
+
+      .text-black {
+        margin-right: 38px;
+      }
+    }
+
+    .desktop {
+      width: 100%;
+    }
+  }
+}

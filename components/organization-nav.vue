@@ -31,45 +31,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.nav-switch {
-  display: none;
-  height: 30px;
-  background-color: $grey-3;
-
-  @include device-is('tablet') {
-    display: flex;
-  }
-
-  .container {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    flex-flow: row;
-    justify-content: flex-end;
-
-    span,
-    a {
-      font-size: 12px;
-    }
-
-    a {
-      margin-left: 3px;
-      color: $grey-1 !important;
-      margin-right: 18px;
-
-      &:hover {
-        color: $blue-1 !important;
-      }
-    }
-
-    div {
-      &:last-child {
-        a {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-}
-</style>
+<style></style>
