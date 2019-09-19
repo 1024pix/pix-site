@@ -32,10 +32,17 @@ export default {
   name: 'DropdownButton',
   props: {
     options: {
-      type: [Array, Object]
+      type: [Array, Object],
+      default: null
     },
-    selected: {},
-    placeholder: [String]
+    selected: {
+      type: Object,
+      default: null
+    },
+    placeholder: {
+      type: [String],
+      default: null
+    }
   },
   data() {
     return {
