@@ -9,6 +9,13 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
     },
     getMediation: () => {
       return getSingle('mediation')
+    },
+    getHigherEducation: async () => {
+      const api = await Prismic.getApi(PrismicConfig.apiEndpoint)
+      return api.getSingle('higher-education', {
+        fetchLinks: ['key_numbers.title', 'key_numbers.column'],
+        lang: language
+      })
     }
   }
 
