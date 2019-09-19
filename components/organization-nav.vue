@@ -1,17 +1,16 @@
 <template>
   <div class="nav-switch">
-    <div class="nav-switch__languages">
-      <language-dropdown></language-dropdown>
-    </div>
+    <language-dropdown></language-dropdown>
     <div class="container padding-container">
-      <a
+      <div
         v-for="item in organizationNavItems"
         :key="item.id"
         class="text text-xs text-left text-up regular text-black"
-        :href="item.primary.link.url"
       >
-        {{ $prismic.richTextAsPlain(item.primary.title) }}
-      </a>
+        <prismic-link :field="item.primary.link">
+          {{ $prismic.richTextAsPlain(item.primary.title) }}
+        </prismic-link>
+      </div>
     </div>
   </div>
 </template>
@@ -31,45 +30,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.nav-switch {
-  display: none;
-  height: 30px;
-  background-color: $grey-3;
-
-  @include device-is('tablet') {
-    display: flex;
-  }
-
-  .container {
-    height: 30px;
-    display: flex;
-    align-items: center;
-    flex-flow: row;
-    justify-content: flex-end;
-
-    span,
-    a {
-      font-size: 12px;
-    }
-
-    a {
-      margin-left: 3px;
-      color: $grey-1 !important;
-      margin-right: 18px;
-
-      &:hover {
-        color: $blue-1 !important;
-      }
-    }
-
-    div {
-      &:last-child {
-        a {
-          margin-right: 0;
-        }
-      }
-    }
-  }
-}
-</style>
+<style></style>

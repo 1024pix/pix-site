@@ -3,17 +3,7 @@
  */
 
 export default function(doc) {
-  if (doc.isBroken) {
-    return '/not-found'
+  if (doc.type === 'mediation') {
+    return `${doc.lang}/${doc.uid}`
   }
-
-  if (doc.type === 'index_page') {
-    return '/'
-  }
-
-  if (doc.type === 'post') {
-    return '/blog/' + doc.uid
-  }
-
-  return '/not-found'
 }
