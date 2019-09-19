@@ -1,6 +1,6 @@
 <template>
-  <div class="nav">
-    <div class="index app-navbar">
+  <div class="index">
+    <div class="nav">
       <header>
         <organization-nav :organization-nav-items="organizationNavItems" />
         <div class="nav-principal desktop">
