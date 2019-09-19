@@ -69,6 +69,12 @@ import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
 
 export default {
+  nuxtI18n: {
+    paths: {
+      'fr-fr': '/mediation-numerique',
+      'en-gb': '/digital-mediation'
+    }
+  },
   components: {
     SectionSlice,
     SectionColumnSlice
