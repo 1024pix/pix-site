@@ -352,6 +352,8 @@ export default {
         @include device-is('tablet') {
           flex-direction: row;
           margin-left: -15px;
+          max-width: 1140px;
+          margin: 0 auto;
         }
 
         .feature {
@@ -427,6 +429,8 @@ export default {
         @include device-is('tablet') {
           flex-direction: row;
           margin-left: -15px;
+          max-width: 1140px;
+          margin: 0 auto;
         }
 
         .feature {
@@ -500,7 +504,8 @@ export default {
 
         @include device-is('tablet') {
           flex-direction: row;
-          margin-left: -15px;
+          max-width: 1140px;
+          margin: 0 auto;
         }
 
         .feature {
