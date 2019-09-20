@@ -12,7 +12,7 @@ export default Component.extend({
     init() {
         this._super(...arguments);
         this.set('keynumbers', [{
-            number: '300 000',
+            number: '350 000',
             desc: 'comptes créés'
         }, {
             number: '28 millions',
@@ -21,7 +21,7 @@ export default Component.extend({
             number: '3 000',
             desc: 'parcours de tests passés'
         }, {
-            number: '48 000',
+            number: '50 000',
             desc: 'certifications Pix délivrées'
         }]);
     }
