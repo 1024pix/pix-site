@@ -10,20 +10,17 @@
       </div>
     </section>
 
-    <section class="partnerships">
-      <div class="container padding-container justify">
-        <div
-          v-for="(item, index) in document[1].items[0]"
-          :key="`item-${index}`"
-          class="column"
-        >
-          <prismic-rich-text :field="item.paragraph" />
-        </div>
-      </div>
-    </section>
+    <section-slice
+      :content="document[1]"
+      :section-class="'section-infos'"
+      :ul-class="'features'"
+      :li-class="'feature'"
+    >
+    </section-slice>
+
     <section-slice
       :content="document[2]"
-      :section-class="'diagnostic'"
+      :section-class="'section-mesurer'"
       :ul-class="'features'"
       :li-class="'feature'"
     >
@@ -34,13 +31,13 @@
       :section-class="'section-developper'"
       :ul-class="'features'"
       :li-class="'feature'"
-      :right-class="'certification-illustration'"
+      :right-class="'section-developper__image'"
     >
     </section-column-slice>
 
     <section-slice
       :content="document[4]"
-      :section-class="'prescription'"
+      :section-class="'section-valoriser'"
       :ul-class="'features'"
       :li-class="'feature'"
     >
@@ -50,9 +47,9 @@
       <prismic-rich-text :field="document[5].primary.title" />
       <div class="container">
         <div
-          class="column"
           v-for="(item, index) in document[5].items"
           :key="`item-${index}`"
+          class="column"
         >
           <prismic-rich-text :field="item.column_number" />
           <prismic-rich-text :field="item.column_title" />
@@ -71,9 +68,9 @@
       <prismic-rich-text :field="document[6].primary.title" />
       <div class="container">
         <div
-          class="column"
           v-for="(item, index) in document[6].items"
           :key="`item-${index}`"
+          class="column"
         >
           <div class="inner">
             <prismic-rich-text :field="item.card_title" />
@@ -90,9 +87,9 @@
         <prismic-rich-text :field="document[7].primary.title" />
         <div style="margin:auto;">
           <div
-            class="column mb-0-2"
             v-for="(item, index) in document[7].items"
             :key="`item-${index}`"
+            class="column mb-0-2"
           >
             <prismic-rich-text :field="item.card_title" />
             <prismic-rich-text :field="item.card_description" />
@@ -100,8 +97,7 @@
         </div>
       </div>
     </section>
-    <key-numbers :content="document[8].primary.ressources_content">
-    </key-numbers>
+    <key-numbers :content="keyNumbers"> </key-numbers>
   </div>
 </template>
 
@@ -109,24 +105,24 @@
 import DocumentFetcher from '~/services/document-fetcher'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
-import KeyNumbers from '~/components/slices/key-numbers'
+import KeyNumbers from '~/components/key-numbers'
 
 export default {
   name: 'HigherEducation',
+  nuxtI18n: {
+    paths: {
+      'fr-fr': '/enseignement-superieur',
+      'en-gb': '/higher-education'
+    }
+  },
   components: { KeyNumbers, SectionSlice, SectionColumnSlice },
   async asyncData({ app, error }) {
     try {
       const document = await DocumentFetcher(app.i18n).getHigherEducation()
-      console.log(
-        'body',
-        JSON.stringify(document.data.body[8].primary.ressources_content)
-      )
-      console.log(
-        'data',
-        JSON.stringify(document.data.body[8].primary.ressources_content.data)
-      )
+      const keyNumbers = await DocumentFetcher(app.i18n).getKeyNumbers()
       return {
-        document: document.data.body
+        document: document.data.body,
+        keyNumbers: keyNumbers.data
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -223,6 +219,10 @@ export default {
     }
   }
 
+  .center {
+    text-align: center;
+    display: block;
+  }
   section {
     position: relative;
 
@@ -269,33 +269,6 @@ export default {
       }
     }
 
-    .container-flex {
-      display: flex;
-      flex-direction: column;
-
-      @include device-is('tablet') {
-        flex-direction: row;
-        flex-flow: row wrap;
-        justify-content: space-between;
-      }
-    }
-
-    .container-column {
-      width: 100%;
-
-      .block-img {
-        height: 25px;
-
-        & > img {
-          width: 50px;
-        }
-      }
-
-      @include device-is('tablet') {
-        width: 50%;
-      }
-    }
-
     &.hero {
       height: 395px;
       overflow: hidden;
@@ -311,11 +284,11 @@ export default {
       .background {
         position: absolute;
         background: linear-gradient(
-            180deg,
-            rgba(18, 163, 255, 0.8) 0,
-            rgba(61, 104, 255, 0.8) 100%
+            135deg,
+            rgba(18, 163, 255, 0.7) 0,
+            rgba(61, 104, 255, 0.7) 100%
           ),
-          url('/images/bg-hero-mednum.jpg');
+          url('/images/background-hero-mobile-sup.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top center;
@@ -331,11 +304,11 @@ export default {
 
         @include device-is('tablet') {
           background: linear-gradient(
-              180deg,
-              rgba(18, 163, 255, 0.8) 0,
-              rgba(61, 104, 255, 0.8) 100%
+              135deg,
+              rgba(18, 163, 255, 0.7) 0,
+              rgba(61, 104, 255, 0.7) 100%
             ),
-            url('/images/bg-hero-mednum@2x.jpg');
+            url('/images/background-hero-sup.jpg');
           background-repeat: no-repeat;
           background-size: cover;
           background-position: top center;
@@ -353,53 +326,53 @@ export default {
       }
     }
 
-    &.partnerships {
-      h2 {
-        margin-bottom: 30px;
+    &.section-infos {
+      position: relative;
+      padding-top: 40px;
+      padding-bottom: 0;
+
+      @include device-is('large-mobile') {
+        padding-top: 50px;
+        padding-bottom: 0;
       }
 
-      background-color: $white;
+      @include device-is('tablet') {
+        padding-top: 80px;
+        padding-bottom: 0;
+      }
 
-      .partners {
-        .partner {
-          margin-bottom: 30px;
-
-          @include device-is('tablet') {
-            margin: 0 60px;
-          }
-
-          img {
-            margin-bottom: 20px;
-            max-width: 100%;
-
-            @include device-is('tablet') {
-              height: 100px;
-              margin-bottom: 10px;
-            }
-          }
-        }
+      .background {
+        background-color: $white;
       }
     }
 
-    &.diagnostic {
-      padding-bottom: 30px;
+    &.section-mesurer {
+      padding: 70px 20px 40px;
+
+      @include device-is('large-mobile') {
+        padding-left: 0;
+        padding-right: 0;
+      }
 
       @include device-is('tablet') {
-        padding-top: 90px;
-        padding-bottom: 80px;
+        padding-top: 140px;
+        padding-bottom: 90px;
       }
 
       h2 {
-        padding-bottom: 10px;
+        text-align: center;
+        margin-bottom: 16px;
       }
 
       h3 {
         text-align: center;
-        max-width: 760px;
-        margin: 0 auto 60px;
+        margin-bottom: 72px;
 
+        @include device-is('large-mobile') {
+          padding: 0 90px;
+        }
         @include device-is('tablet') {
-          margin-bottom: 90px;
+          padding: 0 0;
         }
       }
 
@@ -418,20 +391,228 @@ export default {
       }
     }
 
-    &.certification {
-      color: white;
-      padding: 30px 0 140px;
+    &.section-valoriser {
+      position: relative;
+      padding-top: 60px;
+      padding-bottom: 70px;
+      padding-left: 20px;
+      padding-right: 20px;
 
+      @include device-is('large-mobile') {
+        padding-left: 0;
+        padding-right: 0;
+      }
       @include device-is('tablet') {
-        height: 790px;
-        padding-bottom: 60px;
+        padding-top: 60px;
+        padding-bottom: 100px;
       }
 
-      .background {
+      h2 {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        text-align: center;
+        margin-bottom: 72px;
+
+        @include device-is('large-mobile') {
+          padding: 0 90px;
+        }
+        @include device-is('tablet') {
+          padding: 0 0;
+        }
+      }
+
+      a {
+        color: $blue-1;
+        text-decoration: underline;
+        font-weight: 600;
+
+        &:hover {
+          color: $pix-yellow;
+        }
+      }
+    }
+
+    &.section-utiliser-pix {
+      position: relative;
+      background: linear-gradient(
+          180deg,
+          rgba(18, 163, 255, 0.9) 0%,
+          rgba(61, 104, 255, 0.9) 100%
+        ),
+        url('/images/background-utiliser-pix.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      padding-top: 80px;
+      padding-bottom: 70px;
+      color: $white;
+
+      h2 {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .btn {
+        margin-top: 60px;
+      }
+
+      .container {
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      .column {
+        width: 100%;
+        padding: 0 20px;
+
+        @include device-is('large-mobile') {
+          width: 33.33%;
+          padding: 0 38px;
+        }
+        @include device-is('tablet') {
+          padding: 0 20px;
+        }
+
+        h3 {
+          font-weight: 300;
+          font-size: 58px;
+          line-height: 68px;
+          text-align: left;
+        }
+
+        h4 {
+          font-weight: 300;
+          text-align: left;
+          font-size: 28px;
+          line-height: 38px;
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          text-align: left;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          margin-bottom: 48px;
+
+          @include device-is('large-mobile') {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &.section-comment-ca-marche {
+      position: relative;
+      background: url('/images/background-comment-ca-marche.jpg') no-repeat
+        center center;
+      background-size: cover;
+      padding-top: 80px;
+      padding-bottom: 108px;
+
+      h2 {
+        margin-bottom: 60px;
+      }
+
+      .container {
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      .inner {
+        padding: 60px 22px;
+        background-color: white;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 15px 16px 0 rgba(12, 22, 58, 0.15),
+          0 3px 6px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .column {
+        width: 100%;
+        padding: 0 20px;
+
+        @include device-is('large-mobile') {
+          width: 33.33%;
+          padding: 0 10px;
+        }
+        @include device-is('tablet') {
+          padding: 0 10px;
+        }
+      }
+
+      .column:nth-child(1),
+      .column:nth-child(2) {
+        margin-bottom: 48px;
+
+        @include device-is('large-mobile') {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &.section-agenda {
+      position: relative;
+      overflow: hidden;
+      padding: 80px 20px;
+
+      @include device-is('large-mobile') {
+        padding: 0 0;
+      }
+
+      h2 {
+        margin-top: 32px;
+        font-weight: 400;
+        margin-bottom: 60px;
+        font-size: 28px;
+        line-height: 38px;
+      }
+
+      .container {
+        display: flex;
+        flex-flow: column;
+
+        @include device-is('large-mobile') {
+          padding: 80px 38px;
+        }
+        @include device-is('tablet') {
+          padding: 100px 0 160px 0;
+        }
+
+        .column {
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+          background-color: $white;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          padding: 20px 20px;
+
+          @include device-is('tablet') {
+            width: 760px;
+            padding: 26px 90px;
+          }
+
+          h4 {
+            margin-bottom: 6px;
+            font-weight: 600;
+            text-align: left;
+            font-size: 18px;
+            line-height: 24px;
+          }
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+
+      .hero-background {
         position: absolute;
-        background: linear-gradient(135.25deg, #985fff 0%, #388aff 100%);
-        transform: skewY(3deg);
-        transform-origin: bottom right;
         z-index: -1;
         top: 0;
         bottom: 0;
@@ -439,23 +620,96 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
+        background-color: $grey-3;
+        transform: skewY(-3deg);
+        transform-origin: top left;
+      }
+    }
+
+    &.section-developper {
+      position: relative;
+      padding: 60px 0 70px 0;
+      color: $white;
+
+      @include device-is('large-mobile') {
+        padding: 100px 0 100px 0;
+      }
+      @include device-is('tablet') {
+        padding: 100px 0 180px 0;
       }
 
       h2 {
         text-align: left;
-        padding-top: 0;
+      }
 
+      h3 {
+        text-align: left;
+      }
+
+      .container {
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+        padding: 0 20px;
+
+        @include device-is('large-mobile') {
+          padding: 0 38px;
+          flex-flow: row;
+        }
         @include device-is('tablet') {
-          margin-top: 30px;
+          padding: 0 0;
+        }
+
+        .txt {
+          display: flex;
+          flex-flow: column;
+
+          @include device-is('large-mobile') {
+            flex-flow: row;
+            width: 600px;
+          }
+        }
+
+        .column {
+          @include device-is('large-mobile') {
+            padding: 0 0 0 46px;
+          }
+          @include device-is('tablet') {
+            padding: 60px 46px;
+          }
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 0 0 0 0;
+          margin-bottom: 24px;
+
+          @include device-is('large-mobile') {
+            margin-bottom: 0;
+          }
+        }
+
+        a {
+          color: $white;
+          text-decoration: underline;
+          font-weight: 600;
         }
       }
 
-      h4 {
-        font-weight: 600;
-      }
-
-      p {
-        font-weight: 400;
+      .background {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135.25deg, #388aff 0%, #985fff 100%);
+        transform: skewY(3deg);
+        transform-origin: bottom right;
       }
 
       .features {
@@ -467,414 +721,69 @@ export default {
           margin-top: 30px;
 
           @include device-is('tablet') {
-            margin-top: 60px;
+            margin-top: 40px;
           }
-        }
-      }
-
-      .certification-illustration {
-        background: url(/images/certif-illustration.png);
-        background-repeat: no-repeat;
-        display: block;
-        height: 240px;
-        width: 200px;
-        content: ' ';
-        background-size: 100%;
-        position: absolute;
-        left: 20%;
-
-        @include device-is('tablet') {
-          display: block;
-          background: url('/images/certif-illustration@2x.png');
-          background-repeat: no-repeat;
-          background-size: 100%;
-          position: absolute;
-          top: 40px;
-          left: auto;
-          height: 100%;
-          width: 600px;
-          max-width: 50%;
-        }
-      }
-    }
-
-    &.prescription {
-      padding-top: 140px;
-      padding-bottom: 0;
-      margin-top: -30px;
-
-      @include device-is('tablet') {
-        margin-top: -90px;
-        padding-top: 60px;
-      }
-
-      h2 {
-        padding-bottom: 10px;
-      }
-
-      h3 {
-        text-align: center;
-        max-width: 760px;
-        margin: 0 auto 60px;
-
-        @include device-is('tablet') {
-          margin-bottom: 90px;
-        }
-      }
-
-      .background {
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        transform: skewY(-3deg);
-        transform-origin: top left;
-      }
-    }
-
-    &.abc-pix {
-      padding: 0;
-      margin-bottom: 90px;
-
-      img {
-        display: block;
-      }
-
-      h2 {
-        color: white;
-        text-align: left;
-        padding-top: 0;
-
-        @include device-is('tablet') {
-          margin-bottom: 40px;
-        }
-      }
-
-      h4 {
-        font-weight: 600;
-        text-transform: uppercase;
-      }
-
-      p {
-        font-size: 1.125rem;
-        line-height: 1.875rem;
-        font-weight: 400;
-        margin-bottom: 40px;
-        max-width: 430px;
-      }
-
-      .trapeze {
-        background: linear-gradient(to right, #ffbe00 0%, #ff9f00 100%);
-        border-radius: 20px;
-        padding: 15px;
-        padding-bottom: 0;
-
-        @include device-is('tablet') {
-          padding: 70px;
-        }
-      }
-
-      .info {
-        &:before {
-          display: block;
-          content: ' ';
-          margin: 30px auto;
-
-          @include device-is('tablet') {
-            position: absolute;
-            display: inline-block;
-          }
-        }
-
-        .info__body {
-          @include device-is('tablet') {
-            padding-left: 74px;
-          }
-        }
-      }
-
-      .info--experiment {
-        &:before {
-          background: url('/images/experiment-results-icon.svg') no-repeat;
-          width: 51px;
-          height: 65px;
-        }
-      }
-
-      .info--forthcoming {
-        &:before {
-          background: url('/images/a-venir-icon.svg') no-repeat;
-          width: 64px;
-          height: 64px;
         }
       }
     }
   }
 
-  .section-utiliser-pix {
-    position: relative;
-    background: linear-gradient(
-        180deg,
-        rgba(18, 163, 255, 0.9) 0%,
-        rgba(61, 104, 255, 0.9) 100%
-      ),
-      url('/images/background-utiliser-pix.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    padding-top: 80px;
-    padding-bottom: 70px;
-    color: $white;
+  .key-numbers {
+    &__title {
+      margin-bottom: 60px;
+      text-align: center;
+      font-size: 36px;
+      line-height: 49px;
+      color: $grey-1;
+    }
 
-    .container {
+    &__list {
       display: flex;
       flex-flow: row wrap;
-    }
-
-    .column {
-      width: 100%;
-      padding: 0 20px;
-
-      @include device-is('large-mobile') {
-        width: 33.33%;
-        padding: 0 38px;
-      }
-      @include device-is('tablet') {
-        padding: 0 20px;
-      }
-
-      &:nth-child(1),
-      &:nth-child(2) {
-        margin-bottom: 48px;
-
-        @include device-is('large-mobile') {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-
-  .section-comment-ca-marche {
-    position: relative;
-    background: url('/images/background-comment-ca-marche.jpg') no-repeat center
-      center;
-    background-size: cover;
-    padding-top: 80px;
-    padding-bottom: 108px;
-
-    .container {
-      display: flex;
-      flex-flow: row wrap;
-    }
-
-    .inner {
-      padding: 60px 22px;
-      background-color: white;
-      min-height: 300px;
-      border-radius: 10px;
-      box-shadow: 0 15px 16px 0 rgba(12, 22, 58, 0.15),
-        0 3px 6px 0 rgba(0, 0, 0, 0.1);
-    }
-
-    .column {
-      width: 100%;
-      padding: 0 20px;
-
-      @include device-is('large-mobile') {
-        width: 33.33%;
-        padding: 0 10px;
-      }
-      @include device-is('tablet') {
-        padding: 0 10px;
-      }
-    }
-
-    .column:nth-child(1),
-    .column:nth-child(2) {
-      margin-bottom: 48px;
-
-      @include device-is('large-mobile') {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .section-agenda {
-    position: relative;
-    overflow: hidden;
-    padding: 80px 20px;
-
-    @include device-is('large-mobile') {
-      padding: 0 0;
-    }
-
-    .container {
-      display: flex;
-      flex-flow: column;
-
-      @include device-is('large-mobile') {
-        padding: 80px 38px;
-      }
-      @include device-is('tablet') {
-        padding: 100px 0 160px 0;
-      }
-
-      .column {
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        background-color: $white;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        padding: 20px 20px;
-
-        @include device-is('tablet') {
-          width: 760px;
-          padding: 26px 90px;
-        }
-      }
-    }
-
-    .hero-background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $grey-3;
-      transform: skewY(-3deg);
-      transform-origin: top left;
-    }
-  }
-
-  .section-developper {
-    position: relative;
-    padding: 60px 0 70px 0;
-    color: $white;
-
-    @include device-is('large-mobile') {
-      padding: 100px 0 100px 0;
-    }
-    @include device-is('tablet') {
-      padding: 100px 0 180px 0;
-    }
-
-    .box {
-      width: 100%;
-      @include device-is('large-mobile') {
-        width: 471px;
-        height: 581px;
-      }
-    }
-
-    .margin-top {
-      margin-top: 48px;
-
-      @include device-is('large-mobile') {
-        margin-top: 0;
-      }
-    }
-
-    .column-sup {
-      @include device-is('large-mobile') {
-        padding: 0 43px 0 0;
-      }
-      @include device-is('tablet') {
-        padding: 0 46px;
-      }
-    }
-
-    .title-top {
       max-width: 1140px;
-      margin: auto;
-      margin-bottom: 64px;
-      padding-left: 20px;
-
-      @include device-is('large-mobile') {
-        padding-left: 38px;
-      }
-      @include device-is('tablet') {
-        padding-left: 46px;
-      }
-    }
-
-    .container {
-      display: flex;
-      flex-flow: column;
+      margin: 0 auto;
       padding: 0 20px;
+    }
+  }
+
+  .key-number {
+    &__item {
+      margin-bottom: 30px;
 
       @include device-is('large-mobile') {
-        padding: 0 38px;
-        flex-flow: row;
+        width: 50%;
       }
+
       @include device-is('tablet') {
-        padding: 0 0;
-      }
-
-      .txt {
-        display: flex;
-        flex-flow: column;
-
-        @include device-is('large-mobile') {
-          flex-flow: row;
-          width: 600px;
-        }
-      }
-
-      .column {
-        @include device-is('large-mobile') {
-          padding: 0 0 0 46px;
-        }
-        @include device-is('tablet') {
-          padding: 60px 46px;
-        }
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 0 0 0 0;
-        margin-bottom: 24px;
-
-        @include device-is('large-mobile') {
-          margin-bottom: 0;
-        }
+        width: 25%;
+        margin-bottom: inherit;
       }
     }
 
-    .background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135.25deg, #388aff 0%, #985fff 100%);
-      transform: skewY(3deg);
-      transform-origin: bottom right;
+    &__value {
+      font-weight: 600;
+      color: $blue-1;
+      text-align: center;
+      font-size: 36px;
+      line-height: 65px;
+
+      @media (min-width: 960px) {
+        font-size: 42px;
+      }
     }
 
-    .features {
-      display: flex;
-      flex-direction: column;
+    &__description {
+      color: $grey-1;
+      text-align: center;
 
-      .feature {
-        text-align: left;
-        margin-top: 30px;
+      @include device-is('large-mobile') {
+        font-size: 14px;
+        line-height: 19px;
+      }
 
-        @include device-is('tablet') {
-          margin-top: 60px;
-        }
+      @include device-is('tablet') {
+        font-size: 16px;
+        line-height: 24px;
       }
     }
   }
