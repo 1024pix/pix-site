@@ -16,7 +16,9 @@
         </ul>
       </div>
       <div class="container-column">
-        <div :class="rightClass"></div>
+        <div :class="rightClass">
+          <prismic-image :field="image"></prismic-image>
+        </div>
       </div>
     </div>
   </section>
@@ -56,6 +58,9 @@ export default {
     },
     description() {
       return this.content.primary.description
+    },
+    image() {
+      return this.content.primary.image
     }
   }
 }
