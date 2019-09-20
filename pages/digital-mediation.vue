@@ -13,15 +13,15 @@
     <section-slice
       :content="document[1]"
       :section-class="'partnerships'"
-      :ul-class="'partners'"
-      :li-class="'partner'"
+      :flex-container-class="'partners'"
+      :flex-content-class="'partner'"
     ></section-slice>
 
     <section-slice
       :content="document[2]"
       :section-class="'diagnostic'"
-      :ul-class="'features'"
-      :li-class="'feature'"
+      :flex-container-class="'features'"
+      :flex-content-class="'feature'"
     >
     </section-slice>
 
@@ -37,8 +37,8 @@
     <section-slice
       :content="document[4]"
       :section-class="'prescription'"
-      :ul-class="'features'"
-      :li-class="'feature'"
+      :flex-container-class="'features'"
+      :flex-content-class="'feature'"
     >
     </section-slice>
 

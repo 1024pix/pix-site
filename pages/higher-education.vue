@@ -13,16 +13,16 @@
     <section-slice
       :content="document[1]"
       :section-class="'section-infos'"
-      :ul-class="'features'"
-      :li-class="'feature'"
+      :flex-container-class="'features'"
+      :flex-content-class="'feature'"
     >
     </section-slice>
 
     <section-slice
       :content="document[2]"
       :section-class="'section-mesurer'"
-      :ul-class="'features'"
-      :li-class="'feature'"
+      :flex-container-class="'features'"
+      :flex-content-class="'feature'"
     >
     </section-slice>
 
@@ -38,8 +38,8 @@
     <section-slice
       :content="document[4]"
       :section-class="'section-valoriser'"
-      :ul-class="'features'"
-      :li-class="'feature'"
+      :flex-container-class="'features'"
+      :flex-content-class="'feature'"
     >
     </section-slice>
 
@@ -344,6 +344,35 @@ export default {
       .background {
         background-color: $white;
       }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+
+        @include device-is('tablet') {
+          flex-direction: row;
+          margin-left: -15px;
+        }
+
+        .feature {
+          display: block;
+          text-align: left;
+          margin-bottom: 15px;
+
+          @include device-is('tablet') {
+            margin-bottom: 0;
+            padding-left: 15px;
+            min-width: 50%;
+            max-width: 50%;
+          }
+
+          p {
+            @include device-is('tablet') {
+              min-height: 140px;
+            }
+          }
+        }
+      }
     }
 
     &.section-mesurer {
@@ -389,6 +418,36 @@ export default {
         transform: skewY(-3deg);
         transform-origin: bottom right;
       }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        @include device-is('tablet') {
+          flex-direction: row;
+          margin-left: -15px;
+        }
+
+        .feature {
+          display: block;
+          text-align: left;
+          margin-bottom: 15px;
+
+          @include device-is('tablet') {
+            margin-bottom: 0;
+            padding-left: 15px;
+            min-width: 50%;
+            max-width: 50%;
+          }
+
+          p {
+            @include device-is('tablet') {
+              min-height: 140px;
+            }
+          }
+        }
+      }
     }
 
     &.section-valoriser {
@@ -431,6 +490,36 @@ export default {
 
         &:hover {
           color: $pix-yellow;
+        }
+      }
+
+      .features {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        @include device-is('tablet') {
+          flex-direction: row;
+          margin-left: -15px;
+        }
+
+        .feature {
+          display: block;
+          text-align: left;
+          margin-bottom: 15px;
+
+          @include device-is('tablet') {
+            margin-bottom: 0;
+            padding-left: 15px;
+            min-width: 50%;
+            max-width: 50%;
+          }
+
+          p {
+            @include device-is('tablet') {
+              min-height: 140px;
+            }
+          }
         }
       }
     }

@@ -148,7 +148,7 @@
       .block-img {
         height: 25px;
 
-        &>img {
+        & > img {
           width: 50px;
         }
       }
@@ -223,11 +223,20 @@
       background-color: $white;
 
       .partners {
+        display: flex;
+        flex-flow: column;
+
+        @include device-is('large-mobile') {
+          flex-flow: row wrap;
+        }
+
         .partner {
+          width: 100%;
           margin-bottom: 30px;
 
           @include device-is('tablet') {
-            margin: 0 60px;
+            width: 50%;
+            padding: 0 50px;
           }
 
           img {
@@ -277,6 +286,25 @@
         background: $grey-3;
         transform: skewY(-3deg);
         transform-origin: bottom right;
+      }
+
+      .features {
+        display: flex;
+        flex-flow: column;
+
+        @include device-is('large-mobile') {
+          flex-flow: row wrap;
+        }
+
+        .feature {
+          width: 100%;
+          margin-bottom: 30px;
+
+          @include device-is('tablet') {
+            width: 50%;
+            padding: 0 50px;
+          }
+        }
       }
     }
 
@@ -397,6 +425,25 @@
         transform: skewY(-3deg);
         transform-origin: top left;
       }
+
+      .features {
+        display: flex;
+        flex-flow: column;
+
+        @include device-is('large-mobile') {
+          flex-flow: row wrap;
+        }
+
+        .feature {
+          width: 100%;
+          margin-bottom: 30px;
+
+          @include device-is('tablet') {
+            width: 50%;
+            padding: 0 50px;
+          }
+        }
+      }
     }
 
     &.abc-pix {
@@ -439,7 +486,6 @@
         @include device-is('tablet') {
           padding: 70px;
         }
-
       }
 
       .info {

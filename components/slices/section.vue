@@ -1,19 +1,17 @@
 <template>
   <section :class="sectionClass">
     <div class="background"></div>
-    <div class="container padding-container">
+    <div :class="containerClass">
       <prismic-rich-text :field="title" />
       <prismic-rich-text :field="description" />
-      <div class="features-wrapper">
-        <ul :class="ulClass">
-          <li
-            v-for="(item, index) in paragraphs"
-            :key="`item-${index}`"
-            :class="liClass"
-          >
-            <prismic-rich-text :field="item.paragraph" />
-          </li>
-        </ul>
+      <div :class="flexContainerClass">
+        <div
+          v-for="(item, index) in paragraphs"
+          :key="`item-${index}`"
+          :class="flexContentClass"
+        >
+          <prismic-rich-text :field="item.paragraph" />
+        </div>
       </div>
     </div>
   </section>
@@ -31,11 +29,15 @@ export default {
       type: String,
       default: ''
     },
-    ulClass: {
+    containerClass: {
       type: String,
       default: ''
     },
-    liClass: {
+    flexContainerClass: {
+      type: String,
+      default: ''
+    },
+    flexContentClass: {
       type: String,
       default: ''
     }
