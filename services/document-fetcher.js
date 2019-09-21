@@ -15,6 +15,9 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
     },
     getKeyNumbers: () => {
       return getSingle('key_numbers')
+    },
+    getEmployers: () => {
+      return getSingle('employers')
     }
   }
 
