@@ -1,44 +1,52 @@
 <template>
-  <section class="hero">
-    <div class="hero-background gradient-pro"></div>
-    <div class="container padding-container">
-      <prismic-rich-text :field="document[0].primary.title" />
-      <a class="btn" :href="document[0].items[0].link_button">
-        {{ $prismic.richTextAsPlain(document[0].items[0].title_button) }}
+  <section :class="sectionClass">
+    <div :class="backgroundClass"></div>
+    <div :class="contentClass">
+      <prismic-rich-text :field="title" />
+      <a :class="buttonClass" :href="buttonLink">
+        {{ $prismic.richTextAsPlain(buttonText) }}
       </a>
     </div>
   </section>
 </template>
 
 <script>
-  export default {
-    name: "HeroBanner",
-    props: {
-      sectionClass: {
-        type: String,
-        default: ''
-      },
-      contentClass: {
-        type: String,
-        default: ''
-      },
-      buttonClass: {
-        type: String,
-        default: ''
-      }
+export default {
+  name: 'HeroBanner',
+  props: {
+    content: {
+      type: Object,
+      default: null
     },
-    computed: {
-      title() {
-        return this.content.primary.title
-      },
-      linkButton() {
-        return this.content.primary.link_button
-      },
-
+    sectionClass: {
+      type: String,
+      default: ''
+    },
+    backgroundClass: {
+      type: String,
+      default: ''
+    },
+    contentClass: {
+      type: String,
+      default: ''
+    },
+    buttonClass: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    title() {
+      return this.content.primary.title
+    },
+    buttonLink() {
+      return this.content.primary.button_link
+    },
+    buttonText() {
+      return this.content.primary.button_title
     }
   }
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
