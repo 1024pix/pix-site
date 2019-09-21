@@ -13,6 +13,9 @@
           <prismic-rich-text :field="item.paragraph" />
         </div>
       </div>
+      <a v-if="buttonText" :href="buttonLink" :class="buttonClass">
+        {{ $prismic.richTextAsPlain(buttonText) }}
+      </a>
     </div>
   </section>
 </template>
@@ -40,6 +43,10 @@ export default {
     flexContentClass: {
       type: String,
       default: ''
+    },
+    buttonClass: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -51,6 +58,12 @@ export default {
     },
     description() {
       return this.content.primary.description
+    },
+    buttonLink() {
+      return this.content.primary.button_link
+    },
+    buttonText() {
+      return this.content.primary.button_title
     }
   }
 }
