@@ -24,7 +24,8 @@
     "nuxt-i18n": "^6.2.1",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
-    "prismic-vue": "git+https://github.com/prismicio/prismic-vue.git#nuxt"
+    "prismic-vue": "git+https://github.com/prismicio/prismic-vue.git#nuxt",
+    "vue-burger-menu": "2.0.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
