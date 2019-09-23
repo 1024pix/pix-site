@@ -6,7 +6,7 @@
     background-color: $grey-3;
 
     @include device-is('tablet') {
-      display: block;
+      display: flex;
     }
 
     .container {
