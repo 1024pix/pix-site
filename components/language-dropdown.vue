@@ -38,6 +38,7 @@ export default {
   methods: {
     languageDidChange(selectedLocale) {
       const page = this.switchLocalePath(selectedLocale.lang)
+      this.$moment.locale('en')
       this.$router.push(page)
     }
   }
