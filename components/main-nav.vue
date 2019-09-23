@@ -6,18 +6,8 @@
       class="text text-s text-left regular text-black"
       :href="item.primary.link.url"
     >
-      {{ $prismic.richTextAsPlain(item.primary.title) }}
+      <prismic-rich-text :field="item.primary.title" />
     </a>
-    <div>
-      <a
-        class="text text-s text-left regular text-black"
-        href="https://app.pix.fr/"
-        >Se connecter</a
-      >
-    </div>
-    <div>
-      <a class="btn-nav" href="https://app.pix.fr/inscription">S'inscrire</a>
-    </div>
   </div>
 </template>
 
