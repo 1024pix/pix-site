@@ -18,6 +18,9 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
     },
     getEmployers: () => {
       return getSingle('employers')
+    },
+    getSchoolEducation: () => {
+      return getSingle('school-education')
     }
   }
 
