@@ -2,6 +2,9 @@
   <section :class="sectionClass">
     <div class="background"></div>
     <div :class="containerClass">
+      <template v-if="image.url">
+        <prismic-image :field="image" />
+      </template>
       <prismic-rich-text :field="title" />
       <prismic-rich-text :field="description" />
       <div :class="flexContainerClass">
@@ -55,6 +58,9 @@ export default {
     },
     title() {
       return this.content.primary.title
+    },
+    image() {
+      return this.content.primary.logo
     },
     description() {
       return this.content.primary.description
