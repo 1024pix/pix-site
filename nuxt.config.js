@@ -67,8 +67,12 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/moment'
   ],
+  moment: {
+    locales: ['fr']
+  },
   styleResources: {
     scss: ['assets/scss/app.scss']
   },
@@ -78,8 +82,19 @@ export default {
    */
   axios: {},
   i18n: {
-    locales: ['en-gb', 'fr-fr'],
-    defaultLocale: 'fr-fr'
+    defaultLocale: 'fr-fr',
+    locales: [
+      {
+        code: 'en-gb',
+        file: 'en-gb.js'
+      },
+      {
+        code: 'fr-fr',
+        file: 'fr-fr.js'
+      }
+    ],
+    lazy: true,
+    langDir: 'lang/'
   },
   /*
    ** Build configuration
