@@ -1,0 +1,157 @@
+<template>
+  <div>
+    <nav class="nav-top">
+      <ul>
+        <li v-for="item in topItems" :key="item.id" class="nav-top__link">
+          <a :href="item.primary.link.url">
+            {{ $prismic.richTextAsPlain(item.primary.title) }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-bottom">
+      <hr class="nav-bottom__bar" />
+      <ul>
+        <li v-for="item in bottomItems" :key="item.id" class="nav-bottom__link">
+          <a :href="item.primary.link.url">
+            {{ $prismic.richTextAsPlain(item.primary.title) }}
+            <span class="show-page-icon">&gt;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'BurgerMenuNav',
+  props: {
+    topItems: {
+      type: Array,
+      default: null
+    },
+    bottomItems: {
+      type: Array,
+      default: null
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+.bm-menu {
+  background: linear-gradient(134.72deg, $blue-2 0%, $blue-1 100%);
+  padding-top: 0;
+
+  @include device-is('tablet') {
+    display: none;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+
+    & > li {
+      padding-left: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .nav-top {
+    &__link {
+      font-weight: 600;
+      color: $white;
+      text-align: left;
+      margin-bottom: 12px;
+    }
+
+    a {
+      text-decoration: none;
+      display: block;
+      transition: 0.3s;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      color: $white;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .nav-bottom {
+    position: absolute;
+    bottom: 40px;
+
+    &__link {
+      font-weight: 400;
+      color: $white;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .show-page-icon {
+      font-size: 10px;
+      margin-left: 5px;
+    }
+
+    &__bar {
+      margin-bottom: 12px;
+    }
+
+    hr {
+      width: 180px;
+      height: 1px;
+      opacity: 0.5;
+      border: 1px solid #dddddd;
+      -webkit-border-radius: 0px;
+      -moz-border-radius: 0px;
+      border-radius: 0px;
+      display: inline-block;
+    }
+
+    a {
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      transition: 0.3s;
+      font-size: 12px;
+      line-height: 17px;
+      color: $white;
+    }
+  }
+
+  .nav-top a:hover,
+  .nav-bottom a:hover {
+    text-decoration: underline;
+  }
+}
+
+.bm-burger-bars {
+  background-color: $grey-1;
+}
+
+.bm-burger-button {
+  @include device-is('tablet') {
+    display: none;
+  }
+}
+
+.bm-cross {
+  background: $grey-1;
+  height: 24px !important;
+}
+
+.bm-item-list {
+  margin-left: 0;
+  padding: 0 25px;
+
+  & > * {
+    padding: 0;
+  }
+}
+</style>
