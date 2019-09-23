@@ -222,6 +222,15 @@
 
       background-color: $white;
 
+      .container {
+        width: 100%;
+
+        @include device-is('tablet') {
+          max-width: 1140px;
+          margin: 0 auto;
+        }
+      }
+
       .partners {
         display: flex;
         flex-flow: column;
@@ -286,6 +295,15 @@
         background: $grey-3;
         transform: skewY(-3deg);
         transform-origin: bottom right;
+      }
+
+      .container {
+        width: 100%;
+
+        @include device-is('tablet') {
+          max-width: 1140px;
+          margin: 0 auto;
+        }
       }
 
       .features {
@@ -424,6 +442,15 @@
         background: white;
         transform: skewY(-3deg);
         transform-origin: top left;
+      }
+
+      .container {
+        width: 100%;
+
+        @include device-is('tablet') {
+          max-width: 1140px;
+          margin: 0 auto;
+        }
       }
 
       .features {

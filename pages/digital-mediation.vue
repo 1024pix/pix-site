@@ -13,6 +13,7 @@
     <section-slice
       :content="document[1]"
       :section-class="'partnerships'"
+      :container-class="'container'"
       :flex-container-class="'partners'"
       :flex-content-class="'partner'"
     ></section-slice>
@@ -20,6 +21,7 @@
     <section-slice
       :content="document[2]"
       :section-class="'diagnostic'"
+      :container-class="'container'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
     >
@@ -37,6 +39,7 @@
     <section-slice
       :content="document[4]"
       :section-class="'prescription'"
+      :container-class="'container'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
     >
