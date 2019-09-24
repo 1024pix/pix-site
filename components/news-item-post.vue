@@ -17,6 +17,7 @@
     <div class="news-item-post__body">
       <div class="news-item-post__excerpt">
         <prismic-rich-text :field="newsItem.data.body" />
+        <slice-zone :slices="newsItem.data.slices" />
       </div>
     </div>
     <footer class="news-item-post__footer"></footer>
@@ -24,9 +25,11 @@
 </template>
 
 <script>
+import SliceZone from '~/components/slices/slice-zone'
 
 export default {
   name: 'NewsItemPost',
+  components: { SliceZone },
   props: {
     newsItem: {
       type: Object,
