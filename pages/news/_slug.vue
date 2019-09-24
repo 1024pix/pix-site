@@ -3,6 +3,7 @@
     <div class="page-banner-layout">
       <div class="page-banner"></div>
       <div class="container padding-container page-banner-content">
+        <news-item-post :news-item="newsItem" />
       </div>
     </div>
   </div>
@@ -10,6 +11,7 @@
 
 <script>
 import DocumentFetcher from '~/services/document-fetcher'
+import NewsItemPost from '~/components/news-item-post'
 
 export default {
   nuxtI18n: {
@@ -17,6 +19,9 @@ export default {
       'fr-fr': '/actualites/:slug',
       'en-gb': '/news/:slug'
     }
+  },
+  components: {
+    NewsItemPost
   },
   async asyncData({ params, app, error }) {
     try {
