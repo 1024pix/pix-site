@@ -12,6 +12,7 @@
 <script>
 import DocumentFetcher from '~/services/document-fetcher'
 import NewsItemPost from '~/components/news-item-post'
+import getMeta from '~/services/meta-builder'
 
 export default {
   nuxtI18n: {
@@ -23,14 +24,26 @@ export default {
   components: {
     NewsItemPost
   },
-  async asyncData({ params, app, error }) {
+  async asyncData({ params, app, req, error, route }) {
+    const host = req ? req.headers.host : window.location.host
+    const currentPagePath = `${host}${route.path}`
     try {
       const newsItem = await DocumentFetcher(app.i18n).getNewsItemByUid(
         params.slug
       )
-      return { newsItem }
+      return { currentPagePath, newsItem }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  head() {
+    const meta = getMeta(
+      this.newsItem.data.meta,
+      this.currentPagePath,
+      this.$prismic
+    )
+    return {
+      meta
     }
   }
 }
