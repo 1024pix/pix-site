@@ -5,5 +5,7 @@ export default {
   engineering: 'Engineering',
   event: 'Event',
   feature: 'Feature',
-  society: 'Society'
+  society: 'Society',
+  'about-title': 'About',
+  'resources-title': 'Resources'
 }

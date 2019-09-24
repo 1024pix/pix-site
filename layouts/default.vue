@@ -2,6 +2,7 @@
   <div class="app-viewport" id="app">
     <header-nav />
     <nuxt />
+    <app-footer />
   </div>
 </template>
 
@@ -74,8 +75,9 @@ h6 {
 }
 </style>
 <script>
+import AppFooter from '~/components/app-footer'
 import HeaderNav from '~/components/header-nav'
 export default {
-  components: { HeaderNav }
+  components: { AppFooter, HeaderNav }
 }
 </script>
