@@ -4,7 +4,9 @@ export const state = () => ({
   organizationNavItems: [],
   mainNavItems: [],
   topItems: [],
-  bottomItems: []
+  bottomItems: [],
+  resourcesNavItems: [],
+  aboutNavItems: []
 })
 export const actions = {
   async nuxtServerInit({ state }, { app }) {
@@ -18,5 +20,7 @@ export const actions = {
     state.mainNavItems = navItems(response, 'main-nav')
     state.topItems = navItems(response, 'burger-menu-top')
     state.bottomItems = navItems(response, 'burger-menu-bottom')
+    state.resourcesNavItems = navItems(response, 'ressources-nav')
+    state.aboutNavItems = navItems(response, 'about-nav')
   }
 }
