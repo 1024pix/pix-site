@@ -1,5 +1,6 @@
 <template>
-  <div class="app-viewport">
+  <div class="app-viewport" id="app">
+    <header-nav />
     <nuxt />
   </div>
 </template>
@@ -72,3 +73,9 @@ h6 {
   background-color: #35495e;
 }
 </style>
+<script>
+import HeaderNav from '~/components/header-nav'
+export default {
+  components: { HeaderNav }
+}
+</script>
