@@ -15,6 +15,7 @@
             v-for="(item, index) in newsItems"
             :key="`item-${index}`"
             :content="item.data"
+            :uid="item.uid"
           />
         </template>
         <template v-else>

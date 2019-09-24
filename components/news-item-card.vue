@@ -1,6 +1,9 @@
 <template>
   <div class="news-item-card">
-    <a class="news-item-card__link">
+    <nuxt-link
+      class="news-item-card__link"
+      :to="localePath({ name: 'news-slug', params: { slug: uid } })"
+    >
       <header class="news-item-card__header">
         <!-- /!\ We keep this line if we think that an image would be better -->
         <div
@@ -30,7 +33,7 @@
           class="news-item-card__excerpt"
         />
       </div>
-    </a>
+    </nuxt-link>
   </div>
 </template>
 
@@ -40,6 +43,10 @@ export default {
   props: {
     content: {
       type: Object,
+      default: null
+    },
+    uid: {
+      type: String,
       default: null
     }
   },

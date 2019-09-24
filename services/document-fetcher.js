@@ -34,6 +34,14 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
         }
       )
       return documents.results
+    },
+    getNewsItemByUid: async (slug) => {
+      const api = await getApi()
+      const document = await api.query(
+        Prismic.Predicates.at('my.news_item.uid', slug),
+        { lang: language }
+      )
+      return document.results[0]
     }
   }
 
