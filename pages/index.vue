@@ -2,9 +2,14 @@
   <div id="app" class="index">
     <div class="nav">
       <header>
-        <push-menu :width="'230'">
-          <burger-menu-nav :top-items="topItems" :bottom-items="bottomItems" />
-        </push-menu>
+        <client-only>
+          <push-menu :width="'230'">
+            <burger-menu-nav
+              :top-items="topItems"
+              :bottom-items="bottomItems"
+            />
+          </push-menu>
+        </client-only>
         <div id="page-wrap">
           <organization-nav :organization-nav-items="organizationNavItems" />
           <div class="nav-principal desktop">
