@@ -15,11 +15,9 @@
             {{ $t(categoryLabel) }}
           </span>
           •
-          <client-only>
-            <span class="news-item-card__date">
-              {{ date }}
-            </span>
-          </client-only>
+          <span class="news-item-card__date">
+            {{ date }}
+          </span>
         </p>
 
         <prismic-rich-text
