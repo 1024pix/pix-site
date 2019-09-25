@@ -7,5 +7,6 @@ export default {
   feature: 'Feature',
   society: 'Society',
   'about-title': 'About',
-  'resources-title': 'Resources'
+  'resources-title': 'Resources',
+  'social-networks-title': 'Follow us'
 }

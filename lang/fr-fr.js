@@ -7,5 +7,6 @@ export default {
   feature: 'Nouveauté',
   society: 'Société',
   'about-title': 'A propos',
-  'resources-title': 'Ressources'
+  'resources-title': 'Ressources',
+  'social-networks-title': 'Nous suivre'
 }

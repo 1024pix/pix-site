@@ -25,7 +25,7 @@
           <h4
             class="text text-sm text-up text-left text-black mb-3 semi-bold social-links__title"
           >
-            Nous suivre
+            {{ $t('social-networks-title') }}
           </h4>
           <ul class="unstyled social-links__list">
             <li class="social-links__item social-link">
