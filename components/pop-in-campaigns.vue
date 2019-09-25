@@ -7,9 +7,9 @@
       <template v-if="!isClose">
         <img
           class="pop-in-campaigns-content__close"
-          @click="togglePopIn()"
           alt="close button"
           src="/images/close-icon.svg"
+          @click="togglePopIn()"
         />
         <img
           class="pop-in-campaigns-content__logo"
@@ -53,7 +53,6 @@ export default {
   },
   methods: {
     togglePopIn() {
-      console.log('passe')
       this.isClose = !this.isClose
     }
   }
