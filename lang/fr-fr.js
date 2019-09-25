@@ -8,5 +8,6 @@ export default {
   society: 'Société',
   'about-title': 'A propos',
   'resources-title': 'Ressources',
-  'social-networks-title': 'Nous suivre'
+  'social-networks-title': 'Nous suivre',
+  'contact-digital-mediation-page-title': "Demande d'information"
 }
