@@ -4,6 +4,9 @@ import PrismicConfig from '~/prismic.config.js'
 export default function(i18n = { defaultLocale: 'fr-fr' }) {
   const language = i18n.locale || i18n.defaultLocale
   return {
+    getStats: () => {
+      return getSingle('statistiques')
+    },
     getIndex: () => {
       return getSingle('index')
     },
