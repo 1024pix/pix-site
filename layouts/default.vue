@@ -1,5 +1,5 @@
 <template>
-  <div class="app-viewport" id="app">
+  <div id="app" class="app-viewport">
     <header-nav />
     <nuxt />
     <app-footer />

@@ -36,17 +36,17 @@ import OrganizationNav from '~/components/organization-nav'
 
 export default {
   name: 'HeaderNav',
+  components: {
+    MainNav,
+    BurgerMenuNav,
+    OrganizationNav
+  },
   computed: mapState([
     'organizationNavItems',
     'mainNavItems',
     'topItems',
     'bottomItems'
-  ]),
-  components: {
-    MainNav,
-    BurgerMenuNav,
-    OrganizationNav
-  }
+  ])
 }
 </script>
 
