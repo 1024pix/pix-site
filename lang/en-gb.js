@@ -9,5 +9,12 @@ export default {
   'about-title': 'About',
   'resources-title': 'Resources',
   'social-networks-title': 'Follow us',
-  'contact-digital-mediation-page-title': 'Information request'
+  'contact-digital-mediation-page-title': 'Information request',
+  'higher-education-establishment-registration-page-title':
+    'Pix Orga workspace request',
+  'pix-certification-application-page-title':
+    'Pix certification center agreement request',
+  'pix-orga-registration-page-title': 'Information request',
+  'pix-orga-higher-school-registration-page-title':
+    'Finalize your Pix Orga workspace request'
 }

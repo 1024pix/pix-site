@@ -1,8 +1,8 @@
 <template>
   <div>
     <formable-page
-      :title="'contact-digital-mediation-page-title'"
-      :form-id="'24665'"
+      :title="'pix-orga-higher-school-registration-page-title'"
+      :form-id="'22797'"
     />
   </div>
 </template>
@@ -11,12 +11,12 @@
 import FormablePage from '~/components/formable-page'
 
 export default {
-  name: 'ContactDigitalMediation',
+  name: 'PixOrgaHigherSchoolRegistration',
   components: { FormablePage },
   nuxtI18n: {
     paths: {
-      'fr-fr': '/contact-mediation-numerique',
-      'en-gb': '/contact-digital-mediation'
+      'fr-fr': '/formulaire/finalisation-pix-orga-sup',
+      'en-gb': '/form/pix-orga-higher-school-registration'
     }
   }
 }
