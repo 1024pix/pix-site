@@ -25,6 +25,9 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
     getSchoolEducation: () => {
       return getSingle('school-education')
     },
+    getAbout: () => {
+      return getSingle('about')
+    },
     findNewsItems: async ({ page, pageSize } = { page: 1, pageSize: 20 }) => {
       const api = await getApi()
       const documents = await api.query(

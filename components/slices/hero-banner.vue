@@ -4,7 +4,7 @@
     <div :class="contentClass">
       <prismic-rich-text :field="title" />
       <prismic-rich-text :field="description" />
-      <a :class="buttonClass" :href="buttonLink">
+      <a v-if="buttonText === null" :class="buttonClass" :href="buttonLink">
         {{ $prismic.richTextAsPlain(buttonText) }}
       </a>
     </div>
