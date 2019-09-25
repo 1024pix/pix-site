@@ -3,6 +3,7 @@
     <div :class="backgroundClass"></div>
     <div :class="contentClass">
       <prismic-rich-text :field="title" />
+      <prismic-rich-text :field="description" />
       <a :class="buttonClass" :href="buttonLink">
         {{ $prismic.richTextAsPlain(buttonText) }}
       </a>
@@ -38,6 +39,9 @@ export default {
   computed: {
     title() {
       return this.content.primary.title
+    },
+    description() {
+      return this.content.primary.description
     },
     buttonLink() {
       return this.content.primary.button_link
