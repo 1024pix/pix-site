@@ -1,0 +1,74 @@
+.page.formable-page {
+  padding-bottom: 40px;
+  font-family: Roboto, Arial, sans-serif;
+
+  h1.Formable__Title {
+    display: none;
+  }
+
+  h2.Formable__Title {
+    margin: 40px 0 20px;
+  }
+
+  .Formable__Label {
+    font-weight: 500;
+    font-size: 15px;
+    color: $grey-6;
+  }
+
+  .Formable__Input,
+  .Formable__Select,
+  .Formable__TextArea {
+    font-weight: 400;
+    font-size: 16px;
+    color: $grey-1;
+    border: 2px solid $grey-7;
+    border-radius: 4px;
+    background-color: $white;
+    padding: 15px;
+    outline: none;
+    width: 100%;
+
+    &:active,
+    &:focus {
+      border-color: $blue-1;
+    }
+  }
+
+  .Formable__Select {
+    height: 53px;
+  }
+
+  .Formable__SubmitContainer {
+    text-align: center;
+  }
+
+  .Formable__SubmitButton {
+    background-color: $blue-1;
+    border-radius: 4px;
+    font-family: Roboto, Arial, sans-serif;
+    padding: 12px 30px;
+
+    &:active,
+    &:hover,
+    &:focus {
+      background-color: $blue-3;
+    }
+  }
+
+  .Formable__OptionsContainer {
+
+    .Formable__Option {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .form-legal-notices {
+    font-size: 14px;
+    text-align: justify;
+    font-weight: 300;
+    font-style: italic;
+    padding-top: 25px;
+  }
+}
