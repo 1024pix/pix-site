@@ -1,0 +1,25 @@
+<template>
+  <div>
+    <formable-page
+      :title="'pix-orga-registration-page-title'"
+      :form-id="'23331'"
+    />
+  </div>
+</template>
+
+<script>
+import FormablePage from '~/components/formable-page'
+
+export default {
+  name: 'PixOrgaRegistration',
+  components: { FormablePage },
+  nuxtI18n: {
+    paths: {
+      'fr-fr': '/formulaire/contact-pix-pro',
+      'en-gb': '/form/pix-orga-registration'
+    }
+  }
+}
+</script>
+
+<style lang="scss"></style>
