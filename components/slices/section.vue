@@ -16,7 +16,7 @@
           <prismic-rich-text :field="item.paragraph" />
         </div>
       </div>
-      <a v-if="buttonText" :href="buttonLink" :class="buttonClass">
+      <a v-if="buttonText === null" :href="buttonLink" :class="buttonClass">
         {{ $prismic.richTextAsPlain(buttonText) }}
       </a>
     </div>
