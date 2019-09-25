@@ -68,7 +68,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     'nuxt-i18n',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }]
   ],
   moment: {
     locales: ['fr']
