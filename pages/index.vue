@@ -15,9 +15,9 @@
         <prismic-rich-text :field="document[1].primary.card_title" />
         <div class="courses">
           <div
-            class="course"
             v-for="(item, index) in document[1].items"
             :key="`item-${index}`"
+            class="course"
           >
             <div class="course__icon">
               <prismic-image :field="item.image" />
@@ -62,7 +62,6 @@ export default {
   async asyncData({ app, error }) {
     try {
       const document = await DocumentFetcher(app.i18n).getIndex()
-      console.log(document)
       return { document: document.data.body }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
