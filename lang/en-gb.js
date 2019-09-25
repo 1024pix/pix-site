@@ -16,5 +16,9 @@ export default {
     'Pix certification center agreement request',
   'pix-orga-registration-page-title': 'Information request',
   'pix-orga-higher-school-registration-page-title':
-    'Finalize your Pix Orga workspace request'
+    'Finalize your Pix Orga workspace request',
+  'stats-legend-label-accounts': 'Comptes Pix créés',
+  'stats-legend-label-campaigns': 'Campagnes d’évaluation',
+  'stats-legend-label-certifications': 'Certifications Pix délivrées',
+  'stats-legend-label-organizations': 'Organisations partenaires'
 }

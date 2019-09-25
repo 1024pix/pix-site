@@ -16,5 +16,9 @@ export default {
     "Demande d'agrément comme centre de certification Pix",
   'pix-orga-registration-page-title': "Demande d'information",
   'pix-orga-higher-school-registration-page-title':
-    "Finalisez votre demande d'espace Pix Orga"
+    "Finalisez votre demande d'espace Pix Orga",
+  'stats-legend-label-accounts': 'Comptes Pix créés',
+  'stats-legend-label-campaigns': 'Campagnes d’évaluation',
+  'stats-legend-label-certifications': 'Certifications Pix délivrées',
+  'stats-legend-label-organizations': 'Organisations partenaires'
 }
