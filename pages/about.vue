@@ -62,7 +62,6 @@ export default {
   async asyncData({ app, error }) {
     try {
       const document = await DocumentFetcher(app.i18n).getAbout()
-      console.log(document)
       return {
         document: document.data.body
       }
