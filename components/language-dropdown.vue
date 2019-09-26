@@ -1,5 +1,5 @@
 <template>
-  <div class="language-dropdown">
+  <div v-if="availableLocale.length > 1" class="language-dropdown">
     <dropdown-button
       :options="options"
       :selected="currentLanguage"
@@ -18,10 +18,9 @@ export default {
     DropdownButton
   },
   data() {
-    const availableLocale = [
-      { name: 'Français', lang: 'fr-fr' },
-      { name: 'English', lang: 'en-gb' }
-    ]
+    const availableLocale = this.$i18n.locales.map((locale) => {
+      return { name: this.$t(locale.code), lang: locale.code }
+    })
     return {
       availableLocale
     }
