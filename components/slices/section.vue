@@ -2,7 +2,7 @@
   <section :class="sectionClass">
     <div class="background"></div>
     <div :class="containerClass">
-      <template v-if="image.url">
+      <template v-if="image === null">
         <prismic-image :field="image" />
       </template>
       <prismic-rich-text :field="title" />
@@ -66,7 +66,7 @@ export default {
       return this.content.primary.description
     },
     buttonLink() {
-      return this.content.primary.button_link
+      return this.content.primary.button_link.url
     },
     buttonText() {
       return this.content.primary.button_title
