@@ -2,7 +2,7 @@
   <section :class="sectionClass">
     <div class="background"></div>
     <div :class="containerClass">
-      <template v-if="image === null">
+      <template v-if="hasImage">
         <prismic-image :field="image" />
       </template>
       <prismic-rich-text :field="title" />
@@ -16,7 +16,7 @@
           <prismic-rich-text :field="item.paragraph" />
         </div>
       </div>
-      <a v-if="buttonText === null" :href="buttonLink" :class="buttonClass">
+      <a v-if="hasButton" :href="buttonLink" :class="buttonClass">
         {{ $prismic.richTextAsPlain(buttonText) }}
       </a>
     </div>
@@ -70,6 +70,12 @@ export default {
     },
     buttonText() {
       return this.content.primary.button_title
+    },
+    hasImage() {
+      return this.image && this.image.length
+    },
+    hasButton() {
+      return this.buttonText && this.buttonText.length
     }
   }
 }
