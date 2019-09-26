@@ -1,10 +1,10 @@
 <template>
-  <div class="pop-in-campaigns" :class="{ collapse: isClose }">
+  <div class="pop-in-campaigns" :class="{ collapse: isClosed }">
     <div
       class="pop-in-campaigns-content"
-      v-on="{ click: isClose ? togglePopIn() : null }"
+      v-on="isClosed ? { click: togglePopIn } : {}"
     >
-      <template v-if="!isClose">
+      <template v-if="!isClosed">
         <img
           class="pop-in-campaigns-content__close"
           alt="close button"
@@ -17,15 +17,16 @@
           src="/images/logo-join-campaign.svg"
         />
       </template>
-      <span class="pop-in-campaigns-content__title"
-        ><prismic-rich-text :field="title" />
-      </span>
+      <prismic-rich-text
+        :field="description"
+        class="pop-in-campaigns-content__title"
+      />
     </div>
     <a
-      v-if="!isClose"
-      class="pop-in-campaigns__btn btn-primary"
-      href="https://app.pix.fr/campagnes"
-      >Saisir mon code</a
+      v-if="!isClosed"
+      class="pop-in-campaigns__btn"
+      :href="content.primary.button_link.url"
+      >{{ $prismic.richTextAsPlain(content.primary.button_title) }}</a
     >
   </div>
 </template>
@@ -41,19 +42,19 @@ export default {
   },
   data() {
     return {
-      isClose: false
+      isClosed: false
     }
   },
   computed: {
-    title() {
-      return this.isClose
-        ? this.content.primary.description
-        : this.content.primary.title
+    description() {
+      return this.isClosed
+        ? this.content.primary.short_description
+        : this.content.primary.description
     }
   },
   methods: {
     togglePopIn() {
-      this.isClose = !this.isClose
+      this.isClosed = !this.isClosed
     }
   }
 }
@@ -100,21 +101,40 @@ export default {
     height: 50px;
     padding: 5px;
 
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 1rem;
     font-family: $roboto;
     font-weight: 200;
     line-height: 1.25rem;
     text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+
+    position: relative;
+    background: $blue-1;
+    color: $white;
+    border-radius: 5px;
+    -webkit-backface-visibility: hidden;
+    z-index: 1;
+
+    &:hover {
+      background-color: $blue-3;
+      transition: all ease-out 0.25s;
+    }
+
+    span {
+      position: relative;
+      z-index: 3;
+    }
 
     @include device-is('large-mobile') {
       width: 190px;
-      height: 50px;
       margin-top: 35px;
       padding-top: 15px;
-
-      font-size: 1rem;
       letter-spacing: 0.5px;
-
       border-radius: 4px;
     }
   }
@@ -178,6 +198,10 @@ export default {
     line-height: 1.125rem;
     color: $white;
     transition: none;
+
+    p {
+      margin: 0;
+    }
 
     @include device-is('large-mobile') {
       width: 214px;
