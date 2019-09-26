@@ -8,18 +8,17 @@ export default {
     data: {
       type: Object,
       default: null
-    },
-    legendPosition: {
-      type: String,
-      default: 'bottom'
     }
   },
   mounted() {
     this.renderChart(this.data, {
+      legend: {
+        position: 'bottom'
+      },
       scales: {
         yAxes: [
           {
-            ticks: { beginAtZero: false }
+            ticks: { beginAtZero: true }
           }
         ]
       }
