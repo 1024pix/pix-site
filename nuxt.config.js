@@ -1,6 +1,3 @@
-// eslint-disable-next-line nuxt/no-cjs-in-config
-const PrismicConfig = require('./prismic.config')
-
 export default {
   mode: 'universal',
   /*
@@ -29,7 +26,7 @@ export default {
       {
         innerHTML:
           '{ window.prismic = { endpoint: "' +
-          PrismicConfig.apiEndpoint +
+          process.env.PRISMIC_API_ENDPOINT +
           '"} }'
       },
       { src: '//static.cdn.prismic.io/prismic.min.js' }
