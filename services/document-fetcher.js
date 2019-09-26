@@ -1,5 +1,5 @@
 import Prismic from 'prismic-javascript'
-import PrismicConfig from '~/prismic.config.js'
+import LinkResolver from '~/plugins/link-resolver.js'
 
 export default function(i18n = { defaultLocale: 'fr-fr' }) {
   const language = i18n.locale || i18n.defaultLocale
@@ -66,6 +66,8 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
   }
 
   function getApi() {
-    return Prismic.getApi(PrismicConfig.apiEndpoint)
+    const endpoint = process.env.PRISMIC_API_ENDPOINT
+    const options = { accessToken: process.env.PRISMIC_API_TOKEN }
+    return Prismic.getApi(endpoint, options)
   }
 }
