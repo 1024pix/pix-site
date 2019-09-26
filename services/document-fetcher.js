@@ -57,6 +57,10 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
         { lang: language }
       )
       return document.results[0]
+    },
+    getPreviewUrl: async (previewToken) => {
+      const api = await getApi()
+      return api.previewSession(previewToken, LinkResolver, '/')
     }
   }
 

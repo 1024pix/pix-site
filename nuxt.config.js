@@ -25,9 +25,7 @@ export default {
     script: [
       {
         innerHTML:
-          '{ window.prismic = { endpoint: "' +
-          process.env.PRISMIC_API_ENDPOINT +
-          '"} }'
+          '{ window.prismic = { endpoint: "https://pix-site.cdn.prismic.io/api/v2"} }'
       },
       { src: '//static.cdn.prismic.io/prismic.min.js' }
     ],
