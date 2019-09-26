@@ -20,5 +20,20 @@ export default {
   'stats-legend-label-accounts': 'Comptes Pix créés',
   'stats-legend-label-campaigns': 'Campagnes d’évaluation',
   'stats-legend-label-certifications': 'Certifications Pix délivrées',
-  'stats-legend-label-organizations': 'Organisations partenaires'
+  'stats-legend-label-organizations': 'Organisations partenaires',
+  'error-content':
+    '<p>\n' +
+    '      Oups ! Un problème est survenu, mais pas de panix, nous revenons très vite !\n' +
+    '    </p>\n' +
+    '    <p>\n' +
+    '      Pour en savoir plus, vous pouvez consulter\n' +
+    '      <a href="http://status.pix.fr/">cette page</a> ou aller sur nos réseaux\n' +
+    '      sociaux : <a href="https://twitter.com/Pix_officiel">Twitter</a>,\n' +
+    '      <a href="https://www.facebook.com/Pix1024/">Facebook</a>,\n' +
+    '      <a href="https://www.linkedin.com/company/gip-pix/">LinkedIn</a>.\n' +
+    '    </p>\n' +
+    '    <p>\n' +
+    '      Si vous avez besoin d’aide, vous pouvez également contacter le support\n' +
+    '      <a href="mailto:contact@pix.fr">icix</a>.\n' +
+    '    </p>'
 }
