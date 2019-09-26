@@ -86,12 +86,12 @@ export default {
     defaultLocale: 'fr-fr',
     locales: [
       {
-        code: 'en-gb',
-        file: 'en-gb.js'
-      },
-      {
         code: 'fr-fr',
         file: 'fr-fr.js'
+      },
+      {
+        code: 'en-gb',
+        file: 'en-gb.js'
       }
     ],
     lazy: true,
