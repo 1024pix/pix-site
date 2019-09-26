@@ -107,7 +107,7 @@ export default {
 }
 
 .dropdown-menu {
-  position: fixed;
+  position: absolute;
   left: 0;
   z-index: 1000;
   float: left;
