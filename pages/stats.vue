@@ -94,8 +94,16 @@ export default {
   section {
     margin-bottom: 60px;
   }
-
+  h1,
   h2 {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-weight: 400;
+  }
+  h1 {
+    font-size: 44px;
+  }
+  h2 {
+    font-size: 24px;
     margin-top: 30px;
     margin-bottom: 15px;
   }
