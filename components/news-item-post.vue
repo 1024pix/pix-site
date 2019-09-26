@@ -104,9 +104,9 @@ export default {
       margin: 0 0 15px;
     }
 
-    p,
     ul,
-    ol {
+    li {
+      list-style: none;
     }
 
     h2 {
