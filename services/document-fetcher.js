@@ -31,6 +31,9 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
     getAbout: () => {
       return getSingle('about')
     },
+    getSkills: () => {
+      return getSingle('competences')
+    },
     findNewsItems: async ({ page, pageSize } = { page: 1, pageSize: 20 }) => {
       const api = await getApi()
       const documents = await api.query(
