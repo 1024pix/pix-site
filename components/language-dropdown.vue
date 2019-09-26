@@ -16,6 +16,20 @@ export default {
   components: {
     DropdownButton
   },
+  computed: {
+    options() {
+      const availableLocale = [
+        { name: 'Français', lang: 'fr-fr' },
+        { name: 'English', lang: 'en-gb' }
+      ]
+      const currentLocale = this.$i18n.locale || this.$i18n.defaultLocale
+
+      const selectableLocale = availableLocale.filter(
+        (locale) => locale.lang !== currentLocale
+      )
+      return selectableLocale
+    }
+  },
   data() {
     const availableLocale = [
       { name: 'Français', lang: 'fr-fr' },
@@ -26,11 +40,7 @@ export default {
     const currentLanguage = availableLocale.find(
       (locale) => locale.lang === currentLocale
     )
-    const selectableLocale = availableLocale.filter(
-      (locale) => locale.lang !== currentLocale
-    )
     return {
-      options: selectableLocale,
       currentLanguage
     }
   },
