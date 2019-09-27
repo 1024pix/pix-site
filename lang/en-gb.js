@@ -5,6 +5,10 @@ export default {
     'page-title': 'Information request',
     'form-id': '28758'
   },
+  'higher-education-establishment-registration': {
+    'page-title': 'Pix Orga workspace request',
+    'form-id': '28771'
+  },
   'news-page-title': 'News',
   'news-page-no-news': 'No news available for the moment.',
   announcement: 'Announcement',
@@ -15,8 +19,6 @@ export default {
   'about-title': 'About',
   'resources-title': 'Resources',
   'social-networks-title': 'Follow us',
-  'higher-education-establishment-registration-page-title':
-    'Pix Orga workspace request',
   'pix-certification-application-page-title':
     'Pix certification center agreement request',
   'pix-orga-registration-page-title': 'Information request',

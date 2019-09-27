@@ -1,8 +1,8 @@
 <template>
   <div>
     <formable-page
-      :title="'higher-education-establishment-registration-page-title'"
-      :form-id="'22367'"
+      :title="'higher-education-establishment-registration.page-title'"
+      :form-id="$t('higher-education-establishment-registration.form-id')"
     />
   </div>
 </template>

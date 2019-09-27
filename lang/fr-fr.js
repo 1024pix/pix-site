@@ -5,6 +5,10 @@ export default {
     'page-title': "Demande d'information",
     'form-id': '24665'
   },
+  'higher-education-establishment-registration': {
+    'page-title': 'Demande d’espace Pix Orga',
+    'form-id': '22367'
+  },
   'news-page-title': 'Actualités',
   'news-page-no-news': "Il n’y a pas encore d'actualités",
   announcement: 'Annonce',
@@ -15,8 +19,6 @@ export default {
   'about-title': 'A propos',
   'resources-title': 'Ressources',
   'social-networks-title': 'Nous suivre',
-  'higher-education-establishment-registration-page-title':
-    'Demande d’espace Pix Orga',
   'pix-certification-application-page-title':
     "Demande d'agrément comme centre de certification Pix",
   'pix-orga-registration-page-title': "Demande d'information",
