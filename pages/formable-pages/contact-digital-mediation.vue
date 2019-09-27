@@ -1,8 +1,8 @@
 <template>
   <div>
     <formable-page
-      :title="'contact-digital-mediation-page-title'"
-      :form-id="'24665'"
+      :title="'contact-digital-mediation.page-title'"
+      :form-id="$t('contact-digital-mediation.form-id')"
     />
   </div>
 </template>
