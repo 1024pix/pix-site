@@ -9,8 +9,12 @@ export default {
     'page-title': 'Demande d’espace Pix Orga',
     'form-id': '22367'
   },
+  'pix-orga-registration': {
+    'page-title': "Demande d'information",
+    'form-id': '22370'
+  },
   'pix-orga-higher-school-registration': {
-    'page-title': 'Finalisez votre demande d\'espace Pix Orga',
+    'page-title': "Finalisez votre demande d'espace Pix Orga",
     'form-id': '22797'
   },
   'news-page-title': 'Actualités',
@@ -25,7 +29,6 @@ export default {
   'social-networks-title': 'Nous suivre',
   'pix-certification-application-page-title':
     "Demande d'agrément comme centre de certification Pix",
-  'pix-orga-registration-page-title': "Demande d'information",
   'stats-legend-label-accounts': 'Comptes Pix créés',
   'stats-legend-label-campaigns': 'Campagnes d’évaluation',
   'stats-legend-label-certifications': 'Certifications Pix délivrées',
