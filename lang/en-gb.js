@@ -9,6 +9,10 @@ export default {
     'page-title': 'Pix Orga workspace request',
     'form-id': '28771'
   },
+  'pix-orga-higher-school-registration': {
+    'page-title': 'Finalize your Pix Orga workspace request',
+    'form-id': '28772'
+  },
   'news-page-title': 'News',
   'news-page-no-news': 'No news available for the moment.',
   announcement: 'Announcement',
@@ -22,8 +26,6 @@ export default {
   'pix-certification-application-page-title':
     'Pix certification center agreement request',
   'pix-orga-registration-page-title': 'Information request',
-  'pix-orga-higher-school-registration-page-title':
-    'Finalize your Pix Orga workspace request',
   'stats-legend-label-accounts': 'Comptes Pix créés',
   'stats-legend-label-campaigns': 'Campagnes d’évaluation',
   'stats-legend-label-certifications': 'Certifications Pix délivrées',
