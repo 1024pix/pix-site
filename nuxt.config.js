@@ -46,7 +46,8 @@ export default {
     '~/plugins/link-resolver.js',
     '~/plugins/html-serializer.js',
     '~/plugins/prismic-vue.js',
-    { src: '~plugins//slide-menu', ssr: false }
+    '~/plugins/i18n.js',
+    { src: '~plugins/slide-menu', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules

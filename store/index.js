@@ -9,18 +9,28 @@ export const state = () => ({
   aboutNavItems: []
 })
 export const actions = {
-  async nuxtServerInit({ state }, { app }) {
+  async nuxtServerInit({ commit }, { app }) {
+    commit('updateNavigation', await getNavigation(app.i18n))
+  },
+  async updateNavigation({ commit }, i18n) {
+    commit('updateNavigation', await getNavigation(i18n))
+  }
+}
+export const mutations = {
+  updateNavigation(state, navigations) {
     function navItems(response, type) {
       return response.data.body.filter((body) => body.primary.type === type)
     }
 
-    const response = await DocumentFetcher(app.i18n).getNavigation()
-    state.organizationNavItems = navItems(response, 'organizations-nav')
-
-    state.mainNavItems = navItems(response, 'main-nav')
-    state.topItems = navItems(response, 'burger-menu-top')
-    state.bottomItems = navItems(response, 'burger-menu-bottom')
-    state.resourcesNavItems = navItems(response, 'ressources-nav')
-    state.aboutNavItems = navItems(response, 'about-nav')
+    state.organizationNavItems = navItems(navigations, 'organizations-nav')
+    state.mainNavItems = navItems(navigations, 'main-nav')
+    state.topItems = navItems(navigations, 'burger-menu-top')
+    state.bottomItems = navItems(navigations, 'burger-menu-bottom')
+    state.resourcesNavItems = navItems(navigations, 'ressources-nav')
+    state.aboutNavItems = navItems(navigations, 'about-nav')
   }
+}
+
+function getNavigation(i18n) {
+  return DocumentFetcher(i18n).getNavigation()
 }
