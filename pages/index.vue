@@ -49,6 +49,7 @@
       :flex-content-class="'features-container-list__item'"
     >
     </section-slice>
+    <prismic-edit-button :documentId="documentId" />
   </div>
 </template>
 
@@ -62,7 +63,9 @@ export default {
   async asyncData({ app, error }) {
     try {
       const document = await DocumentFetcher(app.i18n).getIndex()
-      return { document: document.data.body }
+
+      if (process.client) window.prismic.setupEditButton()
+      return { document: document.data.body, documentId: document.id }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
     }
