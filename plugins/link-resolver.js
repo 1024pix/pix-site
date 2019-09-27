@@ -24,6 +24,9 @@ export default function(doc) {
     case 'stats': {
       return doc.lang === 'fr-fr' ? `/${doc.uid}` : `${doc.lang}/${doc.uid}`
     }
+    case 'legal-notices': {
+      return doc.lang === 'fr-fr' ? `/${doc.uid}` : `${doc.lang}/${doc.uid}`
+    }
     case 'news_item': {
       return doc.lang === 'fr-fr'
         ? `/actualites/${doc.uid}`
