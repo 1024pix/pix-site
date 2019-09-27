@@ -37,6 +37,9 @@ export default function(i18n = { defaultLocale: 'fr-fr' }) {
     getSkills: () => {
       return getSingle('competences')
     },
+    getLegalNotices: () => {
+      return getSingle('legal-notices')
+    },
     findNewsItems: async ({ page, pageSize } = { page: 1, pageSize: 20 }) => {
       const api = await getApi()
       const documents = await api.query(
