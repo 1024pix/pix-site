@@ -1,8 +1,8 @@
 <template>
   <div>
     <formable-page
-      :title="'pix-certification-application-page-title'"
-      :form-id="'23331'"
+      :title="'pix-certification-application.page-title'"
+      :form-id="$t('pix-certification-application.form-id')"
     />
   </div>
 </template>
