@@ -1,8 +1,8 @@
 <template>
   <div>
     <formable-page
-      :title="'pix-orga-registration-page-title'"
-      :form-id="'23331'"
+      :title="'pix-orga-registration.page-title'"
+      :form-id="$t('pix-orga-registration.form-id')"
     />
   </div>
 </template>
