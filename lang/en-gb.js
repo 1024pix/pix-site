@@ -1,4 +1,8 @@
 export default {
+  'contact-digital-mediation': {
+    'page-title': 'Information request',
+    'form-id': '28758'
+  },
   'news-page-title': 'News',
   'news-page-no-news': 'No news available for the moment.',
   announcement: 'Announcement',
@@ -9,7 +13,6 @@ export default {
   'about-title': 'About',
   'resources-title': 'Resources',
   'social-networks-title': 'Follow us',
-  'contact-digital-mediation-page-title': 'Information request',
   'higher-education-establishment-registration-page-title':
     'Pix Orga workspace request',
   'pix-certification-application-page-title':
