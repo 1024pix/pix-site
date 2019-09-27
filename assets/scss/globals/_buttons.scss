@@ -108,3 +108,14 @@
   }
 }
 
+.wio-link {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  background-color: $blue-1;
+  text-align: center;
+  padding: 5px;
+}
