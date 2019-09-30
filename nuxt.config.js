@@ -48,6 +48,7 @@ export default {
     '~/plugins/prismic-vue.js',
     '~/plugins/i18n.js',
     '~/plugins/globals.js',
+    '~/plugins/meta.js',
     { src: '~plugins/slide-menu', ssr: false }
   ],
   /*

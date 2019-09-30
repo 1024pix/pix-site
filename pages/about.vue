@@ -60,14 +60,24 @@ export default {
       'en-gb': '/about'
     }
   },
-  async asyncData({ app, error }) {
+  async asyncData({ app, error, req, route }) {
+    const host = req ? req.headers.host : window.location.host
+    const currentPagePath = `${host}${route.path}`
     try {
       const document = await DocumentFetcher(app.i18n).getAbout()
       return {
-        document: document.data.body
+        currentPagePath,
+        document: document.data.body,
+        meta: document.data.meta
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  head() {
+    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+    return {
+      meta
     }
   }
 }

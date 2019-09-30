@@ -128,16 +128,26 @@ export default {
     }
   },
   components: { HeroBanner, KeyNumbers, SectionColumnSlice, SectionSlice },
-  async asyncData({ app, error }) {
+  async asyncData({ app, error, req, route }) {
+    const host = req ? req.headers.host : window.location.host
+    const currentPagePath = `${host}${route.path}`
     try {
       const document = await DocumentFetcher(app.i18n).getSchoolEducation()
       const keyNumbers = await DocumentFetcher(app.i18n).getKeyNumbers()
       return {
+        currentPagePath,
+        meta: document.data.meta,
         document: document.data.body,
         keyNumbers: keyNumbers.data
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  head() {
+    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+    return {
+      meta
     }
   }
 }
