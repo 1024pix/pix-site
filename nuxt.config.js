@@ -94,7 +94,10 @@ export default {
       }
     ],
     lazy: true,
-    langDir: 'lang/'
+    langDir: 'lang/',
+    vueI18n: {
+      fallbackLocale: 'fr-be'
+    }
   },
   /*
    ** Build configuration
