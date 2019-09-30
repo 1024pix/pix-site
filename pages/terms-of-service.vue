@@ -32,14 +32,24 @@ export default {
       'en-gb': '/terms-of-service'
     }
   },
-  async asyncData({ app, error }) {
+  async asyncData({ app, error, req, route }) {
+    const host = req ? req.headers.host : window.location.host
+    const currentPagePath = `${host}${route.path}`
     try {
       const document = await DocumentFetcher(app.i18n).getTermsOfService()
       return {
+        currentPagePath,
+        meta: document.data.meta,
         document: document.data
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  head() {
+    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+    return {
+      meta
     }
   }
 }

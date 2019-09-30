@@ -12,7 +12,6 @@
 <script>
 import DocumentFetcher from '~/services/document-fetcher'
 import NewsItemPost from '~/components/news-item-post'
-import getMeta from '~/services/meta-builder'
 
 export default {
   nuxtI18n: {
@@ -38,7 +37,7 @@ export default {
     }
   },
   head() {
-    const meta = getMeta(
+    const meta = this.$getMeta(
       this.newsItem.data.meta,
       this.currentPagePath,
       this.$prismic

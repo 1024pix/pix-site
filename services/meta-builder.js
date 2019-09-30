@@ -58,5 +58,8 @@ export default function getMeta(meta, currentPagePath, prismic) {
   const twitterCard = getTwitterCard()
   const ogCard = getOgCard()
 
-  return [...twitterCard, ...ogCard]
+  if (twitterCard.length && ogCard.length) {
+    return [...twitterCard, ...ogCard]
+  }
+  return []
 }
