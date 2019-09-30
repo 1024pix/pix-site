@@ -47,7 +47,7 @@ export default {
     '~/plugins/html-serializer.js',
     '~/plugins/prismic-vue.js',
     '~/plugins/i18n.js',
-    '~/plugins/globals.js',
+    '~/plugins/components.js',
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', ssr: false }
   ],
