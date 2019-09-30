@@ -16,6 +16,7 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/formulaire/contact-mediation-numerique',
+      'fr-be': '/formulaire/contact-mediation-numerique',
       'en-gb': '/form/contact-digital-mediation'
     }
   }

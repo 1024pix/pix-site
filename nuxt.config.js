@@ -80,10 +80,10 @@ export default {
    */
   axios: {},
   i18n: {
-    defaultLocale: 'fr-fr',
+    defaultLocale: 'fr-be',
     locales: [
       {
-        code: 'fr-fr',
+        code: 'fr-be',
         file: 'fr-fr.js'
       },
       {

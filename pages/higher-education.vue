@@ -112,6 +112,7 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/enseignement-superieur',
+      'fr-be': '/enseignement-superieur',
       'en-gb': '/higher-education'
     }
   },

@@ -1,4 +1,5 @@
 export default {
+  'fr-be': 'Français',
   'fr-fr': 'Français',
   'en-gb': 'English',
   'contact-digital-mediation': {

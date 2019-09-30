@@ -121,6 +121,7 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/enseignement-scolaire',
+      'fr-be': '/enseignement-scolaire',
       'en-gb': '/school-education'
     }
   },

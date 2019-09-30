@@ -56,6 +56,7 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/qui-sommes-nous',
+      'fr-be': '/qui-sommes-nous',
       'en-gb': '/about'
     }
   },
