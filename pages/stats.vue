@@ -70,8 +70,8 @@ export default {
       const chartsData = datasets.map((dataset) => createData(dataset))
       const dates = []
 
-      const { data } = await DocumentFetcher(app.i18n).getStats()
-      data.stats.forEach((stats) => {
+      const document = await DocumentFetcher(app.i18n).getStats()
+      document.data.stats.forEach((stats) => {
         dates.push($moment(stats.primary.date).format('MM/YY'))
         chartsData[0].data.datasets[0].data.push(stats.primary.accounts)
         chartsData[1].data.datasets[0].data.push(stats.primary.campaigns)
@@ -83,8 +83,8 @@ export default {
 
       return {
         currentPagePath,
-        meta: data.meta,
-        document: data,
+        meta: document.data.meta,
+        document: document.data,
         chartsData
       }
     } catch (e) {

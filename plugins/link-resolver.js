@@ -8,7 +8,8 @@ export default function(doc) {
     'school-education',
     'higher-education',
     'competences',
-    'stats',
+    'cgu_page',
+    'statistiques',
     'legal-notices'
   ]
   if (staticRoute.includes(doc.type)) {
