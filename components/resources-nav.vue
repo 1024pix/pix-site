@@ -5,13 +5,13 @@
     </h4>
     <ul class="unstyled">
       <li v-for="(item, index) in resourcesNavItems" :key="`item-${index}`">
-        <prismic-link
+        <pix-link
           :field="item.primary.link"
           class="text text-xs
         text-left regular text-black-l"
         >
           {{ $prismic.richTextAsPlain(item.primary.title) }}
-        </prismic-link>
+        </pix-link>
       </li>
     </ul>
   </div>

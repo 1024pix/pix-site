@@ -32,7 +32,7 @@
               class="course__description"
             />
             <div class="course__start-button">
-              <a :href="item.card_button_link.url" target="pix_app">
+              <a :href="item.card_button_link.url.link" target="pix_app">
                 {{ $prismic.richTextAsPlain(item.card_button_title) }}
               </a>
             </div>

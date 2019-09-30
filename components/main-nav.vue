@@ -1,13 +1,13 @@
 <template>
   <div class="navigation">
-    <prismic-link
+    <pix-link
       v-for="item in mainNavItems"
       :key="item.id"
       :field="item.primary.link"
       class="text text-s text-left regular text-black"
     >
       <prismic-rich-text :field="item.primary.title" />
-    </prismic-link>
+    </pix-link>
   </div>
 </template>
 

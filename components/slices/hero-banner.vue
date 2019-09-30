@@ -4,9 +4,9 @@
     <div :class="contentClass">
       <prismic-rich-text :field="title" />
       <prismic-rich-text :field="description" />
-      <a v-if="hasButton" :class="buttonClass" :href="buttonLink">
+      <pix-link v-if="hasButton" :class="buttonClass" :field="buttonLink">
         {{ $prismic.richTextAsPlain(buttonText) }}
-      </a>
+      </pix-link>
     </div>
   </section>
 </template>
