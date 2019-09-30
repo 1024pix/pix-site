@@ -22,9 +22,7 @@ export default {
       }
       let template = ''
       const url = prismicDOM.Link.url(this.field, this.$prismic.linkResolver)
-      console.log('*******', url)
       if (this.field.link_type === 'Document') {
-        console.log('Document')
         template = `
           <router-link to="${url}">
             <slot/>
