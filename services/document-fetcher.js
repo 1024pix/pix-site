@@ -4,6 +4,9 @@ import LinkResolver from '~/plugins/link-resolver.js'
 export default function(i18n = { defaultLocale: 'fr-fr' }) {
   const language = i18n.locale || i18n.defaultLocale
   return {
+    getHotNews: () => {
+      return getSingle('hot_news')
+    },
     getTermsOfService: () => {
       return getSingle('cgu_page')
     },

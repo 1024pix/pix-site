@@ -6,11 +6,13 @@ export const state = () => ({
   topItems: [],
   bottomItems: [],
   resourcesNavItems: [],
-  aboutNavItems: []
+  aboutNavItems: [],
+  hotNews: null
 })
 export const actions = {
   async nuxtServerInit({ commit }, { app }) {
     commit('updateNavigation', await getNavigation(app.i18n))
+    commit('updateHotNews', await getHotNews(app.i18n))
   },
   async updateNavigation({ commit }, i18n) {
     commit('updateNavigation', await getNavigation(i18n))
@@ -28,9 +30,16 @@ export const mutations = {
     state.bottomItems = navItems(navigations, 'burger-menu-bottom')
     state.resourcesNavItems = navItems(navigations, 'ressources-nav')
     state.aboutNavItems = navItems(navigations, 'about-nav')
+  },
+  updateHotNews(state, hotNews) {
+    state.hotNews = hotNews && hotNews.data ? hotNews.data.description : null
   }
 }
 
 function getNavigation(i18n) {
   return DocumentFetcher(i18n).getNavigation()
+}
+
+function getHotNews(i18n) {
+  return DocumentFetcher(i18n).getHotNews()
 }
