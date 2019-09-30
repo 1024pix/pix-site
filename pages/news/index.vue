@@ -34,6 +34,7 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/actualites',
+      'fr-be': '/actualites',
       'en-gb': '/news'
     }
   },

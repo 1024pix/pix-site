@@ -27,6 +27,7 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/stats',
+      'fr-be': '/stats',
       'en-gb': '/stats'
     }
   },

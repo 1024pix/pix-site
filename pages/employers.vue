@@ -86,6 +86,7 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/employeurs',
+      'fr-be': '/employeurs',
       'en-gb': '/employers'
     }
   },

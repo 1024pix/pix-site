@@ -49,7 +49,7 @@
       :flex-content-class="'features-container-list__item'"
     >
     </section-slice>
-    <prismic-edit-button :documentId="documentId" />
+    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
