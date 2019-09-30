@@ -4,9 +4,9 @@
       <div class="background"></div>
       <div class="container padding-container">
         <prismic-rich-text :field="document[0].primary.title" />
-        <a class="btn" :href="document[0].items[0].link_button.url">
+        <pix-link class="btn" :field="document[0].items[0].link_button">
           {{ $prismic.richTextAsPlain(document[0].items[0].title_button) }}
-        </a>
+        </pix-link>
       </div>
     </section>
 

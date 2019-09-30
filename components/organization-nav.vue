@@ -7,9 +7,9 @@
         :key="item.id"
         class="text text-xs text-left text-up regular text-black"
       >
-        <prismic-link :field="item.primary.link">
+        <pix-link :field="item.primary.link">
           {{ $prismic.richTextAsPlain(item.primary.title) }}
-        </prismic-link>
+        </pix-link>
       </div>
     </div>
   </div>
