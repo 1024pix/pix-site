@@ -53,21 +53,23 @@
     >
     </section-slice>
 
-    <section class="section-utiliser-pix">
-      <prismic-rich-text :field="document[6].primary.title" />
-      <div class="container">
-        <div
-          v-for="(item, index) in document[6].items"
-          :key="`item-${index}`"
-          class="column"
-        >
-          <prismic-rich-text :field="item.column_number" />
-          <prismic-rich-text :field="item.column_title" />
-          <hr class="text-left mb-2 mt-2" />
-          <prismic-rich-text :field="item.column_description" />
+    <div id="pix-orga">
+      <section class="section-utiliser-pix">
+        <prismic-rich-text :field="document[6].primary.title" />
+        <div class="container">
+          <div
+            v-for="(item, index) in document[6].items"
+            :key="`item-${index}`"
+            class="column"
+          >
+            <prismic-rich-text :field="item.column_number" />
+            <prismic-rich-text :field="item.column_title" />
+            <hr class="text-left mb-2 mt-2" />
+            <prismic-rich-text :field="item.column_description" />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <section-slice
       :content="document[7]"
