@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="app-viewport">
     <header-nav />
+    <hot-news-banner />
     <nuxt />
     <app-footer />
   </div>
@@ -77,7 +78,8 @@ h6 {
 <script>
 import AppFooter from '~/components/app-footer'
 import HeaderNav from '~/components/header-nav'
+import HotNewsBanner from '~/components/hot-news-banner'
 export default {
-  components: { AppFooter, HeaderNav }
+  components: { HotNewsBanner, AppFooter, HeaderNav }
 }
 </script>
