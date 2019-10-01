@@ -40,9 +40,7 @@ export default {
     }
   },
   components: { SectionSlice },
-  async asyncData({ app, error, req, route }) {
-    const host = req ? req.headers.host : window.location.host
-    const currentPagePath = `${host}${route.path}`
+  async asyncData({ app, error, currentPagePath }) {
     try {
       const document = await DocumentFetcher(app.i18n).getLegalNotices()
       return {

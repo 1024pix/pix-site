@@ -104,6 +104,9 @@ export default {
       fallbackLocale: 'fr-be'
     }
   },
+  router: {
+    middleware: 'current-page-path'
+  },
   /*
    ** Build configuration
    */
