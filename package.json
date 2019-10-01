@@ -23,7 +23,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "chart.js": "2.8.0",
     "nuxt": "^2.0.0",
-    "nuxt-i18n": "^6.2.1",
+    "nuxt-i18n": "6.3.0",
     "nuxt-matomo": "1.2.3",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
@@ -39,16 +39,16 @@
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^4.1.0",
+    "eslint": "6.5.1",
+    "eslint-config-prettier": "6.3.0",
     "eslint-plugin-nuxt": ">=0.4.2",
-    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-prettier": "3.1.1",
     "install": "^0.13.0",
     "jest": "^24.1.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.16.4",
     "sass-loader": "^8.0.0",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "3.0.5"
   },
   "engines": {
     "node": "10.15.3"
