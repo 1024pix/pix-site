@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app-viewport">
-    <header-nav />
     <hot-news-banner />
+    <header-nav />
     <nuxt />
     <app-footer />
   </div>
