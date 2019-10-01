@@ -60,12 +60,9 @@ import SectionSlice from '~/components/slices/section'
 import PopInCampaigns from '~/components/pop-in-campaigns'
 export default {
   components: { PopInCampaigns, HeroBanner, SectionSlice },
-  async asyncData({ app, error, req, route }) {
-    const host = req ? req.headers.host : window.location.host
-    const currentPagePath = `${host}${route.path}`
+  async asyncData({ app, error, currentPagePath }) {
     try {
       const document = await DocumentFetcher(app.i18n).getIndex()
-
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,

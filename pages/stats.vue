@@ -34,7 +34,7 @@ export default {
   components: {
     ChartSection
   },
-  async asyncData({ app, error, $moment, req, route }) {
+  async asyncData({ app, error, $moment, currentPagePath }) {
     function createData({ key, color }) {
       return {
         key,
@@ -57,8 +57,6 @@ export default {
       return rgba.replace(/\)/i, ',0.2)')
     }
 
-    const host = req ? req.headers.host : window.location.host
-    const currentPagePath = `${host}${route.path}`
     try {
       const datasets = [
         { key: 'accounts', color: 'rgb(54, 162, 235)' },
