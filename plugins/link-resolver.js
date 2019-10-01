@@ -13,7 +13,9 @@ export default function(doc) {
     'legal-notices'
   ]
   if (staticRoute.includes(doc.type)) {
-    return doc.lang === defaultLocale ? `/${doc.uid}` : `${doc.lang}/${doc.uid}`
+    return doc.lang === defaultLocale
+      ? `/${doc.uid}`
+      : `/${doc.lang}/${doc.uid}`
   }
   if (doc.type === 'news_item') {
     return doc.lang === defaultLocale
