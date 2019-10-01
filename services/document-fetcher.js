@@ -1,5 +1,6 @@
 import Prismic from 'prismic-javascript'
 import PrismicConfig from '~/prismic.config.js'
+import LinkResolver from '~/plugins/link-resolver.js'
 
 export default function(i18n = { defaultLocale: 'fr-fr' }) {
   const language = i18n.locale || i18n.defaultLocale
