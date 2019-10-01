@@ -6,6 +6,20 @@
           <burger-menu-nav :top-items="topItems" :bottom-items="bottomItems" />
         </push-menu>
       </client-only>
+      <div class="nav-principal mobile">
+        <div class="container padding-container">
+          <div class="switch">
+            <nuxt-link to="/">
+              <img
+                alt="Accueil du site pix.fr"
+                class="logo"
+                src="/images/pix-logo.svg"
+              />
+            </nuxt-link>
+            <img alt="Logo de la Marianne" src="/images/marianne-logo.svg" />
+          </div>
+        </div>
+      </div>
       <div id="page-wrap">
         <organization-nav :organization-nav-items="organizationNavItems" />
         <div class="nav-principal desktop">
