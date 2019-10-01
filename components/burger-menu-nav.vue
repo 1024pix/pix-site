@@ -3,9 +3,9 @@
     <nav class="nav-top">
       <ul>
         <li v-for="item in topItems" :key="item.id" class="nav-top__link">
-          <a :href="item.primary.link.url">
+          <pix-link :field="item.primary.link">
             {{ $prismic.richTextAsPlain(item.primary.title) }}
-          </a>
+          </pix-link>
         </li>
       </ul>
     </nav>
@@ -13,10 +13,10 @@
       <hr class="nav-bottom__bar" />
       <ul>
         <li v-for="item in bottomItems" :key="item.id" class="nav-bottom__link">
-          <a :href="item.primary.link.url">
+          <pix-link :field="item.primary.link">
             {{ $prismic.richTextAsPlain(item.primary.title) }}
             <span class="show-page-icon">&gt;</span>
-          </a>
+          </pix-link>
         </li>
       </ul>
     </div>
