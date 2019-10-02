@@ -47,7 +47,7 @@
   </div>
 </template>
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '~/components/slices/hero-banner'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
@@ -61,9 +61,11 @@ export default {
       'en-gb': '/about'
     }
   },
-  async asyncData({ app, error, currentPagePath }) {
+  async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getAbout()
+      const document = await documentFetcher(app.i18n).getDocument(
+        documents.about
+      )
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,

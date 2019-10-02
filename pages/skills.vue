@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 import SectionSlice from '~/components/slices/section'
 export default {
   name: 'Skills',
@@ -39,7 +39,7 @@ export default {
   components: { SectionSlice },
   async asyncData({ app, error, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getSkills()
+      const document = await documentFetcher(app.i18n).get(documents.skills)
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,

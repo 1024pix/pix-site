@@ -113,7 +113,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '~/components/slices/hero-banner'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
@@ -131,8 +131,12 @@ export default {
   components: { HeroBanner, KeyNumbers, SectionColumnSlice, SectionSlice },
   async asyncData({ app, error, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getSchoolEducation()
-      const keyNumbers = await DocumentFetcher(app.i18n).getKeyNumbers()
+      const document = await documentFetcher(app.i18n).get(
+        documents.schoolEducation
+      )
+      const keyNumbers = await documentFetcher(app.i18n).get(
+        documents.keyNumbers
+      )
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,

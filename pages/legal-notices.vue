@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 import SectionSlice from '~/components/slices/section'
 export default {
   name: 'LegalNotices',
@@ -41,9 +41,11 @@ export default {
     }
   },
   components: { SectionSlice },
-  async asyncData({ app, error, currentPagePath }) {
+  async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getLegalNotices()
+      const document = await documentFetcher(app.i18n, req).get(
+        documents.legalNotices
+      )
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,

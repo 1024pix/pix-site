@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export default {
   name: 'TermsOfService',
@@ -35,7 +35,9 @@ export default {
   },
   async asyncData({ app, error, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getTermsOfService()
+      const document = await documentFetcher(app.i18n).get(
+        documents.termsOfService
+      )
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
