@@ -6,6 +6,7 @@
         <news-item-post :news-item="newsItem" />
       </div>
     </div>
+    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -31,7 +32,7 @@ export default {
       const newsItem = await documentFetcher(app.i18n, req).getNewsItemByUid(
         params.slug
       )
-      return { currentPagePath, newsItem }
+      return { currentPagePath, newsItem, documentId: newsItem.id }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
     }
