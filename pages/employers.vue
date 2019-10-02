@@ -94,7 +94,9 @@ export default {
   components: { HeroBanner, KeyNumbers, SectionColumnSlice, SectionSlice },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n, req).get(documents.employers)
+      const document = await documentFetcher(app.i18n, req).get(
+        documents.employers
+      )
       const keyNumbers = await documentFetcher(app.i18n, req).get(
         documents.keyNumbers
       )

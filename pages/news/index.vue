@@ -41,7 +41,7 @@ export default {
   components: {
     NewsItemCard
   },
-  async asyncData({ app, error }) {
+  async asyncData({ app, error, req }) {
     try {
       const newsItems = await documentFetcher(app.i18n, req).findNewsItems()
       return { newsItems }
