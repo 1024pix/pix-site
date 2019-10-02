@@ -17,6 +17,7 @@
         </div>
       </section>
     </div>
+    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -35,10 +36,12 @@ export default {
   async asyncData({ app, error, currentPagePath }) {
     try {
       const document = await DocumentFetcher(app.i18n).getTermsOfService()
+      if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
         meta: document.data.meta,
-        document: document.data
+        document: document.data,
+        documentId: document.id
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })

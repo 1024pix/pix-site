@@ -17,6 +17,7 @@
         </p>
       </div>
     </div>
+    <prismic-edit-button :document-id="contentId" />
   </section>
 </template>
 
@@ -26,7 +27,11 @@ export default {
   props: {
     content: {
       type: Object,
-      default: null
+      required: true
+    },
+    contentId: {
+      type: String,
+      required: true
     }
   },
   computed: {
@@ -36,6 +41,9 @@ export default {
     items() {
       return this.content.column
     }
+  },
+  beforeMount() {
+    window.prismic.setupEditButton()
   }
 }
 </script>
