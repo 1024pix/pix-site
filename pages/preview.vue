@@ -1,6 +1,6 @@
 <template>
   <div class="outer-container">
-    <p>Loading the Prismic's Preview...</p>
+    <p>Chargement de la page de prévisualisation...</p>
   </div>
 </template>
 
