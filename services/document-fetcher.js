@@ -2,47 +2,27 @@ import Prismic from 'prismic-javascript'
 import PrismicConfig from '~/prismic.config.js'
 import LinkResolver from '~/plugins/link-resolver.js'
 
-export default function(i18n = { defaultLocale: 'fr-fr' }) {
+export const documents = {
+  hotNews: 'hot_news',
+  legalNotices: 'legal-notices',
+  termsOfService: 'cgu_page',
+  stats: 'statistiques',
+  index: 'index',
+  navigation: 'navigation',
+  mediation: 'mediation',
+  higherEducation: 'higher-education',
+  keyNumbers: 'key_numbers',
+  employers: 'employers',
+  schoolEducation: 'school-education',
+  about: 'about',
+  skills: 'competences'
+}
+
+export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }) {
   const language = i18n.locale || i18n.defaultLocale
   return {
-    getHotNews: () => {
-      return getSingle('hot_news')
-    },
-    getTermsOfService: () => {
-      return getSingle('cgu_page')
-    },
-    getStats: () => {
-      return getSingle('statistiques')
-    },
-    getIndex: () => {
-      return getSingle('index')
-    },
-    getNavigation: () => {
-      return getSingle('navigation')
-    },
-    getMediation: () => {
-      return getSingle('mediation')
-    },
-    getHigherEducation: () => {
-      return getSingle('higher-education')
-    },
-    getKeyNumbers: () => {
-      return getSingle('key_numbers')
-    },
-    getEmployers: () => {
-      return getSingle('employers')
-    },
-    getSchoolEducation: () => {
-      return getSingle('school-education')
-    },
-    getAbout: () => {
-      return getSingle('about')
-    },
-    getSkills: () => {
-      return getSingle('competences')
-    },
-    getLegalNotices: () => {
-      return getSingle('legal-notices')
+    get: (documentName) => {
+      return getSingle(documentName)
     },
     findNewsItems: async ({ page, pageSize } = { page: 1, pageSize: 20 }) => {
       const api = await getApi()

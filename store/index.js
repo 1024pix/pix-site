@@ -1,4 +1,4 @@
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export const state = () => ({
   organizationNavItems: [],
@@ -37,9 +37,9 @@ export const mutations = {
 }
 
 function getNavigation(i18n) {
-  return DocumentFetcher(i18n).getNavigation()
+  return documentFetcher(i18n).get(documents.navigation)
 }
 
 function getHotNews(i18n) {
-  return DocumentFetcher(i18n).getHotNews()
+  return documentFetcher(i18n).get(documents.hotNews)
 }

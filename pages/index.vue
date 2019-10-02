@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '~/components/slices/hero-banner'
 import SectionSlice from '~/components/slices/section'
 import PopInCampaigns from '~/components/pop-in-campaigns'
@@ -62,7 +62,7 @@ export default {
   components: { PopInCampaigns, HeroBanner, SectionSlice },
   async asyncData({ app, error, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getIndex()
+      const document = await documentFetcher(app.i18n).get(documents.index)
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,

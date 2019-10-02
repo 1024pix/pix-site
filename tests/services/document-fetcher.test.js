@@ -1,4 +1,4 @@
-import DocumentFetcher from '~/services/document-fetcher'
+import { documentFetcher, documents } from '~/services/document-fetcher'
 
 jest.mock('prismic-javascript')
 import Prismic from 'prismic-javascript'
@@ -8,11 +8,11 @@ describe('DocumentFetcher', () => {
   test('it should use prismic configuration', async () => {
     // Given
     const prismicApi = {
-      getSingle: jest.fn(async () => ({ uid: 'navigation' }))
+      getSingle: jest.fn(() => ({ uid: 'navigation' }))
     }
     Prismic.getApi.mockResolvedValue(prismicApi)
     // When
-    await DocumentFetcher().getNavigation()
+    await documentFetcher().get(documents.navigation)
 
     // Then
     expect(Prismic.getApi).toBeCalledWith(PrismicConfig.apiEndpoint)
@@ -21,7 +21,7 @@ describe('DocumentFetcher', () => {
   test('it should get navigation from Prismic for default language if locale language is not defined', async () => {
     // Given
     const prismicApi = {
-      getSingle: jest.fn(async () => ({ uid: 'navigation' }))
+      getSingle: jest.fn(() => ({ uid: 'navigation' }))
     }
     Prismic.getApi.mockResolvedValue(prismicApi)
     const i18n = {
@@ -29,7 +29,7 @@ describe('DocumentFetcher', () => {
       defaultLocale: 'some-default-language'
     }
     // When
-    const navigation = await DocumentFetcher(i18n).getNavigation()
+    const navigation = await documentFetcher(i18n).get(documents.navigation)
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('navigation', {
       lang: 'some-default-language'
@@ -40,7 +40,7 @@ describe('DocumentFetcher', () => {
   test('it should get navigation from Prismic for locale language when it is defined', async () => {
     // Given
     const prismicApi = {
-      getSingle: jest.fn(async () => ({ uid: 'navigation' }))
+      getSingle: jest.fn(() => ({ uid: 'navigation' }))
     }
     Prismic.getApi.mockResolvedValue(prismicApi)
     const i18n = {
@@ -48,7 +48,7 @@ describe('DocumentFetcher', () => {
       defaultLocale: 'some-default-language'
     }
     // When
-    await DocumentFetcher(i18n).getNavigation()
+    await documentFetcher(i18n).get(documents.navigation)
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('navigation', {
       lang: 'defined-language-by-user'
@@ -58,11 +58,11 @@ describe('DocumentFetcher', () => {
   test('it should get navigation from Prismic for French when language is not defined', async () => {
     // Given
     const prismicApi = {
-      getSingle: jest.fn(async () => ({ uid: 'navigation' }))
+      getSingle: jest.fn(() => ({ uid: 'navigation' }))
     }
     Prismic.getApi.mockResolvedValue(prismicApi)
     // When
-    await DocumentFetcher().getNavigation()
+    await documentFetcher().get(documents.navigation)
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('navigation', { lang: 'fr-fr' })
   })

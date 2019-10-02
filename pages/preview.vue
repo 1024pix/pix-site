@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documentFetcher } from '~/services/document-fetcher'
 export default {
   name: 'Preview',
   async asyncData({ query, redirect }) {
-    const url = await DocumentFetcher().getPreviewUrl(query.token)
+    const url = await documentFetcher().getPreviewUrl(query.token)
     redirect(url)
   }
 }

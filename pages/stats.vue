@@ -21,7 +21,7 @@
 
 <script>
 import ChartSection from '../components/chart-section'
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export default {
   name: 'Stats',
@@ -69,7 +69,7 @@ export default {
       const chartsData = datasets.map((dataset) => createData(dataset))
       const dates = []
 
-      const document = await DocumentFetcher(app.i18n).getStats()
+      const document = await documentFetcher(app.i18n).get(documents.stats)
       if (process.client) window.prismic.setupEditButton()
       document.data.stats.forEach((stats) => {
         dates.push($moment(stats.primary.date).format('MM/YY'))

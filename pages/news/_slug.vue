@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documentFetcher } from '~/services/document-fetcher'
 import NewsItemPost from '~/components/news-item-post'
 
 export default {
@@ -28,7 +28,7 @@ export default {
     const host = req ? req.headers.host : window.location.host
     const currentPagePath = `${host}${route.path}`
     try {
-      const newsItem = await DocumentFetcher(app.i18n).getNewsItemByUid(
+      const newsItem = await documentFetcher(app.i18n).getNewsItemByUid(
         params.slug
       )
       return { currentPagePath, newsItem }

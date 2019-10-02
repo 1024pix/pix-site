@@ -103,7 +103,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
 import KeyNumbers from '~/components/key-numbers'
@@ -120,8 +120,12 @@ export default {
   components: { KeyNumbers, SectionSlice, SectionColumnSlice },
   async asyncData({ app, error, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getHigherEducation()
-      const keyNumbers = await DocumentFetcher(app.i18n).getKeyNumbers()
+      const document = await documentFetcher(app.i18n).get(
+        documents.higherEducation
+      )
+      const keyNumbers = await documentFetcher(app.i18n).get(
+        documents.keyNumbersId
+      )
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,

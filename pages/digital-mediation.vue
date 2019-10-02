@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import DocumentFetcher from '~/services/document-fetcher'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
 
@@ -86,7 +86,7 @@ export default {
   },
   async asyncData({ app, error, currentPagePath }) {
     try {
-      const document = await DocumentFetcher(app.i18n).getMediation()
+      const document = await documentFetcher(app.i18n).get(documents.mediation)
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
