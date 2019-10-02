@@ -28,7 +28,7 @@ export default {
     const host = req ? req.headers.host : window.location.host
     const currentPagePath = `${host}${route.path}`
     try {
-      const newsItem = await documentFetcher(app.i18n).getNewsItemByUid(
+      const newsItem = await documentFetcher(app.i18n, req).getNewsItemByUid(
         params.slug
       )
       return { currentPagePath, newsItem }

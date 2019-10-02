@@ -33,9 +33,9 @@ export default {
       'en-gb': '/terms-of-service'
     }
   },
-  async asyncData({ app, error, currentPagePath }) {
+  async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n).get(
+      const document = await documentFetcher(app.i18n, req).get(
         documents.termsOfService
       )
       if (process.client) window.prismic.setupEditButton()

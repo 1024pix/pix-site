@@ -35,7 +35,7 @@ export default {
   components: {
     ChartSection
   },
-  async asyncData({ app, error, $moment, currentPagePath }) {
+  async asyncData({ app, error, $moment, req, currentPagePath }) {
     function createData({ key, color }) {
       return {
         key,
@@ -69,7 +69,7 @@ export default {
       const chartsData = datasets.map((dataset) => createData(dataset))
       const dates = []
 
-      const document = await documentFetcher(app.i18n).get(documents.stats)
+      const document = await documentFetcher(app.i18n, req).get(documents.stats)
       if (process.client) window.prismic.setupEditButton()
       document.data.stats.forEach((stats) => {
         dates.push($moment(stats.primary.date).format('MM/YY'))

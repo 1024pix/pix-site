@@ -7,15 +7,16 @@ import PrismicConfig from '~/prismic.config.js'
 describe('DocumentFetcher', () => {
   test('it should use prismic configuration', async () => {
     // Given
+    const req = { some: 'cookie' }
     const prismicApi = {
       getSingle: jest.fn(() => ({ uid: 'navigation' }))
     }
     Prismic.getApi.mockResolvedValue(prismicApi)
     // When
-    await documentFetcher().get(documents.navigation)
+    await documentFetcher({}, req).get(documents.navigation)
 
     // Then
-    expect(Prismic.getApi).toBeCalledWith(PrismicConfig.apiEndpoint)
+    expect(Prismic.getApi).toBeCalledWith(PrismicConfig.apiEndpoint, { req })
   })
 
   test('it should get navigation from Prismic for default language if locale language is not defined', async () => {

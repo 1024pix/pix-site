@@ -18,7 +18,7 @@ export const documents = {
   skills: 'competences'
 }
 
-export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }) {
+export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
   const language = i18n.locale || i18n.defaultLocale
   return {
     get: (documentName) => {
@@ -57,6 +57,6 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }) {
   }
 
   function getApi() {
-    return Prismic.getApi(PrismicConfig.apiEndpoint)
+    return Prismic.getApi(PrismicConfig.apiEndpoint, { req })
   }
 }

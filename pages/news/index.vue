@@ -43,7 +43,7 @@ export default {
   },
   async asyncData({ app, error }) {
     try {
-      const newsItems = await documentFetcher(app.i18n).findNewsItems()
+      const newsItems = await documentFetcher(app.i18n, req).findNewsItems()
       return { newsItems }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })

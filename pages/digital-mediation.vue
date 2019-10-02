@@ -84,9 +84,9 @@ export default {
     SectionSlice,
     SectionColumnSlice
   },
-  async asyncData({ app, error, currentPagePath }) {
+  async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n).get(documents.mediation)
+      const document = await documentFetcher(app.i18n, req).get(documents.mediation)
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
