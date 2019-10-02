@@ -62,7 +62,7 @@
       </div>
     </section>
 
-    <key-numbers :content="keyNumbers"> </key-numbers>
+    <key-numbers :content="keyNumbers" :content-id="keyNumbersId" />
 
     <section-slice
       :content="document[6]"
@@ -71,6 +71,7 @@
       :button-class="'collaborateur-container__button'"
     >
     </section-slice>
+    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -95,11 +96,14 @@ export default {
     try {
       const document = await DocumentFetcher(app.i18n).getEmployers()
       const keyNumbers = await DocumentFetcher(app.i18n).getKeyNumbers()
+      if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
         meta: document.data.meta,
         document: document.data.body,
-        keyNumbers: keyNumbers.data
+        keyNumbers: keyNumbers.data,
+        keyNumbersId: keyNumbers.id,
+        documentId: document.id
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
