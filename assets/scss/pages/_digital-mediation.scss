@@ -148,9 +148,15 @@
 
     .container-column {
       width: 100%;
-
+      div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
       .block-img {
         height: 25px;
+        align-self: center;
 
         & > img {
           width: 50px;
