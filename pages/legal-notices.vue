@@ -68,6 +68,9 @@ export default {
 
 <style lang="scss">
 .legal-notices {
+  ul {
+    list-style: none;
+  }
   h2 {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 36px;
