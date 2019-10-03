@@ -748,7 +748,8 @@ export default {
 .developper {
   &__list {
     margin-top: 0;
-    padding-left: 20px;
+    padding-left: 0;
+    padding-right: 20px;
   }
 
   &__item {
