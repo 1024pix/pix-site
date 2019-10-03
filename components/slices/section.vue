@@ -72,7 +72,7 @@ export default {
       return this.content.primary.button_title
     },
     hasImage() {
-      return this.image && this.image.length
+      return this.image && this.image.url
     },
     hasButton() {
       return this.buttonText && this.buttonText.length
