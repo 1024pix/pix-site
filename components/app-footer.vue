@@ -2,7 +2,7 @@
   <footer>
     <div class="container padding-container">
       <div class="sitelogo">
-        <a href=""
+        <a href="/"
           ><img class="mb-2 logo" alt="pix" src="/images/pix-logo.svg"
         /></a>
         <div>
