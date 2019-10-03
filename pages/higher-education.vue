@@ -124,17 +124,19 @@ export default {
         documents.higherEducation
       )
       const keyNumbers = await documentFetcher(app.i18n, req).get(
-        documents.keyNumbersId
+        documents.keyNumbers
       )
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
         meta: document.data.meta,
         document: document.data.body,
+        documentId: document.id,
         keyNumbers: keyNumbers.data,
         keyNumbersId: keyNumbers.id
       }
     } catch (e) {
+      console.log(e)
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
