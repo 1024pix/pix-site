@@ -3,7 +3,7 @@
     <hero-banner
       :section-class="'school-education__hero-banner'"
       :background-class="'hero-banner__background'"
-      :content-class="'hero-banner__content'"
+      :content-class="'school-education hero-banner__content'"
       :button-class="'hero-banner-content__button'"
       :content="document[0]"
     >
@@ -562,7 +562,7 @@ export default {
   }
 }
 
-.hero-banner {
+.school-education .hero-banner {
   &__background {
     position: absolute;
     background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0, #213371 100%),
