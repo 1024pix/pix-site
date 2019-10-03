@@ -63,9 +63,7 @@ export default {
   },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n, req).getDocument(
-        documents.about
-      )
+      const document = await documentFetcher(app.i18n, req).get(documents.about)
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
