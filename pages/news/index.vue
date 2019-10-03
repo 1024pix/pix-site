@@ -53,16 +53,31 @@ export default {
 </script>
 
 <style lang="scss">
-.news__list {
-  max-width: 1140px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+.news {
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    font-family: 'Open Sans', Arial, sans-serif;
+  }
 
-  @media (min-width: 700px) {
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-evenly;
+  h1 {
+    font-weight: 300;
+    font-size: 44px;
+  }
+
+  &__list {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 700px) {
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
   }
 }
 </style>
