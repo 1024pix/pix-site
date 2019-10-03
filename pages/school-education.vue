@@ -908,6 +908,11 @@ export default {
     max-width: 1140px;
     margin: 0 auto;
     text-align: center;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 60px;
+    }
   }
 
   &-container {
@@ -1062,6 +1067,8 @@ export default {
 }
 
 .key-numbers {
+  margin-bottom: 80px;
+
   &__title {
     margin-bottom: 60px;
     text-align: center;
