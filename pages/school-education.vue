@@ -586,7 +586,7 @@ export default {
           rgba(13, 125, 196, 0.4) 0,
           #213371 100%
         ),
-        url('/images/background-hero-pro.jpg');
+        url('/images/background-hero-sco.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: top center;

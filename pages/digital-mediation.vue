@@ -48,7 +48,10 @@
     <section class="abc-pix">
       <div class="container padding-container">
         <div class="trapeze">
-          <prismic-rich-text :field="document[5].primary.title" />
+          <prismic-rich-text
+            :field="document[5].primary.title"
+            :class="'abc'"
+          />
           <prismic-rich-text :field="document[5].primary.description" />
 
           <div class="container flex">
@@ -68,7 +71,7 @@
 </template>
 
 <script>
-import { documents, documentFetcher } from '~/services/document-fetcher'
+import { documentFetcher, documents } from '~/services/document-fetcher'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
 
@@ -109,4 +112,4 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style></style>
