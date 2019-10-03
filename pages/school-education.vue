@@ -566,7 +566,7 @@ export default {
   &__background {
     position: absolute;
     background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0, #213371 100%),
-      url(/images/background-hero-mobile-pro.jpg);
+      url(/images/background-hero-mobile-sco.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
