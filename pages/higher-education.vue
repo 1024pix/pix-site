@@ -79,24 +79,6 @@
         </div>
       </div>
     </section>
-
-    <section class="section-agenda">
-      <div class="hero-background"></div>
-      <div class="container">
-        <prismic-image :field="document[7].primary.logo" />
-        <prismic-rich-text :field="document[7].primary.title" />
-        <div style="margin:auto;">
-          <div
-            v-for="(item, index) in document[7].items"
-            :key="`item-${index}`"
-            class="column mb-0-2"
-          >
-            <prismic-rich-text :field="item.card_title" />
-            <prismic-rich-text :field="item.card_description" />
-          </div>
-        </div>
-      </div>
-    </section>
     <key-numbers :content="keyNumbers" :content-id="keyNumbersId" />
     <prismic-edit-button :document-id="documentId" />
   </div>
