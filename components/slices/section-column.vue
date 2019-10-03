@@ -17,7 +17,7 @@
       </div>
       <div class="container-column">
         <div :class="rightClass">
-          <prismic-image v-if="image === null" :field="image"></prismic-image>
+          <prismic-image v-if="image !== null" :field="image"></prismic-image>
         </div>
       </div>
     </div>
