@@ -62,11 +62,6 @@ export default {
     font-family: 'Open Sans', Arial, sans-serif;
   }
 
-  h1 {
-    font-weight: 300;
-    font-size: 44px;
-  }
-
   &__list {
     max-width: 1140px;
     margin: 0 auto;
