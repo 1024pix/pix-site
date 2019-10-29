@@ -1,0 +1,121 @@
+.btn {
+  font-family: 'Roboto', Arial, sans-serif;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  position: relative;
+  background: linear-gradient(180deg, #FFBE00 0%, #FF9F00 100%);
+  color: #222;
+  border-radius: 5px;
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+
+  &:hover {
+    transition: opacity 0.5s ease-out;
+    background: linear-gradient(180deg, #FF9D00 0%, #FF7900 100%);
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+
+  span {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+.btn-primary {
+  font-family: 'Roboto', Arial, sans-serif;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 20px;
+  position: relative;
+  background: $blue-1;
+  color: $white;
+  border-radius: 5px;
+  -webkit-backface-visibility: hidden;
+  z-index: 1;
+
+  &:hover {
+    background-color: $blue-3;
+    transition: all ease-out 0.25s;
+  }
+
+  span {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+.btn-nav {
+  font-family: 'Roboto', Arial, sans-serif;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 25px;
+  color: $blue-1;
+  border-radius: 20px;
+  border: 1px solid $blue-1;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $blue-1;
+    color: white !important;
+  }
+}
+
+.btn-nav-mobile {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-weight: 400;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px !important;
+  letter-spacing: 1px;
+  text-decoration: none;
+  height: 40px !important;
+  line-height: 40px !important;
+  padding: 0 25px;
+  color: white;
+  border-radius: 20px;
+  border: 1px solid white;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 180px;
+
+  &:hover {
+    background-color: white;
+    color: $blue-1 !important;
+    text-decoration: none !important;
+  }
+}
+
+.wio-link {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  background-color: $blue-1;
+  text-align: center;
+  padding: 5px;
+}
