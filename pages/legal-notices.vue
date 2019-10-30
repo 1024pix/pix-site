@@ -36,7 +36,6 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/mentions-legales',
-      'fr-be': '/mentions-legales',
       'en-gb': '/en-gb/legal-notices'
     }
   },

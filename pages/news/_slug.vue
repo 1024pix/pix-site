@@ -18,7 +18,6 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/actualites/:slug',
-      'fr-be': '/actualites/:slug',
       'en-gb': '/news/:slug'
     }
   },

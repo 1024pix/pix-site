@@ -16,7 +16,6 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/formulaire/demande-agrement-centre-certification',
-      'fr-be': '/formulaire/demande-agrement-centre-certification',
       'en-gb': '/form/pix-certification-application'
     }
   }

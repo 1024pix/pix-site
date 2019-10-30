@@ -16,7 +16,6 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/formulaire/contact-pix-pro',
-      'fr-be': '/formulaire/contact-pix-pro',
       'en-gb': '/form/pix-orga-registration'
     }
   }

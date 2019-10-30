@@ -16,7 +16,6 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/formulaire/finalisation-pix-orga-sup',
-      'fr-be': '/formulaire/finalisation-pix-orga-sup',
       'en-gb': '/form/pix-orga-higher-school-registration'
     }
   }

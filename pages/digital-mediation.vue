@@ -79,7 +79,6 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/mediation-numerique',
-      'fr-be': '/mediation-numerique',
       'en-gb': '/digital-mediation'
     }
   },
