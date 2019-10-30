@@ -87,10 +87,10 @@ export default {
    */
   axios: {},
   i18n: {
-    defaultLocale: 'fr-be',
+    defaultLocale: 'fr-fr',
     locales: [
       {
-        code: 'fr-be',
+        code: 'fr-fr',
         file: 'fr-fr.js'
       },
       {
@@ -101,7 +101,7 @@ export default {
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
-      fallbackLocale: 'fr-be'
+      fallbackLocale: 'fr-fr'
     }
   },
   router: {
