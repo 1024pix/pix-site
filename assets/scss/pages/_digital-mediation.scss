@@ -176,7 +176,7 @@
 
       @include device-is('tablet') {
         padding: 200px 0 100px;
-        height: 520px;
+        height: 540px;
         padding-top: 160px;
       }
 
@@ -184,10 +184,10 @@
         position: absolute;
         background: linear-gradient(
             180deg,
-            rgba(18, 163, 255, 0.8) 0,
-            rgba(61, 104, 255, 0.8) 100%
+            rgba(18, 163, 255, 0.65) 0,
+            rgba(61, 104, 255, 0.65) 100%
           ),
-          url('/images/bg-hero-mednum.jpg');
+          url('/images/background-hero-mednum.png');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top center;
@@ -204,10 +204,10 @@
         @include device-is('tablet') {
           background: linear-gradient(
               180deg,
-              rgba(18, 163, 255, 0.8) 0,
-              rgba(61, 104, 255, 0.8) 100%
+              rgba(18, 163, 255, 0.65) 0,
+              rgba(61, 104, 255, 0.65) 100%
             ),
-            url('/images/bg-hero-mednum@2x.jpg');
+            url('/images/background-hero-mednum.png');
           background-repeat: no-repeat;
           background-size: cover;
           background-position: top center;

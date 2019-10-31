@@ -274,16 +274,15 @@ export default {
       padding-top: 60px;
 
       @include device-is('tablet') {
-        padding: 200px 0 100px;
-        height: 520px;
-        padding-top: 160px;
+        height: 540px;
+        padding: 120px 0 100px;
       }
 
       .background {
         position: absolute;
-        background: linear-gradient(
-            135deg,
-            rgba(18, 163, 255, 0.7) 0,
+        background-image: linear-gradient(
+            -180deg,
+            rgba(18, 163, 255, 0.7) 0%,
             rgba(61, 104, 255, 0.7) 100%
           ),
           url('/images/background-hero-mobile-sup.jpg');
@@ -301,9 +300,9 @@ export default {
         height: 100%;
 
         @include device-is('tablet') {
-          background: linear-gradient(
-              135deg,
-              rgba(18, 163, 255, 0.7) 0,
+          background-image: linear-gradient(
+              -180deg,
+              rgba(18, 163, 255, 0.7) 0%,
               rgba(61, 104, 255, 0.7) 100%
             ),
             url('/images/background-hero-sup.jpg');

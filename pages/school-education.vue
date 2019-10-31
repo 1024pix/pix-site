@@ -176,9 +176,8 @@ export default {
     position: relative;
 
     @include device-is('tablet') {
-      padding: 200px 0 100px;
-      height: 520px;
-      padding-top: 160px;
+      height: 540px;
+      padding: 160px 0 100px;
     }
   }
 
@@ -564,10 +563,13 @@ export default {
 .school-education .hero-banner {
   &__background {
     position: absolute;
-    background: linear-gradient(46deg, rgba(13, 125, 196, 0.4) 0, #213371 100%),
+    background-image: linear-gradient(
+        225deg,
+        rgba(56, 138, 255, 0.7) 0%,
+        rgba(152, 95, 255, 0.7) 100%
+      ),
       url(/images/background-hero-mobile-sco.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: top center;
     transform-origin: top left;
     transform: skewY(-3deg);
@@ -580,16 +582,18 @@ export default {
     height: 100%;
 
     @include device-is('tablet') {
-      background: linear-gradient(
-          46deg,
-          rgba(13, 125, 196, 0.4) 0,
-          #213371 100%
+      background-image: linear-gradient(
+          225deg,
+          rgba(56, 138, 255, 0.7) 0%,
+          rgba(152, 95, 255, 0.7) 100%
         ),
-        url('/images/background-hero-sco.jpg');
-      background-repeat: no-repeat;
+        url(/images/background-hero-sco.jpg);
       background-size: cover;
-      background-position: top center;
     }
+  }
+
+  &__background {
+    background-size: cover;
   }
 
   &__content {

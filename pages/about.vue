@@ -102,7 +102,7 @@ export default {
 
     @include device-is('tablet') {
       padding: 200px 0 100px;
-      height: 520px;
+      height: 540px;
       padding-top: 160px;
     }
   }
