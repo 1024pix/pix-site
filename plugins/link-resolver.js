@@ -1,4 +1,4 @@
-const defaultLocale = 'fr-be'
+const defaultLocale = 'fr-fr'
 
 export default function(doc) {
   const staticRoute = [
