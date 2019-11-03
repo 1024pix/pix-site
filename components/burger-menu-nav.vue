@@ -129,6 +129,15 @@ export default {
   .nav-bottom a:hover {
     text-decoration: underline;
   }
+
+  .bm-item-list {
+    margin-left: 0;
+    padding: 0 25px;
+
+    & > * {
+      padding: 0;
+    }
+  }
 }
 
 .bm-burger-bars {
@@ -144,14 +153,5 @@ export default {
 .bm-cross {
   background: $grey-1;
   height: 24px !important;
-}
-
-.bm-item-list {
-  margin-left: 0;
-  padding: 0 25px;
-
-  & > * {
-    padding: 0;
-  }
 }
 </style>
