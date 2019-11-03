@@ -92,6 +92,7 @@ export default {
       color: $white;
       text-align: left;
       text-transform: uppercase;
+      margin-top: 10px;
     }
 
     .show-page-icon {
