@@ -1084,10 +1084,14 @@ export default {
 
   &__list {
     display: flex;
-    flex-flow: row wrap;
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px;
+    flex-flow: column wrap;
+
+    @include device-is('large-mobile') {
+      flex-flow: row wrap;
+    }
   }
 }
 
