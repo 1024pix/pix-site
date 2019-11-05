@@ -16,8 +16,8 @@
         </ul>
       </div>
       <div class="container-column">
-        <div :class="rightClass">
-          <prismic-image v-if="image !== null" :field="image"></prismic-image>
+        <div v-if="hasImage" :class="rightClass">
+          <prismic-image :field="image"></prismic-image>
         </div>
       </div>
     </div>
@@ -61,6 +61,9 @@ export default {
     },
     image() {
       return this.content.primary.image
+    },
+    hasImage() {
+      return this.image && this.image.url
     }
   }
 }
