@@ -231,6 +231,7 @@ export default {
           &.block-img {
             width: 100%;
             min-height: 100px;
+            text-align: center;
 
             img {
               max-width: 100%;
