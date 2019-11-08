@@ -183,8 +183,7 @@ export default {
 
   &__infos {
     position: relative;
-    padding-top: 40px;
-    padding-bottom: 0;
+    padding: 40px 20px 0;
 
     @include device-is('large-mobile') {
       padding-top: 50px;
@@ -373,7 +372,7 @@ export default {
       transform-origin: bottom right;
     }
     & > .container {
-      flex-direction: column-reverse;
+      flex-direction: column;
 
       @include device-is('tablet') {
         flex-direction: row-reverse;
