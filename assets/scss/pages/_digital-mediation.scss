@@ -54,6 +54,10 @@
     line-height: 1.6rem;
     font-weight: 300;
     margin: 0 0 15px;
+
+    &.block-img {
+      text-align: center;
+    }
   }
 
   ul {
@@ -523,6 +527,15 @@
 
         @include device-is('tablet') {
           padding: 70px;
+        }
+
+
+        .container {
+          margin-left: -10px;
+        }
+
+        .container-column {
+          padding-left: 10px;
         }
       }
 
