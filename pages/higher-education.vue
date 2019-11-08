@@ -325,8 +325,7 @@ export default {
 
     &.section-infos {
       position: relative;
-      padding-top: 40px;
-      padding-bottom: 0;
+      padding: 40px 20px 0;
 
       @include device-is('large-mobile') {
         padding-top: 50px;
@@ -368,6 +367,10 @@ export default {
           p {
             @include device-is('tablet') {
               min-height: 140px;
+            }
+
+            .block-img img {
+              width: 100%;
             }
           }
         }

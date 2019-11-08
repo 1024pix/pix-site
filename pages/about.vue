@@ -51,6 +51,7 @@ import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '~/components/slices/hero-banner'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
+
 export default {
   name: 'About',
   components: { HeroBanner, SectionColumnSlice, SectionSlice },
@@ -308,7 +309,7 @@ export default {
   }
 
   &__goal {
-    height: 390px;
+    height: 690px;
     color: white;
     padding-top: 60px;
     position: relative;
@@ -323,10 +324,10 @@ export default {
       position: absolute;
       background: linear-gradient(
           135deg,
-          rgba(152, 95, 255, 0.7) 0,
-          rgba(56, 138, 255, 0.7) 100%
+          rgba(255, 190, 0, 0.7) 0,
+          rgba(255, 159, 0, 0.7) 100%
         ),
-        url('/images/img-hero_mobile.jpg');
+        url('/images/img-dev_mobile.jpg');
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
@@ -355,9 +356,14 @@ export default {
 
     h2 {
       text-align: left;
-      font-size: 2.875rem;
-      line-height: 3.875rem;
       font-weight: 700;
+      font-size: 1.875rem;
+      line-height: 2.375rem;
+
+      @include device-is('tablet') {
+        font-size: 2.875rem;
+        line-height: 3.875rem;
+      }
     }
   }
 
@@ -374,10 +380,15 @@ export default {
       }
 
       p {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-        font-weight: 600;
         margin-bottom: 24px;
+        font-size: 1rem;
+        line-height: 1.6rem;
+        font-weight: 600;
+
+        @include device-is('tablet') {
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+        }
       }
     }
   }
