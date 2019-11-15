@@ -3,6 +3,7 @@
     <formable-page
       :title="'contact-digital-mediation.page-title'"
       :form-id="$t('contact-digital-mediation.form-id')"
+      :height="'800px'"
     />
   </div>
 </template>

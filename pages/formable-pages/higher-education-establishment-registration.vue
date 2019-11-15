@@ -3,6 +3,7 @@
     <formable-page
       :title="'higher-education-establishment-registration.page-title'"
       :form-id="$t('higher-education-establishment-registration.form-id')"
+      :height="'1400px'"
     />
   </div>
 </template>

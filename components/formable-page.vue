@@ -7,14 +7,14 @@
         </h1>
       </div>
     </header>
-    <div class="formable-page__form">
+    <div class="formable-page__form" :style="`height:${height}`">
       <!-- eu.123formbuilder.com script begins here -->
       <iframe
+        id="123formbuilder"
         allowTransparency="true"
         style="min-height:300px; height:inherit; overflow:auto;"
         width="100%"
-        id="contactform123"
-        name="contactform123"
+        name="123formbuilder"
         marginwidth="0"
         marginheight="0"
         frameborder="0"
@@ -41,6 +41,10 @@ export default {
     formId: {
       type: String,
       default: ''
+    },
+    height: {
+      type: String,
+      default: '600px'
     }
   },
   computed: {
@@ -50,9 +54,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.formable-page__form {
-  height: 700px;
-}
-</style>
