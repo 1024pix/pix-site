@@ -7,15 +7,26 @@
         </h1>
       </div>
     </header>
-    <!-- eu.123formbuilder.com script begins here -->
-    <script
-      type="text/javascript"
-      defer
-      :src="formSrc"
-      data-role="form"
-      data-default-width="650px"
-    ></script>
-    <!-- eu.123formbuilder.com script ends here -->
+    <div class="formable-page__form" :style="`height:${height}`">
+      <!-- eu.123formbuilder.com script begins here -->
+      <iframe
+        id="123formbuilder"
+        allowTransparency="true"
+        style="min-height:300px; height:inherit; overflow:auto;"
+        width="100%"
+        name="123formbuilder"
+        marginwidth="0"
+        marginheight="0"
+        frameborder="0"
+        :src="formSrc"
+      >
+        <p>
+          Your browser does not support iframes. The contact form cannot be
+          displayed. Please use another contact method (phone, fax etc)
+        </p>
+      </iframe>
+      <!-- eu.123formbuilder.com script ends here -->
+    </div>
   </div>
 </template>
 
@@ -30,14 +41,16 @@ export default {
     formId: {
       type: String,
       default: ''
+    },
+    height: {
+      type: String,
+      default: '600px'
     }
   },
   computed: {
     formSrc() {
-      return `//eu.123formbuilder.com/embed/${this.formId}.js`
+      return `//eu.123formbuilder.com/my-contact-form-${this.formId}.html`
     }
   }
 }
 </script>
-
-<style></style>

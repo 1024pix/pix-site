@@ -3,6 +3,7 @@
     <formable-page
       :title="'pix-orga-higher-school-registration.page-title'"
       :form-id="$t('pix-orga-higher-school-registration.form-id')"
+      :height="'1300px'"
     />
   </div>
 </template>

@@ -3,6 +3,7 @@
     <formable-page
       :title="'pix-certification-application.page-title'"
       :form-id="$t('pix-certification-application.form-id')"
+      :height="'9000px'"
     />
   </div>
 </template>
