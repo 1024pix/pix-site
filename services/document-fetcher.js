@@ -24,6 +24,20 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
     get: (documentName) => {
       return getSingle(documentName)
     },
+    getEmployers: async () => {
+      const api = await getApi()
+      const document = api.getSingle('employers', {
+        lang: language,
+        fetchLinks: [
+          'distributor_item.description',
+          'distributor_item.footer',
+          'distributor_item.link',
+          'distributor_item.logo',
+          'distributor_item.name'
+        ]
+      })
+      return document
+    },
     findNewsItems: async ({ page, pageSize } = { page: 1, pageSize: 20 }) => {
       const api = await getApi()
       const documents = await api.query(

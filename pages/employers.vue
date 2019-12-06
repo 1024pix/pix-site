@@ -62,6 +62,35 @@
       </div>
     </section>
 
+    <section class="section-distributeurs">
+      <prismic-rich-text
+        :field="document[7].primary.distributors_section_title"
+      />
+      <prismic-rich-text
+        :field="document[7].primary.distributors_section_description"
+      />
+      <div class="container">
+        <div
+          v-for="(item, index) in document[7].items"
+          :key="`item-${index}`"
+          class="column"
+        >
+          <div class="inner">
+            <prismic-image :field="item.distributors_section_items.data.logo" />
+            <prismic-rich-text
+              :field="item.distributors_section_items.data.name"
+            />
+            <prismic-rich-text
+              :field="item.distributors_section_items.data.description"
+            />
+          </div>
+        </div>
+      </div>
+      <prismic-rich-text
+        :field="document[7].primary.distributors_section_footer"
+      />
+    </section>
+
     <key-numbers :content="keyNumbers" :content-id="keyNumbersId" />
 
     <section-slice
@@ -71,6 +100,7 @@
       :button-class="'collaborateur-container__button'"
     >
     </section-slice>
+
     <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
@@ -93,9 +123,8 @@ export default {
   components: { HeroBanner, KeyNumbers, SectionColumnSlice, SectionSlice },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n, req).get(
-        documents.employers
-      )
+      const document = await documentFetcher(app.i18n, req).getEmployers()
+
       const keyNumbers = await documentFetcher(app.i18n, req).get(
         documents.keyNumbers
       )
