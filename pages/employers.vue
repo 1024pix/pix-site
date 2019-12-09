@@ -63,12 +63,20 @@
     </section>
 
     <section class="section-distributeurs">
-      <prismic-rich-text
-        :field="document[7].primary.distributors_section_title"
-      />
-      <prismic-rich-text
-        :field="document[7].primary.distributors_section_description"
-      />
+      <div class="presentation">
+        <div class="title">
+          <prismic-rich-text
+            :field="document[7].primary.distributors_section_title"
+          />
+          <prismic-rich-text
+            :field="document[7].primary.distributors_section_description"
+          />
+        </div>
+        <prismic-image
+          :field="document[7].primary.distributors_section_logo1"
+        />
+      </div>
+
       <div class="container">
         <div
           v-for="(item, index) in document[7].items"
@@ -76,10 +84,11 @@
           class="column"
         >
           <div class="inner">
-            <prismic-image :field="item.distributors_section_items.data.logo" />
-            <prismic-rich-text
-              :field="item.distributors_section_items.data.name"
-            />
+            <div class="block_logo">
+              <prismic-image
+                :field="item.distributors_section_items.data.logo"
+              />
+            </div>
             <prismic-rich-text
               :field="item.distributors_section_items.data.description"
             />
@@ -701,6 +710,126 @@ export default {
         font-weight: 300;
         font-size: 14px;
         line-height: 24px;
+      }
+    }
+
+    .column {
+      width: 100%;
+      padding: 0 20px;
+
+      @include device-is('large-mobile') {
+        width: 33.33%;
+        padding: 0 10px;
+      }
+      @include device-is('tablet') {
+        padding: 0 10px;
+      }
+    }
+
+    .column:nth-child(1),
+    .column:nth-child(2) {
+      margin-bottom: 48px;
+
+      @include device-is('large-mobile') {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .section-distributeurs {
+    position: relative;
+    background-size: cover;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-color: #f5f5f5;
+
+    .presentation {
+      flex-direction: column;
+      display: flex;
+      width: 90%;
+      margin: auto;
+
+      @include device-is('large-mobile') {
+        width: 60%;
+      }
+
+      .title {
+        @include device-is('large-mobile') {
+          margin-bottom: 60px;
+        }
+      }
+
+      h2 {
+        margin-top: 0;
+        font-weight: 400;
+        text-align: left;
+        font-size: 36px;
+        line-height: 49px;
+      }
+
+      p {
+        text-align: left;
+      }
+      img {
+        height: 200px;
+        margin: 20px 20px;
+      }
+
+      @include device-is('large-mobile') {
+        flex-direction: row;
+        img {
+          margin: 0px 50px;
+        }
+      }
+    }
+
+    p {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 24px;
+      @include device-is('tablet') {
+        font-size: 22px;
+        line-height: 30px;
+      }
+    }
+
+    .container {
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .inner {
+      padding: 60px 22px;
+      background-color: white;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 15px 16px 0 rgba(12, 22, 58, 0.15),
+        0 3px 6px 0 rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      .block_logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 80px;
+        img {
+          max-height: 80px;
+          max-width: 80%;
+        }
+      }
+      p {
+        text-align: center;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        @include device-is('tablet') {
+          font-size: 18px;
+          line-height: 30px;
+        }
       }
     }
 
