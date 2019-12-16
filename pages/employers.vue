@@ -85,9 +85,14 @@
         >
           <div class="inner">
             <div class="block_logo">
-              <prismic-image
-                :field="item.distributors_section_items.data.logo"
-              />
+              <a
+                :href="item.distributors_section_items.data.link[0].text"
+                target="_blank"
+              >
+                <prismic-image
+                  :field="item.distributors_section_items.data.logo"
+                />
+              </a>
             </div>
             <prismic-rich-text
               :field="item.distributors_section_items.data.description"
@@ -133,7 +138,6 @@ export default {
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.i18n, req).getEmployers()
-
       const keyNumbers = await documentFetcher(app.i18n, req).get(
         documents.keyNumbers
       )
@@ -748,9 +752,18 @@ export default {
       display: flex;
       width: 90%;
       margin: auto;
+      text-align: center;
 
       @include device-is('large-mobile') {
         width: 60%;
+        text-align: left;
+      }
+
+      p {
+        text-align: center;
+        @include device-is('large-mobile') {
+          text-align: left;
+        }
       }
 
       .title {
@@ -762,14 +775,10 @@ export default {
       h2 {
         margin-top: 0;
         font-weight: 400;
-        text-align: left;
         font-size: 36px;
         line-height: 49px;
       }
 
-      p {
-        text-align: left;
-      }
       img {
         height: 200px;
         margin: 20px 20px;
@@ -799,6 +808,7 @@ export default {
     .container {
       display: flex;
       flex-flow: row wrap;
+      margin-bottom: 60px;
     }
 
     .inner {
