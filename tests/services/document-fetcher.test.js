@@ -67,4 +67,24 @@ describe('DocumentFetcher', () => {
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('navigation', { lang: 'fr-fr' })
   })
+
+  test('it should get employers page with distributors informations', async () => {
+    // Given
+    const prismicApi = {
+      getSingle: jest.fn(() => ({ uid: 'navigation' }))
+    }
+    Prismic.getApi.mockResolvedValue(prismicApi)
+    // When
+    await documentFetcher().getEmployers()
+    // Then
+    expect(prismicApi.getSingle).toBeCalledWith('employers', { lang: 'fr-fr','fetchLinks': [
+        'distributor_item.description',
+        'distributor_item.footer',
+        'distributor_item.link',
+        'distributor_item.logo',
+        'distributor_item.name'
+      ]
+    })
+  })
+
 })
