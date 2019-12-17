@@ -51,13 +51,10 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
     },
     getSimplePageByUid: async (uid) => {
       const api = await getApi()
-      console.log(language)
       const document = await api.query(
-        PrismicConfig.Predicates.at('my.simple_page.uid', uid),
+        Prismic.Predicates.at('my.simple_page.uid', uid),
         { lang: language }
       )
-      console.log('simplePage', uid)
-      console.log(document)
       return document.results[0]
     }
   }
