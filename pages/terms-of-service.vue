@@ -57,14 +57,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.page-section__description {
-  h2 {
-    font-weight: 400;
-  }
-
-  ul {
-    list-style: none;
-  }
-}
-</style>
+<style lang="scss"></style>

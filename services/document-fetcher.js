@@ -62,6 +62,14 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
     getPreviewUrl: async (previewToken) => {
       const api = await getApi()
       return api.previewSession(previewToken, LinkResolver, '/')
+    },
+    getSimplePageByUid: async (uid) => {
+      const api = await getApi()
+      const document = await api.query(
+        Prismic.Predicates.at('my.simple_page.uid', uid),
+        { lang: language }
+      )
+      return document.results[0]
     }
   }
 
