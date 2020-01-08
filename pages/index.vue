@@ -10,36 +10,12 @@
     >
     </hero-banner>
 
-    <section class="section-demo">
-      <div class="container padding-container">
-        <prismic-rich-text :field="document[1].primary.card_title" />
-        <div class="courses">
-          <div
-            v-for="(item, index) in document[1].items"
-            :key="`item-${index}`"
-            class="course"
-          >
-            <div class="course__icon">
-              <prismic-image :field="item.image" />
-            </div>
-            <prismic-rich-text :field="item.card_title" class="course__title" />
-            <prismic-rich-text
-              :field="item.card_subtitle"
-              class="course__challenges"
-            />
-            <prismic-rich-text
-              :field="item.card_description"
-              class="course__description"
-            />
-            <div class="course__start-button">
-              <a :href="item.card_button_link.url" target="pix_app">
-                {{ $prismic.richTextAsPlain(item.card_button_title) }}
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <img-text-column-slice
+      :content="document[1]"
+      :section-class="'section-demo'"
+      :container-class="'section-demo__container'"
+      :button-class="'section-demo__button'"
+    ></img-text-column-slice>
 
     <section-slice
       :content="document[2]"
@@ -56,10 +32,11 @@
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '~/components/slices/hero-banner'
+import ImgTextColumnSlice from '~/components/slices/img-text-column'
 import SectionSlice from '~/components/slices/section'
 import PopInCampaigns from '~/components/pop-in-campaigns'
 export default {
-  components: { PopInCampaigns, HeroBanner, SectionSlice },
+  components: { PopInCampaigns, HeroBanner, SectionSlice, ImgTextColumnSlice },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.i18n, req).get(documents.index)
@@ -289,98 +266,65 @@ export default {
     background-color: #eeeeee;
     padding: 60px 0;
 
-    @include device-is('tablet') {
-      padding: 100px 80px;
-    }
-
-    h2 {
+    &__container .column {
       text-align: center;
-      margin-top: 0;
-      margin-bottom: 40px;
-      font-size: 32px;
-      font-weight: 800;
-      color: $grey-6;
-    }
 
-    .courses {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      @include device-is('tablet') {
-        flex-direction: row;
-        flex-wrap: nowrap;
+      img {
+        margin-bottom: 20px;
       }
 
-      .course {
-        width: 220px;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-        background: $white;
-        border-radius: 5px;
-        margin: 0 10px 20px;
+      h1 {
+        font-size: 36px;
+        line-height: 49px;
+        font-weight: 400;
+      }
 
-        @include device-is('tablet') {
-          margin-bottom: 0;
+      p {
+        margin: 20px 30px;
+      }
+    }
+
+    &__button {
+      display: inline-block;
+      background: #3d68ff;
+      color: #ffffff;
+      border-radius: 5px;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 20px;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        transition: opacity 0.5s ease-out;
+        background: $blue-3;
+      }
+
+      &:hover:after {
+        opacity: 1;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+
+      @include device-is('tablet') {
+        flex-flow: row wrap;
+        justify-content: center;
+
+        img {
+          margin-right: 100px;
         }
 
-        .course__icon {
-          height: 120px;
-          margin-bottom: 20px;
-
-          img {
-            border-radius: 5px 5px 0 0;
-            height: 100%;
-            width: 100%;
-          }
-        }
-
-        .course__title h4 {
-          color: #3e4149;
-          font-size: 20px;
-          line-height: 20px;
-          text-align: center;
-          font-weight: 600;
-          margin-bottom: 20px;
-        }
-
-        .course__challenges {
-          color: #7d808a;
-          font-size: 12px;
-          line-height: 16px;
-          text-align: center;
-          text-transform: uppercase;
-          margin-bottom: 20px;
-        }
-
-        .course__description {
-          font-style: italic;
-          font-size: 14px;
-          line-height: 18px;
-          text-align: center;
-          margin-bottom: 20px;
-          padding: 0 10px;
-          color: #6a6d76;
-          height: 54px;
-        }
-
-        .course__start-button {
-          color: $blue-1;
-          text-transform: capitalize;
-          font-size: 14px;
-          font-weight: 600;
-          line-height: 18px;
-          background-color: #fafafa;
-          height: 50px;
+        .column {
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          border-radius: 0 0 5px 5px;
-          border-top: 1px solid $grey-7;
+          text-align: left;
+        }
 
-          a {
-            color: inherit !important;
-          }
+        .column p {
+          margin-left: 0;
         }
       }
     }
