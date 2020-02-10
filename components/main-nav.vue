@@ -4,7 +4,7 @@
       v-for="item in mainNavItems"
       :key="item.id"
       :field="item.primary.link"
-      class="text text-s text-left regular text-black"
+      class="text text-xs text-left regular text-black"
     >
       <prismic-rich-text :field="item.primary.title" />
     </pix-link>
