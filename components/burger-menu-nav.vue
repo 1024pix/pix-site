@@ -84,9 +84,6 @@ export default {
   }
 
   .nav-bottom {
-    position: absolute;
-    bottom: 40px;
-
     &__link {
       font-weight: 400;
       color: $white;
@@ -132,11 +129,15 @@ export default {
   }
 
   .bm-item-list {
+    height: 100%;
     margin-left: 0;
     padding: 0 25px;
 
     & > * {
       padding: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
   }
 }
