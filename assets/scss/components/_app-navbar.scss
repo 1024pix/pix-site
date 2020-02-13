@@ -51,11 +51,7 @@
   .logo {
     width: 82px;
     height: 62px;
-    margin-right: 18px;
-
-    @include device-is('tablet') {
-      margin-right: 35px;
-    }
+    margin-right: 24px;
   }
 
   .nav-principal {
@@ -74,11 +70,7 @@
     .logo {
       width: 82px;
       height: 62px;
-      margin-right: 18px;
-
-      @include device-is('tablet') {
-        margin-right: 35px;
-      }
+      margin-right: 24px;
     }
 
     .navigation {
@@ -89,7 +81,7 @@
       align-items: center;
 
       .text-black {
-        margin-right: 38px;
+        margin-right: 24px;
 
         &:last-child {
           margin-right: 0;

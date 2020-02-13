@@ -1,12 +1,19 @@
 <template>
   <div class="navigation">
     <pix-link
-      v-for="item in mainNavItems"
+      v-for="(item, index) in mainNavItems"
       :key="item.id"
       :field="item.primary.link"
-      class="text text-s text-left regular text-black"
+      :class="[
+        'text',
+        'text-xs',
+        'text-left',
+        'regular',
+        { 'text-black': index < mainNavItems.length - 1 },
+        { 'btn-nav': index === mainNavItems.length - 1 }
+      ]"
     >
-      <prismic-rich-text :field="item.primary.title" />
+      {{ $prismic.richTextAsPlain(item.primary.title) }}
     </pix-link>
   </div>
 </template>
