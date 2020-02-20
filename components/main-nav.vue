@@ -10,6 +10,7 @@
         'text-left',
         'regular',
         { 'text-black': index < mainNavItems.length - 1 },
+        { 'link-separator-left': index === mainNavItems.length - 3 },
         { 'btn-nav': index === mainNavItems.length - 1 }
       ]"
     >
