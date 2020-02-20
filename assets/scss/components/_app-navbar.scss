@@ -4,7 +4,7 @@
     height: 30px;
     background-color: $grey-3;
 
-    @include device-is('tablet') {
+    @include device-is('desktop') {
       display: flex;
     }
 

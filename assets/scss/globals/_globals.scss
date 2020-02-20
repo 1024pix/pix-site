@@ -105,7 +105,7 @@ ol {
 .desktop {
   display: none !important;
 
-  @include device-is('tablet') {
+  @include device-is('desktop') {
     display: block !important;
   }
 }
@@ -113,8 +113,16 @@ ol {
 .desktop-inline {
   display: none;
 
-  @include device-is('tablet') {
+  @include device-is('desktop') {
     display: inline;
+  }
+}
+
+.tablet {
+  display: block;
+
+  @include device-is('desktop') {
+    display: none;
   }
 }
 
