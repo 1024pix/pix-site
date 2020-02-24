@@ -7,13 +7,31 @@
       <pix-link v-if="hasButton" :class="buttonClass" :field="buttonLink">
         {{ $prismic.richTextAsPlain(buttonText) }}
       </pix-link>
+      <template v-if="hasVideo">
+        <div :class="buttonClass" @click="openVideoModal()">
+          <fa :icon="fas.faPlayCircle" />
+          {{ $prismic.richTextAsPlain(videoButtonText) }}
+        </div>
+        <sweet-modal
+          ref="modal"
+          modal-theme="dark"
+          overlay-theme="dark"
+          @close="stopPlayingVideo"
+        >
+          <VideoSlice ref="videoPlayer" :video-url="videoUrl" />
+        </sweet-modal>
+      </template>
     </div>
   </section>
 </template>
 
 <script>
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import VideoSlice from './video'
+
 export default {
   name: 'HeroBanner',
+  components: { VideoSlice },
   props: {
     content: {
       type: Object,
@@ -51,6 +69,26 @@ export default {
     },
     hasButton() {
       return this.buttonText && this.buttonText.length
+    },
+    hasVideo() {
+      return this.videoButtonText
+    },
+    videoUrl() {
+      return this.content.primary.video_button_link.url
+    },
+    videoButtonText() {
+      return this.content.primary.video_button_title
+    },
+    fas() {
+      return fas
+    }
+  },
+  methods: {
+    openVideoModal() {
+      this.$refs.modal.open()
+    },
+    stopPlayingVideo() {
+      this.$refs.videoPlayer.stop()
     }
   }
 }

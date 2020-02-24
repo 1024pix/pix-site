@@ -3,6 +3,9 @@ const PrismicConfig = require('./prismic.config')
 
 export default {
   mode: 'universal',
+  server: {
+    port: process.env.PORT || 5000
+  },
   /*
    ** Headers of the page
    */
@@ -43,7 +46,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['plyr/dist/plyr.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -54,7 +57,9 @@ export default {
     '~/plugins/i18n.js',
     '~/plugins/components.js',
     '~/plugins/meta.js',
-    { src: '~plugins/slide-menu', ssr: false }
+    { src: '~plugins/slide-menu', ssr: false },
+    '~/plugins/vue-plyr',
+    { src: '~plugins/sweet-modal', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -73,7 +78,19 @@ export default {
     '@nuxtjs/style-resources',
     'nuxt-i18n',
     '@nuxtjs/moment',
-    ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }]
+    ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }],
+    [
+      'nuxt-fontawesome',
+      {
+        component: 'fa',
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['faCog', 'faCalendar', 'faHome', 'faCircle', 'faCheck']
+          }
+        ]
+      }
+    ]
   ],
   moment: {
     locales: ['fr']
