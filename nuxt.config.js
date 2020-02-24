@@ -57,7 +57,9 @@ export default {
     '~/plugins/i18n.js',
     '~/plugins/components.js',
     '~/plugins/meta.js',
-    { src: '~plugins/slide-menu', ssr: false }
+    { src: '~plugins/slide-menu', ssr: false },
+    '~/plugins/vue-plyr',
+    { src: '~plugins/sweet-modal', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules

@@ -38,6 +38,7 @@
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
     "prismic-vue": "git+https://github.com/prismicio/prismic-vue.git#nuxt",
+    "sweet-modal-vue": "2.0.0",
     "vue-burger-menu": "2.0.2",
     "vue-chartjs": "3.4.2",
     "vue-plyr": "6.0.4"
