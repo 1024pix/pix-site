@@ -57,6 +57,11 @@ export default {
     { src: '~plugins/slide-menu', ssr: false }
   ],
   /*
+   ** Redirections
+   */
+  serverMiddleware: ['~/middleware/seo.js'],
+
+  /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
