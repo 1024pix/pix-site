@@ -1,10 +1,8 @@
 <template>
-  <div class="videoPlayerClass">
-    <client-only>
-      <vue-plyr ref="plyr">
-        <video :src="videoUrl" />
-      </vue-plyr>
-    </client-only>
+  <div>
+    <vue-plyr ref="plyr">
+      <video :src="videoUrl" />
+    </vue-plyr>
   </div>
 </template>
 

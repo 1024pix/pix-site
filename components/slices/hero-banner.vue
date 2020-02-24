@@ -7,15 +7,12 @@
       <pix-link v-if="hasButton" :class="buttonClass" :field="buttonLink">
         {{ $prismic.richTextAsPlain(buttonText) }}
       </pix-link>
-      <div v-if="hasVideo" :class="buttonClass" @click="openVideoModal()">
-        <client-only>
+      <template v-if="hasVideo">
+        <div :class="buttonClass" @click="openVideoModal()">
           <fa :icon="fas.faPlayCircle" />
           {{ $prismic.richTextAsPlain(videoButtonText) }}
-        </client-only>
-      </div>
-      <client-only>
+        </div>
         <sweet-modal
-          v-if="hasVideo"
           ref="modal"
           modal-theme="dark"
           overlay-theme="dark"
@@ -23,7 +20,7 @@
         >
           <VideoSlice ref="videoPlayer" :video-url="videoUrl" />
         </sweet-modal>
-      </client-only>
+      </template>
     </div>
   </section>
 </template>
