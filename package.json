@@ -34,11 +34,13 @@
     "nuxt": "^2.0.0",
     "nuxt-i18n": "6.3.0",
     "nuxt-matomo": "1.2.3",
+    "plyr": "3.5.10",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
     "prismic-vue": "git+https://github.com/prismicio/prismic-vue.git#nuxt",
     "vue-burger-menu": "2.0.2",
-    "vue-chartjs": "3.4.2"
+    "vue-chartjs": "3.4.2",
+    "vue-plyr": "6.0.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",
