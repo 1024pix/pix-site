@@ -7,13 +7,30 @@
       <pix-link v-if="hasButton" :class="buttonClass" :field="buttonLink">
         {{ $prismic.richTextAsPlain(buttonText) }}
       </pix-link>
+      <div v-if="hasVideo" :class="buttonClass" @click="openVideoModal()">
+        {{ $prismic.richTextAsPlain(videoButtonText) }}
+      </div>
+      <client-only>
+        <sweet-modal
+          v-if="hasVideo"
+          ref="modal"
+          modal-theme="dark"
+          overlay-theme="dark"
+          @close="stopPlayingVideo"
+        >
+          <VideoSlice ref="videoPlayer" :video-url="videoUrl" />
+        </sweet-modal>
+      </client-only>
     </div>
   </section>
 </template>
 
 <script>
+import VideoSlice from './video'
+
 export default {
   name: 'HeroBanner',
+  components: { VideoSlice },
   props: {
     content: {
       type: Object,
@@ -51,6 +68,23 @@ export default {
     },
     hasButton() {
       return this.buttonText && this.buttonText.length
+    },
+    hasVideo() {
+      return this.videoButtonText
+    },
+    videoUrl() {
+      return this.content.primary.video_button_link.url
+    },
+    videoButtonText() {
+      return this.content.primary.video_button_title
+    }
+  },
+  methods: {
+    openVideoModal() {
+      this.$refs.modal.open()
+    },
+    stopPlayingVideo() {
+      this.$refs.videoPlayer.stop()
     }
   }
 }
