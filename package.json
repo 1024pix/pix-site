@@ -28,10 +28,14 @@
     "postversion": "git push && git checkout master && git pull && git fetch -t && git merge dev --no-edit && git push origin master && git push --tags && git checkout dev"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "1.2.27",
+    "@fortawesome/free-solid-svg-icons": "5.12.1",
+    "@fortawesome/vue-fontawesome": "0.1.9",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "chart.js": "2.8.0",
     "nuxt": "^2.0.0",
+    "nuxt-fontawesome": "0.4.0",
     "nuxt-i18n": "6.3.0",
     "nuxt-matomo": "1.2.3",
     "plyr": "3.5.10",

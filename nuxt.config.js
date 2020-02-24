@@ -78,7 +78,19 @@ export default {
     '@nuxtjs/style-resources',
     'nuxt-i18n',
     '@nuxtjs/moment',
-    ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }]
+    ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }],
+    [
+      'nuxt-fontawesome',
+      {
+        component: 'fa',
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['faCog', 'faCalendar', 'faHome', 'faCircle', 'faCheck']
+          }
+        ]
+      }
+    ]
   ],
   moment: {
     locales: ['fr']

@@ -8,7 +8,10 @@
         {{ $prismic.richTextAsPlain(buttonText) }}
       </pix-link>
       <div v-if="hasVideo" :class="buttonClass" @click="openVideoModal()">
-        {{ $prismic.richTextAsPlain(videoButtonText) }}
+        <client-only>
+          <fa :icon="fas.faPlayCircle" />
+          {{ $prismic.richTextAsPlain(videoButtonText) }}
+        </client-only>
       </div>
       <client-only>
         <sweet-modal
@@ -26,6 +29,7 @@
 </template>
 
 <script>
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import VideoSlice from './video'
 
 export default {
@@ -77,6 +81,9 @@ export default {
     },
     videoButtonText() {
       return this.content.primary.video_button_title
+    },
+    fas() {
+      return fas
     }
   },
   methods: {
