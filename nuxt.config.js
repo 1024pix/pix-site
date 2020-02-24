@@ -3,6 +3,9 @@ const PrismicConfig = require('./prismic.config')
 
 export default {
   mode: 'universal',
+  server: {
+    port: process.env.PORT || 5000
+  },
   /*
    ** Headers of the page
    */
