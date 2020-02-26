@@ -62,6 +62,11 @@ export default {
     { src: '~plugins/sweet-modal', ssr: false }
   ],
   /*
+   ** Redirections
+   */
+  serverMiddleware: ['~/middleware/seo.js'],
+
+  /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
