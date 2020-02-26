@@ -4,6 +4,7 @@ export const state = () => ({
   organizationNavItems: [],
   mainNavItems: [],
   topItems: [],
+  middleItems: [],
   bottomItems: [],
   resourcesNavItems: [],
   aboutNavItems: [],
@@ -27,6 +28,7 @@ export const mutations = {
     state.organizationNavItems = navItems(navigations, 'organizations-nav')
     state.mainNavItems = navItems(navigations, 'main-nav')
     state.topItems = navItems(navigations, 'burger-menu-top')
+    state.middleItems = navItems(navigations, 'pix-pro-burger-menu-middle')
     state.bottomItems = navItems(navigations, 'burger-menu-bottom')
     state.resourcesNavItems = navItems(navigations, 'ressources-nav')
     state.aboutNavItems = navItems(navigations, 'about-nav')
