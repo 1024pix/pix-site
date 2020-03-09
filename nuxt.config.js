@@ -59,7 +59,7 @@ export default {
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', ssr: false },
     '~/plugins/vue-plyr',
-    { src: '~plugins/sweet-modal', ssr: false }
+    '~plugins/vue-js-modal'
   ],
   /*
    ** Redirections

@@ -12,14 +12,14 @@
           <fa :icon="fas.faPlayCircle" />
           {{ $prismic.richTextAsPlain(videoButtonText) }}
         </div>
-        <sweet-modal
+        <modal
           ref="modal"
-          modal-theme="dark"
-          overlay-theme="dark"
-          @close="stopPlayingVideo"
+          name="videoModal"
+          height="auto"
+          @before-close="stopPlayingVideo"
         >
           <VideoSlice ref="videoPlayer" :video-url="videoUrl" />
-        </sweet-modal>
+        </modal>
       </template>
     </div>
   </section>
@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     openVideoModal() {
-      this.$refs.modal.open()
+      this.$modal.show('videoModal')
     },
     stopPlayingVideo() {
       this.$refs.videoPlayer.stop()
