@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <vue-plyr ref="plyr">
-      <video :src="videoUrl" />
-    </vue-plyr>
-  </div>
+  <video
+    controls
+    autoplay
+    class="video-slice"
+  >
+    <source :src="videoUrl" type="video/mp4" />
+  </video>
 </template>
 
 <script>
@@ -14,13 +16,14 @@ export default {
       type: String,
       default: null
     }
-  },
-  methods: {
-    stop() {
-      this.$refs.plyr.player.stop()
-    }
   }
 }
 </script>
 
-<style scoped />
+<style lang="scss">
+.video-slice {
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+</style>

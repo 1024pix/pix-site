@@ -12,13 +12,8 @@
           <fa :icon="fas.faPlayCircle" />
           {{ $prismic.richTextAsPlain(videoButtonText) }}
         </div>
-        <modal
-          ref="modal"
-          name="videoModal"
-          height="auto"
-          @before-close="stopPlayingVideo"
-        >
-          <VideoSlice ref="videoPlayer" :video-url="videoUrl" />
+        <modal ref="modal" name="videoModal" height="auto">
+          <VideoSlice :video-url="videoUrl" />
         </modal>
       </template>
     </div>
@@ -86,9 +81,6 @@ export default {
   methods: {
     openVideoModal() {
       this.$modal.show('videoModal')
-    },
-    stopPlayingVideo() {
-      this.$refs.videoPlayer.stop()
     }
   }
 }

@@ -46,7 +46,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['plyr/dist/plyr.css'],
+  css: [],
   /*
    ** Plugins to load before mounting the App
    */
@@ -58,7 +58,6 @@ export default {
     '~/plugins/components.js',
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', ssr: false },
-    '~/plugins/vue-plyr',
     '~plugins/vue-js-modal'
   ],
   /*
