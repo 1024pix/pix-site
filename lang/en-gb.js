@@ -36,18 +36,20 @@ export default {
   'stats-legend-label-certifications': 'Certifications Pix délivrées',
   'stats-legend-label-organizations': 'Organisations partenaires',
   'error-content':
-    '<p>\n' +
-    '      Oups ! Un problème est survenu, mais pas de panix, nous revenons très vite !\n' +
-    '    </p>\n' +
-    '    <p>\n' +
-    '      Pour en savoir plus, vous pouvez consulter\n' +
-    '      <a href="http://status.pix.fr/">cette page</a> ou aller sur nos réseaux\n' +
-    '      sociaux : <a href="https://twitter.com/Pix_officiel">Twitter</a>,\n' +
-    '      <a href="https://www.facebook.com/Pix1024/">Facebook</a>,\n' +
-    '      <a href="https://www.linkedin.com/company/gip-pix/">LinkedIn</a>.\n' +
-    '    </p>\n' +
-    '    <p>\n' +
-    '      Si vous avez besoin d’aide, vous pouvez également contacter le support\n' +
-    '      <a href="mailto:contact@pix.fr">icix</a>.\n' +
-    '    </p>'
+    '<p>Oups ! Un problème est survenu, mais pas de panix, nous revenons très vite !</p>' +
+    '<p>Pour en savoir plus, vous pouvez consulter ' +
+    '<a href="http://status.pix.fr/">la page du status de Pix</a> ou aller sur nos réseaux' +
+    '      sociaux : <a href="https://twitter.com/Pix_officiel">Twitter</a>,' +
+    '      <a href="https://www.facebook.com/Pix1024/">Facebook</a>,' +
+    '      <a href="https://www.linkedin.com/company/gip-pix/">LinkedIn</a>.' +
+    '    </p>' +
+    '    <p>' +
+    '      Si vous avez besoin d’aide, vous pouvez également' +
+    '      <a href="https://support.pix.fr/support/tickets/new">contacter le support</a>.' +
+    '    </p>',
+  'error-page-not-found':
+    "<p>Oups ! La page n'existe pas !</p>" +
+    '<p>Revenez sur ' +
+    '<a href="http://pix.fr/">l\'accueil</a>.' +
+    '</p>'
 }

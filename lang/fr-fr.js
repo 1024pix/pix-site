@@ -38,13 +38,18 @@ export default {
   'error-content':
     '<p>Oups ! Un problème est survenu, mais pas de panix, nous revenons très vite !</p>' +
     '<p>Pour en savoir plus, vous pouvez consulter ' +
-    '<a href="http://status.pix.fr/">cette page</a> ou aller sur nos réseaux' +
+    '<a href="http://status.pix.fr/">la page du status de Pix</a> ou aller sur nos réseaux' +
     '      sociaux : <a href="https://twitter.com/Pix_officiel">Twitter</a>,' +
     '      <a href="https://www.facebook.com/Pix1024/">Facebook</a>,' +
     '      <a href="https://www.linkedin.com/company/gip-pix/">LinkedIn</a>.' +
     '    </p>' +
     '    <p>' +
-    '      Si vous avez besoin d’aide, vous pouvez également contacter le support' +
-    '      <a href="mailto:contact@pix.fr">icix</a>.' +
-    '    </p>'
+    '      Si vous avez besoin d’aide, vous pouvez également' +
+    '      <a href="https://support.pix.fr/support/tickets/new">contacter le support</a>.' +
+    '    </p>',
+  'error-page-not-found':
+    "<p>Oups ! La page n'existe pas !</p>" +
+    '<p>Revenez sur ' +
+    '<a href="http://pix.fr/">l\'accueil</a>.' +
+    '</p>'
 }

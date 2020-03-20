@@ -1,10 +1,15 @@
 <template>
   <div class="error">
     <nuxt-link to="/">
-      <img class="logo" src="/images/pix-logo.svg" alt="logo pix" />
+      <img class="logo" src="/images/pix-logo.svg" alt="Lien pour revenir à l'accueil" />
     </nuxt-link>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-html="$t('error-content')"></div>
+    <div v-if="error.statusCode === 404">
+      <div v-html="$t('error-page-not-found')"></div>
+    </div>
+    <div v-else>
+      <div v-html="$t('error-content')"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -14,6 +19,11 @@ export default {
     error: {
       type: Object,
       default: null
+    }
+  },
+  head() {
+    return {
+      title: 'Error | Pix'
     }
   }
 }
