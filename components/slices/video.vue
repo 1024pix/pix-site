@@ -1,9 +1,5 @@
 <template>
-  <video
-    controls
-    autoplay
-    class="video-slice"
-  >
+  <video controls autoplay class="video-slice">
     <source :src="videoUrl" type="video/mp4" />
   </video>
 </template>

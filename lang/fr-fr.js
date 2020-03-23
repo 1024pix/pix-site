@@ -36,15 +36,10 @@ export default {
   'stats-legend-label-certifications': 'Certifications Pix délivrées',
   'stats-legend-label-organizations': 'Organisations partenaires',
   'error-content':
-    '<p>Oups ! Un problème est survenu, mais pas de panix, nous revenons très vite !</p>' +
-    '<p>Pour en savoir plus, vous pouvez consulter ' +
-    '<a href="http://status.pix.fr/">cette page</a> ou aller sur nos réseaux' +
-    '      sociaux : <a href="https://twitter.com/Pix_officiel">Twitter</a>,' +
-    '      <a href="https://www.facebook.com/Pix1024/">Facebook</a>,' +
-    '      <a href="https://www.linkedin.com/company/gip-pix/">LinkedIn</a>.' +
-    '    </p>' +
-    '    <p>' +
-    '      Si vous avez besoin d’aide, vous pouvez également contacter le support' +
-    '      <a href="mailto:contact@pix.fr">icix</a>.' +
-    '    </p>'
+    '<p>Oups ! Un problème est survenu, mais pas de panix !</p>' +
+    '<p>Vous pouvez revenir sur la ' +
+    "<a href='http://pix.fr/'>page d'accueil</a>." +
+    '<br/>Si vous avez besoin d’aide, vous pouvez consulter le ' +
+    '<a href="https://support.pix.fr/">support</a>.' +
+    '</p>'
 }
