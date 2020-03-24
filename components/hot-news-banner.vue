@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isOpen" class="hot-news">
+  <div v-if="isOpen && hotNews" class="hot-news">
     <prismic-rich-text :field="hotNews" />
     <img class="close" src="/images/close-icon.svg" @click.stop="closeBanner" />
   </div>
@@ -12,7 +12,7 @@ export default {
   name: 'HotNewsBanner',
   data() {
     return {
-      isOpen: this.hotNews
+      isOpen: true
     }
   },
   computed: mapState(['hotNews']),
