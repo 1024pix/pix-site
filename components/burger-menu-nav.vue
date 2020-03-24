@@ -205,7 +205,11 @@ export default {
     display: none;
   }
 }
-
+.nav .bm-burger-button {
+  top: 23px;
+  position: relative;
+  margin-bottom: -36px;
+}
 .bm-cross {
   background: $grey-1;
   height: 24px !important;
