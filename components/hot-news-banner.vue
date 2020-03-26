@@ -66,6 +66,7 @@ export default {
   opacity: 0.5;
   transition: 0.5s;
   cursor: pointer;
+  height: 20px;
 
   @media (min-width: 769px) {
     margin-right: 32px;
