@@ -1,5 +1,6 @@
 // eslint-disable-next-line nuxt/no-cjs-in-config
 const PrismicConfig = require('./prismic.config')
+const localeDomains = require('./config/locale-domains')
 
 export default {
   mode: 'universal',
@@ -80,7 +81,12 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
-    'nuxt-i18n',
+    [
+      'nuxt-i18n',
+      {
+        differentDomains: true
+      }
+    ],
     '@nuxtjs/moment',
     ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }],
     [
@@ -112,17 +118,24 @@ export default {
     locales: [
       {
         code: 'fr-fr',
-        file: 'fr-fr.js'
+        file: 'fr-fr.js',
+        domain: localeDomains['fr-fr']
       },
       {
         code: 'en-gb',
-        file: 'en-gb.js'
+        file: 'en-gb.js',
+        domain: localeDomains.fr
+      },
+      {
+        code: 'fr',
+        file: 'fr.js',
+        domain: localeDomains.fr
       }
     ],
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
-      fallbackLocale: 'fr-fr'
+      fallbackLocale: 'fr'
     }
   },
   router: {

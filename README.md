@@ -2,6 +2,36 @@
 
 > Site vitrine de Pix.
 
+## Variables d'environnement
+
+`PRISMIC_API_ENDPOINT`  
+URL of the Prismic API used for content management.
+
+- presence: required
+- type: Url
+- default: none
+
+`PRISMIC_API_TOKEN`
+API token of the Prismic API used for content management.
+
+- presence: required
+- type: String
+- default: none
+
+`DOMAIN_FR`
+Domain name for `.fr` extension.
+
+- presence: required
+- type: String
+- default: none
+
+`DOMAIN_ORG`
+Domain name for `.org` extension.
+
+- presence: required
+- type: String
+- default: none
+
 ## Build Setup
 
 ```bash
