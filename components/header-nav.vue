@@ -20,7 +20,11 @@
                 src="/images/pix-logo.svg"
               />
             </nuxt-link>
-            <img alt="Logo de la Marianne" src="/images/marianne-logo.svg" />
+            <img
+              v-if="showFrenchGovLogo"
+              alt="Logo de la Marianne"
+              src="/images/marianne-logo.svg"
+            />
           </div>
         </div>
       </div>
@@ -35,7 +39,11 @@
                 src="/images/pix-logo.svg"
               />
             </nuxt-link>
-            <img alt="Logo de la Marianne" src="/images/marianne-logo.svg" />
+            <img
+              v-if="showFrenchGovLogo"
+              alt="Logo de la Marianne"
+              src="/images/marianne-logo.svg"
+            />
             <div class="desktop">
               <main-nav :main-nav-items="mainNavItems" />
             </div>
@@ -65,7 +73,11 @@ export default {
     'topItems',
     'bottomItems',
     'middleItems'
-  ])
+  ]),
+  data() {
+    const showFrenchGovLogo = this.$i18n.locale === 'fr-fr'
+    return { showFrenchGovLogo }
+  }
 }
 </script>
 
