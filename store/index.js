@@ -1,4 +1,5 @@
 import { documents, documentFetcher } from '~/services/document-fetcher'
+import localeDomains from '~/config/locale-domains'
 
 export const state = () => ({
   organizationNavItems: [],
@@ -8,7 +9,8 @@ export const state = () => ({
   bottomItems: [],
   resourcesNavItems: [],
   aboutNavItems: [],
-  hotNews: null
+  hotNews: null,
+  localeDomains
 })
 export const actions = {
   async nuxtServerInit({ commit }, { app }) {
