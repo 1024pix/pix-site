@@ -1,5 +1,6 @@
-// eslint-disable-next-line nuxt/no-cjs-in-config
-const PrismicConfig = require('./prismic.config')
+import { transports } from 'winston'
+import localeDomains from './config/locale-domains'
+import PrismicConfig from './prismic.config'
 
 export default {
   mode: 'universal',
@@ -80,7 +81,13 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
-    'nuxt-i18n',
+    [
+      'nuxt-i18n',
+      {
+        differentDomains: true,
+        forwardedHost: process.env.FORWARDED_HOST || false
+      }
+    ],
     '@nuxtjs/moment',
     ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }],
     [
@@ -93,6 +100,15 @@ export default {
             icons: ['faCog', 'faCalendar', 'faHome', 'faCircle', 'faCheck']
           }
         ]
+      }
+    ],
+    [
+      'nuxt-winston-log',
+      {
+        loggerOptions: {
+          level: 'debug',
+          transports: [new transports.Console()]
+        }
       }
     ]
   ],
@@ -112,11 +128,13 @@ export default {
     locales: [
       {
         code: 'fr-fr',
-        file: 'fr-fr.js'
+        file: 'fr-fr.js',
+        domain: localeDomains['fr-fr']
       },
       {
-        code: 'en-gb',
-        file: 'en-gb.js'
+        code: 'fr',
+        file: 'fr.js',
+        domain: localeDomains.fr
       }
     ],
     lazy: true,

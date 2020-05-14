@@ -1,5 +1,3 @@
-const defaultLocale = 'fr-fr'
-
 export default function(doc) {
   const staticRoute = [
     'mediation',
@@ -13,16 +11,12 @@ export default function(doc) {
     'legal-notices'
   ]
   if (staticRoute.includes(doc.type)) {
-    return doc.lang === defaultLocale
-      ? `/${doc.uid}`
-      : `/${doc.lang}/${doc.uid}`
+    return `/${doc.uid}`
   }
   if (doc.type === 'news_item') {
-    return doc.lang === defaultLocale
-      ? `/actualites/${doc.uid}`
-      : `${doc.lang}/news/${doc.uid}`
+    return `/actualites/${doc.uid}`
   }
   if (doc.type === 'index') {
-    return doc.lang === defaultLocale ? `/` : `${doc.lang}/`
+    return `/`
   }
 }

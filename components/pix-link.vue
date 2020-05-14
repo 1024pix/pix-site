@@ -22,14 +22,16 @@ export default {
       }
       let template = ''
       const url = prismicDOM.Link.url(this.field, this.$prismic.linkResolver)
+      const relativeLinkPrefix = getRelativeLinkPrefix(url)
+
       if (this.field.link_type === 'Document') {
         template = `
           <router-link to="${url}">
             <slot/>
           </router-link>
         `
-      } else if (url.startsWith('https://pix.fr')) {
-        const relativeUrl = url.replace('https://pix.fr', '')
+      } else if (relativeLinkPrefix) {
+        const relativeUrl = url.replace(relativeLinkPrefix, '')
         template = `
           <router-link to="${relativeUrl}">
             <slot/>
@@ -48,5 +50,19 @@ export default {
       return { template }
     }
   }
+}
+function getRelativeLinkPrefix(url) {
+  if (!url) {
+    return ''
+  }
+  const defaultPrefixes = 'https://pix.org,https://pix.fr'
+  const relativeLinkPrefixes = (
+    process.env.RELATIVE_LINK_PREFIXES || defaultPrefixes
+  ).split(',')
+  return relativeLinkPrefixes
+    .map((relativeLinkPrefix) =>
+      url.startsWith(relativeLinkPrefix) ? relativeLinkPrefix : ''
+    )
+    .filter((relativeLinkPrefix) => relativeLinkPrefix !== '')[0]
 }
 </script>
