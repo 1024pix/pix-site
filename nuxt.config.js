@@ -1,5 +1,5 @@
-// eslint-disable-next-line nuxt/no-cjs-in-config
-const PrismicConfig = require('./prismic.config')
+import { transports } from 'winston'
+import PrismicConfig from './prismic.config'
 
 export default {
   mode: 'universal',
@@ -93,6 +93,15 @@ export default {
             icons: ['faCog', 'faCalendar', 'faHome', 'faCircle', 'faCheck']
           }
         ]
+      }
+    ],
+    [
+      'nuxt-winston-log',
+      {
+        loggerOptions: {
+          level: 'debug',
+          transports: [new transports.Console()]
+        }
       }
     ]
   ],
