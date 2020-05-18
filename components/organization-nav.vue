@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-switch">
+  <div v-if="organizationNavItems.length > 1" class="nav-switch">
     <div class="container padding-container">
       <div
         v-for="item in organizationNavItems"
