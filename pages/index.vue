@@ -238,7 +238,7 @@ export default {
           text-align: center;
 
           @include device-is('large-mobile') {
-            width: 20%;
+            width: 33%;
             padding: 0 38px;
           }
           @include device-is('tablet') {
@@ -256,6 +256,15 @@ export default {
                 max-height: 146px;
               }
             }
+          }
+        }
+        &__item:nth-child(1):nth-last-child(5),
+        &__item:nth-child(2):nth-last-child(4),
+        &__item:nth-child(3):nth-last-child(3),
+        &__item:nth-child(4):nth-last-child(2),
+        &__item:nth-child(5):nth-last-child(1) {
+          @include device-is('large-mobile') {
+            width: 20%;
           }
         }
       }
