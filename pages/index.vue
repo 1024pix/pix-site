@@ -247,13 +247,11 @@ export default {
 
           p {
             &.block-img {
-              height: 146px;
-
               display: flex;
               justify-content: center;
 
               img {
-                max-height: 146px;
+                max-height: 105px;
               }
             }
           }
