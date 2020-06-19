@@ -10,7 +10,7 @@
       </ul>
       <div class="nav-middle">
         <hr class="nav-middle__bar" />
-        <h3>Pix Pro</h3>
+        <p>Pix Pro</p>
         <ul>
           <li
             v-for="item in middleItems"
