@@ -24,7 +24,7 @@
     "release:patch": "npm version patch -m \"Release v%s\"",
     "release:minor": "npm version minor -m \"Release v%s\"",
     "release:major": "npm version major -m \"Release v%s\"",
-    "preversion": "git checkout dev && git pull --rebase && npm test",
+    "preversion": "git checkout dev && git pull --rebase && NODE_ENV=test npm test",
     "postversion": "git push && git checkout master && git pull && git fetch -t && git merge dev --no-edit && git push origin master && git push --tags && git checkout dev"
   },
   "dependencies": {
