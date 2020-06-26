@@ -122,7 +122,9 @@ export default {
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+    const pageTitle = 'Enseignement supérieur | Pix'
     return {
+      title: pageTitle,
       meta
     }
   }
