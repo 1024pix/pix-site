@@ -19,6 +19,12 @@ export default {
       'fr-fr': '/formulaire/inscription-etablissement-superieur',
       'en-gb': '/form/higher-education-establishment-registration'
     }
+  },
+  head() {
+    const pageTitle = 'Demande d’espace | Pix Orga sup'
+    return {
+      title: pageTitle
+    }
   }
 }
 </script>
