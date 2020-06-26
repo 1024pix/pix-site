@@ -47,6 +47,12 @@ export default {
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
     }
+  },
+  head() {
+    const pageTitle = 'Actualités | Pix'
+    return {
+      title: pageTitle
+    }
   }
 }
 </script>
