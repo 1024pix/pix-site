@@ -93,7 +93,9 @@ export default {
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+    const pageTitle = 'Chiffres clés | Pix'
     return {
+      title: pageTitle,
       meta
     }
   }

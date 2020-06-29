@@ -19,6 +19,12 @@ export default {
       'fr-fr': '/formulaire/finalisation-pix-orga-sup',
       'en-gb': '/form/pix-orga-higher-school-registration'
     }
+  },
+  head() {
+    const pageTitle = "Finaliser la demande d'espace | Pix Orga sup"
+    return {
+      title: pageTitle
+    }
   }
 }
 </script>

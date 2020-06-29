@@ -19,6 +19,12 @@ export default {
       'fr-fr': '/formulaire/contact-mediation-numerique',
       'en-gb': '/form/contact-digital-mediation'
     }
+  },
+  head() {
+    const pageTitle = "Demande d'information | Pix"
+    return {
+      title: pageTitle
+    }
   }
 }
 </script>

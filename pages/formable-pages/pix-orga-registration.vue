@@ -19,6 +19,12 @@ export default {
       'fr-fr': '/formulaire/contact-pix-pro',
       'en-gb': '/form/pix-orga-registration'
     }
+  },
+  head() {
+    const pageTitle = "Demande d'information | Pix pro"
+    return {
+      title: pageTitle
+    }
   }
 }
 </script>
