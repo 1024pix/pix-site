@@ -2,14 +2,14 @@
   <footer>
     <div class="container padding-container">
       <div class="sitelogo">
-        <a href="/"
-          ><img class="mb-2 logo" alt="pix" src="/images/pix-logo.svg"
+        <a href="/" title="Retour à l'accueil Pix"
+          ><img class="mb-2 logo" alt="" src="/images/pix-logo.svg"
         /></a>
         <div>
           <img
             style="margin-left: -4px;"
             class="ministere"
-            alt="ministere de l education"
+            alt="Soutenu par le ministère de l'éducation"
             src="/images/ministere-logo-2.svg"
           />
         </div>
