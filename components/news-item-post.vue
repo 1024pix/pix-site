@@ -33,8 +33,8 @@ export default {
   props: {
     newsItem: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     categoryClassName() {
@@ -50,8 +50,8 @@ export default {
       return this.$moment(this.newsItem.data.date)
         .locale(this.$i18n.locale.split('-')[0])
         .format('LL')
-    }
-  }
+    },
+  },
 }
 </script>
 

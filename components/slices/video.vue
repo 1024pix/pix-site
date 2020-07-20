@@ -10,9 +10,9 @@ export default {
   props: {
     videoUrl: {
       type: String,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

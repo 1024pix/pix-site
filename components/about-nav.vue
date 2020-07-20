@@ -20,7 +20,7 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'AboutNav',
-  computed: mapState(['aboutNavItems'])
+  computed: mapState(['aboutNavItems']),
 }
 </script>
 

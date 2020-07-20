@@ -7,23 +7,23 @@ export default {
   props: {
     data: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   mounted() {
     this.renderChart(this.data, {
       legend: {
-        position: 'bottom'
+        position: 'bottom',
       },
       scales: {
         yAxes: [
           {
-            ticks: { beginAtZero: true }
-          }
-        ]
-      }
+            ticks: { beginAtZero: true },
+          },
+        ],
+      },
     })
-  }
+  },
 }
 </script>
 

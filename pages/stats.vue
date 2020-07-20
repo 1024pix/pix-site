@@ -28,11 +28,11 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/stats',
-      'en-gb': '/stats'
-    }
+      'en-gb': '/stats',
+    },
   },
   components: {
-    ChartSection
+    ChartSection,
   },
   async asyncData({ app, error, $moment, req, currentPagePath }) {
     function createData({ key, color }) {
@@ -46,10 +46,10 @@ export default {
               data: [],
               type: 'line',
               backgroundColor: backgroundColorFrom(color),
-              borderColor: color
-            }
-          ]
-        }
+              borderColor: color,
+            },
+          ],
+        },
       }
     }
     function backgroundColorFrom(rgb) {
@@ -62,7 +62,7 @@ export default {
         { key: 'accounts', color: 'rgb(54, 162, 235)' },
         { key: 'campaigns', color: 'rgb(255, 205, 86)' },
         { key: 'certifications', color: 'rgb(75, 192, 192)' },
-        { key: 'organizations', color: 'rgb(153, 102, 255)' }
+        { key: 'organizations', color: 'rgb(153, 102, 255)' },
       ]
 
       const chartsData = datasets.map((dataset) => createData(dataset))
@@ -85,7 +85,7 @@ export default {
         meta: document.data.meta,
         document: document.data,
         documentId: document.id,
-        chartsData
+        chartsData,
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -96,9 +96,9 @@ export default {
     const pageTitle = 'Chiffres clés | Pix'
     return {
       title: pageTitle,
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 

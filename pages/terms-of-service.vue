@@ -29,8 +29,8 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/conditions-generales-d-utilisation',
-      'en-gb': '/terms-of-service'
-    }
+      'en-gb': '/terms-of-service',
+    },
   },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
@@ -42,7 +42,7 @@ export default {
         currentPagePath,
         meta: document.data.meta,
         document: document.data,
-        documentId: document.id
+        documentId: document.id,
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -53,9 +53,9 @@ export default {
     const pageTitle = "Conditions générales d'utilisation | Pix"
     return {
       title: pageTitle,
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 

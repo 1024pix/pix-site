@@ -17,15 +17,15 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/formulaire/inscription-etablissement-superieur',
-      'en-gb': '/form/higher-education-establishment-registration'
-    }
+      'en-gb': '/form/higher-education-establishment-registration',
+    },
   },
   head() {
     const pageTitle = 'Demande d’espace | Pix Orga sup'
     return {
-      title: pageTitle
+      title: pageTitle,
     }
-  }
+  },
 }
 </script>
 

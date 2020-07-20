@@ -1,4 +1,4 @@
-export default function(context) {
+export default function (context) {
   const { req, route } = context
   const host = _getHostFromRequest(req)
     ? _getHostFromRequest(req)

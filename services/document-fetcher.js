@@ -15,7 +15,7 @@ export const documents = {
   employers: 'employers',
   schoolEducation: 'school-education',
   about: 'about',
-  skills: 'competences'
+  skills: 'competences',
 }
 
 export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
@@ -33,8 +33,8 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
           'distributor_item.footer',
           'distributor_item.link',
           'distributor_item.logo',
-          'distributor_item.name'
-        ]
+          'distributor_item.name',
+        ],
       })
       return document
     },
@@ -46,7 +46,7 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
           page,
           pageSize,
           orderings: '[my.news_item.date desc]',
-          lang: language
+          lang: language,
         }
       )
       return documents.results
@@ -70,7 +70,7 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
         { lang: language }
       )
       return document.results[0]
-    }
+    },
   }
 
   async function getSingle(type) {

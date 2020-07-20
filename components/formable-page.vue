@@ -12,7 +12,7 @@
       <iframe
         id="123formbuilder"
         allowTransparency="true"
-        style="min-height:300px; height:inherit; overflow:auto;"
+        style="min-height: 300px; height: inherit; overflow: auto;"
         width="100%"
         name="123formbuilder"
         marginwidth="0"
@@ -36,21 +36,21 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     formId: {
       type: String,
-      default: ''
+      default: '',
     },
     height: {
       type: String,
-      default: '600px'
-    }
+      default: '600px',
+    },
   },
   computed: {
     formSrc() {
       return `//eu.123formbuilder.com/my-contact-form-${this.formId}.html`
-    }
-  }
+    },
+  },
 }
 </script>

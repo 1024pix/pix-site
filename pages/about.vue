@@ -58,8 +58,8 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/qui-sommes-nous',
-      'en-gb': '/about'
-    }
+      'en-gb': '/about',
+    },
   },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
@@ -69,7 +69,7 @@ export default {
         currentPagePath,
         document: document.data.body,
         meta: document.data.meta,
-        documentId: document.id
+        documentId: document.id,
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -80,9 +80,9 @@ export default {
     const pageTitle = 'Qui sommes-nous ? | Pix'
     return {
       title: pageTitle,
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 

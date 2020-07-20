@@ -12,15 +12,15 @@ export default {
   name: 'HotNewsBanner',
   data() {
     return {
-      isOpen: true
+      isOpen: true,
     }
   },
   computed: mapState(['hotNews']),
   methods: {
     closeBanner() {
       this.isOpen = false
-    }
-  }
+    },
+  },
 }
 </script>
 

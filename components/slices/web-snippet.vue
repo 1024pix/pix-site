@@ -13,9 +13,9 @@ export default {
   props: {
     slice: {
       type: Object,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

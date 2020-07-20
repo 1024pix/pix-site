@@ -19,9 +19,9 @@ export default {
   props: {
     organizationNavItems: {
       type: Array,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

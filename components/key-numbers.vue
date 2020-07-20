@@ -27,12 +27,12 @@ export default {
   props: {
     content: {
       type: Object,
-      required: true
+      required: true,
     },
     contentId: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     title() {
@@ -40,11 +40,11 @@ export default {
     },
     items() {
       return this.content.column
-    }
+    },
   },
   beforeMount() {
     window.prismic.setupEditButton()
-  }
+  },
 }
 </script>
 

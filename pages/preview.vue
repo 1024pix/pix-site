@@ -11,7 +11,7 @@ export default {
   async asyncData({ query, redirect }) {
     const url = await documentFetcher().getPreviewUrl(query.token)
     redirect(url)
-  }
+  },
 }
 </script>
 <style scoped></style>

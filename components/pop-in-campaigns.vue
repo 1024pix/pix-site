@@ -37,12 +37,12 @@ export default {
   props: {
     content: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
-      isClosed: false
+      isClosed: false,
     }
   },
   computed: {
@@ -50,13 +50,13 @@ export default {
       return this.isClosed
         ? this.content.primary.short_description
         : this.content.primary.description
-    }
+    },
   },
   methods: {
     togglePopIn() {
       this.isClosed = !this.isClosed
-    }
-  }
+    },
+  },
 }
 </script>
 

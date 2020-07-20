@@ -24,9 +24,9 @@ export default {
   props: {
     slices: {
       type: Array,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

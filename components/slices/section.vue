@@ -29,28 +29,28 @@ export default {
   props: {
     content: {
       type: Object,
-      default: null
+      default: null,
     },
     sectionClass: {
       type: String,
-      default: ''
+      default: '',
     },
     containerClass: {
       type: String,
-      default: ''
+      default: '',
     },
     flexContainerClass: {
       type: String,
-      default: ''
+      default: '',
     },
     flexContentClass: {
       type: String,
-      default: ''
+      default: '',
     },
     buttonClass: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     paragraphs() {
@@ -76,8 +76,8 @@ export default {
     },
     hasButton() {
       return this.buttonText && this.buttonText.length
-    }
-  }
+    },
+  },
 }
 </script>
 

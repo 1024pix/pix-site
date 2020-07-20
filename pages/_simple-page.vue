@@ -28,8 +28,8 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/:uid',
-      'en-gb': '/:uid'
-    }
+      'en-gb': '/:uid',
+    },
   },
   async asyncData({ params, app, req, error, route }) {
     const host = req ? req.headers.host : window.location.host
@@ -50,9 +50,9 @@ export default {
       this.$prismic
     )
     return {
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 

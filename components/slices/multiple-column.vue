@@ -16,14 +16,14 @@ export default {
   props: {
     slice: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   computed: {
     verticalAlignCenter() {
       return this.slice && this.slice.primary.vertical_align_center === 'true'
-    }
-  }
+    },
+  },
 }
 </script>
 

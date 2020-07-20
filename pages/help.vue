@@ -5,8 +5,8 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/aide',
-      'en-gb': '/help'
-    }
-  }
+      'en-gb': '/help',
+    },
+  },
 }
 </script>

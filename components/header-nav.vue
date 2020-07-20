@@ -65,7 +65,7 @@ export default {
   components: {
     MainNav,
     BurgerMenuNav,
-    OrganizationNav
+    OrganizationNav,
   },
   data() {
     const showFrenchGovLogo = this.$i18n.locale === 'fr-fr'
@@ -76,8 +76,8 @@ export default {
     'mainNavItems',
     'topItems',
     'bottomItems',
-    'middleItems'
-  ])
+    'middleItems',
+  ]),
 }
 </script>
 

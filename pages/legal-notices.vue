@@ -36,8 +36,8 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/mentions-legales',
-      'en-gb': '/en-gb/legal-notices'
-    }
+      'en-gb': '/en-gb/legal-notices',
+    },
   },
   components: { SectionSlice },
   async asyncData({ app, error, req, currentPagePath }) {
@@ -50,7 +50,7 @@ export default {
         currentPagePath,
         meta: document.data.meta,
         document: document.data,
-        documentId: document.id
+        documentId: document.id,
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -61,9 +61,9 @@ export default {
     const pageTitle = 'Mentions légales | Pix'
     return {
       title: pageTitle,
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 

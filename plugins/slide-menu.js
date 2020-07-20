@@ -5,7 +5,7 @@ import {
   Reveal,
   ScaleDown,
   ScaleRotate,
-  Slide
+  Slide,
 } from 'vue-burger-menu'
 
 Vue.component('SlideMenu', Slide)
