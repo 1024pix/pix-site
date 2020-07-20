@@ -1,8 +1,8 @@
+import Prismic from 'prismic-javascript'
+import PrismicConfig from '~/prismic.config.js'
 import { documentFetcher, documents } from '~/services/document-fetcher'
 
 jest.mock('prismic-javascript')
-import Prismic from 'prismic-javascript'
-import PrismicConfig from '~/prismic.config.js'
 
 describe('DocumentFetcher', () => {
   test('it should use prismic configuration', async () => {
@@ -77,7 +77,9 @@ describe('DocumentFetcher', () => {
     // When
     await documentFetcher().getEmployers()
     // Then
-    expect(prismicApi.getSingle).toBeCalledWith('employers', { lang: 'fr-fr','fetchLinks': [
+    expect(prismicApi.getSingle).toBeCalledWith('employers', {
+      lang: 'fr-fr',
+      fetchLinks: [
         'distributor_item.description',
         'distributor_item.footer',
         'distributor_item.link',
@@ -86,5 +88,4 @@ describe('DocumentFetcher', () => {
       ]
     })
   })
-
 })

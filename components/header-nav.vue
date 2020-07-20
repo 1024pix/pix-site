@@ -67,17 +67,17 @@ export default {
     BurgerMenuNav,
     OrganizationNav
   },
+  data() {
+    const showFrenchGovLogo = this.$i18n.locale === 'fr-fr'
+    return { showFrenchGovLogo }
+  },
   computed: mapState([
     'organizationNavItems',
     'mainNavItems',
     'topItems',
     'bottomItems',
     'middleItems'
-  ]),
-  data() {
-    const showFrenchGovLogo = this.$i18n.locale === 'fr-fr'
-    return { showFrenchGovLogo }
-  }
+  ])
 }
 </script>
 
