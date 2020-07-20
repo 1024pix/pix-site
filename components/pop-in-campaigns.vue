@@ -7,13 +7,13 @@
       <template v-if="!isClosed">
         <img
           class="pop-in-campaigns-content__close"
-          alt="close button"
+          alt="Fermer le panneau des campagnes"
           src="/images/close-icon.svg"
           @click="togglePopIn()"
         />
         <img
           class="pop-in-campaigns-content__logo"
-          alt="Logo rejoindre une campagne"
+          alt=""
           src="/images/logo-join-campaign.svg"
         />
       </template>

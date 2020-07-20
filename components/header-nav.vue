@@ -22,7 +22,7 @@
             </nuxt-link>
             <img
               v-if="showFrenchGovLogo"
-              alt="Logo de la Marianne"
+              alt="Service public d'État"
               src="/images/marianne-logo.svg"
             />
           </div>
@@ -41,7 +41,7 @@
             </nuxt-link>
             <img
               v-if="showFrenchGovLogo"
-              alt="Logo de la Marianne"
+              alt="Service public d'État"
               src="/images/marianne-logo.svg"
             />
             <div class="desktop">
