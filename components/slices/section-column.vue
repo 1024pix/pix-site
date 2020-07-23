@@ -30,24 +30,24 @@ export default {
   props: {
     content: {
       type: Object,
-      default: null
+      default: null,
     },
     sectionClass: {
       type: String,
-      default: ''
+      default: '',
     },
     ulClass: {
       type: String,
-      default: ''
+      default: '',
     },
     liClass: {
       type: String,
-      default: ''
+      default: '',
     },
     rightClass: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     paragraphs() {
@@ -64,8 +64,8 @@ export default {
     },
     hasImage() {
       return this.image && this.image.url
-    }
-  }
+    },
+  },
 }
 </script>
 

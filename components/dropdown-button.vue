@@ -33,24 +33,24 @@ export default {
   props: {
     options: {
       type: [Array, Object],
-      default: null
+      default: null,
     },
     selected: {
       type: Object,
-      default: null
+      default: null,
     },
     placeholder: {
       type: [String],
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
       selectedOption: {
-        name: ''
+        name: '',
       },
       showMenu: false,
-      placeholderText: 'Please select an item'
+      placeholderText: 'Please select an item',
     }
   },
 
@@ -70,8 +70,8 @@ export default {
 
     toggleMenu() {
       this.showMenu = !this.showMenu
-    }
-  }
+    },
+  },
 }
 </script>
 

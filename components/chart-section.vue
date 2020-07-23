@@ -11,18 +11,18 @@ import LineChart from '~/components/line-chart'
 export default {
   name: 'ChartSection',
   components: {
-    LineChart
+    LineChart,
   },
   props: {
     title: {
       type: Array,
-      default: null
+      default: null,
     },
     data: {
       type: Object,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

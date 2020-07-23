@@ -1,4 +1,4 @@
-export default function(req, res, next) {
+export default function (req, res, next) {
   const shouldRedirect = ['/mediation-numerique', '/employeurs'].includes(
     req.url
   )

@@ -85,7 +85,7 @@
       <div class="container">
         <prismic-image :field="document[8].primary.logo" />
         <prismic-rich-text :field="document[8].primary.title" />
-        <div style="margin:auto;">
+        <div style="margin: auto;">
           <div
             v-for="(item, index) in document[8].items"
             :key="`item-${index}`"
@@ -124,8 +124,8 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/enseignement-scolaire',
-      'en-gb': '/school-education'
-    }
+      'en-gb': '/school-education',
+    },
   },
   components: { HeroBanner, KeyNumbers, SectionColumnSlice, SectionSlice },
   async asyncData({ app, error, req, currentPagePath }) {
@@ -143,7 +143,7 @@ export default {
         document: document.data.body,
         documentId: document.id,
         keyNumbers: keyNumbers.data,
-        keyNumbersId: keyNumbers.id
+        keyNumbersId: keyNumbers.id,
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -154,9 +154,9 @@ export default {
     const pageTitle = 'Enseignement scolaire | Pix'
     return {
       title: pageTitle,
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 

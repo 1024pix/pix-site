@@ -80,6 +80,6 @@ import AppFooter from '~/components/app-footer'
 import HeaderNav from '~/components/header-nav'
 import HotNewsBanner from '~/components/hot-news-banner'
 export default {
-  components: { HotNewsBanner, AppFooter, HeaderNav }
+  components: { HotNewsBanner, AppFooter, HeaderNav },
 }
 </script>

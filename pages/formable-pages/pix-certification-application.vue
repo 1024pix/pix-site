@@ -17,15 +17,15 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/formulaire/demande-agrement-centre-certification',
-      'en-gb': '/form/pix-certification-application'
-    }
+      'en-gb': '/form/pix-certification-application',
+    },
   },
   head() {
     const pageTitle = "Demande d'agrément comme centre de certification | Pix"
     return {
-      title: pageTitle
+      title: pageTitle,
     }
-  }
+  },
 }
 </script>
 

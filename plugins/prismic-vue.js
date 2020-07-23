@@ -5,5 +5,5 @@ import htmlSerializer from './html-serializer'
 
 Vue.use(PrismicVue, {
   linkResolver,
-  htmlSerializer
+  htmlSerializer,
 })

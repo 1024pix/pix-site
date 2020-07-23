@@ -17,15 +17,15 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/formulaire/contact-pix-pro',
-      'en-gb': '/form/pix-orga-registration'
-    }
+      'en-gb': '/form/pix-orga-registration',
+    },
   },
   head() {
     const pageTitle = "Demande d'information | Pix pro"
     return {
-      title: pageTitle
+      title: pageTitle,
     }
-  }
+  },
 }
 </script>
 

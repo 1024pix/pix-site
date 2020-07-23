@@ -11,7 +11,7 @@
         'regular',
         { 'text-black': index < mainNavItems.length - 1 },
         { 'link-separator-left': index === mainNavItems.length - 3 },
-        { 'btn-nav': index === mainNavItems.length - 1 }
+        { 'btn-nav': index === mainNavItems.length - 1 },
       ]"
     >
       {{ $prismic.richTextAsPlain(item.primary.title) }}
@@ -25,9 +25,9 @@ export default {
   props: {
     mainNavItems: {
       type: Array,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

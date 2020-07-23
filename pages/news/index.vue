@@ -34,11 +34,11 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/actualites',
-      'en-gb': '/news'
-    }
+      'en-gb': '/news',
+    },
   },
   components: {
-    NewsItemCard
+    NewsItemCard,
   },
   async asyncData({ app, error, req }) {
     try {
@@ -51,9 +51,9 @@ export default {
   head() {
     const pageTitle = 'Actualités | Pix'
     return {
-      title: pageTitle
+      title: pageTitle,
     }
-  }
+  },
 }
 </script>
 

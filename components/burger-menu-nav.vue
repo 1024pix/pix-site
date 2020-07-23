@@ -44,17 +44,17 @@ export default {
   props: {
     topItems: {
       type: Array,
-      default: null
+      default: null,
     },
     middleItems: {
       type: Array,
-      default: null
+      default: null,
     },
     bottomItems: {
       type: Array,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 }
 </script>
 

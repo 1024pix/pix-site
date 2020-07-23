@@ -17,14 +17,14 @@ export default {
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   head() {
     return {
-      title: 'Error | Pix'
+      title: 'Error | Pix',
     }
-  }
+  },
 }
 </script>
 

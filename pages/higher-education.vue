@@ -56,7 +56,7 @@
           <hr class="text-left mb-2 mt-2" />
           <prismic-rich-text :field="item.column_description" />
         </div>
-        <div style="margin:auto;">
+        <div style="margin: auto;">
           <a class="btn" :href="document[5].primary.button_link">
             {{ $prismic.richTextAsPlain(document[5].primary.button_text) }}
           </a>
@@ -95,8 +95,8 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/enseignement-superieur',
-      'en-gb': '/higher-education'
-    }
+      'en-gb': '/higher-education',
+    },
   },
   components: { KeyNumbers, SectionSlice, SectionColumnSlice },
   async asyncData({ app, error, req, currentPagePath }) {
@@ -114,7 +114,7 @@ export default {
         document: document.data.body,
         documentId: document.id,
         keyNumbers: keyNumbers.data,
-        keyNumbersId: keyNumbers.id
+        keyNumbersId: keyNumbers.id,
       }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
@@ -125,9 +125,9 @@ export default {
     const pageTitle = 'Enseignement supérieur | Pix'
     return {
       title: pageTitle,
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 

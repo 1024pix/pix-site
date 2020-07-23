@@ -7,8 +7,7 @@
       <li v-for="(item, index) in resourcesNavItems" :key="`item-${index}`">
         <pix-link
           :field="item.primary.link"
-          class="text text-xs
-        text-left regular text-black-l"
+          class="text text-xs text-left regular text-black-l"
         >
           {{ $prismic.richTextAsPlain(item.primary.title) }}
         </pix-link>
@@ -22,7 +21,7 @@ import { mapState } from 'vuex'
 
 export default {
   name: 'ResourcesNav',
-  computed: mapState(['resourcesNavItems'])
+  computed: mapState(['resourcesNavItems']),
 }
 </script>
 

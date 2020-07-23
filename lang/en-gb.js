@@ -3,23 +3,23 @@ export default {
   'fr-fr': 'Français',
   'contact-digital-mediation': {
     'page-title': 'Information request',
-    'form-id': '28758'
+    'form-id': '28758',
   },
   'higher-education-establishment-registration': {
     'page-title': 'Pix Orga workspace request',
-    'form-id': '28771'
+    'form-id': '28771',
   },
   'pix-certification-application': {
     'page-title': 'Pix certification center agreement request',
-    'form-id': '28773'
+    'form-id': '28773',
   },
   'pix-orga-registration': {
     'page-title': 'Information request',
-    'form-id': '28776'
+    'form-id': '28776',
   },
   'pix-orga-higher-school-registration': {
     'page-title': 'Finalize your Pix Orga workspace request',
-    'form-id': '28772'
+    'form-id': '28772',
   },
   'news-page-title': 'News',
   'news-page-no-news': 'No news available for the moment.',
@@ -41,5 +41,5 @@ export default {
     "<a href='http://pix.fr/'>page d'accueil</a>." +
     '<br/>Si vous avez besoin d’aide, vous pouvez consulter le ' +
     '<a href="https://support.pix.fr/">support</a>.' +
-    '</p>'
+    '</p>',
 }

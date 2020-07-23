@@ -15,14 +15,14 @@ import DropdownButton from '~/components/dropdown-button'
 export default {
   name: 'LanguageDropdown',
   components: {
-    DropdownButton
+    DropdownButton,
   },
   data() {
     const availableLocale = this.$i18n.locales.map((locale) => {
       return { name: this.$t(locale.code), lang: locale.code }
     })
     return {
-      availableLocale
+      availableLocale,
     }
   },
   computed: {
@@ -38,7 +38,7 @@ export default {
       return this.availableLocale.filter(
         (locale) => locale.lang !== this.currentLocale
       )
-    }
+    },
   },
 
   methods: {
@@ -46,8 +46,8 @@ export default {
       this.$i18n.setLocale(selectedLocale.lang)
       const page = this.switchLocalePath()
       this.$router.push(page)
-    }
-  }
+    },
+  },
 }
 </script>
 

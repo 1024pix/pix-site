@@ -18,11 +18,11 @@ export default {
   nuxtI18n: {
     paths: {
       'fr-fr': '/actualites/:slug',
-      'en-gb': '/news/:slug'
-    }
+      'en-gb': '/news/:slug',
+    },
   },
   components: {
-    NewsItemPost
+    NewsItemPost,
   },
   async asyncData({ params, app, req, error, route }) {
     const host = req ? req.headers.host : window.location.host
@@ -43,9 +43,9 @@ export default {
       this.$prismic
     )
     return {
-      meta
+      meta,
     }
-  }
+  },
 }
 </script>
 
