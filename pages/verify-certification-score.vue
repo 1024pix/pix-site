@@ -162,18 +162,20 @@ export default {
       display: flex;
       flex-direction: column;
       input {
+        padding: 0 8px;
+        font-size: 1rem;
         border: 2px solid rgb(107, 119, 140);
         border-radius: 4px;
         max-width: 475px;
         height: 41px;
       }
       .regex-error {
-        border: 2px solid red;
+        border: 2px solid $error;
       }
       .error-paragraph {
-        color: red;
-        font-size: 10px;
+        color: $error;
         margin: 0;
+        font-size: 14px;
       }
     }
     button {
@@ -183,7 +185,7 @@ export default {
     }
   }
   .form-sent {
-    margin-top: 53px;
+    margin-top: 32px;
     background-color: rgb(255, 219, 204);
     border-radius: 4px;
     height: 46px;
@@ -191,11 +193,11 @@ export default {
     width: 436px;
     text-align: center;
     svg {
-      color: rgb(153, 0, 0);
+      color: $error;
       margin-right: 6px;
     }
     span {
-      color: rgb(153, 0, 0);
+      color: $error;
       font-family: 'Roboto', Arial, sans-serif;
       font-size: 14px;
       font-weight: normal;
@@ -204,27 +206,8 @@ export default {
       width: 380px;
     }
   }
-  .form-sent {
-    margin-top: 53px;
-    background-color: rgb(255, 219, 204);
-    border-radius: 4px;
-    height: 46px;
-    line-height: 46px;
-    width: 436px;
-    text-align: center;
-    svg {
-      color: rgb(153, 0, 0);
-      margin-right: 6px;
-    }
-    span {
-      color: rgb(153, 0, 0);
-      font-family: 'Roboto';
-      font-size: 14px;
-      font-weight: normal;
-      height: 22px;
-      letter-spacing: 0.15px;
-      width: 380px;
-    }
+  .error {
+    color: $error;
   }
 }
 </style>
