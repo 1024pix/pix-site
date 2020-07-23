@@ -19,7 +19,7 @@ export const documents = {
 }
 
 export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
-  const language = i18n.locale || i18n.defaultLocale
+  const lang = i18n.locale || i18n.defaultLocale
   return {
     get: (documentName) => {
       return getSingle(documentName)
@@ -27,7 +27,7 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
     getEmployers: async () => {
       const api = await getApi()
       const document = api.getSingle('employers', {
-        lang: language,
+        lang,
         fetchLinks: [
           'distributor_item.description',
           'distributor_item.footer',
@@ -46,7 +46,7 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
           page,
           pageSize,
           orderings: '[my.news_item.date desc]',
-          lang: language,
+          lang,
         }
       )
       return documents.results
@@ -55,8 +55,24 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
       const api = await getApi()
       const document = await api.query(
         Prismic.Predicates.at('my.news_item.uid', slug),
-        { lang: language }
+        { lang }
       )
+      return document.results[0]
+    },
+    getScoreCertifForm: async (slug) => {
+      const api = await getApi()
+      const document = await api.query(
+        Prismic.Predicates.at(
+          'document.type',
+          'verify-certification-score-form'
+        ),
+        { lang }
+      )
+
+      if (!document.results) {
+        return {}
+      }
+
       return document.results[0]
     },
     getPreviewUrl: async (previewToken) => {
@@ -67,7 +83,7 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
       const api = await getApi()
       const document = await api.query(
         Prismic.Predicates.at('my.simple_page.uid', uid),
-        { lang: language }
+        { lang }
       )
       return document.results[0]
     },
@@ -75,7 +91,7 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
 
   async function getSingle(type) {
     const api = await getApi()
-    return api.getSingle(type, { lang: language })
+    return api.getSingle(type, { lang })
   }
 
   function getApi() {
