@@ -21,9 +21,7 @@ export const documents = {
 export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
   const lang = i18n.locale || i18n.defaultLocale
   return {
-    get: (documentName) => {
-      return getSingle(documentName)
-    },
+    get: getSingle,
     getEmployers: async () => {
       const api = await getApi()
       const document = api.getSingle('employers', {
@@ -59,7 +57,7 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
       )
       return document.results[0]
     },
-    getScoreCertifForm: async (slug) => {
+    getVerifyCertificationForm: async () => {
       const api = await getApi()
       const document = await api.query(
         Prismic.Predicates.at(

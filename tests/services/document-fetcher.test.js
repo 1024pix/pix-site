@@ -70,12 +70,13 @@ describe('DocumentFetcher', () => {
 
   test('it should get employers page with distributors informations', async () => {
     // Given
+    const expected = { uid: 'navigation' }
     const prismicApi = {
       getSingle: jest.fn(() => ({ uid: 'navigation' })),
     }
     Prismic.getApi.mockResolvedValue(prismicApi)
     // When
-    await documentFetcher().getEmployers()
+    const result = await documentFetcher().getEmployers()
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('employers', {
       lang: 'fr-fr',
@@ -87,5 +88,59 @@ describe('DocumentFetcher', () => {
         'distributor_item.name',
       ],
     })
+    expect(result).toEqual(expected)
+  })
+
+  test('it should get verify certification form page', async () => {
+    // Given
+    const expectedValue = Symbol('VALUE')
+    const expectedPredicatesAtValue = Symbol('AT')
+    const prismicApi = {
+      query: jest.fn(() => ({ results: [expectedValue] })),
+    }
+    Prismic.getApi.mockResolvedValue(prismicApi)
+
+    const prismicPredicates = {
+      at: jest.fn(() => expectedPredicatesAtValue),
+    }
+    Prismic.Predicates = prismicPredicates
+
+    // When
+    const response = await documentFetcher().getVerifyCertificationForm()
+    // Then
+    expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
+      lang: 'fr-fr',
+    })
+    expect(prismicPredicates.at).toBeCalledWith(
+      'document.type',
+      'verify-certification-score-form'
+    )
+    expect(response).toEqual(expectedValue)
+  })
+
+  test('it should get simplePage by UID', async () => {
+    // Given
+    const expectedValue = Symbol('VALUE')
+    const expectedPredicatesAtValue = Symbol('AT')
+    const uid = Symbol('UID')
+    const prismicApi = {
+      query: jest.fn(() => ({ results: [expectedValue] })),
+    }
+    Prismic.getApi.mockResolvedValue(prismicApi)
+
+    const prismicPredicates = {
+      at: jest.fn(() => expectedPredicatesAtValue),
+    }
+    Prismic.Predicates = prismicPredicates
+
+    // When
+    const response = await documentFetcher().getSimplePageByUid(uid)
+
+    // Then
+    expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
+      lang: 'fr-fr',
+    })
+    expect(prismicPredicates.at).toBeCalledWith('my.simple_page.uid', uid)
+    expect(response).toEqual(expectedValue)
   })
 })

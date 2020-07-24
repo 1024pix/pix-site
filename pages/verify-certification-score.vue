@@ -3,7 +3,7 @@
     <main class="page-body">
       <div class="container lg">
         <h1 class="title">{{ title }}</h1>
-        <form @submit="checkForm">
+        <form @submit="submit">
           <div class="input-field">
             <label>{{ verificationCodeLabel }}</label>
             <input
@@ -34,20 +34,46 @@
             {{ buttonLabel }}
           </button>
         </form>
+        <div v-if="formSent" class="form-sent">
+          <fa :icon="fas.faExclamationTriangle" />
+          <span>Il n'y a pas de certificat Pix correspondant</span>
+        </div>
       </div>
     </main>
   </div>
 </template>
 
 <script>
+import { fas } from '@fortawesome/free-solid-svg-icons'
 import { documentFetcher } from '~/services/document-fetcher'
+
 export default {
-  name: 'VerifyScore',
+  name: 'VerifyCertificatioScore',
   nuxtI18n: {
     paths: {
       'fr-fr': '/verifier-score-certification',
       'en-gb': '/verify-certification-score',
     },
+  },
+  async asyncData({ app, error, req, currentPagePath }) {
+    try {
+      const document = await documentFetcher(
+        app.i18n,
+        req
+      ).getVerifyCertificationForm()
+      if (process.client) window.prismic.setupEditButton()
+
+      return {
+        currentPagePath,
+        meta: document.data.meta,
+        document: document.data,
+        documentId: document.id,
+      }
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e)
+      error({ statusCode: 404, message: 'Page not found' })
+    }
   },
   data() {
     return {
@@ -55,9 +81,10 @@ export default {
       code: '',
       errors: [],
       codeRegex: /^P-[0-9]{5}$/i,
-      scoreRegex: /^[0-9]{1,3}$/i,
+      scoreRegex: /^[0-9]{1,3}$/,
       hasCodeRegexError: false,
       hasScoreRegexError: false,
+      formSent: false,
     }
   },
   computed: {
@@ -76,20 +103,23 @@ export default {
     getRegexErrorClass() {
       return 'regex-error'
     },
+    fas() {
+      return fas
+    },
   },
   methods: {
-    checkForm(e) {
+    submit(e) {
       e.preventDefault()
-
-      this.matchesCodeRegex()
-      this.matchesScoreRegex()
-
-      if (!this.hasCodeRegexError && !this.hasScoreRegexError) {
-        alert('Formulaire envoyé')
+      if (this.checkForm()) {
+        this.formSent = true
       }
     },
-
-    matchesCodeRegex() {
+    checkForm() {
+      this.testCodeRegex()
+      this.testScoreRegex()
+      return !this.hasCodeRegexError && !this.hasScoreRegexError
+    },
+    testCodeRegex() {
       if (!this.codeRegex.test(this.code)) {
         this.hasCodeRegexError = true
         return false
@@ -98,7 +128,7 @@ export default {
       return true
     },
 
-    matchesScoreRegex() {
+    testScoreRegex() {
       if (!this.scoreRegex.test(this.score)) {
         this.hasScoreRegexError = true
         return false
@@ -106,23 +136,6 @@ export default {
       this.hasScoreRegexError = false
       return true
     },
-  },
-  async asyncData({ app, error, req, currentPagePath }) {
-    try {
-      const document = await documentFetcher(app.i18n, req).getScoreCertifForm()
-      if (process.client) window.prismic.setupEditButton()
-
-      return {
-        currentPagePath,
-        meta: document.data.meta,
-        document: document.data,
-        documentId: document.id,
-      }
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error({ e })
-      error({ statusCode: 404, message: 'Page not found' })
-    }
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
@@ -175,6 +188,50 @@ export default {
       width: 175px;
       max-height: 36px;
       line-height: 100%;
+    }
+  }
+  .form-sent {
+    margin-top: 53px;
+    background-color: rgb(255, 219, 204);
+    border-radius: 4px;
+    height: 46px;
+    line-height: 46px;
+    width: 436px;
+    text-align: center;
+    svg {
+      color: rgb(153, 0, 0);
+      margin-right: 6px;
+    }
+    span {
+      color: rgb(153, 0, 0);
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: normal;
+      height: 22px;
+      letter-spacing: 0.15px;
+      width: 380px;
+    }
+  }
+  .form-sent {
+    margin-top: 53px;
+    background-color: rgb(255, 219, 204);
+    border-radius: 4px;
+    height: 46px;
+    line-height: 46px;
+    width: 436px;
+    text-align: center;
+    svg {
+      color: rgb(153, 0, 0);
+      margin-right: 6px;
+    }
+    span {
+      color: rgb(153, 0, 0);
+      font-family: 'Roboto';
+      font-size: 14px;
+      font-weight: normal;
+      height: 22px;
+      letter-spacing: 0.15px;
+      width: 380px;
     }
   }
 }
