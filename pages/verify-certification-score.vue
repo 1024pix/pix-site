@@ -4,12 +4,16 @@
       <div class="container lg">
         <h1 class="title">{{ title }}</h1>
         <form @submit="checkForm">
-          <label>{{ verificationCodeLabel }}</label>
-          <input v-model="code" type="text" name="verificationCode" />
-          <p v-if="hasCodeError" class="error">Code requis</p>
-          <label>{{ candidateScoreLabel }}</label>
-          <input v-model="score" type="text" name="candidateScore" />
-          <p v-if="hasScoreError" class="error">Score requis</p>
+          <div class="input-field">
+            <label>{{ verificationCodeLabel }}</label>
+            <input v-model="code" type="text" name="verificationCode" />
+            <p v-if="hasCodeError" class="error">Code requis</p>
+          </div>
+          <div class="input-field">
+            <label>{{ candidateScoreLabel }}</label>
+            <input v-model="score" type="text" name="candidateScore" />
+            <p v-if="hasScoreError" class="error">Score requis</p>
+          </div>
           <button class="btn-primary" type="submit">
             {{ buttonLabel }}
           </button>
@@ -120,15 +124,27 @@ export default {
       font-family: 'Roboto', Arial, sans-serif;
       color: rgb(23, 43, 77);
     }
-    input {
-      border: 2px solid rgb(107, 119, 140);
-      border-radius: 4px;
-      max-width: 475px;
+    .input-field {
       margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      input {
+        border: 2px solid rgb(107, 119, 140);
+        border-radius: 4px;
+        max-width: 475px;
+        height: 41px;
+      }
+      .error {
+        color: red;
+        font-size: 10px;
+        margin: 0;
+      }
     }
-  }
-  .error {
-    color: red;
+    button {
+      width: 175px;
+      max-height: 36px;
+      line-height: 36px;
+    }
   }
 }
 </style>
