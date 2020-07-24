@@ -88,6 +88,8 @@ export default {
         chartsData,
       }
     } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error({ e })
       error({ statusCode: 404, message: 'Page not found' })
     }
   },

@@ -33,6 +33,8 @@ export default {
       )
       return { currentPagePath, newsItem, documentId: newsItem.id }
     } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error({ e })
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
