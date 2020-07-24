@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Verify Certification Score Page renders properly 1`] = `
+"<div class=\\"page competences\\">
+  <main class=\\"page-body\\">
+    <div class=\\"container lg\\">
+      <h1 class=\\"title\\">title</h1>
+      <form>
+        <div class=\\"input-field\\"><label>code_de_verification</label> <input type=\\"text\\" required=\\"required\\" name=\\"verificationCode\\" class=\\"\\">
+          <!---->
+        </div>
+        <div class=\\"input-field\\"><label>score_declare_du_candidat</label> <input type=\\"text\\" required=\\"required\\" name=\\"candidateScore\\" class=\\"\\">
+          <!---->
+        </div> <button type=\\"submit\\" class=\\"btn-primary\\">
+          button_label
+        </button>
+      </form>
+      <!---->
+    </div>
+  </main>
+</div>"
+`;
