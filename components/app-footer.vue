@@ -15,7 +15,7 @@
             <img
               class="ministere"
               alt="Soutenu par le ministère de l'éducation"
-              src="/images/ministere-logo-2.svg"
+              src="/images/ministere-logo.svg"
             />
           </div>
         </div>
