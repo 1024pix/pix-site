@@ -115,26 +115,18 @@ export default {
       }
     },
     checkForm() {
-      this.testCodeRegex()
-      this.testScoreRegex()
+      this.hasCodeRegexError = !this.testCodeRegex()
+      this.hasScoreRegexError = !this.testScoreRegex()
+
       return !this.hasCodeRegexError && !this.hasScoreRegexError
     },
     testCodeRegex() {
-      if (!this.codeRegex.test(this.code)) {
-        this.hasCodeRegexError = true
-        return false
-      }
-      this.hasCodeRegexError = false
-      return true
+      const codeIsCorrect = this.codeRegex.test(this.code)
+      return codeIsCorrect
     },
-
     testScoreRegex() {
-      if (!this.scoreRegex.test(this.score)) {
-        this.hasScoreRegexError = true
-        return false
-      }
-      this.hasScoreRegexError = false
-      return true
+      const scoreIsCorrect = this.scoreRegex.test(this.score)
+      return scoreIsCorrect
     },
   },
   head() {
