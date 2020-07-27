@@ -32,3 +32,10 @@ export async function getInitialised(page, opts) {
 
   return shallowMount(Page, opts)
 }
+
+export function emptyPrismicDocument() {
+  return {
+    primary: { title: '' },
+    items: [{}],
+  }
+}

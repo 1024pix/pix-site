@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Higher Education Page renders properly 1`] = `
+"<div class=\\"page higher-education\\">
+  <section class=\\"hero\\">
+    <div class=\\"background\\"></div>
+    <div class=\\"container padding-container\\">
+      <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
+      <pix-link-stub class=\\"btn\\">
+
+      </pix-link-stub>
+    </div>
+  </section>
+  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-infos\\" containerclass=\\"\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"\\"></section-slice-stub>
+  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-mesurer\\" containerclass=\\"\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"\\"></section-slice-stub>
+  <section-column-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-developper\\" ulclass=\\"features\\" liclass=\\"feature\\" rightclass=\\"section-developper__image\\"></section-column-slice-stub>
+  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-valoriser\\" containerclass=\\"\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"\\"></section-slice-stub>
+  <section class=\\"section-utiliser-pix\\">
+    <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
+    <div class=\\"container\\">
+      <div class=\\"column\\">
+        <prismic-rich-text-stub></prismic-rich-text-stub>
+        <prismic-rich-text-stub></prismic-rich-text-stub>
+        <hr class=\\"text-left mb-2 mt-2\\">
+        <prismic-rich-text-stub></prismic-rich-text-stub>
+      </div>
+      <div style=\\"margin: auto;\\"><a class=\\"btn\\">
+
+        </a></div>
+    </div>
+  </section>
+  <section class=\\"section-comment-ca-marche\\">
+    <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
+    <div class=\\"container\\">
+      <div class=\\"column\\">
+        <div class=\\"inner\\">
+          <prismic-rich-text-stub></prismic-rich-text-stub>
+          <prismic-rich-text-stub></prismic-rich-text-stub>
+        </div>
+      </div>
+    </div>
+  </section>
+  <key-numbers-stub content=\\"[object Object]\\" contentid=\\"\\"></key-numbers-stub>
+  <prismic-edit-button-stub></prismic-edit-button-stub>
+</div>"
+`;
