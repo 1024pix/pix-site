@@ -2,16 +2,22 @@
   <footer>
     <div class="container padding-container">
       <div class="sitelogo">
-        <a href="/" title="Retour à l'accueil Pix"
-          ><img class="mb-2 logo" alt="" src="/images/pix-logo.svg"
-        /></a>
-        <div>
-          <img
-            style="margin-left: -4px;"
-            class="ministere"
-            alt="Soutenu par le ministère de l'éducation"
-            src="/images/ministere-logo-2.svg"
-          />
+        <div :class="{ sitelogo__row: showUnescoLogo === true }">
+          <a href="/" class="sitelogo-row__item">
+            <img alt="Retour à l'accueil Pix" src="/images/pix-logo.svg" />
+          </a>
+          <div v-if="showUnescoLogo" class="sitelogo-row__item">
+            <img alt="Soutenu par l'Unesco" src="/images/unesco_logo.svg" />
+          </div>
+        </div>
+        <div :class="{ sitelogo__row: showUnescoLogo === true }">
+          <div class="sitelogo-row__item">
+            <img
+              class="ministere"
+              alt="Soutenu par le ministère de l'éducation"
+              src="/images/ministere-logo.svg"
+            />
+          </div>
         </div>
       </div>
       <div class="sitenav">
@@ -81,6 +87,10 @@ export default {
     AboutNav,
     ResourcesNav,
   },
+  data() {
+    const showUnescoLogo = this.$i18n.locale !== 'fr-fr'
+    return { showUnescoLogo }
+  },
 }
 </script>
 
@@ -118,29 +128,47 @@ footer {
 
   .sitelogo {
     margin-bottom: 40px;
-    width: 50%;
 
     @include device-is('tablet') {
       margin-bottom: 0;
+      margin-right: 20px;
       width: 43%;
     }
 
     .ministere {
       max-width: 280px;
+      margin-left: -4px;
 
       @include device-is('large-mobile') {
         max-width: 100%;
         height: auto;
         display: block;
       }
+
+      img {
+        height: auto;
+        display: block;
+      }
     }
+  }
+
+  .sitelogo__row {
+    display: flex;
+    flex-direction: column;
+
+    @include device-is('large-mobile') {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+  }
+
+  .sitelogo-row__item {
+    text-align: center;
+    margin-bottom: 20px;
 
     img {
-      display: block;
-    }
-
-    .logo {
-      width: 50%;
+      height: 80px;
     }
   }
 
@@ -155,14 +183,6 @@ footer {
 
     @include device-is('tablet') {
       justify-content: flex-end;
-    }
-
-    .mb-2 {
-      margin-bottom: 12px;
-
-      @include device-is('large-mobile') {
-        margin-bottom: 26px;
-      }
     }
 
     .mb-3 {
