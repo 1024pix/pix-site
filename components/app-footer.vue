@@ -2,7 +2,7 @@
   <footer>
     <div class="container padding-container">
       <div class="sitelogo">
-        <div v-bind:class="{ sitelogo__row: showUnescoLogo === true }">
+        <div :class="{ sitelogo__row: showUnescoLogo === true }">
           <a href="/" class="sitelogo-row__item">
             <img alt="Retour à l'accueil Pix" src="/images/pix-logo.svg" />
           </a>
@@ -10,7 +10,7 @@
             <img alt="Soutenu par l'Unesco" src="/images/unesco_logo.svg" />
           </div>
         </div>
-        <div v-bind:class="{ sitelogo__row: showUnescoLogo === true }">
+        <div :class="{ sitelogo__row: showUnescoLogo === true }">
           <div class="sitelogo-row__item">
             <img
               class="ministere"
