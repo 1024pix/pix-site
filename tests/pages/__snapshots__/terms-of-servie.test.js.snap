@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Terms of Service Page renders properly 1`] = `
+"<div class=\\"page terms-of-service\\">
+  <header class=\\"page-header\\">
+    <div class=\\"container md padding-container\\">
+      <h1 class=\\"page-header__title\\">
+        <prismic-rich-text-stub></prismic-rich-text-stub>
+      </h1>
+    </div>
+  </header>
+  <div class=\\"page-body\\">
+    <section class=\\"page-section section-schools\\">
+      <div class=\\"container md padding-container\\">
+        <div class=\\"page-section__description\\">
+          <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
+        </div>
+      </div>
+    </section>
+  </div>
+  <prismic-edit-button-stub></prismic-edit-button-stub>
+</div>"
+`;

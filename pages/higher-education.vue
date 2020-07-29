@@ -107,6 +107,7 @@ export default {
       const keyNumbers = await documentFetcher(app.i18n, req).get(
         documents.keyNumbers
       )
+
       if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
