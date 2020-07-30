@@ -5,8 +5,9 @@
         <h1 class="title">{{ title }}</h1>
         <form @submit="submit">
           <div class="input-field">
-            <label>{{ verificationCodeLabel }}</label>
+            <label for="code">{{ verificationCodeLabel }}</label>
             <input
+              id="code"
               v-model="code"
               :class="hasCodeRegexError && getRegexErrorClass"
               type="text"
@@ -18,8 +19,9 @@
             </p>
           </div>
           <div class="input-field">
-            <label>{{ candidateScoreLabel }}</label>
+            <label for="score">{{ candidateScoreLabel }}</label>
             <input
+              id="score"
               v-model="score"
               :class="hasScoreRegexError && getRegexErrorClass"
               type="text"
