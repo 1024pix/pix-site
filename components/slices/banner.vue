@@ -36,6 +36,7 @@
 
 <script>
 import VideoSlice from './video'
+import { LARGE_SCREEN_MIN_WIDTH } from '~/config/breakpoints'
 
 export default {
   name: 'Banner',
@@ -73,10 +74,13 @@ export default {
   },
   mounted() {
     if (this.hasBackgroundImage) {
-      const banner = document.getElementsByClassName(
-        'banner-with-background'
-      )[0]
-      banner.style.background = `center no-repeat url(${this.content.primary.bannerbackground.url})`
+      this.changeBackgroundImage()
+      window.addEventListener('resize', this.changeBackgroundImage)
+    }
+  },
+  beforeDestroy() {
+    if (this.bannerWithBackgroundImageClass) {
+      window.removeEventListener('resize', this.changeBackgroundImage)
     }
   },
   methods: {
@@ -88,6 +92,18 @@ export default {
     },
     videoClass(link) {
       return this.isVideo(link) ? 'banner__video' : ''
+    },
+    changeBackgroundImage() {
+      const banner = document.getElementsByClassName(
+        'banner-with-background'
+      )[0]
+      if (screen.width <= LARGE_SCREEN_MIN_WIDTH) {
+        banner.style.background = `no-repeat url(${this.content.primary.bannerbackground.url})`
+        banner.style.backgroundSize = '100%'
+        banner.style.backgroundPosition = 'top right'
+      } else {
+        banner.style.background = 'none'
+      }
     },
   },
 }
@@ -104,7 +120,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 60px;
+    margin: 0 32px;
   }
 
   &__title h1 {
@@ -124,20 +140,21 @@ export default {
   .banner__button-group {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
   .banner__button {
     height: 44px;
-    margin: 0 10px;
     font-family: 'Roboto', Arial, sans-serif;
-    font-size: 16px;
     background-color: $blue-1;
     color: $white;
     font-size: 1rem;
-    max-width: 250px;
+    width: 240px;
     border: 1.5px solid transparent;
     border-radius: 4px;
     padding: 0 20px;
+    margin: 5px 0;
 
     display: flex;
     justify-content: center;
@@ -165,21 +182,42 @@ export default {
     }
   }
 
-  &--with-image {
-    display: flex;
-    max-width: 1140px;
-    text-align: left;
+  &--with-image img {
+    display: none;
+  }
 
-    img:nth-child(2) {
-      max-width: 400px;
-    }
-
+  @include device-is('large-mobile') {
     .banner__button-group {
-      justify-content: left;
+      flex-direction: row;
+    }
+    .banner__button {
+      width: initial;
+      margin: 0 10px;
+    }
+  }
+
+  @include device-is('large-screen') {
+    &--main {
+      margin-right: 60px;
     }
 
-    .banner__button {
-      margin: 0 20px 0 0;
+    &--with-image {
+      display: flex;
+      max-width: 1140px;
+      text-align: left;
+
+      img:nth-child(2) {
+        display: block;
+        max-width: 400px;
+      }
+
+      .banner__button-group {
+        justify-content: left;
+      }
+
+      .banner__button {
+        margin: 0 20px 0 0;
+      }
     }
   }
 }
