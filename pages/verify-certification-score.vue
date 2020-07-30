@@ -117,18 +117,16 @@ export default {
       }
     },
     checkForm() {
-      this.hasCodeRegexError = !this.testCodeRegex()
-      this.hasScoreRegexError = !this.testScoreRegex()
+      this.hasCodeRegexError = !this.isCodeValid()
+      this.hasScoreRegexError = !this.isScoreValid()
 
       return !this.hasCodeRegexError && !this.hasScoreRegexError
     },
-    testCodeRegex() {
-      const codeIsCorrect = this.codeRegex.test(this.code)
-      return codeIsCorrect
+    isCodeValid() {
+      return this.codeRegex.test(this.code)
     },
-    testScoreRegex() {
-      const scoreIsCorrect = this.scoreRegex.test(this.score)
-      return scoreIsCorrect
+    isScoreValid() {
+      return this.scoreRegex.test(this.score)
     },
   },
   head() {
