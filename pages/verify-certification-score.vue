@@ -50,7 +50,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
-  name: 'VerifyCertificatioScore',
+  name: 'VerifyCertificationScore',
   nuxtI18n: {
     paths: {
       'fr-fr': '/verifier-score-certification',
@@ -157,7 +157,7 @@ export default {
     flex-direction: column;
     label {
       font-family: 'Roboto', Arial, sans-serif;
-      color: rgb(23, 43, 77);
+      color: $blue-5;
     }
     .input-field {
       margin-bottom: 24px;
@@ -166,7 +166,7 @@ export default {
       input {
         padding: 0 8px;
         font-size: 1rem;
-        border: 2px solid rgb(107, 119, 140);
+        border: 2px solid $grey-9;
         border-radius: 4px;
         max-width: 475px;
         height: 41px;
@@ -188,7 +188,7 @@ export default {
   }
   .form-sent {
     margin-top: 32px;
-    background-color: rgb(255, 219, 204);
+    background-color: $error-2;
     border-radius: 4px;
     height: 46px;
     line-height: 46px;
