@@ -3,15 +3,16 @@
     <main class="page-body">
       <div class="container lg">
         <h1 class="title">{{ title }}</h1>
-        <form @submit="submit">
+        <form novalidate @submit="submit">
           <div class="input-field">
             <label for="code">{{ verificationCodeLabel }}</label>
             <input
               id="code"
               v-model="code"
-              :class="hasCodeRegexError && getRegexErrorClass"
+              :class="{ 'regex-error': hasCodeRegexError }"
               type="text"
               required="true"
+              :pattern="codeRegex"
               name="verificationCode"
             />
             <p v-if="hasCodeRegexError" class="error-paragraph">
@@ -23,9 +24,10 @@
             <input
               id="score"
               v-model="score"
-              :class="hasScoreRegexError && getRegexErrorClass"
+              :class="{ 'regex-error': hasScoreRegexError }"
               type="text"
               required="true"
+              :pattern="scoreRegex"
               name="candidateScore"
             />
             <p v-if="hasScoreRegexError" class="error-paragraph">
@@ -82,8 +84,8 @@ export default {
       score: '',
       code: '',
       errors: [],
-      codeRegex: /^P-[0-9]{5}$/i,
-      scoreRegex: /^[0-9]{1,3}$/,
+      codeRegex: '^[P,p]-[0-9]{5}$',
+      scoreRegex: '^[0-9]{1,3}$',
       hasCodeRegexError: false,
       hasScoreRegexError: false,
       formSent: false,
@@ -101,9 +103,6 @@ export default {
     },
     candidateScoreLabel() {
       return this.document.score_declare_du_candidat
-    },
-    getRegexErrorClass() {
-      return 'regex-error'
     },
     fas() {
       return fas
@@ -123,10 +122,13 @@ export default {
       return !this.hasCodeRegexError && !this.hasScoreRegexError
     },
     isCodeValid() {
-      return this.codeRegex.test(this.code)
+      const regex = new RegExp(this.codeRegex)
+      return regex.test(this.code)
     },
     isScoreValid() {
-      return this.scoreRegex.test(this.score)
+      const regex = new RegExp(this.scoreRegex)
+
+      return regex.test(this.score)
     },
   },
   head() {

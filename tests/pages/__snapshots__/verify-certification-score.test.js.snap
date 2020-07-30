@@ -5,11 +5,11 @@ exports[`Verify Certification Score Page renders properly 1`] = `
   <main class=\\"page-body\\">
     <div class=\\"container lg\\">
       <h1 class=\\"title\\">title</h1>
-      <form>
-        <div class=\\"input-field\\"><label>code_de_verification</label> <input type=\\"text\\" required=\\"required\\" name=\\"verificationCode\\" class=\\"\\">
+      <form novalidate=\\"novalidate\\">
+        <div class=\\"input-field\\"><label for=\\"code\\">code_de_verification</label> <input id=\\"code\\" type=\\"text\\" required=\\"required\\" pattern=\\"^[P,p]-[0-9]{5}$\\" name=\\"verificationCode\\" class=\\"\\">
           <!---->
         </div>
-        <div class=\\"input-field\\"><label>score_declare_du_candidat</label> <input type=\\"text\\" required=\\"required\\" name=\\"candidateScore\\" class=\\"\\">
+        <div class=\\"input-field\\"><label for=\\"score\\">score_declare_du_candidat</label> <input id=\\"score\\" type=\\"text\\" required=\\"required\\" pattern=\\"^[0-9]{1,3}$\\" name=\\"candidateScore\\" class=\\"\\">
           <!---->
         </div> <button type=\\"submit\\" class=\\"btn-primary\\">
           button_label
