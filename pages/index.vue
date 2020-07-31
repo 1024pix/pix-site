@@ -15,14 +15,14 @@
     <banner v-else :content="bannerDocument"></banner>
 
     <img-text-column-slice
-      :content="document[1]"
+      :content="demoDocument"
       :section-class="'section-demo'"
       :container-class="'section-demo__container'"
       :button-class="'section-demo__button'"
     ></img-text-column-slice>
 
     <section-slice
-      :content="document[2]"
+      :content="featuresDocument"
       :section-class="'index__features'"
       :container-class="'features__container'"
       :flex-container-class="'features-container__list'"
