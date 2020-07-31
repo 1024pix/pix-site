@@ -4,6 +4,7 @@
       <div class="banner__main">
         <prismic-rich-text :field="title" class="banner__title" />
         <prismic-rich-text :field="textContent" class="banner__content" />
+        <slot></slot>
         <div class="banner__button-group">
           <div v-for="(link, index) in links" :key="`item-${index}`">
             <pix-link
