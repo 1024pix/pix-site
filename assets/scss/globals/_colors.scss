@@ -1,22 +1,27 @@
 $grey-1: #222222;
 $grey-2: #555555;
-$grey-3: #F5F5F5;
-$grey-4: #CCCCCC;
+$grey-3: #f5f5f5;
+$grey-4: #cccccc;
 $grey-5: #666666;
 $grey-6: #444444;
-$grey-7: #DDDDDD;
+$grey-7: #dddddd;
 $grey-8: #96a0af;
+$grey-9: rgb(107, 119, 140);
 
-$blue-1: #3D68FF;
-$blue-2: #12A3FF;
-$blue-3: #3257D9;
-$blue-4: #388AFF;
+$blue-1: #3d68ff;
+$blue-2: #12a3ff;
+$blue-3: #3257d9;
+$blue-4: #388aff;
+$blue-5: #172b4d;
 
-$purple-1: #985FFF;
+$error: rgb(153, 0, 0);
+$error-2: #ffdbcc;
+
+$purple-1: #985fff;
 
 $pix-yellow: #ffcb00;
 
 $black: #000000;
-$white: #FFFFFF;
+$white: #ffffff;
 
 $gradient-purple: linear-gradient(135.25deg, $blue-4 0%, $purple-1 100%);
