@@ -5,15 +5,28 @@
         <prismic-rich-text :field="title" class="banner__title" />
         <prismic-rich-text :field="textContent" class="banner__content" />
         <div class="banner__button-group">
-          <pix-link
-            v-for="(link, index) in links"
-            :key="`item-${index}`"
-            :field="link.bannerlinkurl"
-            class="banner__button"
-            :class="videoClass(link)"
-          >
-            {{ link.bannerlinktext }}
-          </pix-link>
+          <div v-for="(link, index) in links" :key="`item-${index}`">
+            <pix-link
+              v-if="!isVideo(link)"
+              :field="link.bannerlinkurl"
+              class="banner__button"
+              :class="videoClass(link)"
+            >
+              {{ link.bannerlinktext }}
+            </pix-link>
+            <template v-if="isVideo(link)">
+              <button
+                class="banner__button banner__button-video"
+                @click="openVideoModal()"
+              >
+                <fa :icon="fas.faPlayCircle" />
+                {{ link.bannerlinktext }}
+              </button>
+              <modal ref="modal" name="videoModal" height="auto">
+                <VideoSlice :video-url="link.bannerlinkurl" />
+              </modal>
+            </template>
+          </div>
         </div>
       </div>
       <prismic-image v-if="hasImage" :field="imageUrl" />
@@ -22,8 +35,11 @@
 </template>
 
 <script>
+import VideoSlice from './video'
+
 export default {
   name: 'Banner',
+  components: { VideoSlice },
   props: {
     content: {
       type: Object,
@@ -64,10 +80,14 @@ export default {
     }
   },
   methods: {
-    videoClass(link) {
+    openVideoModal() {
+      this.$modal.show('videoModal')
+    },
+    isVideo(link) {
       return link.bannerlinkurl.url.includes('pix-videos/')
-        ? 'banner__video'
-        : ''
+    },
+    videoClass(link) {
+      return this.isVideo(link) ? 'banner__video' : ''
     },
   },
 }
@@ -110,6 +130,7 @@ export default {
     height: 44px;
     margin: 0 10px;
     font-family: 'Roboto', Arial, sans-serif;
+    font-size: 16px;
     background-color: $blue-1;
     color: $white;
     font-size: 1rem;
@@ -122,12 +143,25 @@ export default {
     justify-content: center;
     align-items: center;
 
-    &.banner__video {
+    &:hover {
+      cursor: pointer;
+      background-color: $blue-3;
+    }
+
+    &.banner__button-video {
       border-radius: 4px;
       border: 1.5px solid $grey-11;
       height: 44px;
       color: $grey-11;
       background-color: $white;
+
+      svg {
+        margin-right: 10px;
+      }
+
+      &:hover {
+        background-color: $grey-3;
+      }
     }
   }
 
