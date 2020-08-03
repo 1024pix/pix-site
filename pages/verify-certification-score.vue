@@ -49,7 +49,7 @@
           </button>
         </form>
         <div v-if="formSent" class="certificate-verification-page__form-sent">
-          <fa :icon="fas.faExclamationTriangle" />
+          <fa icon="exclamation-triangle" />
           <span>Il n'y a pas de certificat Pix correspondant</span>
         </div>
       </div>
@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import { fas } from '@fortawesome/free-solid-svg-icons'
 import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
@@ -113,9 +112,6 @@ export default {
     },
     candidateScoreLabel() {
       return this.document.score_declare_du_candidat
-    },
-    fas() {
-      return fas
     },
   },
   methods: {

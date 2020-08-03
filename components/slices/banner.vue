@@ -20,7 +20,7 @@
                 class="banner__button banner__button-video"
                 @click="openVideoModal()"
               >
-                <fa :icon="fas.faPlayCircle" />
+                <fa icon="play-circle" />
                 {{ link.bannerlinktext }}
               </button>
               <modal ref="modal" name="videoModal" height="auto">

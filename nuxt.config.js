@@ -100,7 +100,15 @@ export default {
         imports: [
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['faCog', 'faCalendar', 'faHome', 'faCircle', 'faCheck'],
+            icons: [
+              'faCalendar',
+              'faCheck',
+              'faCircle',
+              'faCog',
+              'faExclamationTriangle',
+              'faHome',
+              'faPlayCircle',
+            ],
           },
         ],
       },
