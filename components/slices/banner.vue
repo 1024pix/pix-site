@@ -1,21 +1,23 @@
 <template>
-  <section :class="['banner', { 'banner--with-image': hasImage }]">
-    <div class="banner__main">
-      <prismic-rich-text :field="title" class="banner__title" />
-      <prismic-rich-text :field="textContent" class="banner__content" />
-      <div class="banner__button-group">
-        <pix-link
-          v-for="(link, index) in links"
-          :key="`item-${index}`"
-          :field="link.bannerlinkurl"
-          class="banner__button"
-          :class="videoClass(link)"
-        >
-          {{ link.bannerlinktext }}
-        </pix-link>
+  <section :class="{ 'banner-with-background': hasBackgroundImage }">
+    <div :class="['banner', { 'banner--with-image': hasImage }]">
+      <div class="banner__main">
+        <prismic-rich-text :field="title" class="banner__title" />
+        <prismic-rich-text :field="textContent" class="banner__content" />
+        <div class="banner__button-group">
+          <pix-link
+            v-for="(link, index) in links"
+            :key="`item-${index}`"
+            :field="link.bannerlinkurl"
+            class="banner__button"
+            :class="videoClass(link)"
+          >
+            {{ link.bannerlinktext }}
+          </pix-link>
+        </div>
       </div>
+      <prismic-image v-if="hasImage" :field="imageUrl" />
     </div>
-    <prismic-image v-if="hasImage" :field="imageUrl" />
   </section>
 </template>
 
@@ -43,12 +45,23 @@ export default {
         this.content.primary.bannerimage && this.content.primary.bannerimage.url
       )
     },
+    hasBackgroundImage() {
+      return (
+        this.content.primary.bannerbackground &&
+        this.content.primary.bannerbackground.url
+      )
+    },
     imageUrl() {
       return this.content.primary.bannerimage
     },
-    backgroundImageUrl() {
-      return this.content.primary.bannerimagebackground
-    },
+  },
+  mounted() {
+    if (this.hasBackgroundImage) {
+      const banner = document.getElementsByClassName(
+        'banner-with-background'
+      )[0]
+      banner.style.background = `center no-repeat url(${this.content.primary.bannerbackground.url})`
+    }
   },
   methods: {
     videoClass(link) {
