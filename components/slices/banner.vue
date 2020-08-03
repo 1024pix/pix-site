@@ -113,7 +113,7 @@ export default {
 <style lang="scss">
 .banner {
   font-family: 'Open Sans', Arial, sans-serif;
-  padding: 80px 0;
+  padding: 64px 0;
   text-align: center;
   margin: 0 auto;
 
@@ -125,15 +125,15 @@ export default {
   }
 
   &__title h1 {
-    font-size: 2.875rem;
-    line-height: 3.813rem;
-    font-weight: 300;
     color: $grey-11;
+    font-size: 2.125rem;
+    line-height: 2.75rem;
+    font-weight: 400;
   }
 
   &__content p {
-    font-size: 1.25rem;
-    line-height: 2rem;
+    font-size: 1rem;
+    line-height: 1.625rem;
     color: $grey-10;
     margin: 16px 0 24px;
   }
@@ -188,9 +188,24 @@ export default {
   }
 
   @include device-is('large-mobile') {
+    padding: 80px 0;
+
+    &__title h1 {
+      font-size: 2.875rem;
+      line-height: 3.813rem;
+      font-weight: 300;
+      letter-spacing: -0.15px;
+    }
+
+    &__content p {
+      font-size: 1.25rem;
+      line-height: 2rem;
+    }
+
     .banner__button-group {
       flex-direction: row;
     }
+
     .banner__button {
       width: initial;
       margin: 0 10px;
@@ -198,18 +213,26 @@ export default {
   }
 
   @include device-is('large-screen') {
-    &--main {
-      margin-right: 60px;
+    &__title h1 {
+      font-size: 3.875rem;
+      line-height: 5.125rem;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+    }
+
+    &__main {
+      width: 504px;
     }
 
     &--with-image {
       display: flex;
+      justify-content: space-between;
       max-width: 1140px;
       text-align: left;
 
       img:nth-child(2) {
         display: block;
-        max-width: 400px;
+        max-width: 510px;
       }
 
       .banner__button-group {
