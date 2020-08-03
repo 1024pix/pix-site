@@ -49,20 +49,6 @@ export default {
     ImgTextColumnSlice,
     Banner,
   },
-  computed: {
-    demoDocument() {
-      return this.document[1]
-    },
-    featuresDocument() {
-      return this.document[2]
-    },
-    popInCampaignDocument() {
-      return this.document[3]
-    },
-    bannerDocument() {
-      return this.document[0]
-    },
-  },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.i18n, req).get(documents.index)
@@ -78,6 +64,20 @@ export default {
       console.error({ e })
       error({ statusCode: 404, message: 'Page not found' })
     }
+  },
+  computed: {
+    demoDocument() {
+      return this.document[1]
+    },
+    featuresDocument() {
+      return this.document[2]
+    },
+    popInCampaignDocument() {
+      return this.document[3]
+    },
+    bannerDocument() {
+      return this.document[0]
+    },
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
