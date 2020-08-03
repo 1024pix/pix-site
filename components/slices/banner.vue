@@ -1,18 +1,21 @@
 <template>
-  <section class="banner">
-    <prismic-rich-text :field="title" class="banner__title" />
-    <prismic-rich-text :field="textContent" class="banner__content" />
-    <div>
-      <pix-link
-        v-for="(link, index) in links"
-        :key="`item-${index}`"
-        :field="link.bannerlinkurl"
-        class="btn-primary"
-        :class="videoCssClass(link)"
-      >
-        {{ link.bannerlinktext }}
-      </pix-link>
+  <section :class="['banner', { 'banner--with-image': hasImage }]">
+    <div class="banner__main">
+      <prismic-rich-text :field="title" class="banner__title" />
+      <prismic-rich-text :field="textContent" class="banner__content" />
+      <div class="banner__button-group">
+        <pix-link
+          v-for="(link, index) in links"
+          :key="`item-${index}`"
+          :field="link.bannerlinkurl"
+          class="banner__button"
+          :class="videoClass(link)"
+        >
+          {{ link.bannerlinktext }}
+        </pix-link>
+      </div>
     </div>
+    <prismic-image v-if="hasImage" :field="imageUrl" />
   </section>
 </template>
 
@@ -35,6 +38,11 @@ export default {
     links() {
       return this.content.items
     },
+    hasImage() {
+      return (
+        this.content.primary.bannerimage && this.content.primary.bannerimage.url
+      )
+    },
     imageUrl() {
       return this.content.primary.bannerimage
     },
@@ -43,11 +51,10 @@ export default {
     },
   },
   methods: {
-    videoCssClass(link) {
-      if (link.bannerlinkurl.url.includes('pix-videos/')) {
-        return 'banner__video'
-      }
-      return ''
+    videoClass(link) {
+      return link.bannerlinkurl.url.includes('pix-videos/')
+        ? 'banner__video'
+        : ''
     },
   },
 }
@@ -59,6 +66,13 @@ export default {
   padding: 80px 0;
   text-align: center;
   margin: 0 auto;
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 60px;
+  }
 
   &__title h1 {
     font-size: 2.875rem;
@@ -74,18 +88,51 @@ export default {
     margin: 16px 0 24px;
   }
 
-  .btn-primary {
+  .banner__button-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  .banner__button {
     height: 44px;
-    line-height: 44px;
     margin: 0 10px;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: $blue-1;
+    color: $white;
+    font-size: 1rem;
+    max-width: 250px;
+    border: 1.5px solid transparent;
+    border-radius: 4px;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &.banner__video {
       border-radius: 4px;
       border: 1.5px solid $grey-11;
       height: 44px;
-      width: 167px;
       color: $grey-11;
       background-color: $white;
+    }
+  }
+
+  &--with-image {
+    display: flex;
+    max-width: 1140px;
+    text-align: left;
+
+    img:nth-child(2) {
+      max-width: 400px;
+    }
+
+    .banner__button-group {
+      justify-content: left;
+    }
+
+    .banner__button {
+      margin: 0 20px 0 0;
     }
   }
 }
