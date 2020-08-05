@@ -3,7 +3,7 @@
 exports[`Index Page renders properly 1`] = `
 "<div class=\\"index\\">
   <pop-in-campaigns-stub content=\\"[object Object]\\"></pop-in-campaigns-stub>
-  <hero-banner-stub content=\\"[object Object]\\" sectionclass=\\"index__hero-banner\\" backgroundclass=\\"hero-banner__background\\" contentclass=\\"hero-banner__content\\" buttonclass=\\"hero-banner-content__button\\"></hero-banner-stub>
+  <banner-stub content=\\"[object Object]\\"></banner-stub>
   <img-text-column-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-demo\\" containerclass=\\"section-demo__container\\" buttonclass=\\"section-demo__button\\"></img-text-column-slice-stub>
   <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"index__features\\" containerclass=\\"features__container\\" flexcontainerclass=\\"features-container__list\\" flexcontentclass=\\"features-container-list__item\\" buttonclass=\\"\\"></section-slice-stub>
   <prismic-edit-button-stub></prismic-edit-button-stub>

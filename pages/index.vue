@@ -1,24 +1,28 @@
 <template>
   <div class="index">
-    <pop-in-campaigns :content="document[3]" />
-    <hero-banner
-      :section-class="'index__hero-banner'"
-      :background-class="'hero-banner__background'"
-      :content-class="'hero-banner__content'"
-      :button-class="'hero-banner-content__button'"
-      :content="document[0]"
-    >
-    </hero-banner>
+    <pop-in-campaigns :content="popInCampaignDocument" />
+    <div v-if="bannerDocument.slice_type === 'hero-banner'">
+      <hero-banner
+        v-if="bannerDocument.slice_type === 'hero-banner'"
+        :section-class="'index__hero-banner'"
+        :background-class="'hero-banner__background'"
+        :content-class="'hero-banner__content'"
+        :button-class="'hero-banner-content__button'"
+        :content="bannerDocument"
+      >
+      </hero-banner>
+    </div>
+    <banner v-else :content="bannerDocument"></banner>
 
     <img-text-column-slice
-      :content="document[1]"
+      :content="demoDocument"
       :section-class="'section-demo'"
       :container-class="'section-demo__container'"
       :button-class="'section-demo__button'"
     ></img-text-column-slice>
 
     <section-slice
-      :content="document[2]"
+      :content="featuresDocument"
       :section-class="'index__features'"
       :container-class="'features__container'"
       :flex-container-class="'features-container__list'"
@@ -35,8 +39,16 @@ import HeroBanner from '~/components/slices/hero-banner'
 import ImgTextColumnSlice from '~/components/slices/img-text-column'
 import SectionSlice from '~/components/slices/section'
 import PopInCampaigns from '~/components/pop-in-campaigns'
+import Banner from '~/components/slices/banner'
+
 export default {
-  components: { PopInCampaigns, HeroBanner, SectionSlice, ImgTextColumnSlice },
+  components: {
+    PopInCampaigns,
+    HeroBanner,
+    SectionSlice,
+    ImgTextColumnSlice,
+    Banner,
+  },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.i18n, req).get(documents.index)
@@ -52,6 +64,20 @@ export default {
       console.error({ e })
       error({ statusCode: 404, message: 'Page not found' })
     }
+  },
+  computed: {
+    demoDocument() {
+      return this.document[1]
+    },
+    featuresDocument() {
+      return this.document[2]
+    },
+    popInCampaignDocument() {
+      return this.document[3]
+    },
+    bannerDocument() {
+      return this.document[0]
+    },
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)

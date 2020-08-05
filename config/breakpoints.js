@@ -1,0 +1,1 @@
+export const LARGE_SCREEN_MIN_WIDTH = 1280
