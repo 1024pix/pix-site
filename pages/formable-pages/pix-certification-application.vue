@@ -21,7 +21,7 @@ export default {
     },
   },
   head() {
-    const pageTitle = "Demande d'agrément comme centre de certification | Pix"
+    const pageTitle = this.$t('page-titles.pix-certification-application')
     return {
       title: pageTitle,
     }

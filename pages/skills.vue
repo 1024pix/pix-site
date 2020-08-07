@@ -56,7 +56,7 @@ export default {
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-    const pageTitle = 'Compétences | Pix'
+    const pageTitle = this.$t('page-titles.skills')
     return {
       title: pageTitle,
       meta,

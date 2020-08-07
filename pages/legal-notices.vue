@@ -60,7 +60,7 @@ export default {
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-    const pageTitle = 'Mentions légales | Pix'
+    const pageTitle = this.$t('page-titles.legal-notices')
     return {
       title: pageTitle,
       meta,

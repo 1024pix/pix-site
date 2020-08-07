@@ -21,7 +21,7 @@ export default {
     },
   },
   head() {
-    const pageTitle = "Demande d'information | Pix pro"
+    const pageTitle = this.$t('page-titles.pix-orga-registration')
     return {
       title: pageTitle,
     }

@@ -39,6 +39,25 @@ export default {
   engineering: 'Engineering',
   event: 'Event',
   feature: 'Feature',
+  'page-titles': {
+    about: 'Who are we ? | Pix',
+    'contact-digital-mediation': 'Request for information | Pix',
+    'higher-education': 'Higher education | Pix',
+    'higher-education-establishment-registration':
+      'Slot inquiry | Pix Orga sup',
+    index: 'Accueil | Pix',
+    'legal-notices': 'Legal notice | Pix',
+    news: 'Actualités | Pix',
+    'pix-certification-application':
+      'Application for accreditation as a certification center | Pix',
+    'pix-orga-higher-school-registration':
+      'Finalise slot inquiry | Pix Orga sup',
+    'pix-orga-registration': 'Request for information | Pix pro',
+    'school-education': 'School education | Pix',
+    skills: 'Skills | Pix',
+    stats: 'Key figures | Pix',
+    'terms-of-service': 'Terms of service | Pix',
+  },
   'preview-page-load': 'Preview page loading...',
   society: 'Society',
   'about-title': 'About',

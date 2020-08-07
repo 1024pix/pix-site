@@ -79,7 +79,7 @@ export default {
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-    const pageTitle = 'Qui sommes-nous ? | Pix'
+    const pageTitle = this.$t('page-titles.about')
     return {
       title: pageTitle,
       meta,
