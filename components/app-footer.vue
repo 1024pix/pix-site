@@ -4,17 +4,23 @@
       <div class="sitelogo">
         <div :class="{ sitelogo__row: showUnescoLogo === true }">
           <a href="/" class="sitelogo-row__item">
-            <img alt="Retour à l'accueil Pix" src="/images/pix-logo.svg" />
+            <img
+              :alt="$t('alt.footer.pix-homepage')"
+              src="/images/pix-logo.svg"
+            />
           </a>
           <div v-if="showUnescoLogo" class="sitelogo-row__item">
-            <img alt="Soutenu par l'Unesco" src="/images/unesco_logo.svg" />
+            <img
+              :alt="$t('alt.footer.backed-by-unesco')"
+              src="/images/unesco_logo.svg"
+            />
           </div>
         </div>
         <div :class="{ sitelogo__row: showUnescoLogo === true }">
           <div class="sitelogo-row__item">
             <img
               class="ministere"
-              alt="Soutenu par le ministère de l'éducation"
+              :alt="$t('alt.footer.backed-by-education-ministry')"
               src="/images/ministere-logo.svg"
             />
           </div>

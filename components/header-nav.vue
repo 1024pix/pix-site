@@ -15,14 +15,14 @@
           <div class="switch">
             <nuxt-link to="/">
               <img
-                alt="Accueil du site pix.fr"
+                :alt="$t('alt.header-nav.pix-homepage')"
                 class="logo"
                 src="/images/pix-logo.svg"
               />
             </nuxt-link>
             <img
               v-if="showFrenchGovLogo"
-              alt="Service public d'État"
+              :alt="$t('alt.header-nav.public-service')"
               src="/images/marianne-logo.svg"
             />
           </div>
@@ -34,14 +34,14 @@
           <div class="container padding-container">
             <nuxt-link to="/">
               <img
-                alt="Accueil du site pix.fr"
+                :alt="$t('alt.header-nav.pix-homepage')"
                 class="logo"
                 src="/images/pix-logo.svg"
               />
             </nuxt-link>
             <img
               v-if="showFrenchGovLogo"
-              alt="Service public d'État"
+              :alt="$t('alt.header-nav.public-service')"
               src="/images/marianne-logo.svg"
             />
             <div class="desktop">

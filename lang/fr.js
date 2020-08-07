@@ -23,10 +23,22 @@ export default {
   },
   'news-page-title': 'Actualités',
   'news-page-no-news': "Il n’y a pas encore d'actualités",
+  alt: {
+    footer: {
+      'pix-homepage': "Retour à l'accueil Pix",
+      'backed-by-unesco': "Soutenu par l'Unesco",
+      'backed-by-education-ministry': "Soutenu par le ministère de l'éducation",
+    },
+    'header-nav': {
+      'pix-homepage': 'Accueil du site pix.fr',
+      'public-service': "Service public d'État",
+    },
+  },
   announcement: 'Annonce',
   engineering: 'Ingénierie',
   event: 'Événement',
   feature: 'Nouveauté',
+  'preview-page-load': 'Chargement de la page de prévisualisation...',
   society: 'Société',
   'about-title': 'A propos',
   'resources-title': 'Ressources',
