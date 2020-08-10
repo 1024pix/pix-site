@@ -1,5 +1,6 @@
 <template>
   <div v-if="organizationNavItems.length > 1" class="nav-switch">
+    <language-dropdown />
     <div class="container padding-container">
       <div
         v-for="item in organizationNavItems"
@@ -15,7 +16,12 @@
 </template>
 
 <script>
+import LanguageDropdown from '~/components/language-dropdown'
+
 export default {
+  components: {
+    LanguageDropdown,
+  },
   props: {
     organizationNavItems: {
       type: Array,

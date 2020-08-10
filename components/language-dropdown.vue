@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="
-      availableLocales.length > 1 &&
+      availableLocale.length > 1 &&
       $config.languageSwitchEnabled &&
       $config.isOrgDomainExtension
     "
@@ -47,7 +47,6 @@ export default {
       )
     },
   },
-
   methods: {
     languageDidChange(selectedLocale) {
       this.$i18n.setLocale(selectedLocale.lang)

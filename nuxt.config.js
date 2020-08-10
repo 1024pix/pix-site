@@ -4,6 +4,10 @@ import PrismicConfig from './prismic.config'
 
 export default {
   mode: 'universal',
+  publicRuntimeConfig: {
+    languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
+    isOrgDomainExtension: process.env.DOMAIN_ORG || false,
+  },
   server: {
     port: process.env.PORT || 5000,
   },
@@ -146,6 +150,11 @@ export default {
         code: 'fr',
         file: 'fr.js',
         domain: localeDomains.fr,
+      },
+      {
+        code: 'en-gb',
+        file: 'en-gb.js',
+        domain: localeDomains['en-gb'],
       },
     ],
     lazy: true,
