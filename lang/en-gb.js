@@ -1,4 +1,5 @@
 export default {
+  fr: 'Francophone',
   'en-gb': 'English',
   'fr-fr': 'Français',
   'contact-digital-mediation': {
@@ -24,15 +25,16 @@ export default {
   'news-page-title': 'News',
   'news-page-no-news': 'No news available for the moment.',
   alt: {
-    'pix-homepage': 'Back to Pix homepage',
     footer: {
       'back-to-homepage': 'Back to Pix homepage',
       'backed-by-unesco': 'Backed by Unesco',
       'backed-by-education-ministry':
         'Backed by the French Ministry of Education',
+      'pix-homepage': 'Back to Pix homepage',
     },
     'header-nav': {
       'public-service': 'Public State Service',
+      'pix-homepage': 'Accueil du site pix.fr',
     },
   },
   announcement: 'Announcement',

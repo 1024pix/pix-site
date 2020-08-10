@@ -1,5 +1,12 @@
 <template>
-  <div v-if="availableLocale.length > 1" class="language-dropdown">
+  <div
+    v-if="
+      availableLocales.length > 1 &&
+      $config.languageSwitchEnabled &&
+      $config.isOrgDomainExtension
+    "
+    class="language-dropdown"
+  >
     <dropdown-button
       :options="options"
       :selected="currentLanguage"
@@ -18,11 +25,11 @@ export default {
     DropdownButton,
   },
   data() {
-    const availableLocale = this.$i18n.locales.map((locale) => {
+    const availableLocales = this.$i18n.locales.map((locale) => {
       return { name: this.$t(locale.code), lang: locale.code }
     })
     return {
-      availableLocale,
+      availableLocales,
     }
   },
   computed: {
@@ -30,12 +37,12 @@ export default {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
     currentLanguage() {
-      return this.availableLocale.find(
+      return this.availableLocales.find(
         (locale) => locale.lang === this.currentLocale
       )
     },
     options() {
-      return this.availableLocale.filter(
+      return this.availableLocales.filter(
         (locale) => locale.lang !== this.currentLocale
       )
     },
@@ -44,7 +51,7 @@ export default {
   methods: {
     languageDidChange(selectedLocale) {
       this.$i18n.setLocale(selectedLocale.lang)
-      const page = this.switchLocalePath()
+      const page = this.switchLocalePath(selectedLocale.lang)
       this.$router.push(page)
     },
   },
