@@ -52,7 +52,7 @@ export default {
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-    const pageTitle = "Conditions générales d'utilisation | Pix"
+    const pageTitle = this.$t('page-titles.terms-of-service')
     return {
       title: pageTitle,
       meta,

@@ -51,7 +51,7 @@ export default {
     }
   },
   head() {
-    const pageTitle = 'Actualités | Pix'
+    const pageTitle = this.$t('page-titles.news')
     return {
       title: pageTitle,
     }

@@ -21,7 +21,9 @@ export default {
     },
   },
   head() {
-    const pageTitle = 'Demande d’espace | Pix Orga sup'
+    const pageTitle = this.$t(
+      'page-titles.higher-education-establishment-registration'
+    )
     return {
       title: pageTitle,
     }

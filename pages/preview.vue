@@ -1,6 +1,6 @@
 <template>
   <div class="outer-container">
-    <p>Chargement de la page de prévisualisation...</p>
+    <p>{{ $t('preview-page-load') }}</p>
   </div>
 </template>
 

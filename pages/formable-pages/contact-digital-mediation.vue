@@ -21,7 +21,7 @@ export default {
     },
   },
   head() {
-    const pageTitle = "Demande d'information | Pix"
+    const pageTitle = this.$t('page-titles.contact-digital-mediation')
     return {
       title: pageTitle,
     }
