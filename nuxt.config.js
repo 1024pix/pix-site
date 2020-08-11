@@ -5,7 +5,7 @@ export default {
   mode: 'universal',
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
-    isOrgDomainExtension: process.env.DOMAIN_ORG || false,
+    orgDomain: process.env.DOMAIN_ORG || 'pix.org',
   },
   server: {
     port: process.env.PORT || 5000,
@@ -151,6 +151,10 @@ export default {
     langDir: 'lang/',
     vueI18n: {
       fallbackLocale: 'fr-fr',
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true,
     },
   },
   router: {

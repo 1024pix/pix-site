@@ -33,8 +33,8 @@ export default {
       'pix-homepage': 'Back to Pix homepage',
     },
     'header-nav': {
+      'pix-homepage': 'Pix homepage',
       'public-service': 'Public State Service',
-      'pix-homepage': 'Accueil du site pix.fr',
     },
   },
   announcement: 'Announcement',

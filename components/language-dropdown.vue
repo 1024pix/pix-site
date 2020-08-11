@@ -1,9 +1,9 @@
 <template>
   <div
     v-if="
-      availableLocale.length > 1 &&
+      nonFrenchFranceLocales.length > 1 &&
       $config.languageSwitchEnabled &&
-      $config.isOrgDomainExtension
+      domainAllowsLanguageSwitch
     "
     class="language-dropdown"
   >
@@ -28,8 +28,11 @@ export default {
     const availableLocales = this.$i18n.locales.map((locale) => {
       return { name: this.$t(locale.code), lang: locale.code }
     })
+    const nonFrenchFranceLocales = availableLocales.filter(
+      (locale) => locale.lang !== 'fr-fr'
+    )
     return {
-      availableLocales,
+      nonFrenchFranceLocales,
     }
   },
   computed: {
@@ -37,14 +40,17 @@ export default {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
     currentLanguage() {
-      return this.availableLocales.find(
+      return this.nonFrenchFranceLocales.find(
         (locale) => locale.lang === this.currentLocale
       )
     },
     options() {
-      return this.availableLocales.filter(
+      return this.nonFrenchFranceLocales.filter(
         (locale) => locale.lang !== this.currentLocale
       )
+    },
+    domainAllowsLanguageSwitch() {
+      return this.$store.state.host === this.$config.orgDomain
     },
   },
   methods: {

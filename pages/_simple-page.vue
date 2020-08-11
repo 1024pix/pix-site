@@ -31,9 +31,7 @@ export default {
       'en-gb': '/:uid',
     },
   },
-  async asyncData({ params, app, req, error, route }) {
-    const host = req ? req.headers.host : window.location.host
-    const currentPagePath = `${host}${route.path}`
+  async asyncData({ params, app, req, error, currentPagePath }) {
     try {
       const newsItem = await documentFetcher(app.i18n, req).getSimplePageByUid(
         params.uid

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="organizationNavItems.length > 1" class="nav-switch">
+  <div class="nav-switch">
     <language-dropdown />
     <div class="container padding-container">
       <div
