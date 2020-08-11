@@ -32,14 +32,6 @@ Domain name for `.org` extension.
 - type: String
 - default: none
 
-`FORWARDED_HOST`
-Indicates whether host is forwarded.
-Shall be set to `true` on Review Apps.
-
-- presence: optional
-- type: Boolean
-- default: false
-
 ## Build Setup
 
 ```bash
