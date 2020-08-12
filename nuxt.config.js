@@ -1,9 +1,12 @@
 import { transports } from 'winston'
-import localeDomains from './config/locale-domains'
 import PrismicConfig from './prismic.config'
 
 export default {
   mode: 'universal',
+  publicRuntimeConfig: {
+    languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
+    orgDomain: process.env.DOMAIN_ORG || 'pix.org',
+  },
   server: {
     port: process.env.PORT || 5000,
   },
@@ -84,13 +87,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
-    [
-      'nuxt-i18n',
-      {
-        differentDomains: true,
-        forwardedHost: process.env.FORWARDED_HOST || false,
-      },
-    ],
+    'nuxt-i18n',
     '@nuxtjs/moment',
     ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }],
     [
@@ -140,18 +137,24 @@ export default {
       {
         code: 'fr-fr',
         file: 'fr-fr.js',
-        domain: localeDomains['fr-fr'],
       },
       {
         code: 'fr',
         file: 'fr.js',
-        domain: localeDomains.fr,
+      },
+      {
+        code: 'en-gb',
+        file: 'en-gb.js',
       },
     ],
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
       fallbackLocale: 'fr-fr',
+    },
+    detectBrowserLanguage: {
+      useCookie: true,
+      alwaysRedirect: true,
     },
   },
   router: {

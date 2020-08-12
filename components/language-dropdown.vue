@@ -1,5 +1,12 @@
 <template>
-  <div v-if="availableLocale.length > 1" class="language-dropdown">
+  <div
+    v-if="
+      nonFrenchFranceLocales.length > 1 &&
+      $config.languageSwitchEnabled &&
+      domainAllowsLanguageSwitch
+    "
+    class="language-dropdown"
+  >
     <dropdown-button
       :options="options"
       :selected="currentLanguage"
@@ -18,11 +25,14 @@ export default {
     DropdownButton,
   },
   data() {
-    const availableLocale = this.$i18n.locales.map((locale) => {
+    const availableLocales = this.$i18n.locales.map((locale) => {
       return { name: this.$t(locale.code), lang: locale.code }
     })
+    const nonFrenchFranceLocales = availableLocales.filter(
+      (locale) => locale.lang !== 'fr-fr'
+    )
     return {
-      availableLocale,
+      nonFrenchFranceLocales,
     }
   },
   computed: {
@@ -30,21 +40,23 @@ export default {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
     currentLanguage() {
-      return this.availableLocale.find(
+      return this.nonFrenchFranceLocales.find(
         (locale) => locale.lang === this.currentLocale
       )
     },
     options() {
-      return this.availableLocale.filter(
+      return this.nonFrenchFranceLocales.filter(
         (locale) => locale.lang !== this.currentLocale
       )
     },
+    domainAllowsLanguageSwitch() {
+      return this.$store.state.host === this.$config.orgDomain
+    },
   },
-
   methods: {
     languageDidChange(selectedLocale) {
       this.$i18n.setLocale(selectedLocale.lang)
-      const page = this.switchLocalePath()
+      const page = this.switchLocalePath(selectedLocale.lang)
       this.$router.push(page)
     },
   },
