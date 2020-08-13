@@ -1,34 +1,41 @@
 <template>
-  <section :class="{ 'banner-with-background': hasBackgroundImage }">
-    <div :class="['banner', { 'banner--with-image': hasImage }]">
-      <div class="banner__main">
-        <prismic-rich-text :field="title" class="title--big" />
-        <prismic-rich-text :field="textContent" class="text--normal" />
-        <slot></slot>
-        <div class="banner__button-group">
-          <div v-for="(link, index) in links" :key="`item-${index}`">
-            <pix-link
-              v-if="!isVideo(link)"
-              :field="link.bannerlinkurl"
-              class="button"
-              :class="videoClass(link)"
-            >
+  <section
+    :class="[
+      'banner row-block',
+      { ' banner-with-background': hasBackgroundImage },
+    ]"
+  >
+    <div class="row-block__main-content">
+      <prismic-rich-text :field="title" class="title--big" />
+      <prismic-rich-text :field="textContent" class="text--normal" />
+      <slot></slot>
+      <div class="banner__button-group">
+        <div v-for="(link, index) in links" :key="`item-${index}`">
+          <pix-link
+            v-if="!isVideo(link)"
+            :field="link.bannerlinkurl"
+            class="button"
+            :class="videoClass(link)"
+          >
+            {{ link.bannerlinktext }}
+          </pix-link>
+          <template v-if="isVideo(link)">
+            <button class="button button-video" @click="openVideoModal()">
+              <fa icon="play-circle" />
               {{ link.bannerlinktext }}
-            </pix-link>
-            <template v-if="isVideo(link)">
-              <button class="button button-video" @click="openVideoModal()">
-                <fa icon="play-circle" />
-                {{ link.bannerlinktext }}
-              </button>
-              <modal ref="modal" name="videoModal" height="auto">
-                <VideoSlice :video-url="link.bannerlinkurl" />
-              </modal>
-            </template>
-          </div>
+            </button>
+            <modal ref="modal" name="videoModal" height="auto">
+              <VideoSlice :video-url="link.bannerlinkurl" />
+            </modal>
+          </template>
         </div>
       </div>
-      <prismic-image v-if="hasImage" :field="imageUrl" />
     </div>
+    <prismic-image
+      v-if="hasImage"
+      :field="imageUrl"
+      class="row-block__side-content"
+    />
   </section>
 </template>
 
@@ -109,17 +116,7 @@ export default {
 
 <style lang="scss">
 .banner {
-  font-family: 'Open Sans', Arial, sans-serif;
-  padding: 64px 0;
   text-align: center;
-  margin: 0 auto;
-
-  &__main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 32px;
-  }
 
   .text--normal p {
     margin: 16px 0 24px;
@@ -136,12 +133,33 @@ export default {
     }
   }
 
-  &--with-image img {
-    display: none;
+  &.row-block {
+    display: grid;
+    grid-template-columns: 16px repeat(4, 1fr) 16px;
+    grid-template-areas:
+      '. a a a a .'
+      '. b b b b .';
+    grid-gap: 16px;
+
+    font-family: 'Open Sans', Arial, sans-serif;
+    padding: 64px 0;
+
+    & > * {
+      max-width: 100%;
+    }
+
+    .row-block__main-content {
+      grid-area: a;
+    }
+
+    .row-block__side-content {
+      grid-area: b;
+      display: none;
+    }
   }
 }
 
-@include device-is('large-mobile') {
+@include device-is('tablet') {
   .banner {
     padding: 80px 0;
 
@@ -153,28 +171,44 @@ export default {
         margin: 0 10px;
       }
     }
+
+    &.row-block {
+      grid-template-columns: 32px repeat(8, 1fr) 32px;
+      grid-template-areas:
+        '. a a a a a a a a .'
+        '. b b b b b b b b .';
+    }
+  }
+}
+
+@include device-is('desktop') {
+  .banner.row-block {
+    grid-template-columns: 32px repeat(12, 1fr) 32px;
+    grid-template-areas:
+      '. a a a a a a a a a a a a .'
+      '. . . . b b b b b b . . . .';
+
+    .row-block__side-content {
+      margin-top: 48px;
+      display: initial;
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
 }
 
 @include device-is('large-screen') {
-  .banner {
-    &__main {
-      width: 504px;
-    }
+  .banner.row-block {
+    grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+    grid-template-areas: '. a a a a a a . b b b b b .';
+    grid-gap: 24px;
 
-    &--with-image {
-      display: flex;
-      justify-content: space-between;
-      max-width: 1140px;
+    .row-block__main-content {
       text-align: left;
-
-      img {
-        display: block;
-        max-width: 510px;
-      }
+      align-self: center;
 
       .banner__button-group {
-        justify-content: left;
+        justify-content: flex-start;
 
         .button {
           margin: 0 20px 0 0;
