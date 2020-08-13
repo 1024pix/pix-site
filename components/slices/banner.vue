@@ -143,42 +143,42 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
 
-  .banner__button {
-    height: 44px;
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: $blue-1;
-    color: $white;
-    font-size: 1rem;
-    width: 240px;
-    border: 1.5px solid transparent;
-    border-radius: 4px;
-    padding: 0 20px;
-    margin: 5px 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $blue-3;
-    }
-
-    &.banner__button-video {
-      border-radius: 4px;
-      border: 1.5px solid $grey-11;
+    .banner__button {
       height: 44px;
-      color: $grey-11;
-      background-color: $white;
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: $blue-1;
+      color: $white;
+      font-size: 1rem;
+      width: 240px;
+      border: 1.5px solid transparent;
+      border-radius: 4px;
+      padding: 0 20px;
+      margin: 5px 0;
 
-      svg {
-        margin-right: 10px;
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       &:hover {
-        background-color: $grey-3;
+        cursor: pointer;
+        background-color: $blue-3;
+      }
+
+      &.banner__button-video {
+        border-radius: 4px;
+        border: 1.5px solid $grey-11;
+        height: 44px;
+        color: $grey-11;
+        background-color: $white;
+
+        svg {
+          margin-right: 10px;
+        }
+
+        &:hover {
+          background-color: $grey-3;
+        }
       }
     }
   }
@@ -186,8 +186,10 @@ export default {
   &--with-image img {
     display: none;
   }
+}
 
-  @include device-is('large-mobile') {
+@include device-is('large-mobile') {
+  .banner {
     padding: 80px 0;
 
     &__title h1 {
@@ -204,15 +206,17 @@ export default {
 
     .banner__button-group {
       flex-direction: row;
-    }
 
-    .banner__button {
-      width: initial;
-      margin: 0 10px;
+      .banner__button {
+        width: initial;
+        margin: 0 10px;
+      }
     }
   }
+}
 
-  @include device-is('large-screen') {
+@include device-is('large-screen') {
+  .banner {
     &__title h1 {
       font-size: 3.875rem;
       line-height: 5.125rem;
@@ -230,17 +234,17 @@ export default {
       max-width: 1140px;
       text-align: left;
 
-      img:nth-child(2) {
+      img {
         display: block;
         max-width: 510px;
       }
 
       .banner__button-group {
         justify-content: left;
-      }
 
-      .banner__button {
-        margin: 0 20px 0 0;
+        .banner__button {
+          margin: 0 20px 0 0;
+        }
       }
     }
   }
