@@ -34,7 +34,7 @@
 
 <script>
 import VideoSlice from './video'
-import { LARGE_SCREEN_MIN_WIDTH } from '~/config/breakpoints'
+import { DESKTOP_MIN_WIDTH } from '~/config/breakpoints'
 
 export default {
   name: 'Banner',
@@ -95,7 +95,7 @@ export default {
       const banner = document.getElementsByClassName(
         'banner-with-background'
       )[0]
-      if (screen.width <= LARGE_SCREEN_MIN_WIDTH) {
+      if (screen.width <= DESKTOP_MIN_WIDTH) {
         banner.style.background = `no-repeat url(${this.content.primary.bannerbackground.url})`
         banner.style.backgroundSize = '100%'
         banner.style.backgroundPosition = 'top right'

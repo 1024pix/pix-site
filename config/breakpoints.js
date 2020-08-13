@@ -1,1 +1,1 @@
-export const LARGE_SCREEN_MIN_WIDTH = 1280
+export const DESKTOP_MIN_WIDTH = 960
