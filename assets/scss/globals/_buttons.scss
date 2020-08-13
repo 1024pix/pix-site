@@ -119,3 +119,43 @@
   text-align: center;
   padding: 5px;
 }
+
+
+@mixin colorizeButton($fontColor, $borderColor, $bgColor, $hoverBgColor) {
+  color: $fontColor;
+  border-color: $borderColor;
+  background-color: $bgColor;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $hoverBgColor;
+  }
+}
+
+.button {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 1rem;
+  height: 44px; width: 240px;
+  padding: 0 20px;
+  border: 1.5px solid transparent;
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.3s ease;
+
+  @include colorizeButton($white, transparent, $blue-1, $blue-3);
+
+  &.button-video {
+    @include colorizeButton($grey-11, $grey-11, $white, $grey-20);
+    svg { margin-right: 10px; }
+  }
+}
+
+@include device-is('tablet') {
+  .button {
+    width: initial;
+  }
+}
