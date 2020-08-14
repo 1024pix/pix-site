@@ -43,6 +43,9 @@ export default {
         return slice
       })
     },
+    articleDocument() {
+      return this.document[4]
+    },
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
