@@ -1,9 +1,12 @@
 <template>
   <div class="article">
     <div class="article__text">
-      <prismic-rich-text :field="title" class="title--big" />
-      <prismic-rich-text :field="description" />
-      <a :href="buttonLink" target="_blank">{{ buttonText }}</a>
+      <prismic-rich-text :field="title" class="article__text-title" />
+      <prismic-rich-text
+        :field="description"
+        class="article__text-description"
+      />
+      <cta-button :link="linkUrl" :name="linkName" />
     </div>
     <div class="article__image">
       <img :src="image" />
@@ -12,8 +15,13 @@
 </template>
 
 <script>
+import CtaButton from '../cta-button'
+
 export default {
   name: 'Article',
+  components: {
+    CtaButton,
+  },
   props: {
     content: {
       type: Object,
@@ -21,11 +29,11 @@ export default {
     },
   },
   computed: {
-    buttonLink() {
+    linkUrl() {
       return this.content.primary['article-link-url'].url
     },
-    buttonText() {
-      return this.content.primary['article-link-text']
+    linkName() {
+      return this.content.primary['article-link-name']
     },
     description() {
       return this.content.primary['article-description']
@@ -34,22 +42,32 @@ export default {
       return this.content.primary['article-image'].url
     },
     title() {
-      console.log(this.content.primary)
       return this.content.primary['article-title']
     },
   },
 }
 </script>
 
-<style>
+<style lang="scss">
 .article {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding: 32px 0px;
+  background: #f5f5f5;
 }
 
 .article__text {
   display: flex;
   flex-direction: column;
+}
+
+// Title rendered by prismic-rich-text component
+h2 {
+  color: blue;
+}
+
+.article__text-description {
+  color: red;
 }
 </style>
