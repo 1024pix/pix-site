@@ -1,123 +1,47 @@
 <template>
   <div class="school-education">
-    <hero-banner
-      :section-class="'school-education__hero-banner'"
-      :background-class="'hero-banner__background'"
-      :content-class="'school-education hero-banner__content'"
-      :button-class="'hero-banner-content__button'"
-      :content="document[0]"
-    >
-    </hero-banner>
-
-    <section-slice
-      :content="document[1]"
-      :section-class="'school-education__infos'"
-      :flex-container-class="'features'"
-      :flex-content-class="'feature'"
-    >
-    </section-slice>
-
-    <section-slice
+    <banner :content="document[0]" />
+    <slice-section :content="document[1]" />
+    <slice-section
       :content="document[2]"
-      :section-class="'school-education__pourquoi-pix'"
-      :container-class="'pourquoi-pix__container'"
-      :flex-container-class="'pourquoi-pix-container__list'"
-      :flex-content-class="'pourquoi-pix-container-list__item'"
-    >
-    </section-slice>
-
-    <section-slice
+      section-class="school-education__innovation"
+      flex-container-class="school-education-innovation__flex-container"
+      flex-content-class="school-education-innovation__flex-content"
+    />
+    <slice-section
       :content="document[3]"
-      :section-class="'school-education__mesurer'"
-      :container-class="'mesurer__container'"
-      :flex-container-class="'mesurer-container__list'"
-      :flex-content-class="'mesurer-container-list__item'"
-    >
-    </section-slice>
-
-    <section-column-slice
-      :content="document[4]"
-      :section-class="'school-education__developper'"
-      :ul-class="'developper__list'"
-      :li-class="'developper__item'"
-      :right-class="'developper__image'"
-    >
-    </section-column-slice>
-
-    <section-slice
+      section-class="school-education__student-support"
+      flex-container-class="school-education-student-support__flex-container"
+      flex-content-class="school-education-student-support__flex-content"
+    />
+    <slice-section :content="document[4]" />
+    <slice-section
       :content="document[5]"
-      :section-class="'school-education__valoriser'"
-      :container-class="'valoriser__container'"
-      :flex-container-class="'valoriser-container__list'"
-      :flex-content-class="'valoriser-container-list__item'"
-    >
-    </section-slice>
-
-    <div id="pix-orga">
-      <section class="section-utiliser-pix">
-        <prismic-rich-text :field="document[6].primary.title" />
-        <div class="container">
-          <div
-            v-for="(item, index) in document[6].items"
-            :key="`item-${index}`"
-            class="column"
-          >
-            <prismic-rich-text :field="item.column_number" />
-            <prismic-rich-text :field="item.column_title" />
-            <hr class="text-left mb-2 mt-2" />
-            <prismic-rich-text :field="item.column_description" />
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <section-slice
-      :content="document[7]"
-      :section-class="'school-education__deploiement'"
-      :container-class="'deploiement__container'"
-      :flex-container-class="'deploiement-container__list'"
-      :flex-content-class="'deploiement-container-list__item'"
-    >
-    </section-slice>
-
-    <section class="section-agenda">
-      <div class="background"></div>
-      <div class="container">
-        <prismic-image :field="document[8].primary.logo" />
-        <prismic-rich-text :field="document[8].primary.title" />
-        <div style="margin: auto;">
-          <div
-            v-for="(item, index) in document[8].items"
-            :key="`item-${index}`"
-            class="column mb-0-2"
-          >
-            <prismic-rich-text :field="item.card_title" />
-            <prismic-rich-text :field="item.card_description" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section-slice
+      section-id="mise-en-place"
+      section-class="school-education__setting-up"
+      flex-container-class="school-education-setting-up__flex-container"
+      flex-content-class="school-education-setting-up__flex-content"
+    />
+    <slice-section :content="document[6]" />
+    <video controls class="video-slice" :poster="videoPosterUrl">
+      <source :src="videoUrl" type="video/mp4" />
+    </video>
+    <slice-section :content="document[7]" />
+    <slice-section section-id="contenus-evaluation" :content="document[8]" />
+    <slice-section
       :content="document[9]"
-      :section-class="'school-education__deploiement-end'"
-      :container-class="'deploiement-end__container'"
-      :flex-container-class="'deploiement-end-container__list'"
-      :flex-content-class="'deploiement-end-container-list__item'"
-    >
-    </section-slice>
-
-    <key-numbers :content="keyNumbers" :content-id="keyNumbersId" />
+      section-class="school-education__accompaniment"
+      flex-container-class="school-education-accompaniment__flex-container"
+      flex-content-class="school-education-accompaniment__flex-content"
+    />
     <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import HeroBanner from '~/components/slices/hero-banner'
-import SectionSlice from '~/components/slices/section'
-import SectionColumnSlice from '~/components/slices/section-column'
-import KeyNumbers from '~/components/key-numbers'
+import Banner from '~/components/slices/banner'
+import SliceSection from '~/components/slices/section'
 
 export default {
   name: 'SchoolEducation',
@@ -128,14 +52,14 @@ export default {
       'en-gb': '/school-education',
     },
   },
-  components: { HeroBanner, KeyNumbers, SectionColumnSlice, SectionSlice },
+  components: {
+    Banner,
+    SliceSection,
+  },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.i18n, req).get(
         documents.schoolEducation
-      )
-      const keyNumbers = await documentFetcher(app.i18n, req).get(
-        documents.keyNumbers
       )
       if (process.client) window.prismic.setupEditButton()
       return {
@@ -143,13 +67,19 @@ export default {
         meta: document.data.meta,
         document: document.data.body,
         documentId: document.id,
-        keyNumbers: keyNumbers.data,
-        keyNumbersId: keyNumbers.id,
       }
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error({ e })
       error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  data() {
+    return {
+      videoUrl:
+        'https://storage.gra.cloud.ovh.net/v1/AUTH_27c5a6d3d35841a5914c7fb9a8e96345/pix-videos/general/Pix-temoignages.mp4',
+      videoPosterUrl:
+        'https://images.prismic.io/pix-site/7de3e561-a66e-4fe3-9114-84e8d4d1b4ce_pix-temoignage-poster.png?auto=compress,format',
     }
   },
   head() {
@@ -170,974 +100,233 @@ export default {
   h3,
   h4,
   p {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $open-sans, Arial, sans-serif;
   }
-
-  &__hero-banner {
-    height: 395px;
-    overflow: hidden;
-    color: white;
-    padding-top: 60px;
-    position: relative;
-
-    @include device-is('tablet') {
-      height: 540px;
-      padding: 160px 0 100px;
-    }
-  }
-
-  &__infos {
-    position: relative;
-    padding: 40px 20px 0;
-
-    @include device-is('large-mobile') {
-      padding-top: 50px;
-      padding-bottom: 0;
-    }
-
-    @include device-is('tablet') {
-      padding-top: 80px;
-      padding-bottom: 0;
-    }
-
-    .background {
-      background-color: $white;
-    }
-
-    .features {
-      display: flex;
-      flex-direction: column;
-
-      @include device-is('tablet') {
-        flex-direction: row;
-        max-width: 1140px;
-        margin: 0 auto;
-      }
-
-      .feature {
-        display: block;
-        text-align: left;
-        margin-bottom: 15px;
-
-        @include device-is('tablet') {
-          margin-bottom: 0;
-          padding-left: 15px;
-          min-width: 33%;
-          max-width: 33%;
-        }
-
-        p {
-          @include device-is('tablet') {
-            min-height: 140px;
-            text-align: center;
-          }
-
-          &.block-img {
-            width: 100%;
-            min-height: 100px;
-            text-align: center;
-
-            img {
-              max-width: 100%;
-              max-height: 100%;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  &__pourquoi-pix {
-    position: relative;
-    padding: 70px 20px 40px;
-    margin-bottom: 36px;
-
-    @include device-is('large-mobile') {
-      margin-bottom: 60px;
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @include device-is('tablet') {
-      padding-top: 80px;
-      padding-bottom: 40px;
-    }
-
-    h2 {
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 60px;
-      font-size: 36px;
-      line-height: 49px;
-    }
-
-    h3 {
-      margin-bottom: 72px;
-      margin-top: 0;
-      font-weight: 300;
-      text-align: center;
-      font-size: 18px;
-      line-height: 24px;
-
-      @include device-is('large-mobile') {
-        padding: 0 90px;
-      }
-      @include device-is('tablet') {
-        padding: 0 0;
-        font-size: 22px;
-        line-height: 30px;
-      }
-    }
-
-    .background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: $grey-3;
-      transform: skewY(-3deg);
-      transform-origin: bottom right;
-    }
-  }
-
-  &__mesurer {
-    position: relative;
-    padding: 70px 20px 40px;
-    margin-bottom: 36px;
-
-    @include device-is('large-mobile') {
-      margin-bottom: 60px;
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @include device-is('tablet') {
-      padding-top: 80px;
-      padding-bottom: 140px;
-    }
-
-    h2 {
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: 36px;
-      line-height: 49px;
-    }
-
-    h3 {
-      margin-bottom: 72px;
-      margin-top: 0;
-      font-weight: 300;
-      text-align: center;
-      font-size: 18px;
-      line-height: 24px;
-
-      @include device-is('large-mobile') {
-        padding: 0 90px;
-      }
-      @include device-is('tablet') {
-        padding: 0 0;
-        font-size: 22px;
-        line-height: 30px;
-      }
-    }
-
-    .background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: $white;
-      transform: skewY(-3deg);
-      transform-origin: bottom right;
-    }
-  }
-
-  &__developper {
-    position: relative;
-    padding: 80px 0 110px;
-
-    & > .background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135.25deg, #388aff 0%, #985fff 100%);
-      transform: skewY(3deg);
-      transform-origin: bottom right;
-    }
-    & > .container {
-      flex-direction: column;
-
-      @include device-is('tablet') {
-        flex-direction: row-reverse;
-      }
-
-      & > .container-column {
-        width: 100%;
-
-        @include device-is('tablet') {
-          width: 50%;
-        }
-      }
-    }
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-weight: 400;
-      color: $white;
-      font-size: 36px;
-      line-height: 49px;
-      padding-left: 20px;
-    }
-  }
-
-  &__valoriser {
-    position: relative;
-    padding: 70px 20px 40px;
-    margin-bottom: 36px;
-
-    @include device-is('large-mobile') {
-      margin-bottom: 60px;
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @include device-is('tablet') {
-      padding-top: 80px;
-      padding-bottom: 140px;
-    }
-
-    h2 {
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: 36px;
-      line-height: 49px;
-    }
-
-    h3 {
-      margin-bottom: 72px;
-      margin-top: 0;
-      font-weight: 300;
-      text-align: center;
-      font-size: 18px;
-      line-height: 24px;
-
-      @include device-is('large-mobile') {
-        padding: 0 90px;
-      }
-      @include device-is('tablet') {
-        padding: 0 0;
-        font-size: 22px;
-        line-height: 30px;
-      }
-    }
-
-    .background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: $white;
-      transform: skewY(-3deg);
-      transform-origin: bottom right;
-    }
-  }
-
-  &__deploiement {
-    position: relative;
-    padding: 70px 20px 40px;
-
-    @include device-is('large-mobile') {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @include device-is('tablet') {
-      padding-top: 80px;
-    }
-
-    h2 {
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: 36px;
-      line-height: 49px;
-    }
-
-    h3 {
-      margin-bottom: 72px;
-      margin-top: 0;
-      font-weight: 300;
-      text-align: center;
-      font-size: 18px;
-      line-height: 24px;
-
-      @include device-is('large-mobile') {
-        padding: 0 90px;
-      }
-      @include device-is('tablet') {
-        padding: 0 0;
-        font-size: 22px;
-        line-height: 30px;
-      }
-    }
-
-    .background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: $grey-3;
-    }
-  }
-
-  &__deploiement-end {
-    position: relative;
-    padding: 70px 20px 40px;
-
-    @include device-is('large-mobile') {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @include device-is('tablet') {
-      padding-top: 80px;
-      padding-bottom: 100px;
-    }
-
-    h2 {
-      font-weight: 400;
-      text-align: center;
-      margin-bottom: 16px;
-      font-size: 36px;
-      line-height: 49px;
-    }
-
-    h3 {
-      margin-bottom: 72px;
-      margin-top: 0;
-      font-weight: 300;
-      text-align: center;
-      font-size: 18px;
-      line-height: 24px;
-
-      @include device-is('large-mobile') {
-        padding: 0 90px;
-      }
-      @include device-is('tablet') {
-        padding: 0 0;
-        font-size: 22px;
-        line-height: 30px;
-      }
-    }
-
-    .background {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $grey-3;
-      transform: skewY(-3deg);
-      transform-origin: top left;
-    }
-  }
-}
-
-.school-education .hero-banner {
-  &__background {
-    position: absolute;
-    background-image: linear-gradient(
-        225deg,
-        rgba(56, 138, 255, 0.7) 0%,
-        rgba(152, 95, 255, 0.7) 100%
-      ),
-      url(/images/background-hero-mobile-sco.jpg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    transform-origin: top left;
-    transform: skewY(-3deg);
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    @include device-is('tablet') {
-      background-image: linear-gradient(
-          225deg,
-          rgba(56, 138, 255, 0.7) 0%,
-          rgba(152, 95, 255, 0.7) 100%
-        ),
-        url(/images/background-hero-sco.jpg);
-      background-size: cover;
-    }
-  }
-
-  &__background {
-    background-size: cover;
-  }
-
-  &__content {
-    h1 {
-      font-size: 30px;
-      line-height: 38px;
-      margin-bottom: 20px;
-      font-weight: 700;
-      color: $white;
-      text-align: left;
-
-      @include device-is('large-mobile') {
-        width: 450px;
-      }
-      @include device-is('tablet') {
-        width: 600px;
-        font-size: 46px;
-        line-height: 62px;
-      }
-    }
-
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  &-content {
-    &__button {
-      font-family: 'Roboto', Arial, sans-serif;
-      display: inline-block;
-      cursor: pointer;
-      user-select: none;
-      font-size: 16px;
-      letter-spacing: 0.5px;
-      text-decoration: none;
-      height: 60px;
-      line-height: 60px;
-      padding: 0 20px;
-      position: relative;
-      background: linear-gradient(180deg, #ffbe00 0%, #ff9f00 100%);
-      color: #222;
-      border-radius: 5px;
-      -webkit-backface-visibility: hidden;
-      z-index: 1;
-
-      &:hover {
-        transition: opacity 0.5s ease-out;
-        background: linear-gradient(180deg, #ff9d00 0%, #ff7900 100%);
-      }
-
-      &:hover:after {
-        opacity: 1;
-      }
-
-      span {
-        position: relative;
-        z-index: 3;
-      }
-    }
-  }
-}
-
-.pourquoi-pix {
-  &__container {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-
-  &-container {
-    &__list {
-      display: flex;
-      flex-flow: column;
-
-      @include device-is('large-mobile') {
-        flex-flow: row wrap;
-      }
-    }
-
-    &-list {
-      &__item {
-        width: 100%;
-
-        @include device-is('large-mobile') {
-          width: 50%;
-          padding: 0 38px;
-        }
-        @include device-is('tablet') {
-          padding: 0 50px;
-        }
-
-        h4 {
-          font-weight: 400;
-          text-align: left;
-          margin-bottom: 6px;
-          font-size: 20px;
-          line-height: 27px;
-        }
-
-        p {
-          font-weight: 300;
-          font-size: 15px;
-          line-height: 24px;
-        }
-      }
-    }
-  }
-}
-
-.mesurer {
-  &__container {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-
-  &-container {
-    &__list {
-      display: flex;
-      flex-flow: column;
-
-      @include device-is('large-mobile') {
-        flex-flow: row wrap;
-      }
-    }
-
-    &-list {
-      &__item {
-        width: 100%;
-
-        @include device-is('large-mobile') {
-          width: 50%;
-          padding: 0 38px;
-        }
-        @include device-is('tablet') {
-          padding: 0 50px;
-        }
-
-        h4 {
-          font-weight: 400;
-          text-align: left;
-          margin-bottom: 6px;
-          font-size: 20px;
-          line-height: 27px;
-        }
-
-        p {
-          font-weight: 300;
-          font-size: 15px;
-          line-height: 24px;
-        }
-      }
-    }
-  }
-}
-
-.developper {
-  &__list {
-    margin-top: 0;
-    padding-left: 0;
-    padding-right: 20px;
-  }
-
-  &__item {
-    color: $white;
-    list-style: none;
-
-    &:before {
-      content: none;
-    }
-
-    h2 {
-      font-weight: 400;
-      margin-bottom: 32px;
-      margin-top: 0;
-      font-size: 36px;
-      line-height: 49px;
-    }
-
-    h4 {
-      font-weight: 600;
-      margin-bottom: 6px;
-      font-size: 18px;
-      line-height: 24px;
-    }
-  }
-
-  &__image {
-    width: 100%;
-    padding-right: 20px;
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-  }
-}
-
-.valoriser {
-  &__container {
-    max-width: 1140px;
-    margin: 0 auto;
-  }
-
-  &-container {
-    &__list {
-      display: flex;
-      flex-flow: column;
-
-      @include device-is('large-mobile') {
-        flex-flow: row wrap;
-      }
-    }
-
-    &-list {
-      &__item {
-        width: 100%;
-
-        @include device-is('large-mobile') {
-          width: 50%;
-          padding: 0 38px;
-        }
-        @include device-is('tablet') {
-          padding: 0 50px;
-        }
-
-        h4 {
-          font-weight: 400;
-          text-align: left;
-          margin-bottom: 6px;
-          font-size: 20px;
-          line-height: 27px;
-        }
-
-        p {
-          font-weight: 300;
-          font-size: 15px;
-          line-height: 24px;
-        }
-      }
-    }
-  }
-}
-
-.section-utiliser-pix {
-  position: relative;
-  background: linear-gradient(
-      180deg,
-      rgba(18, 163, 255, 0.9) 0%,
-      rgba(61, 104, 255, 0.9) 100%
-    ),
-    url('/images/background-utiliser-pix.jpg');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding-top: 80px;
-  padding-bottom: 70px;
-  color: $white;
 
   h2 {
+    color: $blue-5;
+    font-size: 2rem;
+    font-weight: normal;
+    letter-spacing: 0.00875rem;
+    line-height: 3.0625rem;
+    margin-bottom: 66px;
+  }
+
+  h3 {
+    color: $blue-5;
+    font-size: 1.25rem;
+    font-family: $open-sans;
+    font-weight: 600;
+    letter-spacing: 0.00875rem;
+    line-height: 1.875rem;
     text-align: center;
-    margin-bottom: 60px;
-    margin-top: 0;
-    font-weight: 400;
-    font-size: 36px;
-    line-height: 49px;
   }
 
-  .container {
+  a {
+    color: $blue-1;
+    &:visited {
+      color: $blue-1;
+    }
+  }
+
+  video {
+    margin: 0 auto;
+    max-width: 1140px;
+  }
+
+  &__innovation {
+    text-align: center;
+    margin: 0 auto;
+    padding: 32px 0;
+    @include device-is('large-mobile') {
+      padding: 64px 0;
+    }
+  }
+
+  &__student-support {
+    text-align: center;
+    margin: 0 auto;
+    padding: 32px 0;
+    @include device-is('large-mobile') {
+      padding: 64px 0;
+    }
+  }
+
+  &__setting-up {
+    text-align: center;
+    margin: 0 auto;
+    padding: 32px 0;
+    @include device-is('large-mobile') {
+      padding: 64px 0;
+    }
+  }
+
+  &__accompaniment {
+    text-align: center;
+    margin: 0 auto;
+    padding: 32px 0;
+    @include device-is('large-mobile') {
+      padding: 64px 0;
+    }
+  }
+}
+
+.school-education-innovation {
+  &__flex-container {
     display: flex;
-    flex-flow: row wrap;
-  }
-
-  .column {
-    width: 100%;
-    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 
     @include device-is('large-mobile') {
-      width: 25%;
-      padding: 0 38px;
+      flex-direction: row;
+      align-items: flex-start;
     }
-    @include device-is('tablet') {
-      padding: 0 20px;
-    }
+  }
 
-    h3 {
-      font-weight: 300;
-      font-size: 58px;
-      line-height: 68px;
-      text-align: left;
-    }
-
-    h4 {
-      font-weight: 300;
-      text-align: left;
-      font-size: 28px;
-      line-height: 38px;
+  &__flex-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 80%;
+    @include device-is('large-mobile') {
+      max-width: 30%;
     }
 
     p {
-      font-size: 14px;
-      font-weight: 700;
-      text-align: left;
-    }
+      color: $grey-10;
+      text-align: center;
+      font-size: 0.875rem;
+      font-family: $roboto;
+      letter-spacing: 0.009375rem;
+      line-height: 1.5rem;
 
-    &:nth-child(1),
-    &:nth-child(2) {
-      margin-bottom: 48px;
-
-      @include device-is('large-mobile') {
-        margin-bottom: 0;
+      &.block-img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 64px;
       }
     }
   }
 }
 
-.deploiement {
-  &__container {
-    max-width: 1140px;
-    margin: 0 auto;
-    text-align: center;
-
-    h2 {
-      margin-top: 0;
-      margin-bottom: 60px;
-    }
-  }
-
-  &-container {
-    &__list {
-      display: flex;
-      flex-flow: column;
-
-      @include device-is('large-mobile') {
-        flex-flow: row wrap;
-      }
-    }
-
-    &-list {
-      &__item {
-        width: 100%;
-        text-align: left;
-
-        @include device-is('large-mobile') {
-          width: 50%;
-          padding: 0 38px;
-        }
-        @include device-is('tablet') {
-          padding: 0 50px;
-        }
-
-        h4 {
-          font-weight: 400;
-          text-align: left;
-          margin-bottom: 6px;
-          font-size: 20px;
-          line-height: 27px;
-        }
-
-        p {
-          font-weight: 300;
-          font-size: 15px;
-          line-height: 24px;
-        }
-      }
-    }
-  }
-}
-
-.section-agenda {
-  position: relative;
-  overflow: hidden;
-  padding: 0 20px 80px 20px;
-
-  @include device-is('large-mobile') {
-    padding: 0 0;
-  }
-
-  .background {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $grey-3;
-  }
-
-  h2 {
-    margin-top: 32px;
-    font-weight: 400;
-    margin-bottom: 60px;
-    font-size: 28px;
-    line-height: 38px;
-  }
-
-  .container {
+.school-education-student-support {
+  &__flex-container {
     display: flex;
-    flex-flow: column;
-    padding: 0;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 
-    .column {
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      background-color: $white;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border-radius: 4px;
-      padding: 20px 20px;
-
-      @include device-is('tablet') {
-        width: 760px;
-        padding: 26px 90px;
-      }
-
-      h4 {
-        margin-bottom: 6px;
-        font-weight: 600;
-        text-align: left;
-        font-size: 18px;
-        line-height: 24px;
-      }
-
-      p {
-        margin: 0;
-      }
+    @include device-is('large-mobile') {
+      flex-direction: row;
+      align-items: normal;
     }
   }
-}
 
-.deploiement-end {
-  &__container {
-    max-width: 1140px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  &-container {
-    &__list {
-      display: flex;
-      flex-flow: column;
-
-      @include device-is('large-mobile') {
-        flex-flow: row wrap;
-      }
-    }
-
-    &-list {
-      &__item {
-        width: 100%;
-        text-align: left;
-
-        @include device-is('large-mobile') {
-          width: 50%;
-          padding: 0 38px;
-        }
-        @include device-is('tablet') {
-          padding: 0 50px;
-        }
-
-        h4 {
-          font-weight: 400;
-          text-align: left;
-          margin-bottom: 6px;
-          font-size: 20px;
-          line-height: 27px;
-        }
-
-        p {
-          font-weight: 300;
-          font-size: 15px;
-          line-height: 24px;
-        }
-      }
-    }
-  }
-}
-
-.key-numbers {
-  margin-bottom: 80px;
-
-  &__title {
-    margin-bottom: 60px;
-    text-align: center;
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 49px;
-    color: $grey-1;
-  }
-
-  &__list {
+  &__flex-content {
+    width: 293px;
     display: flex;
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-    flex-flow: column wrap;
+    flex-direction: column;
+    justify-content: flex-start;
 
-    @include device-is('large-mobile') {
-      flex-flow: row wrap;
+    background: $white;
+    box-shadow: 0px 24px 32px 0px rgba(0, 0, 0, 0.03),
+      0px 8px 32px 0px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 32px 24px;
+    margin-top: 24px;
+
+    p {
+      color: $grey-10;
+      text-align: center;
+      font-size: 0.875rem;
+      font-family: $roboto;
+      letter-spacing: 0.009375rem;
+      line-height: 1.5rem;
+
+      &.block-img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 64px;
+      }
     }
   }
 }
 
-.key-number {
-  &__item {
-    margin-bottom: 30px;
-
+.school-education-setting-up {
+  &__flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     @include device-is('large-mobile') {
-      width: 50%;
-    }
-
-    @include device-is('tablet') {
-      width: 25%;
-      margin-bottom: inherit;
+      justify-content: space-between;
     }
   }
 
-  &__value {
-    font-weight: 600;
-    color: $blue-1;
-    text-align: center;
-    font-size: 36px;
-    line-height: 65px;
+  &__flex-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 80%;
+    @include device-is('large-mobile') {
+      width: 48%;
+    }
 
-    @media (min-width: 960px) {
-      font-size: 42px;
+    p {
+      color: $grey-10;
+      text-align: center;
+      font-size: 0.875rem;
+      font-family: $roboto;
+      letter-spacing: 0.009375rem;
+      line-height: 1.5rem;
+
+      &.block-img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 64px;
+      }
+    }
+  }
+}
+
+.school-education-accompaniment {
+  &__flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include device-is('large-mobile') {
+      justify-content: space-between;
     }
   }
 
-  &__description {
-    color: $grey-1;
-    text-align: center;
-
+  &__flex-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 80%;
     @include device-is('large-mobile') {
-      font-size: 14px;
-      line-height: 19px;
+      width: 30%;
     }
 
-    @include device-is('tablet') {
-      font-size: 16px;
-      line-height: 24px;
+    p {
+      color: $grey-10;
+      text-align: center;
+      font-size: 0.875rem;
+      font-family: $roboto;
+      letter-spacing: 0.009375rem;
+      line-height: 1.5rem;
+      margin-bottom: 0;
+
+      &.block-img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 64px;
+      }
     }
   }
 }

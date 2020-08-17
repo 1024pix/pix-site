@@ -1,5 +1,5 @@
 <template>
-  <section :class="sectionClass">
+  <section :id="sectionId" :class="sectionClass">
     <div class="background"></div>
     <div :class="containerClass">
       <template v-if="hasImage">
@@ -29,6 +29,10 @@ export default {
   props: {
     content: {
       type: Object,
+      default: null,
+    },
+    sectionId: {
+      type: String,
       default: null,
     },
     sectionClass: {
