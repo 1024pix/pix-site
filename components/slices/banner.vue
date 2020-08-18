@@ -1,43 +1,47 @@
 <template>
-  <section :class="{ 'banner-with-background': hasBackgroundImage }">
-    <div :class="['banner', { 'banner--with-image': hasImage }]">
-      <div class="banner__main">
-        <prismic-rich-text :field="title" class="banner__title" />
-        <prismic-rich-text :field="textContent" class="banner__content" />
-        <slot></slot>
-        <div class="banner__button-group">
-          <div v-for="(link, index) in links" :key="`item-${index}`">
-            <pix-link
-              v-if="!isVideo(link)"
-              :field="link.bannerlinkurl"
-              class="banner__button"
-              :class="videoClass(link)"
-            >
+  <section
+    :class="[
+      'banner row-block',
+      { ' banner-with-background': hasBackgroundImage },
+    ]"
+  >
+    <div class="row-block__main-content">
+      <prismic-rich-text :field="title" class="title--big" />
+      <prismic-rich-text :field="textContent" class="text--normal" />
+      <slot></slot>
+      <div class="banner__button-group">
+        <div v-for="(link, index) in links" :key="`item-${index}`">
+          <pix-link
+            v-if="!isVideo(link)"
+            :field="link.bannerlinkurl"
+            class="button"
+            :class="videoClass(link)"
+          >
+            {{ link.bannerlinktext }}
+          </pix-link>
+          <template v-if="isVideo(link)">
+            <button class="button button-video" @click="openVideoModal()">
+              <fa icon="play-circle" />
               {{ link.bannerlinktext }}
-            </pix-link>
-            <template v-if="isVideo(link)">
-              <button
-                class="banner__button banner__button-video"
-                @click="openVideoModal()"
-              >
-                <fa icon="play-circle" />
-                {{ link.bannerlinktext }}
-              </button>
-              <modal ref="modal" name="videoModal" height="auto">
-                <VideoSlice :video-url="link.bannerlinkurl" />
-              </modal>
-            </template>
-          </div>
+            </button>
+            <modal ref="modal" name="videoModal" height="auto">
+              <VideoSlice :video-url="link.bannerlinkurl" />
+            </modal>
+          </template>
         </div>
       </div>
-      <prismic-image v-if="hasImage" :field="imageUrl" />
     </div>
+    <prismic-image
+      v-if="hasImage"
+      :field="imageUrl"
+      class="row-block__side-content"
+    />
   </section>
 </template>
 
 <script>
 import VideoSlice from './video'
-import { LARGE_SCREEN_MIN_WIDTH } from '~/config/breakpoints'
+import { DESKTOP_MIN_WIDTH } from '~/config/breakpoints'
 
 export default {
   name: 'Banner',
@@ -98,7 +102,7 @@ export default {
       const banner = document.getElementsByClassName(
         'banner-with-background'
       )[0]
-      if (screen.width <= LARGE_SCREEN_MIN_WIDTH) {
+      if (screen.width <= DESKTOP_MIN_WIDTH) {
         banner.style.background = `no-repeat url(${this.content.primary.bannerbackground.url})`
         banner.style.backgroundSize = '100%'
         banner.style.backgroundPosition = 'top right'
@@ -112,29 +116,9 @@ export default {
 
 <style lang="scss">
 .banner {
-  font-family: 'Open Sans', Arial, sans-serif;
-  padding: 64px 0;
   text-align: center;
-  margin: 0 auto;
 
-  &__main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 32px;
-  }
-
-  &__title h1 {
-    color: $grey-11;
-    font-size: 2.125rem;
-    line-height: 2.75rem;
-    font-weight: 400;
-  }
-
-  &__content p {
-    font-size: 1rem;
-    line-height: 1.625rem;
-    color: $grey-10;
+  .text--normal p {
     margin: 16px 0 24px;
   }
 
@@ -143,104 +127,96 @@ export default {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
 
-  .banner__button {
-    height: 44px;
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: $blue-1;
-    color: $white;
-    font-size: 1rem;
-    width: 240px;
-    border: 1.5px solid transparent;
-    border-radius: 4px;
-    padding: 0 20px;
-    margin: 5px 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $blue-3;
-    }
-
-    &.banner__button-video {
-      border-radius: 4px;
-      border: 1.5px solid $grey-11;
-      height: 44px;
-      color: $grey-11;
-      background-color: $white;
-
-      svg {
-        margin-right: 10px;
-      }
-
-      &:hover {
-        background-color: $grey-3;
-      }
+    .button {
+      margin: 5px 0;
     }
   }
 
-  &--with-image img {
-    display: none;
-  }
+  &.row-block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      'a a a a'
+      'b b b b';
+    grid-gap: 16px;
 
-  @include device-is('large-mobile') {
+    font-family: 'Open Sans', Arial, sans-serif;
+    padding: 64px 0;
+    margin: 0 16px;
+
+    & > * {
+      max-width: 100%;
+    }
+
+    .row-block__main-content {
+      grid-area: a;
+    }
+
+    .row-block__side-content {
+      grid-area: b;
+      display: none;
+    }
+  }
+}
+
+@include device-is('tablet') {
+  .banner {
     padding: 80px 0;
-
-    &__title h1 {
-      font-size: 2.875rem;
-      line-height: 3.813rem;
-      font-weight: 300;
-      letter-spacing: -0.15px;
-    }
-
-    &__content p {
-      font-size: 1.25rem;
-      line-height: 2rem;
-    }
 
     .banner__button-group {
       flex-direction: row;
+
+      .button {
+        width: initial;
+        margin: 0 10px;
+      }
     }
 
-    .banner__button {
-      width: initial;
-      margin: 0 10px;
+    &.row-block {
+      margin: 0 32px;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-areas:
+        'a a a a a a a a'
+        'b b b b b b b b';
     }
   }
+}
 
-  @include device-is('large-screen') {
-    &__title h1 {
-      font-size: 3.875rem;
-      line-height: 5.125rem;
-      font-weight: 300;
-      letter-spacing: -0.5px;
+@include device-is('desktop') {
+  .banner.row-block {
+    margin: 0 32px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      'a a a a a a a a a a a a'
+      '. . . b b b b b b . . .';
+
+    .row-block__side-content {
+      margin-top: 48px;
+      display: initial;
+      width: 100%;
+      box-sizing: border-box;
     }
+  }
+}
 
-    &__main {
-      width: 504px;
-    }
+@include device-is('large-screen') {
+  .banner.row-block {
+    margin: 0 auto;
+    grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+    grid-template-areas: '. a a a a a a . b b b b b .';
+    grid-gap: 24px;
 
-    &--with-image {
-      display: flex;
-      justify-content: space-between;
-      max-width: 1140px;
+    .row-block__main-content {
       text-align: left;
-
-      img:nth-child(2) {
-        display: block;
-        max-width: 510px;
-      }
+      align-self: center;
 
       .banner__button-group {
-        justify-content: left;
-      }
+        justify-content: flex-start;
 
-      .banner__button {
-        margin: 0 20px 0 0;
+        .button {
+          margin: 0 20px 0 0;
+        }
       }
     }
   }

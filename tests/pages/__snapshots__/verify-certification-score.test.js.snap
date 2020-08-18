@@ -11,7 +11,7 @@ exports[`Verify Certification Score Page renders properly 1`] = `
         </div>
         <div class=\\"certificate-verification-page__input-field\\"><label for=\\"score\\">score_declare_du_candidat</label> <input id=\\"score\\" type=\\"text\\" required=\\"required\\" pattern=\\"^[0-9]{1,3}$\\" name=\\"candidateScore\\" class=\\"no-regex-error\\">
           <!---->
-        </div> <button type=\\"submit\\" class=\\"btn-primary\\">
+        </div> <button type=\\"submit\\" class=\\"button\\">
           button_label
         </button>
       </form>

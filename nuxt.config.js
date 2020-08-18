@@ -170,5 +170,16 @@ export default {
     extend(config, ctx) {
       config.resolve.alias.vue = 'vue/dist/vue.common'
     },
+    postcss: {
+      plugins: {
+        'postcss-url': false,
+      },
+      preset: {
+        autoprefixer: {
+          grid: 'autoplace',
+        },
+        browsers: ['last 2 versions', 'ie 11'],
+      },
+    },
   },
 }

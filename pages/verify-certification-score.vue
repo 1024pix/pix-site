@@ -44,7 +44,7 @@
               Le score du candidat doit être composé de 3 chiffres
             </p>
           </div>
-          <button class="btn-primary" type="submit">
+          <button class="button" type="submit">
             {{ buttonLabel }}
           </button>
         </form>

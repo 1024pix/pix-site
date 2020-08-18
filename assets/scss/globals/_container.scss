@@ -29,4 +29,75 @@
   }
 }
 
+.row-block {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "a a a a"
+    "b b b b";
+  grid-gap: 16px;
+
+  font-family: 'Open Sans', Arial, sans-serif;
+  padding: 64px 0;
+  margin: 0 16px;
+
+  & > * {
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  .row-block__left-content  { grid-area: a; }
+  .row-block__right-content { grid-area: b; }
+
+  &--reverse {
+    grid-template-areas:
+      "b b b b"
+      "a a a a";
+  }
+}
+
+@include device-is('tablet') {
+  .row-block {
+    margin: 0 32px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+      'a a a a a a a a'
+      'b b b b b b b b';
+
+    &--reverse {
+      grid-template-areas:
+        'b b b b b b b b'
+        'a a a a a a a a';
+    }
+  }
+}
+
+@include device-is('desktop') {
+  .row-block {
+    margin: 0 32px;
+    grid-template-areas:
+      "a a a a . b b b";
+
+    &--reverse {
+      grid-template-areas:
+        "b b b . a a a a";
+    }
+  }
+}
+
+@include device-is('large-screen') {
+  .row-block {
+    max-width: 1920px;
+    margin: 0 auto;
+    grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+    grid-template-areas:
+      ". a a a a a . b b b b b b .";
+    grid-gap: 24px;
+
+    &--reverse {
+      grid-template-areas:
+        ". b b b b b . a a a a a a .";
+    }
+  }
+}
 
