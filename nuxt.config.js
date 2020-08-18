@@ -152,10 +152,6 @@ export default {
     vueI18n: {
       fallbackLocale: 'fr-fr',
     },
-    detectBrowserLanguage: {
-      useCookie: true,
-      alwaysRedirect: true,
-    },
   },
   router: {
     middleware: 'current-page-path',
