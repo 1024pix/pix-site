@@ -30,7 +30,7 @@ export const mutations = {
       state.host === this.$config.orgDomain &&
       this.$i18n.locale === 'fr-fr'
     ) {
-      this.$i18n.setLocale('en-gb')
+      this.$i18n.setLocale('fr')
     }
   },
   updateNavigation(state, navigations) {
