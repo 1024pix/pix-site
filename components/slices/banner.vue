@@ -135,14 +135,15 @@ export default {
 
   &.row-block {
     display: grid;
-    grid-template-columns: 16px repeat(4, 1fr) 16px;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      '. a a a a .'
-      '. b b b b .';
+      'a a a a'
+      'b b b b';
     grid-gap: 16px;
 
     font-family: 'Open Sans', Arial, sans-serif;
     padding: 64px 0;
+    margin: 0 16px;
 
     & > * {
       max-width: 100%;
@@ -173,20 +174,22 @@ export default {
     }
 
     &.row-block {
-      grid-template-columns: 32px repeat(8, 1fr) 32px;
+      margin: 0 32px;
+      grid-template-columns: repeat(8, 1fr);
       grid-template-areas:
-        '. a a a a a a a a .'
-        '. b b b b b b b b .';
+        'a a a a a a a a'
+        'b b b b b b b b';
     }
   }
 }
 
 @include device-is('desktop') {
   .banner.row-block {
-    grid-template-columns: 32px repeat(12, 1fr) 32px;
+    margin: 0 32px;
+    grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      '. a a a a a a a a a a a a .'
-      '. . . . b b b b b b . . . .';
+      'a a a a a a a a a a a a'
+      '. . . b b b b b b . . .';
 
     .row-block__side-content {
       margin-top: 48px;
@@ -199,6 +202,7 @@ export default {
 
 @include device-is('large-screen') {
   .banner.row-block {
+    margin: 0 auto;
     grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
     grid-template-areas: '. a a a a a a . b b b b b .';
     grid-gap: 24px;
