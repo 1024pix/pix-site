@@ -53,19 +53,19 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 32px 0px;
+  padding: 32px 0;
   background: #f5f5f5;
 
   &__text {
     display: flex;
     flex-direction: column;
+    width: 611px;
   }
 }
 
 .article-text {
   &__title {
     height: 46px;
-    width: 611px;
 
     & h2 {
       color: $blue-5;
@@ -74,6 +74,20 @@ export default {
       letter-spacing: 0.00875rem;
       line-height: 2.875rem;
       margin-top: 0;
+    }
+  }
+
+  &__description {
+    height: 64px;
+    margin: 16px 0 24px 0;
+
+    & p {
+      color: $grey-10;
+      font-size: 1.25rem;
+      font-weight: $font-normal;
+      letter-spacing: 0;
+      line-height: 2rem;
+      margin: 0;
     }
   }
 }
