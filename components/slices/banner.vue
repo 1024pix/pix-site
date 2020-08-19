@@ -25,7 +25,7 @@
               {{ link.bannerlinktext }}
             </button>
             <modal ref="modal" name="videoModal" height="auto">
-              <VideoSlice :video-url="link.bannerlinkurl" />
+              <VideoSlice :video-url="link.bannerlinkurl.url" />
             </modal>
           </template>
         </div>

@@ -77,9 +77,9 @@ export default {
   data() {
     return {
       videoUrl:
-        'https://storage.gra.cloud.ovh.net/v1/AUTH_27c5a6d3d35841a5914c7fb9a8e96345/pix-videos/general/Pix-temoignages.mp4',
+        'https://storage.gra.cloud.ovh.net/v1/AUTH_27c5a6d3d35841a5914c7fb9a8e96345/pix-videos/general/Pix-ambassadeurs.mp4',
       videoPosterUrl:
-        'https://images.prismic.io/pix-site/7de3e561-a66e-4fe3-9114-84e8d4d1b4ce_pix-temoignage-poster.png?auto=compress,format',
+        'https://images.prismic.io/pix-site/b9f4c26b-f454-422f-ae00-a2d56b060a92_pix-ambassadeurs-poster.png?auto=compress,format',
     }
   },
   head() {
