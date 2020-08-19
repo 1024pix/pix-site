@@ -23,25 +23,25 @@ export default {
 <style lang="scss">
 .cta-button {
   width: fit-content;
-  background: #3d68ff;
-  color: #ffffff;
+  background: $blue-1;
   border-radius: 5px;
   height: 60px;
-  line-height: 60px;
   padding: 0 20px;
-  letter-spacing: 0.03rem;
+  cursor: pointer;
 
-  :hover {
+  &:hover {
     transition: opacity 0.5s ease-out;
     background: $blue-3;
   }
 
-  :visited {
-    color: #ffffff;
-  }
-
   &:hover:after {
     opacity: 1;
+  }
+
+  & a {
+    color: $white;
+    line-height: 3.75rem;
+    letter-spacing: 0.03rem;
   }
 }
 </style>
