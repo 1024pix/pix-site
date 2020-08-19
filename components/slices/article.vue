@@ -1,10 +1,10 @@
 <template>
   <div class="article">
     <div class="article__text">
-      <prismic-rich-text :field="title" class="article__text-title" />
+      <prismic-rich-text :field="title" class="article-text__title" />
       <prismic-rich-text
         :field="description"
-        class="article__text-description"
+        class="article-text__description"
       />
       <cta-button :link="linkUrl" :name="linkName" />
     </div>
@@ -55,19 +55,26 @@ export default {
   align-items: center;
   padding: 32px 0px;
   background: #f5f5f5;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-.article__text {
-  display: flex;
-  flex-direction: column;
-}
+.article-text {
+  &__title {
+    height: 46px;
+    width: 611px;
 
-// Title rendered by prismic-rich-text component
-h2 {
-  color: blue;
-}
-
-.article__text-description {
-  color: red;
+    & h2 {
+      color: $blue-5;
+      font-size: 2rem;
+      font-weight: $font-normal;
+      letter-spacing: 0.00875rem;
+      line-height: 2.875rem;
+      margin-top: 0;
+    }
+  }
 }
 </style>
