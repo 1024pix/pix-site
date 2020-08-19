@@ -1,6 +1,6 @@
 <template>
-  <div class="article">
-    <div class="article__text">
+  <div class="row-block article">
+    <div class="row-block__left-content article__text">
       <prismic-rich-text :field="title" class="article-text__title" />
       <prismic-rich-text
         :field="description"
@@ -8,7 +8,7 @@
       />
       <cta-button :link="linkUrl" :name="linkName" />
     </div>
-    <div class="article__image">
+    <div class="row-block__right-content article__image">
       <img :src="image" />
     </div>
   </div>
@@ -50,15 +50,9 @@ export default {
 
 <style lang="scss">
 .article {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 32px 0;
-  background: #f5f5f5;
+  background: $white;
 
   &__text {
-    display: flex;
-    flex-direction: column;
     width: 611px;
   }
 }
@@ -78,7 +72,6 @@ export default {
   }
 
   &__description {
-    height: 64px;
     margin: 16px 0 24px 0;
 
     & p {
