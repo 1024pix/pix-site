@@ -12,7 +12,20 @@
         :field="description"
         class="article-text__description"
       />
-      <cta-button :link="linkUrl" :name="linkName" />
+      <div v-if="linkType !== 'none'">
+        <cta-button
+          v-if="linkType === 'call-to-action'"
+          :link="linkUrl"
+          :name="linkName"
+        />
+        <a
+          v-else-if="linkType === 'link-to'"
+          :href="linkUrl"
+          class="article-text__link-to"
+        >
+          <fa icon="arrow-right" /> {{ linkName }}
+        </a>
+      </div>
     </div>
     <div class="row-block__right-content article__illustrations">
       <img :src="background" class="article-illustrations__background" />
@@ -48,11 +61,14 @@ export default {
     layout() {
       return this.content.primary['article-layout']
     },
-    linkUrl() {
-      return this.content.primary['article-link-url'].url
-    },
     linkName() {
       return this.content.primary['article-link-name']
+    },
+    linkType() {
+      return this.content.primary['article-link-type']
+    },
+    linkUrl() {
+      return this.content.primary['article-link-url'].url
     },
     title() {
       return this.content.primary['article-title']
@@ -72,19 +88,6 @@ export default {
 }
 
 .article-text {
-  &__title {
-    height: 46px;
-
-    & h2 {
-      color: $blue-5;
-      font-size: 2rem;
-      font-weight: $font-normal;
-      letter-spacing: 0.00875rem;
-      line-height: 2.875rem;
-      margin-top: 0;
-    }
-  }
-
   &__description {
     margin: 16px 0 24px 0;
 
@@ -95,6 +98,36 @@ export default {
       letter-spacing: 0;
       line-height: 2rem;
       margin: 0;
+    }
+  }
+
+  &__link-to {
+    height: 26px;
+    color: $blue-1;
+    font-family: $font-roboto;
+    font-size: 1.25rem;
+    font-weight: $font-medium;
+    letter-spacing: 0;
+    line-height: 0.009rem;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      color: $blue-1;
+    }
+  }
+
+  &__title {
+    height: 46px;
+
+    & h2 {
+      color: $blue-5;
+      font-size: 2rem;
+      font-weight: $font-normal;
+      letter-spacing: 0.00875rem;
+      line-height: 2.875rem;
+      margin-top: 0;
     }
   }
 }
