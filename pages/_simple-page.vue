@@ -27,6 +27,7 @@ export default {
   name: 'SimplePage',
   nuxtI18n: {
     paths: {
+      fr: '/:uid',
       'fr-fr': '/:uid',
       'en-gb': '/:uid',
     },

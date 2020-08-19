@@ -94,6 +94,7 @@ export default {
   name: 'HigherEducation',
   nuxtI18n: {
     paths: {
+      fr: '/enseignement-superieur',
       'fr-fr': '/enseignement-superieur',
       'en-gb': '/higher-education',
     },

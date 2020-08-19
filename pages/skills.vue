@@ -31,6 +31,7 @@ export default {
   name: 'Skills',
   nuxtI18n: {
     paths: {
+      fr: '/competences',
       'fr-fr': '/competences',
       'en-gb': '/skills',
     },

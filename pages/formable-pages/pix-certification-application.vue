@@ -16,6 +16,7 @@ export default {
   components: { FormablePage },
   nuxtI18n: {
     paths: {
+      fr: '/formulaire/demande-agrement-centre-certification',
       'fr-fr': '/formulaire/demande-agrement-centre-certification',
       'en-gb': '/form/pix-certification-application',
     },

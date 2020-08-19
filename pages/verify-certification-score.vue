@@ -64,6 +64,7 @@ export default {
   name: 'VerifyCertificationScore',
   nuxtI18n: {
     paths: {
+      fr: '/verifier-score-certification',
       'fr-fr': '/verifier-score-certification',
       'en-gb': '/verify-certification-score',
     },

@@ -16,6 +16,7 @@ export default {
   components: { FormablePage },
   nuxtI18n: {
     paths: {
+      fr: '/formulaire/finalisation-pix-orga-sup',
       'fr-fr': '/formulaire/finalisation-pix-orga-sup',
       'en-gb': '/form/pix-orga-higher-school-registration',
     },

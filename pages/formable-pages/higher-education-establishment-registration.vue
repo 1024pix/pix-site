@@ -16,6 +16,7 @@ export default {
   components: { FormablePage },
   nuxtI18n: {
     paths: {
+      fr: '/formulaire/inscription-etablissement-superieur',
       'fr-fr': '/formulaire/inscription-etablissement-superieur',
       'en-gb': '/form/higher-education-establishment-registration',
     },
