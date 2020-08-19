@@ -1,5 +1,11 @@
 <template>
-  <div class="row-block article">
+  <div
+    :class="{
+      'row-block': layout === 'text-image',
+      'row-block row-block--reverse': layout === 'image-text',
+    }"
+    class="article"
+  >
     <div class="row-block__left-content article__text">
       <prismic-rich-text :field="title" class="article-text__title" />
       <prismic-rich-text
@@ -29,6 +35,9 @@ export default {
     },
   },
   computed: {
+    layout() {
+      return this.content.primary['article-layout']
+    },
     linkUrl() {
       return this.content.primary['article-link-url'].url
     },
