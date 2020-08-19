@@ -2,6 +2,6 @@
 
 exports[`Index Page renders properly 1`] = `
 "<div class=\\"index\\">
-  <slice-zone-stub slices=\\"[object Object],[object Object],[object Object],[object Object]\\"></slice-zone-stub>
+  <slice-zone-stub slices=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></slice-zone-stub>
 </div>"
 `;
