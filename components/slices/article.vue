@@ -1,16 +1,26 @@
 <template>
   <div
+    class="article"
     :class="{
+      'article--only-text': layout === 'only-text',
       'row-block': layout === 'text-image',
       'row-block row-block--reverse': layout === 'image-text',
     }"
-    class="article"
   >
-    <div class="row-block__left-content article__text">
-      <prismic-rich-text :field="title" class="article-text__title" />
+    <div
+      class="article__content"
+      :class="{
+        'article__content--only-text': layout === 'only-text',
+        'row-block__left-content': layout === 'text-image' || 'image-text',
+      }"
+    >
+      <prismic-rich-text :field="title" class="article-content__title" />
       <prismic-rich-text
         :field="description"
-        class="article-text__description"
+        class="article-content__description"
+        :class="{
+          'article-content__description--only-text': layout === 'only-text',
+        }"
       />
       <div v-if="linkType !== 'none'">
         <cta-button
@@ -21,13 +31,16 @@
         <a
           v-else-if="linkType === 'link-to'"
           :href="linkUrl"
-          class="article-text__link-to"
+          class="article-content__link-to"
         >
           <fa icon="arrow-right" /> {{ linkName }}
         </a>
       </div>
     </div>
-    <div class="row-block__right-content article__illustrations">
+    <div
+      v-if="layout !== 'only-text'"
+      class="row-block__right-content article__illustrations"
+    >
       <img :src="background" class="article-illustrations__background" />
       <img :src="image" class="article-illustrations__image" />
     </div>
@@ -82,12 +95,23 @@ export default {
   background: $white;
   align-items: center;
 
-  &__text {
+  &__content {
     width: 611px;
+
+    &--only-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &--only-text {
+    display: flex;
+    justify-content: center;
   }
 }
 
-.article-text {
+.article-content {
   &__description {
     margin: 16px 0 24px 0;
 
@@ -98,6 +122,10 @@ export default {
       letter-spacing: 0;
       line-height: 2rem;
       margin: 0;
+    }
+
+    &--only-text {
+      text-align: center;
     }
   }
 
