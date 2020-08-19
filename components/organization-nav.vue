@@ -1,7 +1,7 @@
 <template>
-  <div class="nav-switch">
+  <div v-if="showLanguageDropdown || frenchDomain" class="nav-switch">
     <language-dropdown />
-    <div class="container padding-container">
+    <div v-if="frenchDomain" class="container padding-container">
       <div
         v-for="item in organizationNavItems"
         :key="item.id"
@@ -26,6 +26,15 @@ export default {
     organizationNavItems: {
       type: Array,
       default: null,
+    },
+  },
+  computed: {
+    showLanguageDropdown() {
+      return this.$config.languageSwitchEnabled
+    },
+
+    frenchDomain() {
+      return !(this.$store.state.host === this.$config.orgDomain)
     },
   },
 }
