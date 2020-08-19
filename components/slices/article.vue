@@ -14,8 +14,9 @@
       />
       <cta-button :link="linkUrl" :name="linkName" />
     </div>
-    <div class="row-block__right-content article__image">
-      <img :src="image" />
+    <div class="row-block__right-content article__illustrations">
+      <img :src="background" class="article-illustrations__background" />
+      <img :src="image" class="article-illustrations__image" />
     </div>
   </div>
 </template>
@@ -35,6 +36,15 @@ export default {
     },
   },
   computed: {
+    background() {
+      return this.content.primary['article-background'].url
+    },
+    description() {
+      return this.content.primary['article-description']
+    },
+    image() {
+      return this.content.primary['article-image'].url
+    },
     layout() {
       return this.content.primary['article-layout']
     },
@@ -43,12 +53,6 @@ export default {
     },
     linkName() {
       return this.content.primary['article-link-name']
-    },
-    description() {
-      return this.content.primary['article-description']
-    },
-    image() {
-      return this.content.primary['article-image'].url
     },
     title() {
       return this.content.primary['article-title']
@@ -60,6 +64,7 @@ export default {
 <style lang="scss">
 .article {
   background: $white;
+  align-items: center;
 
   &__text {
     width: 611px;
@@ -91,6 +96,15 @@ export default {
       line-height: 2rem;
       margin: 0;
     }
+  }
+}
+
+.article-illustrations {
+  &__background {
+  }
+
+  &__image {
+    position: absolute;
   }
 }
 </style>
