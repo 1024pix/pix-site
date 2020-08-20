@@ -1,7 +1,7 @@
 <template>
   <section class="key-numbers">
     <h2 class="key-numbers__title">
-      {{ $prismic.richTextAsPlain(title) }}
+      {{ $prismic.asText(title) }}
     </h2>
     <div class="key-numbers__list">
       <div
@@ -10,14 +10,13 @@
         class="key-number__item key-number"
       >
         <h3 class="key-number__value">
-          {{ $prismic.richTextAsPlain(item.number) }}
+          {{ $prismic.asText(item.number) }}
         </h3>
         <p class="key-number__description">
-          {{ $prismic.richTextAsPlain(item.description) }}
+          {{ $prismic.asText(item.description) }}
         </p>
       </div>
     </div>
-    <prismic-edit-button :document-id="contentId" />
   </section>
 </template>
 
@@ -41,9 +40,6 @@ export default {
     items() {
       return this.content.column
     },
-  },
-  beforeMount() {
-    window.prismic.setupEditButton()
   },
 }
 </script>

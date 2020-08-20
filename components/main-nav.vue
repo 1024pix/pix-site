@@ -14,7 +14,7 @@
         { 'button button--oval btn-nav': index === mainNavItems.length - 1 },
       ]"
     >
-      {{ $prismic.richTextAsPlain(item.primary.title) }}
+      {{ $prismic.asText(item.primary.title) }}
     </pix-link>
   </div>
 </template>

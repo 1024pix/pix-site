@@ -43,7 +43,11 @@ export default {
   },
   async asyncData({ app, error, req }) {
     try {
-      const newsItems = await documentFetcher(app.i18n, req).findNewsItems()
+      const newsItems = await documentFetcher(
+        app.$prismic,
+        app.i18n,
+        req
+      ).findNewsItems()
       return { newsItems }
     } catch (e) {
       // eslint-disable-next-line no-console

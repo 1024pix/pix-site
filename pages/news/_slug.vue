@@ -6,7 +6,6 @@
         <news-item-post :news-item="newsItem" />
       </div>
     </div>
-    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -28,10 +27,12 @@ export default {
     const host = req ? req.headers.host : window.location.host
     const currentPagePath = `${host}${route.path}`
     try {
-      const newsItem = await documentFetcher(app.i18n, req).getNewsItemByUid(
-        params.slug
-      )
-      return { currentPagePath, newsItem, documentId: newsItem.id }
+      const newsItem = await documentFetcher(
+        app.$prismic,
+        app.i18n,
+        req
+      ).getNewsItemByUid(params.slug)
+      return { currentPagePath, newsItem }
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error({ e })

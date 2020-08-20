@@ -4,7 +4,7 @@
       <ul>
         <li v-for="item in topItems" :key="item.id" class="nav-top__link">
           <pix-link :field="item.primary.link">
-            {{ $prismic.richTextAsPlain(item.primary.title) }}
+            {{ $prismic.asText(item.primary.title) }}
           </pix-link>
         </li>
       </ul>
@@ -18,7 +18,7 @@
             class="nav-middle__link"
           >
             <pix-link :field="item.primary.link">
-              {{ $prismic.richTextAsPlain(item.primary.title) }}
+              {{ $prismic.asText(item.primary.title) }}
             </pix-link>
           </li>
         </ul>
@@ -29,7 +29,7 @@
       <ul>
         <li v-for="item in bottomItems" :key="item.id" class="nav-bottom__link">
           <pix-link :field="item.primary.link">
-            {{ $prismic.richTextAsPlain(item.primary.title) }}
+            {{ $prismic.asText(item.primary.title) }}
             <span class="show-page-icon">&gt;</span>
           </pix-link>
         </li>

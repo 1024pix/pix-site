@@ -1,36 +1,23 @@
-import Prismic from 'prismic-javascript'
-import PrismicConfig from '~/prismic.config.js'
+import prismic from 'prismic-javascript'
 import { documentFetcher, documents } from '~/services/document-fetcher'
 
 jest.mock('prismic-javascript')
 
 describe('DocumentFetcher', () => {
-  test('it should use prismic configuration', async () => {
-    // Given
-    const req = { some: 'cookie' }
-    const prismicApi = {
-      getSingle: jest.fn(() => ({ uid: 'navigation' })),
-    }
-    Prismic.getApi.mockResolvedValue(prismicApi)
-    // When
-    await documentFetcher({}, req).get(documents.navigation)
-
-    // Then
-    expect(Prismic.getApi).toBeCalledWith(PrismicConfig.apiEndpoint, { req })
-  })
-
   test('it should get navigation from Prismic for default language if locale language is not defined', async () => {
     // Given
     const prismicApi = {
       getSingle: jest.fn(() => ({ uid: 'navigation' })),
     }
-    Prismic.getApi.mockResolvedValue(prismicApi)
+    prismic.api = prismicApi
     const i18n = {
       locale: undefined,
       defaultLocale: 'some-default-language',
     }
     // When
-    const navigation = await documentFetcher(i18n).get(documents.navigation)
+    const navigation = await documentFetcher(prismic, i18n).get(
+      documents.navigation
+    )
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('navigation', {
       lang: 'some-default-language',
@@ -43,13 +30,13 @@ describe('DocumentFetcher', () => {
     const prismicApi = {
       getSingle: jest.fn(() => ({ uid: 'navigation' })),
     }
-    Prismic.getApi.mockResolvedValue(prismicApi)
+    prismic.api = prismicApi
     const i18n = {
       locale: 'defined-language-by-user',
       defaultLocale: 'some-default-language',
     }
     // When
-    await documentFetcher(i18n).get(documents.navigation)
+    await documentFetcher(prismic, i18n).get(documents.navigation)
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('navigation', {
       lang: 'defined-language-by-user',
@@ -61,9 +48,9 @@ describe('DocumentFetcher', () => {
     const prismicApi = {
       getSingle: jest.fn(() => ({ uid: 'navigation' })),
     }
-    Prismic.getApi.mockResolvedValue(prismicApi)
+    prismic.api = prismicApi
     // When
-    await documentFetcher().get(documents.navigation)
+    await documentFetcher(prismic).get(documents.navigation)
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('navigation', { lang: 'fr-fr' })
   })
@@ -74,9 +61,9 @@ describe('DocumentFetcher', () => {
     const prismicApi = {
       getSingle: jest.fn(() => ({ uid: 'navigation' })),
     }
-    Prismic.getApi.mockResolvedValue(prismicApi)
+    prismic.api = prismicApi
     // When
-    const result = await documentFetcher().getEmployers()
+    const result = await documentFetcher(prismic).getEmployers()
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('employers', {
       lang: 'fr-fr',
@@ -99,15 +86,15 @@ describe('DocumentFetcher', () => {
     const prismicApi = {
       query: jest.fn(() => ({ results: [expectedValue] })),
     }
-    Prismic.getApi.mockResolvedValue(prismicApi)
+    prismic.api = prismicApi
 
     const prismicPredicates = {
       at: jest.fn(() => expectedPredicatesAtValue),
     }
-    Prismic.Predicates = prismicPredicates
+    prismic.predicates = prismicPredicates
 
     // When
-    const response = await documentFetcher().getSimplePageByUid(uid)
+    const response = await documentFetcher(prismic).getSimplePageByUid(uid)
 
     // Then
     expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {

@@ -9,7 +9,7 @@
           :field="item.primary.link"
           class="text text-xs text-left regular text-black-l"
         >
-          {{ $prismic.richTextAsPlain(item.primary.title) }}
+          {{ $prismic.asText(item.primary.title) }}
         </pix-link>
       </li>
     </ul>

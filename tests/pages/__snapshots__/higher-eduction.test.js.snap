@@ -41,6 +41,5 @@ exports[`Higher Education Page renders properly 1`] = `
     </div>
   </section>
   <key-numbers-stub content=\\"[object Object]\\" contentid=\\"\\"></key-numbers-stub>
-  <prismic-edit-button-stub></prismic-edit-button-stub>
 </div>"
 `;

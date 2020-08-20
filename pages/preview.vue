@@ -8,9 +8,9 @@
 import { documentFetcher } from '~/services/document-fetcher'
 export default {
   name: 'Preview',
-  async asyncData({ query, redirect, error }) {
+  async asyncData({ $primsic, query, redirect, error }) {
     try {
-      const url = await documentFetcher().getPreviewUrl(query.token)
+      const url = await documentFetcher($primsic).getPreviewUrl(query.token)
       redirect(url)
     } catch (e) {
       // eslint-disable-next-line no-console

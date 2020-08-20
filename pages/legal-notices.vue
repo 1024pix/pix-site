@@ -24,7 +24,6 @@
         <prismic-rich-text :field="document.body[2].primary.text" />
       </section>
     </main>
-    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -43,15 +42,13 @@ export default {
   components: { SectionSlice },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n, req).get(
+      const document = await documentFetcher(app.$prismic, app.i18n, req).get(
         documents.legalNotices
       )
-      if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
         meta: document.data.meta,
         document: document.data,
-        documentId: document.id,
       }
     } catch (e) {
       // eslint-disable-next-line no-console

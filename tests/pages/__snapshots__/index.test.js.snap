@@ -6,6 +6,5 @@ exports[`Index Page renders properly 1`] = `
   <banner-stub content=\\"[object Object]\\"></banner-stub>
   <img-text-column-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-demo\\" containerclass=\\"section-demo__container\\" buttonclass=\\"section-demo__button\\"></img-text-column-slice-stub>
   <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"index__features\\" containerclass=\\"features__container\\" flexcontainerclass=\\"features-container__list\\" flexcontentclass=\\"features-container-list__item\\" buttonclass=\\"section__button\\"></section-slice-stub>
-  <prismic-edit-button-stub></prismic-edit-button-stub>
 </div>"
 `;

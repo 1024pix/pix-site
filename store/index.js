@@ -14,8 +14,8 @@ export const state = () => ({
 })
 export const actions = {
   async nuxtServerInit({ commit }, { app, req }) {
-    commit('updateNavigation', await getNavigation(app.i18n))
-    commit('updateHotNews', await getHotNews(app.i18n))
+    commit('updateNavigation', await getNavigation(app.$prismic, app.i18n))
+    commit('updateHotNews', await getHotNews(app.$prismic, app.i18n))
     commit('updateHost', req)
   },
   async updateNavigation({ commit }, i18n) {
@@ -51,10 +51,10 @@ export const mutations = {
   },
 }
 
-function getNavigation(i18n) {
-  return documentFetcher(i18n).get(documents.navigation)
+function getNavigation(prismic, i18n) {
+  return documentFetcher(prismic, i18n).get(documents.navigation)
 }
 
-function getHotNews(i18n) {
-  return documentFetcher(i18n).get(documents.hotNews)
+function getHotNews(prismic, i18n) {
+  return documentFetcher(prismic, i18n).get(documents.hotNews)
 }

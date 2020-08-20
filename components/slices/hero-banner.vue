@@ -5,12 +5,12 @@
       <prismic-rich-text :field="title" />
       <prismic-rich-text :field="description" />
       <pix-link v-if="hasButton" :class="buttonClass" :field="buttonLink">
-        {{ $prismic.richTextAsPlain(buttonText) }}
+        {{ $prismic.asText(buttonText) }}
       </pix-link>
       <template v-if="hasVideo">
         <div :class="buttonClass" @click="openVideoModal()">
           <fa icon="play-circle" />
-          {{ $prismic.richTextAsPlain(videoButtonText) }}
+          {{ $prismic.asText(videoButtonText) }}
         </div>
         <modal ref="modal" name="videoModal" height="auto">
           <VideoSlice :video-url="videoUrl" />

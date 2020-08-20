@@ -17,7 +17,7 @@
         </div>
       </div>
       <a v-if="hasButton" :href="buttonLink" :class="buttonClass">
-        {{ $prismic.richTextAsPlain(buttonText) }}
+        {{ $prismic.asText(buttonText) }}
       </a>
     </div>
   </section>

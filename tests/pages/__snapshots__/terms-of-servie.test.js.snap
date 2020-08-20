@@ -18,6 +18,5 @@ exports[`Terms of Service Page renders properly 1`] = `
       </div>
     </section>
   </div>
-  <prismic-edit-button-stub></prismic-edit-button-stub>
 </div>"
 `;

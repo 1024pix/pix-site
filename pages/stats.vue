@@ -15,7 +15,6 @@
         />
       </div>
     </main>
-    <prismic-edit-button :document-id="documentId" />
   </main>
 </template>
 
@@ -69,8 +68,9 @@ export default {
       const chartsData = datasets.map((dataset) => createData(dataset))
       const dates = []
 
-      const document = await documentFetcher(app.i18n, req).get(documents.stats)
-      if (process.client) window.prismic.setupEditButton()
+      const document = await documentFetcher(app.$prismic, app.i18n, req).get(
+        documents.stats
+      )
       document.data.stats.forEach((stats) => {
         dates.push($moment(stats.primary.date).format('MM/YY'))
         chartsData[0].data.datasets[0].data.push(stats.primary.accounts)
@@ -85,7 +85,6 @@ export default {
         currentPagePath,
         meta: document.data.meta,
         document: document.data,
-        documentId: document.id,
         chartsData,
       }
     } catch (e) {
