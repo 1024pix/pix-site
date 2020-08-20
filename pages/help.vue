@@ -4,6 +4,7 @@ export default {
   name: 'Help',
   nuxtI18n: {
     paths: {
+      fr: '/aide',
       'fr-fr': '/aide',
       'en-gb': '/help',
     },

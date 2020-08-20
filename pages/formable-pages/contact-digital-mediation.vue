@@ -16,6 +16,7 @@ export default {
   components: { FormablePage },
   nuxtI18n: {
     paths: {
+      fr: '/formulaire/contact-mediation-numerique',
       'fr-fr': '/formulaire/contact-mediation-numerique',
       'en-gb': '/form/contact-digital-mediation',
     },

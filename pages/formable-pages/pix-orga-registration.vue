@@ -16,6 +16,7 @@ export default {
   components: { FormablePage },
   nuxtI18n: {
     paths: {
+      fr: '/formulaire/contact-pix-pro',
       'fr-fr': '/formulaire/contact-pix-pro',
       'en-gb': '/form/pix-orga-registration',
     },

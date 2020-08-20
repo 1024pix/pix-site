@@ -33,6 +33,7 @@ export default {
   name: 'Index',
   nuxtI18n: {
     paths: {
+      fr: '/actualites',
       'fr-fr': '/actualites',
       'en-gb': '/news',
     },

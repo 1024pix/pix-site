@@ -123,6 +123,7 @@ export default {
   name: 'SchoolEducation',
   nuxtI18n: {
     paths: {
+      fr: '/enseignement-scolaire',
       'fr-fr': '/enseignement-scolaire',
       'en-gb': '/school-education',
     },

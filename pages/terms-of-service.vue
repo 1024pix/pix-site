@@ -28,6 +28,7 @@ export default {
   name: 'TermsOfService',
   nuxtI18n: {
     paths: {
+      fr: '/conditions-generales-d-utilisation',
       'fr-fr': '/conditions-generales-d-utilisation',
       'en-gb': '/terms-of-service',
     },

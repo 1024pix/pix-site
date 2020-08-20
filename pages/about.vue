@@ -57,6 +57,7 @@ export default {
   components: { HeroBanner, SectionColumnSlice, SectionSlice },
   nuxtI18n: {
     paths: {
+      fr: '/qui-sommes-nous',
       'fr-fr': '/qui-sommes-nous',
       'en-gb': '/about',
     },
