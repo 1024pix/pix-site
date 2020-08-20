@@ -12,7 +12,17 @@
           :key="`item-${featureIndex}`"
           class="features-container__item"
         >
-          <prismic-rich-text :field="feature.paragraph" />
+          <prismic-image :field="feature.featureimg" />
+          <div>
+            <prismic-rich-text
+              class="features-container-item__title"
+              :field="feature.featurename"
+            />
+            <prismic-rich-text
+              class="features-container-item__description"
+              :field="feature.featuredescription"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -44,7 +54,7 @@ export default {
       return this.content.items
     },
     title() {
-      return this.content.primary.title
+      return this.content.primary.featurestitle
     },
   },
 }
@@ -71,10 +81,19 @@ export default {
 
   &-container__row {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
   }
 
   &-container__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 24px;
 
     &:last-child {
@@ -82,29 +101,33 @@ export default {
       margin-bottom: 0px;
     }
 
+    img {
+      margin-right: 25px;
+      height: 62px;
+      width: 55px;
+    }
+
     p {
       margin: 0;
     }
+  }
 
-    img {
-      height: 73px;
-      width: 65px;
-    }
-
-    strong {
-      font-size: 20px;
+  &-container-item {
+    &__title h1 {
+      width: 217px;
       color: $grey-1;
-      margin-bottom: 8px;
+      font-size: 1rem;
+      letter-spacing: 0px;
+      line-height: 30px;
+      font-weight: 600;
     }
 
-    div {
+    &__description {
+      width: 217px;
       color: $grey-9;
-      font-size: 14px;
-      font-weight: normal;
+      font-size: 0.875rem;
       letter-spacing: 0.15px;
       line-height: 24px;
-      text-align: center;
-      width: 294px;
     }
   }
 }
@@ -113,17 +136,101 @@ export default {
   .features__title h2 {
     margin-top: 80px;
   }
+
+  .features__container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .features-container__item {
+    margin-bottom: 40px;
+
+    img {
+      margin-right: 32px;
+      height: 73px;
+      width: 65px;
+    }
+  }
+
+  .features-container-item {
+    &__title h1 {
+      width: 518px;
+      font-size: 1.25rem;
+    }
+
+    &__description {
+      width: 518px;
+    }
+  }
 }
 
 @include device-is('desktop') {
   .features__title h2 {
     margin-top: 80px;
   }
+
+  .features__container {
+    margin-top: 80px;
+    margin-bottom: 84px;
+  }
+
+  .features-container__row {
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .features-container__item {
+    display: block;
+    margin-right: 98px;
+    text-align: center;
+
+    img {
+      margin-right: 0;
+    }
+  }
+
+  .features-container-item {
+    &__title h1 {
+      width: 200px;
+      font-size: 1.25rem;
+    }
+
+    &__description {
+      margin-top: 8px;
+      width: 200px;
+    }
+  }
 }
 
 @include device-is('large-screen') {
   .features__title h2 {
     margin-top: 120px;
+  }
+
+  .features__container {
+    margin-top: 81px;
+    margin-bottom: 121px;
+  }
+
+  .features-container__item {
+    margin-right: 76px;
+    text-align: center;
+
+    img {
+      height: 73px;
+      width: 65px;
+    }
+  }
+
+  .features-container-item {
+    &__title h1 {
+      width: 294px;
+    }
+
+    &__description {
+      width: 294px;
+    }
   }
 }
 </style>
