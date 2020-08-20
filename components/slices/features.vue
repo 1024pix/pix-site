@@ -1,7 +1,21 @@
 <template>
   <section class="features">
     <prismic-rich-text class="features__title" :field="title" />
-    <div class="features__container"></div>
+    <div class="features__container">
+      <div
+        v-for="(featuresInARow, rowIndex) in featuresByRow"
+        :key="`item-${rowIndex}`"
+        class="features-container__row"
+      >
+        <div
+          v-for="(feature, featureIndex) in featuresInARow"
+          :key="`item-${featureIndex}`"
+          class="features-container__item"
+        >
+          <prismic-rich-text :field="feature.paragraph" />
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -13,55 +27,24 @@ export default {
       type: Object,
       default: null,
     },
-    sectionId: {
-      type: String,
-      default: null,
-    },
-    sectionClass: {
-      type: String,
-      default: 'section',
-    },
-    containerClass: {
-      type: String,
-      default: 'section__container',
-    },
-    flexContainerClass: {
-      type: String,
-      default: 'section__flex-container',
-    },
-    flexContentClass: {
-      type: String,
-      default: 'section__flex-content',
-    },
-    buttonClass: {
-      type: String,
-      default: 'section__button',
-    },
   },
   computed: {
+    nbFeaturesInRow() {
+      return 3
+    },
+    featuresByRow() {
+      const rows = []
+      const chunkSize = this.nbFeaturesInRow
+      for (let i = 0; i < this.paragraphs.length; i += chunkSize) {
+        rows.push(this.paragraphs.slice(i, i + chunkSize))
+      }
+      return rows
+    },
     paragraphs() {
       return this.content.items
     },
     title() {
       return this.content.primary.title
-    },
-    image() {
-      return this.content.primary.logo
-    },
-    description() {
-      return this.content.primary.description
-    },
-    buttonLink() {
-      return this.content.primary.button_link.url
-    },
-    buttonText() {
-      return this.content.primary.button_title
-    },
-    hasImage() {
-      return this.image && this.image.url
-    },
-    hasButton() {
-      return this.buttonText && this.buttonText.length
     },
   },
 }
@@ -69,7 +52,6 @@ export default {
 
 <style lang="scss">
 .features {
-  margin: 0 auto;
   background-color: white;
 
   &__title h2 {
@@ -80,6 +62,50 @@ export default {
     line-height: 49px;
     text-align: center;
     margin-top: 64px;
+  }
+
+  &__container {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+
+  &-container__row {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-container__item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-right: 0px;
+      margin-bottom: 0px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    img {
+      height: 73px;
+      width: 65px;
+    }
+
+    strong {
+      font-size: 20px;
+      color: $grey-1;
+      margin-bottom: 8px;
+    }
+
+    div {
+      color: $grey-9;
+      font-size: 14px;
+      font-weight: normal;
+      letter-spacing: 0.15px;
+      line-height: 24px;
+      text-align: center;
+      width: 294px;
+    }
   }
 }
 
