@@ -37,7 +37,7 @@
     "b b b b";
   grid-gap: 16px;
 
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: $font-open-sans;
   padding: 64px 0;
   margin: 0 16px;
 
@@ -91,7 +91,7 @@
     margin: 0 auto;
     grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
     grid-template-areas:
-      ". a a a a a . b b b b b b .";
+      ". a a a a a a . b b b b b .";
     grid-gap: 24px;
 
     &--reverse {
