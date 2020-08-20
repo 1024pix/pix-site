@@ -3,8 +3,8 @@
     class="article"
     :class="{
       'article--only-text': layout === 'only-text',
-      'row-block': layout === 'text-image',
-      'row-block row-block--reverse': layout === 'image-text',
+      'row-block': layout === 'text-image' || 'image-text',
+      'row-block--reverse': layout === 'image-text',
     }"
   >
     <div
@@ -37,13 +37,18 @@
         </a>
       </div>
     </div>
-    <div
+    <img
       v-if="layout !== 'only-text'"
-      class="row-block__right-content article__illustrations"
-    >
-      <img :src="background" class="article-illustrations__background" />
-      <img :src="image" class="article-illustrations__image" />
-    </div>
+      :src="background"
+      class="row-block__right-content row-block-right-content__background article-illustrations__background"
+      :alt="altBackground"
+    />
+    <img
+      v-if="layout !== 'only-text'"
+      :src="image"
+      class="row-block__right-content row-block-right-content__image article-illustrations__image"
+      :alt="altImage"
+    />
   </div>
 </template>
 
@@ -62,6 +67,12 @@ export default {
     },
   },
   computed: {
+    altImage() {
+      return this.content.primary['article-image'].alt
+    },
+    altBackground() {
+      return this.content.primary['article-background'].alt
+    },
     background() {
       return this.content.primary['article-background'].url
     },
@@ -157,15 +168,6 @@ export default {
       line-height: 2.875rem;
       margin-top: 0;
     }
-  }
-}
-
-.article-illustrations {
-  &__background {
-  }
-
-  &__image {
-    position: absolute;
   }
 }
 </style>
