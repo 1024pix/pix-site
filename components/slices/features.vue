@@ -1,6 +1,6 @@
 <template>
   <section class="features">
-    <prismic-rich-text class="features__title" :field="title" />
+    <prismic-rich-text v-if="hasTitle" class="features__title" :field="title" />
     <div class="features__container">
       <div
         v-for="(featuresInARow, rowIndex) in featuresByRow"
@@ -52,6 +52,14 @@ export default {
     },
     paragraphs() {
       return this.content.items
+    },
+    hasTitle() {
+      return (
+        this.content.primary.featurestitle &&
+        this.content.primary.featurestitle.length &&
+        this.content.primary.featurestitle[0].text &&
+        this.content.primary.featurestitle[0].text.length
+      )
     },
     title() {
       return this.content.primary.featurestitle
