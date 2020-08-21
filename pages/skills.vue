@@ -136,5 +136,9 @@ export default {
       }
     }
   }
+
+  .section__flex-content {
+    max-width: 100%;
+  }
 }
 </style>
