@@ -3,7 +3,7 @@
     <prismic-rich-text v-if="hasTitle" class="features__title" :field="title" />
     <div class="features__container">
       <div
-        v-for="(featuresInARow, rowIndex) in featuresByRow"
+        v-for="(featuresInARow, rowIndex) in featuresByRow()"
         :key="`item-${rowIndex}`"
         class="features-container__row"
       >
@@ -30,6 +30,11 @@
 </template>
 
 <script>
+import {
+  DESKTOP_MIN_WIDTH,
+  EXTRA_LARGE_SCREEN_MIN_WIDTH,
+} from '~/config/breakpoints'
+
 export default {
   name: 'FeaturesSlice',
   props: {
@@ -39,17 +44,6 @@ export default {
     },
   },
   computed: {
-    nbFeaturesInRow() {
-      return 3
-    },
-    featuresByRow() {
-      const rows = []
-      const chunkSize = this.nbFeaturesInRow
-      for (let i = 0; i < this.paragraphs.length; i += chunkSize) {
-        rows.push(this.paragraphs.slice(i, i + chunkSize))
-      }
-      return rows
-    },
     paragraphs() {
       return this.content.items
     },
@@ -63,6 +57,32 @@ export default {
     },
     title() {
       return this.content.primary.featurestitle
+    },
+  },
+  methods: {
+    nbFeaturesInRow() {
+      if (process.client) {
+        const isExtraLargeScreen = screen.width >= EXTRA_LARGE_SCREEN_MIN_WIDTH
+        const isDesktopScreen = screen.width <= DESKTOP_MIN_WIDTH
+
+        if (this.paragraphs.length === 4) {
+          if (isExtraLargeScreen && !this.hasTitle) {
+            return 4
+          } else if (isDesktopScreen && this.hasTitle) {
+            return 2
+          }
+        }
+      }
+
+      return 3
+    },
+    featuresByRow() {
+      const rows = []
+      const chunkSize = this.nbFeaturesInRow()
+      for (let i = 0; i < this.paragraphs.length; i += chunkSize) {
+        rows.push(this.paragraphs.slice(i, i + chunkSize))
+      }
+      return rows
     },
   },
 }
