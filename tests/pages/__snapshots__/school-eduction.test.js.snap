@@ -2,41 +2,17 @@
 
 exports[`School Education Page renders properly 1`] = `
 "<div class=\\"school-education\\">
-  <hero-banner-stub content=\\"[object Object]\\" sectionclass=\\"school-education__hero-banner\\" backgroundclass=\\"hero-banner__background\\" contentclass=\\"school-education hero-banner__content\\" buttonclass=\\"hero-banner-content__button\\"></hero-banner-stub>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"school-education__infos\\" containerclass=\\"\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"\\"></section-slice-stub>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"school-education__pourquoi-pix\\" containerclass=\\"pourquoi-pix__container\\" flexcontainerclass=\\"pourquoi-pix-container__list\\" flexcontentclass=\\"pourquoi-pix-container-list__item\\" buttonclass=\\"\\"></section-slice-stub>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"school-education__mesurer\\" containerclass=\\"mesurer__container\\" flexcontainerclass=\\"mesurer-container__list\\" flexcontentclass=\\"mesurer-container-list__item\\" buttonclass=\\"\\"></section-slice-stub>
-  <section-column-slice-stub content=\\"[object Object]\\" sectionclass=\\"school-education__developper\\" ulclass=\\"developper__list\\" liclass=\\"developper__item\\" rightclass=\\"developper__image\\"></section-column-slice-stub>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"school-education__valoriser\\" containerclass=\\"valoriser__container\\" flexcontainerclass=\\"valoriser-container__list\\" flexcontentclass=\\"valoriser-container-list__item\\" buttonclass=\\"\\"></section-slice-stub>
-  <div id=\\"pix-orga\\">
-    <section class=\\"section-utiliser-pix\\">
-      <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
-      <div class=\\"container\\">
-        <div class=\\"column\\">
-          <prismic-rich-text-stub></prismic-rich-text-stub>
-          <prismic-rich-text-stub></prismic-rich-text-stub>
-          <hr class=\\"text-left mb-2 mt-2\\">
-          <prismic-rich-text-stub></prismic-rich-text-stub>
-        </div>
-      </div>
-    </section>
-  </div>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"school-education__deploiement\\" containerclass=\\"deploiement__container\\" flexcontainerclass=\\"deploiement-container__list\\" flexcontentclass=\\"deploiement-container-list__item\\" buttonclass=\\"\\"></section-slice-stub>
-  <section class=\\"section-agenda\\">
-    <div class=\\"background\\"></div>
-    <div class=\\"container\\">
-      <prismic-image-stub></prismic-image-stub>
-      <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
-      <div style=\\"margin: auto;\\">
-        <div class=\\"column mb-0-2\\">
-          <prismic-rich-text-stub></prismic-rich-text-stub>
-          <prismic-rich-text-stub></prismic-rich-text-stub>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"school-education__deploiement-end\\" containerclass=\\"deploiement-end__container\\" flexcontainerclass=\\"deploiement-end-container__list\\" flexcontentclass=\\"deploiement-end-container-list__item\\" buttonclass=\\"\\"></section-slice-stub>
-  <key-numbers-stub content=\\"[object Object]\\" contentid=\\"\\"></key-numbers-stub>
+  <banner-stub content=\\"[object Object]\\"></banner-stub>
+  <slice-section-stub content=\\"[object Object]\\" sectionclass=\\"section\\" containerclass=\\"section__container\\" flexcontainerclass=\\"section__flex-container\\" flexcontentclass=\\"section__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
+  <slice-section-stub content=\\"[object Object]\\" sectionclass=\\"school-education__innovation\\" containerclass=\\"section__container\\" flexcontainerclass=\\"school-education-innovation__flex-container\\" flexcontentclass=\\"school-education-innovation__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
+  <slice-section-stub content=\\"[object Object]\\" sectionclass=\\"school-education__student-support\\" containerclass=\\"section__container\\" flexcontainerclass=\\"school-education-student-support__flex-container\\" flexcontentclass=\\"school-education-student-support__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
+  <slice-section-stub content=\\"[object Object]\\" sectionclass=\\"section\\" containerclass=\\"section__container\\" flexcontainerclass=\\"section__flex-container\\" flexcontentclass=\\"section__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
+  <slice-section-stub content=\\"[object Object]\\" sectionid=\\"mise-en-place\\" sectionclass=\\"school-education__setting-up\\" containerclass=\\"section__container\\" flexcontainerclass=\\"school-education-setting-up__flex-container\\" flexcontentclass=\\"school-education-setting-up__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
+  <slice-section-stub content=\\"[object Object]\\" sectionclass=\\"section\\" containerclass=\\"section__container\\" flexcontainerclass=\\"section__flex-container\\" flexcontentclass=\\"section__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub> <video controls=\\"controls\\" poster=\\"https://images.prismic.io/pix-site/b9f4c26b-f454-422f-ae00-a2d56b060a92_pix-ambassadeurs-poster.png?auto=compress,format\\" class=\\"video-slice\\">
+    <source src=\\"https://storage.gra.cloud.ovh.net/v1/AUTH_27c5a6d3d35841a5914c7fb9a8e96345/pix-videos/general/Pix-ambassadeurs.mp4\\" type=\\"video/mp4\\"></video>
+  <slice-section-stub content=\\"[object Object]\\" sectionclass=\\"section\\" containerclass=\\"section__container\\" flexcontainerclass=\\"section__flex-container\\" flexcontentclass=\\"section__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
+  <slice-section-stub sectionid=\\"contenus-evaluation\\" sectionclass=\\"section\\" containerclass=\\"section__container\\" flexcontainerclass=\\"section__flex-container\\" flexcontentclass=\\"section__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
+  <slice-section-stub sectionclass=\\"school-education__accompaniment\\" containerclass=\\"section__container\\" flexcontainerclass=\\"school-education-accompaniment__flex-container\\" flexcontentclass=\\"school-education-accompaniment__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
   <prismic-edit-button-stub></prismic-edit-button-stub>
 </div>"
 `;

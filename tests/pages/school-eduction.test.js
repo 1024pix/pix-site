@@ -1,4 +1,4 @@
-import { getInitialised, emptyPrismicDocument } from './utils'
+import { getInitialised } from './utils'
 import { documentFetcher } from '~/services/document-fetcher'
 
 jest.mock('~/services/document-fetcher')
@@ -16,24 +16,8 @@ describe('School Education Page', () => {
       data: {
         id: '',
         meta: '',
-        body: [
-          {},
-          {},
-          {},
-          {},
-          {},
-          {},
-          emptyPrismicDocument(),
-          {},
-          emptyPrismicDocument(),
-          {},
-        ],
+        body: [{}, {}, {}, {}, {}, {}, {}, {}],
       },
-    })
-
-    get.mockResolvedValueOnce({
-      id: '',
-      data: {},
     })
 
     wrapper = await getInitialised('school-education', {
