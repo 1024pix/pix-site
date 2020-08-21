@@ -57,22 +57,6 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
       )
       return document.results[0]
     },
-    getVerifyCertificationForm: async () => {
-      const api = await getApi()
-      const document = await api.query(
-        Prismic.Predicates.at(
-          'document.type',
-          'verify-certification-score-form'
-        ),
-        { lang }
-      )
-
-      if (!document.results) {
-        return {}
-      }
-
-      return document.results[0]
-    },
     getPreviewUrl: async (previewToken) => {
       const api = await getApi()
       return api.previewSession(previewToken, LinkResolver, '/')

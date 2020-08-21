@@ -91,33 +91,6 @@ describe('DocumentFetcher', () => {
     expect(result).toEqual(expected)
   })
 
-  test('it should get verify certification form page', async () => {
-    // Given
-    const expectedValue = Symbol('VALUE')
-    const expectedPredicatesAtValue = Symbol('AT')
-    const prismicApi = {
-      query: jest.fn(() => ({ results: [expectedValue] })),
-    }
-    Prismic.getApi.mockResolvedValue(prismicApi)
-
-    const prismicPredicates = {
-      at: jest.fn(() => expectedPredicatesAtValue),
-    }
-    Prismic.Predicates = prismicPredicates
-
-    // When
-    const response = await documentFetcher().getVerifyCertificationForm()
-    // Then
-    expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
-      lang: 'fr-fr',
-    })
-    expect(prismicPredicates.at).toBeCalledWith(
-      'document.type',
-      'verify-certification-score-form'
-    )
-    expect(response).toEqual(expectedValue)
-  })
-
   test('it should get simplePage by UID', async () => {
     // Given
     const expectedValue = Symbol('VALUE')
