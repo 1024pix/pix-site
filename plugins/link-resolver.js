@@ -9,7 +9,6 @@ export default function (doc) {
     'cgu_page',
     'statistiques',
     'legal-notices',
-    'verify-certification-score',
   ]
   if (staticRoute.includes(doc.type)) {
     return `/${doc.uid}`
