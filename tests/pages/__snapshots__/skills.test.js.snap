@@ -8,6 +8,5 @@ exports[`Skills Page renders properly 1`] = `
     </div>
   </header>
   <main class=\\"page-body\\"></main>
-  <prismic-edit-button-stub></prismic-edit-button-stub>
 </div>"
 `;

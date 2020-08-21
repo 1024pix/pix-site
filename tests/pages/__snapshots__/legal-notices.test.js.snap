@@ -16,6 +16,5 @@ exports[`Legal Notices Page renders properly 1`] = `
       <prismic-rich-text-stub></prismic-rich-text-stub>
     </section>
   </main>
-  <prismic-edit-button-stub></prismic-edit-button-stub>
 </div>"
 `;

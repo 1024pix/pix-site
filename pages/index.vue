@@ -29,7 +29,6 @@
       :flex-content-class="'features-container-list__item'"
     >
     </section-slice>
-    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -51,13 +50,13 @@ export default {
   },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n, req).get(documents.index)
-      if (process.client) window.prismic.setupEditButton()
+      const document = await documentFetcher(app.$prismic, app.i18n, req).get(
+        documents.index
+      )
       return {
         currentPagePath,
         meta: document.data.meta,
         document: document.data.body,
-        documentId: document.id,
       }
     } catch (e) {
       // eslint-disable-next-line no-console

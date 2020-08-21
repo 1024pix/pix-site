@@ -1,5 +1,4 @@
 import { transports } from 'winston'
-import PrismicConfig from './prismic.config'
 
 export default {
   mode: 'universal',
@@ -35,16 +34,6 @@ export default {
           'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,400i|Roboto:400,500,600',
       },
     ],
-    script: [
-      {
-        innerHTML:
-          '{ window.prismic = { endpoint: "' +
-          PrismicConfig.apiEndpoint +
-          '"} }',
-      },
-      { src: '//static.cdn.prismic.io/prismic.min.js' },
-    ],
-    __dangerouslyDisableSanitizers: ['script'],
   },
   /*
    ** Customize the progress-bar color
@@ -58,9 +47,6 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/link-resolver.js',
-    '~/plugins/html-serializer.js',
-    '~/plugins/prismic-vue.js',
     '~/plugins/i18n.js',
     '~/plugins/components.js',
     '~/plugins/meta.js',
@@ -119,6 +105,7 @@ export default {
         },
       },
     ],
+    '@nuxtjs/prismic',
   ],
   moment: {
     locales: ['fr'],
@@ -152,6 +139,11 @@ export default {
     vueI18n: {
       fallbackLocale: 'fr-fr',
     },
+  },
+  prismic: {
+    endpoint: process.env.PRISMIC_API_ENDPOINT,
+    linkResolver: '@/plugins/link-resolver',
+    htmlSerializer: '@/plugins/html-serializer',
   },
   router: {
     middleware: 'current-page-path',

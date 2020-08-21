@@ -9,12 +9,12 @@ export default function getMeta(meta, currentPagePath, prismic) {
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: prismic.richTextAsPlain(twitterMeta.primary.title),
+        content: prismic.asText(twitterMeta.primary.title),
       },
       {
         hid: 'twitter:description',
         name: 'twitter:description',
-        content: prismic.richTextAsPlain(twitterMeta.primary.description),
+        content: prismic.asText(twitterMeta.primary.description),
       },
       { hid: '', name: 'twitter:site', content: '@Pix_officiel' },
       {
@@ -33,12 +33,12 @@ export default function getMeta(meta, currentPagePath, prismic) {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: prismic.richTextAsPlain(ogMeta.primary.title),
+        content: prismic.asText(ogMeta.primary.title),
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: prismic.richTextAsPlain(ogMeta.primary.description),
+        content: prismic.asText(ogMeta.primary.description),
       },
       { hid: 'og:type', property: 'og:type', content: 'article' },
       {

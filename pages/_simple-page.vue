@@ -17,7 +17,6 @@
         </div>
       </section>
     </div>
-    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -34,10 +33,12 @@ export default {
   },
   async asyncData({ params, app, req, error, currentPagePath }) {
     try {
-      const newsItem = await documentFetcher(app.i18n, req).getSimplePageByUid(
-        params.uid
-      )
-      return { currentPagePath, newsItem, documentId: newsItem.id }
+      const newsItem = await documentFetcher(
+        app.$prismic,
+        app.i18n,
+        req
+      ).getSimplePageByUid(params.uid)
+      return { currentPagePath, newsItem }
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error({ e })

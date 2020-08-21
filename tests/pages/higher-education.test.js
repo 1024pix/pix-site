@@ -37,7 +37,7 @@ describe('Higher Education Page', () => {
       stubs: ['prismic-edit-button', 'prismic-rich-text', 'pix-link'],
       computed: {
         $prismic() {
-          return { richTextAsPlain: () => {} }
+          return { asText: () => {} }
         },
       },
     })

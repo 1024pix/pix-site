@@ -34,7 +34,6 @@
       flex-container-class="school-education-accompaniment__flex-container"
       flex-content-class="school-education-accompaniment__flex-content"
     />
-    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -58,15 +57,13 @@ export default {
   },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n, req).get(
+      const document = await documentFetcher(app.$prismic, app.i18n, req).get(
         documents.schoolEducation
       )
-      if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
         meta: document.data.meta,
         document: document.data.body,
-        documentId: document.id,
       }
     } catch (e) {
       // eslint-disable-next-line no-console

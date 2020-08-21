@@ -5,7 +5,7 @@
       <div class="container padding-container">
         <prismic-rich-text :field="document[0].primary.title" />
         <pix-link class="btn" :field="document[0].items[0].link_button">
-          {{ $prismic.richTextAsPlain(document[0].items[0].title_button) }}
+          {{ $prismic.asText(document[0].items[0].title_button) }}
         </pix-link>
       </div>
     </section>
@@ -58,7 +58,7 @@
         </div>
         <div style="margin: auto;">
           <a class="btn" :href="document[5].primary.button_link">
-            {{ $prismic.richTextAsPlain(document[5].primary.button_text) }}
+            {{ $prismic.asText(document[5].primary.button_text) }}
           </a>
         </div>
       </div>
@@ -80,7 +80,6 @@
       </div>
     </section>
     <key-numbers :content="keyNumbers" :content-id="keyNumbersId" />
-    <prismic-edit-button :document-id="documentId" />
   </div>
 </template>
 
@@ -102,19 +101,17 @@ export default {
   components: { KeyNumbers, SectionSlice, SectionColumnSlice },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.i18n, req).get(
+      const document = await documentFetcher(app.$prismic, app.i18n, req).get(
         documents.higherEducation
       )
-      const keyNumbers = await documentFetcher(app.i18n, req).get(
+      const keyNumbers = await documentFetcher(app.$prismic, app.i18n, req).get(
         documents.keyNumbers
       )
 
-      if (process.client) window.prismic.setupEditButton()
       return {
         currentPagePath,
         meta: document.data.meta,
         document: document.data.body,
-        documentId: document.id,
         keyNumbers: keyNumbers.data,
         keyNumbersId: keyNumbers.id,
       }

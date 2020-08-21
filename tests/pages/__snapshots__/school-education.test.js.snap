@@ -13,6 +13,5 @@ exports[`School Education Page renders properly 1`] = `
   <slice-section-stub content=\\"[object Object]\\" sectionclass=\\"section\\" containerclass=\\"section__container\\" flexcontainerclass=\\"section__flex-container\\" flexcontentclass=\\"section__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
   <slice-section-stub sectionid=\\"contenus-evaluation\\" sectionclass=\\"section\\" containerclass=\\"section__container\\" flexcontainerclass=\\"section__flex-container\\" flexcontentclass=\\"section__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
   <slice-section-stub sectionclass=\\"school-education__accompaniment\\" containerclass=\\"section__container\\" flexcontainerclass=\\"school-education-accompaniment__flex-container\\" flexcontentclass=\\"school-education-accompaniment__flex-content\\" buttonclass=\\"section__button\\"></slice-section-stub>
-  <prismic-edit-button-stub></prismic-edit-button-stub>
 </div>"
 `;

@@ -1,5 +1,3 @@
-import Prismic from 'prismic-javascript'
-import PrismicConfig from '~/prismic.config.js'
 import LinkResolver from '~/plugins/link-resolver.js'
 
 export const documents = {
@@ -18,13 +16,16 @@ export const documents = {
   skills: 'competences',
 }
 
-export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
+export function documentFetcher(
+  prismic,
+  i18n = { defaultLocale: 'fr-fr' },
+  req
+) {
   const lang = i18n.locale || i18n.defaultLocale
   return {
     get: getSingle,
     getEmployers: async () => {
-      const api = await getApi()
-      const document = api.getSingle('employers', {
+      const document = await prismic.api.getSingle('employers', {
         lang,
         fetchLinks: [
           'distributor_item.description',
@@ -37,9 +38,8 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
       return document
     },
     findNewsItems: async ({ page, pageSize } = { page: 1, pageSize: 20 }) => {
-      const api = await getApi()
-      const documents = await api.query(
-        Prismic.Predicates.at('document.type', 'news_item'),
+      const documents = await prismic.api.query(
+        prismic.predicates.at('document.type', 'news_item'),
         {
           page,
           pageSize,
@@ -50,33 +50,25 @@ export function documentFetcher(i18n = { defaultLocale: 'fr-fr' }, req) {
       return documents.results
     },
     getNewsItemByUid: async (slug) => {
-      const api = await getApi()
-      const document = await api.query(
-        Prismic.Predicates.at('my.news_item.uid', slug),
+      const document = await prismic.api.query(
+        prismic.predicates.at('my.news_item.uid', slug),
         { lang }
       )
       return document.results[0]
     },
-    getPreviewUrl: async (previewToken) => {
-      const api = await getApi()
-      return api.previewSession(previewToken, LinkResolver, '/')
+    getPreviewUrl: (previewToken) => {
+      return prismic.api.previewSession(previewToken, LinkResolver, '/')
     },
     getSimplePageByUid: async (uid) => {
-      const api = await getApi()
-      const document = await api.query(
-        Prismic.Predicates.at('my.simple_page.uid', uid),
+      const document = await prismic.api.query(
+        prismic.predicates.at('my.simple_page.uid', uid),
         { lang }
       )
       return document.results[0]
     },
   }
 
-  async function getSingle(type) {
-    const api = await getApi()
-    return api.getSingle(type, { lang })
-  }
-
-  function getApi() {
-    return Prismic.getApi(PrismicConfig.apiEndpoint, { req })
+  function getSingle(type) {
+    return prismic.api.getSingle(type, { lang })
   }
 }

@@ -26,7 +26,7 @@
       v-if="!isClosed"
       class="pop-in-campaigns__btn"
       :href="content.primary.button_link.url"
-      >{{ $prismic.richTextAsPlain(content.primary.button_title) }}</a
+      >{{ $prismic.asText(content.primary.button_title) }}</a
     >
   </div>
 </template>
