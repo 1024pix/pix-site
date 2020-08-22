@@ -47,7 +47,7 @@
 </template>
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import HeroBanner from '~/components/slices/hero-banner'
+import HeroBanner from '@/components/slices/HeroBanner'
 import SectionSlice from '~/components/slices/section'
 import SectionColumnSlice from '~/components/slices/section-column'
 

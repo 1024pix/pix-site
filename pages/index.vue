@@ -34,7 +34,7 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import HeroBanner from '~/components/slices/hero-banner'
+import HeroBanner from '@/components/slices/HeroBanner'
 import ImgTextColumnSlice from '~/components/slices/img-text-column'
 import SectionSlice from '~/components/slices/section'
 import PopInCampaigns from '~/components/pop-in-campaigns'
