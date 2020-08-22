@@ -37,7 +37,7 @@ import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '@/components/slices/HeroBanner'
 import ImgTextColumnSlice from '@/components/slices/ImgTextColumn'
 import SectionSlice from '@/components/slices/Section'
-import PopInCampaigns from '~/components/pop-in-campaigns'
+import PopInCampaigns from '@/components/PopInCampaigns'
 import Banner from '@/components/slices/Banner'
 
 export default {
