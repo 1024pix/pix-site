@@ -56,7 +56,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import MainNav from '~/components/main-nav'
+import MainNav from '@/components/MainNav'
 import BurgerMenuNav from '@/components/BurgerMenuNav'
 import OrganizationNav from '~/components/organization-nav'
 
