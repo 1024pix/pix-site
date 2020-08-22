@@ -39,7 +39,7 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import Banner from '~/components/slices/banner'
+import Banner from '@/components/slices/Banner'
 import SliceSection from '~/components/slices/section'
 
 export default {
