@@ -48,7 +48,7 @@
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '@/components/slices/HeroBanner'
-import SectionSlice from '~/components/slices/section'
+import SectionSlice from '@/components/slices/Section'
 import SectionColumnSlice from '~/components/slices/section-column'
 
 export default {

@@ -85,7 +85,7 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import SectionSlice from '~/components/slices/section'
+import SectionSlice from '@/components/slices/Section'
 import SectionColumnSlice from '~/components/slices/section-column'
 import KeyNumbers from '~/components/key-numbers'
 

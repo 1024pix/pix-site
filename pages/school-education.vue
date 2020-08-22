@@ -40,7 +40,7 @@
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import Banner from '@/components/slices/Banner'
-import SliceSection from '~/components/slices/section'
+import SliceSection from '@/components/slices/Section'
 
 export default {
   name: 'SchoolEducation',
