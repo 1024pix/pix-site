@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import MultipleColumn from '~/components/slices/multiple-column'
+import MultipleColumn from '@/components/slices/MultipleColumn'
 import WebSnippet from '~/components/slices/web-snippet'
 
 export default {
