@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import VideoSlice from './video'
+import VideoSlice from './Video'
 
 export default {
   name: 'HeroBanner',
