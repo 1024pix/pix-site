@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import LanguageDropdown from '~/components/language-dropdown'
+import LanguageDropdown from '@/components/LanguageDropdown'
 
 export default {
   components: {
