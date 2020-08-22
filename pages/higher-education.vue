@@ -86,7 +86,7 @@
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import SectionSlice from '@/components/slices/Section'
-import SectionColumnSlice from '~/components/slices/section-column'
+import SectionColumnSlice from '@/components/slices/SectionColumn'
 import KeyNumbers from '~/components/key-numbers'
 
 export default {
