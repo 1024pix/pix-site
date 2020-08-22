@@ -78,7 +78,7 @@ h6 {
 <script>
 import AppFooter from '@/components/AppFooter'
 import HeaderNav from '@/components/HeaderNav'
-import HotNewsBanner from '~/components/hot-news-banner'
+import HotNewsBanner from '@/components/HotNewsBanner'
 export default {
   components: { HotNewsBanner, AppFooter, HeaderNav },
 }
