@@ -66,16 +66,16 @@ export default {
   },
   computed: {
     demoDocument() {
-      return this.document[1]
-    },
-    featuresDocument() {
       return this.document[2]
     },
-    popInCampaignDocument() {
+    featuresDocument() {
       return this.document[3]
     },
+    popInCampaignDocument() {
+      return this.document[4]
+    },
     bannerDocument() {
-      return this.document[0]
+      return this.document[1]
     },
   },
   head() {
