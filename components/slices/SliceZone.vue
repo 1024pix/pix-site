@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import MultipleColumn from '~/components/slices/multiple-column'
-import WebSnippet from '~/components/slices/web-snippet'
+import MultipleColumn from '@/components/slices/MultipleColumn'
+import WebSnippet from '@/components/slices/WebSnippet'
 
 export default {
   name: 'SliceZone',

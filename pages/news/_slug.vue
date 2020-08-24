@@ -11,7 +11,7 @@
 
 <script>
 import { documentFetcher } from '~/services/document-fetcher'
-import NewsItemPost from '~/components/news-item-post'
+import NewsItemPost from '@/components/NewsItemPost'
 
 export default {
   nuxtI18n: {

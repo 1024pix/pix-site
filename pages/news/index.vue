@@ -27,7 +27,7 @@
 </template>
 <script>
 import { documentFetcher } from '~/services/document-fetcher'
-import NewsItemCard from '~/components/news-item-card'
+import NewsItemCard from '@/components/NewsItemCard'
 
 export default {
   name: 'Index',

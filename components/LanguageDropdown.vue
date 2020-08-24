@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import DropdownButton from '~/components/dropdown-button'
+import DropdownButton from '@/components/DropdownButton'
 
 export default {
   name: 'LanguageDropdown',

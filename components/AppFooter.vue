@@ -84,8 +84,8 @@
 </template>
 
 <script>
-import ResourcesNav from '~/components/resources-nav'
-import AboutNav from '~/components/about-nav'
+import ResourcesNav from '@/components/ResourcesNav'
+import AboutNav from '@/components/AboutNav'
 
 export default {
   name: 'AppFooter',

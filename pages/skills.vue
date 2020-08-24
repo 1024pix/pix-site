@@ -25,7 +25,7 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import SectionSlice from '~/components/slices/section'
+import SectionSlice from '@/components/slices/Section'
 export default {
   name: 'Skills',
   nuxtI18n: {

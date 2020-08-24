@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import VideoSlice from './video'
+import VideoSlice from './Video'
 import { DESKTOP_MIN_WIDTH } from '~/config/breakpoints'
 
 export default {

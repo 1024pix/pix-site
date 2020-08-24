@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import LineChart from '~/components/line-chart'
+import LineChart from '@/components/LineChart'
 
 export default {
   name: 'ChartSection',

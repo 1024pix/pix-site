@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import FormablePage from '~/components/formable-page'
+import FormablePage from '@/components/FormablePage'
 
 export default {
   name: 'ContactDigitalMediation',
