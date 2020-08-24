@@ -65,17 +65,17 @@ export default {
     }
   },
   computed: {
+    bannerDocument() {
+      return this.document[0]
+    },
     demoDocument() {
-      return this.document[2]
+      return this.document[1]
     },
     featuresDocument() {
-      return this.document[3]
+      return this.document[2]
     },
     popInCampaignDocument() {
-      return this.document[4]
-    },
-    bannerDocument() {
-      return this.document[1]
+      return this.document[3]
     },
   },
   head() {
