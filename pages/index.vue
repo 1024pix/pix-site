@@ -33,7 +33,7 @@ import HeroBanner from '@/components/slices/HeroBanner'
 import SectionSlice from '@/components/slices/Section'
 import PopInCampaigns from '@/components/PopInCampaigns'
 import Banner from '@/components/slices/Banner'
-import DemoSection from '@/components/slices/demo-section'
+import DemoSection from '@/components/slices/DemoSection'
 
 export default {
   components: {
