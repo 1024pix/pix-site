@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import CtaButton from '../cta-button'
+import CtaButton from '../CtaButton'
 
 export default {
   name: 'Article',
