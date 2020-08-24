@@ -14,12 +14,7 @@
     </div>
     <banner v-else :content="bannerDocument"></banner>
 
-    <img-text-column-slice
-      :content="demoDocument"
-      :section-class="'section-demo'"
-      :container-class="'section-demo__container'"
-      :button-class="'section-demo__button'"
-    ></img-text-column-slice>
+    <demo-section :content="demoDocument" />
 
     <section-slice
       :content="featuresDocument"
@@ -35,17 +30,17 @@
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '@/components/slices/HeroBanner'
-import ImgTextColumnSlice from '@/components/slices/ImgTextColumn'
 import SectionSlice from '@/components/slices/Section'
 import PopInCampaigns from '@/components/PopInCampaigns'
 import Banner from '@/components/slices/Banner'
+import DemoSection from '@/components/slices/demo-section'
 
 export default {
   components: {
+    DemoSection,
     PopInCampaigns,
     HeroBanner,
     SectionSlice,
-    ImgTextColumnSlice,
     Banner,
   },
   async asyncData({ app, error, req, currentPagePath }) {

@@ -10,6 +10,9 @@
       <template v-if="slice.slice_type === 'web_snippet'">
         <web-snippet :slice="slice" />
       </template>
+      <template v-if="slice.slice_type === 'demo_section'">
+        <demo-section :content="slice" />
+      </template>
     </section>
   </div>
 </template>
@@ -17,10 +20,11 @@
 <script>
 import MultipleColumn from '@/components/slices/MultipleColumn'
 import WebSnippet from '@/components/slices/WebSnippet'
+import DemoSection from '@/components/slices/demo-section'
 
 export default {
   name: 'SliceZone',
-  components: { WebSnippet, MultipleColumn },
+  components: { DemoSection, WebSnippet, MultipleColumn },
   props: {
     slices: {
       type: Array,
