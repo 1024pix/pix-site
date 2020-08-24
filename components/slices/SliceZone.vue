@@ -20,7 +20,7 @@
 <script>
 import MultipleColumn from '@/components/slices/MultipleColumn'
 import WebSnippet from '@/components/slices/WebSnippet'
-import DemoSection from '@/components/slices/demo-section'
+import DemoSection from '@/components/slices/DemoSection'
 
 export default {
   name: 'SliceZone',
