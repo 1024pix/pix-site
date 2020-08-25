@@ -37,17 +37,15 @@
         </a>
       </div>
     </div>
-    <img
+    <prismic-image
       v-if="layout !== 'only-text'"
-      :src="background"
+      :field="background"
       class="row-block__secondary-content row-block-secondary-content__background article-illustrations__background"
-      :alt="altBackground"
     />
-    <img
+    <prismic-image
       v-if="layout !== 'only-text'"
-      :src="image"
+      :field="image"
       class="row-block__secondary-content row-block-secondary-content__image article-illustrations__image"
-      :alt="altImage"
     />
   </div>
 </template>
@@ -67,20 +65,14 @@ export default {
     },
   },
   computed: {
-    altImage() {
-      return this.content.primary.article_image.alt
-    },
-    altBackground() {
-      return this.content.primary.article_background.alt
-    },
     background() {
-      return this.content.primary.article_background.url
+      return this.content.primary.article_background
     },
     description() {
       return this.content.primary.article_description
     },
     image() {
-      return this.content.primary.article_image.url
+      return this.content.primary.article_image
     },
     layout() {
       return this.content.primary.article_layout
