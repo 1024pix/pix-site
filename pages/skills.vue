@@ -13,7 +13,7 @@
       <section-slice
         v-for="(item, index) in document.body"
         :key="`item-${index}`"
-        :content="item"
+        :slice="item"
         :section-class="'area'"
         :container-class="'container md padding-container'"
         :flex-container-class="'competence'"

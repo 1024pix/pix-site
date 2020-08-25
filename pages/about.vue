@@ -5,11 +5,11 @@
       :background-class="'hero-banner__background'"
       :content-class="'hero-banner__content'"
       :button-class="'hero-banner-content__button'"
-      :content="document[0]"
+      :slice="document[0]"
     />
 
     <section-slice
-      :content="document[1]"
+      :slice="document[1]"
       :section-class="'about__mission'"
       :container-class="'mission__container'"
       :flex-container-class="'mission-container__list'"
@@ -18,7 +18,7 @@
     </section-slice>
 
     <section-column-slice
-      :content="document[2]"
+      :slice="document[2]"
       :section-class="'about__goal'"
       :ul-class="'goal__list'"
       :li-class="'goal__item'"
@@ -27,7 +27,7 @@
     </section-column-slice>
 
     <section-slice
-      :content="document[3]"
+      :slice="document[3]"
       :section-class="'about__public-service'"
       :container-class="'public-service__container'"
       :flex-container-class="'public-service-container__list'"
@@ -36,7 +36,7 @@
     </section-slice>
 
     <section-slice
-      :content="document[4]"
+      :slice="document[4]"
       :section-class="'about__co-built-service'"
       :container-class="'co-built-service__container'"
       :flex-container-class="'co-built-service-container__list'"

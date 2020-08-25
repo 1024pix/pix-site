@@ -12,7 +12,7 @@
       </section>
 
       <section-slice
-        :content="document.body[1]"
+        :slice="document.body[1]"
         :section-class="'section-members-gip container md padding-container'"
         :container-class="'legal-notices-members unstyled'"
         :flex-container-class="'legal-notices-members'"

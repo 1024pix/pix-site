@@ -1,35 +1,35 @@
 <template>
   <div class="school-education">
-    <banner :content="document[0]" />
-    <slice-section :content="document[1]" />
+    <banner :slice="document[0]" />
+    <slice-section :slice="document[1]" />
     <slice-section
-      :content="document[2]"
+      :slice="document[2]"
       section-class="school-education__innovation"
       flex-container-class="school-education-innovation__flex-container"
       flex-content-class="school-education-innovation__flex-content"
     />
     <slice-section
-      :content="document[3]"
+      :slice="document[3]"
       section-class="school-education__student-support"
       flex-container-class="school-education-student-support__flex-container"
       flex-content-class="school-education-student-support__flex-content"
     />
-    <slice-section :content="document[4]" />
+    <slice-section :slice="document[4]" />
     <slice-section
-      :content="document[5]"
+      :slice="document[5]"
       section-id="mise-en-place"
       section-class="school-education__setting-up"
       flex-container-class="school-education-setting-up__flex-container"
       flex-content-class="school-education-setting-up__flex-content"
     />
-    <slice-section :content="document[6]" />
+    <slice-section :slice="document[6]" />
     <video controls class="video-slice" :poster="videoPosterUrl">
       <source :src="videoUrl" type="video/mp4" />
     </video>
-    <slice-section :content="document[7]" />
-    <slice-section section-id="contenus-evaluation" :content="document[8]" />
+    <slice-section :slice="document[7]" />
+    <slice-section section-id="contenus-evaluation" :slice="document[8]" />
     <slice-section
-      :content="document[9]"
+      :slice="document[9]"
       section-class="school-education__accompaniment"
       flex-container-class="school-education-accompaniment__flex-container"
       flex-content-class="school-education-accompaniment__flex-content"

@@ -11,7 +11,7 @@
     </section>
 
     <section-slice
-      :content="document[1]"
+      :slice="document[1]"
       :section-class="'section-infos'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
@@ -19,7 +19,7 @@
     </section-slice>
 
     <section-slice
-      :content="document[2]"
+      :slice="document[2]"
       :section-class="'section-mesurer'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
@@ -27,7 +27,7 @@
     </section-slice>
 
     <section-column-slice
-      :content="document[3]"
+      :slice="document[3]"
       :section-class="'section-developper'"
       :ul-class="'features'"
       :li-class="'feature'"
@@ -36,7 +36,7 @@
     </section-column-slice>
 
     <section-slice
-      :content="document[4]"
+      :slice="document[4]"
       :section-class="'section-valoriser'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
@@ -79,7 +79,7 @@
         </div>
       </div>
     </section>
-    <key-numbers :content="keyNumbers" :content-id="keyNumbersId" />
+    <key-numbers :slice="keyNumbers" :content-id="keyNumbersId" />
   </div>
 </template>
 
@@ -87,7 +87,7 @@
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import SectionSlice from '@/components/slices/Section'
 import SectionColumnSlice from '@/components/slices/SectionColumn'
-import KeyNumbers from '@/components/KeyNumbers'
+import KeyNumbers from '@/components/slices/KeyNumbers'
 
 export default {
   name: 'HigherEducation',

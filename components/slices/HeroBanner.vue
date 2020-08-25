@@ -27,7 +27,7 @@ export default {
   name: 'HeroBanner',
   components: { VideoSlice },
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
@@ -50,16 +50,16 @@ export default {
   },
   computed: {
     title() {
-      return this.content.primary.title
+      return this.slice.primary.title
     },
     description() {
-      return this.content.primary.description
+      return this.slice.primary.description
     },
     buttonLink() {
-      return this.content.primary.button_link
+      return this.slice.primary.button_link
     },
     buttonText() {
-      return this.content.primary.button_title
+      return this.slice.primary.button_title
     },
     hasButton() {
       return this.buttonText && this.buttonText.length
@@ -68,10 +68,10 @@ export default {
       return this.videoButtonText
     },
     videoUrl() {
-      return this.content.primary.video_button_link.url
+      return this.slice.primary.video_button_link.url
     },
     videoButtonText() {
-      return this.content.primary.video_button_title
+      return this.slice.primary.video_button_title
     },
   },
   methods: {

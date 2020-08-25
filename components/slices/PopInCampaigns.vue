@@ -8,13 +8,13 @@
         <img
           class="pop-in-campaigns-content__close"
           alt="Fermer le panneau des campagnes"
-          src="/images/close-icon.svg"
+          src="/static/images/close-icon.svg"
           @click="togglePopIn()"
         />
         <img
           class="pop-in-campaigns-content__logo"
           alt=""
-          src="/images/logo-join-campaign.svg"
+          src="/static/images/logo-join-campaign.svg"
         />
       </template>
       <prismic-rich-text
@@ -25,8 +25,8 @@
     <a
       v-if="!isClosed"
       class="pop-in-campaigns__btn"
-      :href="content.primary.button_link.url"
-      >{{ $prismic.asText(content.primary.button_title) }}</a
+      :href="slice.primary.button_link.url"
+      >{{ $prismic.asText(slice.primary.button_title) }}</a
     >
   </div>
 </template>
@@ -35,7 +35,7 @@
 export default {
   name: 'PopInCampaigns',
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
@@ -48,8 +48,8 @@ export default {
   computed: {
     description() {
       return this.isClosed
-        ? this.content.primary.short_description
-        : this.content.primary.description
+        ? this.slice.primary.short_description
+        : this.slice.primary.description
     },
   },
   methods: {

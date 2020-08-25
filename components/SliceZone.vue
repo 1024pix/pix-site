@@ -11,10 +11,10 @@
         <web-snippet :slice="slice" />
       </template>
       <template v-if="slice.slice_type === 'pop-in'">
-        <pop-in-campaigns :content="slice" />
+        <pop-in-campaigns :slice="slice" />
       </template>
       <template v-if="slice.slice_type === 'banner'">
-        <banner :content="slice"></banner>
+        <banner :slice="slice"></banner>
       </template>
       <template v-if="slice.slice_type === 'old-banner'">
         <hero-banner
@@ -22,13 +22,13 @@
           :background-class="'hero-banner__background'"
           :content-class="'hero-banner__content'"
           :button-class="'hero-banner-content__button'"
-          :content="slice"
+          :slice="slice"
         >
         </hero-banner>
       </template>
       <template v-if="slice.slice_type === 'old-demo'">
         <img-text-column-slice
-          :content="slice"
+          :slice="slice"
           :section-class="'section-demo'"
           :container-class="'section-demo__container'"
           :button-class="'section-demo__button'"
@@ -36,7 +36,7 @@
       </template>
       <template v-if="slice.slice_type === 'old-features'">
         <section-slice
-          :content="slice"
+          :slice="slice"
           :section-class="'index__features'"
           :container-class="'features__container'"
           :flex-container-class="'features-container__list'"
@@ -60,7 +60,7 @@ import Banner from '@/components/slices/Banner'
 import HeroBanner from '@/components/slices/HeroBanner'
 import ImgTextColumnSlice from '@/components/slices/ImgTextColumn'
 import MultipleColumn from '@/components/slices/MultipleColumn'
-import PopInCampaigns from '@/components/PopInCampaigns'
+import PopInCampaigns from '@/components/slices/PopInCampaigns'
 import SectionSlice from '@/components/slices/Section'
 import WebSnippet from '@/components/slices/WebSnippet'
 import FeaturesSlice from '@/components/slices/Features'

@@ -28,7 +28,7 @@
 export default {
   name: 'SectionColumnSlice',
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
@@ -51,16 +51,16 @@ export default {
   },
   computed: {
     paragraphs() {
-      return this.content.items
+      return this.slice.items
     },
     title() {
-      return this.content.primary.title
+      return this.slice.primary.title
     },
     description() {
-      return this.content.primary.description
+      return this.slice.primary.description
     },
     image() {
-      return this.content.primary.image
+      return this.slice.primary.image
     },
     hasImage() {
       return this.image && this.image.url

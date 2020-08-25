@@ -47,34 +47,34 @@ export default {
   name: 'Banner',
   components: { VideoSlice },
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
   },
   computed: {
     title() {
-      return this.content.primary.bannertitle
+      return this.slice.primary.bannertitle
     },
     textContent() {
-      return this.content.primary.bannercontent
+      return this.slice.primary.bannercontent
     },
     links() {
-      return this.content.items
+      return this.slice.items
     },
     hasImage() {
       return (
-        this.content.primary.bannerimage && this.content.primary.bannerimage.url
+        this.slice.primary.bannerimage && this.slice.primary.bannerimage.url
       )
     },
     hasBackgroundImage() {
       return (
-        this.content.primary.bannerbackground &&
-        this.content.primary.bannerbackground.url
+        this.slice.primary.bannerbackground &&
+        this.slice.primary.bannerbackground.url
       )
     },
     imageUrl() {
-      return this.content.primary.bannerimage
+      return this.slice.primary.bannerimage
     },
   },
   mounted() {
@@ -103,7 +103,7 @@ export default {
         'banner-with-background'
       )[0]
       if (screen.width <= DESKTOP_MIN_WIDTH) {
-        banner.style.background = `no-repeat url(${this.content.primary.bannerbackground.url})`
+        banner.style.background = `no-repeat url(${this.slice.primary.bannerbackground.url})`
         banner.style.backgroundSize = '100%'
         banner.style.backgroundPosition = 'top right'
       } else {
