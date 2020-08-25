@@ -68,34 +68,34 @@ export default {
   },
   computed: {
     altImage() {
-      return this.content.primary['article-image'].alt
+      return this.content.primary.article_image.alt
     },
     altBackground() {
-      return this.content.primary['article-background'].alt
+      return this.content.primary.article_background.alt
     },
     background() {
-      return this.content.primary['article-background'].url
+      return this.content.primary.article_background.url
     },
     description() {
-      return this.content.primary['article-description']
+      return this.content.primary.article_description
     },
     image() {
-      return this.content.primary['article-image'].url
+      return this.content.primary.article_image.url
     },
     layout() {
-      return this.content.primary['article-layout']
+      return this.content.primary.article_layout
     },
     linkName() {
-      return this.content.primary['article-link-name']
+      return this.content.primary.article_link_name
     },
     linkType() {
-      return this.content.primary['article-link-type']
+      return this.content.primary.article_link_type
     },
     linkUrl() {
-      return this.content.primary['article-link-url'].url
+      return this.content.primary.article_link_url.url
     },
     title() {
-      return this.content.primary['article-title']
+      return this.content.primary.article_title
     },
   },
 }
