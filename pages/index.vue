@@ -1,52 +1,16 @@
 <template>
   <div class="index">
-    <pop-in-campaigns :content="popInCampaignDocument" />
-    <div v-if="bannerDocument.slice_type === 'hero-banner'">
-      <hero-banner
-        v-if="bannerDocument.slice_type === 'hero-banner'"
-        :section-class="'index__hero-banner'"
-        :background-class="'hero-banner__background'"
-        :content-class="'hero-banner__content'"
-        :button-class="'hero-banner-content__button'"
-        :content="bannerDocument"
-      >
-      </hero-banner>
-    </div>
-    <banner v-else :content="bannerDocument"></banner>
-
-    <img-text-column-slice
-      :content="demoDocument"
-      :section-class="'section-demo'"
-      :container-class="'section-demo__container'"
-      :button-class="'section-demo__button'"
-    ></img-text-column-slice>
-
-    <section-slice
-      :content="featuresDocument"
-      :section-class="'index__features'"
-      :container-class="'features__container'"
-      :flex-container-class="'features-container__list'"
-      :flex-content-class="'features-container-list__item'"
-    >
-    </section-slice>
+    <slice-zone :slices="slices" />
   </div>
 </template>
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import HeroBanner from '@/components/slices/HeroBanner'
-import ImgTextColumnSlice from '@/components/slices/ImgTextColumn'
-import SectionSlice from '@/components/slices/Section'
-import PopInCampaigns from '@/components/PopInCampaigns'
-import Banner from '@/components/slices/Banner'
+import SliceZone from '@/components/slices/SliceZone'
 
 export default {
   components: {
-    PopInCampaigns,
-    HeroBanner,
-    SectionSlice,
-    ImgTextColumnSlice,
-    Banner,
+    SliceZone,
   },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
@@ -65,17 +29,19 @@ export default {
     }
   },
   computed: {
-    bannerDocument() {
-      return this.document[0]
-    },
-    demoDocument() {
-      return this.document[1]
-    },
-    featuresDocument() {
-      return this.document[2]
-    },
-    popInCampaignDocument() {
-      return this.document[3]
+    slices() {
+      return this.document.map((slice, index) => {
+        if (slice.slice_type === 'hero-banner') {
+          slice.slice_type = 'old-banner'
+        }
+        if (index === 1 && slice.slice_type === 'section') {
+          slice.slice_type = 'old-demo'
+        }
+        if (index === 2 && slice.slice_type === 'section') {
+          slice.slice_type = 'old-features'
+        }
+        return slice
+      })
     },
   },
   head() {
