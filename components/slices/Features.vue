@@ -1,25 +1,25 @@
 <template>
   <section class="features">
     <prismic-rich-text v-if="hasTitle" class="features__title" :field="title" />
-    <div class="features__container">
+    <div class="features__wrapper">
       <div
         v-for="(featuresInARow, rowIndex) in featuresByRow()"
         :key="`item-${rowIndex}`"
-        class="features-container__row"
+        class="features-wrapper__row"
       >
         <div
           v-for="(feature, featureIndex) in featuresInARow"
           :key="`item-${featureIndex}`"
-          class="features-container__item"
+          class="features-wrapper__item"
         >
           <prismic-image :field="feature.featureimg" />
           <div>
             <prismic-rich-text
-              class="features-container-item__title"
+              class="features-wrapper-item__title"
               :field="feature.featurename"
             />
             <prismic-rich-text
-              class="features-container-item__description"
+              class="features-wrapper-item__description"
               :field="feature.featuredescription"
             />
           </div>
@@ -102,12 +102,12 @@ export default {
     margin-top: 64px;
   }
 
-  &__container {
+  &__wrapper {
     margin-top: 64px;
     margin-bottom: 64px;
   }
 
-  &-container__row {
+  &-wrapper__row {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -118,7 +118,7 @@ export default {
     }
   }
 
-  &-container__item {
+  &-wrapper__item {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,7 +140,7 @@ export default {
     }
   }
 
-  &-container-item {
+  &-wrapper-item {
     &__title h1 {
       width: 217px;
       color: $grey-1;
@@ -165,12 +165,12 @@ export default {
     margin-top: 80px;
   }
 
-  .features__container {
+  .features__wrapper {
     margin-top: 80px;
     margin-bottom: 80px;
   }
 
-  .features-container__item {
+  .features-wrapper__item {
     margin-bottom: 40px;
 
     img {
@@ -180,7 +180,7 @@ export default {
     }
   }
 
-  .features-container-item {
+  .features-wrapper-item {
     &__title h1 {
       width: 518px;
       font-size: 1.25rem;
@@ -197,18 +197,18 @@ export default {
     margin-top: 80px;
   }
 
-  .features__container {
+  .features__wrapper {
     margin-top: 80px;
     margin-bottom: 84px;
   }
 
-  .features-container__row {
+  .features-wrapper__row {
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
   }
 
-  .features-container__item {
+  .features-wrapper__item {
     display: block;
     margin-right: 98px;
     text-align: center;
@@ -218,7 +218,7 @@ export default {
     }
   }
 
-  .features-container-item {
+  .features-wrapper-item {
     &__title h1 {
       width: 200px;
       font-size: 1.25rem;
@@ -236,12 +236,12 @@ export default {
     margin-top: 120px;
   }
 
-  .features__container {
+  .features__wrapper {
     margin-top: 81px;
     margin-bottom: 121px;
   }
 
-  .features-container__item {
+  .features-wrapper__item {
     margin-right: 76px;
     text-align: center;
 
@@ -251,7 +251,7 @@ export default {
     }
   }
 
-  .features-container-item {
+  .features-wrapper-item {
     &__title h1 {
       width: 294px;
     }
