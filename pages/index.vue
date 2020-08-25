@@ -202,6 +202,68 @@ export default {
     }
   }
 
+  .features {
+    &__container {
+      margin: 0 auto;
+
+      h2 {
+        margin-top: 26px;
+        margin-bottom: 60px;
+        font-weight: 400;
+        text-align: center;
+        font-size: 36px;
+        line-height: 49px;
+      }
+    }
+
+    &-container {
+      &__list {
+        display: flex;
+        flex-flow: column;
+
+        @include device-is('large-mobile') {
+          margin: 0 30px;
+          flex-flow: row wrap;
+        }
+      }
+
+      &-list {
+        &__item {
+          width: 100%;
+          text-align: center;
+
+          @include device-is('large-mobile') {
+            width: 33%;
+            padding: 0 38px;
+          }
+          @include device-is('tablet') {
+            padding: 0 50px;
+          }
+
+          p {
+            &.block-img {
+              display: flex;
+              justify-content: center;
+
+              img {
+                max-height: 105px;
+              }
+            }
+          }
+        }
+        &__item:nth-child(1):nth-last-child(5),
+        &__item:nth-child(2):nth-last-child(4),
+        &__item:nth-child(3):nth-last-child(3),
+        &__item:nth-child(4):nth-last-child(2),
+        &__item:nth-child(5):nth-last-child(1) {
+          @include device-is('large-mobile') {
+            width: 20%;
+          }
+        }
+      }
+    }
+  }
+
   .section-demo {
     background-color: #eeeeee;
     padding: 60px 0;
