@@ -47,11 +47,16 @@
       <template v-if="slice.slice_type === 'features'">
         <features-slice :content="slice" />
       </template>
+      <template v-if="slice.slice_type === 'article'">
+        <article-slice :content="slice" :button-class="'section-demo__button'">
+        </article-slice>
+      </template>
     </section>
   </div>
 </template>
 
 <script>
+import ArticleSlice from '@/components/slices/Article'
 import Banner from '@/components/slices/Banner'
 import HeroBanner from '@/components/slices/HeroBanner'
 import ImgTextColumnSlice from '@/components/slices/ImgTextColumn'
@@ -64,6 +69,7 @@ import FeaturesSlice from '@/components/slices/Features'
 export default {
   name: 'SliceZone',
   components: {
+    ArticleSlice,
     Banner,
     HeroBanner,
     ImgTextColumnSlice,
