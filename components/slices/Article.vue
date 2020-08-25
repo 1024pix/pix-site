@@ -11,7 +11,7 @@
       class="article__content"
       :class="{
         'article__content--only-text': layout === 'only-text',
-        'row-block__left-content': layout === 'text-image' || 'image-text',
+        'row-block__primary-content': layout === 'text-image' || 'image-text',
       }"
     >
       <prismic-rich-text :field="title" class="article-content__title" />
@@ -40,13 +40,13 @@
     <img
       v-if="layout !== 'only-text'"
       :src="background"
-      class="row-block__right-content row-block-right-content__background article-illustrations__background"
+      class="row-block__secondary-content row-block-secondary-content__background article-illustrations__background"
       :alt="altBackground"
     />
     <img
       v-if="layout !== 'only-text'"
       :src="image"
-      class="row-block__right-content row-block-right-content__image article-illustrations__image"
+      class="row-block__secondary-content row-block-secondary-content__image article-illustrations__image"
       :alt="altImage"
     />
   </div>
