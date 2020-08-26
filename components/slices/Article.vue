@@ -3,15 +3,16 @@
     class="article"
     :class="{
       'article--only-text': layout === 'only-text',
-      'row-block': layout === 'text-image' || 'image-text',
-      'row-block--reverse': layout === 'image-text',
+      'article-layout': layout === 'text-image' || 'image-text',
+      'article-layout--reverse': layout === 'image-text',
     }"
   >
     <div
       class="article__content"
       :class="{
         'article__content--only-text': layout === 'only-text',
-        'row-block__primary-content': layout === 'text-image' || 'image-text',
+        'article-layout__primary-content':
+          layout === 'text-image' || 'image-text',
       }"
     >
       <prismic-rich-text :field="title" class="article-content__title" />
@@ -40,12 +41,12 @@
     <prismic-image
       v-if="layout !== 'only-text'"
       :field="background"
-      class="row-block__secondary-content row-block-secondary-content__background article-illustrations__background"
+      class="article-layout__secondary-content article-layout-secondary-content__background article-illustrations__background"
     />
     <prismic-image
       v-if="layout !== 'only-text'"
       :field="image"
-      class="row-block__secondary-content row-block-secondary-content__image article-illustrations__image"
+      class="article-layout__secondary-content article-layout-secondary-content__image article-illustrations__image"
     />
   </div>
 </template>
@@ -160,6 +161,119 @@ export default {
       line-height: 2.875rem;
       margin-top: 0;
     }
+  }
+}
+
+.article-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'a a a a'
+    'b b b b';
+  grid-gap: 16px;
+
+  font-family: $font-open-sans;
+  padding: 64px 0;
+  margin: 0 16px;
+
+  & > * {
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  .article-layout__primary-content {
+    grid-area: a;
+  }
+  .article-layout__secondary-content {
+    grid-area: b;
+  }
+
+  &--reverse {
+    grid-template-areas:
+      'b b b b'
+      'a a a a';
+  }
+}
+
+@include device-is('tablet') {
+  .article-layout {
+    margin: 0 32px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+      'a a a a a a a a'
+      'b b b b b b b b';
+
+    &--reverse {
+      grid-template-areas:
+        'b b b b b b b b'
+        'a a a a a a a a';
+    }
+  }
+}
+
+@include device-is('desktop') {
+  .article-layout {
+    grid-template-areas: 'a a a a . b b b';
+
+    &--reverse {
+      grid-template-areas: 'b b b . a a a a';
+    }
+  }
+}
+
+@include device-is('large-screen') {
+  .article-layout {
+    max-width: 1920px;
+    margin: 0 auto;
+    grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+    grid-template-areas: '. a a a a a a . b b b b b .';
+    grid-gap: 24px;
+
+    &--reverse {
+      grid-template-areas: '. b b b b b . a a a a a a .';
+    }
+  }
+}
+
+.article-layout
+  .article-layout__secondary-content.article-layout-secondary-content__background {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    grid-column-start: 10;
+    width: 100%;
+  }
+}
+
+.article-layout
+  .article-layout__secondary-content.article-layout-secondary-content__image {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    justify-self: flex-start;
+  }
+}
+
+.article-layout.article-layout--reverse
+  .article-layout__secondary-content.article-layout-secondary-content__background {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    grid-column-end: 6;
+    width: 100%;
+  }
+}
+
+.article-layout.article-layout--reverse
+  .article-layout__secondary-content.article-layout-secondary-content__image {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    justify-self: flex-end;
   }
 }
 </style>
