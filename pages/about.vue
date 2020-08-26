@@ -17,14 +17,14 @@
     >
     </page-section>
 
-    <section-column-slice
+    <section-column
       :slice="document[2]"
       :section-class="'about__goal'"
       :ul-class="'goal__list'"
       :li-class="'goal__item'"
       :right-class="'goal__image'"
     >
-    </section-column-slice>
+    </section-column>
 
     <page-section
       :slice="document[3]"
@@ -49,11 +49,11 @@
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '@/components/slices/HeroBanner'
 import PageSection from '@/components/slices/PageSection'
-import SectionColumnSlice from '@/components/slices/SectionColumn'
+import SectionColumn from '@/components/slices/SectionColumn'
 
 export default {
   name: 'About',
-  components: { HeroBanner, SectionColumnSlice, PageSection },
+  components: { HeroBanner, SectionColumn, PageSection },
   nuxtI18n: {
     paths: {
       fr: '/qui-sommes-nous',

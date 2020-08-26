@@ -27,12 +27,12 @@
         </hero-banner>
       </template>
       <template v-if="slice.slice_type === 'old-demo'">
-        <img-text-column-slice
+        <img-text-column
           :slice="slice"
           :section-class="'section-demo'"
           :container-class="'section-demo__container'"
           :button-class="'section-demo__button'"
-        ></img-text-column-slice>
+        ></img-text-column>
       </template>
       <template v-if="slice.slice_type === 'old-features'">
         <page-section
@@ -58,7 +58,7 @@
 import PageBanner from '@/components/slices/PageBanner'
 import ArticleSlice from '@/components/slices/Article'
 import HeroBanner from '@/components/slices/HeroBanner'
-import ImgTextColumnSlice from '@/components/slices/ImgTextColumn'
+import ImgTextColumn from '@/components/slices/ImgTextColumn'
 import MultipleColumn from '@/components/slices/MultipleColumn'
 import PopInCampaigns from '@/components/slices/PopInCampaigns'
 import PageSection from '@/components/slices/PageSection'
@@ -71,7 +71,7 @@ export default {
     PageBanner,
     ArticleSlice,
     HeroBanner,
-    ImgTextColumnSlice,
+    ImgTextColumn,
     MultipleColumn,
     PopInCampaigns,
     PageSection,

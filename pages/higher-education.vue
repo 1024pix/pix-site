@@ -26,14 +26,14 @@
     >
     </page-section>
 
-    <section-column-slice
+    <section-column
       :slice="document[3]"
       :section-class="'section-developper'"
       :ul-class="'features'"
       :li-class="'feature'"
       :right-class="'section-developper__image'"
     >
-    </section-column-slice>
+    </section-column>
 
     <page-section
       :slice="document[4]"
@@ -86,7 +86,7 @@
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import PageSection from '@/components/slices/PageSection'
-import SectionColumnSlice from '@/components/slices/SectionColumn'
+import SectionColumn from '@/components/slices/SectionColumn'
 import KeyNumbers from '@/components/slices/KeyNumbers'
 
 export default {
@@ -98,7 +98,7 @@ export default {
       'en-gb': '/higher-education',
     },
   },
-  components: { KeyNumbers, PageSection, SectionColumnSlice },
+  components: { KeyNumbers, PageSection, SectionColumn },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.$prismic, app.i18n, req).get(

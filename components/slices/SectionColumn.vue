@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'SectionColumnSlice',
+  name: 'SectionColumn',
   props: {
     slice: {
       type: Object,

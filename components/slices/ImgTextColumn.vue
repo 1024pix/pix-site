@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'ImgTextColumnSlice',
+  name: 'ImgTextColumn',
   props: {
     slice: {
       type: Object,
