@@ -25,7 +25,7 @@
               {{ link.bannerlinktext }}
             </button>
             <modal ref="modal" name="videoModal" height="auto">
-              <VideoSlice :video-url="link.bannerlinkurl.url" />
+              <MediaPlayer :video-url="link.bannerlinkurl.url" />
             </modal>
           </template>
         </div>
@@ -40,12 +40,12 @@
 </template>
 
 <script>
-import VideoSlice from './Video'
+import MediaPlayer from './MediaPlayer'
 import { DESKTOP_MIN_WIDTH } from '~/config/breakpoints'
 
 export default {
-  name: 'Banner',
-  components: { VideoSlice },
+  name: 'PageBanner',
+  components: { MediaPlayer },
   props: {
     slice: {
       type: Object,

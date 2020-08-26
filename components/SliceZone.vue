@@ -14,7 +14,7 @@
         <pop-in-campaigns :slice="slice" />
       </template>
       <template v-if="slice.slice_type === 'banner'">
-        <banner :slice="slice"></banner>
+        <page-banner :slice="slice"></page-banner>
       </template>
       <template v-if="slice.slice_type === 'old-banner'">
         <hero-banner
@@ -35,14 +35,14 @@
         ></img-text-column-slice>
       </template>
       <template v-if="slice.slice_type === 'old-features'">
-        <section-slice
+        <page-section
           :slice="slice"
           :section-class="'index__features'"
           :container-class="'features__container'"
           :flex-container-class="'features-container__list'"
           :flex-content-class="'features-container-list__item'"
         >
-        </section-slice>
+        </page-section>
       </template>
       <template v-if="slice.slice_type === 'features'">
         <features-slice :content="slice" />
@@ -55,26 +55,26 @@
 </template>
 
 <script>
+import PageBanner from '@/components/slices/PageBanner'
 import ArticleSlice from '@/components/slices/Article'
-import Banner from '@/components/slices/Banner'
 import HeroBanner from '@/components/slices/HeroBanner'
 import ImgTextColumnSlice from '@/components/slices/ImgTextColumn'
 import MultipleColumn from '@/components/slices/MultipleColumn'
 import PopInCampaigns from '@/components/slices/PopInCampaigns'
-import SectionSlice from '@/components/slices/Section'
+import PageSection from '@/components/slices/PageSection'
 import WebSnippet from '@/components/slices/WebSnippet'
 import FeaturesSlice from '@/components/slices/Features'
 
 export default {
   name: 'SliceZone',
   components: {
+    PageBanner,
     ArticleSlice,
-    Banner,
     HeroBanner,
     ImgTextColumnSlice,
     MultipleColumn,
     PopInCampaigns,
-    SectionSlice,
+    PageSection,
     WebSnippet,
     FeaturesSlice,
   },

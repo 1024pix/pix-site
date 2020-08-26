@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'VideoSlice',
+  name: 'MediaPlayer',
   props: {
     videoUrl: {
       type: String,

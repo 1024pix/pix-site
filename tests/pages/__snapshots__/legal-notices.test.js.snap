@@ -11,7 +11,7 @@ exports[`Legal Notices Page renders properly 1`] = `
     <section class=\\"section-editor container md padding-container\\">
       <prismic-rich-text-stub></prismic-rich-text-stub>
     </section>
-    <section-slice-stub slice=\\"[object Object]\\" sectionclass=\\"section-members-gip container md padding-container\\" containerclass=\\"legal-notices-members unstyled\\" flexcontainerclass=\\"legal-notices-members\\" flexcontentclass=\\"legal-notices-members__member\\" buttonclass=\\"section__button\\"></section-slice-stub>
+    <page-section-stub slice=\\"[object Object]\\" sectionclass=\\"section-members-gip container md padding-container\\" containerclass=\\"legal-notices-members unstyled\\" flexcontainerclass=\\"legal-notices-members\\" flexcontentclass=\\"legal-notices-members__member\\" buttonclass=\\"section__button\\"></page-section-stub>
     <section class=\\"section-personnal-data container md padding-container\\">
       <prismic-rich-text-stub></prismic-rich-text-stub>
     </section>

@@ -10,21 +10,21 @@
       </div>
     </section>
 
-    <section-slice
+    <page-section
       :slice="document[1]"
       :section-class="'section-infos'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
     >
-    </section-slice>
+    </page-section>
 
-    <section-slice
+    <page-section
       :slice="document[2]"
       :section-class="'section-mesurer'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
     >
-    </section-slice>
+    </page-section>
 
     <section-column-slice
       :slice="document[3]"
@@ -35,13 +35,13 @@
     >
     </section-column-slice>
 
-    <section-slice
+    <page-section
       :slice="document[4]"
       :section-class="'section-valoriser'"
       :flex-container-class="'features'"
       :flex-content-class="'feature'"
     >
-    </section-slice>
+    </page-section>
 
     <section class="section-utiliser-pix">
       <prismic-rich-text :field="document[5].primary.title" />
@@ -85,7 +85,7 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import SectionSlice from '@/components/slices/Section'
+import PageSection from '@/components/slices/PageSection'
 import SectionColumnSlice from '@/components/slices/SectionColumn'
 import KeyNumbers from '@/components/slices/KeyNumbers'
 
@@ -98,7 +98,7 @@ export default {
       'en-gb': '/higher-education',
     },
   },
-  components: { KeyNumbers, SectionSlice, SectionColumnSlice },
+  components: { KeyNumbers, PageSection, SectionColumnSlice },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.$prismic, app.i18n, req).get(

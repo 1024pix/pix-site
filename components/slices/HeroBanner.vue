@@ -13,7 +13,7 @@
           {{ $prismic.asText(videoButtonText) }}
         </div>
         <modal ref="modal" name="videoModal" height="auto">
-          <VideoSlice :video-url="videoUrl" />
+          <MediaPlayer :video-url="videoUrl" />
         </modal>
       </template>
     </div>
@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import VideoSlice from './Video'
+import MediaPlayer from './MediaPlayer'
 
 export default {
   name: 'HeroBanner',
-  components: { VideoSlice },
+  components: { MediaPlayer },
   props: {
     slice: {
       type: Object,

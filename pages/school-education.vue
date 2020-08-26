@@ -1,34 +1,34 @@
 <template>
   <div class="school-education">
-    <banner :slice="document[0]" />
-    <slice-section :slice="document[1]" />
-    <slice-section
+    <page-banner :slice="document[0]" />
+    <page-section :slice="document[1]" />
+    <page-section
       :slice="document[2]"
       section-class="school-education__innovation"
       flex-container-class="school-education-innovation__flex-container"
       flex-content-class="school-education-innovation__flex-content"
     />
-    <slice-section
+    <page-section
       :slice="document[3]"
       section-class="school-education__student-support"
       flex-container-class="school-education-student-support__flex-container"
       flex-content-class="school-education-student-support__flex-content"
     />
-    <slice-section :slice="document[4]" />
-    <slice-section
+    <page-section :slice="document[4]" />
+    <page-section
       :slice="document[5]"
       section-id="mise-en-place"
       section-class="school-education__setting-up"
       flex-container-class="school-education-setting-up__flex-container"
       flex-content-class="school-education-setting-up__flex-content"
     />
-    <slice-section :slice="document[6]" />
+    <page-section :slice="document[6]" />
     <video controls class="video-slice" :poster="videoPosterUrl">
       <source :src="videoUrl" type="video/mp4" />
     </video>
-    <slice-section :slice="document[7]" />
-    <slice-section section-id="contenus-evaluation" :slice="document[8]" />
-    <slice-section
+    <page-section :slice="document[7]" />
+    <page-section section-id="contenus-evaluation" :slice="document[8]" />
+    <page-section
       :slice="document[9]"
       section-class="school-education__accompaniment"
       flex-container-class="school-education-accompaniment__flex-container"
@@ -39,8 +39,8 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import Banner from '@/components/slices/Banner'
-import SliceSection from '@/components/slices/Section'
+import PageBanner from '@/components/slices/PageBanner'
+import PageSection from '@/components/slices/PageSection'
 
 export default {
   name: 'SchoolEducation',
@@ -52,8 +52,8 @@ export default {
     },
   },
   components: {
-    Banner,
-    SliceSection,
+    PageBanner,
+    PageSection,
   },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
