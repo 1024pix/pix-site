@@ -25,16 +25,16 @@
       <div v-if="linkType !== 'none'">
         <cta-button
           v-if="linkType === 'call-to-action'"
-          :link="linkUrl"
+          :link="link"
           :name="linkName"
         />
-        <a
+        <pix-link
           v-else-if="linkType === 'link-to'"
-          :href="linkUrl"
+          :field="link"
           class="article-content__link-to"
         >
           <fa icon="arrow-right" /> {{ linkName }}
-        </a>
+        </pix-link>
       </div>
     </div>
     <prismic-image
@@ -83,8 +83,8 @@ export default {
     linkType() {
       return this.content.primary.article_link_type
     },
-    linkUrl() {
-      return this.content.primary.article_link_url.url
+    link() {
+      return this.content.primary.article_link_url
     },
     title() {
       return this.content.primary.article_title

@@ -1,6 +1,8 @@
 <template>
   <div class="cta-button">
-    <a :href="link">{{ name }}</a>
+    <pix-link :field="link">
+      {{ name }}
+    </pix-link>
   </div>
 </template>
 
