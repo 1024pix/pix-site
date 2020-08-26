@@ -25,7 +25,7 @@
               {{ link.bannerlinktext }}
             </button>
             <modal ref="modal" name="videoModal" height="auto">
-              <MediaPlayer :video-url="link.bannerlinkurl.url" />
+              <media-player :video-url="link.bannerlinkurl.url" />
             </modal>
           </template>
         </div>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import MediaPlayer from './MediaPlayer'
+import MediaPlayer from '../MediaPlayer'
 import { DESKTOP_MIN_WIDTH } from '~/config/breakpoints'
 
 export default {
