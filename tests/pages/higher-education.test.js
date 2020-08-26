@@ -34,7 +34,7 @@ describe('Higher Education Page', () => {
     })
 
     wrapper = await getInitialised('higher-education', {
-      stubs: ['prismic-edit-button', 'prismic-rich-text', 'pix-link'],
+      stubs: ['prismic-rich-text', 'pix-link'],
       computed: {
         $prismic() {
           return { asText: () => {} }

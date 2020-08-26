@@ -21,7 +21,7 @@ describe('Skills Page', () => {
     })
 
     wrapper = await getInitialised('skills', {
-      stubs: ['prismic-edit-button', 'prismic-rich-text'],
+      stubs: ['prismic-rich-text'],
     })
   })
   test('mounts properly', () => {
