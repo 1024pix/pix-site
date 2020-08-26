@@ -44,6 +44,9 @@
         >
         </section-slice>
       </template>
+      <template v-if="slice.slice_type === 'features'">
+        <FeaturesSlice :content="slice" />
+      </template>
     </section>
   </div>
 </template>
@@ -56,6 +59,7 @@ import MultipleColumn from '@/components/slices/MultipleColumn'
 import PopInCampaigns from '@/components/PopInCampaigns'
 import SectionSlice from '@/components/slices/Section'
 import WebSnippet from '@/components/slices/WebSnippet'
+import FeaturesSlice from '@/components/slices/Features'
 
 export default {
   name: 'SliceZone',
@@ -67,6 +71,7 @@ export default {
     PopInCampaigns,
     SectionSlice,
     WebSnippet,
+    FeaturesSlice,
   },
   props: {
     slices: {
