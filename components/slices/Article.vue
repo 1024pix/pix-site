@@ -1,18 +1,16 @@
 <template>
   <div
-    class="article"
+    class="article article-layout"
     :class="{
-      'article--only-text': layout === 'only-text',
-      'article-layout': layout === 'text-image' || 'image-text',
-      'article-layout--reverse': layout === 'image-text',
+      'article-layout--only-text': containsOnlyText,
+      'article-layout--reverse': shouldBeReversed,
     }"
   >
     <div
       class="article__content"
       :class="{
-        'article__content--only-text': layout === 'only-text',
-        'article-layout__primary-content':
-          layout === 'text-image' || 'image-text',
+        'article__content--only-text': containsOnlyText,
+        'article-layout__primary-content': containsTextAndImage,
       }"
     >
       <prismic-rich-text :field="title" class="article-content__title" />
@@ -20,7 +18,7 @@
         :field="description"
         class="article-content__description"
         :class="{
-          'article-content__description--only-text': layout === 'only-text',
+          'article-content__description--only-text': containsOnlyText,
         }"
       />
       <div v-if="linkType !== 'none'">
@@ -39,12 +37,12 @@
       </div>
     </div>
     <prismic-image
-      v-if="layout !== 'only-text'"
+      v-if="containsTextAndImage"
       :field="background"
       class="article-layout__secondary-content article-layout-secondary-content__background article-illustrations__background"
     />
     <prismic-image
-      v-if="layout !== 'only-text'"
+      v-if="containsTextAndImage"
       :field="image"
       class="article-layout__secondary-content article-layout-secondary-content__image article-illustrations__image"
     />
@@ -90,6 +88,15 @@ export default {
     title() {
       return this.content.primary.article_title
     },
+    containsOnlyText() {
+      return this.layout === 'only-text'
+    },
+    containsTextAndImage() {
+      return this.layout === 'text-image' || this.layout === 'image-text'
+    },
+    shouldBeReversed() {
+      return this.layout === 'image-text'
+    },
   },
 }
 </script>
@@ -107,11 +114,6 @@ export default {
       flex-direction: column;
       align-items: center;
     }
-  }
-
-  &--only-text {
-    display: flex;
-    justify-content: center;
   }
 }
 
@@ -192,6 +194,11 @@ export default {
     grid-template-areas:
       'b b b b'
       'a a a a';
+  }
+
+  &--only-text {
+    display: flex;
+    justify-content: center;
   }
 }
 
