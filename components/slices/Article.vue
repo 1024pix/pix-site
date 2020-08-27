@@ -13,37 +13,40 @@
         'article-layout__primary-content': containsTextAndImage,
       }"
     >
-      <prismic-rich-text :field="title" class="article-content__title" />
       <prismic-rich-text
-        :field="description"
+        :field="content.article_title"
+        class="article-content__title"
+      />
+      <prismic-rich-text
+        :field="content.article_description"
         class="article-content__description"
         :class="{
           'article-content__description--only-text': containsOnlyText,
         }"
       />
-      <div v-if="linkType !== 'none'">
+      <div v-if="content.article_link_type !== 'none'">
         <cta-button
-          v-if="linkType === 'call-to-action'"
-          :link="link"
-          :name="linkName"
+          v-if="content.article_link_type === 'call-to-action'"
+          :link="content.article_link_url"
+          :name="content.article_link_name"
         />
         <pix-link
-          v-else-if="linkType === 'link-to'"
-          :field="link"
+          v-else-if="content.article_link_type === 'link-to'"
+          :field="content.article_link_url"
           class="article-content__link-to"
         >
-          <fa icon="arrow-right" /> {{ linkName }}
+          <fa icon="arrow-right" /> {{ content.article_link_name }}
         </pix-link>
       </div>
     </div>
     <prismic-image
       v-if="containsTextAndImage"
-      :field="background"
+      :field="content.article_background"
       class="article-layout__secondary-content article-layout-secondary-content__background article-illustrations__background"
     />
     <prismic-image
       v-if="containsTextAndImage"
-      :field="image"
+      :field="content.article_image"
       class="article-layout__secondary-content article-layout-secondary-content__image article-illustrations__image"
     />
   </div>
@@ -58,44 +61,24 @@ export default {
     CtaButton,
   },
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
   },
   computed: {
-    background() {
-      return this.content.primary.article_background
-    },
-    description() {
-      return this.content.primary.article_description
-    },
-    image() {
-      return this.content.primary.article_image
-    },
-    layout() {
-      return this.content.primary.article_layout
-    },
-    linkName() {
-      return this.content.primary.article_link_name
-    },
-    linkType() {
-      return this.content.primary.article_link_type
-    },
-    link() {
-      return this.content.primary.article_link_url
-    },
-    title() {
-      return this.content.primary.article_title
+    content() {
+      return this.slice.primary
     },
     containsOnlyText() {
-      return this.layout === 'only-text'
+      return this.content.article_layout === 'only-text'
     },
     containsTextAndImage() {
-      return this.layout === 'text-image' || this.layout === 'image-text'
+      const layout = this.content.article_layout
+      return layout === 'text-image' || layout === 'image-text'
     },
     shouldBeReversed() {
-      return this.layout === 'image-text'
+      return this.content.article_layout === 'image-text'
     },
   },
 }
