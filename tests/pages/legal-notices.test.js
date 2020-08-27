@@ -23,7 +23,7 @@ describe('Legal Notices Page', () => {
         }),
     })
     wrapper = await getInitialised('legal-notices', {
-      stubs: ['prismic-edit-button', 'prismic-rich-text'],
+      stubs: ['prismic-rich-text'],
     })
   })
   test('mounts properly', () => {

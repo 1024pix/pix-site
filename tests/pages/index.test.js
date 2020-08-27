@@ -17,9 +17,7 @@ describe('Index Page', () => {
           },
         }),
     })
-    wrapper = await getInitialised('index', {
-      stubs: ['prismic-edit-button'],
-    })
+    wrapper = await getInitialised('index')
   })
   test('mounts properly', () => {
     expect(wrapper.vm).toBeTruthy()

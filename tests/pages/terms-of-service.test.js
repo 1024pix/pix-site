@@ -21,7 +21,7 @@ describe('Terms of Service Page', () => {
     })
 
     wrapper = await getInitialised('terms-of-service', {
-      stubs: ['prismic-edit-button', 'prismic-rich-text'],
+      stubs: ['prismic-rich-text'],
     })
   })
   test('mounts properly', () => {

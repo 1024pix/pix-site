@@ -21,7 +21,7 @@ describe('School Education Page', () => {
     })
 
     wrapper = await getInitialised('school-education', {
-      stubs: ['prismic-edit-button', 'prismic-rich-text', 'prismic-image'],
+      stubs: ['prismic-rich-text', 'prismic-image'],
     })
   })
   test('mounts properly', () => {

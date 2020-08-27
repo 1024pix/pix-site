@@ -17,9 +17,7 @@ describe('About Page', () => {
           },
         }),
     })
-    wrapper = await getInitialised('about', {
-      stubs: ['prismic-edit-button'],
-    })
+    wrapper = await getInitialised('about')
   })
   test('mounts properly', () => {
     expect(wrapper.vm).toBeTruthy()
