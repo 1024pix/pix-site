@@ -98,19 +98,6 @@ export default {
 
 <style lang="scss">
 .article {
-  align-items: center;
-
-  &__content {
-    width: 611px;
-
-    &--only-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 65%;
-    }
-  }
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
@@ -127,11 +114,25 @@ export default {
     justify-self: center;
   }
 
-  .article__primary-content {
+  &__content {
+    width: 611px;
+    align-self: center;
+
+    &--only-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 65%;
+    }
+  }
+
+  &__primary-content {
     grid-area: a;
   }
-  .article__secondary-content {
+
+  &__secondary-content {
     grid-area: b;
+    align-self: center;
   }
 
   &--reverse {
@@ -164,6 +165,7 @@ export default {
 
 @include device-is('desktop') {
   .article {
+    grid-template-columns: repeat(8, 1fr);
     grid-template-areas: 'a a a a . b b b';
 
     &--reverse {
@@ -211,6 +213,7 @@ export default {
   grid-column-end: b-end;
 
   @include device-is('large-screen') {
+    grid-column-start: b-start;
     grid-column-end: 6;
     width: 100%;
   }
