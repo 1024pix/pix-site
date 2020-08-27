@@ -1,54 +1,56 @@
 <template>
-  <div
-    class="article"
-    :class="{
-      'article--only-text': containsOnlyText,
-      'article--reverse': shouldBeReversed,
-    }"
-  >
+  <div :style="[backgroundForOnlyText]">
     <div
-      class="article__content"
+      class="article"
       :class="{
-        'article__content--only-text': containsOnlyText,
-        'article__primary-content': containsTextAndImage,
+        'article--only-text': containsOnlyText,
+        'article--reverse': shouldBeReversed,
       }"
     >
-      <prismic-rich-text
-        :field="content.article_title"
-        class="article-content__title"
-      />
-      <prismic-rich-text
-        :field="content.article_description"
-        class="article-content__description"
+      <div
+        class="article__content"
         :class="{
-          'article-content__description--only-text': containsOnlyText,
+          'article__content--only-text': containsOnlyText,
+          'article__primary-content': containsTextAndImage,
         }"
-      />
-      <div v-if="content.article_link_type !== 'none'">
-        <cta-button
-          v-if="content.article_link_type === 'call-to-action'"
-          :link="content.article_link_url"
-          :name="content.article_link_name"
+      >
+        <prismic-rich-text
+          :field="content.article_title"
+          class="article-content__title"
         />
-        <pix-link
-          v-else-if="content.article_link_type === 'link-to'"
-          :field="content.article_link_url"
-          class="article-content__link-to"
-        >
-          <fa icon="arrow-right" /> {{ content.article_link_name }}
-        </pix-link>
+        <prismic-rich-text
+          :field="content.article_description"
+          class="article-content__description"
+          :class="{
+            'article-content__description--only-text': containsOnlyText,
+          }"
+        />
+        <div v-if="content.article_link_type !== 'none'">
+          <cta-button
+            v-if="content.article_link_type === 'call-to-action'"
+            :link="content.article_link_url"
+            :name="content.article_link_name"
+          />
+          <pix-link
+            v-else-if="content.article_link_type === 'link-to'"
+            :field="content.article_link_url"
+            class="article-content__link-to"
+          >
+            <fa icon="arrow-right" /> {{ content.article_link_name }}
+          </pix-link>
+        </div>
       </div>
+      <prismic-image
+        v-if="containsTextAndImage"
+        :field="content.article_background"
+        class="article__secondary-content article-secondary-content__background"
+      />
+      <prismic-image
+        v-if="containsTextAndImage"
+        :field="content.article_image"
+        class="article__secondary-content article-secondary-content__image"
+      />
     </div>
-    <prismic-image
-      v-if="containsTextAndImage"
-      :field="content.article_background"
-      class="article__secondary-content article-secondary-content__background"
-    />
-    <prismic-image
-      v-if="containsTextAndImage"
-      :field="content.article_image"
-      class="article__secondary-content article-secondary-content__image"
-    />
   </div>
 </template>
 
@@ -70,6 +72,16 @@ export default {
     content() {
       return this.slice.primary
     },
+    backgroundForOnlyText() {
+      if (this.containsOnlyText) {
+        return {
+          background: `no-repeat url(${this.content.article_background.url})`,
+          backgroundSize: '100%',
+          backgroundPosition: 'top right',
+        }
+      }
+      return {}
+    },
     containsOnlyText() {
       return this.content.article_layout === 'only-text'
     },
@@ -86,7 +98,6 @@ export default {
 
 <style lang="scss">
 .article {
-  background: $white;
   align-items: center;
 
   &__content {
@@ -96,6 +107,7 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 65%;
     }
   }
 

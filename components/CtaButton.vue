@@ -44,6 +44,7 @@ export default {
     color: $white;
     line-height: 3.75rem;
     letter-spacing: 0.03rem;
+    font-weight: $font-semi-bold;
   }
 }
 </style>
