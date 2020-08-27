@@ -1,16 +1,16 @@
 <template>
   <div
-    class="article article-layout"
+    class="article"
     :class="{
-      'article-layout--only-text': containsOnlyText,
-      'article-layout--reverse': shouldBeReversed,
+      'article--only-text': containsOnlyText,
+      'article--reverse': shouldBeReversed,
     }"
   >
     <div
       class="article__content"
       :class="{
         'article__content--only-text': containsOnlyText,
-        'article-layout__primary-content': containsTextAndImage,
+        'article__primary-content': containsTextAndImage,
       }"
     >
       <prismic-rich-text
@@ -42,12 +42,12 @@
     <prismic-image
       v-if="containsTextAndImage"
       :field="content.article_background"
-      class="article-layout__secondary-content article-layout-secondary-content__background article-illustrations__background"
+      class="article__secondary-content article-secondary-content__background"
     />
     <prismic-image
       v-if="containsTextAndImage"
       :field="content.article_image"
-      class="article-layout__secondary-content article-layout-secondary-content__image article-illustrations__image"
+      class="article__secondary-content article-secondary-content__image"
     />
   </div>
 </template>
@@ -98,6 +98,120 @@ export default {
       align-items: center;
     }
   }
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'a a a a'
+    'b b b b';
+  grid-gap: 16px;
+
+  font-family: $font-open-sans;
+  padding: 64px 0;
+  margin: 0 16px;
+
+  & > * {
+    max-width: 100%;
+    justify-self: center;
+  }
+
+  .article__primary-content {
+    grid-area: a;
+  }
+  .article__secondary-content {
+    grid-area: b;
+  }
+
+  &--reverse {
+    grid-template-areas:
+      'b b b b'
+      'a a a a';
+  }
+
+  &--only-text {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@include device-is('tablet') {
+  .article {
+    margin: 0 32px;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+      'a a a a a a a a'
+      'b b b b b b b b';
+
+    &--reverse {
+      grid-template-areas:
+        'b b b b b b b b'
+        'a a a a a a a a';
+    }
+  }
+}
+
+@include device-is('desktop') {
+  .article {
+    grid-template-areas: 'a a a a . b b b';
+
+    &--reverse {
+      grid-template-areas: 'b b b . a a a a';
+    }
+  }
+}
+
+@include device-is('large-screen') {
+  .article {
+    max-width: 1920px;
+    margin: 0 auto;
+    grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+    grid-template-areas: '. a a a a a a . b b b b b .';
+    grid-gap: 24px;
+
+    &--reverse {
+      grid-template-areas: '. b b b b b . a a a a a a .';
+    }
+  }
+}
+
+.article .article__secondary-content.article-secondary-content__background {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    grid-column-start: 10;
+    width: 100%;
+  }
+}
+
+.article .article__secondary-content.article-secondary-content__image {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    justify-self: flex-start;
+  }
+}
+
+.article.article--reverse
+  .article__secondary-content.article-secondary-content__background {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    grid-column-end: 6;
+    width: 100%;
+  }
+}
+
+.article.article--reverse
+  .article__secondary-content.article-secondary-content__image {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+
+  @include device-is('large-screen') {
+    justify-self: flex-end;
+  }
 }
 
 .article-content {
@@ -146,124 +260,6 @@ export default {
       line-height: 2.875rem;
       margin-top: 0;
     }
-  }
-}
-
-.article-layout {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    'a a a a'
-    'b b b b';
-  grid-gap: 16px;
-
-  font-family: $font-open-sans;
-  padding: 64px 0;
-  margin: 0 16px;
-
-  & > * {
-    max-width: 100%;
-    justify-self: center;
-  }
-
-  .article-layout__primary-content {
-    grid-area: a;
-  }
-  .article-layout__secondary-content {
-    grid-area: b;
-  }
-
-  &--reverse {
-    grid-template-areas:
-      'b b b b'
-      'a a a a';
-  }
-
-  &--only-text {
-    display: flex;
-    justify-content: center;
-  }
-}
-
-@include device-is('tablet') {
-  .article-layout {
-    margin: 0 32px;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-areas:
-      'a a a a a a a a'
-      'b b b b b b b b';
-
-    &--reverse {
-      grid-template-areas:
-        'b b b b b b b b'
-        'a a a a a a a a';
-    }
-  }
-}
-
-@include device-is('desktop') {
-  .article-layout {
-    grid-template-areas: 'a a a a . b b b';
-
-    &--reverse {
-      grid-template-areas: 'b b b . a a a a';
-    }
-  }
-}
-
-@include device-is('large-screen') {
-  .article-layout {
-    max-width: 1920px;
-    margin: 0 auto;
-    grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
-    grid-template-areas: '. a a a a a a . b b b b b .';
-    grid-gap: 24px;
-
-    &--reverse {
-      grid-template-areas: '. b b b b b . a a a a a a .';
-    }
-  }
-}
-
-.article-layout
-  .article-layout__secondary-content.article-layout-secondary-content__background {
-  grid-column-start: b-start;
-  grid-column-end: b-end;
-
-  @include device-is('large-screen') {
-    grid-column-start: 10;
-    width: 100%;
-  }
-}
-
-.article-layout
-  .article-layout__secondary-content.article-layout-secondary-content__image {
-  grid-column-start: b-start;
-  grid-column-end: b-end;
-
-  @include device-is('large-screen') {
-    justify-self: flex-start;
-  }
-}
-
-.article-layout.article-layout--reverse
-  .article-layout__secondary-content.article-layout-secondary-content__background {
-  grid-column-start: b-start;
-  grid-column-end: b-end;
-
-  @include device-is('large-screen') {
-    grid-column-end: 6;
-    width: 100%;
-  }
-}
-
-.article-layout.article-layout--reverse
-  .article-layout__secondary-content.article-layout-secondary-content__image {
-  grid-column-start: b-start;
-  grid-column-end: b-end;
-
-  @include device-is('large-screen') {
-    justify-self: flex-end;
   }
 }
 </style>
