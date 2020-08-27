@@ -11,8 +11,8 @@ export default {
   name: 'CtaButton',
   props: {
     link: {
-      type: String,
-      default: '',
+      type: Object,
+      default: null,
     },
     name: {
       type: String,
