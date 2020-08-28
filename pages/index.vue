@@ -34,10 +34,10 @@ export default {
         if (slice.slice_type === 'hero-banner') {
           slice.slice_type = 'old-banner'
         }
-        if (index === 1 && slice.slice_type === 'section') {
+        if (slice.slice_label === 'demo') {
           slice.slice_type = 'old-demo'
         }
-        if (index === 2 && slice.slice_type === 'section') {
+        if (slice.slice_label === 'features') {
           slice.slice_type = 'old-features'
         }
         return slice

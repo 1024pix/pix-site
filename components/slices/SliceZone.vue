@@ -45,7 +45,7 @@
         </section-slice>
       </template>
       <template v-if="slice.slice_type === 'features'">
-        <FeaturesSlice :content="slice" />
+        <features-slice :content="slice" />
       </template>
     </section>
   </div>
