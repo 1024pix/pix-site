@@ -232,9 +232,18 @@ export default {
 .article-content {
   &__description {
     margin: 16px 0 24px 0;
+    color: $grey-10;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li:before {
+        color: $grey-10;
+      }
+    }
 
     & p {
-      color: $grey-10;
       font-size: 1.25rem;
       font-weight: $font-normal;
       letter-spacing: 0;
