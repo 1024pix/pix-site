@@ -38,25 +38,25 @@ import {
 export default {
   name: 'FeaturesSlice',
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
   },
   computed: {
     paragraphs() {
-      return this.content.items
+      return this.slice.items
     },
     hasTitle() {
       return (
-        this.content.primary.featurestitle &&
-        this.content.primary.featurestitle.length &&
-        this.content.primary.featurestitle[0].text &&
-        this.content.primary.featurestitle[0].text.length
+        this.slice.primary.featurestitle &&
+        this.slice.primary.featurestitle.length &&
+        this.slice.primary.featurestitle[0].text &&
+        this.slice.primary.featurestitle[0].text.length
       )
     },
     title() {
-      return this.content.primary.featurestitle
+      return this.slice.primary.featurestitle
     },
   },
   methods: {

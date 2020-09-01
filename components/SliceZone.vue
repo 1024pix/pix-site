@@ -45,7 +45,7 @@
         </page-section>
       </template>
       <template v-if="slice.slice_type === 'features'">
-        <features-slice :content="slice" />
+        <features-slice :slice="slice" />
       </template>
       <template v-if="slice.slice_type === 'article'">
         <article-slice :slice="slice" :button-class="'section-demo__button'" />

@@ -14,7 +14,7 @@
           <news-item-card
             v-for="(item, index) in newsItems"
             :key="`item-${index}`"
-            :content="item.data"
+            :slice="item.data"
             :uid="item.uid"
           />
         </template>
