@@ -90,8 +90,6 @@ export default {
 
 <style lang="scss">
 .features {
-  background-color: white;
-
   &__title h2 {
     font-size: 2.125rem;
     font-weight: normal;

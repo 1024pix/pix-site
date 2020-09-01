@@ -8,13 +8,13 @@
         <img
           class="pop-in-campaigns-content__close"
           alt="Fermer le panneau des campagnes"
-          src="/static/images/close-icon.svg"
+          src="/images/close-icon.svg"
           @click="togglePopIn()"
         />
         <img
           class="pop-in-campaigns-content__logo"
           alt=""
-          src="/static/images/logo-join-campaign.svg"
+          src="/images/logo-join-campaign.svg"
         />
       </template>
       <prismic-rich-text
