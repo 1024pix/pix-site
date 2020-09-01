@@ -264,17 +264,13 @@ export default {
     }
   }
 
-  &__title {
-    height: 46px;
-
-    & h2 {
-      color: $blue-5;
-      font-size: 2rem;
-      font-weight: $font-normal;
-      letter-spacing: 0.00875rem;
-      line-height: 2.875rem;
-      margin-top: 0;
-    }
+  &__title h2 {
+    color: $blue-5;
+    font-size: 2rem;
+    font-weight: $font-normal;
+    letter-spacing: 0.00875rem;
+    line-height: 2.875rem;
+    margin-top: 0;
   }
 }
 </style>
