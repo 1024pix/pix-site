@@ -73,7 +73,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
-    'nuxt-i18n',
+    ['nuxt-i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
     ['nuxt-matomo', { matomoUrl: 'https://stats.pix.fr/', siteId: 1 }],
     [
