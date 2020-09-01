@@ -1,0 +1,52 @@
+<template>
+  <div>
+    <div v-if="type === 'simple_page'">
+      <simple-page :content="document.data" />
+    </div>
+  </div>
+</template>
+
+<script>
+import { documentFetcher } from '~/services/document-fetcher'
+import SimplePage from '@/components/SimplePage'
+
+export default {
+  name: 'CustomPage',
+  nuxtI18n: {
+    paths: {
+      fr: '/:uid',
+      'fr-fr': '/:uid',
+      'en-gb': '/:uid',
+    },
+  },
+  components: {
+    SimplePage,
+  },
+  async asyncData({ params, app, req, error, currentPagePath }) {
+    try {
+      const document = await documentFetcher(
+        app.$prismic,
+        app.i18n,
+        req
+      ).getPageByUid(params.uid)
+      const meta = document.data.meta
+      return { currentPagePath, meta, document }
+    } catch (e) {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  computed: {
+    type() {
+      return this.document.type
+    },
+  },
+  head() {
+    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+    return {
+      meta,
+    }
+  },
+}
+</script>
+
+<style lang="scss"></style>
