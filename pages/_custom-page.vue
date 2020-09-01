@@ -3,12 +3,16 @@
     <div v-if="type === 'simple_page'">
       <simple-page :content="document.data" />
     </div>
+    <div v-if="type === 'slices_page'">
+      <slice-zone :slices="document.data.body" />
+    </div>
   </div>
 </template>
 
 <script>
 import { documentFetcher } from '~/services/document-fetcher'
 import SimplePage from '@/components/SimplePage'
+import SliceZone from '@/components/SliceZone'
 
 export default {
   name: 'CustomPage',
@@ -20,6 +24,7 @@ export default {
     },
   },
   components: {
+    SliceZone,
     SimplePage,
   },
   async asyncData({ params, app, req, error, currentPagePath }) {
