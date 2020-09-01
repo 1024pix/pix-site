@@ -1,15 +1,15 @@
 <template>
   <div class="nav">
+    <client-only>
+      <push-menu :width="'230'">
+        <burger-menu-nav
+          :top-items="topItems"
+          :bottom-items="bottomItems"
+          :middle-items="middleItems"
+        />
+      </push-menu>
+    </client-only>
     <header>
-      <client-only>
-        <push-menu :width="'230'">
-          <burger-menu-nav
-            :top-items="topItems"
-            :bottom-items="bottomItems"
-            :middle-items="middleItems"
-          />
-        </push-menu>
-      </client-only>
       <div class="nav-principal tablet">
         <div class="container padding-container">
           <div class="switch">
@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <div id="page-wrap">
+      <nav id="page-wrap" role="navigation" aria-label="$t('layout.main-nav')">
         <organization-nav :organization-nav-items="organizationNavItems" />
         <div class="nav-principal desktop">
           <div class="container padding-container">
@@ -49,7 +49,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </nav>
     </header>
   </div>
 </template>

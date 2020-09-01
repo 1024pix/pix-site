@@ -26,7 +26,11 @@
           </div>
         </div>
       </div>
-      <div class="sitenav">
+      <nav
+        class="sitenav"
+        role="navigation"
+        aria-label="$t('layout.footer-nav')"
+      >
         <div class="column">
           <about-nav />
         </div>
@@ -34,11 +38,11 @@
           <resources-nav />
         </div>
         <div class="padding social-links">
-          <h4
+          <div
             class="text text-sm text-up text-left text-black mb-3 semi-bold social-links__title"
           >
             {{ $t('social-networks-title') }}
-          </h4>
+          </div>
           <ul class="unstyled social-links__list">
             <li class="social-links__item social-link">
               <a
@@ -78,7 +82,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
     </div>
   </footer>
 </template>
