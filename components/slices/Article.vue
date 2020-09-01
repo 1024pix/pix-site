@@ -232,9 +232,18 @@ export default {
 .article-content {
   &__description {
     margin: 16px 0 24px 0;
+    color: $grey-10;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li:before {
+        color: $grey-10;
+      }
+    }
 
     & p {
-      color: $grey-10;
       font-size: 1.25rem;
       font-weight: $font-normal;
       letter-spacing: 0;
@@ -264,17 +273,13 @@ export default {
     }
   }
 
-  &__title {
-    height: 46px;
-
-    & h2 {
-      color: $blue-5;
-      font-size: 2rem;
-      font-weight: $font-normal;
-      letter-spacing: 0.00875rem;
-      line-height: 2.875rem;
-      margin-top: 0;
-    }
+  &__title h2 {
+    color: $blue-5;
+    font-size: 2rem;
+    font-weight: $font-normal;
+    letter-spacing: 0.00875rem;
+    line-height: 2.875rem;
+    margin-top: 0;
   }
 }
 </style>
