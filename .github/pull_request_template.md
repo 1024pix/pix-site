@@ -8,4 +8,4 @@
 > _Des infos supplémentaires, trucs et astuces ?_
 
 ## :sparkles: Review App
-https://pix-site-integration-pr.scalingo.io
+https://site-pr000.review.pix.fr/
