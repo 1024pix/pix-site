@@ -1,7 +1,7 @@
 <template>
   <section class="features">
     <prismic-rich-text v-if="hasTitle" class="features__title" :field="title" />
-    <div class="features__wrapper">
+    <div class="features__wrapper" :style="[background]">
       <div
         v-for="(featuresInARow, rowIndex) in featuresByRow()"
         :key="`item-${rowIndex}`"
@@ -44,6 +44,11 @@ export default {
     },
   },
   computed: {
+    background() {
+      return {
+        backgroundColor: `${this.slice.primary.features_background_color}`,
+      }
+    },
     paragraphs() {
       return this.slice.items
     },
@@ -101,8 +106,7 @@ export default {
   }
 
   &__wrapper {
-    margin-top: 64px;
-    margin-bottom: 64px;
+    padding: 64px 0;
   }
 
   &-wrapper__row {
@@ -164,8 +168,7 @@ export default {
   }
 
   .features__wrapper {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    padding: 80px 0;
   }
 
   .features-wrapper__item {
@@ -196,8 +199,7 @@ export default {
   }
 
   .features__wrapper {
-    margin-top: 80px;
-    margin-bottom: 84px;
+    padding: 80px 0 84px;
   }
 
   .features-wrapper__row {
@@ -235,8 +237,7 @@ export default {
   }
 
   .features__wrapper {
-    margin-top: 81px;
-    margin-bottom: 121px;
+    padding: 81px 0 121px;
   }
 
   .features-wrapper__item {
