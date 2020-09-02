@@ -1,5 +1,5 @@
 <template>
-  <div :style="[backgroundForOnlyText]">
+  <div :style="[background]">
     <div
       class="article"
       :class="{
@@ -72,7 +72,7 @@ export default {
     content() {
       return this.slice.primary
     },
-    backgroundForOnlyText() {
+    background() {
       let style = {}
       if (this.containsOnlyText) {
         style = {
