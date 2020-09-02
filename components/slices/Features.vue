@@ -12,15 +12,15 @@
           :key="`item-${featureIndex}`"
           class="features-wrapper__item"
         >
-          <prismic-image :field="feature.featureimg" />
+          <prismic-image :field="feature.feature_image" />
           <div>
             <prismic-rich-text
               class="features-wrapper-item__title"
-              :field="feature.featurename"
+              :field="feature.feature_name"
             />
             <prismic-rich-text
               class="features-wrapper-item__description"
-              :field="feature.featuredescription"
+              :field="feature.feature_description"
             />
           </div>
         </div>
@@ -49,14 +49,14 @@ export default {
     },
     hasTitle() {
       return (
-        this.slice.primary.featurestitle &&
-        this.slice.primary.featurestitle.length &&
-        this.slice.primary.featurestitle[0].text &&
-        this.slice.primary.featurestitle[0].text.length
+        this.slice.primary.features_title &&
+        this.slice.primary.features_title.length &&
+        this.slice.primary.features_title[0].text &&
+        this.slice.primary.features_title[0].text.length
       )
     },
     title() {
-      return this.slice.primary.featurestitle
+      return this.slice.primary.features_title
     },
   },
   methods: {
