@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import SliceZone from '@/components/slices/SliceZone'
+import SliceZone from '@/components/SliceZone'
 
 export default {
   name: 'NewsItemPost',

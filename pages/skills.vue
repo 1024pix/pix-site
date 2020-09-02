@@ -10,22 +10,22 @@
     </header>
 
     <main class="page-body">
-      <section-slice
+      <page-section
         v-for="(item, index) in document.body"
         :key="`item-${index}`"
-        :content="item"
+        :slice="item"
         :section-class="'area'"
         :container-class="'container md padding-container'"
         :flex-container-class="'competence'"
       >
-      </section-slice>
+      </page-section>
     </main>
   </div>
 </template>
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import SectionSlice from '@/components/slices/Section'
+import PageSection from '@/components/slices/PageSection'
 export default {
   name: 'Skills',
   nuxtI18n: {
@@ -35,7 +35,7 @@ export default {
       'en-gb': '/skills',
     },
   },
-  components: { SectionSlice },
+  components: { PageSection },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.$prismic, app.i18n, req).get(

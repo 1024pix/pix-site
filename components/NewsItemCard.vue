@@ -8,7 +8,7 @@
         <!-- /!\ We keep this line if we think that an image would be better -->
         <div
           class="news-item-card__illustration"
-          :style="`background-image: url(${content.illustration.url})`"
+          :style="`background-image: url(${slice.illustration.url})`"
         ></div>
       </header>
 
@@ -23,13 +23,10 @@
           </span>
         </p>
 
-        <prismic-rich-text
-          :field="content.title"
-          class="news-item-card__title"
-        />
+        <prismic-rich-text :field="slice.title" class="news-item-card__title" />
 
         <prismic-rich-text
-          :field="content.excerpt"
+          :field="slice.excerpt"
           class="news-item-card__excerpt"
         />
       </div>
@@ -41,7 +38,7 @@
 export default {
   name: 'NewsItemCard',
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
@@ -52,13 +49,13 @@ export default {
   },
   computed: {
     categoryClassName() {
-      return `news-item-card__category--${this.content.category.toLowerCase()}`
+      return `news-item-card__category--${this.slice.category.toLowerCase()}`
     },
     categoryLabel() {
-      return this.content.category.toLowerCase()
+      return this.slice.category.toLowerCase()
     },
     date() {
-      return this.$moment(this.content.date)
+      return this.$moment(this.slice.date)
         .locale(this.$i18n.locale.split('-')[0])
         .format('LL')
     },

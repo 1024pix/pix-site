@@ -11,10 +11,10 @@ exports[`Higher Education Page renders properly 1`] = `
       </pix-link-stub>
     </div>
   </section>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-infos\\" containerclass=\\"section__container\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"section__button\\"></section-slice-stub>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-mesurer\\" containerclass=\\"section__container\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"section__button\\"></section-slice-stub>
-  <section-column-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-developper\\" ulclass=\\"features\\" liclass=\\"feature\\" rightclass=\\"section-developper__image\\"></section-column-slice-stub>
-  <section-slice-stub content=\\"[object Object]\\" sectionclass=\\"section-valoriser\\" containerclass=\\"section__container\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"section__button\\"></section-slice-stub>
+  <page-section-stub slice=\\"[object Object]\\" sectionclass=\\"section-infos\\" containerclass=\\"section__container\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"section__button\\"></page-section-stub>
+  <page-section-stub slice=\\"[object Object]\\" sectionclass=\\"section-mesurer\\" containerclass=\\"section__container\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"section__button\\"></page-section-stub>
+  <section-column-stub slice=\\"[object Object]\\" sectionclass=\\"section-developper\\" ulclass=\\"features\\" liclass=\\"feature\\" rightclass=\\"section-developper__image\\"></section-column-stub>
+  <page-section-stub slice=\\"[object Object]\\" sectionclass=\\"section-valoriser\\" containerclass=\\"section__container\\" flexcontainerclass=\\"features\\" flexcontentclass=\\"feature\\" buttonclass=\\"section__button\\"></page-section-stub>
   <section class=\\"section-utiliser-pix\\">
     <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
     <div class=\\"container\\">
@@ -40,6 +40,6 @@ exports[`Higher Education Page renders properly 1`] = `
       </div>
     </div>
   </section>
-  <key-numbers-stub content=\\"[object Object]\\" contentid=\\"\\"></key-numbers-stub>
+  <key-numbers-stub slice=\\"[object Object]\\" contentid=\\"\\"></key-numbers-stub>
 </div>"
 `;

@@ -25,9 +25,9 @@
 
 <script>
 export default {
-  name: 'SectionSlice',
+  name: 'PageSection',
   props: {
-    content: {
+    slice: {
       type: Object,
       default: null,
     },
@@ -58,22 +58,22 @@ export default {
   },
   computed: {
     paragraphs() {
-      return this.content.items
+      return this.slice.items
     },
     title() {
-      return this.content.primary.title
+      return this.slice.primary.title
     },
     image() {
-      return this.content.primary.logo
+      return this.slice.primary.logo
     },
     description() {
-      return this.content.primary.description
+      return this.slice.primary.description
     },
     buttonLink() {
-      return this.content.primary.button_link.url
+      return this.slice.primary.button_link.url
     },
     buttonText() {
-      return this.content.primary.button_title
+      return this.slice.primary.button_title
     },
     hasImage() {
       return this.image && this.image.url

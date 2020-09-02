@@ -6,7 +6,7 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import SliceZone from '@/components/slices/SliceZone'
+import SliceZone from '@/components/SliceZone'
 
 export default {
   components: {

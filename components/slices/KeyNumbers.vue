@@ -24,7 +24,7 @@
 export default {
   name: 'KeyNumbers',
   props: {
-    content: {
+    slice: {
       type: Object,
       required: true,
     },
@@ -35,10 +35,10 @@ export default {
   },
   computed: {
     title() {
-      return this.content.title
+      return this.slice.title
     },
     items() {
-      return this.content.column
+      return this.slice.column
     },
   },
 }

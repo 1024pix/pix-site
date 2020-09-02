@@ -5,55 +5,55 @@
       :background-class="'hero-banner__background'"
       :content-class="'hero-banner__content'"
       :button-class="'hero-banner-content__button'"
-      :content="document[0]"
+      :slice="document[0]"
     />
 
-    <section-slice
-      :content="document[1]"
+    <page-section
+      :slice="document[1]"
       :section-class="'about__mission'"
       :container-class="'mission__container'"
       :flex-container-class="'mission-container__list'"
       :flex-content-class="'mission-container-list__item'"
     >
-    </section-slice>
+    </page-section>
 
-    <section-column-slice
-      :content="document[2]"
+    <section-column
+      :slice="document[2]"
       :section-class="'about__goal'"
       :ul-class="'goal__list'"
       :li-class="'goal__item'"
       :right-class="'goal__image'"
     >
-    </section-column-slice>
+    </section-column>
 
-    <section-slice
-      :content="document[3]"
+    <page-section
+      :slice="document[3]"
       :section-class="'about__public-service'"
       :container-class="'public-service__container'"
       :flex-container-class="'public-service-container__list'"
       :flex-content-class="'public-service-container-list__item'"
     >
-    </section-slice>
+    </page-section>
 
-    <section-slice
-      :content="document[4]"
+    <page-section
+      :slice="document[4]"
       :section-class="'about__co-built-service'"
       :container-class="'co-built-service__container'"
       :flex-container-class="'co-built-service-container__list'"
       :flex-content-class="'co-built-service-container-list__item'"
     >
-    </section-slice>
+    </page-section>
   </div>
 </template>
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
 import HeroBanner from '@/components/slices/HeroBanner'
-import SectionSlice from '@/components/slices/Section'
-import SectionColumnSlice from '@/components/slices/SectionColumn'
+import PageSection from '@/components/slices/PageSection'
+import SectionColumn from '@/components/slices/SectionColumn'
 
 export default {
   name: 'About',
-  components: { HeroBanner, SectionColumnSlice, SectionSlice },
+  components: { HeroBanner, SectionColumn, PageSection },
   nuxtI18n: {
     paths: {
       fr: '/qui-sommes-nous',

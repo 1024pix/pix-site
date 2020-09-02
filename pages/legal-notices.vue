@@ -11,14 +11,14 @@
         <prismic-rich-text :field="document.body[0].primary.text" />
       </section>
 
-      <section-slice
-        :content="document.body[1]"
+      <page-section
+        :slice="document.body[1]"
         :section-class="'section-members-gip container md padding-container'"
         :container-class="'legal-notices-members unstyled'"
         :flex-container-class="'legal-notices-members'"
         :flex-content-class="'legal-notices-members__member'"
       >
-      </section-slice>
+      </page-section>
 
       <section class="section-personnal-data container md padding-container">
         <prismic-rich-text :field="document.body[2].primary.text" />
@@ -29,7 +29,7 @@
 
 <script>
 import { documents, documentFetcher } from '~/services/document-fetcher'
-import SectionSlice from '@/components/slices/Section'
+import PageSection from '@/components/slices/PageSection'
 export default {
   name: 'LegalNotices',
   nuxtI18n: {
@@ -39,7 +39,7 @@ export default {
       'en-gb': '/en-gb/legal-notices',
     },
   },
-  components: { SectionSlice },
+  components: { PageSection },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
       const document = await documentFetcher(app.$prismic, app.i18n, req).get(
