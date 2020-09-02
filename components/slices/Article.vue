@@ -73,14 +73,16 @@ export default {
       return this.slice.primary
     },
     backgroundForOnlyText() {
+      let style = {}
       if (this.containsOnlyText) {
-        return {
+        style = {
           background: `no-repeat url(${this.content.article_background.url})`,
           backgroundSize: '100%',
           backgroundPosition: 'top right',
         }
       }
-      return {}
+      style['background-color'] = `${this.content.article_background_color}`
+      return style
     },
     containsOnlyText() {
       return this.content.article_layout === 'only-text'
