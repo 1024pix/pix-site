@@ -58,6 +58,7 @@ export default {
           backgroundPosition: 'top right',
         }
       }
+      style.backgroundColor = this.slice.primary.banner_background_color
       return style
     },
     title() {
