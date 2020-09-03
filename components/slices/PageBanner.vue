@@ -13,19 +13,19 @@
         <div v-for="(link, index) in links" :key="`item-${index}`">
           <pix-link
             v-if="!isVideo(link)"
-            :field="link.bannerlinkurl"
+            :field="link.banner_link_url"
             class="button"
             :class="videoClass(link)"
           >
-            {{ link.bannerlinktext }}
+            {{ link.banner_link_text }}
           </pix-link>
           <template v-if="isVideo(link)">
             <button class="button button-video" @click="openVideoModal()">
               <fa icon="play-circle" />
-              {{ link.bannerlinktext }}
+              {{ link.banner_link_text }}
             </button>
             <modal ref="modal" name="videoModal" height="auto">
-              <media-player :video-url="link.bannerlinkurl.url" />
+              <media-player :video-url="link.banner_link_url.url" />
             </modal>
           </template>
         </div>
@@ -54,27 +54,27 @@ export default {
   },
   computed: {
     title() {
-      return this.slice.primary.bannertitle
+      return this.slice.primary.banner_title
     },
     textContent() {
-      return this.slice.primary.bannercontent
+      return this.slice.primary.banner_content
     },
     links() {
       return this.slice.items
     },
     hasImage() {
       return (
-        this.slice.primary.bannerimage && this.slice.primary.bannerimage.url
+        this.slice.primary.banner_image && this.slice.primary.banner_image.url
       )
     },
     hasBackgroundImage() {
       return (
-        this.slice.primary.bannerbackground &&
-        this.slice.primary.bannerbackground.url
+        this.slice.primary.banner_background &&
+        this.slice.primary.banner_background.url
       )
     },
     imageUrl() {
-      return this.slice.primary.bannerimage
+      return this.slice.primary.banner_image
     },
   },
   mounted() {
@@ -93,7 +93,7 @@ export default {
       this.$modal.show('videoModal')
     },
     isVideo(link) {
-      return link.bannerlinkurl.url.includes('pix-videos/')
+      return link.banner_link_url.url.includes('pix-videos/')
     },
     videoClass(link) {
       return this.isVideo(link) ? 'banner__video' : ''
@@ -103,7 +103,7 @@ export default {
         'banner-with-background'
       )[0]
       if (screen.width <= DESKTOP_MIN_WIDTH) {
-        banner.style.background = `no-repeat url(${this.slice.primary.bannerbackground.url})`
+        banner.style.background = `no-repeat url(${this.slice.primary.banner_background.url})`
         banner.style.backgroundSize = '100%'
         banner.style.backgroundPosition = 'top right'
       } else {
