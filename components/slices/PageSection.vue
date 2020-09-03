@@ -87,7 +87,7 @@ export default {
 
 <style lang="scss">
 .section {
-  font-family: $open-sans, Arial, sans-serif;
+  font-family: $font-open-sans;
   text-align: center;
   margin: 0 auto;
   padding: 32px 0;
@@ -124,7 +124,7 @@ export default {
     h2 {
       color: $blue-5;
       font-size: 2rem;
-      font-family: $open-sans;
+      font-family: $font-open-sans;
       font-weight: normal;
       letter-spacing: 0.00875rem;
       line-height: 2.875rem;
