@@ -44,11 +44,16 @@ export default {
     type() {
       return this.document.type
     },
+    title() {
+      return this.document.data.title[0].text
+    },
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+
     return {
       meta,
+      title: this.title,
     }
   },
 }
