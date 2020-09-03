@@ -1,47 +1,43 @@
 <template>
-  <section
-    :class="[
-      'banner row-block',
-      { ' banner-with-background': hasBackgroundImage },
-    ]"
-  >
-    <div class="row-block__main-content">
-      <prismic-rich-text :field="title" class="title--big" />
-      <prismic-rich-text :field="textContent" class="text--normal" />
-      <slot></slot>
-      <div class="banner__button-group">
-        <div v-for="(link, index) in links" :key="`item-${index}`">
-          <pix-link
-            v-if="!isVideo(link)"
-            :field="link.banner_link_url"
-            class="button"
-            :class="videoClass(link)"
-          >
-            {{ link.banner_link_text }}
-          </pix-link>
-          <template v-if="isVideo(link)">
-            <button class="button button-video" @click="openVideoModal()">
-              <fa icon="play-circle" />
+  <div :style="[background]">
+    <section class="banner row-block">
+      <div class="row-block__main-content">
+        <prismic-rich-text :field="title" class="title--big" />
+        <prismic-rich-text :field="textContent" class="text--normal" />
+        <slot></slot>
+        <div class="banner__button-group">
+          <div v-for="(link, index) in links" :key="`item-${index}`">
+            <pix-link
+              v-if="!isVideo(link)"
+              :field="link.banner_link_url"
+              class="button"
+              :class="videoClass(link)"
+            >
               {{ link.banner_link_text }}
-            </button>
-            <modal ref="modal" name="videoModal" height="auto">
-              <media-player :video-url="link.banner_link_url.url" />
-            </modal>
-          </template>
+            </pix-link>
+            <template v-if="isVideo(link)">
+              <button class="button button-video" @click="openVideoModal()">
+                <fa icon="play-circle" />
+                {{ link.banner_link_text }}
+              </button>
+              <modal ref="modal" name="videoModal" height="auto">
+                <media-player :video-url="link.banner_link_url.url" />
+              </modal>
+            </template>
+          </div>
         </div>
       </div>
-    </div>
-    <prismic-image
-      v-if="hasImage"
-      :field="imageUrl"
-      class="row-block__side-content"
-    />
-  </section>
+      <prismic-image
+        v-if="hasImage"
+        :field="imageUrl"
+        class="row-block__side-content"
+      />
+    </section>
+  </div>
 </template>
 
 <script>
 import MediaPlayer from '../MediaPlayer'
-import { DESKTOP_MIN_WIDTH } from '~/config/breakpoints'
 
 export default {
   name: 'PageBanner',
@@ -53,6 +49,18 @@ export default {
     },
   },
   computed: {
+    background() {
+      let style = {}
+      if (this.hasBackgroundImage) {
+        style = {
+          background: `no-repeat url(${this.slice.primary.banner_background.url})`,
+          backgroundSize: '100%',
+          backgroundPosition: 'top right',
+        }
+      }
+      style.backgroundColor = this.slice.primary.banner_background_color
+      return style
+    },
     title() {
       return this.slice.primary.banner_title
     },
@@ -77,17 +85,6 @@ export default {
       return this.slice.primary.banner_image
     },
   },
-  mounted() {
-    if (this.hasBackgroundImage) {
-      this.changeBackgroundImage()
-      window.addEventListener('resize', this.changeBackgroundImage)
-    }
-  },
-  beforeDestroy() {
-    if (this.bannerWithBackgroundImageClass) {
-      window.removeEventListener('resize', this.changeBackgroundImage)
-    }
-  },
   methods: {
     openVideoModal() {
       this.$modal.show('videoModal')
@@ -97,18 +94,6 @@ export default {
     },
     videoClass(link) {
       return this.isVideo(link) ? 'banner__video' : ''
-    },
-    changeBackgroundImage() {
-      const banner = document.getElementsByClassName(
-        'banner-with-background'
-      )[0]
-      if (screen.width <= DESKTOP_MIN_WIDTH) {
-        banner.style.background = `no-repeat url(${this.slice.primary.banner_background.url})`
-        banner.style.backgroundSize = '100%'
-        banner.style.backgroundPosition = 'top right'
-      } else {
-        banner.style.background = 'none'
-      }
     },
   },
 }
@@ -141,8 +126,8 @@ export default {
       'b b b b';
     grid-gap: 16px;
 
-    font-family: 'Open Sans', Arial, sans-serif;
-    padding: 64px 0;
+    font-family: $font-open-sans;
+    padding: 81px 0;
     margin: 0 16px;
 
     & > * {
