@@ -30,6 +30,7 @@
     @include colorizeButton($grey-11, $grey-11, $white, $grey-20, $grey-11);
     svg { margin-right: 10px; }
   }
+
   &--oval {
     border-radius: 20px;
     border: 1px solid;
@@ -40,6 +41,42 @@
     letter-spacing: 0.0625rem;
 
     @include colorizeButton($blue-1, $blue-1, $white, $blue-1, $white);
+  }
+
+  &--light {
+    @include colorizeButton($grey-11, transparent, $pix-yellow, $white, $grey-11);
+
+    &:hover {
+      @include colorizeButton($grey-11, transparent, $pix-yellow-2, $pix-yellow-2, $grey-11);
+    }
+
+    &:active,
+    &:focus {
+      @include colorizeButton($grey-11, transparent, $pix-yellow-3, $pix-yellow-3, $grey-11);
+    }
+
+    &.button-video {
+      svg { margin-right: 10px; }
+      @include colorizeButton($white, $white, transparent, transparent, $white);
+
+      &:hover {
+        @include colorizeButton($white, $white, transparent, $blue-1, $white);
+      }
+
+      &:active,
+      &:focus {
+        @include colorizeButton($white, $white, transparent, $blue-3, $white);
+      }
+    }
+  }
+
+  &--dark {
+    @include colorizeButton($white, transparent, $blue-1, $blue-3, $white);
+
+    &.button-video {
+      svg { margin-right: 10px; }
+      @include colorizeButton($grey-11, $grey-11, $white, $grey-20, $grey-11);
+    }
   }
 }
 
