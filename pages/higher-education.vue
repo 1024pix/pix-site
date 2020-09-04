@@ -137,7 +137,7 @@ export default {
   color: #222222;
 
   h1 {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
     font-weight: bold;
     margin: 0 0 30px;
     font-size: 1.875rem;
@@ -150,7 +150,7 @@ export default {
   }
 
   h2 {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
     font-size: 2.25rem;
     line-height: 3.125rem;
     font-weight: normal;
@@ -164,7 +164,7 @@ export default {
   }
 
   h3 {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
     font-weight: 300;
     font-size: 1.375rem;
     line-height: 1.875rem;
@@ -172,7 +172,7 @@ export default {
   }
 
   h4 {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: normal;
@@ -180,7 +180,7 @@ export default {
   }
 
   p {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
     font-size: 1rem;
     line-height: 1.6rem;
     font-weight: 300;

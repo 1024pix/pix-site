@@ -73,7 +73,7 @@ export default {
     list-style: none;
   }
   h2 {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
     font-size: 36px;
     line-height: 49px;
     margin-bottom: 18px;

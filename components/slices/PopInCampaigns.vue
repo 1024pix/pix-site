@@ -101,7 +101,7 @@ export default {
     height: 50px;
     padding: 5px;
 
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: $font-roboto;
     font-size: 1rem;
     font-family: $font-roboto;
     font-weight: 200;
