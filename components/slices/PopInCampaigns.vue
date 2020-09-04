@@ -101,9 +101,9 @@ export default {
     height: 50px;
     padding: 5px;
 
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: $font-roboto;
     font-size: 1rem;
-    font-family: $roboto;
+    font-family: $font-roboto;
     font-weight: 200;
     line-height: 1.25rem;
     text-align: center;
@@ -193,7 +193,7 @@ export default {
     height: 36px;
     margin-top: 20.5px;
     margin-left: 12.5px;
-    font-family: $open-sans;
+    font-family: $font-open-sans;
     font-size: 0.9rem;
     line-height: 1.125rem;
     color: $white;

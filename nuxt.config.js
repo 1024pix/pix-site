@@ -40,9 +40,9 @@ export default {
    */
   loading: { color: '#fff' },
   /*
-   ** Global CSS
+   ** Shared CSS
    */
-  css: [],
+  css: ['assets/scss/shared.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -112,7 +112,7 @@ export default {
     locales: ['fr'],
   },
   styleResources: {
-    scss: ['assets/scss/app.scss'],
+    scss: ['assets/scss/globals.scss'],
   },
   /*
    ** Axios module configuration

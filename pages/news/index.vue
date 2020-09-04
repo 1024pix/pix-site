@@ -71,7 +71,7 @@ export default {
   h3,
   h4,
   p {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
   }
 
   &__list {

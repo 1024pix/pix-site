@@ -3,7 +3,7 @@ body > .ember-view,
 html {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: $font-open-sans;
   font-size: 16px;
   line-height: 24px;
   -webkit-font-smoothing: antialiased;

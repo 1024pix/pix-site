@@ -80,7 +80,7 @@ export default {
   h2,
   h3,
   p {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
   }
 
   @media (min-width: 700px) {

@@ -95,7 +95,7 @@ export default {
   h3,
   h4,
   p {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
   }
 
   &__hero-banner {
@@ -174,7 +174,7 @@ export default {
 
     &-content {
       &__button {
-        font-family: 'Roboto', Arial, sans-serif;
+        font-family: $font-roboto;
         display: inline-block;
         cursor: pointer;
         user-select: none;
@@ -570,7 +570,7 @@ export default {
       }
 
       &__button {
-        font-family: 'Roboto', Arial, sans-serif;
+        font-family: $font-roboto;
         display: inline-block;
         cursor: pointer;
         user-select: none;

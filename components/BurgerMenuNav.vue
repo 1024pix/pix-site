@@ -112,7 +112,7 @@ export default {
     display: inline-block;
   }
   .nav-middle {
-    font-family: $roboto;
+    font-family: $font-roboto;
     h3 {
       color: $white;
       font-size: 16px;

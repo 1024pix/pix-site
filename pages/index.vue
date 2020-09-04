@@ -140,7 +140,7 @@ export default {
 
     &-content {
       &__button {
-        font-family: 'Roboto', Arial, sans-serif;
+        font-family: $font-roboto;
         display: inline-block;
         cursor: pointer;
         user-select: none;

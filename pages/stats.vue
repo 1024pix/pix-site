@@ -111,7 +111,7 @@ export default {
   }
   h1,
   h2 {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: $font-open-sans;
     font-weight: 400;
   }
   h1 {

@@ -97,7 +97,7 @@ export default {
   h3,
   h4,
   p {
-    font-family: $open-sans, Arial, sans-serif;
+    font-family: $font-open-sans;
   }
 
   h2 {
@@ -112,7 +112,7 @@ export default {
   h3 {
     color: $blue-5;
     font-size: 1.25rem;
-    font-family: $open-sans;
+    font-family: $font-open-sans;
     font-weight: 600;
     letter-spacing: 0.00875rem;
     line-height: 1.875rem;
@@ -194,7 +194,7 @@ export default {
       color: $grey-10;
       text-align: center;
       font-size: 0.875rem;
-      font-family: $roboto;
+      font-family: $font-roboto;
       letter-spacing: 0.009375rem;
       line-height: 1.5rem;
 
@@ -238,7 +238,7 @@ export default {
       color: $grey-10;
       text-align: center;
       font-size: 0.875rem;
-      font-family: $roboto;
+      font-family: $font-roboto;
       letter-spacing: 0.009375rem;
       line-height: 1.5rem;
 
@@ -276,7 +276,7 @@ export default {
       color: $grey-10;
       text-align: center;
       font-size: 0.875rem;
-      font-family: $roboto;
+      font-family: $font-roboto;
       letter-spacing: 0.009375rem;
       line-height: 1.5rem;
 
@@ -313,7 +313,7 @@ export default {
       color: $grey-10;
       text-align: center;
       font-size: 0.875rem;
-      font-family: $roboto;
+      font-family: $font-roboto;
       letter-spacing: 0.009375rem;
       line-height: 1.5rem;
       margin-bottom: 0;
