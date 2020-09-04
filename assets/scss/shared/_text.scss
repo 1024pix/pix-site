@@ -126,3 +126,18 @@
   font-weight: 700;
 }
 
+.text {
+  &--normal p {
+    font-size: 1rem;
+    line-height: 1.625rem;
+    color: $grey-10;
+  }
+
+  &--light p {
+    color: $white;
+  }
+
+  &--dark p {
+    color: $grey-9;
+  }
+}

@@ -2,8 +2,16 @@
   <div :style="[background]">
     <section class="banner row-block">
       <div class="row-block__main-content">
-        <prismic-rich-text :field="title" class="title--big" />
-        <prismic-rich-text :field="textContent" class="text--normal" />
+        <prismic-rich-text
+          :field="title"
+          class="title--big"
+          :class="`title--${fontContrast}`"
+        />
+        <prismic-rich-text
+          :field="textContent"
+          class="text--normal"
+          :class="`text--${fontContrast}`"
+        />
         <slot></slot>
         <div class="banner__button-group">
           <div v-for="(link, index) in links" :key="`item-${index}`">
@@ -16,7 +24,11 @@
               {{ link.banner_link_text }}
             </pix-link>
             <template v-if="isVideo(link)">
-              <button class="button button-video" @click="openVideoModal()">
+              <button
+                class="button button-video"
+                :class="`button--${fontContrast}`"
+                @click="openVideoModal()"
+              >
                 <fa icon="play-circle" />
                 {{ link.banner_link_text }}
               </button>
@@ -61,6 +73,9 @@ export default {
       style.backgroundColor = this.slice.primary.banner_background_color
       return style
     },
+    fontContrast() {
+      return this.slice.primary.banner_font_contrast
+    },
     title() {
       return this.slice.primary.banner_title
     },
@@ -93,7 +108,9 @@ export default {
       return link.banner_link_url.url.includes('pix-videos/')
     },
     videoClass(link) {
-      return this.isVideo(link) ? 'banner__video' : ''
+      return this.isVideo(link)
+        ? 'banner__video'
+        : 'button--' + this.fontContrast
     },
   },
 }
