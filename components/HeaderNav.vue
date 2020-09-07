@@ -22,6 +22,7 @@
             </nuxt-link>
             <img
               v-if="showFrenchGovLogo"
+              class="logo"
               :alt="$t('alt.header-nav.public-service')"
               src="/images/marianne-logo.svg"
             />
@@ -41,6 +42,7 @@
             </nuxt-link>
             <img
               v-if="showFrenchGovLogo"
+              class="logo"
               :alt="$t('alt.header-nav.public-service')"
               src="/images/marianne-logo.svg"
             />
