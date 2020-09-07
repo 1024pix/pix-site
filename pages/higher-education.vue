@@ -57,9 +57,9 @@
           <prismic-rich-text :field="item.column_description" />
         </div>
         <div style="margin: auto;">
-          <a class="btn" :href="document[5].primary.button_link">
+          <pix-link class="btn" :field="document[5].primary.button_link">
             {{ $prismic.asText(document[5].primary.button_text) }}
-          </a>
+          </pix-link>
         </div>
       </div>
     </section>
