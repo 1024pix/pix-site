@@ -3,7 +3,7 @@
     <prismic-rich-text v-if="hasTitle" class="features__title" :field="title" />
     <div class="features__wrapper" :style="[background]">
       <div
-        v-for="(featuresInARow, rowIndex) in featuresByRow()"
+        v-for="(featuresInARow, rowIndex) in featuresByRow"
         :key="`item-${rowIndex}`"
         class="features-wrapper__row"
       >
@@ -43,6 +43,11 @@ export default {
       default: null,
     },
   },
+  data() {
+    return {
+      featuresByRow: [],
+    }
+  },
   computed: {
     background() {
       return {
@@ -64,8 +69,11 @@ export default {
       return this.slice.primary.features_title
     },
   },
+  mounted() {
+    this.featuresByRow = this.splitFeaturesIntoRows()
+  },
   methods: {
-    nbFeaturesInRow() {
+    findNbFeaturesInRow() {
       if (process.client) {
         const isExtraLargeScreen = screen.width >= EXTRA_LARGE_SCREEN_MIN_WIDTH
         const isDesktopScreen = screen.width <= DESKTOP_MIN_WIDTH
@@ -81,9 +89,9 @@ export default {
 
       return 3
     },
-    featuresByRow() {
+    splitFeaturesIntoRows() {
       const rows = []
-      const chunkSize = this.nbFeaturesInRow()
+      const chunkSize = this.findNbFeaturesInRow()
       for (let i = 0; i < this.paragraphs.length; i += chunkSize) {
         rows.push(this.paragraphs.slice(i, i + chunkSize))
       }
