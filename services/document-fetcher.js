@@ -59,16 +59,30 @@ export function documentFetcher(
     getPreviewUrl: (previewToken) => {
       return prismic.api.previewSession(previewToken, LinkResolver, '/')
     },
-    getSimplePageByUid: async (uid) => {
-      const document = await prismic.api.query(
-        prismic.predicates.at('my.simple_page.uid', uid),
-        { lang }
-      )
-      return document.results[0]
+    getPageByUid: async (uid) => {
+      const simplePage = await getSimplePageByUid(uid)
+      const slicePage = await getSlicesPageByUid(uid)
+      return simplePage || slicePage
     },
   }
 
   function getSingle(type) {
     return prismic.api.getSingle(type, { lang })
+  }
+
+  async function getSimplePageByUid(uid) {
+    const document = await prismic.api.query(
+      prismic.predicates.at('my.simple_page.uid', uid),
+      { lang }
+    )
+    return document.results[0]
+  }
+
+  async function getSlicesPageByUid(uid) {
+    const document = await prismic.api.query(
+      prismic.predicates.at('my.slices_page.uid', uid),
+      { lang }
+    )
+    return document.results[0]
   }
 }

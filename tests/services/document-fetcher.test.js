@@ -83,8 +83,13 @@ describe('DocumentFetcher', () => {
     const expectedValue = Symbol('VALUE')
     const expectedPredicatesAtValue = Symbol('AT')
     const uid = Symbol('UID')
+    const getSimplePageByUidMock = () => ({ results: [expectedValue] })
+    const getSlicesPageByUidMock = () => ({ results: [] })
     const prismicApi = {
-      query: jest.fn(() => ({ results: [expectedValue] })),
+      query: jest
+        .fn()
+        .mockImplementationOnce(getSimplePageByUidMock)
+        .mockImplementationOnce(getSlicesPageByUidMock),
     }
     prismic.api = prismicApi
 
@@ -94,13 +99,14 @@ describe('DocumentFetcher', () => {
     prismic.predicates = prismicPredicates
 
     // When
-    const response = await documentFetcher(prismic).getSimplePageByUid(uid)
+    const response = await documentFetcher(prismic).getPageByUid(uid)
 
     // Then
     expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
       lang: 'fr-fr',
     })
     expect(prismicPredicates.at).toBeCalledWith('my.simple_page.uid', uid)
+    expect(prismicPredicates.at).toBeCalledWith('my.slices_page.uid', uid)
     expect(response).toEqual(expectedValue)
   })
 })
