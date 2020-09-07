@@ -4,7 +4,10 @@
       <div class="background"></div>
       <div class="container padding-container">
         <prismic-rich-text :field="document[0].primary.title" />
-        <pix-link class="btn" :field="document[0].items[0].link_button">
+        <pix-link
+          class="btn button button--light"
+          :field="document[0].items[0].link_button"
+        >
           {{ $prismic.asText(document[0].items[0].title_button) }}
         </pix-link>
       </div>
@@ -57,7 +60,10 @@
           <prismic-rich-text :field="item.column_description" />
         </div>
         <div style="margin: auto;">
-          <pix-link class="btn" :field="document[5].primary.button_link">
+          <pix-link
+            class="btn button button--light"
+            :field="document[5].primary.button_link"
+          >
             {{ $prismic.asText(document[5].primary.button_text) }}
           </pix-link>
         </div>
@@ -134,6 +140,13 @@ export default {
 
 <style lang="scss">
 .page.higher-education {
+  .button {
+    @include device-is('tablet') {
+      width: 280px;
+      margin: 0;
+    }
+  }
+
   color: #222222;
 
   h1 {
@@ -224,6 +237,7 @@ export default {
     text-align: center;
     display: block;
   }
+
   section {
     position: relative;
 
