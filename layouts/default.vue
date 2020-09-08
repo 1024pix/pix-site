@@ -81,7 +81,14 @@ h6 {
 import AppFooter from '@/components/AppFooter'
 import HeaderNav from '@/components/HeaderNav'
 import HotNewsBanner from '@/components/HotNewsBanner'
+import NavigationSliceZone from '@/components/NavigationSliceZone'
+
 export default {
-  components: { HotNewsBanner, AppFooter, HeaderNav },
+  components: {
+    HotNewsBanner,
+    AppFooter,
+    HeaderNav,
+    NavigationSliceZone,
+  },
 }
 </script>
