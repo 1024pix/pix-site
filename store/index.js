@@ -2,24 +2,27 @@ import getHostFromRequest from '~/services/get-host-from-request'
 import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export const state = () => ({
-  organizationNavItems: [],
-  mainNavItems: [],
-  topItems: [],
-  middleItems: [],
-  bottomItems: [],
   resourcesNavItems: [],
   aboutNavItems: [],
   hotNews: null,
   host: null,
+  mainNavigation: [],
 })
 export const actions = {
   async nuxtServerInit({ commit }, { app, req }) {
     commit('updateNavigation', await getNavigation(app.$prismic, app.i18n))
+    commit(
+      'updateMainNavigation',
+      await getMainNavigation(app.$prismic, app.i18n)
+    )
     commit('updateHotNews', await getHotNews(app.$prismic, app.i18n))
     commit('updateHost', req)
   },
   async updateNavigation({ commit }, i18n) {
     commit('updateNavigation', await getNavigation(i18n))
+  },
+  async updateMainNavigation({ commit }, i18n) {
+    commit('updateMainNavigation', await getMainNavigation(i18n))
   },
 }
 export const mutations = {
@@ -40,15 +43,13 @@ export const mutations = {
 
     state.organizationNavItems = navItems(
       navigations,
-      process.env.isPixSite ? 'organizations-nav' : 'pix-pro-organizations-nav'
+      'pix-pro-organizations-nav'
     )
-
-    state.mainNavItems = navItems(navigations, 'main-nav')
-    state.topItems = navItems(navigations, 'burger-menu-top')
-    state.middleItems = navItems(navigations, 'pix-pro-burger-menu-middle')
-    state.bottomItems = navItems(navigations, 'burger-menu-bottom')
     state.resourcesNavItems = navItems(navigations, 'ressources-nav')
     state.aboutNavItems = navItems(navigations, 'about-nav')
+  },
+  updateMainNavigation(state, navigations) {
+    state.mainNavigation = { ...navigations }
   },
   updateHotNews(state, hotNews) {
     state.hotNews = hotNews && hotNews.data ? hotNews.data.description : null
@@ -57,6 +58,10 @@ export const mutations = {
 
 function getNavigation(prismic, i18n) {
   return documentFetcher(prismic, i18n).get(documents.navigation)
+}
+
+function getMainNavigation(prismic, i18n) {
+  return documentFetcher(prismic, i18n).get(documents.mainNavigation)
 }
 
 function getHotNews(prismic, i18n) {

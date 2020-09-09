@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app-viewport">
     <hot-news-banner />
-    <header-nav />
+    <navigation-slice-zone />
     <main>
       <nuxt />
     </main>
@@ -79,7 +79,6 @@ h6 {
 </style>
 <script>
 import AppFooter from '@/components/AppFooter'
-import HeaderNav from '@/components/HeaderNav'
 import HotNewsBanner from '@/components/HotNewsBanner'
 import NavigationSliceZone from '@/components/NavigationSliceZone'
 
@@ -87,7 +86,6 @@ export default {
   components: {
     HotNewsBanner,
     AppFooter,
-    HeaderNav,
     NavigationSliceZone,
   },
 }
