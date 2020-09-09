@@ -99,6 +99,10 @@ export default {
 </script>
 
 <style lang="scss">
+.article-content__title {
+  text-align: center;
+}
+
 .article {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

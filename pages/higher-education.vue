@@ -233,6 +233,10 @@ export default {
     }
   }
 
+  .block-img {
+    text-align: center;
+  }
+
   .center {
     text-align: center;
     display: block;
