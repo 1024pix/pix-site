@@ -6,7 +6,7 @@ exports[`Higher Education Page renders properly 1`] = `
     <div class=\\"background\\"></div>
     <div class=\\"container padding-container\\">
       <prismic-rich-text-stub field=\\"\\"></prismic-rich-text-stub>
-      <pix-link-stub class=\\"btn\\">
+      <pix-link-stub class=\\"btn button button--light\\">
 
       </pix-link-stub>
     </div>
@@ -24,9 +24,11 @@ exports[`Higher Education Page renders properly 1`] = `
         <hr class=\\"text-left mb-2 mt-2\\">
         <prismic-rich-text-stub></prismic-rich-text-stub>
       </div>
-      <div style=\\"margin: auto;\\"><a class=\\"btn\\">
+      <div style=\\"margin: auto;\\">
+        <pix-link-stub class=\\"btn button button--light\\">
 
-        </a></div>
+        </pix-link-stub>
+      </div>
     </div>
   </section>
   <section class=\\"section-comment-ca-marche\\">

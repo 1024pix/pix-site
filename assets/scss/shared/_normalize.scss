@@ -23,6 +23,10 @@ input {
   border: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   transition: all ease-in .1s;
   text-decoration: none;

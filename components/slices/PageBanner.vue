@@ -66,7 +66,7 @@ export default {
       if (this.hasBackgroundImage) {
         style = {
           background: `no-repeat url(${this.slice.primary.banner_background.url})`,
-          backgroundSize: '100%',
+          backgroundSize: 'cover',
           backgroundPosition: 'top right',
         }
       }
