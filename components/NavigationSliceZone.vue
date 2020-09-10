@@ -1,7 +1,7 @@
 <template>
   <div class="navigation-slice-zone">
     <section
-      v-for="(slice, index) in slices"
+      v-for="(slice, index) in mainNavigation.data.body"
       :key="`navigation-slice-${index}`"
     >
       <template v-if="slice.slice_type === 'logos_zone'">
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import LogosZone from '@/components/slices/LogosZone'
 
 export default {
@@ -19,12 +20,7 @@ export default {
   components: {
     LogosZone,
   },
-  props: {
-    slices: {
-      type: Array,
-      default: null,
-    },
-  },
+  computed: mapState(['mainNavigation']),
 }
 </script>
 
