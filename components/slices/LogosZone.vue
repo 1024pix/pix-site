@@ -5,7 +5,10 @@
       :key="`logo-${index}`"
       class="logos-zone__content"
     >
-      <prismic-image :field="logo.image" />
+      <pix-link v-if="hasLink(logo)" :field="logo.url">
+        <prismic-image :field="logo.image" />
+      </pix-link>
+      <prismic-image v-else :field="logo.image" />
     </div>
   </div>
 </template>
@@ -17,6 +20,11 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+  },
+  methods: {
+    hasLink(item) {
+      return item.url.link_type !== 'Any'
     },
   },
 }
