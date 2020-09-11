@@ -16,6 +16,9 @@
       <template v-if="slice.slice_type === 'navigation_zone'">
         <navigation-zone :slice="slice" />
       </template>
+      <template v-if="slice.slice_type === 'actions_zone'">
+        <actions-zone :slice="slice" />
+      </template>
     </section>
   </div>
 </template>
@@ -24,11 +27,13 @@
 import { mapState } from 'vuex'
 import LogosZone from '@/components/slices/LogosZone'
 import NavigationZone from '@/components/slices/NavigationZone'
+import ActionsZone from '@/components/slices/ActionsZone'
 import BurgerMenuNav from '@/components/BurgerMenuNav'
 
 export default {
   name: 'NavigationSliceZone',
   components: {
+    ActionsZone,
     LogosZone,
     NavigationZone,
     BurgerMenuNav,
