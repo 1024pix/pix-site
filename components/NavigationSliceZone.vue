@@ -2,7 +2,7 @@
   <div class="navigation-slice-zone">
     <client-only>
       <push-menu width="230">
-        <burger-menu-nav :items="mainNavigation.data.body[1].items" />
+        <burger-menu-nav :items="burgerMenuLinks" />
       </push-menu>
     </client-only>
     <section
@@ -38,7 +38,18 @@ export default {
     NavigationZone,
     BurgerMenuNav,
   },
-  computed: mapState(['mainNavigation']),
+  computed: {
+    ...mapState(['mainNavigation']),
+    burgerMenuLinks() {
+      const navigationZone = this.mainNavigation.data.body.find(
+        (slice) => slice.slice_type === 'navigation_zone'
+      )
+      const actionsZone = this.mainNavigation.data.body.find(
+        (slice) => slice.slice_type === 'actions_zone'
+      )
+      return [...navigationZone.items, ...actionsZone.items]
+    },
+  },
 }
 </script>
 
