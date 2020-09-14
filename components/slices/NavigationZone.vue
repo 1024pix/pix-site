@@ -8,21 +8,39 @@
       >
         {{ $prismic.asText(menuItem.name) }}
       </pix-link>
-      <button v-else type="button" class="navigation-zone__item links-group">
-        {{ menuItem.name }} <fa icon="angle-down" />
+      <button v-else class="dropdown-toggle" @click="toggleDropdown">
+        {{ menuItem.name }}
       </button>
+      <navigation-dropdown
+        v-if="showDropdown"
+        type="button"
+        class="navigation-zone__item links-group"
+        :options="menuItem.subNavigationLinks"
+        @closeNavigationDropdown="toggleDropdown"
+      >
+      </navigation-dropdown>
     </div>
   </div>
 </template>
 
 <script>
+import NavigationDropdown from '@/components/NavigationDropdown'
+
 export default {
   name: 'NavigationZone',
+  components: {
+    NavigationDropdown,
+  },
   props: {
     slice: {
       type: Object,
       default: null,
     },
+  },
+  data() {
+    return {
+      showDropdown: false,
+    }
   },
   computed: {
     navigationLinks() {
@@ -36,6 +54,11 @@ export default {
         }
       })
       return navigation.links
+    },
+  },
+  methods: {
+    toggleDropdown() {
+      this.showDropdown = !this.showDropdown
     },
   },
 }
