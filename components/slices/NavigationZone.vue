@@ -1,9 +1,16 @@
 <template>
   <div class="navigation-zone">
-    <div v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
-      <pix-link :field="menuItem.link" class="navigation-zone__item">
+    <div v-for="(menuItem, index) in navigationLinks" :key="`item-${index}`">
+      <pix-link
+        v-if="!menuItem.hasOwnProperty('subNavigationLinks')"
+        :field="menuItem.link"
+        class="navigation-zone__item"
+      >
         {{ $prismic.asText(menuItem.name) }}
       </pix-link>
+      <button v-else type="button" class="navigation-zone__item links-group">
+        {{ menuItem.name }} <fa icon="angle-down" />
+      </button>
     </div>
   </div>
 </template>
@@ -69,7 +76,6 @@ class Navigation {
 <style scoped lang="scss">
 .navigation-zone {
   display: none;
-  justify-content: space-around;
 
   @include device-is('large-screen') {
     display: flex;
@@ -79,13 +85,14 @@ class Navigation {
 
     &__item {
       color: $grey-9;
+      margin: 0 4px;
       font-family: $font-roboto;
       font-size: 14px;
       font-weight: 500;
       height: 22px;
       letter-spacing: 0.13px;
       line-height: 22px;
-      padding-bottom: 10px;
+      padding: 0 8px 10px 8px;
 
       &.current-active-link {
         border-bottom: 2px solid $blue-1;
@@ -94,6 +101,14 @@ class Navigation {
       &:active,
       &:hover {
         color: $blue-1;
+      }
+
+      &.links-group {
+        border-left: 1px solid $grey-20;
+        border-right: 1px solid $grey-20;
+        border-top: none;
+        border-bottom: none;
+        background-color: transparent;
       }
     }
   }
