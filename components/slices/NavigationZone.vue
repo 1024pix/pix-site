@@ -17,6 +17,52 @@ export default {
       default: null,
     },
   },
+  computed: {
+    navigationLinks() {
+      const navigation = new Navigation()
+      this.slice.items.forEach((item) => {
+        if (item.group.length > 0) {
+          const groupName = item.group[0].text
+          navigation.addSubNavigationLink(groupName, item)
+        } else {
+          navigation.addNavigationLink(item)
+        }
+      })
+      return navigation.links
+    },
+  },
+}
+
+class Navigation {
+  constructor() {
+    this.links = []
+  }
+
+  addNavigationLink(navigationLink) {
+    this.links.push(navigationLink)
+  }
+
+  addSubNavigationLink(groupName, subNavigationLink) {
+    const group = this._groupAlreadyInLinks(groupName)
+    if (!group) {
+      this._createNewGroup(groupName, [subNavigationLink])
+    } else {
+      group.subNavigationLinks.push(subNavigationLink)
+    }
+  }
+
+  _groupAlreadyInLinks(groupName) {
+    return this.links.find(
+      (link) => link.name === groupName && link.subNavigationLinks
+    )
+  }
+
+  _createNewGroup(groupName, subNavigationLinks) {
+    this.links.push({
+      name: groupName,
+      subNavigationLinks,
+    })
+  }
 }
 </script>
 
