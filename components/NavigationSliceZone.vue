@@ -57,10 +57,12 @@ export default {
 .navigation-slice-zone {
   display: flex;
   justify-content: flex-end;
+  height: 80px;
+  box-shadow: -1px 9px 29px -16px rgba(199, 191, 199, 0.9);
 
   @include device-is('large-screen') {
     justify-content: center;
-    margin: 0 98px;
+    padding: 0 98px;
   }
 }
 </style>

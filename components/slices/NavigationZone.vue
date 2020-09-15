@@ -8,17 +8,21 @@
       >
         {{ $prismic.asText(menuItem.name) }}
       </pix-link>
-      <button v-else class="dropdown-toggle" @click="toggleDropdown">
-        {{ menuItem.name }}
-      </button>
-      <navigation-dropdown
-        v-if="showDropdown"
-        type="button"
-        class="navigation-zone__item links-group"
-        :options="menuItem.subNavigationLinks"
-        @closeNavigationDropdown="toggleDropdown"
+      <button
+        v-else
+        class="dropdown-toggle navigation-zone__item links-group"
+        @click="toggleDropdown"
       >
-      </navigation-dropdown>
+        {{ menuItem.name }} <fa v-if="showDropdown" icon="angle-up" />
+        <fa v-else icon="angle-down" />
+        <navigation-dropdown
+          v-if="showDropdown"
+          type="button"
+          :options="menuItem.subNavigationLinks"
+          @closeNavigationDropdown="toggleDropdown"
+        >
+        </navigation-dropdown>
+      </button>
     </div>
   </div>
 </template>
@@ -100,6 +104,10 @@ class Navigation {
 .navigation-zone {
   display: none;
 
+  & > div {
+    position: relative;
+  }
+
   @include device-is('large-screen') {
     display: flex;
     width: 652px;
@@ -111,11 +119,12 @@ class Navigation {
       margin: 0 4px;
       font-family: $font-roboto;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: $font-medium;
       height: 22px;
       letter-spacing: 0.13px;
       line-height: 22px;
       padding: 0 8px 10px 8px;
+      cursor: pointer;
 
       &.current-active-link {
         border-bottom: 2px solid $blue-1;

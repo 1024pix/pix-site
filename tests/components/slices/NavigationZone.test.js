@@ -26,7 +26,7 @@ describe('NavigationZone slice', () => {
     describe('#navigationLinks', () => {
       beforeEach(() => {
         component = shallowMount(NavigationZone, {
-          stubs: { 'pix-link': true },
+          stubs: { 'pix-link': true, fa: true },
           propsData: {
             slice: {
               items: [

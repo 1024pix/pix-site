@@ -92,6 +92,7 @@ export default {
             set: '@fortawesome/free-solid-svg-icons',
             icons: [
               'faAngleDown',
+              'faAngleUp',
               'faArrowRight',
               'faCalendar',
               'faCheck',
@@ -156,7 +157,6 @@ export default {
   },
   router: {
     middleware: 'current-page-path',
-    linkActiveClass: 'your-custom-active-link',
     linkExactActiveClass: 'current-active-link',
   },
   /*
