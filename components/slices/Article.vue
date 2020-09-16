@@ -17,6 +17,9 @@
         <prismic-rich-text
           :field="content.article_title"
           class="article-content__title"
+          :class="{
+            'article-content__title--only-text': containsOnlyText,
+          }"
         />
         <prismic-rich-text
           :field="content.article_description"
@@ -100,7 +103,11 @@ export default {
 
 <style lang="scss">
 .article-content__title {
-  text-align: center;
+  text-align: left;
+
+  &--only-text {
+    text-align: center;
+  }
 }
 
 .article {
