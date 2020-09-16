@@ -14,6 +14,10 @@
 export default {
   name: 'NavigationDropdown',
   props: {
+    dropdownIndex: {
+      type: String,
+      default: null,
+    },
     options: {
       type: [Array, Object],
       default: null,
@@ -22,7 +26,9 @@ export default {
   data() {
     return {
       eventListener: (event) => {
-        if (!event.target.classList.contains('dropdown-toggle')) {
+        if (
+          event.target.getAttribute('dropdown-index') !== this.dropdownIndex
+        ) {
           this.closeDropdown()
         }
       },
@@ -39,7 +45,7 @@ export default {
 
   methods: {
     closeDropdown() {
-      this.$emit('closeNavigationDropdown')
+      this.$emit('closeNavigationDropdown', this.dropdownIndex)
     },
   },
 }

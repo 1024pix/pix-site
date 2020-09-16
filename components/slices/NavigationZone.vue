@@ -10,16 +10,19 @@
       </pix-link>
       <button
         v-else
+        :dropdown-index="`${index}`"
         class="dropdown-toggle navigation-zone__item links-group"
-        @click="toggleDropdown"
+        @click="toggleDropdown(`${index}`)"
       >
-        {{ menuItem.name }} <fa v-if="showDropdown" icon="angle-up" />
+        {{ menuItem.name }}
+        <fa v-if="showDropdown(`${index}`)" icon="angle-up" />
         <fa v-else icon="angle-down" />
         <navigation-dropdown
-          v-if="showDropdown"
+          v-if="showDropdown(`${index}`)"
           type="button"
           :options="menuItem.subNavigationLinks"
-          @closeNavigationDropdown="toggleDropdown"
+          :dropdown-index="`${index}`"
+          @closeNavigationDropdown="toggleDropdown(`${index}`)"
         >
         </navigation-dropdown>
       </button>
@@ -28,6 +31,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import NavigationDropdown from '@/components/NavigationDropdown'
 
 export default {
@@ -43,7 +47,7 @@ export default {
   },
   data() {
     return {
-      showDropdown: false,
+      dropdownMap: {},
     }
   },
   computed: {
@@ -61,8 +65,14 @@ export default {
     },
   },
   methods: {
-    toggleDropdown() {
-      this.showDropdown = !this.showDropdown
+    showDropdown(dropdownIndex) {
+      if (!this.dropdownMap[dropdownIndex]) {
+        Vue.set(this.dropdownMap, dropdownIndex, false)
+      }
+      return this.dropdownMap[dropdownIndex]
+    },
+    toggleDropdown(dropdownIndex) {
+      Vue.set(this.dropdownMap, dropdownIndex, !this.dropdownMap[dropdownIndex])
     },
   },
 }
@@ -110,20 +120,18 @@ class Navigation {
 
   @include device-is('large-screen') {
     display: flex;
-    width: 652px;
     align-items: center;
     height: 100%;
 
     &__item {
       color: $grey-9;
-      margin: 0 4px;
       font-family: $font-roboto;
       font-size: 14px;
       font-weight: $font-medium;
       height: 22px;
       letter-spacing: 0.13px;
       line-height: 22px;
-      padding: 0 8px 10px 8px;
+      padding: 0 10px 10px 10px;
       cursor: pointer;
 
       &.current-active-link {

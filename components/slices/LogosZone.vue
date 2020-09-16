@@ -34,7 +34,6 @@ export default {
 .logos-zone {
   display: flex;
   justify-content: flex-end;
-  margin-right: 64px;
 
   .logos-zone__content {
     margin-right: 24px;
@@ -50,6 +49,10 @@ export default {
   }
   @include device-is('desktop') {
     justify-content: flex-start;
+  }
+
+  @include device-is('large-screen') {
+    margin-right: 64px;
   }
 }
 </style>
