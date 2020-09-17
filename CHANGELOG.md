@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v2.26.0 (17/09/2020)
+
+- [#167](https://github.com/1024pix/pix-site/pull/167) [BUGFIX] Ajuster l'alignement des titres d'articles (PIX-1286).
+
 
 
 ## v2.25.0 (14/09/2020)
