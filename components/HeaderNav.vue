@@ -70,8 +70,9 @@ export default {
     OrganizationNav,
   },
   data() {
-    const showFrenchGovLogo = this.$i18n.locale === 'fr-fr'
-    return { showFrenchGovLogo }
+    const isFrenchLocale = this.$i18n.locale === 'fr-fr'
+    const isPixSite = process.env.isPixSite
+    return { showFrenchGovLogo: isFrenchLocale && isPixSite }
   },
   computed: mapState([
     'organizationNavItems',
