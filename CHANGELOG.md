@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v2.27.0 (18/09/2020)
+
+- [#169](https://github.com/1024pix/pix-site/pull/169) [FEATURE] Mettre le logo de la république dans le pied de page.
+
 ## v2.26.0 (17/09/2020)
 
 - [#167](https://github.com/1024pix/pix-site/pull/167) [BUGFIX] Ajuster l'alignement des titres d'articles (PIX-1286).
