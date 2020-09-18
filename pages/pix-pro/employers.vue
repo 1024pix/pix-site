@@ -111,6 +111,8 @@
       :slice="document[6]"
       :section-class="'employers__collaborateur'"
       :container-class="'collaborateur__container'"
+      :flex-container-class="'collaborateur__none'"
+      :flex-content-class="'collaborateur__none'"
       :button-class="'collaborateur-container__button'"
     >
     </section-slice>
@@ -265,10 +267,12 @@ export default {
       transform-origin: bottom right;
     }
     & > .container {
-      flex-direction: column-reverse;
+      max-width: 1140px;
+      margin: 0 auto;
+      flex-direction: column;
 
       @include device-is('tablet') {
-        flex-direction: row-reverse;
+        flex-direction: row;
       }
 
       & > .container-column {
@@ -509,13 +513,13 @@ export default {
       }
     }
 
-    &__image {
-      width: 100%;
-      img {
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
+    // &__image {
+    //   width: 100%;
+    //   img {
+    //     max-width: 100%;
+    //     max-height: 100%;
+    //   }
+    // }
   }
 
   .valoriser {
@@ -668,6 +672,7 @@ export default {
 
               img {
                 max-height: 146px;
+                max-width: none;
               }
             }
           }
@@ -678,8 +683,7 @@ export default {
 
   .section-comment-ca-marche {
     position: relative;
-    background: url('/images/background-comment-ca-marche.jpg') no-repeat center
-      center;
+    background: url('/images/background-comment-ca-marche.jpg') no-repeat 50%;
     background-size: cover;
     padding-top: 80px;
     padding-bottom: 108px;
@@ -696,6 +700,8 @@ export default {
     .container {
       display: flex;
       flex-flow: row wrap;
+      max-width: 1140px;
+      margin: 0 auto;
     }
 
     .inner {
@@ -813,6 +819,8 @@ export default {
       display: flex;
       flex-flow: row wrap;
       margin-bottom: 60px;
+      max-width: 1140px;
+      margin: 0 auto;
     }
 
     .inner {
@@ -947,6 +955,8 @@ export default {
 .collaborateur {
   &__container {
     text-align: center;
+    max-width: 1140px;
+    margin: 0 auto;
 
     h2 {
       margin-top: 0;
