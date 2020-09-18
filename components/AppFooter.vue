@@ -20,8 +20,8 @@
           <div class="sitelogo-row__item">
             <img
               class="ministere"
-              :alt="$t('alt.footer.backed-by-education-ministry')"
-              src="/images/ministere-logo.svg"
+              :alt="$t('alt.header-nav.public-service')"
+              src="/images/marianne-logo.svg"
             />
           </div>
         </div>
@@ -168,13 +168,12 @@ footer {
 
     @include device-is('large-mobile') {
       flex-direction: row;
-      align-items: center;
+      align-items: left;
       justify-content: space-evenly;
     }
   }
 
   .sitelogo-row__item {
-    text-align: center;
     margin-bottom: 20px;
 
     img {
