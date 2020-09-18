@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import ChartSection from '../components/ChartSection'
+import ChartSection from '~/components/ChartSection'
 import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export default {
