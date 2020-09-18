@@ -53,7 +53,7 @@ export default {
       return this.slice.primary.title
     },
     description() {
-      return this.slice.primary.description
+      return this.slice.primary.description || []
     },
     buttonLink() {
       return this.slice.primary.button_link
@@ -74,6 +74,7 @@ export default {
       return this.slice.primary.video_button_title
     },
   },
+
   methods: {
     openVideoModal() {
       this.$modal.show('videoModal')
