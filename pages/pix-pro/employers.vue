@@ -512,14 +512,6 @@ export default {
         line-height: 24px;
       }
     }
-
-    // &__image {
-    //   width: 100%;
-    //   img {
-    //     max-width: 100%;
-    //     max-height: 100%;
-    //   }
-    // }
   }
 
   .valoriser {
@@ -955,7 +947,7 @@ export default {
 .collaborateur {
   &__container {
     text-align: center;
-    max-width: 1140px;
+    max-width: 1340px;
     margin: 0 auto;
 
     h2 {
