@@ -32,7 +32,7 @@ Domain name for `.org` extension.
 - type: String
 - default: none
 
-## Build Setup
+## Build Setup pix-site
 
 ```bash
 # install dependencies
@@ -44,6 +44,23 @@ $ npm run dev
 # build for production and launch server
 $ npm run build
 $ npm run start
+
+# generate static project
+$ npm run generate
+```
+
+## Build Setup pix-pro
+
+```bash
+# install dependencies
+$ npm run install
+
+# serve with hot reload at localhost:3000
+$ npm run dev:pro
+
+# build for production and launch server
+$ npm run build:pro
+$ npm run start:pro
 
 # generate static project
 $ npm run generate
@@ -63,14 +80,26 @@ Les noms des **autres fichiers** (*.js, *.vue, *.scss, etc.) en *kebab-case*.
 
 Exemples : 
 - layout/default.vue
-- middleware/current-page-path.js
-- pages/higher-education.vue
 
 Les **fichiers Sass** (*.scss) doivent être préfixés par un *underscore* (`_`), **sauf app.scss** (convention Sass).
 
 Exemples : 
 - assets/scss/components/_app-header.scss
 - assets/scss/globals/_text.scss
+
+### Fichier spécifique pour chaque site
+
+Seul les pages et les middlewares sont spécifiques à chaque site (pix-site et pix-pro), le reste est commun.
+Par conséquent, on va retrouver cette architecture de répertoire:
+
+```
+middleware/
+   pix-site/
+   pix-pro/
+pages/
+   pix-site/
+   pix-pro/
+```
 
 ### Composants
 
