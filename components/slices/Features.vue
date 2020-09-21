@@ -245,7 +245,7 @@ export default {
   }
 
   .features__wrapper {
-    padding: 81px 0 121px;
+    padding: 60px 0;
   }
 
   .features-wrapper__item {
