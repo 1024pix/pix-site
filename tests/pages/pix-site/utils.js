@@ -5,7 +5,7 @@ import { shallowMount } from '@vue/test-utils'
  * @param {*} page the filename of the page without extension
  */
 export async function getInitialised(page, opts) {
-  const Page = require('@/pages/' + page).default
+  const Page = require(`@/pages/${process.env.SITE}/${page}`).default
   if (!Page.asyncData) {
     return shallowMount(Page, opts)
   }
