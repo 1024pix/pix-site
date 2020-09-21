@@ -38,15 +38,12 @@ Domain name for `.org` extension.
 # install dependencies
 $ npm run install
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+# serve with hot reload at localhost:5000
+$ npm run dev:site
 
 # build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+$ npm run build:site
+$ npm run start:site
 ```
 
 ## Build Setup pix-pro
@@ -55,15 +52,32 @@ $ npm run generate
 # install dependencies
 $ npm run install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:5000
 $ npm run dev:pro
 
 # build for production and launch server
 $ npm run build:pro
 $ npm run start:pro
+```
 
-# generate static project
-$ npm run generate
+
+## Build Setup sur Scalingo
+
+```bash
+# install dependencies
+$ npm run install
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+```
+
+La variable d'environnement `SITE` doit être assignée en fonction du site à déployer
+
+```bash
+SITE=pix-site
+# ou
+SITE=pix-pro
 ```
 
 ## Conventions de nommage
