@@ -261,7 +261,7 @@ export default {
       font-weight: $font-normal;
       letter-spacing: 0;
       line-height: 2rem;
-      margin: 0;
+      margin: 15px 0px;
     }
 
     &--only-text {
