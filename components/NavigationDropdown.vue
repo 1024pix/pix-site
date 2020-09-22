@@ -1,11 +1,15 @@
 <template>
   <div class="btn-group navigation-dropdown">
     <ul class="dropdown-menu">
-      <li v-for="option in options" :key="option.key">
-        <pix-link :field="option.link">
+      <pix-link
+        v-for="option in options"
+        :key="option.key"
+        :field="option.link"
+      >
+        <li>
           {{ $prismic.asText(option.name) }}
-        </pix-link>
-      </li>
+        </li>
+      </pix-link>
     </ul>
   </div>
 </template>
