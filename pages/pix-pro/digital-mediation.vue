@@ -1,7 +1,7 @@
 <template>
   <div class="page digital-mediation">
     <hero-banner
-      :section-class="'employers__hero-banner'"
+      :section-class="'digital-mediation__hero-banner'"
       :background-class="'hero-banner__background'"
       :content-class="'hero-banner__content'"
       :button-class="'hero-banner-content__button'"
@@ -240,10 +240,6 @@ export default {
   section {
     position: relative;
 
-    @include device-is('tablet') {
-      padding: 60px 0 80px;
-    }
-
     .features-wrapper {
       display: flex;
       flex-direction: column;
@@ -320,9 +316,9 @@ export default {
       &__background {
         position: absolute;
         background: linear-gradient(
-            46deg,
-            rgba(13, 125, 196, 0.4) 0,
-            #213371 100%
+            180deg,
+            rgba(18, 163, 255, 0.65),
+            rgba(61, 104, 255, 0.65)
           ),
           url(/images/background-hero-mednum.png);
         background-repeat: no-repeat;
@@ -340,9 +336,9 @@ export default {
 
         @include device-is('tablet') {
           background: linear-gradient(
-              46deg,
-              rgba(13, 125, 196, 0.4) 0,
-              #213371 100%
+              180deg,
+              rgba(18, 163, 255, 0.65),
+              rgba(61, 104, 255, 0.65)
             ),
             url(/images/background-hero-mednum.png);
           background-repeat: no-repeat;
@@ -364,7 +360,7 @@ export default {
             width: 450px;
           }
           @include device-is('tablet') {
-            width: 600px;
+            width: 686px;
             font-size: 46px;
             line-height: 62px;
           }
@@ -469,6 +465,10 @@ export default {
     }
 
     &.partnerships {
+      @include device-is('tablet') {
+        padding: 60px 0 80px;
+      }
+
       h2 {
         margin-bottom: 30px;
       }
@@ -515,6 +515,9 @@ export default {
     }
 
     &.diagnostic {
+      @include device-is('tablet') {
+        padding: 60px 0 80px;
+      }
       padding-bottom: 30px;
 
       @include device-is('tablet') {
@@ -601,6 +604,15 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
+      }
+
+      .container {
+        width: 100%;
+
+        @include device-is('tablet') {
+          max-width: 1140px;
+          margin: 0 auto;
+        }
       }
 
       h2 {
@@ -756,6 +768,15 @@ export default {
         font-weight: 400;
         margin-bottom: 40px;
         max-width: 430px;
+      }
+
+      .container {
+        width: 100%;
+
+        @include device-is('tablet') {
+          max-width: 1140px;
+          margin: 0 auto;
+        }
       }
 
       .trapeze {
