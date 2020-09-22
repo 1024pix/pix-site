@@ -8,15 +8,16 @@
       >
         {{ $prismic.asText(menuItem.name) }}
       </pix-link>
-      <button
-        v-else
-        :dropdown-index="`${index}`"
-        class="dropdown-toggle navigation-zone__item links-group"
-        @click="toggleDropdown(`${index}`)"
-      >
-        {{ menuItem.name }}
-        <fa v-if="showDropdown(`${index}`)" icon="angle-up" />
-        <fa v-else icon="angle-down" />
+      <div v-else>
+        <button
+          :dropdown-index="`${index}`"
+          class="dropdown-toggle navigation-zone__item links-group"
+          @click="toggleDropdown(`${index}`)"
+        >
+          {{ menuItem.name }}
+          <fa v-if="showDropdown(`${index}`)" icon="angle-up" />
+          <fa v-else icon="angle-down" />
+        </button>
         <navigation-dropdown
           v-if="showDropdown(`${index}`)"
           type="button"
@@ -25,7 +26,7 @@
           @closeNavigationDropdown="toggleDropdown(`${index}`)"
         >
         </navigation-dropdown>
-      </button>
+      </div>
     </div>
   </div>
 </template>
