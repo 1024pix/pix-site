@@ -44,7 +44,7 @@
         </div>
       </div>
       <prismic-image
-        v-if="containsTextAndImage"
+        v-if="containsTextAndImage && content.article_background.url"
         :field="content.article_background"
         class="article__secondary-content article-secondary-content__background"
       />
@@ -245,14 +245,14 @@ export default {
 .article-content {
   &__description {
     margin: 16px 0 24px 0;
-    color: $grey-10;
+    color: $grey-6;
 
     ul {
       list-style: none;
       padding: 0;
 
       li:before {
-        color: $grey-10;
+        color: $grey-6;
       }
     }
 
