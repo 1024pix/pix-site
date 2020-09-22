@@ -9,6 +9,13 @@ export default {
   server: {
     port: process.env.PORT || 5000,
   },
+  env: {
+    isPixSite: process.env.SITE === 'pix-site',
+  },
+  dir: {
+    pages: `pages/${process.env.SITE}`,
+    middleware: `middleware/${process.env.SITE}`,
+  },
   /*
    ** Headers of the page
    */
@@ -56,7 +63,7 @@ export default {
   /*
    ** Redirections
    */
-  serverMiddleware: ['~/middleware/seo.js'],
+  serverMiddleware: [`~/middleware/${process.env.SITE}/seo.js`],
 
   /*
    ** Nuxt.js dev-modules

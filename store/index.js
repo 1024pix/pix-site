@@ -38,7 +38,11 @@ export const mutations = {
       return response.data.body.filter((body) => body.primary.type === type)
     }
 
-    state.organizationNavItems = navItems(navigations, 'organizations-nav')
+    state.organizationNavItems = navItems(
+      navigations,
+      process.env.isPixSite ? 'organizations-nav' : 'pix-pro-organizations-nav'
+    )
+
     state.mainNavItems = navItems(navigations, 'main-nav')
     state.topItems = navItems(navigations, 'burger-menu-top')
     state.middleItems = navItems(navigations, 'pix-pro-burger-menu-middle')

@@ -2,7 +2,7 @@
   <footer>
     <div class="container padding-container">
       <div class="sitelogo">
-        <div :class="{ sitelogo__row: showUnescoLogo === true }">
+        <div :class="{ sitelogo__row: showUnescoLogo }">
           <a href="/" class="sitelogo-row__item">
             <img
               :alt="$t('alt.footer.pix-homepage')"
@@ -16,7 +16,10 @@
             />
           </div>
         </div>
-        <div :class="{ sitelogo__row: showUnescoLogo === true }">
+        <div
+          v-if="showFrenchGovLogo"
+          :class="{ sitelogo__row: showUnescoLogo }"
+        >
           <div class="sitelogo-row__item">
             <img
               class="ministere"
@@ -99,7 +102,12 @@ export default {
   },
   data() {
     const showUnescoLogo = this.$i18n.locale !== 'fr-fr'
-    return { showUnescoLogo }
+    const isFrenchLocale = this.$i18n.locale === 'fr-fr'
+    const isPixSite = process.env.isPixSite
+    return {
+      showUnescoLogo,
+      showFrenchGovLogo: isFrenchLocale && isPixSite,
+    }
   },
 }
 </script>
