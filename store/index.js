@@ -41,10 +41,12 @@ export const mutations = {
       return response.data.body.filter((body) => body.primary.type === type)
     }
 
-    state.organizationNavItems = navItems(
-      navigations,
-      'pix-pro-organizations-nav'
-    )
+    if (!process.env.isPixSite) {
+      state.organizationNavItems = navItems(
+        navigations,
+        'pix-pro-organizations-nav'
+      )
+    }
     state.resourcesNavItems = navItems(navigations, 'ressources-nav')
     state.aboutNavItems = navItems(navigations, 'about-nav')
   },
