@@ -39,9 +39,12 @@ export default {
       height: 22px;
       letter-spacing: 0.13px;
       line-height: 22px;
-    }
+      padding-bottom: 10px;
 
-    a {
+      &.current-active-link {
+        border-bottom: 2px solid $blue-1;
+      }
+      &.current-active-link,
       &:active,
       &:hover {
         color: $blue-1;

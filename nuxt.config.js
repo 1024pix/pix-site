@@ -155,6 +155,8 @@ export default {
   },
   router: {
     middleware: 'current-page-path',
+    linkActiveClass: 'your-custom-active-link',
+    linkExactActiveClass: 'current-active-link',
   },
   /*
    ** Build configuration
