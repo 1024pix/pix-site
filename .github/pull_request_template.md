@@ -9,3 +9,4 @@
 
 ## :sparkles: Review App
 https://site-pr000.review.pix.fr/
+https://pro-pr000.review.pix.fr/
