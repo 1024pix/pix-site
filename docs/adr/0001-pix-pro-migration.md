@@ -8,9 +8,9 @@ Accepté
 
 ## Contexte
 
-Afin de monter rapidement le site pix-pro, il a été décidé de dupliquer le projet pix-site qui utilise la même technologie (Nuxt), les mêmes composants et la même gestion de contenu (Prismic). 
+Afin de monter et déployer rapidement le site [pix-pro](pro.pix.fr), il a été décidé de dupliquer le projet [pix-site](pix.fr) qui utilise la même technologie (Nuxt), les mêmes composants et le même gestionnaire de contenu éditorial (Prismic). 
 
-Par conséquent les évolutions appliquées à pix-site (componsant de navigation, composants génériques) ne sont pas impactées sur pix-pro et inversement.
+Par conséquent les évolutions appliquées à pix-site (composant de navigation, composants génériques) ne sont pas impactées sur pix-pro et inversement.
 
 ## Décision
 
@@ -28,12 +28,11 @@ Dans un second temps les pages pix-pro seront réécrites dans le même pattern 
 
 ### Release
 
-Comme pix-site et pix-pro sont hébergés sous le même repository et partage la même gestion de version (celle de pix-site actuellement).
-Par conséquent les deux sites seront toujours déployés simultanément.
+Comme pix-site et pix-pro sont hébergés sous le même repository et partagent la même gestion de version (celle de pix-site actuellement), les deux sites seront toujours déployés simultanément.
 
 ### Déploiement
 
-Le site pix-site et pix-pro ont chacun :
+Les sites pix-site et pix-pro ont chacun :
 - un template de review app sous Scalingo (avec la variable d'environnement SITE)
 - un template d'intégration sous Scalingo (avec la variable d'environnement SITE)
 - un template de production sous Scalingo (avec la variable d'environnement SITE)
