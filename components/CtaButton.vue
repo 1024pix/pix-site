@@ -27,7 +27,6 @@ export default {
   width: fit-content;
   background: $blue-1;
   border-radius: 5px;
-  height: 60px;
   padding: 0 20px;
   cursor: pointer;
 
@@ -42,7 +41,7 @@ export default {
 
   & a {
     color: $white;
-    line-height: 3.75rem;
+    line-height: 2.75rem;
     letter-spacing: 0.03rem;
     font-weight: $font-semi-bold;
   }

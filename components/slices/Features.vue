@@ -162,7 +162,7 @@ export default {
 
     &__description {
       width: 217px;
-      color: $grey-9;
+      color: $grey-6;
       font-size: 0.875rem;
       letter-spacing: 0.15px;
       line-height: 24px;
@@ -245,7 +245,7 @@ export default {
   }
 
   .features__wrapper {
-    padding: 81px 0 121px;
+    padding: 60px 0;
   }
 
   .features-wrapper__item {
