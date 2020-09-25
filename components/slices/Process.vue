@@ -135,3 +135,208 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.process {
+  &__title h2 {
+    font-size: 2rem;
+    font-weight: $font-normal;
+    height: 49px;
+    letter-spacing: 0.009rem;
+    line-height: 49px;
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 48px;
+  }
+
+  &__subtitle h3 {
+    position: relative;
+    top: 24px;
+    font-size: 1rem;
+    font-weight: $font-light;
+    height: 49px;
+    letter-spacing: 0.009rem;
+    line-height: 49px;
+    text-align: center;
+  }
+
+  &__wrapper {
+    padding: 48px 32px;
+  }
+
+  &-wrapper__row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-wrapper__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    width: 293px;
+    padding: 24px;
+    box-shadow: 0 24px 32px 0 rgba($black, 0.03),
+      0 8px 32px 0 rgba($black, 0.06);
+    border-radius: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    img {
+      height: 51px;
+      width: 51px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &-wrapper-item {
+    &__title h1 {
+      width: 175px;
+      color: $grey-1;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+      line-height: 30px;
+      font-weight: $font-semi-bold;
+      margin: 0 8px 16px 24px;
+    }
+
+    &__description {
+      width: 175px;
+      color: $grey-6;
+      font-size: 0.875rem;
+      letter-spacing: 0.009rem;
+      line-height: 22px;
+      margin-left: 24px;
+    }
+  }
+}
+
+@include device-is('tablet') {
+  .process {
+    &__title h1 {
+      margin-top: 60px;
+    }
+
+    &__subtitle h3 {
+      top: 0;
+      margin-bottom: 48px;
+    }
+
+    &__wrapper {
+      flex-direction: row;
+      padding: 80px 0;
+    }
+  }
+
+  .process-wrapper__item {
+    margin-bottom: 40px;
+
+    div:first-of-type {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+@include device-is('desktop') {
+  .process {
+    &__title h1 {
+      margin-top: 60px;
+    }
+
+    &__wrapper {
+      padding: 80px 0 84px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+
+  .process-wrapper {
+    &__row {
+      flex-direction: row;
+      justify-content: center;
+      align-items: baseline;
+    }
+
+    &__item {
+      padding: 32px 24px 56px 24px;
+      height: 273px;
+
+      display: block;
+      margin-right: 56px;
+      margin-bottom: 0;
+      text-align: center;
+      height: 100%;
+
+      img {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .process-wrapper-item {
+    &__title h1 {
+      width: 245px;
+      font-size: 1.25rem;
+      margin-left: 0;
+    }
+
+    &__description {
+      margin-top: 8px;
+      width: 245px;
+      margin-left: 0;
+    }
+  }
+}
+
+@include device-is('large-screen') {
+  .process__wrapper {
+    padding: 0 98px 60px 98px;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .process-wrapper__item {
+    max-width: 293px;
+    padding: 32px 24px 50px 24px;
+    text-align: center;
+    height: 100%;
+
+    img {
+      height: 51px;
+      width: 51px;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .process-wrapper-item {
+    &__description {
+      margin-top: 8px;
+      width: 245px;
+    }
+  }
+}
+</style>
