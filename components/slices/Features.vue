@@ -12,7 +12,7 @@
           :key="`item-${featureIndex}`"
           class="features-wrapper__item"
         >
-          <prismic-image :field="feature.feature_image" />
+          <pix-image :field="feature.feature_image" />
           <div>
             <prismic-rich-text
               class="features-wrapper-item__title"

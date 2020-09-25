@@ -6,9 +6,9 @@
       class="logos-zone__content"
     >
       <pix-link v-if="hasLink(logo)" :field="logo.url">
-        <prismic-image :field="logo.image" />
+        <pix-image :field="logo.image" />
       </pix-link>
-      <prismic-image v-else :field="logo.image" />
+      <pix-image v-else :field="logo.image" />
     </div>
   </div>
 </template>
