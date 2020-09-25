@@ -50,11 +50,15 @@
       <template v-if="slice.slice_type === 'article'">
         <article-slice :slice="slice" :button-class="'section-demo__button'" />
       </template>
+      <template v-if="slice.slice_type === 'process'">
+        <process-slice :slice="slice" />
+      </template>
     </section>
   </div>
 </template>
 
 <script>
+import ProcessSlice from '@/components/slices/Process'
 import PageBanner from '@/components/slices/PageBanner'
 import ArticleSlice from '@/components/slices/Article'
 import HeroBanner from '@/components/slices/HeroBanner'
@@ -77,6 +81,7 @@ export default {
     PageSection,
     WebSnippet,
     FeaturesSlice,
+    ProcessSlice,
   },
   props: {
     slices: {
