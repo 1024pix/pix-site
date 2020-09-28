@@ -38,6 +38,7 @@ export default {
   background-color: #fafbfc;
   align-items: center;
   justify-content: center;
+  box-shadow: inset 0px 2px 12px -7px rgba(36, 50, 66, 0.08);
 }
 
 .sub-nav-links {
