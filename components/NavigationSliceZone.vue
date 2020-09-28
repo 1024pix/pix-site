@@ -6,7 +6,7 @@
       </push-menu>
     </client-only>
     <div id="page-wrap">
-      <organization-nav :organization-nav-items="organizationNavItems" />
+      <organization-nav />
       <div class="navigation-slice-zone__wrapper">
         <div class="navigation-slice-zone__content">
           <div class="navigation-slice-zone-content__left-side">
@@ -33,6 +33,7 @@
           </section>
         </div>
       </div>
+      <pix-pro-sub-nav v-if="isPixPro" :nav-items="organizationNavItems" />
     </div>
   </div>
 </template>
@@ -44,6 +45,7 @@ import NavigationZone from '@/components/slices/NavigationZone'
 import ActionsZone from '@/components/slices/ActionsZone'
 import BurgerMenuNav from '@/components/BurgerMenuNav'
 import OrganizationNav from '~/components/OrganizationNav'
+import PixProSubNav from '~/components/PixProSubNav'
 
 export default {
   name: 'NavigationSliceZone',
@@ -53,9 +55,13 @@ export default {
     NavigationZone,
     BurgerMenuNav,
     OrganizationNav,
+    PixProSubNav,
   },
   computed: {
     ...mapState(['mainNavigation', 'organizationNavItems']),
+    isPixPro() {
+      return !process.env.isPixSite
+    },
     burgerMenuLinks() {
       const navigationZone = this.mainNavigation.data.body.find(
         (slice) => slice.slice_type === 'navigation_zone'
