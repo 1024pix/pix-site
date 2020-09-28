@@ -90,16 +90,19 @@ export default {
         const isExtraLargeScreen =
           document.body.clientWidth >= EXTRA_LARGE_SCREEN_MIN_WIDTH
 
+        if (this.items.length === 3 && isLargeScreen) {
+          return 3
+        }
         if (this.items.length === 4) {
-          if (isExtraLargeScreen && !this.hasTitle) {
+          if (isExtraLargeScreen) {
             return 4
-          } else if (isLargeScreen && this.hasTitle) {
-            return 2
+          }
+          if (isLargeScreen) {
+            return 3
           }
         }
+        return 2
       }
-
-      return 3
     },
     splitItemsIntoRows() {
       const rows = []
