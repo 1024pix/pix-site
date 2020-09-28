@@ -9,6 +9,17 @@
         </li>
       </ul>
     </div>
+    <div v-if="isPixPro" class="nav-middle">
+      <hr class="nav-middle__bar" />
+      <p>Pix Pro</p>
+      <ul>
+        <li v-for="item in proItems" :key="item.id" class="nav-top__link">
+          <pix-link :field="item.primary.link">
+            {{ $prismic.asText(item.primary.title) }}
+          </pix-link>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -19,6 +30,15 @@ export default {
     items: {
       type: Array,
       default: null,
+    },
+    proItems: {
+      type: Array,
+      default: null,
+    },
+  },
+  computed: {
+    isPixPro() {
+      return !process.env.isPixSite
     },
   },
 }
@@ -75,7 +95,6 @@ export default {
       & > * {
         padding: 0;
         flex-direction: column;
-        justify-content: space-between;
         height: 100%;
       }
     }

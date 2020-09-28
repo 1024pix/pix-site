@@ -2,7 +2,10 @@
   <div class="navigation-slice-zone">
     <client-only>
       <push-menu width="230" class="burger-menu">
-        <burger-menu-nav :items="burgerMenuLinks" />
+        <burger-menu-nav
+          :items="burgerMenuLinks"
+          :pro-items="organizationNavItems"
+        />
       </push-menu>
     </client-only>
     <div id="page-wrap">
