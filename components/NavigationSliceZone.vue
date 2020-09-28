@@ -61,10 +61,10 @@ export default {
     PixProSubNav,
   },
   computed: {
-    ...mapState(['mainNavigation', 'organizationNavItems']),
     isPixPro() {
-      return !process.env.isPixSite
+      return process.env.isPixPro
     },
+    ...mapState(['mainNavigation', 'organizationNavItems']),
     burgerMenuLinks() {
       const navigationZone = this.mainNavigation.data.body.find(
         (slice) => slice.slice_type === 'navigation_zone'

@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     isPixPro() {
-      return !process.env.isPixSite
+      return process.env.isPixPro
     },
   },
 }

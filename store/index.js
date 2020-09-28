@@ -41,7 +41,7 @@ export const mutations = {
       return response.data.body.filter((body) => body.primary.type === type)
     }
 
-    if (!process.env.isPixSite) {
+    if (process.env.isPixPro) {
       state.organizationNavItems = navItems(
         navigations,
         'pix-pro-organizations-nav'
