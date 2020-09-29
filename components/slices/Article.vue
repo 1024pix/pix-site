@@ -43,12 +43,12 @@
           </pix-link>
         </div>
       </div>
-      <prismic-image
+      <pix-image
         v-if="containsTextAndImage && content.article_background.url"
         :field="content.article_background"
         class="article__secondary-content article-secondary-content__background"
       />
-      <prismic-image
+      <pix-image
         v-if="containsTextAndImage"
         :field="content.article_image"
         class="article__secondary-content article-secondary-content__image"

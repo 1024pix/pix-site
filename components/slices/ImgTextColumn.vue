@@ -2,7 +2,7 @@
   <section :class="sectionClass">
     <div :class="containerClass">
       <div v-if="hasImage" class="column">
-        <prismic-image :field="image" />
+        <pix-image :field="image" />
       </div>
       <div class="column">
         <prismic-rich-text :field="title" />

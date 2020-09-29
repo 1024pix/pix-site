@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <prismic-image
+      <pix-image
         v-if="hasImage"
         :field="imageUrl"
         class="row-block__side-content"
