@@ -1,5 +1,5 @@
 <template>
-  <section class="process">
+  <section class="process" :style="[background]">
     <prismic-rich-text
       v-if="hasTitle && shouldDisplayTitle"
       class="process__title"
@@ -62,6 +62,11 @@ export default {
     }
   },
   computed: {
+    background() {
+      return {
+        backgroundColor: `${this.slice.primary.process_background_color}`,
+      }
+    },
     items() {
       return this.slice.items
     },
