@@ -1,8 +1,12 @@
 <template>
   <section class="process">
-    <prismic-rich-text v-if="hasTitle" class="process__title" :field="title" />
     <prismic-rich-text
-      v-if="hasSubtitle"
+      v-if="hasTitle && shouldDisplayTitle"
+      class="process__title"
+      :field="title"
+    />
+    <prismic-rich-text
+      v-if="shouldUseSubtitle && hasSubtitle"
       class="process__subtitle"
       :field="subtitle"
     />
@@ -17,7 +21,7 @@
           :key="`item-${itemIndex}`"
           class="process-wrapper__item"
         >
-          <pix-image :field="item.item_image" />
+          <pix-image v-if="hasImage(item)" :field="item.item_image" />
           <div>
             <prismic-rich-text
               class="process-wrapper-item__title"
@@ -61,16 +65,22 @@ export default {
     items() {
       return this.slice.items
     },
+    shouldDisplayTitle() {
+      return this.slice.primary.process_should_display_title
+    },
+    shouldUseSubtitle() {
+      return this.slice.primary.process_should_use_subtitle
+    },
     hasTitle() {
       return (
-        this.slice.primary.process_title &&
-        this.slice.primary.process_title.length
+        this.slice.primary.process_title.length &&
+        this.slice.primary.process_title[0].text.length
       )
     },
     hasSubtitle() {
       return (
-        this.slice.primary.process_subtitle &&
-        this.slice.primary.process_subtitle.length
+        this.slice.primary.process_subtitle.length &&
+        this.slice.primary.process_subtitle[0].text.length
       )
     },
     title() {
@@ -84,6 +94,11 @@ export default {
     this.rows = this.splitItemsIntoRows()
   },
   methods: {
+    hasImage(item) {
+      const isLengthDifferentThanZero = Object.keys(item.item_image).length
+      const isObjectConstructor = item.item_image.constructor === Object
+      return isLengthDifferentThanZero && isObjectConstructor
+    },
     findNbItemsInRow() {
       if (process.client) {
         const isLargeScreen = document.body.clientWidth >= DESKTOP_MIN_WIDTH
