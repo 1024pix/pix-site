@@ -5,6 +5,7 @@
       class="process__title"
       :field="title"
     />
+    <prismic-rich-text v-else class="sr-only" :field="title" />
     <prismic-rich-text
       v-if="shouldUseSubtitle && hasSubtitle"
       class="process__subtitle"
