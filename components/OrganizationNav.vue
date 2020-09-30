@@ -24,6 +24,7 @@ export default {
 .organization-nav {
   display: grid;
   grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+  grid-template-rows: auto;
   background-color: $grey-3;
 }
 .nav-switch {

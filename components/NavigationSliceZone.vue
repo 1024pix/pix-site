@@ -89,6 +89,7 @@ export default {
   .navigation-slice-zone__wrapper {
     display: grid;
     grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+    grid-template-rows: auto;
   }
 
   .navigation-slice-zone__content {
