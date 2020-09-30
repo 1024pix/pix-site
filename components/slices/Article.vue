@@ -5,12 +5,14 @@
       :class="{
         'article--only-text': containsOnlyText,
         'article--reverse': shouldBeReversed,
+        'article--vertical': shouldBeVertical,
       }"
     >
       <div
         class="article__content"
         :class="{
           'article__content--only-text': containsOnlyText,
+          'article__content--vertical': shouldBeVertical,
           'article__primary-content': containsTextAndImage,
         }"
       >
@@ -19,6 +21,7 @@
           class="article-content__title"
           :class="{
             'article-content__title--only-text': containsOnlyText,
+            'article-content__title--vertical': shouldBeVertical,
           }"
         />
         <prismic-rich-text
@@ -91,11 +94,15 @@ export default {
       return this.content.article_layout === 'only-text'
     },
     containsTextAndImage() {
-      const layout = this.content.article_layout
-      return layout === 'text-image' || layout === 'image-text'
+      return ['text-image', 'image-text', 'vertical-text-image'].includes(
+        this.content.article_layout
+      )
     },
     shouldBeReversed() {
       return this.content.article_layout === 'image-text'
+    },
+    shouldBeVertical() {
+      return this.content.article_layout === 'vertical-text-image'
     },
   },
 }
@@ -105,7 +112,8 @@ export default {
 .article-content__title {
   text-align: left;
 
-  &--only-text {
+  &--only-text,
+  &--vertical {
     text-align: center;
   }
 }
@@ -128,7 +136,6 @@ export default {
   }
 
   &__content {
-    width: 611px;
     align-self: center;
 
     &--only-text {
@@ -137,21 +144,32 @@ export default {
       align-items: center;
       width: 65%;
     }
+
+    &--vertical {
+      text-align: center;
+    }
   }
 
   &__primary-content {
     grid-area: a;
+    align-self: center;
   }
 
   &__secondary-content {
     grid-area: b;
     align-self: center;
+    max-height: 80%;
   }
 
   &--reverse {
     grid-template-areas:
       'b b b b'
       'a a a a';
+  }
+  &--vertical {
+    grid-template-areas:
+      'a a a a'
+      'b b b b';
   }
 
   &--only-text {
@@ -173,6 +191,12 @@ export default {
         'b b b b b b b b'
         'a a a a a a a a';
     }
+
+    &--vertical {
+      grid-template-areas:
+        'a a a a a a a a'
+        'b b b b b b b b';
+    }
   }
 }
 
@@ -183,6 +207,11 @@ export default {
 
     &--reverse {
       grid-template-areas: 'b b b . a a a a';
+    }
+    &--vertical {
+      grid-template-areas:
+        '. a a a a a a .'
+        '. b b b b b b .';
     }
   }
 }
@@ -197,6 +226,13 @@ export default {
 
     &--reverse {
       grid-template-areas: '. b b b b b . a a a a a a .';
+    }
+
+    &--vertical {
+      margin: 0 0;
+      grid-template-areas:
+        '. . a a a a a a a a a a . .'
+        '. . b b b b b b b b b b . .';
     }
   }
 }
@@ -214,10 +250,6 @@ export default {
 .article .article__secondary-content.article-secondary-content__image {
   grid-column-start: b-start;
   grid-column-end: b-end;
-
-  @include device-is('large-screen') {
-    justify-self: flex-start;
-  }
 }
 
 .article.article--reverse
