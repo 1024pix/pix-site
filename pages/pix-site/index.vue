@@ -79,28 +79,6 @@ export default {
   }
 
   .hero-banner {
-    &__background {
-      position: absolute;
-      background: url(/images/background-hero-mobile-index.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: top center;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-
-      @include device-is('tablet') {
-        background: url('/images/background-hero-index.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top center;
-      }
-    }
-
     &__content {
       color: $grey-1;
 
