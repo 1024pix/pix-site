@@ -2,11 +2,14 @@
   <div class="navigation-slice-zone">
     <client-only>
       <push-menu width="230" class="burger-menu">
-        <burger-menu-nav :items="burgerMenuLinks" />
+        <burger-menu-nav
+          :items="burgerMenuLinks"
+          :pro-items="organizationNavItems"
+        />
       </push-menu>
     </client-only>
     <div id="page-wrap">
-      <organization-nav :organization-nav-items="organizationNavItems" />
+      <organization-nav />
       <div class="navigation-slice-zone__wrapper">
         <div class="navigation-slice-zone__content">
           <div class="navigation-slice-zone-content__left-side">
@@ -33,6 +36,7 @@
           </section>
         </div>
       </div>
+      <pix-pro-sub-nav v-if="isPixPro" :nav-items="organizationNavItems" />
     </div>
   </div>
 </template>
@@ -44,6 +48,7 @@ import NavigationZone from '@/components/slices/NavigationZone'
 import ActionsZone from '@/components/slices/ActionsZone'
 import BurgerMenuNav from '@/components/BurgerMenuNav'
 import OrganizationNav from '~/components/OrganizationNav'
+import PixProSubNav from '~/components/PixProSubNav'
 
 export default {
   name: 'NavigationSliceZone',
@@ -53,8 +58,12 @@ export default {
     NavigationZone,
     BurgerMenuNav,
     OrganizationNav,
+    PixProSubNav,
   },
   computed: {
+    isPixPro() {
+      return process.env.isPixPro
+    },
     ...mapState(['mainNavigation', 'organizationNavItems']),
     burgerMenuLinks() {
       const navigationZone = this.mainNavigation.data.body.find(
@@ -80,6 +89,7 @@ export default {
   .navigation-slice-zone__wrapper {
     display: grid;
     grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
+    grid-template-rows: auto;
   }
 
   .navigation-slice-zone__content {

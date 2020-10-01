@@ -11,6 +11,7 @@ export default {
   },
   env: {
     isPixSite: process.env.SITE === 'pix-site',
+    isPixPro: process.env.SITE === 'pix-pro',
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
