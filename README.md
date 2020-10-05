@@ -36,7 +36,7 @@ Domain name for `.org` extension.
 
 ```bash
 # install dependencies
-$ npm run install
+$ npm install
 
 # serve with hot reload at localhost:5000
 $ npm run dev:site
@@ -50,7 +50,7 @@ $ npm run start:site
 
 ```bash
 # install dependencies
-$ npm run install
+$ npm install
 
 # serve with hot reload at localhost:5000
 $ npm run dev:pro
@@ -65,7 +65,7 @@ $ npm run start:pro
 
 ```bash
 # install dependencies
-$ npm run install
+$ npm install
 
 # build for production and launch server
 $ npm run build
