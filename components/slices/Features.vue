@@ -1,6 +1,11 @@
 <template>
   <section class="features">
-    <prismic-rich-text v-if="hasTitle" class="features__title" :field="title" />
+    <prismic-rich-text
+      v-if="shouldDisplayTitle && hasTitle"
+      class="features__title"
+      :field="title"
+    />
+    <prismic-rich-text v-else class="sr-only" :field="title" />
     <div class="features__wrapper" :style="[background]">
       <div
         v-for="(featuresInARow, rowIndex) in featuresByRow"
@@ -56,6 +61,9 @@ export default {
     },
     paragraphs() {
       return this.slice.items
+    },
+    shouldDisplayTitle() {
+      return this.slice.primary.features_should_display_title
     },
     hasTitle() {
       return (
