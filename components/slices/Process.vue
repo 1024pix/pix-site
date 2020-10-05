@@ -15,21 +15,18 @@
       <div
         v-for="(itemsByRow, rowIndex) in rows"
         :key="`row-${rowIndex}`"
-        class="process-wrapper__row"
+        class="wrapper__row"
       >
         <div
           v-for="(item, itemIndex) in itemsByRow"
           :key="`item-${itemIndex}`"
-          class="process-wrapper__item"
+          class="wrapper__item"
         >
           <pix-image v-if="hasImage(item)" :field="item.item_image" />
           <div>
+            <prismic-rich-text class="item__title" :field="item.item_title" />
             <prismic-rich-text
-              class="process-wrapper-item__title"
-              :field="item.item_title"
-            />
-            <prismic-rich-text
-              class="process-wrapper-item__description"
+              class="item__description"
               :field="item.item_description"
             />
           </div>
@@ -164,8 +161,10 @@ export default {
   &__wrapper {
     padding: 48px 32px;
   }
+}
 
-  &-wrapper__row {
+.wrapper {
+  &__row {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -176,7 +175,7 @@ export default {
     }
   }
 
-  &-wrapper__item {
+  &__item {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -200,26 +199,26 @@ export default {
       margin: 0;
     }
   }
+}
 
-  &-wrapper-item {
-    &__title h1 {
-      width: 175px;
-      color: $grey-1;
-      font-size: 1.25rem;
-      letter-spacing: 0;
-      line-height: 30px;
-      font-weight: $font-semi-bold;
-      margin: 0 8px 16px 24px;
-    }
+.item {
+  &__title h1 {
+    width: 175px;
+    color: $grey-1;
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    line-height: 30px;
+    font-weight: $font-semi-bold;
+    margin: 0 8px 16px 24px;
+  }
 
-    &__description {
-      width: 175px;
-      color: $grey-6;
-      font-size: 0.875rem;
-      letter-spacing: 0.009rem;
-      line-height: 22px;
-      margin-left: 24px;
-    }
+  &__description {
+    width: 175px;
+    color: $grey-6;
+    font-size: 0.875rem;
+    letter-spacing: 0.009rem;
+    line-height: 22px;
+    margin-left: 24px;
   }
 }
 
@@ -240,7 +239,7 @@ export default {
     }
   }
 
-  .process-wrapper__item {
+  .wrapper__item {
     margin-bottom: 40px;
 
     div:first-of-type {
@@ -269,7 +268,7 @@ export default {
     }
   }
 
-  .process-wrapper {
+  .wrapper {
     &__row {
       flex-direction: row;
       justify-content: center;
@@ -277,6 +276,10 @@ export default {
     }
 
     &__item {
+      &:first-of-type {
+        margin-left: 56px;
+      }
+
       padding: 32px 24px 56px 24px;
       height: 273px;
 
@@ -292,7 +295,7 @@ export default {
     }
   }
 
-  .process-wrapper-item {
+  .item {
     &__title h1 {
       width: 245px;
       font-size: 1.25rem;
@@ -317,23 +320,29 @@ export default {
     justify-content: space-around;
   }
 
-  .process-wrapper__item {
-    max-width: 293px;
-    padding: 32px 24px 50px 24px;
-    text-align: center;
-    height: 100%;
+  .wrapper {
+    &__item {
+      &:first-of-type {
+        margin-left: 0;
+      }
 
-    img {
-      height: 51px;
-      width: 51px;
-    }
+      max-width: 293px;
+      padding: 32px 24px 50px 24px;
+      text-align: center;
+      height: 100%;
 
-    &:last-of-type {
-      margin-right: 0;
+      img {
+        height: 51px;
+        width: 51px;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
     }
   }
 
-  .process-wrapper-item {
+  .item {
     &__description {
       margin-top: 8px;
       width: 245px;
