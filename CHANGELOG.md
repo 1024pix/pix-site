@@ -1,5 +1,22 @@
 # pix-site Changelog
 
+## v2.28.0 (05/10/2020)
+
+- [#181](https://github.com/1024pix/pix-site/pull/181) [FEATURE] Modification du titre du bloc pour structure de page et a11y (PIX-1309)
+- [#178](https://github.com/1024pix/pix-site/pull/178) [FEATURE] Intégrer la sous-navigation de pix-pro (PIX-1265)
+- [#177](https://github.com/1024pix/pix-site/pull/177) [FEATURE] Pouvoir avoir les slices Article en vertical (PIX-1197).
+- [#166](https://github.com/1024pix/pix-site/pull/166) [FEATURE] Implémentation de la nouvelle barre de navigation (PIX-1071).
+- [#173](https://github.com/1024pix/pix-site/pull/173) [FEATURE] Deployer pix-pro sur les reviews app (PIX-1263)
+- [#171](https://github.com/1024pix/pix-site/pull/171) [FEATURE] Corriger le style de la page mediation numérique (PIX-1261)
+- [#172](https://github.com/1024pix/pix-site/pull/172) [FEATURE] Corriger le style de la page employeur (PIX-1261)
+- [#170](https://github.com/1024pix/pix-site/pull/170) [FEATURE] Faire des builds dédiés pour pix-site et pix-pro (PIX-1260)
+- [#168](https://github.com/1024pix/pix-site/pull/168) [FEATURE] Migrer les pages pro dans pix-site (PIX-1261)
+- [#174](https://github.com/1024pix/pix-site/pull/174) [BUGFIX] Correction visuelle sur Pix-site (PF-1271).
+- [#180](https://github.com/1024pix/pix-site/pull/180) [TECH] Amélioration du temps de chargement des pages. 
+- [#182](https://github.com/1024pix/pix-site/pull/182) [FIX] Correction des instructions d'installation des dépendances dans le README.md
+- [#176](https://github.com/1024pix/pix-site/pull/176) [CLEANUP] Ajout d'un component PixImage au dessus du PrismicImage (PIX-1323).
+- [#175](https://github.com/1024pix/pix-site/pull/175) Ajout de l'ADR pour la migration de pix-pro dans pix-site
+
 ## v2.27.0 (18/09/2020)
 
 - [#169](https://github.com/1024pix/pix-site/pull/169) [FEATURE] Mettre le logo de la république dans le pied de page.
