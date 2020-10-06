@@ -134,6 +134,7 @@ class Navigation {
       line-height: 22px;
       padding: 0 10px 10px 10px;
       cursor: pointer;
+      white-space: nowrap;
 
       &.current-active-link {
         border-bottom: 2px solid $blue-1;
