@@ -56,6 +56,14 @@
         :field="content.article_image"
         class="article__secondary-content article-secondary-content__image"
       />
+      <video
+        v-if="containsTextAndVideo"
+        class="article__secondary-content article-secondary-content__video"
+        :poster="content.article_video_poster.url"
+        controls
+      >
+        <source :src="content.article_video.url" type="video/mp4" />
+      </video>
     </div>
   </div>
 </template>
@@ -96,6 +104,13 @@ export default {
     containsTextAndImage() {
       return ['text-image', 'image-text', 'vertical-text-image'].includes(
         this.content.article_layout
+      )
+    },
+    containsTextAndVideo() {
+      return (
+        this.containsTextAndImage &&
+        this.content.article_video &&
+        this.content.article_video.link_type !== 'Any'
       )
     },
     shouldBeReversed() {
@@ -248,6 +263,11 @@ export default {
 }
 
 .article .article__secondary-content.article-secondary-content__image {
+  grid-column-start: b-start;
+  grid-column-end: b-end;
+}
+
+.article .article__secondary-content.article-secondary-content__video {
   grid-column-start: b-start;
   grid-column-end: b-end;
 }
