@@ -3,7 +3,7 @@
     <div
       class="article"
       :class="{
-        'article--only-text': containsOnlyText,
+        'article--only-text': isOnlyTextLayout,
         'article--reverse': shouldBeReversed,
         'article--vertical': shouldBeVertical,
       }"
@@ -11,16 +11,16 @@
       <div
         class="article__content"
         :class="{
-          'article__content--only-text': containsOnlyText,
+          'article__content--only-text': isOnlyTextLayout,
           'article__content--vertical': shouldBeVertical,
-          'article__primary-content': containsTextAndImage,
+          'article__primary-content': isMediaLayout,
         }"
       >
         <prismic-rich-text
           :field="content.article_title"
           class="article-content__title"
           :class="{
-            'article-content__title--only-text': containsOnlyText,
+            'article-content__title--only-text': isOnlyTextLayout,
             'article-content__title--vertical': shouldBeVertical,
           }"
         />
@@ -28,7 +28,7 @@
           :field="content.article_description"
           class="article-content__description"
           :class="{
-            'article-content__description--only-text': containsOnlyText,
+            'article-content__description--only-text': isOnlyTextLayout,
           }"
         />
         <div v-if="content.article_link_type !== 'none'">
@@ -47,17 +47,17 @@
         </div>
       </div>
       <pix-image
-        v-if="containsTextAndImage && content.article_background.url"
+        v-if="isMediaLayout && content.article_background.url && !containsVideo"
         :field="content.article_background"
         class="article__secondary-content article-secondary-content__background"
       />
       <pix-image
-        v-if="containsTextAndImage"
+        v-if="isMediaLayout && !containsVideo"
         :field="content.article_image"
         class="article__secondary-content article-secondary-content__image"
       />
       <video
-        v-if="containsTextAndVideo"
+        v-if="isMediaLayout && containsVideo"
         class="article__secondary-content article-secondary-content__video"
         :poster="content.article_video_poster.url"
         controls
@@ -88,7 +88,7 @@ export default {
     },
     background() {
       let style = {}
-      if (this.containsOnlyText) {
+      if (this.isOnlyTextLayout) {
         style = {
           background: `no-repeat url(${this.content.article_background.url})`,
           backgroundSize: '100%',
@@ -98,19 +98,18 @@ export default {
       style['background-color'] = `${this.content.article_background_color}`
       return style
     },
-    containsOnlyText() {
-      return this.content.article_layout === 'only-text'
-    },
-    containsTextAndImage() {
-      return ['text-image', 'image-text', 'vertical-text-image'].includes(
-        this.content.article_layout
-      )
-    },
-    containsTextAndVideo() {
+    containsVideo() {
       return (
-        this.containsTextAndImage &&
         this.content.article_video &&
         this.content.article_video.link_type !== 'Any'
+      )
+    },
+    isOnlyTextLayout() {
+      return this.content.article_layout === 'only-text'
+    },
+    isMediaLayout() {
+      return ['text-image', 'image-text', 'vertical-text-image'].includes(
+        this.content.article_layout
       )
     },
     shouldBeReversed() {
