@@ -13,6 +13,7 @@
           :dropdown-index="`${index}`"
           class="dropdown-toggle navigation-zone__item links-group"
           @click="toggleDropdown(`${index}`)"
+          @click.stop.prevent
         >
           {{ menuItem.name }}
           <fa v-if="showDropdown(`${index}`)" icon="angle-up" />
