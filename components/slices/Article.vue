@@ -269,6 +269,7 @@ export default {
 .article .article__secondary-content.article-secondary-content__video {
   grid-column-start: b-start;
   grid-column-end: b-end;
+  cursor: pointer;
 }
 
 .article.article--reverse
