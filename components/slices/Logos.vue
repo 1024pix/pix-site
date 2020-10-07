@@ -6,7 +6,7 @@
       :field="title"
     />
     <prismic-rich-text v-else class="sr-only" :field="title" />
-    <div class="wrapper">
+    <div class="logos__wrapper">
       <div
         v-for="(item, itemIndex) in items"
         :key="`item-${itemIndex}`"
@@ -49,28 +49,67 @@ export default {
 
 <style lang="scss">
 .logos {
+  margin: 0 16px;
+
   &__title h2 {
     font-family: $font-open-sans;
-    font-size: 2rem;
     font-weight: $font-normal;
-    height: 49px;
-    letter-spacing: 0.009rem;
-    line-height: 49px;
+    color: $blue-5;
+    letter-spacing: 0.00938rem;
     text-align: center;
+    font-size: 1.75rem;
+    height: 40px;
+    line-height: 40px;
     margin-top: 24px;
+    margin-bottom: 24px;
   }
-}
 
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  padding: 64px 98px;
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
 
-  &__item img {
-    max-height: 66px;
-    margin: 0 30px 24px;
+  .wrapper__item {
+    img {
+      margin: 0 5px;
+    }
+  }
+
+  @include device-is('tablet') {
+    margin: 0 32px;
+
+    .wrapper {
+      margin-bottom: 44px;
+    }
+  }
+
+  @include device-is('desktop') {
+    &__title h2 {
+      margin-bottom: 48px;
+    }
+
+    &__wrapper {
+      margin-bottom: 60px;
+    }
+
+    .wrapper__item {
+      img {
+        margin: 0 8px;
+      }
+    }
+  }
+
+  @include device-is('large-screen') {
+    max-width: 1920px;
+
+    &__title h2 {
+      font-size: 2.125rem;
+      height: 49px;
+      line-height: 49px;
+    }
   }
 }
 </style>
