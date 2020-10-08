@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules .nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build && npm run signal-github",
     "start": "nuxt start",
     "dev:site": "SITE=pix-site nuxt",
     "build:site": "SITE=pix-site nuxt build",
@@ -28,7 +28,8 @@
     "release": "npm run release:minor",
     "release:patch": "npm version patch -m \"Release v%s\"",
     "release:minor": "npm version minor -m \"Release v%s\"",
-    "release:major": "npm version major -m \"Release v%s\""
+    "release:major": "npm version major -m \"Release v%s\"",
+    "signal-github": "./scripts/signal_deploy_to_pr.sh"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.30",
