@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v2.29.0 (08/10/2020)
+
+- [#188](https://github.com/1024pix/pix-site/pull/188) [FEATURE] Suppression de l'execution des test au moment du preversion
+- [#185](https://github.com/1024pix/pix-site/pull/185) [FEATURE] Ajouter la possibilité de mettre une vidéo sur Article (PIX-1310).
+- [#179](https://github.com/1024pix/pix-site/pull/179) [FEATURE] Création du bloc process (PIX-1198).
+- [#187](https://github.com/1024pix/pix-site/pull/187) [BUGFIX] Pouvoir cliquer sur l'icon du bouton dropdown de la navigation
+- [#184](https://github.com/1024pix/pix-site/pull/184) [BUGFIX] La navigation ne s'affiche correctement sur les écrans intermédiaire. 
+- [#183](https://github.com/1024pix/pix-site/pull/183) [TECH] Ajouter des tests pour LogosZone.
+
 ## v2.28.0 (08/10/2020)
 
 - [#185](https://github.com/1024pix/pix-site/pull/185) [FEATURE] Ajouter la possibilité de mettre une vidéo sur Article (PIX-1310).
