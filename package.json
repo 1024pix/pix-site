@@ -28,8 +28,7 @@
     "release": "npm run release:minor",
     "release:patch": "npm version patch -m \"Release v%s\"",
     "release:minor": "npm version minor -m \"Release v%s\"",
-    "release:major": "npm version major -m \"Release v%s\"",
-    "preversion": "git checkout dev && git pull --rebase && NODE_ENV=test npm test"
+    "release:major": "npm version major -m \"Release v%s\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "1.2.30",
