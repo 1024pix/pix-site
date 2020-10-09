@@ -51,7 +51,7 @@ export const mutations = {
     state.aboutNavItems = navItems(navigations, 'about-nav')
   },
   updateMainNavigation(state, navigations) {
-    state.mainNavigation = { ...navigations }
+    state.mainNavigation = navigations
   },
   updateHotNews(state, hotNews) {
     state.hotNews = hotNews && hotNews.data ? hotNews.data.description : null
@@ -63,7 +63,7 @@ function getNavigation(prismic, i18n) {
 }
 
 function getMainNavigation(prismic, i18n) {
-  return documentFetcher(prismic, i18n).get(documents.mainNavigation)
+  return documentFetcher(prismic, i18n).findByType(documents.mainNavigation)
 }
 
 function getHotNews(prismic, i18n) {

@@ -14,7 +14,7 @@
         <div class="navigation-slice-zone__content">
           <div class="navigation-slice-zone-content__left-side">
             <section
-              v-for="(slice, index) in mainNavigation.data.body"
+              v-for="(slice, index) in usedMainNavigation.data.body"
               :key="`navigation-slice-left-${index}`"
             >
               <template v-if="slice.slice_type === 'logos_zone'">
@@ -26,7 +26,7 @@
             </section>
           </div>
           <section
-            v-for="(slice, index) in mainNavigation.data.body"
+            v-for="(slice, index) in usedMainNavigation.data.body"
             :key="`navigation-slice-right-${index}`"
             class="navigation-slice-zone-wrapper__right-side"
           >
@@ -65,11 +65,15 @@ export default {
       return process.env.isPixPro
     },
     ...mapState(['mainNavigation', 'organizationNavItems']),
+
+    usedMainNavigation() {
+      return { ...this.mainNavigation[0] }
+    },
     burgerMenuLinks() {
-      const navigationZone = this.mainNavigation.data.body.find(
+      const navigationZone = this.usedMainNavigation.data.body.find(
         (slice) => slice.slice_type === 'navigation_zone'
       )
-      const actionsZone = this.mainNavigation.data.body.find(
+      const actionsZone = this.usedMainNavigation.data.body.find(
         (slice) => slice.slice_type === 'actions_zone'
       )
       return [...navigationZone.items, ...actionsZone.items]
