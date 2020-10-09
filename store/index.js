@@ -6,14 +6,14 @@ export const state = () => ({
   aboutNavItems: [],
   hotNews: null,
   host: null,
-  mainNavigation: [],
+  mainNavigations: [],
 })
 export const actions = {
   async nuxtServerInit({ commit }, { app, req }) {
     commit('updateNavigation', await getNavigation(app.$prismic, app.i18n))
     commit(
-      'updateMainNavigation',
-      await getMainNavigation(app.$prismic, app.i18n)
+      'updateMainNavigations',
+      await getMainNavigations(app.$prismic, app.i18n)
     )
     commit('updateHotNews', await getHotNews(app.$prismic, app.i18n))
     commit('updateHost', req)
@@ -21,8 +21,8 @@ export const actions = {
   async updateNavigation({ commit }, { i18n, prismic }) {
     commit('updateNavigation', await getNavigation(prismic, i18n))
   },
-  async updateMainNavigation({ commit }, { i18n, prismic }) {
-    commit('updateMainNavigation', await getMainNavigation(prismic, i18n))
+  async updateMainNavigations({ commit }, { i18n, prismic }) {
+    commit('updateMainNavigations', await getMainNavigations(prismic, i18n))
   },
 }
 export const mutations = {
@@ -50,8 +50,8 @@ export const mutations = {
     state.resourcesNavItems = navItems(navigations, 'ressources-nav')
     state.aboutNavItems = navItems(navigations, 'about-nav')
   },
-  updateMainNavigation(state, navigations) {
-    state.mainNavigation = navigations
+  updateMainNavigations(state, navigations) {
+    state.mainNavigations = [...navigations]
   },
   updateHotNews(state, hotNews) {
     state.hotNews = hotNews && hotNews.data ? hotNews.data.description : null
@@ -62,7 +62,7 @@ function getNavigation(prismic, i18n) {
   return documentFetcher(prismic, i18n).get(documents.navigation)
 }
 
-function getMainNavigation(prismic, i18n) {
+function getMainNavigations(prismic, i18n) {
   return documentFetcher(prismic, i18n).findByType(documents.mainNavigation)
 }
 

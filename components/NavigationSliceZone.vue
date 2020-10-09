@@ -74,10 +74,10 @@ export default {
       )
     },
 
-    ...mapState(['mainNavigation', 'organizationNavItems']),
+    ...mapState(['mainNavigations', 'organizationNavItems']),
 
     usedMainNavigation() {
-      const groupBySite = groupBy(this.mainNavigation, 'data.navigation_for')
+      const groupBySite = groupBy(this.mainNavigations, 'data.navigation_for')
       if (this.isPixPro && groupBySite['pix-pro']) {
         return groupBySite['pix-pro'][0]
       }

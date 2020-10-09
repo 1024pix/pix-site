@@ -70,7 +70,7 @@ describe('NavigationSliceZone', () => {
         beforeEach(() => {
           store = {
             state: {
-              mainNavigation: [expectedSiteNavigation, expectedProNavigation],
+              mainNavigations: [expectedSiteNavigation, expectedProNavigation],
             },
           }
         })
@@ -99,7 +99,7 @@ describe('NavigationSliceZone', () => {
           }
           store = {
             state: {
-              mainNavigation: [expectedSiteNavigation, expectedProNavigation],
+              mainNavigations: [expectedSiteNavigation, expectedProNavigation],
             },
           }
         })
@@ -128,7 +128,7 @@ describe('NavigationSliceZone', () => {
           }
           store = {
             state: {
-              mainNavigation: [expectedSiteNavigation],
+              mainNavigations: [expectedSiteNavigation],
             },
           }
         })
@@ -160,7 +160,7 @@ describe('NavigationSliceZone', () => {
 
           store = {
             state: {
-              mainNavigation: [expectedSiteNavigation, expectedProNavigation],
+              mainNavigations: [expectedSiteNavigation, expectedProNavigation],
             },
           }
         })
@@ -190,7 +190,7 @@ describe('NavigationSliceZone', () => {
 
           store = {
             state: {
-              mainNavigation: [expectedSiteNavigation],
+              mainNavigations: [expectedSiteNavigation],
             },
           }
         })
