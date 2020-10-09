@@ -43,6 +43,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import { groupBy } from 'lodash'
 import LogosZone from '@/components/slices/LogosZone'
 import NavigationZone from '@/components/slices/NavigationZone'
 import ActionsZone from '@/components/slices/ActionsZone'
@@ -67,8 +68,13 @@ export default {
     ...mapState(['mainNavigation', 'organizationNavItems']),
 
     usedMainNavigation() {
-      return { ...this.mainNavigation[0] }
+      const groupBySite = groupBy(this.mainNavigation, 'data.navigation_for')
+      if (this.isPixPro && groupBySite['pix-pro']) {
+        return groupBySite['pix-pro'][0]
+      }
+      return groupBySite['pix-site'][0]
     },
+
     burgerMenuLinks() {
       const navigationZone = this.usedMainNavigation.data.body.find(
         (slice) => slice.slice_type === 'navigation_zone'
