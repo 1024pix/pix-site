@@ -3,9 +3,20 @@ import NavigationSliceZone from '~/components/NavigationSliceZone'
 
 jest.mock('~/services/document-fetcher')
 
-describe('NavigationSliceZone slice', () => {
+describe('NavigationSliceZone', () => {
   let component
   let store
+  const stubs = {
+    'client-only': true,
+    'push-menu': true,
+    'burger-menu-nav': true,
+    'organization-nav': true,
+    'logos-zone': true,
+    'navigation-zone': true,
+    'actions-zone': true,
+    'pix-pro-sub-nav': true,
+    fa: true,
+  }
 
   const expectedSiteNavigation = {
     data: {
@@ -13,20 +24,15 @@ describe('NavigationSliceZone slice', () => {
       body: [
         {
           slice_type: 'logos_zone',
-          slice_label: null,
           items: [],
-          primary: {},
         },
         {
           slice_type: 'navigation_zone',
           items: [],
-          primary: {},
         },
         {
           slice_type: 'actions_zone',
-          slice_label: null,
           items: [],
-          primary: {},
         },
       ],
     },
@@ -38,20 +44,15 @@ describe('NavigationSliceZone slice', () => {
       body: [
         {
           slice_type: 'logos_zone',
-          slice_label: null,
           items: [],
-          primary: {},
         },
         {
           slice_type: 'navigation_zone',
           items: [],
-          primary: {},
         },
         {
           slice_type: 'actions_zone',
-          slice_label: null,
           items: [],
-          primary: {},
         },
       ],
     },
@@ -64,117 +65,151 @@ describe('NavigationSliceZone slice', () => {
       }
     })
 
-    describe('When we are in pix-site and we have two navigation', () => {
-      beforeEach(() => {
-        store = {
-          state: {
-            mainNavigation: [expectedSiteNavigation, expectedProNavigation],
-          },
-        }
-      })
-
-      it('should return the site navigation', () => {
-        // given
-        component = shallowMount(NavigationSliceZone, {
-          mocks: {
-            $store: store,
-          },
-          stubs: {
-            'client-only': true,
-            'push-menu': true,
-            'burger-menu-nav': true,
-            'organization-nav': true,
-            'logos-zone': true,
-            'navigation-zone': true,
-            'actions-zone': true,
-            'pix-pro-sub-nav': true,
-            fa: true,
-          },
+    describe('#usedMainNavigation', () => {
+      describe('When we are in pix-site and we have the site navigation', () => {
+        beforeEach(() => {
+          store = {
+            state: {
+              mainNavigation: [expectedSiteNavigation, expectedProNavigation],
+            },
+          }
         })
 
-        // when
-        const result = component.vm.usedMainNavigation
+        it('should return the site navigation', () => {
+          // given
+          component = shallowMount(NavigationSliceZone, {
+            mocks: {
+              $store: store,
+            },
+            stubs,
+          })
 
-        // then
-        expect(result).toEqual(expectedSiteNavigation)
+          // when
+          const result = component.vm.usedMainNavigation
+
+          // then
+          expect(result).toEqual(expectedSiteNavigation)
+        })
+      })
+
+      describe('When we are in pix-pro and we have the pro navigation', () => {
+        beforeEach(() => {
+          process.env = {
+            isPixPro: true,
+          }
+          store = {
+            state: {
+              mainNavigation: [expectedSiteNavigation, expectedProNavigation],
+            },
+          }
+        })
+
+        it('should return the pro navigation', () => {
+          // given
+          component = shallowMount(NavigationSliceZone, {
+            mocks: {
+              $store: store,
+            },
+            stubs,
+          })
+
+          // when
+          const result = component.vm.usedMainNavigation
+
+          // then
+          expect(result).toEqual(expectedProNavigation)
+        })
+      })
+
+      describe('When we are in pix-pro and we have only the site navigation', () => {
+        beforeEach(() => {
+          process.env = {
+            isPixPro: true,
+          }
+          store = {
+            state: {
+              mainNavigation: [expectedSiteNavigation],
+            },
+          }
+        })
+
+        it('should return the site navigation', () => {
+          // given
+          component = shallowMount(NavigationSliceZone, {
+            mocks: {
+              $store: store,
+            },
+            stubs,
+          })
+
+          // when
+          const result = component.vm.usedMainNavigation
+
+          // then
+          expect(result).toEqual(expectedSiteNavigation)
+        })
       })
     })
 
-    describe('When we are in pix-pro and we have two navigation', () => {
-      beforeEach(() => {
-        process.env = {
-          isPixPro: true,
-        }
-        store = {
-          state: {
-            mainNavigation: [expectedSiteNavigation, expectedProNavigation],
-          },
-        }
-      })
+    describe('#showSubNav', () => {
+      describe('When we are in pix-pro and we have the pro navigation', () => {
+        beforeEach(() => {
+          process.env = {
+            isPixPro: true,
+          }
 
-      it('should return the pro navigation', () => {
-        // given
-        component = shallowMount(NavigationSliceZone, {
-          mocks: {
-            $store: store,
-          },
-          stubs: {
-            'client-only': true,
-            'push-menu': true,
-            'burger-menu-nav': true,
-            'organization-nav': true,
-            'logos-zone': true,
-            'navigation-zone': true,
-            'actions-zone': true,
-            'pix-pro-sub-nav': true,
-            fa: true,
-          },
+          store = {
+            state: {
+              mainNavigation: [expectedSiteNavigation, expectedProNavigation],
+            },
+          }
         })
 
-        // when
-        const result = component.vm.usedMainNavigation
+        it('should not show the subNav', () => {
+          // given
+          component = shallowMount(NavigationSliceZone, {
+            mocks: {
+              $store: store,
+            },
+            stubs,
+          })
 
-        // then
-        expect(result).toEqual(expectedProNavigation)
-      })
-    })
+          // when
+          const result = component.vm.showSubNav
 
-    describe('When we are in pix-pro and we have only the site navigation', () => {
-      beforeEach(() => {
-        process.env = {
-          isPixPro: true,
-        }
-        store = {
-          state: {
-            mainNavigation: [expectedSiteNavigation],
-          },
-        }
+          // then
+          expect(result).toEqual(false)
+        })
       })
 
-      it('should return the site navigation', () => {
-        // given
-        component = shallowMount(NavigationSliceZone, {
-          mocks: {
-            $store: store,
-          },
-          stubs: {
-            'client-only': true,
-            'push-menu': true,
-            'burger-menu-nav': true,
-            'organization-nav': true,
-            'logos-zone': true,
-            'navigation-zone': true,
-            'actions-zone': true,
-            'pix-pro-sub-nav': true,
-            fa: true,
-          },
+      describe('When we are in pix-pro and we have only the site navigation', () => {
+        beforeEach(() => {
+          process.env = {
+            isPixPro: true,
+          }
+
+          store = {
+            state: {
+              mainNavigation: [expectedSiteNavigation],
+            },
+          }
         })
 
-        // when
-        const result = component.vm.usedMainNavigation
+        it('should show the subNav', () => {
+          // given
+          component = shallowMount(NavigationSliceZone, {
+            mocks: {
+              $store: store,
+            },
+            stubs,
+          })
 
-        // then
-        expect(result).toEqual(expectedSiteNavigation)
+          // when
+          const result = component.vm.showSubNav
+
+          // then
+          expect(result).toEqual(true)
+        })
       })
     })
   })

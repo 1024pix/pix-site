@@ -5,6 +5,7 @@
         <burger-menu-nav
           :items="burgerMenuLinks"
           :pro-items="organizationNavItems"
+          :show-pro-items="showSubNav"
         />
       </push-menu>
     </client-only>
@@ -36,7 +37,7 @@
           </section>
         </div>
       </div>
-      <pix-pro-sub-nav v-if="isPixPro" :nav-items="organizationNavItems" />
+      <pix-pro-sub-nav v-if="showSubNav" :nav-items="organizationNavItems" />
     </div>
   </div>
 </template>
@@ -65,6 +66,14 @@ export default {
     isPixPro() {
       return process.env.isPixPro
     },
+
+    showSubNav() {
+      return (
+        this.isPixPro &&
+        this.usedMainNavigation.data.navigation_for === 'pix-site'
+      )
+    },
+
     ...mapState(['mainNavigation', 'organizationNavItems']),
 
     usedMainNavigation() {
