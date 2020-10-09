@@ -10,7 +10,7 @@
       <div
         v-for="(item, itemIndex) in items"
         :key="`item-${itemIndex}`"
-        class="wrapper__item"
+        class="logos-wrapper__item"
       >
         <pix-image :field="item.logos_image" />
       </div>
@@ -72,7 +72,7 @@ export default {
     margin-bottom: 32px;
   }
 
-  .wrapper__item {
+  .logos-wrapper__item {
     img {
       margin: 0 5px;
     }
@@ -80,10 +80,6 @@ export default {
 
   @include device-is('tablet') {
     margin: 0 32px;
-
-    .wrapper {
-      margin-bottom: 44px;
-    }
   }
 
   @include device-is('desktop') {
@@ -95,7 +91,7 @@ export default {
       margin-bottom: 60px;
     }
 
-    .wrapper__item {
+    .logos-wrapper__item {
       img {
         margin: 0 8px;
       }
