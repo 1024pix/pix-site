@@ -1,0 +1,107 @@
+.statistics {
+  &__title h2 {
+    color: $grey-11;
+    font-size: 1.75rem;
+    font-weight: normal;
+    height: 80px;
+    letter-spacing: 0.15px;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  &__subtitle h3 {
+    position: relative;
+    top: 24px;
+    font-size: 1rem;
+    font-weight: $font-light;
+    height: 49px;
+    letter-spacing: 0.009rem;
+    line-height: 49px;
+    text-align: center;
+  }
+
+  &__wrapper {
+    padding: 0 34px;
+  }
+}
+
+.statistics-wrapper {
+  &__row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item {
+    height: 196px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-right: 0;
+      margin-bottom: 32px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.statistics-wrapper-item {
+  &__title h3 {
+    width: 293px;
+    color: $blue-5;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 0;
+    line-height: 43px;
+    font-weight: 600;
+    margin-top: 17px;
+  }
+
+  &__description {
+    text-align: center;
+    width: 293px;
+    color: $grey-10;
+    font-size: 1.25rem;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin-top: 5px;
+  }
+}
+
+@include device-is('tablet') {
+  .statistics {
+    &__title h2 {
+      font-size: 2rem;
+    }
+  }
+  .statistics-wrapper {
+    &__row {
+      flex-direction: row;
+    }
+  }
+}
+
+@include device-is('large-screen') {
+  .statistics {
+    &__wrapper {
+      padding: 0 98px;
+    }
+  }
+
+  .statistics-wrapper {
+    &__item {
+      margin-bottom: 61px;
+    }
+  }
+}

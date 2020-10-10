@@ -1,35 +1,35 @@
 <template>
-  <section class="block" :style="[background]">
+  <section :class="blockClass" :style="[background]">
     <prismic-rich-text
       v-if="hasTitle && shouldDisplayTitle"
-      class="block__title"
+      :class="`${blockClass}__title`"
       :field="title"
     />
     <prismic-rich-text v-else class="sr-only" :field="title" />
     <prismic-rich-text
       v-if="shouldUseSubtitle && hasSubtitle"
-      class="block__subtitle"
+      :class="`${blockClass}__subtitle`"
       :field="subtitle"
     />
-    <div class="block__wrapper">
+    <div :class="`${blockClass}__wrapper`">
       <div
         v-for="(itemsByRow, rowIndex) in rows"
         :key="`row-${rowIndex}`"
-        class="block-wrapper__row"
+        :class="`${blockClass}-wrapper__row`"
       >
         <div
           v-for="(item, itemIndex) in itemsByRow"
           :key="`item-${itemIndex}`"
-          class="block-wrapper__item"
+          :class="`${blockClass}-wrapper__item`"
         >
           <pix-image v-if="hasImage(item)" :field="item.item_image" />
           <div>
             <prismic-rich-text
-              class="block-wrapper-item__title"
+              :class="`${blockClass}-wrapper-item__title`"
               :field="item.item_title"
             />
             <prismic-rich-text
-              class="block-wrapper-item__description"
+              :class="`${blockClass}-wrapper-item__description`"
               :field="item.item_description"
             />
           </div>
@@ -63,6 +63,9 @@ export default {
       return {
         backgroundColor: `${this.slice.primary.block_background_color}`,
       }
+    },
+    blockClass() {
+      return this.slice.primary.block_style
     },
     items() {
       return this.slice.items
@@ -136,3 +139,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+@import '../../assets/scss/components/slices/features.scss';
+@import '../../assets/scss/components/slices/process.scss';
+@import '../../assets/scss/components/slices/statistics.scss';
+</style>
