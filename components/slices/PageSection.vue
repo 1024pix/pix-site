@@ -16,7 +16,7 @@
           <prismic-rich-text :field="item.paragraph" />
         </div>
       </div>
-      <pix-link v-if="hasButton" :href="buttonLink" :class="buttonClass">
+      <pix-link v-if="hasButton" :field="buttonLink" :class="buttonClass">
         {{ $prismic.asText(buttonText) }}
       </pix-link>
     </div>
@@ -70,7 +70,7 @@ export default {
       return this.slice.primary.description
     },
     buttonLink() {
-      return this.slice.primary.button_link.url
+      return this.slice.primary.button_link
     },
     buttonText() {
       return this.slice.primary.button_title
