@@ -2,9 +2,7 @@
   <div class="page">
     <header class="page-header">
       <div class="container md padding-container">
-        <h1 class="page-header__title">
-          <prismic-rich-text :field="content.title" />
-        </h1>
+        <prismic-rich-text :field="content.title" class="page-header__title" />
       </div>
     </header>
 
