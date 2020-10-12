@@ -88,7 +88,7 @@ export default {
     },
     background() {
       let style = {}
-      if (this.isOnlyTextLayout) {
+      if (this.isOnlyTextLayout && this.hasBackgroundImage) {
         style = {
           background: `no-repeat url(${this.content.article_background.url})`,
           backgroundSize: '100%',
@@ -102,6 +102,11 @@ export default {
       return (
         this.content.article_video &&
         this.content.article_video.link_type !== 'Any'
+      )
+    },
+    hasBackgroundImage() {
+      return (
+        this.content.article_background && this.content.article_background.url
       )
     },
     isOnlyTextLayout() {
