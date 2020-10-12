@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v2.29.2 (12/10/2020)
+
+- [#196](https://github.com/1024pix/pix-site/pull/196) [BUGFIX] Empêcher les getSingle of undefined sur Pix.org (PIX-1404).
+- [#195](https://github.com/1024pix/pix-site/pull/195) [BUGFIX] Fix appel à /undefined (PIX-1402).
+
 ## v2.29.1 (12/10/2020)
 
 - [#194](https://github.com/1024pix/pix-site/pull/194) [BUGFIX] Gestion des liens sur Pix-pro.
