@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v2.29.1 (12/10/2020)
+
+- [#194](https://github.com/1024pix/pix-site/pull/194) [BUGFIX] Gestion des liens sur Pix-pro.
+- [#192](https://github.com/1024pix/pix-site/pull/192) [CLEANUP] Retirer la balise H1 déjà prise en compte par prismic-rich-text.
+
 ## v2.29.0 (08/10/2020)
 
 - [#188](https://github.com/1024pix/pix-site/pull/188) [FEATURE] Suppression de l'execution des test au moment du preversion
