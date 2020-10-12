@@ -1,6 +1,6 @@
-export default function ({ app: { i18n, store } }) {
+export default function ({ app: { $prismic, i18n, store } }) {
   i18n.onLanguageSwitched = () => {
-    store.dispatch('updateNavigation', i18n)
-    store.dispatch('updateMainNavigation', i18n)
+    store.dispatch('updateNavigation', { prismic: $prismic, i18n })
+    store.dispatch('updateMainNavigation', { prismic: $prismic, i18n })
   }
 }

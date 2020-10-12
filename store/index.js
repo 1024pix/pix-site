@@ -18,11 +18,11 @@ export const actions = {
     commit('updateHotNews', await getHotNews(app.$prismic, app.i18n))
     commit('updateHost', req)
   },
-  async updateNavigation({ commit }, i18n) {
-    commit('updateNavigation', await getNavigation(i18n))
+  async updateNavigation({ commit }, { i18n, prismic }) {
+    commit('updateNavigation', await getNavigation(prismic, i18n))
   },
-  async updateMainNavigation({ commit }, i18n) {
-    commit('updateMainNavigation', await getMainNavigation(i18n))
+  async updateMainNavigation({ commit }, { i18n, prismic }) {
+    commit('updateMainNavigation', await getMainNavigation(prismic, i18n))
   },
 }
 export const mutations = {
