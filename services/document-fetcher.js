@@ -9,7 +9,6 @@ export const documents = {
   navigation: 'navigation',
   mainNavigation: 'main_navigation',
   mediation: 'mediation',
-  higherEducation: 'higher-education',
   keyNumbers: 'key_numbers',
   employers: 'employers',
   schoolEducation: 'school-education',
