@@ -5,7 +5,6 @@
     <main>
       <nuxt />
     </main>
-    <app-footer />
   </div>
 </template>
 
@@ -78,14 +77,12 @@ h6 {
 }
 </style>
 <script>
-import AppFooter from '@/components/AppFooter'
 import HotNewsBanner from '@/components/HotNewsBanner'
 import NavigationSliceZone from '@/components/NavigationSliceZone'
 
 export default {
   components: {
     HotNewsBanner,
-    AppFooter,
     NavigationSliceZone,
   },
 }

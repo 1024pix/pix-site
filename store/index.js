@@ -2,8 +2,6 @@ import getHostFromRequest from '~/services/get-host-from-request'
 import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export const state = () => ({
-  resourcesNavItems: [],
-  aboutNavItems: [],
   hotNews: null,
   host: null,
   mainNavigations: [],
@@ -47,8 +45,6 @@ export const mutations = {
         'pix-pro-organizations-nav'
       )
     }
-    state.resourcesNavItems = navItems(navigations, 'ressources-nav')
-    state.aboutNavItems = navItems(navigations, 'about-nav')
   },
   updateMainNavigations(state, navigations) {
     state.mainNavigations = [...navigations]
