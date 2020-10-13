@@ -1,16 +1,16 @@
 <template>
-  <section class="logos">
+  <section class="partners-logos">
     <prismic-rich-text
       v-if="hasTitle && shouldDisplayTitle"
-      class="logos__title"
+      class="partners-logos__title"
       :field="title"
     />
     <prismic-rich-text v-else class="sr-only" :field="title" />
-    <div class="logos__wrapper">
+    <div class="partners-logos__wrapper">
       <div
         v-for="(item, itemIndex) in items"
         :key="`item-${itemIndex}`"
-        class="logos-wrapper__item"
+        class="partners-logos-wrapper__item"
       >
         <pix-image :field="item.logos_image" />
       </div>
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-.logos {
+.partners-logos {
   margin: 0 16px;
 
   &__title h2 {
@@ -73,7 +73,7 @@ export default {
   }
 }
 
-.logos-wrapper {
+.partners-logos-wrapper {
   &__item {
     img {
       margin: 0 5px;
@@ -82,13 +82,13 @@ export default {
 }
 
 @include device-is('tablet') {
-  .logos {
+  .partners-logos {
     margin: 0 32px;
   }
 }
 
 @include device-is('desktop') {
-  .logos {
+  .partners-logos {
     &__title h2 {
       margin-bottom: 48px;
     }
@@ -98,7 +98,7 @@ export default {
     }
   }
 
-  .logos-wrapper {
+  .partners-logos-wrapper {
     &__item {
       img {
         margin: 0 8px;
@@ -108,7 +108,7 @@ export default {
 }
 
 @include device-is('large-screen') {
-  .logos {
+  .partners-logos {
     max-width: 1920px;
 
     &__title h2 {
