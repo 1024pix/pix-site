@@ -15,18 +15,21 @@
       <div
         v-for="(itemsByRow, rowIndex) in rows"
         :key="`row-${rowIndex}`"
-        class="wrapper__row"
+        class="process-wrapper__row"
       >
         <div
           v-for="(item, itemIndex) in itemsByRow"
           :key="`item-${itemIndex}`"
-          class="wrapper__item"
+          class="process-wrapper__item"
         >
           <pix-image v-if="hasImage(item)" :field="item.item_image" />
           <div>
-            <prismic-rich-text class="item__title" :field="item.item_title" />
             <prismic-rich-text
-              class="item__description"
+              class="process-wrapper-item__title"
+              :field="item.item_title"
+            />
+            <prismic-rich-text
+              class="process-wrapper-item__description"
               :field="item.item_description"
             />
           </div>
@@ -163,7 +166,7 @@ export default {
   }
 }
 
-.wrapper {
+.process-wrapper {
   &__row {
     display: flex;
     align-items: center;
@@ -201,7 +204,7 @@ export default {
   }
 }
 
-.item {
+.process-wrapper-item {
   &__title h1 {
     width: 175px;
     color: $grey-1;
@@ -239,7 +242,7 @@ export default {
     }
   }
 
-  .wrapper__item {
+  .process-wrapper__item {
     margin-bottom: 40px;
 
     div:first-of-type {
@@ -268,7 +271,7 @@ export default {
     }
   }
 
-  .wrapper {
+  .process-wrapper {
     &__row {
       flex-direction: row;
       justify-content: center;
@@ -279,10 +282,7 @@ export default {
       &:first-of-type {
         margin-left: 56px;
       }
-
       padding: 32px 24px 56px 24px;
-      height: 273px;
-
       display: block;
       margin-right: 56px;
       margin-bottom: 0;
@@ -295,7 +295,7 @@ export default {
     }
   }
 
-  .item {
+  .process-wrapper-item {
     &__title h1 {
       width: 245px;
       font-size: 1.25rem;
@@ -320,7 +320,7 @@ export default {
     justify-content: space-around;
   }
 
-  .wrapper {
+  .process-wrapper {
     &__item {
       &:first-of-type {
         margin-left: 0;
@@ -342,7 +342,7 @@ export default {
     }
   }
 
-  .item {
+  .process-wrapper-item {
     &__description {
       margin-top: 8px;
       width: 245px;

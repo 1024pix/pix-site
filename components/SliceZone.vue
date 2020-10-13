@@ -53,6 +53,9 @@
       <template v-if="slice.slice_type === 'process'">
         <process-slice :slice="slice" />
       </template>
+      <template v-if="slice.slice_type === 'partners_logos'">
+        <partners-logos-slice :slice="slice" />
+      </template>
     </section>
   </div>
 </template>
@@ -68,6 +71,7 @@ import PopInCampaigns from '@/components/slices/PopInCampaigns'
 import PageSection from '@/components/slices/PageSection'
 import WebSnippet from '@/components/slices/WebSnippet'
 import FeaturesSlice from '@/components/slices/Features'
+import PartnersLogosSlice from '@/components/slices/PartnersLogos'
 
 export default {
   name: 'SliceZone',
@@ -82,6 +86,7 @@ export default {
     WebSnippet,
     FeaturesSlice,
     ProcessSlice,
+    PartnersLogosSlice,
   },
   props: {
     slices: {
