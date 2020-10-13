@@ -5,6 +5,7 @@
         <burger-menu-nav
           :items="burgerMenuLinks"
           :pro-items="organizationNavItems"
+          :show-pro-items="showSubNav"
         />
       </push-menu>
     </client-only>
@@ -14,7 +15,7 @@
         <div class="navigation-slice-zone__content">
           <div class="navigation-slice-zone-content__left-side">
             <section
-              v-for="(slice, index) in mainNavigation.data.body"
+              v-for="(slice, index) in usedMainNavigation.data.body"
               :key="`navigation-slice-left-${index}`"
             >
               <template v-if="slice.slice_type === 'logos_zone'">
@@ -26,7 +27,7 @@
             </section>
           </div>
           <section
-            v-for="(slice, index) in mainNavigation.data.body"
+            v-for="(slice, index) in usedMainNavigation.data.body"
             :key="`navigation-slice-right-${index}`"
             class="navigation-slice-zone-wrapper__right-side"
           >
@@ -36,13 +37,14 @@
           </section>
         </div>
       </div>
-      <pix-pro-sub-nav v-if="isPixPro" :nav-items="organizationNavItems" />
+      <pix-pro-sub-nav v-if="showSubNav" :nav-items="organizationNavItems" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import { groupBy } from 'lodash'
 import LogosZone from '@/components/slices/LogosZone'
 import NavigationZone from '@/components/slices/NavigationZone'
 import ActionsZone from '@/components/slices/ActionsZone'
@@ -64,12 +66,29 @@ export default {
     isPixPro() {
       return process.env.isPixPro
     },
-    ...mapState(['mainNavigation', 'organizationNavItems']),
+
+    showSubNav() {
+      return (
+        this.isPixPro &&
+        this.usedMainNavigation.data.navigation_for === 'pix-site'
+      )
+    },
+
+    ...mapState(['mainNavigations', 'organizationNavItems']),
+
+    usedMainNavigation() {
+      const groupBySite = groupBy(this.mainNavigations, 'data.navigation_for')
+      if (this.isPixPro && groupBySite['pix-pro']) {
+        return groupBySite['pix-pro'][0]
+      }
+      return groupBySite['pix-site'][0]
+    },
+
     burgerMenuLinks() {
-      const navigationZone = this.mainNavigation.data.body.find(
+      const navigationZone = this.usedMainNavigation.data.body.find(
         (slice) => slice.slice_type === 'navigation_zone'
       )
-      const actionsZone = this.mainNavigation.data.body.find(
+      const actionsZone = this.usedMainNavigation.data.body.find(
         (slice) => slice.slice_type === 'actions_zone'
       )
       return [...navigationZone.items, ...actionsZone.items]

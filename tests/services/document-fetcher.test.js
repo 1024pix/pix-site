@@ -109,4 +109,34 @@ describe('DocumentFetcher', () => {
     expect(prismicPredicates.at).toBeCalledWith('my.slices_page.uid', uid)
     expect(response).toEqual(expectedValue)
   })
+
+  test('#findByType', async () => {
+    // Given
+    const type = 'main_navigation'
+    const expectedValue = [
+      { type: 'main_navigation', navigation_for: 'pix-site' },
+      { type: 'main_navigation', navigation_for: 'pix-pro' },
+    ]
+    const expectedPredicatesAtValue = Symbol('AT')
+    const findMock = () => ({ results: expectedValue })
+    const prismicApi = {
+      query: jest.fn().mockImplementationOnce(findMock),
+    }
+    prismic.api = prismicApi
+
+    const prismicPredicates = {
+      at: jest.fn(() => expectedPredicatesAtValue),
+    }
+    prismic.predicates = prismicPredicates
+
+    // When
+    const response = await documentFetcher(prismic).findByType(type)
+
+    // Then
+    expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
+      lang: 'fr-fr',
+    })
+    expect(prismicPredicates.at).toBeCalledWith('document.type', type)
+    expect(response).toEqual(expectedValue)
+  })
 })
