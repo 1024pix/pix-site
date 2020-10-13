@@ -61,10 +61,6 @@ export default {
     { src: '~plugins/slide-menu', ssr: false },
     '~plugins/vue-js-modal',
   ],
-  /*
-   ** Redirections
-   */
-  serverMiddleware: [`~/middleware/${process.env.SITE}/seo.js`],
 
   /*
    ** Nuxt.js dev-modules
