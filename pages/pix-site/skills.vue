@@ -85,13 +85,14 @@ export default {
     }
 
     &:nth-child(even) {
-      background-color: $grey-3;
+      background-color: $grey-10;
     }
 
     h2,
     h3,
     h4 {
       font-weight: 400;
+      color: $grey-90;
     }
 
     .competence {

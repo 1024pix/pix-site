@@ -95,15 +95,15 @@
 }
 
 .text.text-black {
-  color: $grey-1;
+  color: $grey-45;
 }
 
 .text.text-black-l {
-  color: $grey-2;
+  color: $grey-90;
 }
 
 .text.text-blue {
-  color: $blue-1;
+  color: $blue;
 }
 
 .text.light {
@@ -130,7 +130,7 @@
   &--normal p {
     font-size: 1rem;
     line-height: 1.625rem;
-    color: $grey-10;
+    color: $grey-45;
   }
 
   &--light p {
@@ -138,6 +138,6 @@
   }
 
   &--dark p {
-    color: $grey-10;
+    color: $grey-45;
   }
 }

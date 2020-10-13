@@ -79,7 +79,7 @@ export default {
     margin-bottom: 18px;
     margin-top: 60px;
     font-weight: 400;
-    color: $grey-1;
+    color: $grey-90;
   }
 }
 .legal-notices-members {

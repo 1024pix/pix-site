@@ -59,7 +59,7 @@ export default {
 .navigation-dropdown {
   box-shadow: 0 24px 32px 0 rgba(0, 0, 0, 0.03),
     0 8px 32px 0 rgba(0, 0, 0, 0.06);
-  color: $grey-9;
+  color: $grey-50;
   font-size: 0.875rem;
   font-weight: $font-normal;
   position: absolute;
@@ -93,18 +93,18 @@ export default {
   }
 
   a {
-    color: $grey-9;
+    color: $grey-50;
     &:hover {
-      color: $blue-1;
+      color: $blue;
     }
     &:visited {
-      color: $grey-9;
+      color: $grey-50;
       &:hover {
-        color: $blue-1;
+        color: $blue;
       }
     }
     &.nuxt-link-active {
-      color: $blue-1;
+      color: $blue;
     }
   }
 }

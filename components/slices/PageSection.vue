@@ -122,7 +122,7 @@ export default {
     }
 
     h2 {
-      color: $blue-5;
+      color: $grey-90;
       font-size: 2rem;
       font-family: $font-open-sans;
       font-weight: normal;
@@ -132,7 +132,7 @@ export default {
     }
 
     p {
-      color: $grey-10;
+      color: $grey-45;
       font-size: 1.25rem;
       line-height: 2rem;
       text-align: justify;

@@ -302,23 +302,29 @@ export default {
 .article-content {
   &__description {
     margin: 16px 0 24px 0;
-    color: $grey-6;
+    color: $grey-45;
+    font-size: 1.125rem;
+    line-height: 30px;
+
+    h3 {
+      margin-top: 8px;
+    }
 
     ul {
       list-style: none;
       padding: 0;
 
       li:before {
-        color: $grey-6;
+        color: $grey-45;
       }
     }
 
     & p {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       font-weight: $font-normal;
       letter-spacing: 0;
-      line-height: 2rem;
-      margin: 15px 0px;
+      line-height: 1.875rem;
+      margin: 8px 0px;
     }
 
     &--only-text {
@@ -328,9 +334,9 @@ export default {
 
   &__link-to {
     height: 26px;
-    color: $blue-1;
+    color: $blue;
     font-family: $font-roboto;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: $font-medium;
     letter-spacing: 0;
     line-height: 0.009rem;
@@ -339,12 +345,12 @@ export default {
     &:focus,
     &:hover {
       text-decoration: none;
-      color: $blue-1;
+      color: $blue;
     }
   }
 
   &__title h2 {
-    color: $blue-5;
+    color: $grey-90;
     font-size: 2rem;
     font-weight: $font-normal;
     letter-spacing: 0.00875rem;

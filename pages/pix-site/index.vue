@@ -80,7 +80,7 @@ export default {
 
   .hero-banner {
     &__content {
-      color: $grey-1;
+      color: $grey-45;
 
       h1 {
         font-size: 30px;
@@ -129,7 +129,7 @@ export default {
         line-height: 60px;
         padding: 0 20px;
         position: relative;
-        background: $blue-1;
+        background: $blue;
         color: $white;
         border-radius: 5px;
         -webkit-backface-visibility: hidden;
@@ -137,7 +137,7 @@ export default {
 
         &:hover {
           transition: opacity 0.5s ease-out;
-          background: $blue-3;
+          background: $blue-hover;
         }
 
         &:hover:after {
@@ -276,7 +276,7 @@ export default {
 
       &:hover {
         transition: opacity 0.5s ease-out;
-        background: $blue-3;
+        background: $blue-hover;
       }
 
       &:hover:after {

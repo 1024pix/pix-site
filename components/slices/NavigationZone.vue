@@ -126,7 +126,7 @@ class Navigation {
     height: 100%;
 
     &__item {
-      color: $grey-9;
+      color: $grey-50;
       font-family: $font-roboto;
       font-size: 14px;
       font-weight: $font-medium;
@@ -138,12 +138,12 @@ class Navigation {
       white-space: nowrap;
 
       &.current-active-link {
-        border-bottom: 2px solid $blue-1;
+        border-bottom: 2px solid $blue;
       }
       &.current-active-link,
       &:active,
       &:hover {
-        color: $blue-1;
+        color: $blue;
       }
 
       &.links-group {

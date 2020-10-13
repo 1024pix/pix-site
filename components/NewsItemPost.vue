@@ -68,7 +68,7 @@ export default {
   position: relative;
   border-radius: 10px;
   background: #fff;
-  color: $grey-1;
+  color: $grey-45;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.04);
   margin-bottom: 60px;
 
@@ -132,7 +132,7 @@ export default {
     border-radius: 50%;
     width: 36px;
     height: 36px;
-    background-color: $blue-1;
+    background-color: $blue;
     padding: 5px;
     margin-right: 10px;
   }
@@ -182,7 +182,7 @@ export default {
   }
 
   &__link {
-    color: $grey-1;
+    color: $grey-45;
 
     &:active,
     &:focus,
@@ -224,18 +224,18 @@ export default {
 
   .number-large-blue {
     font-weight: 600;
-    color: $blue-1;
+    color: $blue;
     text-align: center;
     font-size: 2.25rem;
     line-height: 4.063rem;
   }
 
   .blue {
-    color: $blue-1;
+    color: $blue;
   }
 
   .yellow {
-    color: $pix-yellow;
+    color: $yellow;
   }
 
   .large {

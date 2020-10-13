@@ -101,7 +101,7 @@ export default {
   }
 
   h2 {
-    color: $blue-5;
+    color: $grey-90;
     font-size: 2rem;
     font-weight: normal;
     letter-spacing: 0.00875rem;
@@ -110,7 +110,7 @@ export default {
   }
 
   h3 {
-    color: $blue-5;
+    color: $grey-90;
     font-size: 1.25rem;
     font-family: $font-open-sans;
     font-weight: 600;
@@ -120,9 +120,9 @@ export default {
   }
 
   a {
-    color: $blue-1;
+    color: $blue;
     &:visited {
-      color: $blue-1;
+      color: $blue;
     }
   }
 
@@ -191,7 +191,7 @@ export default {
     }
 
     p {
-      color: $grey-10;
+      color: $grey-45;
       text-align: center;
       font-size: 0.875rem;
       font-family: $font-roboto;
@@ -235,7 +235,7 @@ export default {
     margin-top: 24px;
 
     p {
-      color: $grey-10;
+      color: $grey-45;
       text-align: center;
       font-size: 0.875rem;
       font-family: $font-roboto;
@@ -273,7 +273,7 @@ export default {
     }
 
     p {
-      color: $grey-10;
+      color: $grey-45;
       text-align: center;
       font-size: 0.875rem;
       font-family: $font-roboto;
@@ -310,7 +310,7 @@ export default {
     }
 
     p {
-      color: $grey-10;
+      color: $grey-45;
       text-align: center;
       font-size: 0.875rem;
       font-family: $font-roboto;

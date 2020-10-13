@@ -26,10 +26,10 @@
 
   transition: background-color 0.3s ease;
 
-  @include colorizeButton($white, transparent, $blue-1, $blue-3, $white);
+  @include colorizeButton($white, transparent, $blue, $blue-hover, $white);
 
   &.button-video {
-    @include colorizeButton($grey-11, $grey-11, $white, $grey-20, $grey-11);
+    @include colorizeButton($grey-80, $grey-80, $white, $grey-20, $grey-80);
     svg { margin-right: 10px; }
   }
 
@@ -42,19 +42,19 @@
     font-size: 0.8125rem;
     letter-spacing: 0.0625rem;
 
-    @include colorizeButton($blue-1, $blue-1, $white, $blue-1, $white);
+    @include colorizeButton($blue, $blue, $white, $blue, $white);
   }
 
   &--light {
-    @include colorizeButton($grey-11, transparent, $pix-yellow, $white, $grey-11);
+    @include colorizeButton($grey-80, transparent, $yellow, $white, $grey-80);
 
     &:hover {
-      @include colorizeButton($grey-11, transparent, $pix-yellow-2, $pix-yellow-2, $grey-11);
+      @include colorizeButton($grey-80, transparent, $yellow, $yellow, $grey-80);
     }
 
     &:active,
     &:focus {
-      @include colorizeButton($grey-11, transparent, $pix-yellow-3, $pix-yellow-3, $grey-11);
+      @include colorizeButton($grey-80, transparent, $yellow, $yellow, $grey-80);
     }
 
     &.button-video {
@@ -62,22 +62,22 @@
       @include colorizeButton($white, $white, transparent, transparent, $white);
 
       &:hover {
-        @include colorizeButton($white, $white, transparent, $blue-1, $white);
+        @include colorizeButton($white, $white, transparent, $blue, $white);
       }
 
       &:active,
       &:focus {
-        @include colorizeButton($white, $white, transparent, $blue-3, $white);
+        @include colorizeButton($white, $white, transparent, $blue-hover, $white);
       }
     }
   }
 
   &--dark {
-    @include colorizeButton($white, transparent, $blue-1, $blue-3, $white);
+    @include colorizeButton($white, transparent, $blue, $blue-hover, $white);
 
     &.button-video {
       svg { margin-right: 10px; }
-      @include colorizeButton($grey-11, $grey-11, $white, $grey-20, $grey-11);
+      @include colorizeButton($grey-80, $grey-80, $white, $grey-20, $grey-80);
     }
   }
 }

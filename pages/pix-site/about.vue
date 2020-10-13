@@ -269,6 +269,11 @@ export default {
     &__container {
       max-width: 1140px;
       margin: 0 auto;
+
+      h2,
+      h3 {
+        color: $grey-90;
+      }
     }
 
     &-container {
@@ -427,6 +432,10 @@ export default {
       }
     }
 
+    h2 {
+      color: $grey-90;
+    }
+
     h3 {
       text-align: center;
       font-size: 1rem;
@@ -445,7 +454,7 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background: $grey-3;
+      background: $grey-10;
       transform: skewY(3deg);
       transform-origin: bottom right;
     }
@@ -527,6 +536,10 @@ export default {
 
     .background {
       background: $white;
+    }
+
+    h2 {
+      color: $grey-90;
     }
   }
 
@@ -630,7 +643,7 @@ export default {
               font-size: 5rem;
               line-height: 10rem;
               display: block;
-              color: $blue-1;
+              color: $blue;
               margin: 0;
             }
           }

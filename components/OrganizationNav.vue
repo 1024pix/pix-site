@@ -25,7 +25,7 @@ export default {
   display: grid;
   grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
   grid-template-rows: auto;
-  background-color: $grey-3;
+  background-color: $grey-10;
 }
 .nav-switch {
   display: none;
@@ -46,10 +46,10 @@ export default {
     }
     a {
       margin-left: 3px;
-      color: $grey-1;
+      color: $grey-45;
       margin-right: 18px;
       &:hover {
-        color: $blue-1;
+        color: $blue;
       }
     }
     div {
