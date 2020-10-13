@@ -7,6 +7,6 @@
 ## :rainbow: Remarques
 > _Des infos supplémentaires, trucs et astuces ?_
 
-## :sparkles: Review App
-https://site-pr000.review.pix.fr/
-https://pro-pr000.review.pix.fr/
+## :100: Pour tester
+> _Les instructions pour reproduire le problème, les profils de test, le parcours spécifique à utiliser, etc._
+
