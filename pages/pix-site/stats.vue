@@ -125,7 +125,7 @@ export default {
 
   .blue {
     font-weight: bold;
-    color: $blue-1;
+    color: $blue;
   }
 
   canvas {

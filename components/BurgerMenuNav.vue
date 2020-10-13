@@ -51,7 +51,7 @@ export default {
 <style lang="scss">
 .navigation-slice-zone {
   .bm-menu {
-    background: linear-gradient(134.72deg, $blue-2 0%, $blue-1 100%);
+    background: $blue-gradient;
 
     @include device-is('large-screen') {
       display: none;
@@ -105,7 +105,7 @@ export default {
   }
 
   .bm-burger-bars {
-    background-color: $grey-1;
+    background-color: $grey-45;
   }
 
   .bm-burger-button {
@@ -117,7 +117,7 @@ export default {
   }
 
   .bm-cross {
-    background: $grey-1;
+    background: $grey-45;
     height: 24px !important;
   }
 }

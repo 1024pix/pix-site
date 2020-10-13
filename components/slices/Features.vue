@@ -161,7 +161,7 @@ export default {
   &-wrapper-item {
     &__title h1 {
       width: 217px;
-      color: $grey-1;
+      color: $grey-90;
       font-size: 1rem;
       letter-spacing: 0px;
       line-height: 30px;
@@ -170,7 +170,7 @@ export default {
 
     &__description {
       width: 217px;
-      color: $grey-10;
+      color: $grey-45;
       font-size: 0.875rem;
       letter-spacing: 0.15px;
       line-height: 24px;

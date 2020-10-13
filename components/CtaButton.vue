@@ -25,14 +25,14 @@ export default {
 <style lang="scss">
 .cta-button {
   width: fit-content;
-  background: $blue-1;
+  background: $blue;
   border-radius: 5px;
   padding: 0 20px;
   cursor: pointer;
 
   &:hover {
     transition: opacity 0.5s ease-out;
-    background: $blue-3;
+    background: $blue-hover;
   }
 
   &:hover:after {

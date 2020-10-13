@@ -886,7 +886,7 @@ export default {
     font-size: 36px;
     line-height: 49px;
     font-weight: 400;
-    color: $grey-1;
+    color: $grey-90;
   }
 
   &__list {
@@ -918,7 +918,7 @@ export default {
 
   &__value {
     font-weight: 600;
-    color: $blue-1;
+    color: $blue;
     text-align: center;
     font-size: 36px;
     line-height: 65px;
@@ -929,7 +929,7 @@ export default {
   }
 
   &__description {
-    color: $grey-1;
+    color: $grey-45;
     text-align: center;
 
     @include device-is('large-mobile') {

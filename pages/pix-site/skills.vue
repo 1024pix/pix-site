@@ -85,7 +85,7 @@ export default {
     }
 
     &:nth-child(even) {
-      background-color: $grey-3;
+      background-color: $grey-10;
     }
 
     h2,

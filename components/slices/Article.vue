@@ -302,14 +302,14 @@ export default {
 .article-content {
   &__description {
     margin: 16px 0 24px 0;
-    color: $grey-6;
+    color: $grey-45;
 
     ul {
       list-style: none;
       padding: 0;
 
       li:before {
-        color: $grey-6;
+        color: $grey-45;
       }
     }
 
@@ -328,7 +328,7 @@ export default {
 
   &__link-to {
     height: 26px;
-    color: $blue-1;
+    color: $blue;
     font-family: $font-roboto;
     font-size: 1.25rem;
     font-weight: $font-medium;
@@ -339,12 +339,12 @@ export default {
     &:focus,
     &:hover {
       text-decoration: none;
-      color: $blue-1;
+      color: $blue;
     }
   }
 
   &__title h2 {
-    color: $blue-5;
+    color: $grey-90;
     font-size: 2rem;
     font-weight: $font-normal;
     letter-spacing: 0.00875rem;

@@ -47,14 +47,14 @@ export default {
 
     &__item {
       font-size: 0.875rem;
-      color: $grey-9;
+      color: $grey-50;
       font-family: $font-roboto;
       font-weight: $font-medium;
       letter-spacing: 0.13px;
       line-height: 22px;
 
       &.link:hover {
-        color: $blue-1;
+        color: $blue;
       }
 
       &.button {

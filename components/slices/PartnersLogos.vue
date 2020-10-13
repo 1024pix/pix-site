@@ -54,7 +54,7 @@ export default {
   &__title h2 {
     font-family: $font-open-sans;
     font-weight: $font-normal;
-    color: $blue-5;
+    color: $grey-90;
     letter-spacing: 0.00938rem;
     text-align: center;
     font-size: 1.75rem;

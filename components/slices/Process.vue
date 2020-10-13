@@ -185,8 +185,8 @@ export default {
     margin-bottom: 24px;
     width: 293px;
     padding: 24px;
-    box-shadow: 0 24px 32px 0 rgba($black, 0.03),
-      0 8px 32px 0 rgba($black, 0.06);
+    box-shadow: 0 24px 32px 0 rgba(#000000, 0.03),
+      0 8px 32px 0 rgba(#000000, 0.06);
     border-radius: 20px;
 
     &:last-child {
@@ -207,7 +207,7 @@ export default {
 .process-wrapper-item {
   &__title h1 {
     width: 175px;
-    color: $grey-1;
+    color: $grey-90;
     font-size: 1.25rem;
     letter-spacing: 0;
     line-height: 30px;
@@ -217,7 +217,7 @@ export default {
 
   &__description {
     width: 175px;
-    color: $grey-6;
+    color: $grey-45;
     font-size: 0.875rem;
     letter-spacing: 0.009rem;
     line-height: 22px;

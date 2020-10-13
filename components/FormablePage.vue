@@ -71,7 +71,7 @@ export default {
   .Formable__Label {
     font-weight: 500;
     font-size: 15px;
-    color: $grey-6;
+    color: $grey-45;
   }
 
   .Formable__Input,
@@ -79,8 +79,8 @@ export default {
   .Formable__TextArea {
     font-weight: 400;
     font-size: 16px;
-    color: $grey-1;
-    border: 2px solid $grey-7;
+    color: $grey-45;
+    border: 2px solid $grey-20;
     border-radius: 4px;
     background-color: $white;
     padding: 15px;
@@ -89,7 +89,7 @@ export default {
 
     &:active,
     &:focus {
-      border-color: $blue-1;
+      border-color: $blue;
     }
   }
 
@@ -102,7 +102,7 @@ export default {
   }
 
   .Formable__SubmitButton {
-    background-color: $blue-1;
+    background-color: $blue;
     border-radius: 4px;
     font-family: Roboto, Arial, sans-serif;
     padding: 12px 30px;
@@ -110,7 +110,7 @@ export default {
     &:active,
     &:hover,
     &:focus {
-      background-color: $blue-3;
+      background-color: $blue-hover;
     }
   }
 

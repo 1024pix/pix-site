@@ -445,7 +445,7 @@ export default {
       left: 0;
       width: 100%;
       height: 100%;
-      background: $grey-3;
+      background: $grey-10;
       transform: skewY(3deg);
       transform-origin: bottom right;
     }
@@ -630,7 +630,7 @@ export default {
               font-size: 5rem;
               line-height: 10rem;
               display: block;
-              color: $blue-1;
+              color: $blue;
               margin: 0;
             }
           }

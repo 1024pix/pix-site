@@ -74,7 +74,7 @@ export default {
   background: #fff;
   box-shadow: 0 5px 15px 0 rgba(112, 128, 175, 0.2);
   transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
-  color: $grey-1;
+  color: $grey-45;
 
   h1,
   h2,
@@ -129,7 +129,7 @@ export default {
     border-radius: 50%;
     width: 36px;
     height: 36px;
-    background-color: $blue-1;
+    background-color: $blue;
     padding: 5px;
     margin-right: 10px;
   }
@@ -179,7 +179,7 @@ export default {
   }
 
   &__link {
-    color: $grey-1;
+    color: $grey-45;
 
     &:active,
     &:focus,

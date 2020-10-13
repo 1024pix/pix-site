@@ -114,14 +114,14 @@ export default {
     text-decoration: none;
 
     position: relative;
-    background: $blue-1;
+    background: $blue;
     color: $white;
     border-radius: 5px;
     -webkit-backface-visibility: hidden;
     z-index: 1;
 
     &:hover {
-      background-color: $blue-3;
+      background-color: $blue-hover;
       transition: all ease-out 0.25s;
     }
 
@@ -146,7 +146,7 @@ export default {
   width: 213px;
   height: 76px;
   display: flex;
-  background: $gradient-purple;
+  background: $default-gradient;
   border-radius: 6px 0 0 6px;
 
   @include device-is('large-mobile') {
@@ -223,7 +223,7 @@ export default {
   width: 34px;
   margin: 3px;
   border-radius: 5px;
-  background: $gradient-purple;
+  background: $default-gradient;
   transition: height 0.6s ease-in, width 0.6s;
 
   &:hover {
