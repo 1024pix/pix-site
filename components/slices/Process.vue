@@ -185,8 +185,8 @@ export default {
     margin-bottom: 24px;
     width: 293px;
     padding: 24px;
-    box-shadow: 0 24px 32px 0 rgba(#000000, 0.03),
-      0 8px 32px 0 rgba(#000000, 0.06);
+    box-shadow: 0 24px 32px 0 rgba($grey-200, 0.03),
+      0 8px 32px 0 rgba($grey-200, 0.06);
     border-radius: 20px;
 
     &:last-child {

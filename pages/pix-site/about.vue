@@ -269,6 +269,11 @@ export default {
     &__container {
       max-width: 1140px;
       margin: 0 auto;
+
+      h2,
+      h3 {
+        color: $grey-90;
+      }
     }
 
     &-container {
@@ -427,6 +432,10 @@ export default {
       }
     }
 
+    h2 {
+      color: $grey-90;
+    }
+
     h3 {
       text-align: center;
       font-size: 1rem;
@@ -527,6 +536,10 @@ export default {
 
     .background {
       background: $white;
+    }
+
+    h2 {
+      color: $grey-90;
     }
   }
 

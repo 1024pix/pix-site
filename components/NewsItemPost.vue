@@ -68,7 +68,7 @@ export default {
   position: relative;
   border-radius: 10px;
   background: #fff;
-  color: $grey-90;
+  color: $grey-45;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.04);
   margin-bottom: 60px;
 

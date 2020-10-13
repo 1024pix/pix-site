@@ -113,6 +113,7 @@ export default {
   h2 {
     font-family: $font-open-sans;
     font-weight: 400;
+    color: $grey-90;
   }
   h1 {
     font-size: 44px;

@@ -150,7 +150,6 @@ export default {
     img {
       margin-right: 25px;
       height: 62px;
-      width: 55px;
     }
 
     p {
@@ -159,8 +158,9 @@ export default {
   }
 
   &-wrapper-item {
-    &__title h1 {
-      width: 217px;
+    &__title h3 {
+      margin-top: 16px;
+      width: 100%;
       color: $grey-90;
       font-size: 1rem;
       letter-spacing: 0px;
@@ -193,7 +193,6 @@ export default {
     img {
       margin-right: 32px;
       height: 73px;
-      width: 65px;
     }
   }
 
@@ -262,7 +261,6 @@ export default {
 
     img {
       height: 73px;
-      width: 65px;
     }
   }
 

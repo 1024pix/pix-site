@@ -92,6 +92,7 @@ export default {
     h3,
     h4 {
       font-weight: 400;
+      color: $grey-90;
     }
 
     .competence {
