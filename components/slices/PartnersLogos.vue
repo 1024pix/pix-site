@@ -71,18 +71,24 @@ export default {
     justify-content: center;
     margin-bottom: 32px;
   }
+}
 
-  .logos-wrapper__item {
+.logos-wrapper {
+  &__item {
     img {
       margin: 0 5px;
     }
   }
+}
 
-  @include device-is('tablet') {
+@include device-is('tablet') {
+  .logos {
     margin: 0 32px;
   }
+}
 
-  @include device-is('desktop') {
+@include device-is('desktop') {
+  .logos {
     &__title h2 {
       margin-bottom: 48px;
     }
@@ -90,15 +96,19 @@ export default {
     &__wrapper {
       margin-bottom: 60px;
     }
+  }
 
-    .logos-wrapper__item {
+  .logos-wrapper {
+    &__item {
       img {
         margin: 0 8px;
       }
     }
   }
+}
 
-  @include device-is('large-screen') {
+@include device-is('large-screen') {
+  .logos {
     max-width: 1920px;
 
     &__title h2 {
