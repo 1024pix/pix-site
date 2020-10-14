@@ -1,5 +1,6 @@
 .features {
   &__title h2 {
+    color: $grey-90;
     font-size: 2.125rem;
     font-weight: normal;
     height: 49px;
@@ -52,7 +53,7 @@
 .features-wrapper-item {
     &__title h1 {
       width: 217px;
-      color: $grey-1;
+      color: $grey-45;
       font-size: 1rem;
       letter-spacing: 0;
       line-height: 30px;
@@ -62,7 +63,7 @@
 
     &__description {
       width: 217px;
-      color: $grey-10;
+      color: $grey-45;
       font-size: 0.875rem;
       letter-spacing: 0.15px;
       line-height: 24px;

@@ -1,6 +1,6 @@
 .statistics {
   &__title h2 {
-    color: $grey-11;
+    color: $grey-90;
     font-size: 1.75rem;
     font-weight: normal;
     height: 80px;
@@ -59,7 +59,7 @@
 .statistics-wrapper-item {
   &__title h3 {
     width: 293px;
-    color: $blue-5;
+    color: $grey-90;
     text-align: center;
     font-size: 2rem;
     letter-spacing: 0;
@@ -71,7 +71,7 @@
   &__description {
     text-align: center;
     width: 293px;
-    color: $grey-10;
+    color: $grey-45;
     font-size: 1.25rem;
     letter-spacing: 0;
     line-height: 32px;
