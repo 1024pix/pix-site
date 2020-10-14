@@ -26,6 +26,15 @@
         </pix-link>
       </div>
     </div>
+    <div
+      v-for="(slice, index) in usedMainFooter.data.body"
+      :key="`footer-slice-right-${index}`"
+    >
+      <navigation-group
+        v-if="slice.slice_type === 'navigation_group'"
+        :slice="slice"
+      />
+    </div>
   </footer>
 </template>
 
@@ -33,11 +42,13 @@
 import { mapState } from 'vuex'
 import { groupBy } from 'lodash'
 import LogosZone from '@/components/slices/LogosZone'
+import NavigationGroup from '@/components/slices/NavigationGroup'
 
 export default {
   name: 'FooterSliceZone',
   components: {
     LogosZone,
+    NavigationGroup,
   },
   data() {
     return {
