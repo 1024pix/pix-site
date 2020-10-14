@@ -7,6 +7,11 @@
       <template v-if="slice.slice_type === 'logos_zone'">
         <logos-zone :slice="slice" class="footer__logos" />
       </template>
+      <prismic-rich-text
+        v-if="slice.slice_type === 'text'"
+        class="footer__description"
+        :field="slice.primary.text"
+      />
       <div
         v-if="slice.slice_type === 'social_media'"
         class="footer__social-media"
@@ -70,6 +75,11 @@ export default {
       height: 96px;
     }
   }
+}
+
+.footer__description {
+  font-size: 0.875rem;
+  margin: 0 0 24px 0;
 }
 
 .footer-social-media {
