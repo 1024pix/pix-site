@@ -7,6 +7,19 @@
       <template v-if="slice.slice_type === 'logos_zone'">
         <logos-zone :slice="slice" class="footer__logos" />
       </template>
+      <div
+        v-if="slice.slice_type === 'social_media'"
+        class="footer__social-media"
+      >
+        <pix-link
+          v-for="(sm, smIndex) in slice.items"
+          :key="`sm-${smIndex}`"
+          :field="sm.socialmedia_url"
+          class="footer-social-media__icon"
+        >
+          <pix-image :field="sm.socialmedia_image" />
+        </pix-link>
+      </div>
     </div>
   </footer>
 </template>
@@ -20,6 +33,11 @@ export default {
   name: 'FooterSliceZone',
   components: {
     LogosZone,
+  },
+  data() {
+    return {
+      socialMediasHoverMap: {},
+    }
   },
   computed: {
     ...mapState(['mainFooters']),
@@ -50,6 +68,15 @@ export default {
 
     img {
       height: 96px;
+    }
+  }
+}
+
+.footer-social-media {
+  &__icon {
+    margin-right: 16px;
+    &:hover {
+      filter: brightness(60%);
     }
   }
 }
