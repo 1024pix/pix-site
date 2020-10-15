@@ -119,6 +119,7 @@ export default {
     line-height: 49px;
     text-align: center;
     margin-top: 64px;
+    color: $grey-90;
   }
 
   &__wrapper {
