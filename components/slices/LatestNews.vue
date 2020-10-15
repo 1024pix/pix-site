@@ -75,8 +75,15 @@ export default {
   margin-bottom: 118px;
 
   &__list {
+    margin: 0 auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+
+    @media (min-width: 700px) {
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
   }
 
   &__link-to {
