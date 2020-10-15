@@ -1,29 +1,31 @@
 <template>
   <footer class="footer" role="contentinfo">
-    <div
-      v-for="(slice, index) in usedMainFooter.data.body"
-      :key="`footer-slice-left-${index}`"
-    >
-      <template v-if="slice.slice_type === 'logos_zone'">
-        <logos-zone :slice="slice" class="footer__logos" />
-      </template>
-      <prismic-rich-text
-        v-if="slice.slice_type === 'text'"
-        class="footer__description"
-        :field="slice.primary.text"
-      />
+    <div class="footer__left">
       <div
-        v-if="slice.slice_type === 'social_media'"
-        class="footer__social-media"
+        v-for="(slice, index) in usedMainFooter.data.body"
+        :key="`footer-slice-left-${index}`"
       >
-        <pix-link
-          v-for="(sm, smIndex) in slice.items"
-          :key="`sm-${smIndex}`"
-          :field="sm.socialmedia_url"
-          class="footer-social-media__icon"
+        <template v-if="slice.slice_type === 'logos_zone'">
+          <logos-zone :slice="slice" class="footer-left__logos" />
+        </template>
+        <prismic-rich-text
+          v-if="slice.slice_type === 'text'"
+          class="footer-left__description"
+          :field="slice.primary.text"
+        />
+        <div
+          v-if="slice.slice_type === 'social_media'"
+          class="footer-left__social-media"
         >
-          <pix-image :field="sm.socialmedia_image" />
-        </pix-link>
+          <pix-link
+            v-for="(socialMedia, socialMediaIndex) in slice.items"
+            :key="`socialMedia-${socialMediaIndex}`"
+            :field="socialMedia.socialmedia_url"
+            class="footer-social-media__icon"
+          >
+            <pix-image :field="socialMedia.socialmedia_image" />
+          </pix-link>
+        </div>
       </div>
     </div>
     <div class="footer__right">
@@ -79,22 +81,24 @@ export default {
   padding: 63px 32px;
 }
 
-.footer__logos.logos-zone {
-  justify-content: flex-start;
+.footer-left {
+  &__logos.logos-zone {
+    justify-content: flex-start;
 
-  .logos-zone__content {
-    margin-right: 32px;
-    display: inline;
+    .logos-zone__content {
+      margin-right: 32px;
+      display: inline;
 
-    img {
-      height: 96px;
+      img {
+        height: 96px;
+      }
     }
   }
-}
 
-.footer__description {
-  font-size: 0.875rem;
-  margin: 0 0 24px 0;
+  &__description {
+    font-size: 0.875rem;
+    margin: 0 0 24px 0;
+  }
 }
 
 .footer-social-media {
@@ -108,10 +112,6 @@ export default {
 
 @include device-is('tablet') {
   .footer {
-    &__description {
-      width: 350px;
-    }
-
     &__right {
       display: flex;
 
@@ -123,6 +123,42 @@ export default {
         width: 194px;
         border-right: none;
       }
+    }
+  }
+
+  .footer-left {
+    &__description {
+      width: 350px;
+    }
+  }
+}
+
+@include device-is('large-screen') {
+  .footer {
+    display: flex;
+    padding: 47px 98px;
+
+    &__left {
+      margin-right: 40px;
+    }
+
+    &__right {
+      display: flex;
+
+      .navigation-group {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  .footer-left {
+    &__logos.logos-zone {
+      margin-right: 0;
+    }
+
+    &__description {
+      width: 293px;
     }
   }
 }
