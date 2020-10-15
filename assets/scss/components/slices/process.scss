@@ -38,7 +38,9 @@
       margin-bottom: 0;
     }
   }
+}
 
+.process-wrapper-row {
   &__item {
     display: flex;
     align-items: center;
@@ -58,14 +60,11 @@
       height: 51px;
       width: 51px;
     }
-
-    p {
-      margin: 0;
-    }
   }
 }
 
-.process-wrapper-item {
+.process-wrapper-row-item {
+
   &__title h3 {
     width: 175px;
     color: $grey-45;
@@ -73,7 +72,7 @@
     letter-spacing: 0;
     line-height: 30px;
     font-weight: $font-semi-bold;
-    margin: 0 8px 16px 24px;
+    margin: 0 8px 0 24px;
   }
 
   &__description {
@@ -83,6 +82,10 @@
     letter-spacing: 0.009rem;
     line-height: 22px;
     margin-left: 24px;
+
+    p {
+      margin: 0;
+    }
   }
 }
 
@@ -103,17 +106,25 @@
     }
   }
 
-  .process-wrapper__item {
-    margin-bottom: 40px;
+  .process-wrapper-row {
+    &__item {
+      margin-bottom: 40px;
 
-    div:first-of-type {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      div:first-of-type {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        margin-bottom: 24px;
+      }
     }
+  }
 
-    img {
-      margin-bottom: 24px;
+  .process-wrapper-row-item {
+    &__title h3 {
+      margin-bottom: 8px;
     }
   }
 }
@@ -138,7 +149,9 @@
       justify-content: center;
       align-items: baseline;
     }
+  }
 
+  .process-wrapper-row {
     &__item {
       &:first-of-type {
         margin-left: 56px;
@@ -156,7 +169,8 @@
     }
   }
 
-  .process-wrapper-item {
+  .process-wrapper-row-item {
+
     &__title h3 {
       width: 245px;
       font-size: 1.25rem;
@@ -172,16 +186,18 @@
 }
 
 @include device-is('large-screen') {
-  .process__wrapper {
-    padding: 0 98px 60px 98px;
-    width: 100%;
-    display: flex;
-    align-items: stretch;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  .process {
+    &__wrapper {
+      padding: 0 98px 60px 98px;
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
   }
 
-  .process-wrapper {
+  .process-wrapper-row {
     &__item {
       &:first-of-type {
         margin-left: 0;
@@ -192,18 +208,19 @@
       text-align: center;
       height: 100%;
 
+      &:last-of-type {
+        margin-right: 0;
+      }
+
       img {
         height: 51px;
         width: 51px;
       }
-
-      &:last-of-type {
-        margin-right: 0;
-      }
     }
   }
 
-  .process-wrapper-item {
+  .process-wrapper-row-item {
+
     &__description {
       margin-top: 8px;
       width: 245px;

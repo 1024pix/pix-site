@@ -20,16 +20,16 @@
         <div
           v-for="(item, itemIndex) in itemsByRow"
           :key="`item-${itemIndex}`"
-          :class="`${blockClass}-wrapper__item`"
+          :class="`${blockClass}-wrapper-row__item`"
         >
           <pix-image v-if="hasImage(item)" :field="item.item_image" />
           <div>
             <prismic-rich-text
-              :class="`${blockClass}-wrapper-item__title`"
+              :class="`${blockClass}-wrapper-row-item__title`"
               :field="item.item_title"
             />
             <prismic-rich-text
-              :class="`${blockClass}-wrapper-item__description`"
+              :class="`${blockClass}-wrapper-row-item__description`"
               :field="item.item_description"
             />
           </div>

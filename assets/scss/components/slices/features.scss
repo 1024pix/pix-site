@@ -26,7 +26,9 @@
       margin-bottom: 0;
     }
   }
+}
 
+.features-wrapper-row {
   &__item {
     display: flex;
     align-items: center;
@@ -43,22 +45,19 @@
       height: 62px;
       width: 55px;
     }
-
-    p {
-      margin: 0;
-    }
   }
 }
 
-.features-wrapper-item {
-    &__title h1 {
+.features-wrapper-row-item {
+
+    &__title h3 {
       width: 217px;
       color: $grey-45;
       font-size: 1rem;
       letter-spacing: 0;
       line-height: 30px;
       font-weight: 600;
-      margin-top: 0;
+      margin-top: 16px;
     }
 
     &__description {
@@ -80,7 +79,7 @@
     }
   }
 
-  .features-wrapper {
+  .features-wrapper-row {
     &__item {
       margin-bottom: 40px;
 
@@ -92,8 +91,9 @@
     }
   }
 
-  .features-wrapper-item {
-    &__title h1 {
+  .features-wrapper-row-item {
+
+    &__title h3 {
       width: 518px;
       font-size: 1.25rem;
     }
@@ -121,7 +121,9 @@
       justify-content: center;
       align-items: baseline;
     }
+  }
 
+  .features-wrapper-row {
     &__item {
       display: block;
       margin-right: 98px;
@@ -133,8 +135,9 @@
     }
   }
 
-  .features-wrapper-item {
-    &__title h1 {
+  .features-wrapper-row-item {
+
+    &__title h3 {
       width: 200px;
       font-size: 1.25rem;
     }
@@ -156,7 +159,7 @@
     }
   }
 
-  .features-wrapper {
+  .features-wrapper-row {
     &__item {
       margin-right: 76px;
       text-align: center;
@@ -168,8 +171,9 @@
     }
   }
 
-  .features-wrapper-item {
-    &__title h1 {
+  .features-wrapper-row-item {
+
+    &__title h3 {
       width: 294px;
     }
 
