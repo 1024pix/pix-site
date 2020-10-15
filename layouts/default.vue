@@ -5,6 +5,7 @@
     <main>
       <nuxt />
     </main>
+    <footer-slice-zone />
   </div>
 </template>
 
@@ -79,9 +80,11 @@ h6 {
 <script>
 import HotNewsBanner from '@/components/HotNewsBanner'
 import NavigationSliceZone from '@/components/NavigationSliceZone'
+import FooterSliceZone from '@/components/FooterSliceZone'
 
 export default {
   components: {
+    FooterSliceZone,
     HotNewsBanner,
     NavigationSliceZone,
   },
