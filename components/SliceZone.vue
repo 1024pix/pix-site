@@ -59,6 +59,9 @@
       <template v-if="slice.slice_type === 'partners_logos'">
         <partners-logos-slice :slice="slice" />
       </template>
+      <template v-if="slice.slice_type === 'latest_news'">
+        <latest-news-slice :slice="slice" />
+      </template>
     </section>
   </div>
 </template>
@@ -69,6 +72,7 @@ import PageBanner from '@/components/slices/PageBanner'
 import ArticleSlice from '@/components/slices/Article'
 import HeroBanner from '@/components/slices/HeroBanner'
 import ImgTextColumn from '@/components/slices/ImgTextColumn'
+import LatestNewsSlice from '@/components/slices/LatestNews'
 import MultipleColumn from '@/components/slices/MultipleColumn'
 import PopInCampaigns from '@/components/slices/PopInCampaigns'
 import PageSection from '@/components/slices/PageSection'
@@ -85,6 +89,7 @@ export default {
     ArticleSlice,
     HeroBanner,
     ImgTextColumn,
+    LatestNewsSlice,
     MultipleColumn,
     PopInCampaigns,
     PageSection,

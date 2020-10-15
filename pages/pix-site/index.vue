@@ -17,10 +17,18 @@ export default {
       const document = await documentFetcher(app.$prismic, app.i18n, req).get(
         documents.index
       )
+
+      const latestNewsItems = await documentFetcher(
+        app.$prismic,
+        app.i18n,
+        req
+      ).findNewsItems({ page: 1, pageSize: 4 })
+
       return {
         currentPagePath,
         meta: document.data.meta,
         document: document.data.body,
+        latestNewsItems,
       }
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -39,6 +47,9 @@ export default {
         }
         if (slice.slice_label === 'features') {
           slice.slice_type = 'old-features'
+        }
+        if (slice.slice_type === 'latest_news') {
+          slice.primary.latest_news_items = this.latestNewsItems
         }
         return slice
       })
