@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v2.30.0 (15/10/2020)
+
+- [#186](https://github.com/1024pix/pix-site/pull/186) [FEATURE] Ajouter un nouveau slice logos (PIX-1199).
+- [#190](https://github.com/1024pix/pix-site/pull/190) [FEATURE] Avoir une navigation principale pour Pix Pro (PIX-1368).
+- [#200](https://github.com/1024pix/pix-site/pull/200) [TECH] Aligner les couleurs de pix-site
+- [#199](https://github.com/1024pix/pix-site/pull/199) [CLEANUP] Suppresion de la page Education Sup.
+- [#197](https://github.com/1024pix/pix-site/pull/197) Mise en place du nouveau Matomo
+- [#191](https://github.com/1024pix/pix-site/pull/191) [CLEANUP] Pouvoir utiliser les slices pages coté pix-pro.
+- [#189](https://github.com/1024pix/pix-site/pull/189) [TECH Ajout de commentaires de PR automatique contenant les urls des review apps.
+
 ## v2.29.2 (12/10/2020)
 
 - [#196](https://github.com/1024pix/pix-site/pull/196) [BUGFIX] Empêcher les getSingle of undefined sur Pix.org (PIX-1404).
