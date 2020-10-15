@@ -1,5 +1,5 @@
 <template>
-  <div class="page competences">
+  <div v-if="document" class="page competences">
     <header class="page-header">
       <div class="container md padding-container">
         <prismic-rich-text
@@ -43,8 +43,8 @@ export default {
       )
       return {
         currentPagePath,
-        meta: document.data.meta,
-        document: document.data,
+        meta: document?.data.meta,
+        document: document?.data,
       }
     } catch (e) {
       // eslint-disable-next-line no-console

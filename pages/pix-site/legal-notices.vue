@@ -1,5 +1,5 @@
 <template>
-  <div class="page legal-notices">
+  <div v-if="document" class="page legal-notices">
     <header class="page-header">
       <div class="container md padding-container">
         <prismic-rich-text :field="document.title" class="page-header__title" />
@@ -47,8 +47,8 @@ export default {
       )
       return {
         currentPagePath,
-        meta: document.data.meta,
-        document: document.data,
+        meta: document?.data.meta,
+        document: document?.data,
       }
     } catch (e) {
       // eslint-disable-next-line no-console

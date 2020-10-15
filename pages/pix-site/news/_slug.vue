@@ -3,7 +3,7 @@
     <div class="page-banner-layout">
       <div class="page-banner"></div>
       <div class="container padding-container page-banner-content">
-        <news-item-post :news-item="newsItem" />
+        <news-item-post v-if="newsItem" :news-item="newsItem" />
       </div>
     </div>
   </div>
@@ -25,15 +25,13 @@ export default {
     NewsItemPost,
   },
   async asyncData({ params, app, req, error, route }) {
-    const host = req ? req.headers.host : window.location.host
-    const currentPagePath = `${host}${route.path}`
     try {
       const newsItem = await documentFetcher(
         app.$prismic,
         app.i18n,
         req
       ).getNewsItemByUid(params.slug)
-      return { currentPagePath, newsItem }
+      return { newsItem }
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error({ e })

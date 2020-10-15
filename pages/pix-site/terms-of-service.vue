@@ -1,5 +1,5 @@
 <template>
-  <div class="page terms-of-service">
+  <div v-if="document" class="page terms-of-service">
     <header class="page-header">
       <div class="container md padding-container">
         <h1 class="page-header__title">
@@ -39,8 +39,8 @@ export default {
       )
       return {
         currentPagePath,
-        meta: document.data.meta,
-        document: document.data,
+        meta: document?.data.meta,
+        document: document?.data,
       }
     } catch (e) {
       // eslint-disable-next-line no-console
