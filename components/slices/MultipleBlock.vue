@@ -108,7 +108,7 @@ export default {
       const isObjectConstructor = item.item_image.constructor === Object
       return isLengthDifferentThanZero && isObjectConstructor
     },
-    findNbItemsInRow() {
+    numberItemsPerRowForScreenWidth() {
       if (process.client) {
         const isLargeScreen = document.body.clientWidth >= DESKTOP_MIN_WIDTH
         const isExtraLargeScreen =
@@ -130,9 +130,17 @@ export default {
     },
     splitItemsIntoRows() {
       const rows = []
-      const chunkSize = this.findNbItemsInRow()
-      for (let i = 0; i < this.items.length; i += chunkSize) {
-        rows.push(this.items.slice(i, i + chunkSize))
+      const numberOfItemsPerRow = this.numberItemsPerRowForScreenWidth()
+      for (
+        let item = 0;
+        item < this.items.length;
+        item += numberOfItemsPerRow
+      ) {
+        const screenSizedItems = this.items.slice(
+          item,
+          item + numberOfItemsPerRow
+        )
+        rows.push(screenSizedItems)
       }
       return rows
     },
