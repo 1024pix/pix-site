@@ -2,6 +2,7 @@ import { transports } from 'winston'
 
 export default {
   mode: 'universal',
+  target: 'static',
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
     orgDomain: process.env.DOMAIN_ORG || 'pix.org',
