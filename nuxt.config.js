@@ -16,7 +16,6 @@ export default {
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
-    middleware: `middleware/${process.env.SITE}`,
   },
   /*
    ** Headers of the page
