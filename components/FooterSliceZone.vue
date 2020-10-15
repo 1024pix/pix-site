@@ -26,12 +26,11 @@
         </pix-link>
       </div>
     </div>
-    <div
-      v-for="(slice, index) in usedMainFooter.data.body"
-      :key="`footer-slice-right-${index}`"
-    >
+    <div class="footer__right">
       <navigation-group
-        v-if="slice.slice_type === 'navigation_group'"
+        v-for="(slice, index) in navigationGroups"
+        :key="`footer-slice-right-${index}`"
+        class="footer-right__navigation"
         :slice="slice"
       />
     </div>
@@ -63,6 +62,11 @@ export default {
         return groupBySite['pix-pro'][0]
       }
       return groupBySite['pix-site'][0]
+    },
+    navigationGroups() {
+      return this.usedMainFooter.data.body.filter(
+        (slice) => slice.slice_type === 'navigation_group'
+      )
     },
   },
 }
@@ -98,6 +102,27 @@ export default {
     margin-right: 16px;
     &:hover {
       filter: brightness(60%);
+    }
+  }
+}
+
+@include device-is('tablet') {
+  .footer {
+    &__description {
+      width: 350px;
+    }
+
+    &__right {
+      display: flex;
+
+      .navigation-group:first-child {
+        width: 194px;
+        padding-left: 0;
+      }
+      .navigation-group:last-child {
+        width: 194px;
+        border-right: none;
+      }
     }
   }
 }

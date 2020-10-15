@@ -34,12 +34,14 @@ export default {
 
 <style lang="scss">
 .navigation-group {
+  margin-top: 32px;
+
   &__title h2 {
     color: $grey-60;
     font-size: 1.125rem;
     letter-spacing: 0.009rem;
     font-weight: $font-bold;
-    margin-top: 32px;
+    margin-top: 0;
   }
 
   &__wrapper {
@@ -66,6 +68,14 @@ export default {
     &:hover {
       color: $grey-90;
     }
+  }
+}
+
+@include device-is('tablet') {
+  .navigation-group {
+    width: 224px;
+    padding: 16px 32px;
+    border-right: 1px solid $grey-22;
   }
 }
 </style>
