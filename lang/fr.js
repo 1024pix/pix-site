@@ -42,7 +42,6 @@ export default {
   'page-titles': {
     about: 'Qui sommes-nous ? | Pix',
     'contact-digital-mediation': "Demande d'information | Pix",
-    'higher-education': 'Enseignement supérieur | Pix',
     'higher-education-establishment-registration':
       "Demande d'espace | Pix Orga sup",
     index: 'Accueil | Pix',

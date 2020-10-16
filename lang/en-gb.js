@@ -44,7 +44,6 @@ export default {
   'page-titles': {
     about: 'Who are we ? | Pix',
     'contact-digital-mediation': 'Request for information | Pix',
-    'higher-education': 'Higher education | Pix',
     'higher-education-establishment-registration':
       'Slot inquiry | Pix Orga sup',
     index: 'Accueil | Pix',
