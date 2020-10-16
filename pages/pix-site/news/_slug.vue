@@ -16,6 +16,7 @@ import NewsItemPost from '@/components/NewsItemPost'
 export default {
   nuxtI18n: {
     paths: {
+      fr: '/actualites/:slug',
       'fr-fr': '/actualites/:slug',
       'en-gb': '/news/:slug',
     },
