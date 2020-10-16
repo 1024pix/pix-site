@@ -79,7 +79,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    @media (min-width: 700px) {
+    @include device-is('tablet') {
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: space-evenly;
