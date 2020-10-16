@@ -22,7 +22,7 @@ export default {
         app.$prismic,
         app.i18n,
         req
-      ).findNewsItems({ page: 1, pageSize: 4 })
+      ).findNewsItems({ page: 1, pageSize: 3 })
 
       return {
         currentPagePath,
