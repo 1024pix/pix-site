@@ -47,6 +47,7 @@ export default {
     )
     return {
       meta,
+      title: `${this.newsItem.data.title[0].text} | Pix`,
     }
   },
 }

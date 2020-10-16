@@ -53,7 +53,7 @@ export default {
 
     return {
       meta,
-      title: this.title,
+      title: `${this.title} | Pix Pro`,
     }
   },
 }
