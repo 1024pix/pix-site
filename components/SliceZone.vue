@@ -53,6 +53,9 @@
       <template v-if="slice.slice_type === 'process'">
         <process-slice :slice="slice" />
       </template>
+      <template v-if="slice.slice_type === 'multiple_block'">
+        <multiple-block-slice :slice="slice" />
+      </template>
       <template v-if="slice.slice_type === 'partners_logos'">
         <partners-logos-slice :slice="slice" />
       </template>
@@ -71,11 +74,13 @@ import PopInCampaigns from '@/components/slices/PopInCampaigns'
 import PageSection from '@/components/slices/PageSection'
 import WebSnippet from '@/components/slices/WebSnippet'
 import FeaturesSlice from '@/components/slices/Features'
+import MultipleBlockSlice from '@/components/slices/MultipleBlock'
 import PartnersLogosSlice from '@/components/slices/PartnersLogos'
 
 export default {
   name: 'SliceZone',
   components: {
+    MultipleBlockSlice,
     PageBanner,
     ArticleSlice,
     HeroBanner,
