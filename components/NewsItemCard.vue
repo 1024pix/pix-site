@@ -1,5 +1,5 @@
 <template>
-  <div class="news-item-card">
+  <li class="news-item-card">
     <nuxt-link
       class="news-item-card__link"
       :to="localePath({ name: 'news-slug', params: { slug: uid } })"
@@ -31,7 +31,7 @@
         />
       </div>
     </nuxt-link>
-  </div>
+  </li>
 </template>
 
 <script>
@@ -75,6 +75,7 @@ export default {
   box-shadow: 0 5px 15px 0 rgba(112, 128, 175, 0.2);
   transition: all 250ms cubic-bezier(0.02, 0.01, 0.47, 1);
   color: $grey-45;
+  list-style: none;
 
   h1,
   h2,
@@ -83,12 +84,12 @@ export default {
     font-family: $font-open-sans;
   }
 
-  @media (min-width: 700px) {
+  @include device-is('tablet') {
     margin: 20px;
   }
 
   &:hover {
-    @media (min-width: 900px) {
+    @include device-is('desktop') {
       box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
       transform: translate3D(0, -20px, 0);
     }

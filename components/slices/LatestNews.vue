@@ -10,16 +10,14 @@
       class="sr-only"
       :field="slice.primary.latest_news_title"
     />
-    <div class="latest-news__list">
-      <template v-if="hasLatestNewsItems">
-        <news-item-card
-          v-for="(item, index) in slice.primary.latest_news_items"
-          :key="`item-${index}`"
-          :slice="item.data"
-          :uid="item.uid"
-        />
-      </template>
-    </div>
+    <ul v-if="hasLatestNewsItems" class="latest-news__list">
+      <news-item-card
+        v-for="(item, index) in slice.primary.latest_news_items"
+        :key="`item-${index}`"
+        :slice="item.data"
+        :uid="item.uid"
+      />
+    </ul>
     <pix-link
       class="latest-news__link-to"
       :field="slice.primary.latest_news_redirection_link_url"
@@ -75,14 +73,24 @@ export default {
   margin-bottom: 118px;
 
   &__list {
+    max-width: 1140px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    padding-left: 0;
 
     @include device-is('tablet') {
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: space-evenly;
+    }
+
+    li {
+      padding-left: 0;
+
+      &::before {
+        content: none;
+      }
     }
   }
 
