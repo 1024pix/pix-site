@@ -7,6 +7,7 @@ export const documents = {
   stats: 'statistiques',
   index: 'index',
   navigation: 'navigation',
+  mainFooter: 'main_footer',
   mainNavigation: 'main_navigation',
   mediation: 'mediation',
   keyNumbers: 'key_numbers',
