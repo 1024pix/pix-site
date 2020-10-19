@@ -16,6 +16,14 @@ describe('Index Page', () => {
             body: [{}, {}, {}, {}, {}, {}, {}, {}],
           },
         }),
+      findNewsItems: () =>
+        Promise.resolve({
+          data: {
+            id: '',
+            meta: '',
+            body: [{}, {}, {}, {}, {}, {}, {}, {}],
+          },
+        }),
     })
     wrapper = await getInitialised('index')
   })

@@ -9,7 +9,7 @@
     </header>
 
     <main class="page-body">
-      <div class="news__list">
+      <ul class="news__list">
         <template v-if="newsItems && newsItems.length">
           <news-item-card
             v-for="(item, index) in newsItems"
@@ -21,7 +21,7 @@
         <template v-else>
           <p>{{ $t('news-page-no-news') }}</p>
         </template>
-      </div>
+      </ul>
     </main>
   </div>
 </template>
@@ -79,11 +79,20 @@ export default {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    padding-left: 0;
 
-    @media (min-width: 700px) {
+    @include device-is('tablet') {
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: space-evenly;
+    }
+
+    li {
+      padding-left: 0;
+
+      &::before {
+        content: none;
+      }
     }
   }
 }
