@@ -1,5 +1,13 @@
 # pix-site Changelog
 
+## v2.31.0 (22/10/2020)
+
+- [#203](https://github.com/1024pix/pix-site/pull/203) [FEATURE] Afficher les dernières actualités (PIX-1201).
+- [#202](https://github.com/1024pix/pix-site/pull/202) [FEATURE] Refonte footer (PIX-1298).
+- [#204](https://github.com/1024pix/pix-site/pull/204) [FEATURE] Préciser le domaine Pix ou Pix pro dans les titres (PIX-1233).
+- [#193](https://github.com/1024pix/pix-site/pull/193) [FEATURE] Création du bloc Statistiques et refacto (PIX-1200).
+- [#198](https://github.com/1024pix/pix-site/pull/198) [CLEANUP] Supprimer les redirections de pro à pix-site.
+
 ## v2.30.0 (15/10/2020)
 
 - [#186](https://github.com/1024pix/pix-site/pull/186) [FEATURE] Ajouter un nouveau slice logos (PIX-1199).
