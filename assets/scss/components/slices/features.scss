@@ -1,7 +1,7 @@
 .features {
   &__title h2 {
-    color: $grey-90;
-    font-size: 2.125rem;
+    color: $grey-80;
+    font-size: 1.75rem;
     font-weight: normal;
     height: 49px;
     letter-spacing: 0.15px;
@@ -42,7 +42,7 @@
 
     img {
       margin-right: 25px;
-      max-width: 55px;
+      max-height: 74px;
     }
   }
 }
@@ -51,7 +51,7 @@
 
     &__title h3 {
       width: 217px;
-      color: $grey-45;
+      color: $grey-90;
       font-size: 1rem;
       letter-spacing: 0;
       line-height: 30px;
@@ -72,6 +72,7 @@
   .features {
     &__title h2 {
       margin-top: 80px;
+      font-size: 2.125rem;
     }
     &__wrapper {
       padding: 80px 0;
@@ -84,8 +85,6 @@
 
       img {
         margin-right: 32px;
-        height: 73px;
-        width: 65px;
       }
     }
   }
@@ -162,11 +161,6 @@
     &__item {
       margin-right: 76px;
       text-align: center;
-
-      img {
-        height: 73px;
-        width: 65px;
-      }
     }
   }
 
