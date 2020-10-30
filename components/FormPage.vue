@@ -50,8 +50,19 @@ export default {
 <style lang="scss">
 .content {
   display: flex;
-  padding: 60px 90px;
+  flex-direction: column;
+  padding: 30px 10px;
   justify-content: space-between;
+
+  @include device-is('desktop') {
+    flex-direction: row;
+    padding: 60px 45px;
+  }
+
+  @include device-is('large-screen') {
+    flex-direction: row;
+    padding: 60px 90px;
+  }
 
   &__description {
     display: flex;
@@ -64,6 +75,10 @@ export default {
       0 8px 32px 0 rgba($grey-200, 0.06);
     border-radius: 20px;
     margin: 0 38px;
+
+    @include device-is('large-screen') {
+      width: 640px;
+    }
   }
 }
 
@@ -123,8 +138,16 @@ export default {
 .content-form {
   min-height: 640px;
   height: inherit;
+  width: 100%;
   overflow: auto;
-  width: 640px;
   border: none;
+
+  @include device-is('desktop') {
+    width: 480px;
+  }
+
+  @include device-is('large-screen') {
+    width: 640px;
+  }
 }
 </style>
