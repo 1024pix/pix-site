@@ -1,19 +1,25 @@
 <template>
-  <div class="page">
-    <header class="page-header">
-      <div class="container md padding-container">
-        <prismic-rich-text :field="content.title" class="page-header__title" />
-      </div>
-    </header>
+  <div class="content">
+    <div v-if="hasDescription" class="content__description">
+      <pix-image
+        v-if="hasImage"
+        class="content-description__image"
+        :field="content.image"
+      />
 
-    <div class="page-body">
-      <section class="page-section">
-        <div class="container md padding-container">
-          <div class="page-section__description">
-            <prismic-rich-text :field="content.body" />
-          </div>
-        </div>
+      <header class="content-description__title">
+        <prismic-rich-text :field="content.title" />
+      </header>
+
+      <section class="content-description__body">
+        <prismic-rich-text :field="content.body" />
       </section>
+    </div>
+
+    <div v-if="hasForm" class="content__form">
+      <iframe class="content-form" :src="content.formbuilder_url.url">
+        {{ $t(`form.not-supported`) }}
+      </iframe>
     </div>
   </div>
 </template>
@@ -27,7 +33,98 @@ export default {
       default: null,
     },
   },
+  computed: {
+    hasDescription() {
+      return this.content.title && this.content.body
+    },
+    hasForm() {
+      return this.content.formbuilder_url && this.content.formbuilder_url.url
+    },
+    hasImage() {
+      return this.content.image && this.content.image.url
+    },
+  },
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.content {
+  display: flex;
+  padding: 60px 90px;
+  justify-content: space-between;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    margin: 0 38px;
+  }
+
+  &__form {
+    box-shadow: 0 24px 32px 0 rgba($grey-200, 0.03),
+      0 8px 32px 0 rgba($grey-200, 0.06);
+    border-radius: 20px;
+    margin: 0 38px;
+  }
+}
+
+.content-description {
+  &__image {
+    width: 230px;
+    height: 160px;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 44px;
+  }
+
+  &__title {
+    border-bottom: $grey-20 1px solid;
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+
+    h1 {
+      color: $grey-90;
+      font-size: 2rem;
+      letter-spacing: 0.009rem;
+      font-family: $font-open-sans;
+      font-weight: $font-normal;
+      line-height: 2.68rem;
+    }
+  }
+
+  &__body {
+    font-family: $font-roboto;
+    font-size: 1rem;
+    font-weight: $font-normal;
+    letter-spacing: 0.009rem;
+    color: $grey-45;
+
+    ::before {
+      content: none;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 33px;
+    }
+
+    li {
+      padding-bottom: 16px;
+    }
+
+    a {
+      color: $grey-50;
+      font-size: 0.875rem;
+      font-weight: $font-medium;
+      text-decoration: underline;
+    }
+  }
+}
+
+.content-form {
+  min-height: 640px;
+  height: inherit;
+  overflow: auto;
+  width: 640px;
+  border: none;
+}
+</style>

@@ -41,6 +41,10 @@ export default {
   engineering: 'Engineering',
   event: 'Event',
   feature: 'Feature',
+  form: {
+    'not-supported':
+      'Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)',
+  },
   'page-titles': {
     'contact-digital-mediation': 'Request for information | Pix',
     'higher-education-establishment-registration':
