@@ -140,23 +140,23 @@ export default {
     font-weight: 600;
 
     &--announcement {
-      color: #12a3ff;
+      color: #005b94;
     }
 
     &--engineering {
-      color: #f1a141;
+      color: #7b4809;
     }
 
     &--event {
-      color: #ff3f94;
+      color: #ad004e;
     }
 
     &--feature {
-      color: #57c884;
+      color: #20653a;
     }
 
     &--society {
-      color: #574da6;
+      color: #50479a;
     }
   }
 

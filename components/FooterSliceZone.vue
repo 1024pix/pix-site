@@ -98,6 +98,7 @@ export default {
   &__description {
     font-size: 0.875rem;
     margin: 0 0 24px 0;
+    color: $grey-60;
   }
 }
 

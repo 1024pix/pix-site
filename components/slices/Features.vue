@@ -171,7 +171,7 @@ export default {
 
     &__description {
       width: 217px;
-      color: $grey-45;
+      color: $grey-60;
       font-size: 0.875rem;
       letter-spacing: 0.15px;
       line-height: 24px;

@@ -302,7 +302,7 @@ export default {
 .article-content {
   &__description {
     margin: 16px 0 24px 0;
-    color: $grey-45;
+    color: $grey-60;
     font-size: 1.125rem;
     line-height: 30px;
 
@@ -315,7 +315,7 @@ export default {
       padding: 0;
 
       li:before {
-        color: $grey-45;
+        color: $grey-60;
       }
     }
 
