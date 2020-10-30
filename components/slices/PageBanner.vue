@@ -194,7 +194,6 @@ export default {
       '. . . b b b b b b . . .';
 
     .row-block__side-content {
-      margin-top: 48px;
       display: initial;
       width: 100%;
       box-sizing: border-box;

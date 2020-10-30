@@ -64,7 +64,7 @@ export default {
 
   a {
     font-size: 0.875rem;
-    color: $grey-45;
+    color: $grey-60;
     &:hover {
       color: $grey-90;
     }
