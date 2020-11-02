@@ -51,12 +51,12 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
-  padding: 30px 10px;
+  padding: 30px 15px;
   justify-content: space-between;
 
   @include device-is('desktop') {
     flex-direction: row;
-    padding: 60px 45px;
+    padding: 60px 30px;
   }
 
   @include device-is('large-screen') {
@@ -67,18 +67,31 @@ export default {
   &__description {
     display: flex;
     flex-direction: column;
-    margin: 0 38px;
+    margin: 0 10px;
+
+    @include device-is('desktop') {
+      margin: 0 15px;
+    }
+
+    @include device-is('large-screen') {
+      margin: 0 38px;
+    }
   }
 
   &__form {
     box-shadow: 0 24px 32px 0 rgba($grey-200, 0.03),
       0 8px 32px 0 rgba($grey-200, 0.06);
     border-radius: 20px;
-    margin: 0 38px;
+    margin: 0 10px;
     height: 100%;
+
+    @include device-is('desktop') {
+      margin: 0 15px;
+    }
 
     @include device-is('large-screen') {
       width: 640px;
+      margin: 0 38px;
     }
   }
 }
