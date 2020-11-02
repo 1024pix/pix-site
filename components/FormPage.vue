@@ -75,6 +75,7 @@ export default {
       0 8px 32px 0 rgba($grey-200, 0.06);
     border-radius: 20px;
     margin: 0 38px;
+    height: 100%;
 
     @include device-is('large-screen') {
       width: 640px;
