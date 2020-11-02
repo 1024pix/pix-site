@@ -50,6 +50,10 @@
       margin-right: 0;
       margin-bottom: 32px;
     }
+
+    img {
+      max-height: 65px;
+    }
   }
 }
 
@@ -62,7 +66,7 @@
     font-size: 2rem;
     letter-spacing: 0;
     line-height: 43px;
-    font-weight: 600;
+    font-weight: $font-semi-bold;
     margin-top: 17px;
   }
 
