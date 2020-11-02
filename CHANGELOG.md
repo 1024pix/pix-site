@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v2.31.1 (02/11/2020)
+
+- [#206](https://github.com/1024pix/pix-site/pull/206) [BUGFIX] Correction des tailles d'images et de titres du MultipleBlock-Features (PIX-1530).
+- [#210](https://github.com/1024pix/pix-site/pull/210) [CLEANUP] Supprimer les titres H1 sur les cartes des news
+- [#208](https://github.com/1024pix/pix-site/pull/208) [CLEANUP] Correction de contraste
+
 ## v2.31.0 (22/10/2020)
 
 - [#203](https://github.com/1024pix/pix-site/pull/203) [FEATURE] Afficher les dernières actualités (PIX-1201).
