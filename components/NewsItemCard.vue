@@ -23,7 +23,7 @@
           </span>
         </p>
 
-        <prismic-rich-text :field="slice.title" class="news-item-card__title" />
+        <h3 class="news-item-card__title">{{ slice.title[0].text }}</h3>
 
         <prismic-rich-text
           :field="slice.excerpt"
@@ -204,7 +204,7 @@ export default {
     font-weight: 300;
   }
 
-  &__title h1 {
+  &__title {
     font-size: 1.4rem;
     line-height: 1.8rem;
     color: #222222;
