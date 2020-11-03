@@ -12,7 +12,6 @@ export const documents = {
   mediation: 'mediation',
   keyNumbers: 'key_numbers',
   employers: 'employers',
-  schoolEducation: 'school-education',
   skills: 'competences',
 }
 
