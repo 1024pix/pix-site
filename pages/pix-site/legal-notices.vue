@@ -36,7 +36,7 @@ export default {
     paths: {
       fr: '/mentions-legales',
       'fr-fr': '/mentions-legales',
-      'en-gb': '/en-gb/legal-notices',
+      'en-gb': '/legal-notice',
     },
   },
   components: { PageSection },
