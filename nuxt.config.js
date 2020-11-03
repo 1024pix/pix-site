@@ -128,20 +128,28 @@ export default {
   axios: {},
   i18n: {
     defaultLocale: 'fr-fr',
-    locales: [
-      {
-        code: 'fr-fr',
-        file: 'fr-fr.js',
-      },
-      {
-        code: 'fr',
-        file: 'fr.js',
-      },
-      {
-        code: 'en-gb',
-        file: 'en-gb.js',
-      },
-    ],
+    locales:
+      process.env.SITE === 'pix-pro'
+        ? [
+            {
+              code: 'fr-fr',
+              file: 'fr-fr.js',
+            },
+          ]
+        : [
+            {
+              code: 'fr-fr',
+              file: 'fr-fr.js',
+            },
+            {
+              code: 'fr',
+              file: 'fr.js',
+            },
+            {
+              code: 'en-gb',
+              file: 'en-gb.js',
+            },
+          ],
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
