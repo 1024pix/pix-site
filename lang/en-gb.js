@@ -57,7 +57,6 @@ export default {
     'pix-orga-higher-school-registration':
       'Finalise slot inquiry | Pix Orga sup',
     'pix-orga-registration': 'Request for information | Pix pro',
-    'school-education': 'School education | Pix',
     skills: 'Skills | Pix',
     stats: 'Key figures | Pix',
     'terms-of-service': 'Terms of service | Pix',
