@@ -39,6 +39,10 @@ export default {
   engineering: 'Ingénierie',
   event: 'Événement',
   feature: 'Nouveauté',
+  form: {
+    'not-supported':
+      "Votre navigateur ne supporte pas les iframes. Le formulaire de contact ne peut pas être affiché. Merci d'utiliser une autre méthode de contact (téléphone, fax, etc.)",
+  },
   'page-titles': {
     'contact-digital-mediation': "Demande d'information | Pix",
     'higher-education-establishment-registration':

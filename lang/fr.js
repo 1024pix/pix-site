@@ -56,6 +56,10 @@ export default {
     stats: 'Chiffres clés | Pix',
     'terms-of-service': "Conditions générales d'utilisation | Pix",
   },
+  form: {
+    'not-supported':
+      "Votre navigateur ne supporte pas les iframes. Le formulaire de contact ne peut pas être affiché. Merci d'utiliser une autre méthode de contact (téléphone, fax, etc.)",
+  },
   'preview-page-load': 'Chargement de la page de prévisualisation...',
   society: 'Société',
   'resources-title': 'Ressources',

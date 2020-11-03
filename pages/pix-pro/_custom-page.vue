@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div v-if="type === 'form_page'">
+      <form-page :content="document.data" />
+    </div>
     <div v-if="type === 'simple_page'">
       <simple-page :content="document.data" />
     </div>
@@ -11,6 +14,7 @@
 
 <script>
 import { documentFetcher } from '~/services/document-fetcher'
+import FormPage from '@/components/FormPage'
 import SimplePage from '@/components/SimplePage'
 import SliceZone from '@/components/SliceZone'
 
@@ -24,8 +28,9 @@ export default {
     },
   },
   components: {
-    SliceZone,
+    FormPage,
     SimplePage,
+    SliceZone,
   },
   async asyncData({ params, app, req, error, currentPagePath }) {
     try {
@@ -35,6 +40,7 @@ export default {
         req
       ).getPageByUid(params.uid)
       const meta = document.data.meta
+
       return { currentPagePath, meta, document }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })

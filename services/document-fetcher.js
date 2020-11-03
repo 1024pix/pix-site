@@ -69,7 +69,8 @@ export function documentFetcher(
     getPageByUid: async (uid) => {
       const simplePage = await getSimplePageByUid(uid)
       const slicePage = await getSlicesPageByUid(uid)
-      return simplePage || slicePage
+      const formPage = await getFormPageByUid(uid)
+      return simplePage || slicePage || formPage
     },
   }
 
@@ -80,6 +81,14 @@ export function documentFetcher(
   async function getSimplePageByUid(uid) {
     const document = await prismic.api.query(
       prismic.predicates.at('my.simple_page.uid', uid),
+      { lang }
+    )
+    return document.results[0]
+  }
+
+  async function getFormPageByUid(uid) {
+    const document = await prismic.api.query(
+      prismic.predicates.at('my.form_page.uid', uid),
       { lang }
     )
     return document.results[0]
