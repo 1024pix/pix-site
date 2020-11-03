@@ -17,7 +17,11 @@
     </div>
 
     <div v-if="hasForm" class="content__form">
-      <iframe class="content-form" :src="content.formbuilder_url.url">
+      <iframe
+        class="content-form"
+        :style="[heightForIframe]"
+        :src="content.formbuilder_url.url"
+      >
         {{ $t(`form.not-supported`) }}
       </iframe>
     </div>
@@ -42,6 +46,11 @@ export default {
     },
     hasImage() {
       return this.content.image && this.content.image.url
+    },
+    heightForIframe() {
+      const style = {}
+      style.minHeight = (this.content.minimum_height || '650') + 'px'
+      return style
     },
   },
 }
@@ -150,7 +159,6 @@ export default {
 }
 
 .content-form {
-  min-height: 640px;
   height: inherit;
   width: 100%;
   overflow: auto;
