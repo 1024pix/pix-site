@@ -24,14 +24,14 @@ export default {
   components: {
     NewsItemPost,
   },
-  async asyncData({ params, app, req, error, route }) {
+  async asyncData({ params, app, req, error, route, currentPagePath }) {
     try {
       const newsItem = await documentFetcher(
         app.$prismic,
         app.i18n,
         req
       ).getNewsItemByUid(params.slug)
-      return { newsItem }
+      return { currentPagePath, newsItem }
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error({ e })
