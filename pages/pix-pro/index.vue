@@ -128,13 +128,6 @@ import KeyNumbers from '~/components/slices/KeyNumbers'
 
 export default {
   name: 'Employers',
-  nuxtI18n: {
-    paths: {
-      fr: '/employeurs',
-      'fr-fr': '/employeurs',
-      'en-gb': '/employers',
-    },
-  },
   components: { HeroBanner, KeyNumbers, SectionColumnSlice, SectionSlice },
   async asyncData({ app, error, req, currentPagePath }) {
     try {
