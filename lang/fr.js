@@ -40,7 +40,6 @@ export default {
   event: 'Événement',
   feature: 'Nouveauté',
   'page-titles': {
-    about: 'Qui sommes-nous ? | Pix',
     'contact-digital-mediation': "Demande d'information | Pix",
     'higher-education-establishment-registration':
       "Demande d'espace | Pix Orga sup",
@@ -59,7 +58,6 @@ export default {
   },
   'preview-page-load': 'Chargement de la page de prévisualisation...',
   society: 'Société',
-  'about-title': 'A propos',
   'resources-title': 'Ressources',
   'social-networks-title': 'Nous suivre',
   'stats-legend-label-accounts': 'Comptes Pix créés',

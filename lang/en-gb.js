@@ -42,7 +42,6 @@ export default {
   event: 'Event',
   feature: 'Feature',
   'page-titles': {
-    about: 'Who are we ? | Pix',
     'contact-digital-mediation': 'Request for information | Pix',
     'higher-education-establishment-registration':
       'Slot inquiry | Pix Orga sup',
@@ -61,7 +60,6 @@ export default {
   },
   'preview-page-load': 'Preview page loading...',
   society: 'Society',
-  'about-title': 'About',
   'resources-title': 'Resources',
   'social-networks-title': 'Follow us',
   'stats-legend-label-accounts': 'Comptes Pix créés',

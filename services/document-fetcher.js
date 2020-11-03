@@ -13,7 +13,6 @@ export const documents = {
   keyNumbers: 'key_numbers',
   employers: 'employers',
   schoolEducation: 'school-education',
-  about: 'about',
   skills: 'competences',
 }
 
