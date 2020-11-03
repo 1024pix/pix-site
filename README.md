@@ -147,3 +147,22 @@ Exemples :
 Le contenu d'une slice est passé *en entier* et tel-quel au composant Vue équivalent via une propriété exposée `:slice`.
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+### NGINX
+
+Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
+
+```
+npm run build:site
+
+PORT=80 erb servers.conf.erb > nginx.conf && docker-compose up
+```
+
+Aller sur `http://localhost` ou `http://localhost.org`
+
+Des tests unitaires existent dans `tests.sh`.
+Pour les lancer il faut exécuter la commande: 
+
+```
+bash tests.sh
+```
