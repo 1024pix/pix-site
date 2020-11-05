@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v2.32.0 (05/11/2020)
+
+- [#207](https://github.com/1024pix/pix-site/pull/207) [FEATURE] Ajouter les pages de formulaires contribuables (PIX-1508).
+- [#213](https://github.com/1024pix/pix-site/pull/213) [CLEANUP] Supprimer la page "Enseignement Scolaire" (PIX-1432).
+- [#211](https://github.com/1024pix/pix-site/pull/211) [CLEANUP] Supprimer la page "qui sommes nous" (PIX-1431).
+- [#212](https://github.com/1024pix/pix-site/pull/212) [CLEANUP] Renommage de la route Legal Notice
+
 ## v2.31.1 (02/11/2020)
 
 - [#206](https://github.com/1024pix/pix-site/pull/206) [BUGFIX] Correction des tailles d'images et de titres du MultipleBlock-Features (PIX-1530).
