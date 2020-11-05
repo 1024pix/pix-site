@@ -1,12 +1,5 @@
 <template>
-  <div
-    v-if="
-      nonFrenchFranceLocales.length > 1 &&
-      $config.languageSwitchEnabled &&
-      domainAllowsLanguageSwitch
-    "
-    class="language-dropdown"
-  >
+  <div class="language-dropdown">
     <dropdown-button
       :options="options"
       :selected="currentLanguage"
@@ -48,9 +41,6 @@ export default {
       return this.nonFrenchFranceLocales.filter(
         (locale) => locale.lang !== this.currentLocale
       )
-    },
-    domainAllowsLanguageSwitch() {
-      return this.$store.state.host === this.$config.orgDomain
     },
   },
   methods: {

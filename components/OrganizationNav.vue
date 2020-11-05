@@ -14,7 +14,11 @@ export default {
   },
   computed: {
     showLanguageDropdown() {
-      return this.$config.languageSwitchEnabled
+      return (
+        process.env.isPixSite &&
+        this.$config.languageSwitchEnabled &&
+        this.$i18n.locale !== 'fr-fr'
+      )
     },
   },
 }
