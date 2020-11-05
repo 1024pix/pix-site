@@ -79,34 +79,23 @@ describe('NavigationZone slice', () => {
       })
     })
 
-    describe('#showDropdown', () => {
-      it('should create new entry in dropdownMap when it does not exist', () => {
-        const dropdownIndex = '3'
-        expect(component.vm.dropdownMap[dropdownIndex]).toBeUndefined()
-
-        const dropdownShown = component.vm.showDropdown(dropdownIndex)
-
-        expect(dropdownShown).toBeFalsy()
-        expect(component.vm.dropdownMap[dropdownIndex]).toBeDefined()
+    describe('dropdown should open and close', () => {
+      it('should have all dropdowns closed by default', () => {
+        const dropdownIndex = '1'
+        expect(component.vm.isOpenDropdown(dropdownIndex)).toBeFalsy()
       })
 
-      it('should return if the dropdown is being displayed', () => {
-        const dropdownIndex = '2'
-
-        const dropdownShown = component.vm.showDropdown(dropdownIndex)
-
-        expect(dropdownShown).toBeFalsy()
-      })
-    })
-
-    describe('#toggleDropdown', () => {
-      it('should toggleDropdown', () => {
-        const dropdownIndex = '2'
-        expect(component.vm.dropdownMap[dropdownIndex]).toBeFalsy()
-
+      it('should open a dropdown', () => {
+        const dropdownIndex = '1'
         component.vm.toggleDropdown(dropdownIndex)
+        expect(component.vm.isOpenDropdown(dropdownIndex)).toBeTruthy()
+      })
 
-        expect(component.vm.dropdownMap[dropdownIndex]).toBeTruthy()
+      it('should close a dropdown', () => {
+        const dropdownIndex = '1'
+        component.vm.toggleDropdown(dropdownIndex)
+        component.vm.toggleDropdown(dropdownIndex)
+        expect(component.vm.isOpenDropdown(dropdownIndex)).toBeFalsy()
       })
     })
   })
