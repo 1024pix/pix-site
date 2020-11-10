@@ -160,6 +160,11 @@ PORT=80 erb servers.conf.erb > nginx.conf && docker-compose up
 
 Aller sur `http://localhost` ou `http://localhost.org`
 
+Pour que localhost.org soit fonctionnel, il faut éditer votre fichier `/etc/hosts` en y ajoutant la ligne suivante :
+```
+127.0.0.1	localhost.org
+```
+
 Des tests unitaires existent dans `tests.sh`.
 Pour les lancer il faut exécuter la commande: 
 
