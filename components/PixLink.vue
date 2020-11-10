@@ -26,14 +26,14 @@ export default {
 
       if (this.field.link_type === 'Document') {
         template = `
-          <router-link to="${this.localePath(url)}">
+          <router-link to="${this.localePath(url)}" exact>
             <slot/>
           </router-link>
         `
       } else if (relativeLinkPrefix) {
         const relativeUrl = url.replace(relativeLinkPrefix, '/')
         template = `
-          <router-link to="${this.localePath(relativeUrl)}">
+          <router-link to="${this.localePath(relativeUrl)}" exact>
             <slot/>
           </router-link>
         `
