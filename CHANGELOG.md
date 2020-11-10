@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.0.0 (10/11/2020)
+
+- [#201](https://github.com/1024pix/pix-site/pull/201) [FEATURE] Génération statique de pix-site
+
 ## v2.32.0 (05/11/2020)
 
 - [#207](https://github.com/1024pix/pix-site/pull/207) [FEATURE] Ajouter les pages de formulaires contribuables (PIX-1508).
