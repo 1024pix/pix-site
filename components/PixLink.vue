@@ -26,14 +26,14 @@ export default {
 
       if (this.field.link_type === 'Document') {
         template = `
-          <router-link to="${this.localePath(url)}">
+          <router-link to="${this.localePath(url)}" exact>
             <slot/>
           </router-link>
         `
       } else if (relativeLinkPrefix) {
-        const relativeUrl = url.replace(relativeLinkPrefix, '')
+        const relativeUrl = url.replace(relativeLinkPrefix, '/')
         template = `
-          <router-link to="${this.localePath(relativeUrl)}">
+          <router-link to="${this.localePath(relativeUrl)}" exact>
             <slot/>
           </router-link>
         `
@@ -57,9 +57,9 @@ function getRelativeLinkPrefix(url) {
   }
   let defaultPrefixes
   if (process.env.isPixPro) {
-    defaultPrefixes = 'https://pro.pix.fr'
+    defaultPrefixes = 'https://pro.pix.fr/'
   } else {
-    defaultPrefixes = 'https://pix.org,https://pix.fr'
+    defaultPrefixes = 'https://pix.org/,https://pix.fr/'
   }
   const relativeLinkPrefixes = (
     process.env.RELATIVE_LINK_PREFIXES || defaultPrefixes

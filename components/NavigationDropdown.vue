@@ -27,31 +27,6 @@ export default {
       default: null,
     },
   },
-  data() {
-    return {
-      eventListener: (event) => {
-        if (
-          event.target.getAttribute('dropdown-index') !== this.dropdownIndex
-        ) {
-          this.closeDropdown()
-        }
-      },
-    }
-  },
-  mounted() {
-    const page = document.getElementsByTagName('body')[0]
-    page.addEventListener('click', this.eventListener)
-  },
-  beforeDestroy() {
-    const page = document.getElementsByTagName('body')[0]
-    page.removeEventListener('click', this.eventListener)
-  },
-
-  methods: {
-    closeDropdown() {
-      this.$emit('closeNavigationDropdown', this.dropdownIndex)
-    },
-  },
 }
 </script>
 

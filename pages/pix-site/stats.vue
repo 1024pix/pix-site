@@ -1,5 +1,5 @@
 <template>
-  <main class="page stats-page">
+  <main v-if="document" class="page stats-page">
     <header class="page-header">
       <div class="container md padding-container">
         <prismic-rich-text class="page-header__title" :field="document.title" />
@@ -71,20 +71,20 @@ export default {
       const document = await documentFetcher(app.$prismic, app.i18n, req).get(
         documents.stats
       )
-      document.data.stats.forEach((stats) => {
+      document?.data.stats.forEach((stats) => {
         dates.push($moment(stats.primary.date).format('MM/YY'))
-        chartsData[0].data.datasets[0].data.push(stats.primary.accounts)
-        chartsData[1].data.datasets[0].data.push(stats.primary.campaigns)
-        chartsData[2].data.datasets[0].data.push(stats.primary.certifications)
-        chartsData[3].data.datasets[0].data.push(stats.primary.organizations)
+        chartsData[0]?.data.datasets[0].data.push(stats.primary?.accounts)
+        chartsData[1]?.data.datasets[0].data.push(stats.primary?.campaigns)
+        chartsData[2]?.data.datasets[0].data.push(stats.primary?.certifications)
+        chartsData[3]?.data.datasets[0].data.push(stats.primary?.organizations)
       })
 
-      chartsData.forEach((chartData) => (chartData.data.labels = dates))
+      chartsData?.forEach((chartData) => (chartData.data.labels = dates))
 
       return {
         currentPagePath,
-        meta: document.data.meta,
-        document: document.data,
+        meta: document?.data.meta,
+        document: document?.data,
         chartsData,
       }
     } catch (e) {

@@ -2,6 +2,7 @@ import { transports } from 'winston'
 
 export default {
   mode: 'universal',
+  target: 'static',
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
     orgDomain: process.env.DOMAIN_ORG || 'pix.org',
@@ -15,7 +16,6 @@ export default {
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
-    middleware: `middleware/${process.env.SITE}`,
   },
   /*
    ** Headers of the page
@@ -127,20 +127,28 @@ export default {
   axios: {},
   i18n: {
     defaultLocale: 'fr-fr',
-    locales: [
-      {
-        code: 'fr-fr',
-        file: 'fr-fr.js',
-      },
-      {
-        code: 'fr',
-        file: 'fr.js',
-      },
-      {
-        code: 'en-gb',
-        file: 'en-gb.js',
-      },
-    ],
+    locales:
+      process.env.SITE === 'pix-pro'
+        ? [
+            {
+              code: 'fr-fr',
+              file: 'fr-fr.js',
+            },
+          ]
+        : [
+            {
+              code: 'fr-fr',
+              file: 'fr-fr.js',
+            },
+            {
+              code: 'fr',
+              file: 'fr.js',
+            },
+            {
+              code: 'en-gb',
+              file: 'en-gb.js',
+            },
+          ],
     lazy: true,
     langDir: 'lang/',
     vueI18n: {

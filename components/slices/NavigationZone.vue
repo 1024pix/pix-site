@@ -16,15 +16,14 @@
           @click.stop.prevent
         >
           {{ menuItem.name }}
-          <fa v-if="showDropdown(`${index}`)" icon="angle-up" />
+          <fa v-if="isOpenDropdown(`${index}`)" icon="angle-up" />
           <fa v-else icon="angle-down" />
         </button>
         <navigation-dropdown
-          v-if="showDropdown(`${index}`)"
+          v-show="isOpenDropdown(`${index}`)"
           type="button"
           :options="menuItem.subNavigationLinks"
           :dropdown-index="`${index}`"
-          @closeNavigationDropdown="toggleDropdown(`${index}`)"
         >
         </navigation-dropdown>
       </div>
@@ -33,7 +32,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import NavigationDropdown from '@/components/NavigationDropdown'
 
 export default {
@@ -49,7 +47,7 @@ export default {
   },
   data() {
     return {
-      dropdownMap: {},
+      openDropdownIndex: undefined,
     }
   },
   computed: {
@@ -66,15 +64,24 @@ export default {
       return navigation.links
     },
   },
+  mounted() {
+    const page = document.getElementsByTagName('body')[0]
+    page.addEventListener('click', this.toggleDropdown)
+  },
+  beforeDestroy() {
+    const page = document.getElementsByTagName('body')[0]
+    page.removeEventListener('click', this.toggleDropdown)
+  },
   methods: {
-    showDropdown(dropdownIndex) {
-      if (!this.dropdownMap[dropdownIndex]) {
-        Vue.set(this.dropdownMap, dropdownIndex, false)
-      }
-      return this.dropdownMap[dropdownIndex]
+    isOpenDropdown(dropdownIndex) {
+      return this.openDropdownIndex === dropdownIndex
     },
     toggleDropdown(dropdownIndex) {
-      Vue.set(this.dropdownMap, dropdownIndex, !this.dropdownMap[dropdownIndex])
+      if (this.isOpenDropdown(dropdownIndex)) {
+        this.openDropdownIndex = undefined
+      } else {
+        this.openDropdownIndex = dropdownIndex
+      }
     },
   },
 }

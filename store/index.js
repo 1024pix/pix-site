@@ -1,4 +1,3 @@
-import getHostFromRequest from '~/services/get-host-from-request'
 import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export const state = () => ({
@@ -16,7 +15,6 @@ export const actions = {
     )
     commit('updateMainFooters', await getMainFooters(app.$prismic, app.i18n))
     commit('updateHotNews', await getHotNews(app.$prismic, app.i18n))
-    commit('updateHost', req)
   },
   async updateNavigation({ commit }, { i18n, prismic }) {
     commit('updateNavigation', await getNavigation(prismic, i18n))
@@ -29,16 +27,6 @@ export const actions = {
   },
 }
 export const mutations = {
-  updateHost(state, req) {
-    const host = getHostFromRequest(req)
-    state.host = host.split(':')[0]
-    if (
-      state.host === this.$config.orgDomain &&
-      this.$i18n.locale === 'fr-fr'
-    ) {
-      this.$i18n.setLocale('fr')
-    }
-  },
   updateNavigation(state, navigations) {
     function navItems(response, type) {
       return response.data.body.filter((body) => body.primary.type === type)

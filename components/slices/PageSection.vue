@@ -58,22 +58,22 @@ export default {
   },
   computed: {
     paragraphs() {
-      return this.slice.items
+      return this.slice?.items
     },
     title() {
-      return this.slice.primary.title
+      return this.slice?.primary?.title
     },
     image() {
-      return this.slice.primary.logo
+      return this.slice?.primary?.logo
     },
     description() {
-      return this.slice.primary.description
+      return this.slice?.primary?.description
     },
     buttonLink() {
-      return this.slice.primary.button_link
+      return this.slice?.primary?.['button_link']
     },
     buttonText() {
-      return this.slice.primary.button_title
+      return this.slice?.primary?.['button_title']
     },
     hasImage() {
       return this.image && this.image.url

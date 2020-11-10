@@ -3,7 +3,7 @@
     <div class="page-banner-layout">
       <div class="page-banner"></div>
       <div class="container padding-container page-banner-content">
-        <news-item-post :news-item="newsItem" />
+        <news-item-post v-if="newsItem" :news-item="newsItem" />
       </div>
     </div>
   </div>
@@ -24,9 +24,7 @@ export default {
   components: {
     NewsItemPost,
   },
-  async asyncData({ params, app, req, error, route }) {
-    const host = req ? req.headers.host : window.location.host
-    const currentPagePath = `${host}${route.path}`
+  async asyncData({ params, app, req, error, route, currentPagePath }) {
     try {
       const newsItem = await documentFetcher(
         app.$prismic,
