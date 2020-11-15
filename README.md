@@ -32,6 +32,14 @@ Domain name for `.org` extension.
 - type: String
 - default: none
 
+`SSR_ENABLED`
+Build and serve applications using SSR.
+If not set, applications are built and served as static websites.
+
+- presence: optional
+- type: Boolean
+- default: false
+
 ## Build Setup pix-site
 
 ```bash
