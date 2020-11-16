@@ -25,15 +25,17 @@ export default {
       const relativeLinkPrefix = getRelativeLinkPrefix(url)
 
       if (this.field.link_type === 'Document') {
+        const localeURL = getLocaleUrl(url, this.localePath)
         template = `
-          <router-link to="${this.localePath(url)}" exact>
+          <router-link to="${localeURL}" exact>
             <slot/>
           </router-link>
         `
       } else if (relativeLinkPrefix) {
         const relativeUrl = url.replace(relativeLinkPrefix, '/')
+        const localeURL = getLocaleUrl(relativeUrl, this.localePath)
         template = `
-          <router-link to="${this.localePath(relativeUrl)}" exact>
+          <router-link to="${localeURL}" exact>
             <slot/>
           </router-link>
         `
@@ -51,6 +53,18 @@ export default {
     },
   },
 }
+
+function getLocaleUrl(url, localePath) {
+  if (
+    url.startsWith('/fr') ||
+    url.startsWith('/en-gb') ||
+    url.startsWith('/fr-fr')
+  ) {
+    return url
+  }
+  return localePath(url)
+}
+
 function getRelativeLinkPrefix(url) {
   if (!url) {
     return ''

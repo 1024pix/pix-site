@@ -60,6 +60,7 @@ export default {
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', ssr: false },
     '~plugins/vue-js-modal',
+    { src: '~/plugins/prismicLinks', ssr: false },
   ],
 
   /*
