@@ -11,7 +11,7 @@ export default function (type, element, content, children) {
     const url = prismicDOM.Link.url(element.data, linkResolver)
 
     if (element.data.link_type === 'Document') {
-      result = `<nuxt-link to="${url}">${content}</nuxt-link>`
+      result = `<a href="${url}" data-nuxt-link>${content}</a>`
     } else {
       const target = element.data.target
         ? `target="'${element.data.target}'" rel="noopener"`

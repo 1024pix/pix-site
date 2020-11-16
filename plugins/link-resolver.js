@@ -8,9 +8,11 @@ export default function (doc) {
     'cgu_page',
     'statistiques',
     'legal-notices',
+    'simple_page',
   ]
   if (staticRoute.includes(doc.type)) {
-    return `/${doc.uid}`
+    const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
+    return `${locale}/${doc.uid}`
   }
   if (doc.type === 'news_item') {
     return `/actualites/${doc.uid}`
