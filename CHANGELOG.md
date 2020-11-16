@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.1.0 (16/11/2020)
+
+- [#215](https://github.com/1024pix/pix-site/pull/215) [FEATURE] Ajout de la possibilité de servir le site en mode SSR ou en mode statique.
+- [#216](https://github.com/1024pix/pix-site/pull/216) [BUGFIX] Pages en Erreur 404 sur les sites .fr et .org (PIX-1611)
+
 ## v3.0.0 (10/11/2020)
 
 - [#201](https://github.com/1024pix/pix-site/pull/201) [FEATURE] Génération statique de pix-site
