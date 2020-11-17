@@ -1,6 +1,5 @@
 export default function (doc) {
   const staticRoute = [
-    'mediation',
     'employers',
     'about',
     'school-education',
