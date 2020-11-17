@@ -9,7 +9,6 @@ export const documents = {
   navigation: 'navigation',
   mainFooter: 'main_footer',
   mainNavigation: 'main_navigation',
-  mediation: 'mediation',
   keyNumbers: 'key_numbers',
   employers: 'employers',
   skills: 'competences',
