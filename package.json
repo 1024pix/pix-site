@@ -54,7 +54,7 @@
     "winston": "3.3.3"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^3.0.0",
+    "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/moment": "1.6.1",
     "@nuxtjs/style-resources": "^1.0.0",
