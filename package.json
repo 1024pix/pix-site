@@ -39,7 +39,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/prismic": "^1.2.3",
+    "@nuxtjs/prismic": "^1.2.4",
     "chart.js": "2.9.3",
     "lodash": "^4.17.20",
     "nuxt": "^2.13.3",
