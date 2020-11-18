@@ -72,7 +72,7 @@
     "node-sass": "^5.0.0",
     "prettier": "^2.1.2",
     "sass-loader": "^10.1.0",
-    "vue-jest": "3.0.6"
+    "vue-jest": "^3.0.7"
   },
   "engines": {
     "node": "14.15.1"
