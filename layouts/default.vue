@@ -9,6 +9,20 @@
   </div>
 </template>
 
+<script>
+import HotNewsBanner from '@/components/HotNewsBanner'
+import NavigationSliceZone from '@/components/NavigationSliceZone'
+import FooterSliceZone from '@/components/FooterSliceZone'
+
+export default {
+  components: {
+    FooterSliceZone,
+    HotNewsBanner,
+    NavigationSliceZone,
+  },
+}
+</script>
+
 <style lang="scss">
 html {
   font-size: 16px;
@@ -77,16 +91,3 @@ h6 {
   background-color: #35495e;
 }
 </style>
-<script>
-import HotNewsBanner from '@/components/HotNewsBanner'
-import NavigationSliceZone from '@/components/NavigationSliceZone'
-import FooterSliceZone from '@/components/FooterSliceZone'
-
-export default {
-  components: {
-    FooterSliceZone,
-    HotNewsBanner,
-    NavigationSliceZone,
-  },
-}
-</script>
