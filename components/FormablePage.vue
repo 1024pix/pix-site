@@ -12,7 +12,7 @@
       <iframe
         id="123formbuilder"
         allowTransparency="true"
-        style="min-height: 300px; height: inherit; overflow: auto;"
+        style="min-height: 300px; height: inherit; overflow: auto"
         width="100%"
         name="123formbuilder"
         marginwidth="0"

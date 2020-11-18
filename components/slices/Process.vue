@@ -40,11 +40,11 @@
 </template>
 
 <script>
+import PixImage from '@/components/PixImage'
 import {
   EXTRA_LARGE_SCREEN_MIN_WIDTH,
   DESKTOP_MIN_WIDTH,
 } from '~/config/breakpoints'
-import PixImage from '@/components/PixImage'
 
 export default {
   name: 'ProcessSlice',

@@ -26,8 +26,8 @@
   </div>
 </template>
 <script>
-import { documentFetcher } from '~/services/document-fetcher'
 import NewsItemCard from '@/components/NewsItemCard'
+import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
   name: 'Index',

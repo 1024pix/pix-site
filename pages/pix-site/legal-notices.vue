@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import { documents, documentFetcher } from '~/services/document-fetcher'
 import PageSection from '@/components/slices/PageSection'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 export default {
   name: 'LegalNotices',
   nuxtI18n: {

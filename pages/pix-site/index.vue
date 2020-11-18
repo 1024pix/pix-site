@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import { documents, documentFetcher } from '~/services/document-fetcher'
 import SliceZone from '@/components/SliceZone'
+import { documents, documentFetcher } from '~/services/document-fetcher'
 
 export default {
   components: {
@@ -36,6 +36,14 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+  head() {
+    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+    const pageTitle = this.$t('page-titles.index')
+    return {
+      title: pageTitle,
+      meta,
+    }
+  },
   computed: {
     slices() {
       return this.document.map((slice, index) => {
@@ -54,14 +62,6 @@ export default {
         return slice
       })
     },
-  },
-  head() {
-    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-    const pageTitle = this.$t('page-titles.index')
-    return {
-      title: pageTitle,
-      meta,
-    }
   },
 }
 </script>

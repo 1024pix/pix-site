@@ -105,7 +105,7 @@ export default {
       this.$modal.show('videoModal')
     },
     isVideo(link) {
-      return link?.['banner_link_url']?.url?.includes('pix-videos/')
+      return link?.banner_link_url?.url?.includes('pix-videos/')
     },
     videoClass(link) {
       return this.isVideo(link)

@@ -70,10 +70,10 @@ export default {
       return this.slice?.primary?.description
     },
     buttonLink() {
-      return this.slice?.primary?.['button_link']
+      return this.slice?.primary?.button_link
     },
     buttonText() {
-      return this.slice?.primary?.['button_title']
+      return this.slice?.primary?.button_title
     },
     hasImage() {
       return this.image && this.image.url
