@@ -42,7 +42,7 @@
     "@nuxtjs/prismic": "^1.2.4",
     "chart.js": "^2.9.4",
     "lodash": "^4.17.20",
-    "nuxt": "^2.13.3",
+    "nuxt": "^2.14.7",
     "nuxt-fontawesome": "0.4.0",
     "nuxt-i18n": "6.13.1",
     "nuxt-matomo": "1.2.3",
