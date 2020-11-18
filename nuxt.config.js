@@ -1,7 +1,6 @@
 import { transports } from 'winston'
 
 export default {
-  mode: 'universal',
   target: process.env.SSR_ENABLED === 'true' ? 'server' : 'static',
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
