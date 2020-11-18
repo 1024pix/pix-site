@@ -59,7 +59,7 @@
     "@nuxtjs/moment": "1.6.1",
     "@nuxtjs/style-resources": "^1.0.0",
     "@vue/test-utils": "^1.1.1",
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^10.0.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.1.0",
