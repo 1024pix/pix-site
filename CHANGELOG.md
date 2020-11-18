@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.1.1 (18/11/2020)
+
+- [#217](https://github.com/1024pix/pix-site/pull/217) [CLEANUP] Suppression de l'ancienne page Médiation Numérique
+
 ## v3.1.0 (16/11/2020)
 
 - [#215](https://github.com/1024pix/pix-site/pull/215) [FEATURE] Ajout de la possibilité de servir le site en mode SSR ou en mode statique.
