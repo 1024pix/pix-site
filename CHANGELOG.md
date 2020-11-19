@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.1.2 (19/11/2020)
+
+- [#218](https://github.com/1024pix/pix-site/pull/218) [BUGFIX] La page index de pix-pro affiche l'ancienne page (PIX-1438)
+
 ## v3.1.1 (18/11/2020)
 
 - [#217](https://github.com/1024pix/pix-site/pull/217) [CLEANUP] Suppression de l'ancienne page Médiation Numérique
