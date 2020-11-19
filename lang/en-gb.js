@@ -59,7 +59,6 @@ export default {
     'pix-orga-registration': 'Request for information | Pix pro',
     skills: 'Skills | Pix',
     stats: 'Key figures | Pix',
-    'terms-of-service': 'Terms of service | Pix',
   },
   'preview-page-load': 'Preview page loading...',
   society: 'Society',

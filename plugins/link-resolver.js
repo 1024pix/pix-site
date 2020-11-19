@@ -4,7 +4,6 @@ export default function (doc) {
     'about',
     'school-education',
     'competences',
-    'cgu_page',
     'statistiques',
     'legal-notices',
     'simple_page',

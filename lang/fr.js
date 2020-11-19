@@ -53,7 +53,6 @@ export default {
     'pix-orga-registration': "Demande d'information | Pix pro",
     skills: 'Compétences | Pix',
     stats: 'Chiffres clés | Pix',
-    'terms-of-service': "Conditions générales d'utilisation | Pix",
   },
   form: {
     'not-supported':

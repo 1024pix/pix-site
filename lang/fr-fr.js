@@ -57,7 +57,6 @@ export default {
     'pix-orga-registration': "Demande d'information | Pix pro",
     skills: 'Compétences | Pix',
     stats: 'Chiffres clés | Pix',
-    'terms-of-service': "Conditions générales d'utilisation | Pix",
   },
   'preview-page-load': 'Chargement de la page de prévisualisation...',
   society: 'Société',
