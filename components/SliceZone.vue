@@ -62,6 +62,9 @@
       <template v-if="slice.slice_type === 'latest_news'">
         <latest-news-slice :slice="slice" />
       </template>
+      <template v-if="slice.slice_type === 'stat'">
+        <stat :slice="slice" />
+      </template>
     </section>
   </div>
 </template>
@@ -80,6 +83,7 @@ import WebSnippet from '@/components/slices/WebSnippet'
 import FeaturesSlice from '@/components/slices/Features'
 import MultipleBlockSlice from '@/components/slices/MultipleBlock'
 import PartnersLogosSlice from '@/components/slices/PartnersLogos'
+import Stat from '@/components/slices/Stat'
 
 export default {
   name: 'SliceZone',
@@ -97,6 +101,7 @@ export default {
     FeaturesSlice,
     ProcessSlice,
     PartnersLogosSlice,
+    Stat,
   },
   props: {
     slices: {
