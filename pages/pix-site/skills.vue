@@ -26,6 +26,7 @@
 <script>
 import PageSection from '@/components/slices/PageSection'
 import { documents, documentFetcher } from '~/services/document-fetcher'
+
 export default {
   name: 'Skills',
   nuxtI18n: {
