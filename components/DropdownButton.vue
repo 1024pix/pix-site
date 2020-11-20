@@ -65,7 +65,7 @@ export default {
     updateOption(option) {
       this.selectedOption = option
       this.showMenu = false
-      this.$emit('updateOption', this.selectedOption)
+      this.$emit('update-option', this.selectedOption)
     },
 
     toggleMenu() {

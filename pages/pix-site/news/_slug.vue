@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import { documentFetcher } from '~/services/document-fetcher'
 import NewsItemPost from '@/components/NewsItemPost'
+import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
   nuxtI18n: {

@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import { documentFetcher } from '~/services/document-fetcher'
 import FormPage from '@/components/FormPage'
 import SimplePage from '@/components/SimplePage'
 import SliceZone from '@/components/SliceZone'
+import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
   name: 'CustomPage',
@@ -46,14 +46,6 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
-  computed: {
-    type() {
-      return this.document.type
-    },
-    title() {
-      return this.document.data.title[0].text
-    },
-  },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
 
@@ -61,6 +53,14 @@ export default {
       meta,
       title: `${this.title} | Pix Pro`,
     }
+  },
+  computed: {
+    type() {
+      return this.document.type
+    },
+    title() {
+      return this.document.data.title[0].text
+    },
   },
 }
 </script>

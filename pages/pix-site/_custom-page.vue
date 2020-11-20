@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import { documentFetcher } from '~/services/document-fetcher'
 import FormPage from '@/components/FormPage'
 import SimplePage from '@/components/SimplePage'
 import SliceZone from '@/components/SliceZone'
+import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
   name: 'CustomPage',
@@ -52,6 +52,14 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+  head() {
+    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+
+    return {
+      meta,
+      title: `${this.title} | Pix`,
+    }
+  },
   computed: {
     slices() {
       const rawDocumentSlices = this.document.data.body
@@ -68,14 +76,6 @@ export default {
     title() {
       return this.document.data.title[0].text
     },
-  },
-  head() {
-    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-
-    return {
-      meta,
-      title: `${this.title} | Pix`,
-    }
   },
 }
 </script>
