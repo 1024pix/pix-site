@@ -44,9 +44,6 @@
         >
         </page-section>
       </template>
-      <template v-if="slice.slice_type === 'features'">
-        <features-slice :slice="slice" />
-      </template>
       <template v-if="slice.slice_type === 'article'">
         <article-slice :slice="slice" :button-class="'section-demo__button'" />
       </template>
@@ -80,7 +77,6 @@ import MultipleColumn from '@/components/slices/MultipleColumn'
 import PopInCampaigns from '@/components/slices/PopInCampaigns'
 import PageSection from '@/components/slices/PageSection'
 import WebSnippet from '@/components/slices/WebSnippet'
-import FeaturesSlice from '@/components/slices/Features'
 import MultipleBlockSlice from '@/components/slices/MultipleBlock'
 import PartnersLogosSlice from '@/components/slices/PartnersLogos'
 import Stat from '@/components/slices/Stat'
@@ -98,7 +94,6 @@ export default {
     PopInCampaigns,
     PageSection,
     WebSnippet,
-    FeaturesSlice,
     ProcessSlice,
     PartnersLogosSlice,
     Stat,
