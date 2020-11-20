@@ -16,16 +16,6 @@
       <template v-if="slice.slice_type === 'banner'">
         <page-banner :slice="slice"></page-banner>
       </template>
-      <template v-if="slice.slice_type === 'old-features'">
-        <page-section
-          :slice="slice"
-          :section-class="'index__features'"
-          :container-class="'features__container'"
-          :flex-container-class="'features-container__list'"
-          :flex-content-class="'features-container-list__item'"
-        >
-        </page-section>
-      </template>
       <template v-if="slice.slice_type === 'article'">
         <article-slice :slice="slice" :button-class="'section-demo__button'" />
       </template>
@@ -51,7 +41,6 @@ import ArticleSlice from '@/components/slices/Article'
 import LatestNewsSlice from '@/components/slices/LatestNews'
 import MultipleColumn from '@/components/slices/MultipleColumn'
 import PopInCampaigns from '@/components/slices/PopInCampaigns'
-import PageSection from '@/components/slices/PageSection'
 import WebSnippet from '@/components/slices/WebSnippet'
 import MultipleBlockSlice from '@/components/slices/MultipleBlock'
 import PartnersLogosSlice from '@/components/slices/PartnersLogos'
@@ -66,7 +55,6 @@ export default {
     LatestNewsSlice,
     MultipleColumn,
     PopInCampaigns,
-    PageSection,
     WebSnippet,
     PartnersLogosSlice,
     Stat,
