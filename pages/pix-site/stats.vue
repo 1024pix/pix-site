@@ -7,12 +7,10 @@
     </header>
     <main class="page-body">
       <div class="container md padding-container">
-        <chart-section
-          v-for="(chart, index) in chartsData"
-          :key="`chart-${index}`"
-          :title="document[chart.key]"
-          :data="chart.data"
-        />
+        <div v-for="(chart, index) in chartsData" :key="`chart-${index}`">
+          <prismic-rich-text :field="document[chart.key]" />
+          <chart-section :data="chart.data" />
+        </div>
       </div>
     </main>
   </main>
