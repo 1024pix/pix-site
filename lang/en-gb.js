@@ -50,7 +50,6 @@ export default {
     'higher-education-establishment-registration':
       'Slot inquiry | Pix Orga sup',
     index: 'Accueil | Pix',
-    'legal-notices': 'Legal notice | Pix',
     news: 'Actualités | Pix',
     'pix-certification-application':
       'Application for accreditation as a certification center | Pix',

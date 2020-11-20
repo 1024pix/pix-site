@@ -2,7 +2,6 @@ import LinkResolver from '~/plugins/link-resolver.js'
 
 export const documents = {
   hotNews: 'hot_news',
-  legalNotices: 'legal-notices',
   stats: 'statistiques',
   index: 'index',
   navigation: 'navigation',
