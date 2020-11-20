@@ -47,9 +47,6 @@
       <template v-if="slice.slice_type === 'article'">
         <article-slice :slice="slice" :button-class="'section-demo__button'" />
       </template>
-      <template v-if="slice.slice_type === 'process'">
-        <process-slice :slice="slice" />
-      </template>
       <template v-if="slice.slice_type === 'multiple_block'">
         <multiple-block-slice :slice="slice" />
       </template>
