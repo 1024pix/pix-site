@@ -16,16 +16,6 @@
       <template v-if="slice.slice_type === 'banner'">
         <page-banner :slice="slice"></page-banner>
       </template>
-      <template v-if="slice.slice_type === 'old-banner'">
-        <hero-banner
-          :section-class="'index__hero-banner'"
-          :background-class="'hero-banner__background'"
-          :content-class="'hero-banner__content'"
-          :button-class="'hero-banner-content__button'"
-          :slice="slice"
-        >
-        </hero-banner>
-      </template>
       <template v-if="slice.slice_type === 'old-demo'">
         <img-text-column
           :slice="slice"
@@ -64,10 +54,8 @@
 </template>
 
 <script>
-import ProcessSlice from '@/components/slices/Process'
 import PageBanner from '@/components/slices/PageBanner'
 import ArticleSlice from '@/components/slices/Article'
-import HeroBanner from '@/components/slices/HeroBanner'
 import ImgTextColumn from '@/components/slices/ImgTextColumn'
 import LatestNewsSlice from '@/components/slices/LatestNews'
 import MultipleColumn from '@/components/slices/MultipleColumn'
@@ -84,14 +72,12 @@ export default {
     MultipleBlockSlice,
     PageBanner,
     ArticleSlice,
-    HeroBanner,
     ImgTextColumn,
     LatestNewsSlice,
     MultipleColumn,
     PopInCampaigns,
     PageSection,
     WebSnippet,
-    ProcessSlice,
     PartnersLogosSlice,
     Stat,
   },
