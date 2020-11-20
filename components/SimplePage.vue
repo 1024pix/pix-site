@@ -30,4 +30,11 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.page-section__description {
+  p.block-img {
+    display: inline;
+    margin: 0 10px;
+  }
+}
+</style>
