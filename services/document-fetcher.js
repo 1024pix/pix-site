@@ -7,8 +7,6 @@ export const documents = {
   navigation: 'navigation',
   mainFooter: 'main_footer',
   mainNavigation: 'main_navigation',
-  keyNumbers: 'key_numbers',
-  employers: 'employers',
   skills: 'competences',
 }
 
