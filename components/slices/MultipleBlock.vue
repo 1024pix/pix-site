@@ -114,17 +114,14 @@ export default {
         const isExtraLargeScreen =
           document.body.clientWidth >= EXTRA_LARGE_SCREEN_MIN_WIDTH
 
-        if (this.items.length === 3 && isLargeScreen) {
+        if (this.items.length === 4 && isExtraLargeScreen) {
+          return 4
+        }
+
+        if (isLargeScreen) {
           return 3
         }
-        if (this.items.length === 4) {
-          if (isExtraLargeScreen) {
-            return 4
-          }
-          if (isLargeScreen) {
-            return 3
-          }
-        }
+
         return 2
       }
     },
