@@ -5,7 +5,6 @@ export default function (doc) {
     'school-education',
     'competences',
     'statistiques',
-    'legal-notices',
     'simple_page',
   ]
   if (staticRoute.includes(doc.type)) {

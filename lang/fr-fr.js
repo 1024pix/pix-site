@@ -48,7 +48,6 @@ export default {
     'higher-education-establishment-registration':
       "Demande d'espace | Pix Orga sup",
     index: 'Accueil | Pix',
-    'legal-notices': 'Mentions légales | Pix',
     news: 'Actualités | Pix',
     'pix-certification-application':
       "Demande d'agrément comme centre de certification | Pix",
