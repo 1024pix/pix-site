@@ -1,6 +1,5 @@
 <template>
   <section>
-    <prismic-rich-text :field="title" />
     <line-chart :type="'line'" :data="data" :width="300" :height="110" />
   </section>
 </template>
@@ -14,10 +13,6 @@ export default {
     LineChart,
   },
   props: {
-    title: {
-      type: Array,
-      default: null,
-    },
     data: {
       type: Object,
       default: null,
