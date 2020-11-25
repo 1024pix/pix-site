@@ -1,5 +1,13 @@
 # pix-site Changelog
 
+## v3.2.0 (25/11/2020)
+
+- [#224](https://github.com/1024pix/pix-site/pull/224) [FEATURE] Ajout d'un bloc Stat (PIX-1643).
+- [#220](https://github.com/1024pix/pix-site/pull/220) [TECH] Mettre à jour Node et les paquets Pix Site (PIX-1633).
+- [#225](https://github.com/1024pix/pix-site/pull/225) [CLEANUP] Supprimer les Slices inutiles (PIX-1430).
+- [#223](https://github.com/1024pix/pix-site/pull/223) [CLEANUP] Suppression de la page Legal Notice
+- [#222](https://github.com/1024pix/pix-site/pull/222) [CLEANUP] Suppression de la page CGU (PIX-1434).
+
 ## v3.1.2 (19/11/2020)
 
 - [#218](https://github.com/1024pix/pix-site/pull/218) [BUGFIX] La page index de pix-pro affiche l'ancienne page (PIX-1438)
