@@ -50,7 +50,6 @@ export default {
     'pix-orga-higher-school-registration':
       "Finaliser la demande d'espace | Pix Orga sup",
     'pix-orga-registration': "Demande d'information | Pix pro",
-    skills: 'Compétences | Pix',
     stats: 'Chiffres clés | Pix',
   },
   form: {
