@@ -1,7 +1,7 @@
 <template>
   <div class="logos-zone">
     <div
-      v-for="(logo, index) in filteredLogos"
+      v-for="(logo, index) in slice.items"
       :key="`logo-${index}`"
       class="logos-zone__content"
     >
@@ -20,14 +20,6 @@ export default {
     slice: {
       type: Object,
       default: null,
-    },
-  },
-  computed: {
-    filteredLogos() {
-      if (process.env.isPixSite) {
-        return this.slice.items.filter((item) => item.display_on_pix_site)
-      }
-      return this.slice.items.filter((item) => item.display_on_pix_pro)
     },
   },
   methods: {
