@@ -51,6 +51,10 @@ h6 {
   font-family: 'Nunito', Arial, sans-serif;
 }
 
+p,
+div {
+  word-wrap: break-word;
+}
 .app-viewport {
   .app-brand {
     height: 66px;
