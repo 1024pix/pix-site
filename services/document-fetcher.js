@@ -7,7 +7,6 @@ export const documents = {
   navigation: 'navigation',
   mainFooter: 'main_footer',
   mainNavigation: 'main_navigation',
-  skills: 'competences',
 }
 
 export function documentFetcher(
