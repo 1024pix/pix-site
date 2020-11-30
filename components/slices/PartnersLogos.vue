@@ -1,5 +1,5 @@
 <template>
-  <section class="partners-logos">
+  <section :id="`slice-${indexForId}`" class="partners-logos">
     <prismic-rich-text
       v-if="hasTitle && shouldDisplayTitle"
       class="partners-logos__title"
@@ -25,6 +25,10 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+    indexForId: {
+      type: Number,
+      default: 0,
     },
   },
   computed: {

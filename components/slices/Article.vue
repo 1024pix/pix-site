@@ -1,5 +1,5 @@
 <template>
-  <div :style="[background]">
+  <div :id="`slice-${indexForId}`" :style="[background]">
     <div
       class="article"
       :class="{
@@ -80,6 +80,10 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+    indexForId: {
+      type: Number,
+      default: 0,
     },
   },
   computed: {
