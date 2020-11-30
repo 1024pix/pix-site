@@ -1,5 +1,9 @@
 <template>
-  <section :class="blockClass" :style="[background]">
+  <section
+    :id="`slice-${indexForId}`"
+    :class="blockClass"
+    :style="[background]"
+  >
     <prismic-rich-text
       v-if="hasTitle && shouldDisplayTitle"
       :class="`${blockClass}__title`"
@@ -51,6 +55,10 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+    indexForId: {
+      type: Number,
+      default: 0,
     },
   },
   data() {

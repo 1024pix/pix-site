@@ -1,5 +1,9 @@
 <template>
-  <div class="pop-in-campaigns" :class="{ collapse: isClosed }">
+  <div
+    :id="`slice-${indexForId}`"
+    class="pop-in-campaigns"
+    :class="{ collapse: isClosed }"
+  >
     <div
       class="pop-in-campaigns-content"
       v-on="isClosed ? { click: togglePopIn } : {}"
@@ -38,6 +42,10 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+    indexForId: {
+      type: Number,
+      default: 0,
     },
   },
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="stat">
+  <div :id="`slice-${indexForId}`" class="stat">
     <prismic-rich-text :field="content.block_title" />
     <prismic-rich-text :field="content.block_presentation" />
     <chart-section :data="chartData" />
@@ -18,6 +18,10 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+    indexForId: {
+      type: Number,
+      default: 0,
     },
   },
   computed: {

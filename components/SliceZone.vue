@@ -5,25 +5,25 @@
         <prismic-rich-text :field="slice.primary.text" />
       </template>
       <template v-if="slice.slice_type === 'pop-in'">
-        <pop-in-campaigns :slice="slice" />
+        <pop-in-campaigns :slice="slice" :index-for-id="index" />
       </template>
       <template v-if="slice.slice_type === 'banner'">
-        <page-banner :slice="slice"></page-banner>
+        <page-banner :slice="slice" :index-for-id="index" />
       </template>
       <template v-if="slice.slice_type === 'article'">
-        <article-slice :slice="slice" :button-class="'section-demo__button'" />
+        <article-slice :slice="slice" :index-for-id="index" />
       </template>
       <template v-if="slice.slice_type === 'multiple_block'">
-        <multiple-block-slice :slice="slice" />
+        <multiple-block-slice :slice="slice" :index-for-id="index" />
       </template>
       <template v-if="slice.slice_type === 'partners_logos'">
-        <partners-logos-slice :slice="slice" />
+        <partners-logos-slice :slice="slice" :index-for-id="index" />
       </template>
       <template v-if="slice.slice_type === 'latest_news'">
-        <latest-news-slice :slice="slice" />
+        <latest-news-slice :slice="slice" :index-for-id="index" />
       </template>
       <template v-if="slice.slice_type === 'stat'">
-        <stat :slice="slice" />
+        <stat :slice="slice" :index-for-id="index" />
       </template>
     </section>
   </div>

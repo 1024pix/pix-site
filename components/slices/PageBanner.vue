@@ -1,5 +1,5 @@
 <template>
-  <div :style="[background]">
+  <div :id="`slice-${indexForId}`" :style="[background]">
     <section class="banner row-block">
       <div class="row-block__main-content">
         <prismic-rich-text
@@ -58,6 +58,10 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+    indexForId: {
+      type: Number,
+      default: 0,
     },
   },
   computed: {
