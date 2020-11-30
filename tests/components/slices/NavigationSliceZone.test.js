@@ -14,7 +14,6 @@ describe('NavigationSliceZone', () => {
     'logos-zone': true,
     'navigation-zone': true,
     'actions-zone': true,
-    'pix-pro-sub-nav': true,
     fa: true,
   }
 
@@ -147,68 +146,6 @@ describe('NavigationSliceZone', () => {
 
           // then
           expect(result).toEqual(expectedSiteNavigation)
-        })
-      })
-    })
-
-    describe('#showSubNav', () => {
-      describe('When we are in pix-pro and we have the pro navigation', () => {
-        beforeEach(() => {
-          process.env = {
-            isPixPro: true,
-          }
-
-          store = {
-            state: {
-              mainNavigations: [expectedSiteNavigation, expectedProNavigation],
-            },
-          }
-        })
-
-        it('should not show the subNav', () => {
-          // given
-          component = shallowMount(NavigationSliceZone, {
-            mocks: {
-              $store: store,
-            },
-            stubs,
-          })
-
-          // when
-          const result = component.vm.showSubNav
-
-          // then
-          expect(result).toEqual(false)
-        })
-      })
-
-      describe('When we are in pix-pro and we have only the site navigation', () => {
-        beforeEach(() => {
-          process.env = {
-            isPixPro: true,
-          }
-
-          store = {
-            state: {
-              mainNavigations: [expectedSiteNavigation],
-            },
-          }
-        })
-
-        it('should show the subNav', () => {
-          // given
-          component = shallowMount(NavigationSliceZone, {
-            mocks: {
-              $store: store,
-            },
-            stubs,
-          })
-
-          // when
-          const result = component.vm.showSubNav
-
-          // then
-          expect(result).toEqual(true)
         })
       })
     })

@@ -4,7 +4,6 @@ export const documents = {
   hotNews: 'hot_news',
   stats: 'statistiques',
   index: 'index',
-  navigation: 'navigation',
   mainFooter: 'main_footer',
   mainNavigation: 'main_navigation',
 }
