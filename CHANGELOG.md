@@ -1,5 +1,13 @@
 # pix-site Changelog
 
+## v3.3.0 (04/12/2020)
+
+- [#228](https://github.com/1024pix/pix-site/pull/228) [FEATURE] Ajouter un ID sur les slices pour faire des liens dessus (PIX-1576).
+- [#229](https://github.com/1024pix/pix-site/pull/229) [BUGFIX] Pouvoir voir tout le texte en mode mobile (PIX-1714).
+- [#230](https://github.com/1024pix/pix-site/pull/230) [CLEANUP] Retirer les filtres pour les logos de la navigation (PIX-1428).
+- [#227](https://github.com/1024pix/pix-site/pull/227) [CLEANUP] Supprimer l'ancienne nav et la sous-nav (PIX-1429).
+- [#226](https://github.com/1024pix/pix-site/pull/226) [CLEANUP] Supprimer la page "Compétence" (PIX-1436).
+
 ## v3.2.0 (25/11/2020)
 
 - [#224](https://github.com/1024pix/pix-site/pull/224) [FEATURE] Ajout d'un bloc Stat (PIX-1643).
