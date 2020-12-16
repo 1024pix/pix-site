@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.4.0 (16/12/2020)
+
+- [#233](https://github.com/1024pix/pix-site/pull/233) [TECH] Montée de version des packages eslint, nuxt et autoprefixer
+- [#231](https://github.com/1024pix/pix-site/pull/231) [CLEANUP] Utiliser une SlicePage pour l'index du site vitrine (PIX-1444).
+- [#232](https://github.com/1024pix/pix-site/pull/232) [CLEANUP] Supprimer la page Statistiques (PIX-1435).
+
 ## v3.3.0 (04/12/2020)
 
 - [#228](https://github.com/1024pix/pix-site/pull/228) [FEATURE] Ajouter un ID sur les slices pour faire des liens dessus (PIX-1576).
