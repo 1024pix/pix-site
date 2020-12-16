@@ -6,17 +6,27 @@
 
 <script>
 import SliceZone from '@/components/SliceZone'
-import { documents, documentFetcher } from '~/services/document-fetcher'
+import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
+  name: 'Index',
+  nuxtI18n: {
+    paths: {
+      fr: '/',
+      'fr-fr': '/',
+      'en-gb': '/',
+    },
+  },
   components: {
     SliceZone,
   },
-  async asyncData({ app, error, req, currentPagePath }) {
+  async asyncData({ app, req, error, currentPagePath }) {
     try {
-      const document = await documentFetcher(app.$prismic, app.i18n, req).get(
-        documents.index
-      )
+      const document = await documentFetcher(
+        app.$prismic,
+        app.i18n,
+        req
+      ).getPageByUid('index-pix-site')
 
       const latestNewsItems = await documentFetcher(
         app.$prismic,

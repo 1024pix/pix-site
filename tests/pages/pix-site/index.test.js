@@ -8,11 +8,12 @@ describe('Index Page', () => {
 
   beforeEach(async () => {
     documentFetcher.mockReturnValue({
-      get: () =>
+      getPageByUid: () =>
         Promise.resolve({
           data: {
             id: '',
             meta: '',
+            type: 'slice_page',
             body: [{}, {}, {}, {}, {}, {}, {}, {}],
           },
         }),
