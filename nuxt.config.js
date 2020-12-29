@@ -159,6 +159,7 @@ export default {
     endpoint: process.env.PRISMIC_API_ENDPOINT,
     linkResolver: '@/plugins/link-resolver',
     htmlSerializer: '@/plugins/html-serializer',
+    preview: process.env.SSR_ENABLED === 'true',
   },
   router: {
     middleware: 'current-page-path',
