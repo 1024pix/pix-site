@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.4.1 (15/01/2021)
+
+- [#235](https://github.com/1024pix/pix-site/pull/235) [TECH] Désactiver la prévisualisation de Prismic quand le mode SSR n'est pas activé.
+- [#234](https://github.com/1024pix/pix-site/pull/234) [TECH] Mauvaise version de NodeJS dans `.nvmrc`
+
 ## v3.4.0 (16/12/2020)
 
 - [#233](https://github.com/1024pix/pix-site/pull/233) [TECH] Montée de version des packages eslint, nuxt et autoprefixer
