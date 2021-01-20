@@ -68,6 +68,18 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     ['@nuxtjs/eslint-module', { fix: true }],
+    [
+      '~/modules/assets-extractor',
+      {
+        hostnames: [
+          'images.prismic.io',
+          'prismic-io.s3.amazonaws.com',
+          'storage.gra.cloud.ovh.net',
+          'pix-site.cdn.prismic.io',
+        ],
+        extensions: ['jpg', 'jpeg', 'gif', 'png', 'webp', 'svg', 'mp4', 'pdf'],
+      },
+    ],
   ],
   /*
    ** Nuxt.js modules
