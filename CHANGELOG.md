@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.4.2 (21/01/2021)
+
+- [#236](https://github.com/1024pix/pix-site/pull/236) [BUGFIX] Pouvoir avoir le footer pix-pro.
+
 ## v3.4.1 (15/01/2021)
 
 - [#235](https://github.com/1024pix/pix-site/pull/235) [TECH] Désactiver la prévisualisation de Prismic quand le mode SSR n'est pas activé.
