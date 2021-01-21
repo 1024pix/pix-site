@@ -57,6 +57,9 @@ export default {
     }
   },
   computed: {
+    isPixPro() {
+      return process.env.isPixPro
+    },
     ...mapState(['mainFooters']),
     usedMainFooter() {
       const groupBySite = groupBy(this.mainFooters, 'data.footer_for')
