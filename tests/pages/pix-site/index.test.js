@@ -15,6 +15,7 @@ describe('Index Page', () => {
             meta: '',
             type: 'slice_page',
             body: [{}, {}, {}, {}, {}, {}, {}, {}],
+            title: [{}],
           },
         }),
       findNewsItems: () =>
