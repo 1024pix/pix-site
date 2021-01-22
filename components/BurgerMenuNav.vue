@@ -97,4 +97,12 @@ export default {
     height: 24px !important;
   }
 }
+.hot-news + .navigation-slice-zone {
+  .bm-burger-button {
+    margin-top: 70px;
+    @include device-is('large-screen') {
+      display: none;
+    }
+  }
+}
 </style>

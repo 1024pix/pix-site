@@ -38,22 +38,12 @@ export default {
   display: flex;
   flex-direction: row;
 
-  @media (min-width: 769px) {
-    padding: 5px;
-    height: 60px;
-  }
-
   div {
     text-align: center;
     line-height: 1rem;
     font-size: 0.875rem;
     margin: 0 auto;
     align-self: center;
-
-    @media (min-width: 769px) {
-      width: 700px;
-      line-height: 1.375rem;
-    }
   }
 
   a {
