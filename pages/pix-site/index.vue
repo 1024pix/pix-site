@@ -38,6 +38,7 @@ export default {
         currentPagePath,
         meta: document.data.meta,
         document: document.data.body,
+        title: document.data.title[0].text,
         latestNewsItems,
       }
     } catch (e) {
@@ -48,9 +49,8 @@ export default {
   },
   head() {
     const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-    const pageTitle = this.$t('page-titles.index')
     return {
-      title: pageTitle,
+      title: `${this.title} | Pix`,
       meta,
     }
   },

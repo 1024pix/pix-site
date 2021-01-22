@@ -24,23 +24,11 @@ export default {
   },
   'news-page-title': 'News',
   'news-page-no-news': 'No news available for the moment.',
-  alt: {
-    footer: {
-      'back-to-homepage': 'Back to Pix homepage',
-      'backed-by-unesco': 'Backed by Unesco',
-      'backed-by-education-ministry':
-        'Backed by the French Ministry of Education',
-      'pix-homepage': 'Back to Pix homepage',
-    },
-    'header-nav': {
-      'pix-homepage': 'Pix homepage',
-      'public-service': 'Public State Service',
-    },
-  },
   announcement: 'Announcement',
   engineering: 'Engineering',
   event: 'Event',
   feature: 'Feature',
+  society: 'Society',
   form: {
     'not-supported':
       'Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)',
@@ -49,8 +37,7 @@ export default {
     'contact-digital-mediation': 'Request for information | Pix',
     'higher-education-establishment-registration':
       'Slot inquiry | Pix Orga sup',
-    index: 'Accueil | Pix',
-    news: 'Actualités | Pix',
+    news: 'News | Pix',
     'pix-certification-application':
       'Application for accreditation as a certification center | Pix',
     'pix-orga-higher-school-registration':
@@ -58,13 +45,6 @@ export default {
     'pix-orga-registration': 'Request for information | Pix pro',
   },
   'preview-page-load': 'Preview page loading...',
-  society: 'Society',
-  'resources-title': 'Resources',
-  'social-networks-title': 'Follow us',
-  'stats-legend-label-accounts': 'Comptes Pix créés',
-  'stats-legend-label-campaigns': 'Campagnes d’évaluation',
-  'stats-legend-label-certifications': 'Certifications Pix délivrées',
-  'stats-legend-label-organizations': 'Organisations partenaires',
   'error-content':
     '<p>Oups ! Un problème est survenu, mais pas de panix !</p>' +
     '<p>Vous pouvez revenir sur la ' +
@@ -72,8 +52,4 @@ export default {
     '<br/>Si vous avez besoin d’aide, vous pouvez consulter le ' +
     '<a href="https://support.pix.fr/">support</a>.' +
     '</p>',
-  layout: {
-    'main-nav': 'Main navigation',
-    'footer-nav': 'Secondary navigation',
-  },
 }
