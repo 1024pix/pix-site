@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.5.0 (26/01/2021)
+
+- [#238](https://github.com/1024pix/pix-site/pull/238) [BUGFIX] Rendre visible le burger menu en cas de message (PIX-1960).
+- [#237](https://github.com/1024pix/pix-site/pull/237) [BUGFIX] Afficher le titre de la page en title (PIX-2028).
+
 ## v3.4.2 (21/01/2021)
 
 - [#236](https://github.com/1024pix/pix-site/pull/236) [BUGFIX] Pouvoir avoir le footer pix-pro.
