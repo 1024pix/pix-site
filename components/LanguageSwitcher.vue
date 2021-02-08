@@ -1,11 +1,25 @@
 <template>
   <div v-if="showLanguageDropdown" class="language-switcher">
-    <img src="images/globe.svg" alt="Langue" @click="toggleMenu()" />
-    <ul v-if="this.showMenu" class="dropdown-menu">
-      <li v-for="option in options" :key="option.key">
-        <a href="javascript:void(0)" @click="update(option)">
-          {{ option.name }}
-        </a>
+    <button
+      class="language-switcher__button"
+      aria-label="$t('language-switcher-label')"
+      aria-haspopup="true"
+      aria-expanded="false"
+      @click="toggleMenu()"
+      @click.stop.prevent
+    ></button>
+    <ul v-if="showMenu" class="language-switcher__dropdown-menu">
+      <li v-for="option in availableLocales" :key="option.key">
+        <span
+          v-if="option === currentLanguage"
+          class="language-switcher__lang--active"
+          >{{ option.name }}</span
+        >
+        <span v-else class="language-switcher__lang">
+          <a href="javascript:void(0)" @click="update(option)">
+            {{ option.name }}
+          </a>
+        </span>
       </li>
     </ul>
   </div>
@@ -15,17 +29,15 @@
 export default {
   name: 'LanguageSwitcher',
   data() {
-    const availableLocales = this.$i18n.locales.map((locale) => {
+    const allLocales = this.$i18n.locales.map((locale) => {
       return { name: this.$t(locale.code), lang: locale.code }
     })
-    const nonFrenchFranceLocales = availableLocales.filter(
+    const availableLocales = allLocales.filter(
       (locale) => locale.lang !== 'fr-fr'
     )
     return {
       showMenu: false,
-      selectedOption: null,
-      placeholder: 'test',
-      nonFrenchFranceLocales,
+      availableLocales,
     }
   },
   computed: {
@@ -40,29 +52,16 @@ export default {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
     currentLanguage() {
-      return this.nonFrenchFranceLocales.find(
+      return this.availableLocales.find(
         (locale) => locale.lang === this.currentLocale
       )
     },
-    options() {
-      return this.nonFrenchFranceLocales;
-    },
-  },
-
-  mounted() {
-    this.selectedOption = this.currentLanguage
-    this.showMenu = false
-    if (this.placeholder) {
-      this.placeholderText = this.placeholder
-    }
   },
 
   methods: {
-    update(option) {
-      this.selectedOption = option
+    update(chosenLocale) {
       this.showMenu = false
-      this.$i18n.setLocale(option.lang)
-      this.$router.push('/')
+      this.$router.push('/' + chosenLocale.lang)
     },
 
     toggleMenu() {

@@ -29,6 +29,7 @@ export default {
   event: 'Événement',
   feature: 'Nouveauté',
   society: 'Société',
+  'language-switcher-label': 'Langues',
   'page-titles': {
     'contact-digital-mediation': "Demande d'information | Pix",
     'higher-education-establishment-registration':
