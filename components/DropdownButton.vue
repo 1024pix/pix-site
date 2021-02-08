@@ -19,7 +19,7 @@
     </li>
     <ul v-if="showMenu" class="dropdown-menu">
       <li v-for="option in options" :key="option.key">
-        <a href="javascript:void(0)" @click="updateOption(option)">
+        <a href="javascript:void(0)" @click="update(option)">
           {{ option.name }}
         </a>
       </li>
@@ -33,6 +33,10 @@ export default {
   props: {
     options: {
       type: [Array, Object],
+      default: null,
+    },
+    updateOption: {
+      type: Function,
       default: null,
     },
     selected: {
@@ -62,10 +66,10 @@ export default {
   },
 
   methods: {
-    updateOption(option) {
+    update(option) {
       this.selectedOption = option
       this.showMenu = false
-      this.$emit('update-option', this.selectedOption)
+      this.updateOption(this.selectedOption)
     },
 
     toggleMenu() {

@@ -3,7 +3,7 @@
     <dropdown-button
       :options="options"
       :selected="currentLanguage"
-      @updateOption="languageDidChange"
+      :update-option="languageDidChange"
     >
     </dropdown-button>
   </div>
@@ -45,9 +45,9 @@ export default {
   },
   methods: {
     languageDidChange(selectedLocale) {
+      console.log(selectedLocale)
       this.$i18n.setLocale(selectedLocale.lang)
-      const page = this.switchLocalePath(selectedLocale.lang)
-      this.$router.push(page)
+      this.$router.push('/')
     },
   },
 }
