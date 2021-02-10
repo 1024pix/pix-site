@@ -1,7 +1,7 @@
 export default {
-  fr: 'Francophone',
+  fr: 'Français',
   'en-gb': 'English',
-  'fr-fr': 'Français',
+  'fr-fr': 'Franco-Français',
   'contact-digital-mediation': {
     'page-title': 'Information request',
     'form-id': '28758',

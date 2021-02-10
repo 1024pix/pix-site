@@ -1,6 +1,6 @@
 export default {
-  fr: 'Francophone',
-  'fr-fr': 'Français',
+  fr: 'Français',
+  'fr-fr': 'Franco-Français',
   'en-gb': 'English',
   'contact-digital-mediation': {
     'page-title': "Demande d'information",

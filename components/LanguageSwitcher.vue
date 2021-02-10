@@ -22,6 +22,7 @@
         </span>
       </li>
     </ul>
+    <span class="separator"></span>
   </div>
 </template>
 
@@ -74,89 +75,96 @@ export default {
 <style lang="scss">
 .language-switcher {
   display: flex;
-  width: 2rem;
   fill: blue;
 
-  .dropdown-toggle {
-    color: #636b6f;
-    min-width: 160px;
-    padding: 3px;
-    text-transform: none;
-    font-weight: 300;
-    margin-bottom: 7px;
-    border: 0;
-    transition: background 0s ease-out;
-    float: none;
-    box-shadow: none;
-    border-radius: 0;
-  }
-  .dropdown-toggle:hover {
-    background: #e1e1e1;
-    cursor: pointer;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    z-index: 1000;
-    float: left;
-    min-width: 160px;
-    padding: 5px 0;
-    margin: 2px 0 0;
-    margin-top: 40px;
-
-    list-style: none;
-    font-size: 14px;
-    text-align: left;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    background-clip: padding-box;
-  }
-
-  .dropdown-menu > li > a {
-    padding: 0;
+  .separator {
+    margin-left: 10px;
+    border-left: 1px solid $grey-20;
     display: block;
-    clear: both;
-    font-weight: normal;
-    line-height: 1.6;
-    color: #333333;
-    white-space: nowrap;
-    text-decoration: none;
+    height: 1.5rem;
   }
-  .dropdown-menu > li > a:hover {
-    background: #efefef;
-    color: #409fcb;
-  }
+}
+.language-switcher__button {
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  outline: inherit;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 4px 3px 0px 3px;
+  background-image: url('/images/globe.svg');
+  background-repeat: no-repeat;
+}
+.language-switcher__button:hover,
+.language-switcher__button:focus {
+  background-image: url('/images/globe-blue.svg');
+}
 
-  .dropdown-menu > li {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-    margin: 0;
-  }
+.language-switcher__dropdown-menu {
+  position: absolute;
+  z-index: 5;
+  float: left;
+  min-width: 100px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  margin-top: 35px;
+  margin-left: -30px;
 
-  .caret {
-    width: 0;
-    position: relative;
-    top: 10px;
-    height: 0;
-    margin-left: 2px;
-    vertical-align: middle;
-    border-top: 4px dashed;
-    border-top: 4px solid \9;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
-    float: right;
-  }
+  list-style: none;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
 
-  li {
-    list-style: none;
-  }
+.language-switcher__dropdown-menu > li > a {
+  padding: 0;
+  display: block;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.6;
+  color: #333333;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.language-switcher__dropdown-menu > li > a:hover {
+  background: #efefef;
+  color: #409fcb;
+}
 
-  ul li::before {
-    content: '';
-    margin: 0;
+.language-switcher__dropdown-menu > li {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.language-switcher__dropdown-menu > li:not(:last-child) {
+  border-bottom: 1px solid $grey-20;
+}
+
+li {
+  list-style: none;
+}
+
+ul li::before {
+  content: '';
+  margin: 0;
+}
+.language-switcher__lang a {
+  color: $grey-200;
+
+  &:focus,
+  &:hover {
+    color: $blue-hover;
+  }
+  &--active {
+    color: $grey-40;
   }
 }
 </style>
