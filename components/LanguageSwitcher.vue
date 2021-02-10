@@ -1,5 +1,8 @@
 <template>
-  <div v-if="showLanguageDropdown" class="language-switcher">
+  <div
+    v-if="showLanguageDropdown && type === 'with-dropdown'"
+    class="language-switcher"
+  >
     <button
       class="language-switcher__button"
       :aria-label="$t('language-switcher-label')"
@@ -24,11 +27,31 @@
     </ul>
     <span class="separator"></span>
   </div>
+  <div v-else-if="showLanguageDropdown && type === 'only-text'">
+    <ul>
+      <li v-for="option in availableLocales" :key="option.key">
+        <span
+          v-if="option !== currentLanguage"
+          class="language-switcher-text__lang"
+        >
+          <a href="javascript:void(0)" @click="update(option)">
+            {{ option.name }}
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
   name: 'LanguageSwitcher',
+  props: {
+    type: {
+      type: String,
+      default: 'with-dropdown',
+    },
+  },
   data() {
     const allLocales = this.$i18n.locales.map((locale) => {
       return { name: this.$t(locale.code), lang: locale.code }
@@ -61,14 +84,14 @@ export default {
   mounted() {
     const page = document.getElementsByTagName('body')[0]
     const menu = document.getElementsByClassName('language-switcher')[0]
-    page.addEventListener('click', this.toggleMenu)
-    menu.addEventListener('keydown', this.toggleMenu)
+    page.addEventListener('click', this.hideMenu)
+    menu.addEventListener('keydown', this.hideMenu)
   },
   beforeDestroy() {
     const page = document.getElementsByTagName('body')[0]
     const menu = document.getElementsByClassName('language-switcher')[0]
-    page.removeEventListener('click', this.toggleMenu)
-    menu.addEventListener('keydown', this.toggleMenu)
+    page.removeEventListener('click', this.hideMenu)
+    menu.addEventListener('keydown', this.hideMenu)
   },
   methods: {
     update(chosenLocale) {
@@ -76,13 +99,17 @@ export default {
       this.$router.push('/' + chosenLocale.lang)
     },
 
-    toggleMenu(event) {
-      if (event) {
-        if (event.keyCode === 27 && this.showMenu) {
-          this.showMenu = !this.showMenu
+    toggleMenu() {
+      this.showMenu = !this.showMenu
+    },
+
+    hideMenu(event) {
+      if (event && event.keyCode) {
+        if (event.keyCode === 27) {
+          this.showMenu = false
         }
       } else {
-        this.showMenu = !this.showMenu
+        this.showMenu = false
       }
     },
   },
@@ -184,6 +211,15 @@ ul li::before {
   }
   &--active {
     color: $grey-40;
+  }
+}
+
+.language-switcher-text__lang a {
+  color: $white;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
   }
 }
 </style>

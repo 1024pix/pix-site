@@ -1,6 +1,6 @@
 <template>
   <div class="actions-zone">
-    <language-switcher />
+    <language-switcher type="with-dropdown" />
 
     <div v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
       <pix-link
