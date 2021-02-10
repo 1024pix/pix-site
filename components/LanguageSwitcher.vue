@@ -90,8 +90,10 @@ export default {
   border: none;
   font: inherit;
   outline: inherit;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  background-size: 2rem;
+
   padding: 4px 3px 0px 3px;
   background-image: url('/images/globe.svg');
   background-repeat: no-repeat;
