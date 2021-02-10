@@ -2,9 +2,9 @@
   <div v-if="showLanguageDropdown" class="language-switcher">
     <button
       class="language-switcher__button"
-      aria-label="$t('language-switcher-label')"
+      :aria-label="$t('language-switcher-label')"
       aria-haspopup="true"
-      aria-expanded="false"
+      :aria-expanded="showMenu.toString()"
       @click="toggleMenu()"
       @click.stop.prevent
     ></button>
@@ -58,15 +58,32 @@ export default {
       )
     },
   },
-
+  mounted() {
+    const page = document.getElementsByTagName('body')[0]
+    const menu = document.getElementsByClassName('language-switcher')[0]
+    page.addEventListener('click', this.toggleMenu)
+    menu.addEventListener('keydown', this.toggleMenu)
+  },
+  beforeDestroy() {
+    const page = document.getElementsByTagName('body')[0]
+    const menu = document.getElementsByClassName('language-switcher')[0]
+    page.removeEventListener('click', this.toggleMenu)
+    menu.addEventListener('keydown', this.toggleMenu)
+  },
   methods: {
     update(chosenLocale) {
       this.showMenu = false
       this.$router.push('/' + chosenLocale.lang)
     },
 
-    toggleMenu() {
-      this.showMenu = !this.showMenu
+    toggleMenu(event) {
+      if (event) {
+        if (event.keyCode === 27 && this.showMenu) {
+          this.showMenu = !this.showMenu
+        }
+      } else {
+        this.showMenu = !this.showMenu
+      }
     },
   },
 }
