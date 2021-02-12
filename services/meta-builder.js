@@ -56,11 +56,26 @@ export default function getMeta(meta, currentPagePath, prismic) {
     ]
   }
 
+  function getGeneralMeta() {
+    const generalCard = meta.find((meta) => meta.slice_type === 'general_card')
+    if (!generalCard) {
+      return []
+    }
+    return [
+      {
+        hid: 'description',
+        name: 'description',
+        content: prismic.asText(generalCard.primary.description),
+      },
+    ]
+  }
+
   if (!meta) {
     return []
   }
   const twitterCard = getTwitterCard()
   const ogCard = getOgCard()
+  const generalMeta = getGeneralMeta()
 
-  return [...twitterCard, ...ogCard]
+  return [...twitterCard, ...ogCard, ...generalMeta]
 }
