@@ -60,6 +60,7 @@ export function documentFetcher(
     getPageByUid: async (uid) => {
       const simplePage = await getSimplePageByUid(uid)
       const slicePage = await getSlicesPageByUid(uid)
+
       const formPage = await getFormPageByUid(uid)
       return simplePage || slicePage || formPage
     },

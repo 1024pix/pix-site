@@ -2,7 +2,7 @@ export default function getMeta(meta, currentPagePath, prismic) {
   function getTwitterCard() {
     const twitterMeta = meta.find((meta) => meta.slice_type === 'twitter_card')
     if (!twitterMeta) {
-      return {}
+      return []
     }
     return [
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
@@ -24,10 +24,11 @@ export default function getMeta(meta, currentPagePath, prismic) {
       },
     ]
   }
+
   function getOgCard() {
     const ogMeta = meta.find((meta) => meta.slice_type === 'general_card')
     if (!ogMeta) {
-      return {}
+      return []
     }
     return [
       {
@@ -61,8 +62,5 @@ export default function getMeta(meta, currentPagePath, prismic) {
   const twitterCard = getTwitterCard()
   const ogCard = getOgCard()
 
-  if (twitterCard.length && ogCard.length) {
-    return [...twitterCard, ...ogCard]
-  }
-  return []
+  return [...twitterCard, ...ogCard]
 }
