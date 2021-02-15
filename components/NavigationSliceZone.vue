@@ -6,7 +6,6 @@
       </push-menu>
     </client-only>
     <div id="page-wrap">
-      <organization-nav />
       <div class="navigation-slice-zone__wrapper">
         <div class="navigation-slice-zone__content">
           <div class="navigation-slice-zone-content__left-side">
@@ -44,7 +43,6 @@ import LogosZone from '@/components/slices/LogosZone'
 import NavigationZone from '@/components/slices/NavigationZone'
 import ActionsZone from '@/components/slices/ActionsZone'
 import BurgerMenuNav from '@/components/BurgerMenuNav'
-import OrganizationNav from '~/components/OrganizationNav'
 
 export default {
   name: 'NavigationSliceZone',
@@ -53,7 +51,6 @@ export default {
     LogosZone,
     NavigationZone,
     BurgerMenuNav,
-    OrganizationNav,
   },
   computed: {
     isPixPro() {

@@ -9,12 +9,18 @@
         </li>
       </ul>
     </div>
+    <language-switcher type="only-text" />
   </div>
 </template>
 
 <script>
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+
 export default {
   name: 'BurgerMenuNav',
+  components: {
+    LanguageSwitcher,
+  },
   props: {
     items: {
       type: Array,

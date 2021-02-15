@@ -1,6 +1,6 @@
 export default {
-  fr: 'Francophone',
-  'fr-fr': 'Français',
+  fr: 'Français',
+  'fr-fr': 'Franco-Français',
   'en-gb': 'English',
   'contact-digital-mediation': {
     'page-title': "Demande d'information",
@@ -29,6 +29,7 @@ export default {
   event: 'Événement',
   feature: 'Nouveauté',
   society: 'Société',
+  'language-switcher-label': 'Langues',
   'page-titles': {
     'contact-digital-mediation': "Demande d'information | Pix",
     'higher-education-establishment-registration':

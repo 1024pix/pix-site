@@ -1,5 +1,7 @@
 <template>
   <div class="actions-zone">
+    <language-switcher type="with-dropdown" />
+
     <div v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
       <pix-link
         :field="menuItem.link"
@@ -16,8 +18,13 @@
 </template>
 
 <script>
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+
 export default {
   name: 'ActionsZone',
+  components: {
+    LanguageSwitcher,
+  },
   props: {
     slice: {
       type: Object,

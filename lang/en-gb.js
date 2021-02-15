@@ -1,7 +1,7 @@
 export default {
-  fr: 'Francophone',
+  fr: 'Français',
   'en-gb': 'English',
-  'fr-fr': 'Français',
+  'fr-fr': 'Franco-Français',
   'contact-digital-mediation': {
     'page-title': 'Information request',
     'form-id': '28758',
@@ -33,6 +33,7 @@ export default {
     'not-supported':
       'Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)',
   },
+  'language-switcher-label': 'Languages',
   'page-titles': {
     'contact-digital-mediation': 'Request for information | Pix',
     'higher-education-establishment-registration':

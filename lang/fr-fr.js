@@ -1,6 +1,6 @@
 export default {
-  fr: 'Francophone',
-  'fr-fr': 'Français',
+  fr: 'Français',
+  'fr-fr': 'Franco-Français',
   'en-gb': 'English',
   'contact-digital-mediation': {
     'page-title': "Demande d'information",
@@ -33,6 +33,7 @@ export default {
     'not-supported':
       "Votre navigateur ne supporte pas les iframes. Le formulaire de contact ne peut pas être affiché. Merci d'utiliser une autre méthode de contact (téléphone, fax, etc.)",
   },
+  'language-switcher-label': 'Langues',
   'page-titles': {
     'contact-digital-mediation': "Demande d'information | Pix",
     'higher-education-establishment-registration':
