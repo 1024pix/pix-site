@@ -1,3 +1,6 @@
+export const fallbackDescription =
+  'Pix est le service public en ligne pour évaluer, développer et certifier ses compétences numériques tout au long de la vie.'
+
 export default function getMeta(meta, currentPagePath, prismic) {
   function getTwitterCard() {
     const twitterMeta = meta.find((meta) => meta.slice_type === 'twitter_card')
@@ -39,7 +42,8 @@ export default function getMeta(meta, currentPagePath, prismic) {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: prismic.asText(ogMeta.primary.description),
+        content:
+          prismic.asText(ogMeta.primary.description) || fallbackDescription,
       },
       { hid: 'og:type', property: 'og:type', content: 'article' },
       {
@@ -65,7 +69,9 @@ export default function getMeta(meta, currentPagePath, prismic) {
       {
         hid: 'description',
         name: 'description',
-        content: prismic.asText(generalCard.primary.description),
+        content:
+          prismic.asText(generalCard.primary.description) ||
+          fallbackDescription,
       },
     ]
   }

@@ -1,13 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Index Page get the corrects meta 1`] = `
-VueWrapper {
-  "_emitted": Object {},
-  "_emittedByOrder": Array [],
-  "isFunctionalComponent": undefined,
-}
-`;
-
 exports[`Index Page renders properly 1`] = `
 "<div class=\\"index\\">
   <slice-zone-stub slices=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></slice-zone-stub>

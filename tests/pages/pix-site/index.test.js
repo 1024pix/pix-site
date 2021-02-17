@@ -1,7 +1,7 @@
 import VueMeta from 'vue-meta'
 import { getInitialised, createLocalVue } from './utils'
 import { documentFetcher } from '~/services/document-fetcher'
-import getMeta from '~/services/meta-builder'
+import getMeta, { fallbackDescription } from '~/services/meta-builder'
 
 const localVue = createLocalVue()
 localVue.prototype.$getMeta = getMeta
@@ -63,14 +63,28 @@ describe('Index Page', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  test('get correct title info', () => {
+  test('gets the correct title', () => {
     expect(wrapper.vm.$metaInfo.title).toBe(`${PRISMIC_TITLE} | Pix`)
     expect(wrapper.vm.$data.title).toBe(PRISMIC_TITLE)
   })
 
-  test('get the corrects meta', () => {
+  test('gets the correct meta description from Prismic', () => {
     expect(findMetaContent('og:description')).toBe(PRISMIC_META)
     expect(findMetaContent('description')).toBe(PRISMIC_META)
+  })
+
+  test('uses the fallback meta description when not filled in Prismic', async () => {
+    wrapper = await getInitialised('index', {
+      localVue,
+      computed: {
+        $prismic() {
+          return { asText: () => '' }
+        },
+      },
+    })
+
+    expect(findMetaContent('og:description')).toBe(fallbackDescription)
+    expect(findMetaContent('description')).toBe(fallbackDescription)
   })
 
   function findMetaContent(hid) {
