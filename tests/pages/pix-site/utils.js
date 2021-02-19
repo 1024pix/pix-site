@@ -1,4 +1,7 @@
-import { shallowMount } from '@vue/test-utils'
+import {
+  shallowMount,
+  createLocalVue as createLocalVueTest,
+} from '@vue/test-utils'
 
 /**
  * This is needed to manage the asyncData() from vuepages
@@ -38,4 +41,8 @@ export function emptyPrismicDocument() {
     primary: { title: '' },
     items: [{}],
   }
+}
+
+export function createLocalVue() {
+  return createLocalVueTest()
 }

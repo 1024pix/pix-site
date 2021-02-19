@@ -1,8 +1,11 @@
+export const fallbackDescription =
+  'Pix est le service public en ligne pour évaluer, développer et certifier ses compétences numériques tout au long de la vie.'
+
 export default function getMeta(meta, currentPagePath, prismic) {
   function getTwitterCard() {
     const twitterMeta = meta.find((meta) => meta.slice_type === 'twitter_card')
     if (!twitterMeta) {
-      return {}
+      return []
     }
     return [
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary' },
@@ -24,10 +27,11 @@ export default function getMeta(meta, currentPagePath, prismic) {
       },
     ]
   }
+
   function getOgCard() {
     const ogMeta = meta.find((meta) => meta.slice_type === 'general_card')
     if (!ogMeta) {
-      return {}
+      return []
     }
     return [
       {
@@ -38,7 +42,8 @@ export default function getMeta(meta, currentPagePath, prismic) {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: prismic.asText(ogMeta.primary.description),
+        content:
+          prismic.asText(ogMeta.primary.description) || fallbackDescription,
       },
       { hid: 'og:type', property: 'og:type', content: 'article' },
       {
@@ -55,14 +60,28 @@ export default function getMeta(meta, currentPagePath, prismic) {
     ]
   }
 
+  function getGeneralMeta() {
+    const generalCard = meta.find((meta) => meta.slice_type === 'general_card')
+    if (!generalCard) {
+      return []
+    }
+    return [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          prismic.asText(generalCard.primary.description) ||
+          fallbackDescription,
+      },
+    ]
+  }
+
   if (!meta) {
     return []
   }
   const twitterCard = getTwitterCard()
   const ogCard = getOgCard()
+  const generalMeta = getGeneralMeta()
 
-  if (twitterCard.length && ogCard.length) {
-    return [...twitterCard, ...ogCard]
-  }
-  return []
+  return [...twitterCard, ...ogCard, ...generalMeta]
 }
