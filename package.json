@@ -73,7 +73,7 @@
     "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.1",
-    "sass-loader": "^10.1.0",
+    "sass-loader": "^10.1.1",
     "vue-jest": "^3.0.7"
   },
   "engines": {
