@@ -39,7 +39,7 @@
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/prismic": "^1.2.4",
     "chart.js": "^2.9.4",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "nuxt": "^2.15.1",
     "nuxt-fontawesome": "0.4.0",
     "nuxt-i18n": "^6.20.2",
