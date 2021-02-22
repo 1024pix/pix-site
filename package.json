@@ -43,7 +43,7 @@
     "nuxt": "^2.15.1",
     "nuxt-fontawesome": "0.4.0",
     "nuxt-i18n": "^6.20.2",
-    "nuxt-matomo": "1.2.3",
+    "nuxt-matomo": "^1.2.4",
     "nuxt-winston-log": "^1.2.0",
     "postcss-cli": "^8.3.0",
     "vue-burger-menu": "2.0.5",
