@@ -11,7 +11,9 @@
       :aria-expanded="showMenu.toString()"
       @click="toggleMenu()"
       @click.stop.prevent
-    ></button>
+    >
+      {{ currentLanguage.name }}
+    </button>
     <ul v-if="showMenu" class="language-switcher__dropdown-menu">
       <li v-for="option in languageLocales" :key="option.key">
         <span
@@ -114,18 +116,23 @@ export default {
   }
   &__button {
     background: none;
+    font-family: $font-roboto;
+    font-size: 0.9rem;
+    font-weight: $font-medium;
+    color: $grey-50;
+    letter-spacing: 0.13px;
+    line-height: 22px;
     border: none;
-    font: inherit;
     outline: inherit;
-    width: 1.5rem;
     height: 1.5rem;
     background-size: 1.5rem;
-    padding: 4px 3px 0 3px;
+    padding: 4px 3px 0 30px;
     cursor: pointer;
     background-image: url('/images/globe.svg');
     background-repeat: no-repeat;
     &:hover,
     &:focus {
+      color: $blue;
       background-image: url('/images/globe-blue.svg');
     }
   }
@@ -135,7 +142,7 @@ export default {
     float: left;
     min-width: 100px;
     padding: 5px 0;
-    margin: 35px 0 0 -30px;
+    margin: 35px 0 0 0px;
 
     list-style: none;
     font-size: 14px;
