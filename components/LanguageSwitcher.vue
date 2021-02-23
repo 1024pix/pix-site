@@ -13,6 +13,8 @@
       @click.stop.prevent
     >
       {{ currentLanguage.name }}
+      <fa v-if="showMenu" icon="angle-up" />
+      <fa v-else icon="angle-down" />
     </button>
     <ul v-if="showMenu" class="language-switcher__dropdown-menu">
       <li v-for="option in languageLocales" :key="option.key">
