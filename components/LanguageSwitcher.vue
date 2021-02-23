@@ -142,13 +142,13 @@ export default {
     position: absolute;
     z-index: 5;
     float: left;
-    min-width: 100px;
+    min-width: 120px;
     padding: 5px 0;
     margin: 35px 0 0 0px;
 
     list-style: none;
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     background-color: $white;
     border: 1px solid $grey-20;
     border-radius: 4px;
@@ -161,7 +161,7 @@ export default {
       width: 100%;
       position: relative;
       margin: 0;
-      padding: 5px 0;
+      padding: 5px 0 5px 10px;
       &::before {
         content: '';
         margin: 0;
