@@ -12,7 +12,7 @@ describe('Component: PixImage', () => {
   })
 
   describe('Computed Property : Image', () => {
-    it('should return the same image object if there is an alt', () => {
+    it('should return the same image object if there is an alt', async () => {
       // Given
       const imageWithAlt = {
         alt: 'Alternative Message',
@@ -25,13 +25,13 @@ describe('Component: PixImage', () => {
       }
 
       // When
-      component.setProps({ field: imageWithAlt })
+      await component.setProps({ field: imageWithAlt })
 
       // Then
       expect(component.vm.image).toEqual(imageWithAlt)
     })
 
-    it('should return the image object with empty alt and role when there is not alt', () => {
+    it('should return the image object with empty alt and role when there is not alt', async () => {
       // Given
       const imageWithoutAlt = {
         alt: null,
@@ -47,7 +47,7 @@ describe('Component: PixImage', () => {
       expectedImage.role = 'presentation'
 
       // When
-      component.setProps({ field: imageWithoutAlt })
+      await component.setProps({ field: imageWithoutAlt })
 
       // Then
       expect(component.vm.image).toEqual(expectedImage)
