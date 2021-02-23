@@ -20,7 +20,7 @@
       <li v-for="option in languageLocales" :key="option.key">
         <span
           v-if="option === currentLanguage"
-          class="language-switcher__lang--active"
+          class="language-switcher__lang language-switcher__lang--active"
           >{{ option.name }}</span
         >
         <span v-else class="language-switcher__lang">
@@ -119,16 +119,16 @@ export default {
   &__button {
     background: none;
     font-family: $font-roboto;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: $font-medium;
     color: $grey-50;
-    letter-spacing: 0.13px;
-    line-height: 22px;
+    letter-spacing: 0.008rem;
+    line-height: 1.375rem;
     border: none;
     outline: inherit;
     height: 1.5rem;
     background-size: 1.5rem;
-    padding: 4px 3px 0 30px;
+    padding: 2px 3px 0 30px;
     cursor: pointer;
     background-image: url('/images/globe.svg');
     background-repeat: no-repeat;
@@ -144,7 +144,7 @@ export default {
     float: left;
     min-width: 120px;
     padding: 5px 0;
-    margin: 35px 0 0 0px;
+    margin: 35px 0 0 0;
 
     list-style: none;
     font-size: 14px;
@@ -183,15 +183,23 @@ export default {
       border-bottom: 1px solid $grey-20;
     }
   }
-  &__lang a {
-    color: $grey-200;
+  &__lang {
+    a {
+      font-family: $font-roboto;
+      font-size: 0.9rem;
+      font-weight: $font-medium;
+      letter-spacing: 0.008rem;
+      line-height: 1.375rem;
+      color: $grey-50;
 
-    &:focus,
-    &:hover {
-      color: $blue-hover;
+      &:focus,
+      &:hover {
+        color: $blue-hover;
+      }
     }
+
     &--active {
-      color: $grey-40;
+      color: $grey-30;
     }
   }
   &-text__lang a {
