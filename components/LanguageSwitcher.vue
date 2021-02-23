@@ -11,12 +11,16 @@
       :aria-expanded="showMenu.toString()"
       @click="toggleMenu()"
       @click.stop.prevent
-    ></button>
+    >
+      {{ currentLanguage.name }}
+      <fa v-if="showMenu" icon="angle-up" />
+      <fa v-else icon="angle-down" />
+    </button>
     <ul v-if="showMenu" class="language-switcher__dropdown-menu">
       <li v-for="option in languageLocales" :key="option.key">
         <span
           v-if="option === currentLanguage"
-          class="language-switcher__lang--active"
+          class="language-switcher__lang language-switcher__lang--active"
           >{{ option.name }}</span
         >
         <span v-else class="language-switcher__lang">
@@ -114,18 +118,23 @@ export default {
   }
   &__button {
     background: none;
+    font-family: $font-roboto;
+    font-size: 0.875rem;
+    font-weight: $font-medium;
+    color: $grey-50;
+    letter-spacing: 0.008rem;
+    line-height: 1.375rem;
     border: none;
-    font: inherit;
     outline: inherit;
-    width: 1.5rem;
     height: 1.5rem;
     background-size: 1.5rem;
-    padding: 4px 3px 0 3px;
+    padding: 2px 3px 0 30px;
     cursor: pointer;
     background-image: url('/images/globe.svg');
     background-repeat: no-repeat;
     &:hover,
     &:focus {
+      color: $blue;
       background-image: url('/images/globe-blue.svg');
     }
   }
@@ -133,13 +142,13 @@ export default {
     position: absolute;
     z-index: 5;
     float: left;
-    min-width: 100px;
+    min-width: 120px;
     padding: 5px 0;
-    margin: 35px 0 0 -30px;
+    margin: 35px 0 0 0;
 
     list-style: none;
     font-size: 14px;
-    text-align: center;
+    text-align: left;
     background-color: $white;
     border: 1px solid $grey-20;
     border-radius: 4px;
@@ -152,7 +161,7 @@ export default {
       width: 100%;
       position: relative;
       margin: 0;
-      padding: 5px 0;
+      padding: 5px 0 5px 10px;
       &::before {
         content: '';
         margin: 0;
@@ -174,15 +183,23 @@ export default {
       border-bottom: 1px solid $grey-20;
     }
   }
-  &__lang a {
-    color: $grey-200;
+  &__lang {
+    a {
+      font-family: $font-roboto;
+      font-size: 0.9rem;
+      font-weight: $font-medium;
+      letter-spacing: 0.008rem;
+      line-height: 1.375rem;
+      color: $grey-50;
 
-    &:focus,
-    &:hover {
-      color: $blue-hover;
+      &:focus,
+      &:hover {
+        color: $blue-hover;
+      }
     }
+
     &--active {
-      color: $grey-40;
+      color: $grey-30;
     }
   }
   &-text__lang a {
