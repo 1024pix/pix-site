@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v3.6.0 (25/02/2021)
+
+- [#243](https://github.com/1024pix/pix-site/pull/243) [FEATURE] Changement de design du language switcher (PIX-2216).
+- [#240](https://github.com/1024pix/pix-site/pull/240) [FEATURE] Récupérer les meta descriptions depuis prismic.
+- [#239](https://github.com/1024pix/pix-site/pull/239) [FEATURE] Affichage du changement de langue sur pix.org (PIX-1601).
+- [#242](https://github.com/1024pix/pix-site/pull/242) [TECH] Bumper les paquets (PIX-2215).
+- [#245](https://github.com/1024pix/pix-site/pull/245) [TECH] Ajouter le workflow d'automatisation des merges.
+- [#244](https://github.com/1024pix/pix-site/pull/244) [FIX] Désactiver l'extraction des images pour qu'elles s'affichent sur les site .org
+- [#241](https://github.com/1024pix/pix-site/pull/241) [BUILD] Add build module to extract assets (images, videos, pdf) in final bundle
+
 ## v3.5.0 (26/01/2021)
 
 - [#238](https://github.com/1024pix/pix-site/pull/238) [BUGFIX] Rendre visible le burger menu en cas de message (PIX-1960).
