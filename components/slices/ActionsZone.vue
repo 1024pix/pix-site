@@ -36,35 +36,36 @@ export default {
 
 <style scoped lang="scss">
 .actions-zone {
-  display: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
   margin-left: 22px;
 
-  @include device-is('large-screen') {
-    display: flex;
-    align-items: center;
-    height: 100%;
+  & > div {
+    margin-right: 16px;
+  }
 
-    & > div {
-      margin-right: 16px;
+  &__item {
+    font-size: 0.875rem;
+    color: $grey-50;
+    font-family: $font-roboto;
+    font-weight: $font-medium;
+    letter-spacing: 0.13px;
+    line-height: 22px;
 
-      &:last-of-type {
-        margin-right: 0;
-      }
+    &.link:hover {
+      color: $blue;
     }
 
+    &.button {
+      display: none;
+    }
+  }
+
+  @include device-is('large-screen') {
     &__item {
-      font-size: 0.875rem;
-      color: $grey-50;
-      font-family: $font-roboto;
-      font-weight: $font-medium;
-      letter-spacing: 0.13px;
-      line-height: 22px;
-
-      &.link:hover {
-        color: $blue;
-      }
-
       &.button {
+        display: flex;
         color: $white;
         height: 36px;
       }
