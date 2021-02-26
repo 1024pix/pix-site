@@ -30,7 +30,7 @@
         </span>
       </li>
     </ul>
-    <span class="separator"></span>
+    <span class="separator" />
   </div>
   <div v-else-if="showLanguageDropdown && type === 'only-text'">
     <ul>
