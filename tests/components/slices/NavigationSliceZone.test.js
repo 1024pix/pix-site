@@ -8,7 +8,7 @@ describe('NavigationSliceZone', () => {
   let store
   const stubs = {
     'client-only': true,
-    'push-menu': true,
+    'slide-menu': true,
     'burger-menu-nav': true,
     'organization-nav': true,
     'logos-zone': true,

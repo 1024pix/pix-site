@@ -1,9 +1,9 @@
 <template>
   <div class="navigation-slice-zone">
     <client-only>
-      <push-menu width="230" class="burger-menu">
+      <slide-menu width="230" class="burger-menu">
         <burger-menu-nav :items="burgerMenuLinks" />
-      </push-menu>
+      </slide-menu>
     </client-only>
     <div id="page-wrap">
       <div class="navigation-slice-zone__wrapper">

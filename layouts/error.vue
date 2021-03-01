@@ -8,7 +8,7 @@
       />
     </nuxt-link>
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div v-html="$t('error-content')"></div>
+    <div v-html="$t('error-content')" />
   </div>
 </template>
 <script>
