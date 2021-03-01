@@ -1,6 +1,8 @@
 import { transports } from 'winston'
+import routes from './services/get-routes-to-generate'
 
 export default {
+  generate: { routes },
   target: process.env.SSR_ENABLED === 'true' ? 'server' : 'static',
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
