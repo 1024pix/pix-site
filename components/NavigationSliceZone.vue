@@ -1,7 +1,7 @@
 <template>
   <div class="navigation-slice-zone">
     <client-only>
-      <slide-menu width="230" class="burger-menu">
+      <slide-menu width="320" class="burger-menu">
         <burger-menu-nav :items="burgerMenuLinks" />
       </slide-menu>
     </client-only>

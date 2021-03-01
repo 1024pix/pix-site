@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <div class="nav-top">
-      <ul>
-        <li v-for="item in items" :key="item.id" class="nav-top__link">
-          <pix-link :field="item.link">
-            {{ $prismic.asText(item.name) }}
-          </pix-link>
-        </li>
-      </ul>
-    </div>
+  <div class="nav-top">
+    <ul>
+      <li
+        v-for="item in items"
+        :key="item.id"
+        :class="
+          item.style === 'button' ? 'nav-top__link--login' : 'nav-top__link'
+        "
+      >
+        <pix-link :field="item.link">
+          {{ $prismic.asText(item.name) }}
+        </pix-link>
+      </li>
+    </ul>
     <language-switcher type="only-text" />
   </div>
 </template>
@@ -33,7 +37,7 @@ export default {
 <style lang="scss">
 .navigation-slice-zone {
   .bm-menu {
-    background: $blue-gradient;
+    background: $white;
 
     @include device-is('large-screen') {
       display: none;
@@ -57,7 +61,7 @@ export default {
         font-weight: 600;
         color: $white;
         text-align: left;
-        margin-bottom: 12px;
+        margin-bottom: 24px;
 
         a {
           text-decoration: none;
@@ -65,10 +69,30 @@ export default {
           transition: 0.3s;
           font-size: 1rem;
           line-height: 1.5rem;
-          color: $white;
+          color: $grey-60;
 
           &:hover {
             text-decoration: underline;
+          }
+        }
+
+        a[href*='app.pix'] {
+          color: blue;
+        }
+
+        &--login {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          max-width: 225px;
+          height: 44px;
+          background-color: $blue;
+          border-radius: 4px;
+
+          a {
+            color: $white;
+            font-size: 0.875rem;
+            font-weight: 600;
           }
         }
       }
@@ -76,7 +100,7 @@ export default {
 
     .bm-item-list {
       height: 100%;
-      padding: 0 25px;
+      //padding: 0 25px;
 
       & > * {
         padding: 0;
