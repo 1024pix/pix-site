@@ -1,49 +1,25 @@
 <template>
-  <div class="burger-navigation">
-    <ul>
-      <li
-        v-for="item in items.navigationZone"
-        :key="item.id"
-        class="burger-navigation__link"
-      >
-        <pix-link :field="item.link">
-          {{ $prismic.asText(item.name) }}
-        </pix-link>
-      </li>
-    </ul>
-    <ul>
-      <li
-        v-for="item in items.actionsZone"
-        :key="item.id"
-        class="burger-navigation__link"
-        :class="item === signUpButton ? 'button' : 'login'"
-      >
-        <pix-link :field="item.link">
-          {{ $prismic.asText(item.name) }}
-        </pix-link>
-      </li>
-    </ul>
+  <div class="burger-menu-nav">
+    <burger-menu-nav-items :items="items.navigationZone" />
+    <burger-menu-nav-items :items="items.actionsZone" :is-action="true" />
     <language-switcher type="only-text" />
   </div>
 </template>
 
 <script>
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import BurgerMenuNavItems from '@/components/BurgerMenuNavItems'
 
 export default {
   name: 'BurgerMenuNav',
   components: {
     LanguageSwitcher,
+    BurgerMenuNavItems,
   },
   props: {
     items: {
       type: Object,
       default: null,
-    },
-  },
-  computed: {
-    signUpButton() {
-      return this.items.actionsZone[this.items.actionsZone.length - 1]
     },
   },
 }
@@ -56,65 +32,6 @@ export default {
 
     @include device-is('large-screen') {
       display: none;
-    }
-
-    ul {
-      margin: 24px 0 0 0;
-      padding: 0;
-      list-style: none;
-
-      &:last-child {
-        margin: 0;
-      }
-
-      & > li {
-        padding-left: 0;
-
-        &::before {
-          display: none;
-        }
-      }
-    }
-
-    .burger-navigation {
-      &__link {
-        font-weight: 600;
-        color: $white;
-        text-align: left;
-        margin-bottom: 24px;
-
-        a {
-          text-decoration: none;
-          display: block;
-          transition: 0.3s;
-          font-size: 1rem;
-          line-height: 1.5rem;
-          color: $grey-60;
-
-          &[href*='pro.pix'] {
-            width: 256px;
-            padding-top: 12px;
-            border-top: 1px solid $grey-70;
-          }
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-
-      .login > a {
-        color: blue;
-      }
-
-      .button {
-        width: 225px;
-        margin-left: 0;
-
-        a {
-          color: $white;
-        }
-      }
     }
   }
 
