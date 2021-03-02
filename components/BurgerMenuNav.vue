@@ -1,10 +1,10 @@
 <template>
-  <div class="nav-top">
+  <div class="burger-navigation">
     <ul>
       <li
         v-for="item in items.navigationZone"
         :key="item.id"
-        class="nav-top__link"
+        class="burger-navigation__link"
       >
         <pix-link :field="item.link">
           {{ $prismic.asText(item.name) }}
@@ -15,7 +15,7 @@
       <li
         v-for="item in items.actionsZone"
         :key="item.id"
-        class="nav-top__link"
+        class="burger-navigation__link"
         :class="item === signUpButton ? 'button' : 'login'"
       >
         <pix-link :field="item.link">
@@ -76,7 +76,7 @@ export default {
       }
     }
 
-    .nav-top {
+    .burger-navigation {
       &__link {
         font-weight: 600;
         color: $white;
@@ -91,56 +91,40 @@ export default {
           line-height: 1.5rem;
           color: $grey-60;
 
+          &[href*='pro.pix'] {
+            width: 256px;
+            padding-top: 12px;
+            border-top: 1px solid $grey-70;
+          }
+
           &:hover {
             text-decoration: underline;
           }
         }
+      }
 
-        &--login {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          max-width: 225px;
-          height: 44px;
-          background-color: $blue;
-          border-radius: 4px;
+      .login > a {
+        color: blue;
+      }
 
-          a {
-            color: $white;
-            font-size: 0.875rem;
-            font-weight: 600;
-          }
+      .button {
+        width: 225px;
+        margin-left: 0;
+
+        a {
+          color: $white;
         }
       }
     }
+  }
 
-    .button {
-      width: 225px;
-      margin-left: 0;
+  .bm-item-list {
+    height: 100%;
 
-      a {
-        color: $white;
-      }
-    }
-
-    a[href*='pro.pix'] {
-      width: 256px;
-      padding-top: 12px;
-      border-top: 1px solid $grey-70;
-    }
-
-    .login > a {
-      color: blue;
-    }
-
-    .bm-item-list {
+    & > * {
+      padding: 0;
+      flex-direction: column;
       height: 100%;
-
-      & > * {
-        padding: 0;
-        flex-direction: column;
-        height: 100%;
-      }
     }
   }
 
