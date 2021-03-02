@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.7.0 (02/03/2021)
+
+- [#246](https://github.com/1024pix/pix-site/pull/246) [FEATURE] Générer les pages "orphelines" (PIX-2246).
+- [#247](https://github.com/1024pix/pix-site/pull/247) [FEATURE] Ne plus bouger les icone quand on ouvre le burger menu (PIX-2242).
+- [#248](https://github.com/1024pix/pix-site/pull/248) [DESIGN] Ajouter un arrondi sur les bannières de pages (PIX-2245).
+
 ## v3.6.0 (25/02/2021)
 
 - [#243](https://github.com/1024pix/pix-site/pull/243) [FEATURE] Changement de design du language switcher (PIX-2216).
