@@ -2,11 +2,21 @@
   <div class="nav-top">
     <ul>
       <li
-        v-for="item in items"
+        v-for="item in items.navigationZone"
         :key="item.id"
-        :class="
-          item.style === 'button' ? 'nav-top__link--login' : 'nav-top__link'
-        "
+        class="nav-top__link"
+      >
+        <pix-link :field="item.link">
+          {{ $prismic.asText(item.name) }}
+        </pix-link>
+      </li>
+    </ul>
+    <ul>
+      <li
+        v-for="item in items.actionsZone"
+        :key="item.id"
+        class="nav-top__link"
+        :class="item === signUpButton ? 'button' : 'login'"
       >
         <pix-link :field="item.link">
           {{ $prismic.asText(item.name) }}
@@ -27,8 +37,13 @@ export default {
   },
   props: {
     items: {
-      type: Array,
+      type: Object,
       default: null,
+    },
+  },
+  computed: {
+    signUpButton() {
+      return this.items.actionsZone[this.items.actionsZone.length - 1]
     },
   },
 }
@@ -44,8 +59,13 @@ export default {
     }
 
     ul {
-      padding-left: 0;
+      margin: 24px 0 0 0;
+      padding: 0;
       list-style: none;
+
+      &:last-child {
+        margin: 0;
+      }
 
       & > li {
         padding-left: 0;
@@ -76,10 +96,6 @@ export default {
           }
         }
 
-        a[href*='app.pix'] {
-          color: blue;
-        }
-
         &--login {
           display: flex;
           align-items: center;
@@ -98,9 +114,27 @@ export default {
       }
     }
 
+    .button {
+      width: 225px;
+      margin-left: 0;
+
+      a {
+        color: $white;
+      }
+    }
+
+    a[href*='pro.pix'] {
+      width: 256px;
+      padding-top: 12px;
+      border-top: 1px solid $grey-70;
+    }
+
+    .login > a {
+      color: blue;
+    }
+
     .bm-item-list {
       height: 100%;
-      //padding: 0 25px;
 
       & > * {
         padding: 0;

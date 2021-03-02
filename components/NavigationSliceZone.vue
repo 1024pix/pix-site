@@ -71,7 +71,10 @@ export default {
       const actionsZone = this.usedMainNavigation.data.body.find(
         (slice) => slice.slice_type === 'actions_zone'
       )
-      return [...navigationZone.items, ...actionsZone.items]
+      return {
+        navigationZone: navigationZone.items,
+        actionsZone: actionsZone.items,
+      }
     },
   },
 }
