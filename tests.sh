@@ -32,3 +32,5 @@ checkRedirect pix.fr /help "" 301 https://support.pix.fr/
 checkRedirect pix.fr /employeurs "" 301 https://pro.pix.fr/
 checkRedirect pix.org / "" 301 http://pix.org/fr/
 checkRedirect review.scalingo.io / "review.pix.org" 301 http://review.pix.org/fr/
+checkRedirect pix.org /_assets/ "" 403
+checkRedirect review.scalingo.io /_assets/ "review.pix.org" 403

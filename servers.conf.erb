@@ -32,11 +32,11 @@ server {
   rewrite ^/employeurs$ https://pro.pix.fr permanent;
 
   if ($host ~ \.org) {
-    rewrite ^/(?!fr)(?!en-gb)(?!_nuxt)(?!images) $scheme://$host/fr$request_uri permanent;
+    rewrite ^/(?!fr)(?!en-gb)(?!_nuxt)(?!images)(?!_assets) $scheme://$host/fr$request_uri permanent;
   }
 
   if ($http_x_forwarded_host ~ \.org) {
-    rewrite ^/(?!fr)(?!en-gb)(?!_nuxt)(?!images) $scheme://$http_x_forwarded_host/fr$request_uri permanent;
+    rewrite ^/(?!fr)(?!en-gb)(?!_nuxt)(?!images)(?!_assets) $scheme://$http_x_forwarded_host/fr$request_uri permanent;
   }
 }
 
