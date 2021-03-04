@@ -5,31 +5,29 @@
         <burger-menu-nav :items="burgerMenuLinks" />
       </slide-menu>
     </client-only>
-    <div id="page-wrap">
-      <div class="navigation-slice-zone__content">
-        <div class="navigation-slice-zone-content__left-side">
-          <section
-            v-for="(slice, index) in usedMainNavigation.data.body"
-            :key="`navigation-slice-left-${index}`"
-          >
-            <template v-if="slice.slice_type === 'logos_zone'">
-              <logos-zone :slice="slice" />
-            </template>
-            <template v-if="slice.slice_type === 'navigation_zone'">
-              <navigation-zone :slice="slice" />
-            </template>
-          </section>
-        </div>
+    <div class="navigation-slice-zone__content">
+      <div class="navigation-slice-zone-content__left-side">
         <section
           v-for="(slice, index) in usedMainNavigation.data.body"
-          :key="`navigation-slice-right-${index}`"
-          class="navigation-slice-zone-wrapper__right-side"
+          :key="`navigation-slice-left-${index}`"
         >
-          <template v-if="slice.slice_type === 'actions_zone'">
-            <actions-zone :slice="slice" />
+          <template v-if="slice.slice_type === 'logos_zone'">
+            <logos-zone :slice="slice" />
+          </template>
+          <template v-if="slice.slice_type === 'navigation_zone'">
+            <navigation-zone :slice="slice" />
           </template>
         </section>
       </div>
+      <section
+        v-for="(slice, index) in usedMainNavigation.data.body"
+        :key="`navigation-slice-right-${index}`"
+        class="navigation-slice-zone-content__right-side"
+      >
+        <template v-if="slice.slice_type === 'actions_zone'">
+          <actions-zone :slice="slice" />
+        </template>
+      </section>
     </div>
   </div>
 </template>

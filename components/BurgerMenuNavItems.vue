@@ -40,7 +40,7 @@ export default {
   list-style: none;
 
   &:last-child {
-    margin-top: 8px;
+    margin: 8px 0 0 0;
   }
 
   &__link {
@@ -102,10 +102,6 @@ export default {
         }
       }
     }
-  }
-
-  &:last-child {
-    margin: 0;
   }
 }
 </style>

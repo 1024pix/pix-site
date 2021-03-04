@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
-.navigation-slice-zone {
+.burger-menu {
   .bm-menu {
     background: $white;
 

@@ -50,8 +50,8 @@ export default {
     color: $grey-50;
     font-family: $font-roboto;
     font-weight: $font-medium;
-    letter-spacing: 0.13px;
-    line-height: 22px;
+    letter-spacing: 0.008rem;
+    line-height: 1.375rem;
 
     &.link:hover {
       color: $blue;
