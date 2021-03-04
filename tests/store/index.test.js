@@ -1,4 +1,4 @@
-import { mutations } from '~/store'
+import { mutations, actions } from '~/store'
 
 describe('Store', () => {
   let state
@@ -115,6 +115,27 @@ describe('Store', () => {
         mutations.updateHotNews(state, hotNews)
 
         expect(state).toStrictEqual(expectedState)
+      })
+    })
+  })
+
+  describe('actions', () => {
+    describe('updateMainNavigations', () => {
+      test('test action', async () => {
+        const commit = jest.fn()
+        const i18n = { defaultLocale: 'fr-fr' }
+        const prismic = {
+          api: {
+            query: jest.fn(),
+          },
+          predicates: {
+            at: jest.fn(),
+          },
+        }
+
+        await actions.updateMainNavigations({ commit }, { i18n, prismic })
+
+        expect(commit).toHaveBeenCalledWith('updateMainNavigations')
       })
     })
   })
