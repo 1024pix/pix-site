@@ -1,5 +1,5 @@
 <template>
-  <ul class="burger-menu-nav__items">
+  <ul class="burger-menu-nav-items">
     <li
       v-for="item in items"
       :key="item.id"
@@ -7,7 +7,7 @@
       :class="
         isAction
           ? 'burger-menu-nav-items__link--action'
-          : 'burger-menu-nav-items__link--link'
+          : 'burger-menu-nav-items__link--regular-link'
       "
     >
       <pix-link :field="item.link">
@@ -34,19 +34,15 @@ export default {
 </script>
 
 <style lang="scss">
-.burger-menu-nav {
-  &__items {
-    margin: 24px 0 0 0;
-    padding: 0;
-    list-style: none;
-
-    &:last-child {
-      margin-top: 8px;
-    }
-  }
-}
-
 .burger-menu-nav-items {
+  margin: 24px 0 0 0;
+  padding: 0;
+  list-style: none;
+
+  &:last-child {
+    margin-top: 8px;
+  }
+
   &__link {
     padding-left: 0;
     font-weight: 600;
@@ -70,7 +66,7 @@ export default {
       }
     }
 
-    &--link {
+    &--regular-link {
       &:last-child {
         & > a {
           width: 256px;
