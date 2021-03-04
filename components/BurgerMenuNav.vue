@@ -1,29 +1,24 @@
 <template>
-  <div>
-    <div class="nav-top">
-      <ul>
-        <li v-for="item in items" :key="item.id" class="nav-top__link">
-          <pix-link :field="item.link">
-            {{ $prismic.asText(item.name) }}
-          </pix-link>
-        </li>
-      </ul>
-    </div>
+  <div class="burger-menu-nav">
+    <burger-menu-nav-items :items="items.navigationZone" />
+    <burger-menu-nav-items :items="items.actionsZone" :is-action="true" />
     <language-switcher type="only-text" />
   </div>
 </template>
 
 <script>
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import BurgerMenuNavItems from '@/components/BurgerMenuNavItems'
 
 export default {
   name: 'BurgerMenuNav',
   components: {
     LanguageSwitcher,
+    BurgerMenuNavItems,
   },
   props: {
     items: {
-      type: Array,
+      type: Object,
       default: null,
     },
   },
@@ -31,58 +26,22 @@ export default {
 </script>
 
 <style lang="scss">
-.navigation-slice-zone {
+.burger-menu {
   .bm-menu {
-    background: $blue-gradient;
+    background: $white;
 
     @include device-is('large-screen') {
       display: none;
     }
+  }
 
-    ul {
-      padding-left: 0;
-      list-style: none;
+  .bm-item-list {
+    height: 100%;
 
-      & > li {
-        padding-left: 0;
-
-        &::before {
-          display: none;
-        }
-      }
-    }
-
-    .nav-top {
-      &__link {
-        font-weight: 600;
-        color: $white;
-        text-align: left;
-        margin-bottom: 12px;
-
-        a {
-          text-decoration: none;
-          display: block;
-          transition: 0.3s;
-          font-size: 1rem;
-          line-height: 1.5rem;
-          color: $white;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-
-    .bm-item-list {
+    & > * {
+      padding: 0;
+      flex-direction: column;
       height: 100%;
-      padding: 0 25px;
-
-      & > * {
-        padding: 0;
-        flex-direction: column;
-        height: 100%;
-      }
     }
   }
 

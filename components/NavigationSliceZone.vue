@@ -1,37 +1,33 @@
 <template>
   <div class="navigation-slice-zone">
     <client-only>
-      <slide-menu width="230" class="burger-menu">
+      <slide-menu width="320" class="burger-menu">
         <burger-menu-nav :items="burgerMenuLinks" />
       </slide-menu>
     </client-only>
-    <div id="page-wrap">
-      <div class="navigation-slice-zone__wrapper">
-        <div class="navigation-slice-zone__content">
-          <div class="navigation-slice-zone-content__left-side">
-            <section
-              v-for="(slice, index) in usedMainNavigation.data.body"
-              :key="`navigation-slice-left-${index}`"
-            >
-              <template v-if="slice.slice_type === 'logos_zone'">
-                <logos-zone :slice="slice" />
-              </template>
-              <template v-if="slice.slice_type === 'navigation_zone'">
-                <navigation-zone :slice="slice" />
-              </template>
-            </section>
-          </div>
-          <section
-            v-for="(slice, index) in usedMainNavigation.data.body"
-            :key="`navigation-slice-right-${index}`"
-            class="navigation-slice-zone-wrapper__right-side"
-          >
-            <template v-if="slice.slice_type === 'actions_zone'">
-              <actions-zone :slice="slice" />
-            </template>
-          </section>
-        </div>
+    <div class="navigation-slice-zone__content">
+      <div class="navigation-slice-zone-content__left-side">
+        <section
+          v-for="(slice, index) in usedMainNavigation.data.body"
+          :key="`navigation-slice-left-${index}`"
+        >
+          <template v-if="slice.slice_type === 'logos_zone'">
+            <logos-zone :slice="slice" />
+          </template>
+          <template v-if="slice.slice_type === 'navigation_zone'">
+            <navigation-zone :slice="slice" />
+          </template>
+        </section>
       </div>
+      <section
+        v-for="(slice, index) in usedMainNavigation.data.body"
+        :key="`navigation-slice-right-${index}`"
+        class="navigation-slice-zone-content__right-side"
+      >
+        <template v-if="slice.slice_type === 'actions_zone'">
+          <actions-zone :slice="slice" />
+        </template>
+      </section>
     </div>
   </div>
 </template>
@@ -73,7 +69,10 @@ export default {
       const actionsZone = this.usedMainNavigation.data.body.find(
         (slice) => slice.slice_type === 'actions_zone'
       )
-      return [...navigationZone.items, ...actionsZone.items]
+      return {
+        navigationZone: navigationZone.items,
+        actionsZone: actionsZone.items,
+      }
     },
   },
 }
@@ -87,17 +86,11 @@ export default {
     display: block;
   }
 
-  .navigation-slice-zone__wrapper {
-    display: grid;
-    grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
-    grid-template-rows: auto;
-  }
-
   .navigation-slice-zone__content {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-left: 100px;
     height: 80px;
-    grid-column: 2 / span 12;
   }
 
   @include device-is('large-screen') {
