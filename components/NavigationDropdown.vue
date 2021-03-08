@@ -38,11 +38,10 @@ export default {
   font-size: 0.875rem;
   font-weight: $font-normal;
   position: absolute;
-  left: -50px;
   border-radius: 3px;
   background: $white;
-  margin-top: 29px;
-  min-width: 228px;
+  margin-top: 16px;
+  min-width: 232px;
   z-index: 1;
 
   ul,
