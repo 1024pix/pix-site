@@ -34,9 +34,10 @@ export default {
 .navigation-dropdown {
   box-shadow: 0 24px 32px 0 rgba(0, 0, 0, 0.03),
     0 8px 32px 0 rgba(0, 0, 0, 0.06);
-  color: $grey-50;
+  color: $grey-60;
   font-size: 0.875rem;
-  font-weight: $font-normal;
+  font-weight: $font-medium;
+  letter-spacing: 0.009rem;
   position: absolute;
   border-radius: 3px;
   background: $white;
