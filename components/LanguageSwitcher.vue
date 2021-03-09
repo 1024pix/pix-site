@@ -33,15 +33,21 @@
     <span class="separator" />
   </div>
   <div v-else-if="showLanguageDropdown && type === 'only-text'">
-    <ul>
+    <ul class="language-switcher-burger-menu">
       <li v-for="option in languageLocales" :key="option.key">
         <span
           v-if="option !== currentLanguage"
-          class="language-switcher-text__lang"
+          class="language-switcher-burger-menu__lang"
         >
-          <a :href="'/' + option.lang" @click="update(option)">
+          <a :href="'/' + option.lang">
             {{ option.name }}
           </a>
+        </span>
+        <span
+          v-if="option === currentLanguage"
+          class="language-switcher-burger-menu__lang"
+        >
+          {{ option.name }}
         </span>
       </li>
     </ul>
@@ -108,105 +114,132 @@ export default {
 
 <style lang="scss">
 .language-switcher {
-  display: flex;
+  display: none;
+}
+@include device-is('large-screen') {
+  .language-switcher {
+    display: flex;
 
-  .separator {
-    margin-left: 15px;
-    border-left: 1px solid $grey-20;
-    display: block;
-    height: 1.5rem;
-  }
-  &__button {
-    background: none;
-    font-family: $font-roboto;
-    font-size: 0.875rem;
-    font-weight: $font-medium;
-    color: $grey-50;
-    letter-spacing: 0.008rem;
-    line-height: 1.375rem;
-    border: none;
-    outline: inherit;
-    height: 1.5rem;
-    background-size: 1.5rem;
-    padding: 2px 3px 0 30px;
-    cursor: pointer;
-    background-image: url('/images/globe.svg');
-    background-repeat: no-repeat;
-    &:hover,
-    &:focus {
-      color: $blue;
-      background-image: url('/images/globe-blue.svg');
-    }
-  }
-  &__dropdown-menu {
-    position: absolute;
-    z-index: 5;
-    float: left;
-    min-width: 120px;
-    padding: 5px 0;
-    margin: 35px 0 0 0;
-
-    list-style: none;
-    font-size: 14px;
-    text-align: left;
-    background-color: $white;
-    border: 1px solid $grey-20;
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    background-clip: padding-box;
-
-    & > li {
-      list-style: none;
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-      margin: 0;
-      padding: 5px 0 5px 10px;
-      &::before {
-        content: '';
-        margin: 0;
-      }
-    }
-    & > li > a {
-      padding: 0;
+    .separator {
+      margin-left: 15px;
+      border-left: 1px solid $grey-20;
       display: block;
-      line-height: 1.6rem;
-      color: $grey-20;
-      white-space: nowrap;
-      text-decoration: none;
+      height: 1.5rem;
     }
-    & > li > a:hover {
-      background: $grey-10;
-      color: $blue;
-    }
-    & > li:not(:last-child) {
-      border-bottom: 1px solid $grey-20;
-    }
-  }
-  &__lang {
-    a {
+    &__button {
+      background: none;
       font-family: $font-roboto;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: $font-medium;
+      color: $grey-50;
       letter-spacing: 0.008rem;
       line-height: 1.375rem;
-      color: $grey-50;
-
-      &:focus,
-      &:hover {
-        color: $blue-hover;
+      border: none;
+      outline: inherit;
+      height: 1.5rem;
+      background-size: 1.5rem;
+      padding: 2px 3px 0 30px;
+      cursor: pointer;
+      background-image: url('/images/globe.svg');
+      background-repeat: no-repeat;
+      &:hover,
+      &:focus {
+        color: $blue;
+        background-image: url('/images/globe-blue.svg');
       }
     }
+    &__dropdown-menu {
+      position: absolute;
+      z-index: 5;
+      float: left;
+      min-width: 120px;
+      padding: 5px 0;
+      margin: 35px 0 0 0;
 
-    &--active {
-      color: $grey-30;
+      list-style: none;
+      font-size: 14px;
+      text-align: left;
+      background-color: $white;
+      border: 1px solid $grey-20;
+      border-radius: 4px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+      background-clip: padding-box;
+
+      & > li {
+        list-style: none;
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        padding: 5px 0 5px 10px;
+        &::before {
+          content: '';
+          margin: 0;
+        }
+      }
+      & > li > a {
+        padding: 0;
+        display: block;
+        line-height: 1.6rem;
+        color: $grey-20;
+        white-space: nowrap;
+        text-decoration: none;
+      }
+      & > li > a:hover {
+        background: $grey-10;
+        color: $blue;
+      }
+      & > li:not(:last-child) {
+        border-bottom: 1px solid $grey-20;
+      }
+    }
+    &__lang {
+      a {
+        font-family: $font-roboto;
+        font-size: 0.9rem;
+        font-weight: $font-medium;
+        letter-spacing: 0.008rem;
+        line-height: 1.375rem;
+        color: $grey-50;
+
+        &:focus,
+        &:hover {
+          color: $blue-hover;
+        }
+      }
+
+      &--active {
+        color: $grey-30;
+      }
     }
   }
-  &-text__lang a {
-    color: $white;
+}
 
+.language-switcher-burger-menu {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: $grey-30;
+  list-style: none;
+  ul {
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  li::before {
+    content: '';
+    margin: 0;
+  }
+
+  &__lang a {
+    color: $grey-80;
+    &:visited,
+    &:active,
     &:focus,
     &:hover {
+      color: $grey-80;
       text-decoration: underline;
     }
   }
