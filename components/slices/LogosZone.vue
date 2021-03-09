@@ -52,7 +52,7 @@ export default {
   }
 
   @include device-is('large-screen') {
-    margin-right: 64px;
+    margin-right: 40px;
   }
 }
 </style>
