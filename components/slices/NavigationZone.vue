@@ -1,6 +1,10 @@
 <template>
   <div class="navigation-zone">
-    <div v-for="(menuItem, index) in navigationLinks" :key="`item-${index}`">
+    <div
+      v-for="(menuItem, index) in navigationLinks"
+      :key="`item-${index}`"
+      class="navigation-zone-block"
+    >
       <pix-link
         v-if="!menuItem.hasOwnProperty('subNavigationLinks')"
         :field="menuItem.link"
@@ -123,6 +127,10 @@ class Navigation {
 .navigation-zone {
   display: none;
 
+  .navigation-zone-block:last-child {
+    border-left: 1px solid $grey-20;
+  }
+
   & > div {
     position: relative;
   }
@@ -143,7 +151,6 @@ class Navigation {
       padding: 0 10px 10px 10px;
       cursor: pointer;
       white-space: nowrap;
-
       &.current-active-link {
         border-bottom: 2px solid $blue;
       }
@@ -154,10 +161,7 @@ class Navigation {
       }
 
       &.links-group {
-        border-left: 1px solid $grey-20;
-        border-right: 1px solid $grey-20;
-        border-top: none;
-        border-bottom: none;
+        border: none;
         background-color: transparent;
       }
     }
