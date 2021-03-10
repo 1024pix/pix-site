@@ -100,6 +100,7 @@ export default {
 
     .navigation-slice-zone__content {
       justify-content: space-between;
+      margin: 0 4vw;
     }
 
     .navigation-slice-zone-content {
