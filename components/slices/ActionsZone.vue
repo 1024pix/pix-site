@@ -39,9 +39,9 @@ export default {
   display: flex;
   align-items: center;
   height: 100%;
-  margin-left: 22px;
+  margin-left: 5px;
 
-  & > div {
+  & > div:not(:last-child) {
     margin-right: 16px;
   }
 

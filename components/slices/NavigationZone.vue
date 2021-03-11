@@ -148,7 +148,7 @@ class Navigation {
       height: 22px;
       letter-spacing: 0.13px;
       line-height: 22px;
-      padding: 0 10px 10px 10px;
+      padding: 0 8px 10px 8px;
       cursor: pointer;
       white-space: nowrap;
       &.current-active-link {
