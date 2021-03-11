@@ -1,5 +1,17 @@
 # pix-site Changelog
 
+## v3.8.0 (11/03/2021)
+
+- [#258](https://github.com/1024pix/pix-site/pull/258) [FEATURE] Modifier les margins et paddings pour pouvoir mieux agrandir le menu (PIX-2347).
+- [#249](https://github.com/1024pix/pix-site/pull/249) [FEATURE] Redesign du menu burger (PIX-2257).
+- [#255](https://github.com/1024pix/pix-site/pull/255) [BUGFIX] Corriger l'affichage du language switcher (PIX-2317).
+- [#254](https://github.com/1024pix/pix-site/pull/254) [TECH] Mise a jour de Node 14.15.0 vers 14.16.0.
+- [#257](https://github.com/1024pix/pix-site/pull/257) [DESIGN] Modification des barres verticales sur le menu (PIX-2232).
+- [#256](https://github.com/1024pix/pix-site/pull/256) [DESIGN] Changer la marge au niveau des logo (PIX-2236).
+- [#253](https://github.com/1024pix/pix-site/pull/253) [DESIGN] Changer les specs de la font du drop-down (PIX-2239)
+- [#252](https://github.com/1024pix/pix-site/pull/252) [DESIGN] Changer la position du drop-down ouvert (PIX-2240).
+- [#250](https://github.com/1024pix/pix-site/pull/250) Activer l'asset-extractor et corriger l'affichage d'image sur pix.org
+
 ## v3.7.0 (02/03/2021)
 
 - [#246](https://github.com/1024pix/pix-site/pull/246) [FEATURE] Générer les pages "orphelines" (PIX-2246).
