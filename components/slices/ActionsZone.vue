@@ -47,7 +47,7 @@ export default {
 
   &__item {
     font-size: 0.875rem;
-    color: $grey-50;
+    color: $grey-60;
     font-family: $font-roboto;
     font-weight: $font-medium;
     letter-spacing: 0.008rem;

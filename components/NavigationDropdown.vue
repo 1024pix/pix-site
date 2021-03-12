@@ -68,12 +68,12 @@ export default {
   }
 
   a {
-    color: $grey-50;
+    color: $grey-60;
     &:hover {
       color: $blue;
     }
     &:visited {
-      color: $grey-50;
+      color: $grey-60;
       &:hover {
         color: $blue;
       }

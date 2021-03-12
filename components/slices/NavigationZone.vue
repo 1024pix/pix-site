@@ -141,7 +141,7 @@ class Navigation {
     height: 100%;
 
     &__item {
-      color: $grey-50;
+      color: $grey-60;
       font-family: $font-roboto;
       font-size: 14px;
       font-weight: $font-medium;
