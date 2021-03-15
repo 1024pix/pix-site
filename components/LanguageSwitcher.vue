@@ -131,7 +131,7 @@ export default {
       font-family: $font-roboto;
       font-size: 0.875rem;
       font-weight: $font-medium;
-      color: $grey-50;
+      color: $grey-60;
       letter-spacing: 0.008rem;
       line-height: 1.375rem;
       border: none;
@@ -200,7 +200,7 @@ export default {
         font-weight: $font-medium;
         letter-spacing: 0.008rem;
         line-height: 1.375rem;
-        color: $grey-50;
+        color: $grey-60;
 
         &:focus,
         &:hover {
