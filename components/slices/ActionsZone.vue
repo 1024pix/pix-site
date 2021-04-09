@@ -1,5 +1,5 @@
 <template>
-  <div class="actions-zone">
+  <nav class="actions-zone">
     <language-switcher type="with-dropdown" />
 
     <div v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
@@ -14,7 +14,7 @@
         {{ $prismic.asText(menuItem.name) }}
       </pix-link>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>

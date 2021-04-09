@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation-zone">
+  <nav class="navigation-zone">
     <div
       v-for="(menuItem, index) in navigationLinks"
       :key="`item-${index}`"
@@ -32,7 +32,7 @@
         </navigation-dropdown>
       </div>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>

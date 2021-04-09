@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation-slice-zone">
+  <header class="navigation-slice-zone">
     <client-only>
       <slide-menu width="320" class="burger-menu">
         <burger-menu-nav :items="burgerMenuLinks" />
@@ -29,7 +29,7 @@
         </template>
       </section>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
