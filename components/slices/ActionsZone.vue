@@ -7,7 +7,7 @@
           :field="menuItem.link"
           class="actions-zone__item"
           :class="{
-            button: menuItem.style === 'button',
+            'button button--with-border-focus': menuItem.style === 'button',
             link: menuItem.style === 'link',
           }"
         >
