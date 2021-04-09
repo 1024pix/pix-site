@@ -13,19 +13,21 @@
           class="footer-left__description"
           :field="slice.primary.text"
         />
-        <div
+        <ul
           v-if="slice.slice_type === 'social_media'"
           class="footer-left__social-media"
         >
-          <pix-link
-            v-for="(socialMedia, socialMediaIndex) in slice.items"
-            :key="`socialMedia-${socialMediaIndex}`"
-            :field="socialMedia.socialmedia_url"
-            class="footer-social-media__icon"
-          >
-            <pix-image :field="socialMedia.socialmedia_image" />
-          </pix-link>
-        </div>
+          <li>
+            <pix-link
+              v-for="(socialMedia, socialMediaIndex) in slice.items"
+              :key="`socialMedia-${socialMediaIndex}`"
+              :field="socialMedia.socialmedia_url"
+              class="footer-social-media__icon"
+            >
+              <pix-image :field="socialMedia.socialmedia_image" />
+            </pix-link>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="footer__right">
@@ -97,7 +99,19 @@ export default {
       }
     }
   }
-
+  &__social-media {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    li::before {
+      content: none;
+    }
+    li {
+      align-self: center;
+      display: inline;
+      padding: 0;
+    }
+  }
   &__description {
     font-size: 0.875rem;
     margin: 0 0 24px 0;
