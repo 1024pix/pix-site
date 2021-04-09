@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.8.1 (09/04/2021)
+
+- [#259](https://github.com/1024pix/pix-site/pull/259) [FEATURE] Changement de couleur des labels de navigation (PIX-2233).
+
 ## v3.8.0 (11/03/2021)
 
 - [#258](https://github.com/1024pix/pix-site/pull/258) [FEATURE] Modifier les margins et paddings pour pouvoir mieux agrandir le menu (PIX-2347).
