@@ -8,7 +8,7 @@
     <div class="navigation-slice-zone__content">
       <div class="navigation-slice-zone-content__left-side">
         <section
-          v-for="(slice, index) in usedMainNavigation.data.body"
+          v-for="(slice, index) in leftNavigation"
           :key="`navigation-slice-left-${index}`"
         >
           <template v-if="slice.slice_type === 'logos_zone'">
@@ -20,7 +20,7 @@
         </section>
       </div>
       <section
-        v-for="(slice, index) in usedMainNavigation.data.body"
+        v-for="(slice, index) in rightNavigation"
         :key="`navigation-slice-right-${index}`"
         class="navigation-slice-zone-content__right-side"
       >
@@ -60,6 +60,20 @@ export default {
         return groupBySite['pix-pro'][0]
       }
       return groupBySite['pix-site'][0]
+    },
+
+    leftNavigation() {
+      const headerBlocks = this.usedMainNavigation.data.body
+      return headerBlocks.filter(
+        (block) =>
+          block.slice_type === 'logos_zone' ||
+          block.slice_type === 'navigation_zone'
+      )
+    },
+
+    rightNavigation() {
+      const headerBlocks = this.usedMainNavigation.data.body
+      return headerBlocks.filter((block) => block.slice_type === 'actions_zone')
     },
 
     burgerMenuLinks() {
