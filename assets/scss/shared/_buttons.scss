@@ -3,7 +3,7 @@
   border-color: $borderColor;
   background-color: $bgColor;
 
-  &:hover {
+  &:hover, &:focus {
     cursor: pointer;
     background-color: $hoverBgColor;
     color: $hoverFontColor !important;
@@ -31,6 +31,13 @@
   &.button-video {
     @include colorizeButton($grey-80, $grey-80, $white, $grey-20, $grey-80);
     svg { margin-right: 10px; }
+  }
+
+  &--with-border-focus {
+    &:hover, &:focus {
+      border: 1.5px solid white;
+      box-shadow: 0 0 0 2px $blue-hover;
+    }
   }
 
   &--oval {

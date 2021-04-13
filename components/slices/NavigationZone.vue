@@ -1,38 +1,40 @@
 <template>
-  <div class="navigation-zone">
-    <div
-      v-for="(menuItem, index) in navigationLinks"
-      :key="`item-${index}`"
-      class="navigation-zone-block"
-    >
-      <pix-link
-        v-if="!menuItem.hasOwnProperty('subNavigationLinks')"
-        :field="menuItem.link"
-        class="navigation-zone__item"
+  <nav class="navigation-zone">
+    <ul>
+      <li
+        v-for="(menuItem, index) in navigationLinks"
+        :key="`item-${index}`"
+        class="navigation-zone-block"
       >
-        {{ $prismic.asText(menuItem.name) }}
-      </pix-link>
-      <div v-else>
-        <button
-          :dropdown-index="`${index}`"
-          class="dropdown-toggle navigation-zone__item links-group"
-          @click="toggleDropdown(`${index}`)"
-          @click.stop.prevent
+        <pix-link
+          v-if="!menuItem.hasOwnProperty('subNavigationLinks')"
+          :field="menuItem.link"
+          class="navigation-zone__item"
         >
-          {{ menuItem.name }}
-          <fa v-if="isOpenDropdown(`${index}`)" icon="angle-up" />
-          <fa v-else icon="angle-down" />
-        </button>
-        <navigation-dropdown
-          v-show="isOpenDropdown(`${index}`)"
-          type="button"
-          :options="menuItem.subNavigationLinks"
-          :dropdown-index="`${index}`"
-        >
-        </navigation-dropdown>
-      </div>
-    </div>
-  </div>
+          {{ $prismic.asText(menuItem.name) }}
+        </pix-link>
+        <div v-else>
+          <button
+            :dropdown-index="`${index}`"
+            class="dropdown-toggle navigation-zone__item links-group"
+            @click="toggleDropdown(`${index}`)"
+            @click.stop.prevent
+          >
+            {{ menuItem.name }}
+            <fa v-if="isOpenDropdown(`${index}`)" icon="angle-up" />
+            <fa v-else icon="angle-down" />
+          </button>
+          <navigation-dropdown
+            v-show="isOpenDropdown(`${index}`)"
+            type="button"
+            :options="menuItem.subNavigationLinks"
+            :dropdown-index="`${index}`"
+          >
+          </navigation-dropdown>
+        </div>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -126,6 +128,20 @@ class Navigation {
 <style scoped lang="scss">
 .navigation-zone {
   display: none;
+
+  ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    li::before {
+      content: none;
+    }
+    li {
+      align-self: center;
+      display: inline;
+      padding: 0;
+    }
+  }
 
   .navigation-zone-block:last-child {
     border-left: 1px solid $grey-20;

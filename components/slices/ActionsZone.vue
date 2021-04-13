@@ -1,20 +1,21 @@
 <template>
-  <div class="actions-zone">
+  <nav class="actions-zone">
     <language-switcher type="with-dropdown" />
-
-    <div v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
-      <pix-link
-        :field="menuItem.link"
-        class="actions-zone__item"
-        :class="{
-          button: menuItem.style === 'button',
-          link: menuItem.style === 'link',
-        }"
-      >
-        {{ $prismic.asText(menuItem.name) }}
-      </pix-link>
-    </div>
-  </div>
+    <ul>
+      <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
+        <pix-link
+          :field="menuItem.link"
+          class="actions-zone__item"
+          :class="{
+            'button button--with-border-focus': menuItem.style === 'button',
+            link: menuItem.style === 'link',
+          }"
+        >
+          {{ $prismic.asText(menuItem.name) }}
+        </pix-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -40,6 +41,18 @@ export default {
   align-items: center;
   height: 100%;
   margin-left: 5px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    li::before {
+      content: none;
+    }
+    li {
+      align-self: center;
+      display: inline;
+    }
+  }
 
   & > div:not(:last-child) {
     margin-right: 16px;
