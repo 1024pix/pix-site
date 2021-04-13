@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.9.0 (13/04/2021)
+
+- [#260](https://github.com/1024pix/pix-site/pull/260) [CLEANUP] Correctif d'accessibilité (PIX-2459).
+
 ## v3.8.1 (09/04/2021)
 
 - [#259](https://github.com/1024pix/pix-site/pull/259) [FEATURE] Changement de couleur des labels de navigation (PIX-2233).
