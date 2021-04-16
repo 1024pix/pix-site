@@ -15,6 +15,7 @@ async function getRoutesInPage(api, page) {
   const { results, total_pages: totalPages } = await api.query('', {
     pageSize: 100,
     page,
+    lang: '*',
   })
   const uids = _.map(results, 'uid')
   const routes = _.reject(uids, _.isEmpty)

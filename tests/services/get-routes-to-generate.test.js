@@ -17,7 +17,11 @@ describe('#getRoutesToGenerate', () => {
     const result = await getRoutesToGenerate(prismic)
 
     // Then
-    expect(prismicApi.query).toBeCalledWith('', { pageSize: 100, page: 1 })
+    expect(prismicApi.query).toBeCalledWith('', {
+      lang: '*',
+      pageSize: 100,
+      page: 1,
+    })
     expect(result).toEqual(expected)
   })
 
@@ -35,7 +39,11 @@ describe('#getRoutesToGenerate', () => {
     const result = await getRoutesToGenerate(prismic)
 
     // Then
-    expect(prismicApi.query).toBeCalledWith('', { pageSize: 100, page: 1 })
+    expect(prismicApi.query).toBeCalledWith('', {
+      lang: '*',
+      pageSize: 100,
+      page: 1,
+    })
     expect(result).toEqual(expected)
   })
 
@@ -67,8 +75,16 @@ describe('#getRoutesToGenerate', () => {
     const result = await getRoutesToGenerate(prismic)
 
     // Then
-    expect(prismicApi.query).toBeCalledWith('', { pageSize: 100, page: 1 })
-    expect(prismicApi.query).toBeCalledWith('', { pageSize: 100, page: 2 })
+    expect(prismicApi.query).toBeCalledWith('', {
+      lang: '*',
+      pageSize: 100,
+      page: 1,
+    })
+    expect(prismicApi.query).toBeCalledWith('', {
+      lang: '*',
+      pageSize: 100,
+      page: 2,
+    })
     expect(result).toEqual(expected)
   })
 })
