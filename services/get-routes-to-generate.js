@@ -16,7 +16,7 @@ async function getRoutesInPage(api, page) {
     {
       pageSize: 100,
       page,
-      lang: '*',
+      lang: process.env.SITE === 'pix-site' ? '*' : 'fr-fr',
     }
   )
 
