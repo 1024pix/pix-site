@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.10.0 (21/04/2021)
+
+- [#261](https://github.com/1024pix/pix-site/pull/261) [BUGFIX] Accéder aux pages orphelines (PIX-2487).
+- [#262](https://github.com/1024pix/pix-site/pull/262) [TECH] Faire échouer le build quand la génération d'une page statique est en erreur
+
 ## v3.9.0 (13/04/2021)
 
 - [#260](https://github.com/1024pix/pix-site/pull/260) [CLEANUP] Correctif d'accessibilité (PIX-2459).
