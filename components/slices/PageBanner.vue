@@ -72,7 +72,7 @@ export default {
           background: `no-repeat url(${this.slice.primary.banner_background.url})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top right',
-          'clip-path': 'ellipse(110% 50% at 50% 40%)',
+          'clip-path': 'ellipse(110% 55% at 50% 40%)',
         }
       }
       style.backgroundColor = this.slice.primary.banner_background_color
