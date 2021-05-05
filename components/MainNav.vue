@@ -11,7 +11,7 @@
         'regular',
         { 'text-black': index < mainNavItems.length - 1 },
         { 'link-separator-left': index === mainNavItems.length - 3 },
-        { 'button button--oval btn-nav': index === mainNavItems.length - 1 },
+        { 'button btn-nav': index === mainNavItems.length - 1 },
       ]"
     >
       {{ $prismic.asText(item.primary.title) }}

@@ -1,9 +1,7 @@
 <template>
-  <div class="cta-button">
-    <pix-link :field="link">
-      {{ name }}
-    </pix-link>
-  </div>
+  <pix-link :field="link" class="cta-button">
+    {{ name }}
+  </pix-link>
 </template>
 
 <script>
@@ -27,23 +25,24 @@ export default {
   width: fit-content;
   background: $blue;
   border-radius: 5px;
-  padding: 0 20px;
+  padding: 15px 20px;
   cursor: pointer;
+  border: 2px solid transparent;
+  color: $white;
+  line-height: 2.75rem;
+  letter-spacing: 0.03rem;
+  font-weight: $font-semi-bold;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transition: opacity 0.5s ease-out;
     background: $blue-hover;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px $blue-hover;
   }
 
   &:hover:after {
     opacity: 1;
-  }
-
-  & a {
-    color: $white;
-    line-height: 2.75rem;
-    letter-spacing: 0.03rem;
-    font-weight: $font-semi-bold;
   }
 }
 </style>

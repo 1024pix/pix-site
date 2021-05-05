@@ -111,7 +111,6 @@ export default {
 
     font-family: $font-roboto;
     font-size: 1rem;
-    font-family: $font-roboto;
     font-weight: 200;
     line-height: 1.25rem;
     text-align: center;
@@ -127,10 +126,14 @@ export default {
     border-radius: 5px;
     -webkit-backface-visibility: hidden;
     z-index: 1;
+    border: 2px solid transparent;
 
-    &:hover {
-      background-color: $blue-hover;
-      transition: all ease-out 0.25s;
+    &:hover,
+    &:focus {
+      transition: opacity 0.5s ease-out;
+      background: $blue-hover;
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px $blue-hover;
     }
 
     span {
@@ -204,6 +207,7 @@ export default {
     font-family: $font-open-sans;
     font-size: 0.9rem;
     line-height: 1.125rem;
+    background-color: $default-gradient;
     color: $white;
     transition: none;
 
