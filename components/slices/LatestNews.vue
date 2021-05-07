@@ -117,7 +117,6 @@ export default {
 
   &__title h2 {
     color: $grey-90;
-    font-size: 1.75rem;
     font-weight: $font-normal;
     letter-spacing: 0.15px;
     text-align: center;

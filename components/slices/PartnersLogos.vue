@@ -61,7 +61,6 @@ export default {
     color: $grey-90;
     letter-spacing: 0.00938rem;
     text-align: center;
-    font-size: 1.75rem;
     height: 40px;
     line-height: 40px;
     margin-top: 24px;
@@ -116,7 +115,6 @@ export default {
     max-width: 1920px;
 
     &__title h2 {
-      font-size: 2.125rem;
       height: 49px;
       line-height: 49px;
     }
