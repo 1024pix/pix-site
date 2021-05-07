@@ -54,13 +54,15 @@
       font-size: 1rem;
       letter-spacing: 0;
       line-height: 30px;
-      font-weight: 600;
+      font-family: $font-open-sans;
+      font-weight: $font-medium;
       margin-top: 16px;
     }
 
     &__description {
       width: 217px;
       color: $grey-60;
+      font-family: $font-roboto;
       font-size: 0.875rem;
       letter-spacing: 0.15px;
       line-height: 24px;
