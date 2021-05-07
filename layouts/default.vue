@@ -48,7 +48,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Nunito', Arial, sans-serif;
+  font-family: $font-open-sans;
 }
 
 p,
