@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.11.0 (07/05/2021)
+
+- [#263](https://github.com/1024pix/pix-site/pull/263) [TECH] Amélioration du focus des boutons (PIX-2534).
+
 ## v3.10.0 (21/04/2021)
 
 - [#261](https://github.com/1024pix/pix-site/pull/261) [BUGFIX] Accéder aux pages orphelines (PIX-2487).
