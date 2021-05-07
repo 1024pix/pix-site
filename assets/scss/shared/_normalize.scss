@@ -44,8 +44,12 @@ hr {
 
 h2 {
   margin-top: 60px;
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 32px;
+  
+  @include device-is('tablet') {
+    font-size: 2rem;
+  }
 }
 
 h3 {
