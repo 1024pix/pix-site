@@ -1,7 +1,6 @@
 .statistics {
   &__title h2 {
     color: $grey-90;
-    font-size: 1.75rem;
     font-weight: normal;
     letter-spacing: 0.15px;
     line-height: 40px;
@@ -86,11 +85,6 @@
 }
 
 @include device-is('tablet') {
-  .statistics {
-    &__title h2 {
-      font-size: 2rem;
-    }
-  }
   .statistics-wrapper {
     &__row {
       flex-direction: row;

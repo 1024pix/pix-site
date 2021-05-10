@@ -355,7 +355,6 @@ export default {
 
   &__title h2 {
     color: $grey-90;
-    font-size: 2rem;
     font-weight: $font-normal;
     letter-spacing: 0.00875rem;
     line-height: 2.875rem;
