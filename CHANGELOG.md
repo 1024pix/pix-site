@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v3.12.0 (12/05/2021)
+
+- [#266](https://github.com/1024pix/pix-site/pull/266) [FEATURE]  Changer les specs de la font (PIX-2269).
+- [#264](https://github.com/1024pix/pix-site/pull/264) [FEATURE] Changer la taille des titres h2 des slices (PIX-2270).
+- [#265](https://github.com/1024pix/pix-site/pull/265) [FEATURE] Changer la police des titres (PIX-2268).
+- [#267](https://github.com/1024pix/pix-site/pull/267) [BUGFIX] Fix affichage du favicon sur le site .org (PIX-2351).
+- [#269](https://github.com/1024pix/pix-site/pull/269) [TECH] Expliciter les règles utilisées par le hook de merge Github pour agir dans JIRA (PIX-2586).
+- [#268](https://github.com/1024pix/pix-site/pull/268) [TECH] Ajouter le script d'automatisation JIRA post-merge (PIX-2579).
+
 ## v3.11.0 (07/05/2021)
 
 - [#263](https://github.com/1024pix/pix-site/pull/263) [TECH] Amélioration du focus des boutons (PIX-2534).
