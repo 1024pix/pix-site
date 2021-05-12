@@ -23,6 +23,12 @@ jobs:
         uses: atlassian/gajira-find-issue-key@master
         continue-on-error: true
         with:
+          # https://github.com/atlassian/gajira-find-issue-key#usage
+          # Each merge commit contains pull request name, which in turn may contains JIRA ticket name as a suffix in brackets
+          # Eg this merge commit's name is pull request's 268 name, which contains JIRA ticket name PIX-2579
+          # "[TECH] Ajouter le script d'automatisation JIRA post-merge (PIX-2579)."
+          # https://github.com/1024pix/pix-site/commit/ac7e97b795b34cfef7c117cf5b95e48fdb309df5
+          # https://github.com/1024pix/pix-site/pull/268
           from: commits
 
       - name: Transition issue
