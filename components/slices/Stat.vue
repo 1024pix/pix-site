@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import metabaseFetcher from '~/services/metabase-fetcher'
+
 export default {
   name: 'StatSlice',
   props: {
@@ -19,6 +21,22 @@ export default {
       default: 0,
     },
   },
+  data() {
+    return {
+      values: [],
+      labels: [],
+    }
+  },
+  async fetch() {
+    const metabase = await metabaseFetcher()
+    const { values, labels } = await metabase.getCard({
+      cardId: this.content.metabase_card_id,
+      xAxisLabel: this.content.metabase_x_axis_label,
+      yAxisLabel: this.content.metabase_y_axis_label,
+    })
+    this.values = values
+    this.labels = labels
+  },
   computed: {
     content() {
       return this.slice.primary
@@ -26,7 +44,6 @@ export default {
     data() {
       return this.slice.items
     },
-
     chartData() {
       function backgroundColorFrom(color) {
         const hex = color.replace('#', '')
@@ -37,9 +54,10 @@ export default {
         return 'rgba(' + r + ',' + g + ',' + b + ',0.2)'
       }
 
-      const valueData = this.data.map((data) => data.data_value)
-      const labelData = this.data.map((data) => data.data_date)
-      const chartData = {
+      const valueData = this.values
+      const labelData = this.labels
+
+      return {
         datasets: [
           {
             backgroundColor: backgroundColorFrom(
@@ -53,7 +71,6 @@ export default {
         ],
         labels: labelData,
       }
-      return chartData
     },
   },
 }

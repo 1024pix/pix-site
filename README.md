@@ -43,10 +43,30 @@ If not set, applications are built and served as static websites.
 `MATOMO_URL`
 If not present, nuxt-matomo will not be loaded and analytics will not be active
 
-- presence: optionnal
+- presence: optional
 - type: Url
 - default: none
 
+`METABASE_API_URL`
+If not present, Metabase cards will not be loaded.
+
+- presence: optional
+- type: Url
+- default: none
+
+`METABASE_USERNAME`
+If not present, Metabase cards will not be loaded.
+
+- presence: optional
+- type: String
+- default: none
+
+`METABASE_PASSWORD`
+If not present, Metabase cards will not be loaded.
+
+- presence: optional
+- type: String
+- default: none
 
 ## Build Setup pix-site
 
