@@ -34,3 +34,6 @@ checkRedirect pix.org / "" 301 http://pix.org/fr/
 checkRedirect review.scalingo.io / "review.pix.org" 301 http://review.pix.org/fr/
 checkRedirect pix.org /_assets/ "" 403
 checkRedirect review.scalingo.io /_assets/ "review.pix.org" 403
+checkRedirect pix.org /favicon.ico "" 200
+checkRedirect pix.org /favicon.ico "review.pix.org" 200
+
