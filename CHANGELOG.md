@@ -1,5 +1,8 @@
 # pix-site Changelog
 
+## v3.13.0 (20/05/2021)
+
+
 ## v3.12.0 (12/05/2021)
 
 - [#266](https://github.com/1024pix/pix-site/pull/266) [FEATURE]  Changer les specs de la font (PIX-2269).
