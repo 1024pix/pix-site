@@ -7,13 +7,11 @@ export default {
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
     orgDomain: process.env.DOMAIN_ORG || 'pix.org',
+    isPixSite: process.env.SITE === 'pix-site',
+    isPixPro: process.env.SITE === 'pix-pro',
   },
   server: {
     port: process.env.PORT || 5000,
-  },
-  env: {
-    isPixSite: process.env.SITE === 'pix-site',
-    isPixPro: process.env.SITE === 'pix-pro',
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
@@ -90,7 +88,6 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
     ['nuxt-i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
