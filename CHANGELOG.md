@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.13.1 (04/06/2021)
+
+- [#271](https://github.com/1024pix/pix-site/pull/271) [TECH] Lire l'URL Matomo dans l'environnement
+- [#272](https://github.com/1024pix/pix-site/pull/272) Activer ou désactiver les analytics
+
 ## v3.13.0 (20/05/2021)
 
 
