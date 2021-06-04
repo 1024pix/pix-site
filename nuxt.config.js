@@ -1,7 +1,7 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 
-export default {
+const config = {
   generate: { routes },
   target: process.env.SSR_ENABLED === 'true' ? 'server' : 'static',
   publicRuntimeConfig: {
@@ -94,7 +94,6 @@ export default {
     '@nuxtjs/style-resources',
     ['nuxt-i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
-    ['nuxt-matomo', { matomoUrl: process.env.MATOMO_URL, siteId: 1 }],
     [
       'nuxt-fontawesome',
       {
@@ -203,3 +202,12 @@ export default {
     },
   },
 }
+
+if (process.env.MATOMO_URL) {
+  config.modules.push([
+    'nuxt-matomo',
+    { matomoUrl: process.env.MATOMO_URL, siteId: 1 },
+  ])
+}
+
+export default config

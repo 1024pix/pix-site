@@ -40,6 +40,14 @@ If not set, applications are built and served as static websites.
 - type: Boolean
 - default: false
 
+`MATOMO_URL`
+If not present, nuxt-matomo will not be loaded and analytics will not be active
+
+- presence: optionnal
+- type: Url
+- default: none
+
+
 ## Build Setup pix-site
 
 ```bash
