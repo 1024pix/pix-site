@@ -94,7 +94,7 @@ export default {
     '@nuxtjs/style-resources',
     ['nuxt-i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
-    ['nuxt-matomo', { matomoUrl: 'https://analytics.pix.fr/', siteId: 1 }],
+    ['nuxt-matomo', { matomoUrl: process.env.MATOMO_URL, siteId: 1 }],
     [
       'nuxt-fontawesome',
       {
