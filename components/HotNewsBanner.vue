@@ -32,7 +32,7 @@ export default {
   width: 100%;
 
   color: $white;
-  background-color: $blue;
+  background-color: $yellow;
   padding: 2px;
 
   display: flex;
