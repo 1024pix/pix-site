@@ -17,6 +17,9 @@
           <button
             :dropdown-index="`${index}`"
             class="dropdown-toggle navigation-zone__item links-group"
+            :class="{
+              'current-active-link': subIsActive(menuItem.subNavigationLinks),
+            }"
             @click="toggleDropdown(`${index}`)"
             @click.stop.prevent
           >
@@ -89,6 +92,16 @@ export default {
         this.openDropdownIndex = dropdownIndex
       }
     },
+    subIsActive(subNavigationLinks) {
+      const paths = subNavigationLinks.map((subNavigationLink) => {
+        const splittedLink = subNavigationLink.link.url.split('/')
+        const linkIndex = splittedLink.length - 1
+        return splittedLink[linkIndex]
+      })
+      return paths.some((path) => {
+        return this.$route.path.includes(path)
+      })
+    },
   },
 }
 
@@ -155,6 +168,10 @@ class Navigation {
     display: flex;
     align-items: center;
     height: 100%;
+
+    .current-active-link {
+      color: $blue;
+    }
 
     &__item {
       color: $grey-60;
