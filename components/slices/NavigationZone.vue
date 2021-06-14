@@ -139,6 +139,15 @@ class Navigation {
 </script>
 
 <style scoped lang="scss">
+@mixin active-link($theme: DarkGray) {
+  border-bottom: 2px solid $blue;
+
+  &:active,
+  &:hover {
+    color: $blue;
+  }
+}
+
 .navigation-zone {
   display: none;
 
@@ -156,8 +165,12 @@ class Navigation {
     }
   }
 
-  .navigation-zone-block:last-child {
-    border-left: 1px solid $grey-20;
+  .navigation-zone-block {
+    height: 24px;
+
+    &:last-child {
+      border-left: 1px solid $grey-20;
+    }
   }
 
   & > div {
@@ -169,8 +182,11 @@ class Navigation {
     align-items: center;
     height: 100%;
 
-    .current-active-link {
-      color: $blue;
+    button.dropdown-toggle {
+      height: 30px;
+      &.current-active-link {
+        @include active-link;
+      }
     }
 
     &__item {
@@ -184,13 +200,9 @@ class Navigation {
       padding: 0 8px 10px 8px;
       cursor: pointer;
       white-space: nowrap;
+
       &.current-active-link {
-        border-bottom: 2px solid $blue;
-      }
-      &.current-active-link,
-      &:active,
-      &:hover {
-        color: $blue;
+        @include active-link;
       }
 
       &.links-group {
