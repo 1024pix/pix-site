@@ -17,11 +17,7 @@
     </div>
 
     <div v-if="hasForm" class="content__form">
-      <iframe
-        class="content-form"
-        :style="[heightForIframe]"
-        :src="content.formbuilder_url.url"
-      >
+      <iframe class="content-form" :style="[heightForIframe]" :src="formUrl">
         {{ $t(`form.not-supported`) }}
       </iframe>
     </div>
@@ -38,6 +34,13 @@ export default {
     },
   },
   computed: {
+    formUrl() {
+      const queryParamsAsObject = this.$route.query
+      const queryParamsAsString = Object.keys(queryParamsAsObject)
+        .map((key) => `${key}=${queryParamsAsObject[key]}`)
+        .join('&')
+      return this.content.formbuilder_url.url + `?${queryParamsAsString}`
+    },
     hasDescription() {
       return this.content.title && this.content.body
     },
