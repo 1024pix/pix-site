@@ -7,6 +7,9 @@ jest.mock('~/services/document-fetcher')
 describe('NavigationZone slice', () => {
   let component
   const get = jest.fn()
+  const $route = {
+    path: '',
+  }
 
   beforeEach(() => {
     documentFetcher.mockReturnValue({
@@ -25,23 +28,24 @@ describe('NavigationZone slice', () => {
   describe('Slice: NavigationZone', () => {
     beforeEach(() => {
       component = shallowMount(NavigationZone, {
+        mocks: { $route },
         stubs: { 'pix-link': true, fa: true },
         propsData: {
           slice: {
             items: [
-              { name: 'Découvrir Pix', link: '/', group: [] },
-              { name: 'Les tests', link: '/tests', group: [] },
+              { name: 'Découvrir Pix', link: { url: '/' }, group: [] },
+              { name: 'Les tests', link: { url: '/tests' }, group: [] },
               {
                 name: 'Enseignement scolaire',
-                link: '/sco',
+                link: { url: '/sco' },
                 group: [{ text: 'Enseignement' }],
               },
               {
                 name: 'Enseignement supérieur',
-                link: '/sup',
+                link: { url: '/sup' },
                 group: [{ text: 'Enseignement' }],
               },
-              { name: 'Pix Pro', link: '/pro', group: [] },
+              { name: 'Pix Pro', link: { url: '/pro' }, group: [] },
             ],
           },
         },
@@ -57,24 +61,24 @@ describe('NavigationZone slice', () => {
       it('should aggregate navigation links of the same group', () => {
         const navigationLinks = component.vm.navigationLinks
         expect(navigationLinks).toEqual([
-          { name: 'Découvrir Pix', link: '/', group: [] },
-          { name: 'Les tests', link: '/tests', group: [] },
+          { name: 'Découvrir Pix', link: { url: '/' }, group: [] },
+          { name: 'Les tests', link: { url: '/tests' }, group: [] },
           {
             name: 'Enseignement',
             subNavigationLinks: [
               {
                 name: 'Enseignement scolaire',
-                link: '/sco',
+                link: { url: '/sco' },
                 group: [{ text: 'Enseignement' }],
               },
               {
                 name: 'Enseignement supérieur',
-                link: '/sup',
+                link: { url: '/sup' },
                 group: [{ text: 'Enseignement' }],
               },
             ],
           },
-          { name: 'Pix Pro', group: [], link: '/pro' },
+          { name: 'Pix Pro', group: [], link: { url: '/pro' } },
         ])
       })
     })

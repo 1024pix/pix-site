@@ -17,6 +17,9 @@
           <button
             :dropdown-index="`${index}`"
             class="dropdown-toggle navigation-zone__item links-group"
+            :class="{
+              'current-active-link': subIsActive(menuItem.subNavigationLinks),
+            }"
             @click="toggleDropdown(`${index}`)"
             @click.stop.prevent
           >
@@ -89,6 +92,16 @@ export default {
         this.openDropdownIndex = dropdownIndex
       }
     },
+    subIsActive(subNavigationLinks) {
+      const paths = subNavigationLinks.map((subNavigationLink) => {
+        const splittedLink = subNavigationLink.link.url.split('/')
+        const linkIndex = splittedLink.length - 1
+        return splittedLink[linkIndex]
+      })
+      return paths.some((path) => {
+        return this.$route.path.includes(path)
+      })
+    },
   },
 }
 
@@ -126,6 +139,15 @@ class Navigation {
 </script>
 
 <style scoped lang="scss">
+@mixin active-link($theme: DarkGray) {
+  border-bottom: 2px solid $blue;
+
+  &:active,
+  &:hover {
+    color: $blue;
+  }
+}
+
 .navigation-zone {
   display: none;
 
@@ -143,8 +165,12 @@ class Navigation {
     }
   }
 
-  .navigation-zone-block:last-child {
-    border-left: 1px solid $grey-20;
+  .navigation-zone-block {
+    height: 24px;
+
+    &:last-child {
+      border-left: 1px solid $grey-20;
+    }
   }
 
   & > div {
@@ -155,6 +181,13 @@ class Navigation {
     display: flex;
     align-items: center;
     height: 100%;
+
+    button.dropdown-toggle {
+      height: 30px;
+      &.current-active-link {
+        @include active-link;
+      }
+    }
 
     &__item {
       color: $grey-60;
@@ -167,13 +200,9 @@ class Navigation {
       padding: 0 8px 10px 8px;
       cursor: pointer;
       white-space: nowrap;
+
       &.current-active-link {
-        border-bottom: 2px solid $blue;
-      }
-      &.current-active-link,
-      &:active,
-      &:hover {
-        color: $blue;
+        @include active-link;
       }
 
       &.links-group {

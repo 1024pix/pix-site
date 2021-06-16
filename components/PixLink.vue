@@ -69,18 +69,15 @@ function getRelativeLinkPrefix(url) {
   if (!url) {
     return ''
   }
-  let defaultPrefixes
-  if (process.env.isPixPro) {
-    defaultPrefixes = 'https://pro.pix.fr/'
-  } else {
-    defaultPrefixes = 'https://pix.org/,https://pix.fr/'
-  }
+  const defaultPrefixes = process.env.isPixPro
+    ? 'https://pro.pix.fr'
+    : 'https://pix.org,https://pix.fr'
   const relativeLinkPrefixes = (
     process.env.RELATIVE_LINK_PREFIXES || defaultPrefixes
   ).split(',')
   return relativeLinkPrefixes
     .map((relativeLinkPrefix) =>
-      url.startsWith(relativeLinkPrefix) ? relativeLinkPrefix : ''
+      url.startsWith(relativeLinkPrefix) ? `${relativeLinkPrefix}/` : ''
     )
     .filter((relativeLinkPrefix) => relativeLinkPrefix !== '')[0]
 }
