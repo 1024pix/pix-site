@@ -40,8 +40,11 @@ If not set, applications are built and served as static websites.
 - type: Boolean
 - default: false
 
-`MATOMO_URL`
-If not present, nuxt-matomo will not be loaded and analytics will not be active
+`WEB_ANALYTICS_ENABLED`
+If not set to true, nuxt-matomo will not be loaded and analytics will not be active
+
+`WEB_ANALYTICS_URL`
+Default is MATOMO_URL=https://analytics.pix.fr/
 
 - presence: optionnal
 - type: Url

@@ -203,10 +203,10 @@ const config = {
   },
 }
 
-if (process.env.MATOMO_URL) {
+if (process.env.WEB_ANALYTICS_ENABLED === 'true') {
   config.modules.push([
     'nuxt-matomo',
-    { matomoUrl: process.env.MATOMO_URL, siteId: 1 },
+    { matomoUrl: process.env.WEB_ANALYTICS_URL, siteId: 1 },
   ])
 }
 
