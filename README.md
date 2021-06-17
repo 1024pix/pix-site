@@ -46,6 +46,9 @@ If not set to true, nuxt-matomo will not be loaded and analytics will not be act
 `WEB_ANALYTICS_URL`
 Default is MATOMO_URL=https://analytics.pix.fr/
 
+`WEB_ANALYTICS_SITEID`
+Sets the siteId
+
 - presence: optionnal
 - type: Url
 - default: none
