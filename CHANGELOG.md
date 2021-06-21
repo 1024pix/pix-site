@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v3.14.0 (21/06/2021)
+
+- [#275](https://github.com/1024pix/pix-site/pull/275) [FEATURE] Ajouter un état actif au éléments de la navigation (PIX-2235).
+- [#276](https://github.com/1024pix/pix-site/pull/276) [FEATURE] Pré-remplir les champs de formulaire si des paramètres sont présents dans l'URL (PIX-2710).
+- [#274](https://github.com/1024pix/pix-site/pull/274) Expliciter la différence entre les hotnews et le reste du site
+- [#273](https://github.com/1024pix/pix-site/pull/273) [CLEAN] Suppression des anciennes pages de formulaires (PIX-1441).
+
 ## v3.13.1 (04/06/2021)
 
 - [#271](https://github.com/1024pix/pix-site/pull/271) [TECH] Lire l'URL Matomo dans l'environnement
