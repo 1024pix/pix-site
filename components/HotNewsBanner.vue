@@ -1,7 +1,12 @@
 <template>
   <div v-if="isOpen && hotNews" class="hot-news">
     <prismic-rich-text :field="hotNews" />
-    <img class="close" src="/images/close-icon.svg" @click.stop="closeBanner" />
+    <img
+      class="close"
+      src="/images/close-icon.svg"
+      alt="Fermer"
+      @click.stop="closeBanner"
+    />
   </div>
 </template>
 
@@ -31,8 +36,8 @@ export default {
   height: 70px;
   width: 100%;
 
-  color: $white;
-  background-color: $blue;
+  color: $grey-200;
+  background-color: $yellow;
   padding: 2px;
 
   display: flex;
@@ -47,7 +52,7 @@ export default {
   }
 
   a {
-    color: $white;
+    color: $grey-200;
     text-decoration: underline;
   }
 }
