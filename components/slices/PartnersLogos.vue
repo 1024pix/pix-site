@@ -113,6 +113,7 @@ export default {
 @include device-is('large-screen') {
   .partners-logos {
     max-width: 1920px;
+    margin: 0 auto;
 
     &__title h2 {
       height: 49px;
