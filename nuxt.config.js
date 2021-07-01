@@ -82,6 +82,7 @@ const config = {
         extensions: ['jpg', 'jpeg', 'gif', 'png', 'webp', 'svg', 'mp4', 'pdf'],
       },
     ],
+    '@nuxtjs/prismic',
   ],
   /*
    ** Nuxt.js modules
@@ -125,7 +126,6 @@ const config = {
         },
       },
     ],
-    '@nuxtjs/prismic',
   ],
   moment: {
     locales: ['fr'],

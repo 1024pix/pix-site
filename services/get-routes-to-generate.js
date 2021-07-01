@@ -1,7 +1,7 @@
-import prismic from 'prismic-javascript'
+import Prismic from '@prismicio/client'
 
 export default async function () {
-  const api = await prismic.getApi(process.env.PRISMIC_API_ENDPOINT)
+  const api = await Prismic.getApi(process.env.PRISMIC_API_ENDPOINT)
   const { routes, totalPages } = await getRoutesInPage(api, 1)
   for (let page = 2; page <= totalPages; page++) {
     const { routes: nextPageRoutes } = await getRoutesInPage(api, page)
@@ -12,7 +12,7 @@ export default async function () {
 
 async function getRoutesInPage(api, page) {
   const { results, total_pages: totalPages } = await api.query(
-    prismic.Predicates.any('document.type', ['simple_page', 'form_page']),
+    Prismic.Predicates.any('document.type', ['simple_page', 'form_page']),
     {
       pageSize: 100,
       page,

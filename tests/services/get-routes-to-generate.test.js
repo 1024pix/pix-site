@@ -1,6 +1,6 @@
 import getRoutesToGenerate from '@/services/get-routes-to-generate'
-import prismic from 'prismic-javascript'
-jest.mock('prismic-javascript')
+import prismic from '@prismicio/client'
+jest.mock('@prismicio/client')
 
 describe('#getRoutesToGenerate', () => {
   const prismicDocPredicates = prismic.Predicates.any('document.type', [
