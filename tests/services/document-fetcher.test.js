@@ -1,7 +1,7 @@
-import prismic from 'prismic-javascript'
+import prismic from '@prismicio/client'
 import { documentFetcher } from '~/services/document-fetcher'
 
-jest.mock('prismic-javascript')
+jest.mock('@prismicio/client')
 
 describe('DocumentFetcher', () => {
   test('it should get employers page with distributors informations', async () => {
