@@ -25,7 +25,7 @@
         class="navigation-slice-zone-content__right-side"
       >
         <template v-if="slice.slice_type === 'actions_zone'">
-          <slice-actions-zone :slice="slice" />
+          <slices-actions-zone :slice="slice" />
         </template>
       </section>
     </div>
