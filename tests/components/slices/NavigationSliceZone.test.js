@@ -11,9 +11,9 @@ describe('NavigationSliceZone', () => {
     'slide-menu': true,
     'burger-menu-nav': true,
     'organization-nav': true,
-    'logos-zone': true,
-    'navigation-zone': true,
-    'actions-zone': true,
+    'slices-logos-zone': true,
+    'slices-navigation-zone': true,
+    'slices-actions-zone': true,
     fa: true,
   }
 
