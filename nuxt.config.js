@@ -167,6 +167,7 @@ const config = {
     linkResolver: '@/plugins/link-resolver',
     htmlSerializer: '@/plugins/html-serializer',
     preview: process.env.SSR_ENABLED === 'true',
+    modern: true,
   },
   router: {
     middleware: 'current-page-path',
