@@ -48,6 +48,9 @@ describe('Index Page', () => {
           return { asText: () => PRISMIC_META }
         },
       },
+      stubs: {
+        'slice-zone': true,
+      },
     })
   })
 
@@ -80,6 +83,9 @@ describe('Index Page', () => {
         $prismic() {
           return { asText: () => '' }
         },
+      },
+      stubs: {
+        'slice-zone': true,
       },
     })
 
