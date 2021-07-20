@@ -1,5 +1,18 @@
 # pix-site Changelog
 
+## v3.15.0 (20/07/2021)
+
+- [#287](https://github.com/1024pix/pix-site/pull/287) [BUGFIX] Centrer les articles verticaux.
+- [#284](https://github.com/1024pix/pix-site/pull/284) [BUGFIX] Afficher correctement le bloc statistiques sur un grand écran.
+- [#279](https://github.com/1024pix/pix-site/pull/279) [BUGFIX] Aligner les logos des partenaires sur un grand écran.
+- [#286](https://github.com/1024pix/pix-site/pull/286) [TECH] Utilise l'option modern du module prismic pour éviter un appel vers prismic sur la prod
+- [#285](https://github.com/1024pix/pix-site/pull/285) [TECH] Mise à jour de Jest vers la 27.0.6
+- [#278](https://github.com/1024pix/pix-site/pull/278) [TECH] Utiliser l'auto-import des composants proposé par Nuxt. 
+- [#283](https://github.com/1024pix/pix-site/pull/283) [TECH] Suppression de l'appel à Google Font.
+- [#281](https://github.com/1024pix/pix-site/pull/281) [TECH] Monter de version @nuxtjs/prismic
+- [#280](https://github.com/1024pix/pix-site/pull/280) [TECH] Mettre à jour les dépendances. 
+- [#282](https://github.com/1024pix/pix-site/pull/282) [FEAT] Ajout de Matomo à Pix Pro (PIX-2800).
+
 ## v3.14.0 (21/06/2021)
 
 - [#275](https://github.com/1024pix/pix-site/pull/275) [FEATURE] Ajouter un état actif au éléments de la navigation (PIX-2235).
