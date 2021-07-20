@@ -247,7 +247,6 @@ export default {
     }
 
     &--vertical {
-      margin: 0 0;
       grid-template-areas:
         '. . a a a a a a a a a a . .'
         '. . b b b b b b b b b b . .';
