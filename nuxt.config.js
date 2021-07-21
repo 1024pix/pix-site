@@ -84,7 +84,6 @@ const config = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
     ['nuxt-i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
