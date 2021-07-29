@@ -76,6 +76,7 @@ const config = {
         extensions: ['jpg', 'jpeg', 'gif', 'png', 'webp', 'svg', 'mp4', 'pdf'],
       },
     ],
+    '~/modules/propagate-fetch-error-during-generation',
     '@nuxtjs/prismic',
   ],
   /*
