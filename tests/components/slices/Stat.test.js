@@ -26,7 +26,7 @@ describe('Stat slice', () => {
     beforeEach(() => {})
 
     describe('#chartData', () => {
-      it('should return char datas', () => {
+      it('should return char data', () => {
         // given
         component = shallowMount(Stat, {
           stubs: {
@@ -34,11 +34,20 @@ describe('Stat slice', () => {
             'prismic-rich-text': true,
             'chart-section': true,
           },
+          data() {
+            return {
+              values: [1, 2],
+              labels: ['2020-08-12', '2020-09-12'],
+            }
+          },
           propsData: {
             slice: {
               primary: {
                 block_data_name: [{ text: 'Data name' }],
                 block_graph_color: '#4700ff',
+                metabase_card_id: 123,
+                metabase_x_axis_label: 'x_axis',
+                metabase_y_axis_label: 'y_axis',
               },
               items: [
                 { data_value: 45, data_date: '2020-08-12' },
@@ -57,7 +66,7 @@ describe('Stat slice', () => {
             {
               backgroundColor: 'rgba(71,0,255,0.2)',
               borderColor: '#4700ff',
-              data: [45, 100],
+              data: [1, 2],
               label: 'Data name',
               type: 'line',
             },

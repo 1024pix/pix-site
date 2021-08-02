@@ -76,6 +76,7 @@ const config = {
         extensions: ['jpg', 'jpeg', 'gif', 'png', 'webp', 'svg', 'mp4', 'pdf'],
       },
     ],
+    '~/modules/propagate-fetch-error-during-generation',
     '@nuxtjs/prismic',
   ],
   /*
@@ -84,7 +85,6 @@ const config = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
     ['nuxt-i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
