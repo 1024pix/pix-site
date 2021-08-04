@@ -203,6 +203,7 @@ if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
     { matomoUrl: process.env.MATOMO_URL, siteId: process.env.MATOMO_SITE_ID },
   ])
 } else {
+  // eslint-disable-next-line no-console
   console.warn(
     'Both MATOMO_URL and MATOMO_SITE_ID environment variables must be provided'
   )
