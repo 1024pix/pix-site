@@ -37,6 +37,19 @@ const config = {
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        type: 'text/javascript',
+        src: process.env.MATOMO_CONTAINER,
+        async: true,
+        defer: true,
+      },
+      {
+        type: 'text/javascript',
+        src: '/scripts/start-matomo-event.js',
+        'data-matomo-debug-mode': process.env.MATOMO_DEBUG,
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -200,9 +213,13 @@ const config = {
 if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
   config.modules.push([
     'nuxt-matomo',
-    { matomoUrl: process.env.MATOMO_URL, siteId: process.env.MATOMO_SITE_ID },
+    {
+      matomoUrl: process.env.MATOMO_URL,
+      siteId: process.env.MATOMO_SITE_ID,
+    },
   ])
 } else {
+  // eslint-disable-next-line no-console
   console.warn(
     'Both MATOMO_URL and MATOMO_SITE_ID environment variables must be provided'
   )

@@ -47,6 +47,20 @@ If not present, nuxt-matomo will not be loaded and analytics will not be active
 - type: Url
 - default: none
 
+`MATOMO_CONTAINER`
+If not present, nuxt-matomo will not be loaded and tag managers will not be active
+
+- presence: optional
+- type: Url
+- default: none
+
+`MATOMO_DEBUG`
+If not present, nuxt-matomo is not in debug mode
+
+- presence: optional
+- type: Boolean
+- default: false
+
 `METABASE_API_URL`
 If not present, Metabase cards will not be loaded.
 
