@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.16.0 (04/08/2021)
+
+- [#290](https://github.com/1024pix/pix-site/pull/290) [FEATURE] Ajout du tag manager sur le site vitrine.
+- [#288](https://github.com/1024pix/pix-site/pull/288) [FEATURE] Créer à chaque déploiement les graphiques de statistiques (PIX-2919). 
+
 ## v3.15.0 (20/07/2021)
 
 - [#287](https://github.com/1024pix/pix-site/pull/287) [BUGFIX] Centrer les articles verticaux.
