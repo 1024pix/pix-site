@@ -149,6 +149,7 @@ export default {
   .footer {
     display: flex;
     padding: 47px 98px;
+    justify-content: center;
 
     &__left {
       margin-right: 40px;
