@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.17.0 (13/08/2021)
+
+- [#291](https://github.com/1024pix/pix-site/pull/291) [BUGFIX] Correction de l'affichage sur les écrans large (PIX-2764).
+- [#292](https://github.com/1024pix/pix-site/pull/292) [TECH] Met à jour prismic-dom vers la version 2.2.6
+
 ## v3.16.0 (04/08/2021)
 
 - [#290](https://github.com/1024pix/pix-site/pull/290) [FEATURE] Ajout du tag manager sur le site vitrine.
