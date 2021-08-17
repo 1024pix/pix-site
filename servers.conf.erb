@@ -28,7 +28,7 @@ server {
 
   root /app/dist/;
 
-  rewrite ^/(aide|help)$ https://support.pix.fr permanent;
+  rewrite ^/(aide|help)$ https://support.pix.org permanent;
   rewrite ^/employeurs$ https://pro.pix.fr permanent;
 
   if ($host ~ \.org) {
