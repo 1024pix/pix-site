@@ -27,8 +27,8 @@ checkRedirect pix.fr / "" 200
 checkRedirect pix.fr /competences "" 301 http://pix.fr/competences/
 checkRedirect pix.org /_nuxt/LICENSES "" 200
 checkRedirect pix.org /images/ "" 403
-checkRedirect pix.fr /aide "" 301 https://support.pix.fr/
-checkRedirect pix.fr /help "" 301 https://support.pix.fr/
+checkRedirect pix.fr /aide "" 301 https://support.pix.org/
+checkRedirect pix.fr /help "" 301 https://support.pix.org/
 checkRedirect pix.fr /employeurs "" 301 https://pro.pix.fr/
 checkRedirect pix.org / "" 301 http://pix.org/fr/
 checkRedirect review.scalingo.io / "review.pix.org" 301 http://review.pix.org/fr/
