@@ -79,7 +79,7 @@ const config = {
     // Doc: https://github.com/nuxt-community/eslint-module
     ['@nuxtjs/eslint-module', { fix: true }],
     [
-      '~/modules/assets-extractor',
+      'assets-extractor-module',
       {
         hostnames: [
           'images.prismic.io',
