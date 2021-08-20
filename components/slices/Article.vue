@@ -127,15 +127,6 @@ export default {
 </script>
 
 <style lang="scss">
-.article-content__title {
-  text-align: left;
-
-  &--only-text,
-  &--vertical {
-    text-align: center;
-  }
-}
-
 .article {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -184,6 +175,7 @@ export default {
       'b b b b'
       'a a a a';
   }
+
   &--vertical {
     grid-template-areas:
       'a a a a'
@@ -193,6 +185,74 @@ export default {
   &--only-text {
     display: flex;
     justify-content: center;
+  }
+}
+
+.article-content {
+  &__description {
+    margin: 16px 0 24px 0;
+    color: $grey-60;
+    font-size: 1.125rem;
+    line-height: 30px;
+
+    h3 {
+      margin-top: 8px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li:before {
+        color: $grey-60;
+      }
+    }
+
+    & p {
+      font-size: 1.125rem;
+      font-weight: $font-normal;
+      letter-spacing: 0;
+      line-height: 1.875rem;
+      margin: 8px 0;
+    }
+
+    &--only-text {
+      text-align: center;
+    }
+  }
+
+  &__link-to {
+    height: 26px;
+    color: $blue;
+    font-family: $font-roboto;
+    font-size: 1.125rem;
+    font-weight: $font-medium;
+    letter-spacing: 0;
+    line-height: 0.009rem;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+
+  &__title {
+    text-align: left;
+
+    &--only-text,
+    &--vertical {
+      text-align: center;
+    }
+
+    & h2 {
+      color: $grey-90;
+      font-weight: $font-normal;
+      letter-spacing: 0.00875rem;
+      line-height: 2.875rem;
+      margin-top: 0;
+    }
   }
 }
 
@@ -294,65 +354,6 @@ export default {
 
   @include device-is('large-screen') {
     justify-self: flex-end;
-  }
-}
-
-.article-content {
-  &__description {
-    margin: 16px 0 24px 0;
-    color: $grey-60;
-    font-size: 1.125rem;
-    line-height: 30px;
-
-    h3 {
-      margin-top: 8px;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-
-      li:before {
-        color: $grey-60;
-      }
-    }
-
-    & p {
-      font-size: 1.125rem;
-      font-weight: $font-normal;
-      letter-spacing: 0;
-      line-height: 1.875rem;
-      margin: 8px 0px;
-    }
-
-    &--only-text {
-      text-align: center;
-    }
-  }
-
-  &__link-to {
-    height: 26px;
-    color: $blue;
-    font-family: $font-roboto;
-    font-size: 1.125rem;
-    font-weight: $font-medium;
-    letter-spacing: 0;
-    line-height: 0.009rem;
-
-    &:active,
-    &:focus,
-    &:hover {
-      text-decoration: none;
-      color: $blue;
-    }
-  }
-
-  &__title h2 {
-    color: $grey-90;
-    font-weight: $font-normal;
-    letter-spacing: 0.00875rem;
-    line-height: 2.875rem;
-    margin-top: 0;
   }
 }
 </style>

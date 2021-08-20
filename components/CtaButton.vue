@@ -22,8 +22,9 @@ export default {
 
 <style lang="scss">
 .cta-button {
-  width: fit-content;
   background: $blue;
+  display: flex;
+  flex-wrap: wrap;
   border-radius: 5px;
   padding: 15px 20px;
   cursor: pointer;
