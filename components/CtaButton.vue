@@ -46,4 +46,10 @@ export default {
     opacity: 1;
   }
 }
+
+@include device-is('tablet') {
+  .cta-button {
+    display: initial;
+  }
+}
 </style>
