@@ -1,5 +1,10 @@
 # pix-site Changelog
 
+## v3.18.0 (07/09/2021)
+
+- [#295](https://github.com/1024pix/pix-site/pull/295) [BUGFIX] Bouton appel à l'action sur mobile.
+- [#293](https://github.com/1024pix/pix-site/pull/293) Utilise support.pix.org plutôt que support.pix.fr
+
 ## v3.17.0 (13/08/2021)
 
 - [#291](https://github.com/1024pix/pix-site/pull/291) [BUGFIX] Correction de l'affichage sur les écrans large (PIX-2764).
