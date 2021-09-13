@@ -7,6 +7,7 @@ const config = {
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
     orgDomain: process.env.DOMAIN_ORG || 'pix.org',
+    formKeysToMap: process.env.FORM_KEYS_TO_MAP || {},
   },
   server: {
     port: process.env.PORT || 5000,
