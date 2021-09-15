@@ -35,11 +35,20 @@ export default {
   },
   computed: {
     formUrl() {
+      const mapKeys = this.$config.formKeysToMap
       const queryParamsAsObject = this.$route.query
       const queryParamsAsString = Object.keys(queryParamsAsObject)
-        .map((key) => `${key}=${queryParamsAsObject[key]}`)
+        .map((queryParamKey) => {
+          const key = Object.prototype.hasOwnProperty.call(
+            mapKeys,
+            queryParamKey
+          )
+            ? mapKeys[queryParamKey]
+            : queryParamKey
+          return `${key}=${queryParamsAsObject[queryParamKey]}`
+        })
         .join('&')
-      return this.content.formbuilder_url.url + `?${queryParamsAsString}`
+      return `${this.content.formbuilder_url.url}?${queryParamsAsString}`
     },
     hasDescription() {
       return this.content.title && this.content.body
