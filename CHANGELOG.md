@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.19.0 (16/09/2021)
+
+- [#296](https://github.com/1024pix/pix-site/pull/296) [FEATURE] Permettre de changer les paramètres envoyés à 123FormBuilder. 
+- [#297](https://github.com/1024pix/pix-site/pull/297) [BUGFIX] Corriger l'alignement des blocs process
+- [#294](https://github.com/1024pix/pix-site/pull/294) [TECH] Extraire et utiliser le module assets-extractor 
+
 ## v3.18.0 (07/09/2021)
 
 - [#295](https://github.com/1024pix/pix-site/pull/295) [BUGFIX] Bouton appel à l'action sur mobile.
