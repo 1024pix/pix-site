@@ -55,6 +55,10 @@
       margin-bottom: 0;
     }
 
+    &::after {
+      height: 100%;
+    }
+
     img {
       height: 51px;
       width: 51px;
@@ -89,6 +93,14 @@
 }
 
 @include device-is('tablet') {
+  .process-wrapper {
+    &__row {
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+    }
+  }
+
   .process {
     &__title h2 {
       margin-top: 60px;
@@ -107,7 +119,7 @@
 
   .process-wrapper-row {
     &__item {
-      margin-bottom: 40px;
+      margin-bottom: 0;
 
       div:first-of-type {
         display: flex;
@@ -142,14 +154,6 @@
     }
   }
 
-  .process-wrapper {
-    &__row {
-      flex-direction: row;
-      justify-content: center;
-      align-items: baseline;
-    }
-  }
-
   .process-wrapper-row {
     &__item {
       &:first-of-type {
@@ -160,7 +164,6 @@
       margin-right: 56px;
       margin-bottom: 0;
       text-align: center;
-      height: 100%;
 
       img {
         margin-right: 0;
@@ -187,7 +190,7 @@
 @include device-is('large-screen') {
   .process {
     &__wrapper {
-      padding: 0 98px 60px 98px;
+      padding: 80px 98px 60px 98px;
       width: 100%;
       display: flex;
       align-items: stretch;
@@ -206,7 +209,6 @@
       max-width: 293px;
       padding: 32px 24px 50px 24px;
       text-align: center;
-      height: 100%;
 
       &:last-of-type {
         margin-right: 0;
