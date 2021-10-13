@@ -1,5 +1,9 @@
 # pix-site Changelog
 
+## v3.20.0 (13/10/2021)
+
+- [#298](https://github.com/1024pix/pix-site/pull/298) [CLEANUP] Supprimer le cahier des charges centre de certification osbolète
+
 ## v3.19.0 (16/09/2021)
 
 - [#296](https://github.com/1024pix/pix-site/pull/296) [FEATURE] Permettre de changer les paramètres envoyés à 123FormBuilder. 
