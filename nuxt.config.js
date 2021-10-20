@@ -109,18 +109,7 @@ const config = {
         imports: [
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: [
-              'faAngleDown',
-              'faAngleUp',
-              'faArrowRight',
-              'faCalendar',
-              'faCheck',
-              'faCircle',
-              'faCog',
-              'faExclamationTriangle',
-              'faHome',
-              'faPlayCircle',
-            ],
+            icons: ['fas'],
           },
         ],
       },

@@ -11,6 +11,7 @@
             link: menuItem.style === 'link',
           }"
         >
+          <fa v-if="menuItem.icon" :icon="menuItem.icon" />
           {{ $prismic.asText(menuItem.name) }}
         </pix-link>
       </li>
