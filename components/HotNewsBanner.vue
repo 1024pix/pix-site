@@ -49,6 +49,10 @@ export default {
     line-height: 1rem;
     font-size: 0.875rem;
     margin: 0 auto;
+
+    p {
+      margin: 0;
+    }
   }
 
   a {
