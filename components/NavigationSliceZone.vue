@@ -11,12 +11,7 @@
           v-for="(slice, index) in leftNavigation"
           :key="`navigation-slice-left-${index}`"
         >
-          <template v-if="slice.slice_type === 'logos_zone'">
-            <slices-logos-zone :slice="slice" />
-          </template>
-          <template v-if="slice.slice_type === 'navigation_zone'">
-            <slices-navigation-zone :slice="slice" />
-          </template>
+          <slices-logos-zone :slice="slice" />
         </section>
       </div>
       <section
@@ -24,11 +19,16 @@
         :key="`navigation-slice-right-${index}`"
         class="navigation-slice-zone-content__right-side"
       >
-        <template v-if="slice.slice_type === 'actions_zone'">
-          <slices-actions-zone :slice="slice" />
-        </template>
+        <slices-actions-zone :slice="slice" />
       </section>
     </div>
+    <section
+      v-for="(slice, index) in bottomNavigation"
+      :key="`navigation-slice-bottom-${index}`"
+      class="navigation-slice-zone-content__bottom-side"
+    >
+      <slices-navigation-zone :slice="slice" />
+    </section>
   </header>
 </template>
 
@@ -57,16 +57,19 @@ export default {
 
     leftNavigation() {
       const headerBlocks = this.usedMainNavigation.data.body
-      return headerBlocks.filter(
-        (block) =>
-          block.slice_type === 'logos_zone' ||
-          block.slice_type === 'navigation_zone'
-      )
+      return headerBlocks.filter((block) => block.slice_type === 'logos_zone')
     },
 
     rightNavigation() {
       const headerBlocks = this.usedMainNavigation.data.body
       return headerBlocks.filter((block) => block.slice_type === 'actions_zone')
+    },
+
+    bottomNavigation() {
+      const headerBlocks = this.usedMainNavigation.data.body
+      return headerBlocks.filter(
+        (block) => block.slice_type === 'navigation_zone'
+      )
     },
 
     burgerMenuLinks() {
@@ -98,6 +101,12 @@ export default {
     justify-content: space-between;
     margin-left: 100px;
     height: 80px;
+  }
+
+  .navigation-slice-zone-content__bottom-side {
+    border-top: 1px solid $grey-15;
+    display: flex;
+    justify-content: center;
   }
 
   @include device-is('large-screen') {

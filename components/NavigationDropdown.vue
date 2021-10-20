@@ -41,7 +41,7 @@ export default {
   position: absolute;
   border-radius: 3px;
   background: $white;
-  margin-top: 16px;
+  margin-top: 8px;
   min-width: 232px;
   z-index: 1;
 
