@@ -22,12 +22,8 @@
         <slices-actions-zone :slice="slice" />
       </section>
     </div>
-    <section
-      v-for="(slice, index) in bottomNavigation"
-      :key="`navigation-slice-bottom-${index}`"
-      class="navigation-slice-zone-content__bottom-side"
-    >
-      <slices-navigation-zone :slice="slice" />
+    <section class="navigation-slice-zone-content__bottom-side">
+      <slices-navigation-zone :navigation-zone-items="bottomNavigation" />
     </section>
   </header>
 </template>

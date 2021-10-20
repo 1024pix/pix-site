@@ -6,35 +6,38 @@
         :key="`item-${index}`"
         class="navigation-zone-block"
       >
-        <pix-link
-          v-if="!menuItem.hasOwnProperty('subNavigationLinks')"
-          :field="menuItem.link"
-          class="navigation-zone__item"
-        >
-          {{ $prismic.asText(menuItem.name) }}
-        </pix-link>
-        <div v-else>
-          <button
-            :dropdown-index="`${index}`"
-            class="dropdown-toggle navigation-zone__item links-group"
-            :class="{
-              'current-active-link': subIsActive(menuItem.subNavigationLinks),
-            }"
-            @click="toggleDropdown(`${index}`)"
-            @click.stop.prevent
+        <template v-if="menuItem === 'separator'"> | </template>
+        <template v-else>
+          <pix-link
+            v-if="!menuItem.hasOwnProperty('subNavigationLinks')"
+            :field="menuItem.link"
+            class="navigation-zone__item"
           >
-            {{ menuItem.name }}
-            <fa v-if="isOpenDropdown(`${index}`)" icon="angle-up" />
-            <fa v-else icon="angle-down" />
-          </button>
-          <navigation-dropdown
-            v-show="isOpenDropdown(`${index}`)"
-            type="button"
-            :options="menuItem.subNavigationLinks"
-            :dropdown-index="`${index}`"
-          >
-          </navigation-dropdown>
-        </div>
+            {{ $prismic.asText(menuItem.name) }}
+          </pix-link>
+          <div v-else>
+            <button
+              :dropdown-index="`${index}`"
+              class="dropdown-toggle navigation-zone__item links-group"
+              :class="{
+                'current-active-link': subIsActive(menuItem.subNavigationLinks),
+              }"
+              @click="toggleDropdown(`${index}`)"
+              @click.stop.prevent
+            >
+              {{ menuItem.name }}
+              <fa v-if="isOpenDropdown(`${index}`)" icon="angle-up" />
+              <fa v-else icon="angle-down" />
+            </button>
+            <navigation-dropdown
+              v-show="isOpenDropdown(`${index}`)"
+              type="button"
+              :options="menuItem.subNavigationLinks"
+              :dropdown-index="`${index}`"
+            >
+            </navigation-dropdown>
+          </div>
+        </template>
       </li>
     </ul>
   </nav>
@@ -44,8 +47,8 @@
 export default {
   name: 'NavigationZone',
   props: {
-    slice: {
-      type: Object,
+    navigationZoneItems: {
+      type: Array,
       default: null,
     },
   },
@@ -57,13 +60,18 @@ export default {
   computed: {
     navigationLinks() {
       const navigation = new Navigation()
-      this.slice.items.forEach((item) => {
-        if (item.group.length > 0) {
-          const groupName = item.group[0].text
-          navigation.addSubNavigationLink(groupName, item)
-        } else {
-          navigation.addNavigationLink(item)
-        }
+      this.navigationZoneItems.forEach((navigationItem, sliceIndex) => {
+        navigationItem.items.forEach((item, itemIndex) => {
+          if (sliceIndex > 0 && itemIndex === 0) {
+            navigation.addSeparator()
+          }
+          if (item.group.length > 0) {
+            const groupName = item.group[0].text
+            navigation.addSubNavigationLink(groupName, item)
+          } else {
+            navigation.addNavigationLink(item)
+          }
+        })
       })
       return navigation.links
     },
@@ -107,6 +115,10 @@ class Navigation {
 
   addNavigationLink(navigationLink) {
     this.links.push(navigationLink)
+  }
+
+  addSeparator() {
+    this.links.push('separator')
   }
 
   addSubNavigationLink(groupName, subNavigationLink) {
@@ -162,10 +174,6 @@ class Navigation {
 
   .navigation-zone-block {
     height: 24px;
-
-    &:last-child {
-      border-left: 1px solid $grey-20;
-    }
   }
 
   & > div {
