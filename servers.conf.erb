@@ -31,6 +31,12 @@ server {
   rewrite ^/(aide|help)$ https://support.pix.org permanent;
   rewrite ^/employeurs$ https://pro.pix.fr permanent;
 
+  location ~ ^/(_assets|_nuxt)/ {
+    expires 1y;
+    add_header Cache-Control public;
+    add_header ETag "";
+  }
+
   if ($host ~ \.org) {
     rewrite ^/(?!fr)(?!en-gb)(?!_nuxt)(?!images)(?!_assets)(?!favicon.ico) $scheme://$host/fr$request_uri permanent;
   }
