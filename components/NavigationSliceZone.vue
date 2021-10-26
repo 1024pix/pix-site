@@ -34,7 +34,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import { groupBy } from 'lodash'
+import groupBy from 'lodash/groupBy'
+
 export default {
   name: 'NavigationSliceZone',
   computed: {
