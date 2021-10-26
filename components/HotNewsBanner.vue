@@ -42,13 +42,17 @@ export default {
 
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   div {
     text-align: center;
     line-height: 1rem;
     font-size: 0.875rem;
     margin: 0 auto;
-    align-self: center;
+
+    p {
+      margin: 0;
+    }
   }
 
   a {
