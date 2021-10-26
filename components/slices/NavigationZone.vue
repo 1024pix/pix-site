@@ -6,7 +6,7 @@
         :key="`item-${index}`"
         class="navigation-zone-block"
       >
-        <template v-if="menuItem === 'separator'"> | </template>
+        <template v-if="menuItem === Navigation.SEPARATOR"> | </template>
         <template v-else>
           <pix-link
             v-if="!menuItem.hasOwnProperty('subNavigationLinks')"
@@ -55,6 +55,7 @@ export default {
   data() {
     return {
       openDropdownIndex: undefined,
+      Navigation,
     }
   },
   computed: {
@@ -109,6 +110,8 @@ export default {
 }
 
 class Navigation {
+  static SEPARATOR = 'SEPARATOR'
+
   constructor() {
     this.links = []
   }
@@ -118,7 +121,7 @@ class Navigation {
   }
 
   addSeparator() {
-    this.links.push('separator')
+    this.links.push(Navigation.SEPARATOR)
   }
 
   addSubNavigationLink(groupName, subNavigationLink) {
