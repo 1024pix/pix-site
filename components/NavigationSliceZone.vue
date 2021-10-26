@@ -34,7 +34,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import groupBy from 'lodash/groupBy'
+import { keyBy } from '~/services/key-by'
 
 export default {
   name: 'NavigationSliceZone',
@@ -45,11 +45,14 @@ export default {
     ...mapState(['mainNavigations']),
 
     usedMainNavigation() {
-      const groupBySite = groupBy(this.mainNavigations, 'data.navigation_for')
-      if (this.isPixPro && groupBySite['pix-pro']) {
-        return groupBySite['pix-pro'][0]
+      const mainNavBySite = keyBy(
+        this.mainNavigations,
+        (mainNav) => mainNav?.data?.navigation_for
+      )
+      if (this.isPixPro && mainNavBySite['pix-pro']) {
+        return mainNavBySite['pix-pro']
       }
-      return groupBySite['pix-site'][0]
+      return mainNavBySite['pix-site']
     },
 
     leftNavigation() {

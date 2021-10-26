@@ -43,7 +43,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import groupBy from 'lodash/groupBy'
+import { keyBy } from '~/services/key-by'
 
 export default {
   name: 'FooterSliceZone',
@@ -58,11 +58,14 @@ export default {
     },
     ...mapState(['mainFooters']),
     usedMainFooter() {
-      const groupBySite = groupBy(this.mainFooters, 'data.footer_for')
-      if (this.isPixPro && groupBySite['pix-pro']) {
-        return groupBySite['pix-pro'][0]
+      const mainFooterBySite = keyBy(
+        this.mainFooters,
+        (mainFooter) => mainFooter?.data?.footer_for
+      )
+      if (this.isPixPro && mainFooterBySite['pix-pro']) {
+        return mainFooterBySite['pix-pro']
       }
-      return groupBySite['pix-site'][0]
+      return mainFooterBySite['pix-site']
     },
     navigationGroups() {
       return this.usedMainFooter.data.body.filter(
