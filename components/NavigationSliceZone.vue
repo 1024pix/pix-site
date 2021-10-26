@@ -8,14 +8,14 @@
     <div class="navigation-slice-zone__content">
       <div class="navigation-slice-zone-content__left-side">
         <section
-          v-for="(slice, index) in leftNavigation"
+          v-for="(slice, index) in logos"
           :key="`navigation-slice-left-${index}`"
         >
           <slices-logos-zone :slice="slice" />
         </section>
       </div>
       <section
-        v-for="(slice, index) in rightNavigation"
+        v-for="(slice, index) in actions"
         :key="`navigation-slice-right-${index}`"
         class="navigation-slice-zone-content__right-side"
       >
@@ -23,7 +23,7 @@
       </section>
     </div>
     <section class="navigation-slice-zone-content__bottom-side">
-      <slices-navigation-zone :navigation-zone-items="bottomNavigation" />
+      <slices-navigation-zone :navigation-zone-items="navigation" />
     </section>
   </header>
 </template>
@@ -51,17 +51,17 @@ export default {
       return mainNavBySite['pix-site']
     },
 
-    leftNavigation() {
+    logos() {
       const headerBlocks = this.usedMainNavigation.data.body
       return headerBlocks.filter((block) => block.slice_type === 'logos_zone')
     },
 
-    rightNavigation() {
+    actions() {
       const headerBlocks = this.usedMainNavigation.data.body
       return headerBlocks.filter((block) => block.slice_type === 'actions_zone')
     },
 
-    bottomNavigation() {
+    navigation() {
       const headerBlocks = this.usedMainNavigation.data.body
       return headerBlocks.filter(
         (block) => block.slice_type === 'navigation_zone'
