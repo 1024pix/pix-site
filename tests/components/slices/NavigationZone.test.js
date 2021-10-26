@@ -31,23 +31,27 @@ describe('NavigationZone slice', () => {
         mocks: { $route },
         stubs: { 'pix-link': true, fa: true, 'navigation-dropdown': true },
         propsData: {
-          slice: {
-            items: [
-              { name: 'Découvrir Pix', link: { url: '/' }, group: [] },
-              { name: 'Les tests', link: { url: '/tests' }, group: [] },
-              {
-                name: 'Enseignement scolaire',
-                link: { url: '/sco' },
-                group: [{ text: 'Enseignement' }],
-              },
-              {
-                name: 'Enseignement supérieur',
-                link: { url: '/sup' },
-                group: [{ text: 'Enseignement' }],
-              },
-              { name: 'Pix Pro', link: { url: '/pro' }, group: [] },
-            ],
-          },
+          navigationZoneItems: [
+            {
+              items: [
+                { name: 'Découvrir Pix', link: { url: '/' }, group: [] },
+                { name: 'Les tests', link: { url: '/tests' }, group: [] },
+                {
+                  name: 'Enseignement scolaire',
+                  link: { url: '/sco' },
+                  group: [{ text: 'Enseignement' }],
+                },
+                {
+                  name: 'Enseignement supérieur',
+                  link: { url: '/sup' },
+                  group: [{ text: 'Enseignement' }],
+                },
+              ],
+            },
+            {
+              items: [{ name: 'Pix Pro', link: { url: '/pro' }, group: [] }],
+            },
+          ],
         },
         computed: {
           $prismic() {
@@ -65,7 +69,7 @@ describe('NavigationZone slice', () => {
           { name: 'Les tests', link: { url: '/tests' }, group: [] },
           {
             name: 'Enseignement',
-            subNavigationLinks: [
+            children: [
               {
                 name: 'Enseignement scolaire',
                 link: { url: '/sco' },
@@ -78,6 +82,7 @@ describe('NavigationZone slice', () => {
               },
             ],
           },
+          component.vm.SEPARATOR,
           { name: 'Pix Pro', group: [], link: { url: '/pro' } },
         ])
       })
