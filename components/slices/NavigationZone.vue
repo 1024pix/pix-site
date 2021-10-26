@@ -5,9 +5,9 @@
         v-for="(menuItem, index) in navigationLinks"
         :key="`item-${index}`"
         class="navigation-zone-block"
+        :class="{ 'navigation-separator': menuItem === SEPARATOR }"
       >
-        <template v-if="menuItem === SEPARATOR"> | </template>
-        <template v-else>
+        <template v-if="menuItem !== SEPARATOR">
           <div v-if="menuItem.children && menuItem.children.length > 0">
             <button
               :dropdown-index="`${index}`"
@@ -145,6 +145,12 @@ export default {
 
   .navigation-zone-block {
     height: 24px;
+  }
+
+  .navigation-separator {
+    margin: auto 10px;
+    height: 24px;
+    border-left: 1px solid $grey-60;
   }
 
   & > div {
