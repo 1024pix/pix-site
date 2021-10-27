@@ -17,7 +17,6 @@
     "clean": "rm -rf node_modules .nuxt",
     "build": "./scripts/build.sh && npm run signal-github",
     "build:static": "nuxt generate --fail-on-error",
-    "build:ssr": "nuxt build",
     "start": "nuxt start",
     "dev:site": "SITE=pix-site nuxt",
     "build:site": "SITE=pix-site nuxt generate --fail-on-error",

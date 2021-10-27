@@ -3,7 +3,7 @@ import routes from './services/get-routes-to-generate'
 
 const config = {
   generate: { routes },
-  target: process.env.SSR_ENABLED === 'true' ? 'server' : 'static',
+  target: 'static',
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
     orgDomain: process.env.DOMAIN_ORG || 'pix.org',
@@ -173,7 +173,6 @@ const config = {
     endpoint: process.env.PRISMIC_API_ENDPOINT,
     linkResolver: '@/plugins/link-resolver',
     htmlSerializer: '@/plugins/html-serializer',
-    preview: process.env.SSR_ENABLED === 'true',
     modern: true,
   },
   router: {

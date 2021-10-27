@@ -32,14 +32,6 @@ Domain name for `.org` extension.
 - type: String
 - default: none
 
-`SSR_ENABLED`
-Build and serve applications using SSR.
-If not set, applications are built and served as static websites.
-
-- presence: optional
-- type: Boolean
-- default: false
-
 `MATOMO_URL`
 If not present, nuxt-matomo will not be loaded and analytics will not be active
 
