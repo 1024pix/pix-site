@@ -97,6 +97,7 @@ export default {
     justify-content: space-between;
     margin-left: 100px;
     height: 80px;
+    padding-right: 36px;
   }
 
   .navigation-slice-zone-content__bottom-side {
@@ -113,6 +114,7 @@ export default {
     .navigation-slice-zone__content {
       justify-content: space-between;
       margin: 0 4vw;
+      padding-right: 0;
     }
 
     .navigation-slice-zone-content {
