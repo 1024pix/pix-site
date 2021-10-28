@@ -1,5 +1,5 @@
-import getRoutesToGenerate from '@/services/get-routes-to-generate'
 import prismic from '@prismicio/client'
+import getRoutesToGenerate from '@/services/get-routes-to-generate'
 jest.mock('@prismicio/client')
 
 describe('#getRoutesToGenerate', () => {
