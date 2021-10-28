@@ -15,6 +15,8 @@
             v-if="menuItem.icon"
             :src="`/images/${menuItem.icon}`"
             class="actions-zone__item__icon"
+            alt
+            role="presentation"
             width="23"
             height="22"
           />
