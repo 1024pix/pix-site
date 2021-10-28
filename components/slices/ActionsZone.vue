@@ -13,7 +13,7 @@
         >
           <img
             v-if="menuItem.icon"
-            :src="`images/${menuItem.icon}`"
+            :src="`/images/${menuItem.icon}`"
             class="actions-zone__item__icon"
             width="23"
             height="22"
