@@ -8,27 +8,23 @@
     <div class="navigation-slice-zone__content">
       <div class="navigation-slice-zone-content__left-side">
         <section
-          v-for="(slice, index) in leftNavigation"
+          v-for="(slice, index) in logos"
           :key="`navigation-slice-left-${index}`"
         >
-          <template v-if="slice.slice_type === 'logos_zone'">
-            <slices-logos-zone :slice="slice" />
-          </template>
-          <template v-if="slice.slice_type === 'navigation_zone'">
-            <slices-navigation-zone :slice="slice" />
-          </template>
+          <slices-logos-zone :slice="slice" />
         </section>
       </div>
       <section
-        v-for="(slice, index) in rightNavigation"
+        v-for="(slice, index) in actions"
         :key="`navigation-slice-right-${index}`"
         class="navigation-slice-zone-content__right-side"
       >
-        <template v-if="slice.slice_type === 'actions_zone'">
-          <slices-actions-zone :slice="slice" />
-        </template>
+        <slices-actions-zone :slice="slice" />
       </section>
     </div>
+    <section class="navigation-slice-zone-content__bottom-side">
+      <slices-navigation-zone :navigation-zone-items="navigation" />
+    </section>
   </header>
 </template>
 
@@ -55,18 +51,21 @@ export default {
       return mainNavBySite['pix-site']
     },
 
-    leftNavigation() {
+    logos() {
       const headerBlocks = this.usedMainNavigation.data.body
-      return headerBlocks.filter(
-        (block) =>
-          block.slice_type === 'logos_zone' ||
-          block.slice_type === 'navigation_zone'
-      )
+      return headerBlocks.filter((block) => block.slice_type === 'logos_zone')
     },
 
-    rightNavigation() {
+    actions() {
       const headerBlocks = this.usedMainNavigation.data.body
       return headerBlocks.filter((block) => block.slice_type === 'actions_zone')
+    },
+
+    navigation() {
+      const headerBlocks = this.usedMainNavigation.data.body
+      return headerBlocks.filter(
+        (block) => block.slice_type === 'navigation_zone'
+      )
     },
 
     burgerMenuLinks() {
@@ -98,6 +97,13 @@ export default {
     justify-content: space-between;
     margin-left: 100px;
     height: 80px;
+    padding-right: 36px;
+  }
+
+  .navigation-slice-zone-content__bottom-side {
+    border-top: 1px solid $grey-15;
+    display: flex;
+    justify-content: center;
   }
 
   @include device-is('large-screen') {
@@ -108,6 +114,7 @@ export default {
     .navigation-slice-zone__content {
       justify-content: space-between;
       margin: 0 4vw;
+      padding-right: 0;
     }
 
     .navigation-slice-zone-content {

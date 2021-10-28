@@ -11,6 +11,13 @@
             link: menuItem.style === 'link',
           }"
         >
+          <img
+            v-if="menuItem.icon"
+            :src="`images/${menuItem.icon}`"
+            class="actions-zone__item__icon"
+            width="23"
+            height="22"
+          />
           {{ $prismic.asText(menuItem.name) }}
         </pix-link>
       </li>
@@ -60,6 +67,11 @@ export default {
     font-weight: $font-medium;
     letter-spacing: 0.008rem;
     line-height: 1.375rem;
+    display: inline-flex;
+
+    &__icon {
+      margin-right: 5px;
+    }
 
     &.link:hover {
       color: $blue;

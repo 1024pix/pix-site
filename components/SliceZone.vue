@@ -4,9 +4,6 @@
       <template v-if="slice.slice_type === 'rich_text'">
         <prismic-rich-text :field="slice.primary.text" />
       </template>
-      <template v-if="slice.slice_type === 'pop-in'">
-        <slices-pop-in-campaigns :slice="slice" :index-for-id="index" />
-      </template>
       <template v-if="slice.slice_type === 'banner'">
         <slices-page-banner :slice="slice" :index-for-id="index" />
       </template>
