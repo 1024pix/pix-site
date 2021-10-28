@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.21.1 (28/10/2021)
+
+
+### :bug: Bug fix
+- [#308](https://github.com/1024pix/pix-site/pull/308) [BUGFIX] Correction lien icones sur le site .org
+
 ## v3.21.0 (28/10/2021)
 
 
