@@ -1,5 +1,23 @@
 # pix-site Changelog
 
+## v3.21.0 (28/10/2021)
+
+
+### :rocket: Enhancement
+- [#300](https://github.com/1024pix/pix-site/pull/300) [FEATURE] Double navigation (PIX-3690 PIX-1723)
+
+### :building_construction: Tech
+- [#301](https://github.com/1024pix/pix-site/pull/301) [TECH] Ajoute les headers de cache navigateurs pour les dossiers _assets et _nuxt
+- [#303](https://github.com/1024pix/pix-site/pull/303) [TECH] Importer seulement les fonctions de lodash qui sont utilisées.
+- [#302](https://github.com/1024pix/pix-site/pull/302) [TECH] Mise à jour de l'assets-extractor
+
+### :bug: Bug fix
+- [#307](https://github.com/1024pix/pix-site/pull/307) [BUGFIX] Espacement de bloc feature
+- [#299](https://github.com/1024pix/pix-site/pull/299) [BUGFIX] Corrige l'alignement vertical dans la bannière de nouvelles.
+
+### :coffee: Various
+- [#304](https://github.com/1024pix/pix-site/pull/304) [INFRA] Supprime la dépendance à lodash
+
 ## v3.20.0 (13/10/2021)
 
 - [#298](https://github.com/1024pix/pix-site/pull/298) [CLEANUP] Supprimer le cahier des charges centre de certification osbolète
