@@ -6,7 +6,7 @@
     letter-spacing: 0.15px;
     line-height: 49px;
     text-align: center;
-    margin-top: 64px;
+    margin-top: 0;
   }
 
   &__wrapper {
@@ -72,7 +72,7 @@
 @include device-is('tablet') {
   .features {
     &__title h2 {
-      margin-top: 80px;
+      padding: 80px 0 40px 0;
     }
     &__wrapper {
       padding: 80px 0;
@@ -105,7 +105,7 @@
 @include device-is('desktop') {
   .features {
     &__title h2 {
-      margin-top: 80px;
+      padding: 80px 0 40px 0;
     }
 
     &__wrapper {
@@ -150,8 +150,7 @@
 @include device-is('large-screen') {
   .features {
     &__title h2 {
-      margin-top: 0;
-      padding-top: 120px;
+      padding: 100px 0 50px 0;
     }
     &__wrapper {
       padding: 60px 0;
