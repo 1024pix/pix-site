@@ -64,10 +64,11 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.4.0",
+    "fibers": "^5.0.0",
     "install": "^0.13.0",
     "jest": "^27.0.6",
-    "node-sass": "^5.0.0",
     "prettier": "^2.3.2",
+    "sass": "^1.43.4",
     "sass-loader": "^10.1.1",
     "vue-jest": "^3.0.7"
   },
