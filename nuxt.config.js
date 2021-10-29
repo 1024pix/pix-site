@@ -98,7 +98,7 @@ const config = {
    */
   modules: [
     '@nuxtjs/style-resources',
-    ['nuxt-i18n', { detectBrowserLanguage: false }],
+    ['@nuxtjs/i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
     [
       'nuxt-fontawesome',
