@@ -52,12 +52,8 @@ export default {
     }
     li {
       align-self: center;
-      display: inline;
+      display: flex;
     }
-  }
-
-  & > div:not(:last-child) {
-    margin-right: 16px;
   }
 
   &__item {
