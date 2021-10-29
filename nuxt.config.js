@@ -97,8 +97,6 @@ const config = {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     ['nuxt-i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
@@ -141,11 +139,6 @@ const config = {
   styleResources: {
     scss: ['assets/scss/globals.scss'],
   },
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
   i18n: {
     defaultLocale: 'fr-fr',
     locales:
