@@ -23,7 +23,7 @@
           </span>
         </p>
 
-        <h3 class="news-item-card__title">{{ slice.title[0].text }}</h3>
+        <h2 class="news-item-card__title">{{ slice.title[0].text }}</h2>
 
         <prismic-rich-text
           :field="slice.excerpt"
