@@ -38,11 +38,10 @@ server {
   }
 
   if ($host ~ \.org) {
-    rewrite ^/(?!fr)(?!en-gb)(?!_nuxt)(?!images)(?!_assets)(?!favicon.ico) $scheme://$host/fr$request_uri permanent;
+    rewrite ^/(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $scheme://$host/fr$request_uri permanent;
   }
 
   if ($http_x_forwarded_host ~ \.org) {
-    rewrite ^/(?!fr)(?!en-gb)(?!_nuxt)(?!images)(?!_assets)(?!favicon.ico) $scheme://$http_x_forwarded_host/fr$request_uri permanent;
+    rewrite ^/(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $http_x_forwarded_proto://$http_x_forwarded_host/fr$request_uri permanent;
   }
 }
-
