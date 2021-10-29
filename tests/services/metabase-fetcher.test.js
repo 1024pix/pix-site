@@ -1,15 +1,19 @@
-import axios from 'axios'
 import consola from 'consola'
 import metabaseFetcher from '~/services/metabase-fetcher'
-jest.mock('axios')
 jest.mock('consola')
+
+function fetchResponse(response) {
+  return {
+    json: () => response,
+  }
+}
 
 describe('MetabaseFetcher', () => {
   test('it should get session id', async () => {
     // given
-    axios.post = jest.fn().mockReturnValue({
-      data: { id: 'session-id' },
-    })
+    global.fetch = jest
+      .fn()
+      .mockReturnValue(fetchResponse({ id: 'session-id' }))
     process.env.METABASE_API_URL = 'https://test.metabase.fr'
     process.env.METABASE_USERNAME = 'username'
     process.env.METABASE_PASSWORD = 'password'
@@ -19,25 +23,24 @@ describe('MetabaseFetcher', () => {
 
     // then
     const expectedUrl = 'https://test.metabase.fr/api/session'
-    const expectedBody = {
-      username: process.env.METABASE_USERNAME,
-      password: process.env.METABASE_PASSWORD,
+    const expectedOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        username: process.env.METABASE_USERNAME,
+        password: process.env.METABASE_PASSWORD,
+      }),
     }
-    const expectedHeaders = { headers: { 'Content-Type': 'application/json' } }
-    expect(axios.post).toHaveBeenCalledWith(
-      expectedUrl,
-      expectedBody,
-      expectedHeaders
-    )
+    expect(global.fetch).toHaveBeenCalledWith(expectedUrl, expectedOptions)
   })
 
   describe('#getCard', () => {
     test('it should call metabase with sessionId and cardId', async () => {
       // given
-      axios.post = jest
+      global.fetch = jest
         .fn()
-        .mockReturnValueOnce({ data: { id: 'session-id' } })
-        .mockReturnValueOnce({ data: [] })
+        .mockReturnValueOnce(fetchResponse({ id: 'session-id' }))
+        .mockReturnValueOnce(fetchResponse([]))
       const cardId = 1234
       process.env.METABASE_API_URL = 'https://test.metabase.fr'
 
@@ -51,23 +54,24 @@ describe('MetabaseFetcher', () => {
 
       // then
       const expectedUrl = `https://test.metabase.fr/api/card/${cardId}/query/json`
-      const expectedHeaders = {
+      const expectedOptions = {
+        method: 'POST',
         headers: { 'X-Metabase-Session': 'session-id' },
       }
-      expect(axios.post).nthCalledWith(2, expectedUrl, null, expectedHeaders)
+      expect(global.fetch).nthCalledWith(2, expectedUrl, expectedOptions)
     })
 
     test('it should return values and labels', async () => {
       // given
-      axios.post = jest
+      global.fetch = jest
         .fn()
-        .mockReturnValueOnce({ data: { id: 'session-id' } })
-        .mockReturnValueOnce({
-          data: [
+        .mockReturnValueOnce(fetchResponse({ id: 'session-id' }))
+        .mockReturnValueOnce(
+          fetchResponse([
             { x_axis: 'x_axis_1', y_axis: 'y_axis_1' },
             { x_axis: 'x_axis_2', y_axis: 'y_axis_2' },
-          ],
-        })
+          ])
+        )
 
       const cardId = 1234
 
@@ -89,11 +93,11 @@ describe('MetabaseFetcher', () => {
     describe('When Metabase not respond', () => {
       it('should throw a Metabase error', async () => {
         // given
-        const axiosError = new Error('504')
-        axios.post = jest
+        const fetchError = new Error('504')
+        global.fetch = jest
           .fn()
-          .mockReturnValueOnce({ data: { id: 'session-id' } })
-          .mockRejectedValueOnce(axiosError)
+          .mockReturnValueOnce(fetchResponse({ id: 'session-id' }))
+          .mockRejectedValueOnce(fetchError)
         consola.error = jest.fn()
 
         const cardId = 1234
@@ -108,7 +112,7 @@ describe('MetabaseFetcher', () => {
           })
         } catch (error) {
           // then
-          expect(consola.error).toHaveBeenCalledWith(axiosError)
+          expect(consola.error).toHaveBeenCalledWith(fetchError)
           expect(error.message).toEqual(
             'Data could not be fetched from Metabase'
           )
