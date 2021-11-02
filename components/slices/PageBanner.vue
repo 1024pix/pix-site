@@ -68,11 +68,11 @@ export default {
         style = {
           background: `no-repeat url(${this.slice.primary.banner_background.url})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'top right',
-          'clip-path': 'ellipse(110% 55% at 50% 40%)',
+          backgroundPosition: 'bottom',
         }
+      } else {
+        style.backgroundColor = this.slice.primary.banner_background_color
       }
-      style.backgroundColor = this.slice.primary.banner_background_color
       return style
     },
     fontContrast() {
