@@ -1,5 +1,20 @@
 # pix-site Changelog
 
+## v3.22.0 (03/11/2021)
+
+
+### :building_construction: Tech
+- [#306](https://github.com/1024pix/pix-site/pull/306) [TECH] Mettre à jour les dépendances
+- [#313](https://github.com/1024pix/pix-site/pull/313) [TECH] Mettre à jour le package @nuxtjs/i18n
+- [#316](https://github.com/1024pix/pix-site/pull/316) [TECH] Supprimer axios 
+- [#315](https://github.com/1024pix/pix-site/pull/315) [TECH] Fixer la version de assets-extractor-module
+- [#311](https://github.com/1024pix/pix-site/pull/311) [TECH] Utiliser sass au lieu de node-sass
+
+### :bug: Bug fix
+- [#317](https://github.com/1024pix/pix-site/pull/317) [BUGFIX] Affichage de la vidéo au scroll sur la page d'accueil
+- [#310](https://github.com/1024pix/pix-site/pull/310) [BUGFIX] Problème de texte alternative sur les icones du menu.
+- [#309](https://github.com/1024pix/pix-site/pull/309) [BUGFIX] Réaligner les éléments dans le menu action (PIX-3760).
+
 ## v3.21.1 (28/10/2021)
 
 
