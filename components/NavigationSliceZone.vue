@@ -29,16 +29,26 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import { keyBy } from '~/services/key-by'
+import { documentFetcher, documents } from '~/services/document-fetcher'
 
 export default {
   name: 'NavigationSliceZone',
+  data() {
+    return {
+      mainNavigations: [],
+    }
+  },
+  async fetch() {
+    this.mainNavigations = await documentFetcher(
+      this.$prismic,
+      this.$i18n
+    ).findByType(documents.mainNavigation)
+  },
   computed: {
     isPixPro() {
       return process.env.isPixPro
     },
-    ...mapState(['mainNavigations']),
 
     usedMainNavigation() {
       const mainNavBySite = keyBy(
