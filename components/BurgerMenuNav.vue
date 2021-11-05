@@ -44,6 +44,11 @@ export default {
 
   .bm-burger-button {
     top: 25px;
+    left: 24px;
+
+    @include device-is('tablet') {
+      left: 48px;
+    }
 
     @include device-is('large-screen') {
       display: none;
