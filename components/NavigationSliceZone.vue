@@ -95,9 +95,13 @@ export default {
   .navigation-slice-zone__content {
     display: flex;
     justify-content: space-between;
-    margin-left: 100px;
     height: 80px;
     padding-right: 36px;
+    margin-left: 80px;
+
+    @include device-is('tablet') {
+      margin-left: 112px;
+    }
   }
 
   .navigation-slice-zone-content__bottom-side {

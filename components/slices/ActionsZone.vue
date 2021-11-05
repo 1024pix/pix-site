@@ -49,6 +49,12 @@ export default {
   ul {
     list-style: none;
     display: flex;
+    padding-left: 0;
+
+    @include device-is('tablet') {
+      padding-left: 10px;
+    }
+
     li::before {
       content: none;
     }
@@ -59,13 +65,18 @@ export default {
   }
 
   &__item {
-    font-size: 0.875rem;
+    font-size: 0;
     color: $grey-60;
     font-family: $font-roboto;
     font-weight: $font-medium;
     letter-spacing: 0.008rem;
     line-height: 1.375rem;
     display: inline-flex;
+    align-items: center;
+
+    @include device-is('tablet') {
+      font-size: 0.875rem;
+    }
 
     &__icon {
       margin-right: 5px;

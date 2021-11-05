@@ -36,7 +36,11 @@ export default {
   justify-content: flex-end;
 
   .logos-zone__content {
-    margin-right: 24px;
+    margin-right: 12px;
+
+    @include device-is('large-screen') {
+      margin-right: 24px;
+    }
 
     img {
       height: 50px;
