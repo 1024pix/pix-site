@@ -11,16 +11,23 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { documentFetcher, documents } from '~/services/document-fetcher'
 
 export default {
   name: 'HotNewsBanner',
   data() {
     return {
       isOpen: true,
+      hotNews: null,
     }
   },
-  computed: mapState(['hotNews']),
+  async fetch() {
+    const hotNews = await documentFetcher(this.$prismic, this.$i18n).findByType(
+      documents.hotNews
+    )
+
+    this.hotNews = hotNews?.data?.description
+  },
   methods: {
     closeBanner() {
       this.isOpen = false
