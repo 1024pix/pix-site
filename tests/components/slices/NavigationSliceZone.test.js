@@ -5,7 +5,6 @@ jest.mock('~/services/document-fetcher')
 
 describe('NavigationSliceZone', () => {
   let component
-  let store
   const stubs = {
     'client-only': true,
     'slide-menu': true,
@@ -66,19 +65,16 @@ describe('NavigationSliceZone', () => {
 
     describe('#usedMainNavigation', () => {
       describe('When we are in pix-site and we have the site navigation', () => {
-        beforeEach(() => {
-          store = {
-            state: {
-              mainNavigations: [expectedSiteNavigation, expectedProNavigation],
-            },
-          }
-        })
-
         it('should return the site navigation', () => {
           // given
           component = shallowMount(NavigationSliceZone, {
-            mocks: {
-              $store: store,
+            data() {
+              return {
+                mainNavigations: [
+                  expectedSiteNavigation,
+                  expectedProNavigation,
+                ],
+              }
             },
             stubs,
           })
@@ -96,18 +92,18 @@ describe('NavigationSliceZone', () => {
           process.env = {
             isPixPro: true,
           }
-          store = {
-            state: {
-              mainNavigations: [expectedSiteNavigation, expectedProNavigation],
-            },
-          }
         })
 
         it('should return the pro navigation', () => {
           // given
           component = shallowMount(NavigationSliceZone, {
-            mocks: {
-              $store: store,
+            data() {
+              return {
+                mainNavigations: [
+                  expectedSiteNavigation,
+                  expectedProNavigation,
+                ],
+              }
             },
             stubs,
           })
@@ -125,18 +121,13 @@ describe('NavigationSliceZone', () => {
           process.env = {
             isPixPro: true,
           }
-          store = {
-            state: {
-              mainNavigations: [expectedSiteNavigation],
-            },
-          }
         })
 
         it('should return the site navigation', () => {
           // given
           component = shallowMount(NavigationSliceZone, {
-            mocks: {
-              $store: store,
+            data() {
+              return { mainNavigations: [expectedSiteNavigation] }
             },
             stubs,
           })

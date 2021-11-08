@@ -2,7 +2,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer__left">
       <div
-        v-for="(slice, index) in usedMainFooter.data.body"
+        v-for="(slice, index) in usedMainFooter"
         :key="`footer-slice-left-${index}`"
       >
         <template v-if="slice.slice_type === 'logos_zone'">
@@ -42,33 +42,39 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 import { keyBy } from '~/services/key-by'
+import { documentFetcher, documents } from '~/services/document-fetcher'
 
 export default {
   name: 'FooterSliceZone',
   data() {
     return {
       socialMediasHoverMap: {},
+      mainFooters: null,
     }
+  },
+  async fetch() {
+    this.mainFooters = await documentFetcher(
+      this.$prismic,
+      this.$i18n
+    ).findByType(documents.mainFooter)
   },
   computed: {
     isPixPro() {
       return process.env.isPixPro
     },
-    ...mapState(['mainFooters']),
     usedMainFooter() {
       const mainFooterBySite = keyBy(
         this.mainFooters,
         (mainFooter) => mainFooter?.data?.footer_for
       )
       if (this.isPixPro && mainFooterBySite['pix-pro']) {
-        return mainFooterBySite['pix-pro']
+        return mainFooterBySite['pix-pro'].data.body
       }
-      return mainFooterBySite['pix-site']
+      return mainFooterBySite['pix-site'].data.body
     },
     navigationGroups() {
-      return this.usedMainFooter.data.body.filter(
+      return this.usedMainFooter.filter(
         (slice) => slice.slice_type === 'navigation_group'
       )
     },
