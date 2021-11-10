@@ -1,5 +1,19 @@
 # pix-site Changelog
 
+## v3.23.0 (10/11/2021)
+
+
+### :building_construction: Tech
+- [#320](https://github.com/1024pix/pix-site/pull/320) [TECH] Supprimer le store Vuex (PIX-1468). 
+
+### :bug: Bug fix
+- [#318](https://github.com/1024pix/pix-site/pull/318) [BUGFIX] Redirections Nginx
+- [#314](https://github.com/1024pix/pix-site/pull/314) [BUGFIX] a11y - Ordre des headers de la page d'actualités
+- [#319](https://github.com/1024pix/pix-site/pull/319) [BUGFIX] Retirer le texte des actions de la barre de navigation sur mobile. 
+
+### :coffee: Various
+- [#305](https://github.com/1024pix/pix-site/pull/305) [INFRA] Utilise seulement le mode static de Nuxt
+
 ## v3.22.0 (03/11/2021)
 
 
