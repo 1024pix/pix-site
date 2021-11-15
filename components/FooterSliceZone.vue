@@ -24,7 +24,11 @@
               :field="socialMedia.socialmedia_url"
               class="footer-social-media__icon"
             >
-              <pix-image :field="socialMedia.socialmedia_image" />
+              <pix-image
+                :field="socialMedia.socialmedia_image"
+                width="30"
+                height="30"
+              />
             </pix-link>
           </li>
         </ul>
