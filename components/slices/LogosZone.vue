@@ -6,9 +6,9 @@
       class="logos-zone__content"
     >
       <pix-link v-if="hasLink(logo)" :field="logo.url">
-        <pix-image :field="logo.image" />
+        <pix-image :field="logo.image" width="60.6" height="50" />
       </pix-link>
-      <pix-image v-else :field="logo.image" />
+      <pix-image v-else :field="logo.image" width="54.7" height="50" />
     </div>
   </div>
 </template>
@@ -43,7 +43,6 @@ export default {
     }
 
     img {
-      height: 50px;
       margin: 15px 0 15px 0;
     }
 
