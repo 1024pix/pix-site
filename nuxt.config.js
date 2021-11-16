@@ -92,7 +92,14 @@ const config = {
     ],
     '~/modules/propagate-fetch-error-during-generation',
     '@nuxtjs/prismic',
+    '@nuxt/image',
   ],
+
+  image: {
+    provider: 'prismic',
+    prismic: {},
+  },
+
   /*
    ** Nuxt.js modules
    */

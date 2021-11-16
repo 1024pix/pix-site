@@ -1,5 +1,12 @@
 <template>
-  <prismic-image :field="image" :role="image.role" />
+  <nuxt-img
+    v-if="image.url"
+    :src="image.url"
+    :alt="image.alt"
+    :role="image.role"
+    :width="image.width"
+    :height="image.height"
+  />
 </template>
 
 <script>

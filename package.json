@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.0",
+    "@nuxt/image": "^0.6.0",
     "@nuxtjs/eslint-config": "^7.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/moment": "1.6.1",
