@@ -96,8 +96,13 @@ const config = {
   ],
 
   image: {
-    provider: 'prismic',
-    prismic: {},
+    provider: 'static',
+    domains: [
+      'images.prismic.io',
+      'pix-site.cdn.prismic.io',
+      'storage.gra.cloud.ovh.net',
+      'prismic-io.s3.amazonaws.com',
+    ],
   },
 
   /*
