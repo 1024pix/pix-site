@@ -1,5 +1,23 @@
 # pix-site Changelog
 
+## v3.23.1 (18/11/2021)
+
+
+### :rocket: Enhancement
+- [#328](https://github.com/1024pix/pix-site/pull/328) [FEATURE] Corriger les titles pour les actualités.
+
+### :building_construction: Tech
+- [#334](https://github.com/1024pix/pix-site/pull/334) [TECH] Utilise le PIX_SERVICE_ACTIONS_TOKEN dans l'action d'automerge
+
+### :bug: Bug fix
+- [#325](https://github.com/1024pix/pix-site/pull/325) [BUGFIX] Ajoute les attributs `width` et `height` aux icônes
+- [#312](https://github.com/1024pix/pix-site/pull/312) [BUGFIX] Amélioration de l'auto-merge.
+
+### :coffee: Various
+- [#333](https://github.com/1024pix/pix-site/pull/333) [INFRA] Mettre en cache les contenus des dossiers `images` et `scripts`
+- [#331](https://github.com/1024pix/pix-site/pull/331) [INFRA] Setup Circle CI
+- [#324](https://github.com/1024pix/pix-site/pull/324) [INFRA] Mise à jour de node de 14.16.0 à 14.17.0
+
 ## v3.23.0 (10/11/2021)
 
 
