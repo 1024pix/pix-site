@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.23.2 (18/11/2021)
+
+
+### :bug: Bug fix
+- [#335](https://github.com/1024pix/pix-site/pull/335) [BUGFIX] Correction logo pix-pro
+
 ## v3.23.1 (18/11/2021)
 
 
