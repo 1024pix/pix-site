@@ -9,6 +9,9 @@
     </header>
 
     <main class="page-body">
+      <h2 class="sr-only">
+        {{ $t('news-page-title-level-two') }}
+      </h2>
       <ul class="news__list">
         <template v-if="newsItems && newsItems.length">
           <news-item-card
