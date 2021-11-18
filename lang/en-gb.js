@@ -23,6 +23,7 @@ export default {
     'form-id': '28772',
   },
   'news-page-title': 'News',
+  'news-page-title-level-two': 'News List',
   'news-page-no-news': 'No news available for the moment.',
   announcement: 'Announcement',
   engineering: 'Engineering',

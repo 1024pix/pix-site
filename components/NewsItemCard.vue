@@ -4,13 +4,13 @@
       class="news-item-card__link"
       :to="localePath({ name: 'news-slug', params: { slug: uid } })"
     >
-      <header class="news-item-card__header">
+      <div class="news-item-card__header">
         <!-- /!\ We keep this line if we think that an image would be better -->
         <div
           class="news-item-card__illustration"
           :style="`background-image: url(${slice.illustration.url})`"
         ></div>
-      </header>
+      </div>
 
       <div class="news-item-card__body">
         <p class="news-item-card__meta">
@@ -23,7 +23,7 @@
           </span>
         </p>
 
-        <h2 class="news-item-card__title">{{ slice.title[0].text }}</h2>
+        <h3 class="news-item-card__title">{{ slice.title[0].text }}</h3>
 
         <prismic-rich-text
           :field="slice.excerpt"

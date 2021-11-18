@@ -23,6 +23,7 @@ export default {
     'form-id': '22797',
   },
   'news-page-title': 'Actualités',
+  'news-page-title-level-two': 'Liste des actualités',
   'news-page-no-news': "Il n’y a pas encore d'actualités",
   announcement: 'Annonce',
   engineering: 'Ingénierie',
