@@ -1,0 +1,28 @@
+version: 2.1
+
+workflows:
+  lint-and-test:
+    jobs:
+      - checkout:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+                - master
+                - prod
+                - /release-.*/
+
+jobs:
+  checkout:
+    docker:
+      - image: circleci/node:14.17.0
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Lint and test
+          command: |
+            npm ci
+            npm run lint
+            npm run test
+
