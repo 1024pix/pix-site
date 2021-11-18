@@ -8,10 +8,10 @@ on:
     types:
       - completed
 
-permissions: write-all
-
 jobs:
   automerge:
+    if: >
+      ${{ contains(github.event.pull_request.labels.*.name, ':rocket: Ready to Merge') }}
     runs-on: ubuntu-latest
     steps:
       - name: automerge
