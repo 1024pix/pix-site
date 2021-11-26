@@ -1,5 +1,3 @@
-import LinkResolver from '~/plugins/link-resolver.js'
-
 export const documents = {
   hotNews: 'hot_news',
   index: 'index',
@@ -53,9 +51,6 @@ export function documentFetcher(
         { lang }
       )
       return document.results[0]
-    },
-    getPreviewUrl: (previewToken) => {
-      return prismic.api.previewSession(previewToken, LinkResolver, '/')
     },
     getPageByUid: async (uid) => {
       const simplePage = await getSimplePageByUid(uid)
