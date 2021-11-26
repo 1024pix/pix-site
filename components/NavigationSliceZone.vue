@@ -30,7 +30,7 @@
 
 <script>
 import { keyBy } from '~/services/key-by'
-import { documentFetcher, documents } from '~/services/document-fetcher'
+import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 export default {
   name: 'NavigationSliceZone',
@@ -43,7 +43,7 @@ export default {
     this.mainNavigations = await documentFetcher(
       this.$prismic,
       this.$i18n
-    ).findByType(documents.mainNavigation)
+    ).findByType(DOCUMENTS.MAIN_NAVIGATION)
   },
   computed: {
     isPixPro() {

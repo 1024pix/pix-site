@@ -1,5 +1,5 @@
 import prismic from '@prismicio/client'
-import { documentFetcher } from '~/services/document-fetcher'
+import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 jest.mock('@prismicio/client')
 
@@ -56,18 +56,27 @@ describe('DocumentFetcher', () => {
     expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
       lang: 'fr-fr',
     })
-    expect(prismicPredicates.at).toBeCalledWith('my.simple_page.uid', uid)
-    expect(prismicPredicates.at).toBeCalledWith('my.slices_page.uid', uid)
-    expect(prismicPredicates.at).toBeCalledWith('my.form_page.uid', uid)
+    expect(prismicPredicates.at).toBeCalledWith(
+      `my.${DOCUMENTS.SIMPLE_PAGE}.uid`,
+      uid
+    )
+    expect(prismicPredicates.at).toBeCalledWith(
+      `my.${DOCUMENTS.SLICES_PAGE}.uid`,
+      uid
+    )
+    expect(prismicPredicates.at).toBeCalledWith(
+      `my.${DOCUMENTS.FORM_PAGE}.uid`,
+      uid
+    )
     expect(response).toEqual(expectedValue)
   })
 
   test('#findByType', async () => {
     // Given
-    const type = 'main_navigation'
+    const type = DOCUMENTS.MAIN_NAVIGATION
     const expectedValue = [
-      { type: 'main_navigation', navigation_for: 'pix-site' },
-      { type: 'main_navigation', navigation_for: 'pix-pro' },
+      { type: DOCUMENTS.MAIN_NAVIGATION, navigation_for: 'pix-site' },
+      { type: DOCUMENTS.MAIN_NAVIGATION, navigation_for: 'pix-pro' },
     ]
     const expectedPredicatesAtValue = Symbol('AT')
     const findMock = () => ({ results: expectedValue })

@@ -1,8 +1,14 @@
-export const documents = {
-  hotNews: 'hot_news',
-  index: 'index',
-  mainFooter: 'main_footer',
-  mainNavigation: 'main_navigation',
+export const DOCUMENTS = {
+  HOT_NEWS: 'hot_news',
+  INDEX: 'index',
+  MAIN_FOOTER: 'main_footer',
+  MAIN_NAVIGATION: 'main_navigation',
+  NEWS_ITEM: 'news_item',
+  SIMPLE_PAGE: 'simple_page',
+  FORM_PAGE: 'form_page',
+  SLICES_PAGE: 'slices_page',
+  COMPETENCES: 'competences',
+  STATISTIQUES: 'statistiques',
 }
 
 export function documentFetcher(
@@ -35,11 +41,11 @@ export function documentFetcher(
     },
     findNewsItems: async ({ page, pageSize } = { page: 1, pageSize: 20 }) => {
       const documents = await prismic.api.query(
-        prismic.predicates.at('document.type', 'news_item'),
+        prismic.predicates.at('document.type', DOCUMENTS.NEWS_ITEM),
         {
           page,
           pageSize,
-          orderings: '[my.news_item.date desc]',
+          orderings: `[my.${DOCUMENTS.NEWS_ITEM}.date desc]`,
           lang,
         }
       )
@@ -47,7 +53,7 @@ export function documentFetcher(
     },
     getNewsItemByUid: async (slug) => {
       const document = await prismic.api.query(
-        prismic.predicates.at('my.news_item.uid', slug),
+        prismic.predicates.at(`my.${DOCUMENTS.NEWS_ITEM}.uid`, slug),
         { lang }
       )
       return document.results[0]
@@ -67,7 +73,7 @@ export function documentFetcher(
 
   async function getSimplePageByUid(uid) {
     const document = await prismic.api.query(
-      prismic.predicates.at('my.simple_page.uid', uid),
+      prismic.predicates.at(`my.${DOCUMENTS.SIMPLE_PAGE}.uid`, uid),
       { lang }
     )
     return document.results[0]
@@ -75,7 +81,7 @@ export function documentFetcher(
 
   async function getFormPageByUid(uid) {
     const document = await prismic.api.query(
-      prismic.predicates.at('my.form_page.uid', uid),
+      prismic.predicates.at(`my.${DOCUMENTS.FORM_PAGE}.uid`, uid),
       { lang }
     )
     return document.results[0]
@@ -83,7 +89,7 @@ export function documentFetcher(
 
   async function getSlicesPageByUid(uid) {
     const document = await prismic.api.query(
-      prismic.predicates.at('my.slices_page.uid', uid),
+      prismic.predicates.at(`my.${DOCUMENTS.SLICES_PAGE}.uid`, uid),
       { lang }
     )
     return document.results[0]

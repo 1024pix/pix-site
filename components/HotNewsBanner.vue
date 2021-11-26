@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { documentFetcher, documents } from '~/services/document-fetcher'
+import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 export default {
   name: 'HotNewsBanner',
@@ -23,7 +23,7 @@ export default {
   },
   async fetch() {
     const hotNews = await documentFetcher(this.$prismic, this.$i18n).findByType(
-      documents.hotNews
+      DOCUMENTS.HOT_NEWS
     )
 
     this.hotNews = hotNews?.data?.description

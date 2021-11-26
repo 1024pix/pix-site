@@ -47,7 +47,7 @@
 
 <script>
 import { keyBy } from '~/services/key-by'
-import { documentFetcher, documents } from '~/services/document-fetcher'
+import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 export default {
   name: 'FooterSliceZone',
@@ -61,7 +61,7 @@ export default {
     this.mainFooters = await documentFetcher(
       this.$prismic,
       this.$i18n
-    ).findByType(documents.mainFooter)
+    ).findByType(DOCUMENTS.MAIN_FOOTER)
   },
   computed: {
     isPixPro() {
