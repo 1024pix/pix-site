@@ -26,6 +26,39 @@ export function documentFetcher(
       )
       return documents.results
     },
+    findHotNewsBanner: async () => {
+      const documents = await prismic.api.query(
+        prismic.predicates.at('document.type', DOCUMENTS.HOT_NEWS),
+        { lang }
+      )
+      return documents.results
+    },
+    findMainNavigation: async () => {
+      const documents = await prismic.api.query(
+        [
+          prismic.predicates.at('document.type', DOCUMENTS.MAIN_NAVIGATION),
+          prismic.predicates.at(
+            `my.${DOCUMENTS.MAIN_NAVIGATION}.navigation_for`,
+            process.env.SITE === 'pix-site' ? 'pix-site' : 'pix-pro'
+          ),
+        ],
+        { lang }
+      )
+      return documents.results[0]
+    },
+    findMainFooter: async () => {
+      const documents = await prismic.api.query(
+        [
+          prismic.predicates.at('document.type', DOCUMENTS.MAIN_FOOTER),
+          prismic.predicates.at(
+            `my.${DOCUMENTS.MAIN_FOOTER}.footer_for`,
+            process.env.SITE === 'pix-site' ? 'pix-site' : 'pix-pro'
+          ),
+        ],
+        { lang }
+      )
+      return documents.results[0]
+    },
     getEmployers: async () => {
       const document = await prismic.api.getSingle('employers', {
         lang,
