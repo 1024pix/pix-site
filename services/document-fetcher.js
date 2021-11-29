@@ -19,13 +19,6 @@ export function documentFetcher(
   const lang = i18n.locale || i18n.defaultLocale
   return {
     get: getSingle,
-    findByType: async (type) => {
-      const documents = await prismic.api.query(
-        prismic.predicates.at('document.type', type),
-        { lang }
-      )
-      return documents.results
-    },
     findHotNewsBanner: async () => {
       const documents = await prismic.api.query(
         prismic.predicates.at('document.type', DOCUMENTS.HOT_NEWS),
