@@ -6,7 +6,11 @@
         :key="`footer-slice-left-${index}`"
       >
         <template v-if="slice.slice_type === 'logos_zone'">
-          <slices-logos-zone :slice="slice" class="footer-left__logos" />
+          <slices-logos-zone
+            :slice="slice"
+            class="footer-left__logos"
+            :max-height="96"
+          />
         </template>
         <prismic-rich-text
           v-if="slice.slice_type === 'text'"

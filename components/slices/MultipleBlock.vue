@@ -26,7 +26,11 @@
           :key="`item-${itemIndex}`"
           :class="`${blockClass}-wrapper-row__item`"
         >
-          <pix-image v-if="hasImage(item)" :field="item.item_image" />
+          <pix-image
+            v-if="hasImage(item)"
+            :field="item.item_image"
+            :max-height="74"
+          />
           <div>
             <prismic-rich-text
               :class="`${blockClass}-wrapper-row-item__title`"
