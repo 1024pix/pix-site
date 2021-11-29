@@ -4,8 +4,8 @@
     :src="image.url"
     :alt="image.alt"
     :role="image.role"
-    :width="image.width"
-    :height="image.height"
+    :width="computeWidth(image)"
+    :height="computeHeight(image)"
   />
 </template>
 
@@ -18,6 +18,10 @@ export default {
       type: Object,
       default: null,
     },
+    maxHeight: {
+      type: Number,
+      default: undefined,
+    },
   },
   computed: {
     image() {
@@ -27,6 +31,28 @@ export default {
         image.role = 'presentation'
       }
       return image
+    },
+  },
+  methods: {
+    computeHeight(image) {
+      const imageHeight = image.dimensions.height
+
+      return this.isImageHeightTooBig(imageHeight)
+        ? this.maxHeight
+        : imageHeight
+    },
+    computeWidth(image) {
+      const imageWidth = image.dimensions.width
+      const imageHeight = image.dimensions.height
+      const imageWidthIfHeightTooBig =
+        imageWidth * (this.maxHeight / imageHeight)
+
+      return this.isImageHeightTooBig(imageHeight)
+        ? Math.round(imageWidthIfHeightTooBig)
+        : imageWidth
+    },
+    isImageHeightTooBig(imageHeight) {
+      return this.maxHeight && imageHeight > this.maxHeight
     },
   },
 }
