@@ -2,7 +2,7 @@ import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 
 const config = {
-  generate: { routes },
+  generate: { routes, fallback: '404.html' },
   target: 'static',
   publicRuntimeConfig: {
     languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
