@@ -78,18 +78,6 @@ const config = {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     ['@nuxtjs/eslint-module', { fix: true }],
-    [
-      'assets-extractor-module',
-      {
-        hostnames: [
-          'images.prismic.io',
-          'prismic-io.s3.amazonaws.com',
-          'storage.gra.cloud.ovh.net',
-          'pix-site.cdn.prismic.io',
-        ],
-        extensions: ['jpg', 'jpeg', 'gif', 'png', 'webp', 'svg', 'mp4', 'pdf'],
-      },
-    ],
     '~/modules/propagate-fetch-error-during-generation',
     '@nuxtjs/prismic',
     '@nuxt/image',
