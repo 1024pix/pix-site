@@ -29,6 +29,7 @@
           <pix-image
             v-if="hasImage(item)"
             :field="item.item_image"
+            :has-fixed-dimensions="true"
             :max-height="74"
           />
           <div>

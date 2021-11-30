@@ -18,6 +18,10 @@ export default {
       type: Object,
       default: null,
     },
+    hasFixedDimensions: {
+      type: Boolean,
+      default: false,
+    },
     maxHeight: {
       type: Number,
       default: undefined,
@@ -35,6 +39,9 @@ export default {
   },
   methods: {
     computeHeight(image) {
+      if (!this.hasFixedDimensions) {
+        return
+      }
       const imageHeight = image.dimensions.height
 
       return this.isImageHeightTooBig(imageHeight)
@@ -42,6 +49,9 @@ export default {
         : imageHeight
     },
     computeWidth(image) {
+      if (!this.hasFixedDimensions) {
+        return
+      }
       const imageWidth = image.dimensions.width
       const imageHeight = image.dimensions.height
       const imageWidthIfHeightTooBig =

@@ -30,8 +30,8 @@
             >
               <pix-image
                 :field="socialMedia.socialmedia_image"
-                width="30"
-                height="30"
+                :has-fixed-dimensions="true"
+                :max-height="30"
               />
             </pix-link>
           </li>

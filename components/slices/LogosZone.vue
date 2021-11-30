@@ -6,9 +6,18 @@
       class="logos-zone__content"
     >
       <pix-link v-if="hasLink(logo)" :field="logo.url">
-        <pix-image :field="logo.image" :max-height="maxHeight" />
+        <pix-image
+          :field="logo.image"
+          :has-fixed-dimensions="true"
+          :max-height="maxHeight"
+        />
       </pix-link>
-      <pix-image v-else :field="logo.image" :max-height="maxHeight" />
+      <pix-image
+        v-else
+        :field="logo.image"
+        :has-fixed-dimensions="true"
+        :max-height="maxHeight"
+      />
     </div>
   </div>
 </template>

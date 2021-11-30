@@ -53,7 +53,7 @@ describe('Component: PixImage', () => {
       expect(component.vm.image).toEqual(expectedImage)
     })
 
-    it('should return an image with default width & height if small enough', async () => {
+    it('should return an image without width & height if hasFixedDimensions not set', async () => {
       // Given
       const image = {
         alt: 'Alternative Message',
@@ -70,6 +70,30 @@ describe('Component: PixImage', () => {
 
       // Then
       expect(component.vm.image).toEqual(image)
+      expect(component.vm.computeHeight(image)).toEqual(undefined)
+      expect(component.vm.computeWidth(image)).toEqual(undefined)
+    })
+
+    it('should return an image with default width & height if small enough', async () => {
+      // Given
+      const image = {
+        alt: 'Alternative Message',
+        copyright: null,
+        dimensions: {
+          height: 345,
+          width: 453,
+        },
+        url: 'https://url.fr',
+      }
+
+      // When
+      await component.setProps({ hasFixedDimensions: true })
+      await component.setProps({ field: image })
+
+      // Then
+      expect(component.vm.image).toEqual(image)
+      expect(component.vm.computeHeight(image)).toEqual(345)
+      expect(component.vm.computeWidth(image)).toEqual(453)
     })
 
     it('should return an image with recomputed width & height if too large', async () => {
@@ -87,9 +111,11 @@ describe('Component: PixImage', () => {
 
       // When
       await component.setProps({ field: image })
+      await component.setProps({ hasFixedDimensions: true })
       await component.setProps({ maxHeight })
 
       // Then
+      expect(component.vm.image).toEqual(image)
       expect(component.vm.computeHeight(image)).toEqual(maxHeight)
 
       const computedWidth =
