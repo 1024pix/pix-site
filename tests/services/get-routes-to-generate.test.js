@@ -1,11 +1,12 @@
 import prismic from '@prismicio/client'
 import getRoutesToGenerate from '@/services/get-routes-to-generate'
+import { DOCUMENTS } from '~/services/document-fetcher'
 jest.mock('@prismicio/client')
 
 describe('#getRoutesToGenerate', () => {
   const prismicDocPredicates = prismic.Predicates.any('document.type', [
-    'simple_page',
-    'form_page',
+    DOCUMENTS.SIMPLE_PAGE,
+    DOCUMENTS.FORM_PAGE,
   ])
 
   test('it should fetch routes to generate document for each lang', async () => {

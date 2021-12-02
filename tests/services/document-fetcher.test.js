@@ -1,9 +1,11 @@
 import prismic from '@prismicio/client'
-import { documentFetcher } from '~/services/document-fetcher'
+import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 jest.mock('@prismicio/client')
 
 describe('DocumentFetcher', () => {
+  const SAVED_ENV = process.env
+
   test('it should get employers page with distributors informations', async () => {
     // Given
     const expected = { uid: 'navigation' }
@@ -56,18 +58,56 @@ describe('DocumentFetcher', () => {
     expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
       lang: 'fr-fr',
     })
-    expect(prismicPredicates.at).toBeCalledWith('my.simple_page.uid', uid)
-    expect(prismicPredicates.at).toBeCalledWith('my.slices_page.uid', uid)
-    expect(prismicPredicates.at).toBeCalledWith('my.form_page.uid', uid)
+    expect(prismicPredicates.at).toBeCalledWith(
+      `my.${DOCUMENTS.SIMPLE_PAGE}.uid`,
+      uid
+    )
+    expect(prismicPredicates.at).toBeCalledWith(
+      `my.${DOCUMENTS.SLICES_PAGE}.uid`,
+      uid
+    )
+    expect(prismicPredicates.at).toBeCalledWith(
+      `my.${DOCUMENTS.FORM_PAGE}.uid`,
+      uid
+    )
     expect(response).toEqual(expectedValue)
   })
 
-  test('#findByType', async () => {
+  test('#findHotNewsBanner', async () => {
     // Given
-    const type = 'main_navigation'
+    const expectedValue = [{ type: DOCUMENTS.HOT_NEWS }]
+    const expectedPredicatesAtValue = Symbol('AT')
+    const findMock = () => ({ results: expectedValue })
+    const prismicApi = {
+      query: jest.fn().mockImplementationOnce(findMock),
+    }
+    prismic.api = prismicApi
+
+    const prismicPredicates = {
+      at: jest.fn(() => expectedPredicatesAtValue),
+    }
+    prismic.predicates = prismicPredicates
+
+    // When
+    const response = await documentFetcher(prismic).findHotNewsBanner()
+
+    // Then
+    expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
+      lang: 'fr-fr',
+    })
+    expect(prismicPredicates.at).toBeCalledWith(
+      'document.type',
+      DOCUMENTS.HOT_NEWS
+    )
+    expect(response).toEqual(expectedValue)
+  })
+
+  test('#findMainNavigation', async () => {
+    // Given
+    jest.resetModules() // nettoye le cache pour mocker process.env
+    process.env = { SITE: 'pix-site' }
     const expectedValue = [
-      { type: 'main_navigation', navigation_for: 'pix-site' },
-      { type: 'main_navigation', navigation_for: 'pix-pro' },
+      { type: DOCUMENTS.MAIN_NAVIGATION, navigation_for: 'pix-site' },
     ]
     const expectedPredicatesAtValue = Symbol('AT')
     const findMock = () => ({ results: expectedValue })
@@ -82,13 +122,69 @@ describe('DocumentFetcher', () => {
     prismic.predicates = prismicPredicates
 
     // When
-    const response = await documentFetcher(prismic).findByType(type)
+    const response = await documentFetcher(prismic).findMainNavigation()
 
     // Then
-    expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
-      lang: 'fr-fr',
-    })
-    expect(prismicPredicates.at).toBeCalledWith('document.type', type)
-    expect(response).toEqual(expectedValue)
+    expect(prismicApi.query).toBeCalledWith(
+      [expectedPredicatesAtValue, expectedPredicatesAtValue],
+      {
+        lang: 'fr-fr',
+      }
+    )
+    expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+      1,
+      'document.type',
+      DOCUMENTS.MAIN_NAVIGATION
+    )
+    expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+      2,
+      `my.${DOCUMENTS.MAIN_NAVIGATION}.navigation_for`,
+      'pix-site'
+    )
+    expect(response).toEqual(expectedValue[0])
+    process.env = { ...SAVED_ENV }
+  })
+
+  test('#findMainFooter', async () => {
+    // Given
+    jest.resetModules() // nettoie le cache pour mocker process.env
+    process.env = { SITE: 'pix-pro' }
+    const expectedValue = [
+      { type: DOCUMENTS.MAIN_FOOTER, footer_for: 'pix-pro' },
+    ]
+    const expectedPredicatesAtValue = Symbol('AT')
+    const findMock = () => ({ results: expectedValue })
+    const prismicApi = {
+      query: jest.fn().mockImplementationOnce(findMock),
+    }
+    prismic.api = prismicApi
+
+    const prismicPredicates = {
+      at: jest.fn(() => expectedPredicatesAtValue),
+    }
+    prismic.predicates = prismicPredicates
+
+    // When
+    const response = await documentFetcher(prismic).findMainFooter()
+
+    // Then
+    expect(prismicApi.query).toBeCalledWith(
+      [expectedPredicatesAtValue, expectedPredicatesAtValue],
+      {
+        lang: 'fr-fr',
+      }
+    )
+    expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+      1,
+      'document.type',
+      DOCUMENTS.MAIN_FOOTER
+    )
+    expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+      2,
+      `my.${DOCUMENTS.MAIN_FOOTER}.footer_for`,
+      'pix-pro'
+    )
+    expect(response).toEqual(expectedValue[0])
+    process.env = { ...SAVED_ENV }
   })
 })

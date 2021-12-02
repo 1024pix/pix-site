@@ -29,60 +29,50 @@
 </template>
 
 <script>
-import { keyBy } from '~/services/key-by'
-import { documentFetcher, documents } from '~/services/document-fetcher'
+import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
   name: 'NavigationSliceZone',
   data() {
     return {
-      mainNavigations: [],
+      usedMainNavigation: null,
     }
   },
   async fetch() {
-    this.mainNavigations = await documentFetcher(
+    const mainNavigation = await documentFetcher(
       this.$prismic,
       this.$i18n
-    ).findByType(documents.mainNavigation)
+    ).findMainNavigation()
+
+    this.usedMainNavigation = mainNavigation.data.body
   },
   computed: {
     isPixPro() {
       return process.env.isPixPro
     },
 
-    usedMainNavigation() {
-      const mainNavBySite = keyBy(
-        this.mainNavigations,
-        (mainNav) => mainNav?.data?.navigation_for
-      )
-      if (this.isPixPro && mainNavBySite['pix-pro']) {
-        return mainNavBySite['pix-pro']
-      }
-      return mainNavBySite['pix-site']
-    },
-
     logos() {
-      const headerBlocks = this.usedMainNavigation.data.body
+      const headerBlocks = this.usedMainNavigation
       return headerBlocks.filter((block) => block.slice_type === 'logos_zone')
     },
 
     actions() {
-      const headerBlocks = this.usedMainNavigation.data.body
+      const headerBlocks = this.usedMainNavigation
       return headerBlocks.filter((block) => block.slice_type === 'actions_zone')
     },
 
     navigation() {
-      const headerBlocks = this.usedMainNavigation.data.body
+      const headerBlocks = this.usedMainNavigation
       return headerBlocks.filter(
         (block) => block.slice_type === 'navigation_zone'
       )
     },
 
     burgerMenuLinks() {
-      const navigationZone = this.usedMainNavigation.data.body.find(
+      const navigationZone = this.usedMainNavigation.find(
         (slice) => slice.slice_type === 'navigation_zone'
       )
-      const actionsZone = this.usedMainNavigation.data.body.find(
+      const actionsZone = this.usedMainNavigation.find(
         (slice) => slice.slice_type === 'actions_zone'
       )
       return {

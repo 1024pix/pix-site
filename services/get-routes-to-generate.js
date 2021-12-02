@@ -1,4 +1,5 @@
 import Prismic from '@prismicio/client'
+import { DOCUMENTS } from './document-fetcher'
 
 export default async function () {
   const api = await Prismic.getApi(process.env.PRISMIC_API_ENDPOINT)
@@ -12,7 +13,10 @@ export default async function () {
 
 async function getRoutesInPage(api, page) {
   const { results, total_pages: totalPages } = await api.query(
-    Prismic.Predicates.any('document.type', ['simple_page', 'form_page']),
+    Prismic.Predicates.any('document.type', [
+      DOCUMENTS.SIMPLE_PAGE,
+      DOCUMENTS.FORM_PAGE,
+    ]),
     {
       pageSize: 100,
       page,

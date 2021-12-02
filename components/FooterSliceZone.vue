@@ -46,36 +46,27 @@
 </template>
 
 <script>
-import { keyBy } from '~/services/key-by'
-import { documentFetcher, documents } from '~/services/document-fetcher'
+import { documentFetcher } from '~/services/document-fetcher'
 
 export default {
   name: 'FooterSliceZone',
   data() {
     return {
       socialMediasHoverMap: {},
-      mainFooters: null,
+      usedMainFooter: null,
     }
   },
   async fetch() {
-    this.mainFooters = await documentFetcher(
+    const mainFooter = await documentFetcher(
       this.$prismic,
       this.$i18n
-    ).findByType(documents.mainFooter)
+    ).findMainFooter()
+
+    this.usedMainFooter = mainFooter.data.body
   },
   computed: {
     isPixPro() {
       return process.env.isPixPro
-    },
-    usedMainFooter() {
-      const mainFooterBySite = keyBy(
-        this.mainFooters,
-        (mainFooter) => mainFooter?.data?.footer_for
-      )
-      if (this.isPixPro && mainFooterBySite['pix-pro']) {
-        return mainFooterBySite['pix-pro'].data.body
-      }
-      return mainFooterBySite['pix-site'].data.body
     },
     navigationGroups() {
       return this.usedMainFooter.filter(

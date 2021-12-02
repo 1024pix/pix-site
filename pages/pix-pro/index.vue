@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div v-if="type === 'form_page'">
+    <div v-if="type === FORM_PAGE">
       <form-page :content="document.data" />
     </div>
-    <div v-if="type === 'simple_page'">
+    <div v-if="type === SIMPLE_PAGE">
       <simple-page :content="document.data" />
     </div>
-    <div v-if="type === 'slices_page'">
+    <div v-if="type === SLICES_PAGE">
       <slice-zone :slices="document.data.body" />
     </div>
   </div>
 </template>
 
 <script>
-import { documentFetcher } from '~/services/document-fetcher'
+import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 export default {
   name: 'Index',
@@ -36,6 +36,13 @@ export default {
       return { currentPagePath, meta, document }
     } catch (e) {
       error({ statusCode: 404, message: 'Page not found' })
+    }
+  },
+  data() {
+    return {
+      FORM_PAGE: DOCUMENTS.FORM_PAGE,
+      SIMPLE_PAGE: DOCUMENTS.SIMPLE_PAGE,
+      SLICES_PAGE: DOCUMENTS.SLICES_PAGE,
     }
   },
   head() {

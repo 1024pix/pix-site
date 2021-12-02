@@ -69,12 +69,7 @@ describe('NavigationSliceZone', () => {
           // given
           component = shallowMount(NavigationSliceZone, {
             data() {
-              return {
-                mainNavigations: [
-                  expectedSiteNavigation,
-                  expectedProNavigation,
-                ],
-              }
+              return { usedMainNavigation: expectedSiteNavigation.data.body }
             },
             stubs,
           })
@@ -83,7 +78,7 @@ describe('NavigationSliceZone', () => {
           const result = component.vm.usedMainNavigation
 
           // then
-          expect(result).toEqual(expectedSiteNavigation)
+          expect(result).toEqual(expectedSiteNavigation.data.body)
         })
       })
 
@@ -98,12 +93,7 @@ describe('NavigationSliceZone', () => {
           // given
           component = shallowMount(NavigationSliceZone, {
             data() {
-              return {
-                mainNavigations: [
-                  expectedSiteNavigation,
-                  expectedProNavigation,
-                ],
-              }
+              return { usedMainNavigation: expectedProNavigation.data.body }
             },
             stubs,
           })
@@ -112,7 +102,7 @@ describe('NavigationSliceZone', () => {
           const result = component.vm.usedMainNavigation
 
           // then
-          expect(result).toEqual(expectedProNavigation)
+          expect(result).toEqual(expectedProNavigation.data.body)
         })
       })
 
@@ -127,7 +117,7 @@ describe('NavigationSliceZone', () => {
           // given
           component = shallowMount(NavigationSliceZone, {
             data() {
-              return { mainNavigations: [expectedSiteNavigation] }
+              return { usedMainNavigation: expectedProNavigation.data.body }
             },
             stubs,
           })
@@ -136,7 +126,7 @@ describe('NavigationSliceZone', () => {
           const result = component.vm.usedMainNavigation
 
           // then
-          expect(result).toEqual(expectedSiteNavigation)
+          expect(result).toEqual(expectedSiteNavigation.data.body)
         })
       })
     })

@@ -1,13 +1,20 @@
+import { DOCUMENTS } from '~/services/document-fetcher'
+
 export default function (doc) {
-  const staticRoute = ['competences', 'statistiques', 'simple_page']
+  const staticRoute = [
+    DOCUMENTS.COMPETENCES,
+    DOCUMENTS.STATISTIQUES,
+    DOCUMENTS.SIMPLE_PAGE,
+  ]
+
   if (staticRoute.includes(doc.type)) {
     const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
     return `${locale}/${doc.uid}`
   }
-  if (doc.type === 'news_item') {
+  if (doc.type === DOCUMENTS.NEWS_ITEM) {
     return `/actualites/${doc.uid}`
   }
-  if (doc.type === 'index') {
+  if (doc.type === DOCUMENTS.INDEX) {
     return `/`
   }
 }
