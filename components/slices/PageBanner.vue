@@ -66,7 +66,10 @@ export default {
       let style = {}
       if (this.hasBackgroundImage) {
         style = {
-          background: `no-repeat url(${this.slice.primary.banner_background.url})`,
+          // Use @nuxt/image to download image during static build
+          background: `no-repeat url(${this.$img(
+            this.slice.primary.banner_background.url
+          )})`,
           backgroundSize: 'cover',
           backgroundPosition: 'bottom',
         }
