@@ -12,7 +12,11 @@
         :key="`item-${itemIndex}`"
         class="partners-logos-wrapper__item"
       >
-        <pix-image :field="item.logos_image" />
+        <pix-image
+          :field="item.logos_image"
+          :has-fixed-dimensions="true"
+          :max-height="112"
+        />
       </div>
     </div>
   </section>

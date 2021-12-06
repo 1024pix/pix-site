@@ -2,176 +2,102 @@
   &__title h2 {
     color: $grey-80;
     font-weight: normal;
-    height: 49px;
     letter-spacing: 0.15px;
     line-height: 49px;
     text-align: center;
     margin-top: 0;
+    padding: 100px 0 0;
   }
 
   &__wrapper {
-    padding: 64px 0;
+    padding: 60px 10%;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin: 0 auto;
+    word-break: break-word;
   }
 }
 
 .features-wrapper {
-  &__row {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 24px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-.features-wrapper-row {
-  &__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-
-    &:last-child {
-      margin-right: 0;
-      margin-bottom: 0;
-    }
-
-    img {
-      margin-right: 25px;
-      max-height: 74px;
-    }
-  }
-}
-
-.features-wrapper-row-item {
-
-    &__title h3 {
-      width: 217px;
-      color: $grey-90;
-      font-size: 1rem;
-      letter-spacing: 0;
-      line-height: 30px;
-      font-family: $font-open-sans;
-      font-weight: $font-medium;
-      margin-top: 16px;
-    }
-
-    &__description {
-      width: 217px;
-      color: $grey-60;
-      font-family: $font-roboto;
-      font-size: 0.875rem;
-      letter-spacing: 0.15px;
-      line-height: 24px;
-    }
-}
-
-@include device-is('tablet') {
-  .features {
-    &__title h2 {
-      padding: 80px 0 40px 0;
-    }
-    &__wrapper {
-      padding: 80px 0;
-    }
-  }
-
-  .features-wrapper-row {
     &__item {
-      margin-bottom: 40px;
-
-      img {
-        margin-right: 32px;
-      }
-    }
-  }
-
-  .features-wrapper-row-item {
-
-    &__title h3 {
-      width: 518px;
-      font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
     }
 
-    &__description {
-      width: 518px;
+    &-item {
+        &__image {
+            min-width: 100px;
+            height: 74px;
+            display: flex;
+            justify-content: center;
+        }
+    
+        &__content {
+            margin-left: 20px;
+        }
+
+        &-content {
+            &__title h3 {
+                color: $grey-90;
+                font-size: 1.25rem;
+                letter-spacing: 0;
+                line-height: 30px;
+                font-family: $font-open-sans;
+                font-weight: $font-medium;
+                margin-top: 16px;
+            }
+
+            &__description {
+                color: $grey-60;
+                font-family: $font-roboto;
+                font-size: 0.875rem;
+                letter-spacing: 0.15px;
+                line-height: 24px;
+            }
+        }
     }
-  }
-}
-
-@include device-is('desktop') {
-  .features {
-    &__title h2 {
-      padding: 80px 0 40px 0;
-    }
-
-    &__wrapper {
-      padding: 80px 0 84px;
-    }
-  }
-
-  .features-wrapper {
-    &__row {
-      flex-direction: row;
-      justify-content: center;
-      align-items: baseline;
-    }
-  }
-
-  .features-wrapper-row {
-    &__item {
-      display: block;
-      margin-right: 98px;
-      text-align: center;
-
-      img {
-        margin-right: 0;
-      }
-    }
-  }
-
-  .features-wrapper-row-item {
-
-    &__title h3 {
-      width: 200px;
-      font-size: 1.25rem;
-    }
-
-    &__description {
-      margin-top: 8px;
-      width: 200px;
-    }
-  }
+    
 }
 
 @include device-is('large-screen') {
-  .features {
-    &__title h2 {
-      padding: 100px 0 50px 0;
-    }
-    &__wrapper {
-      padding: 60px 0;
-    }
-  }
+    $column-width: 294px;
+    $column-gap: 74px;
 
-  .features-wrapper-row {
-    &__item {
-      margin-right: 76px;
-      text-align: center;
-    }
-  }
+    .features {
+        &__wrapper {
+            display: flex;
+            flex-direction: row;
+            gap: $column-gap;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
 
-  .features-wrapper-row-item {
-
-    &__title h3 {
-      width: 294px;
+            &-5-items {
+                /* Si 5 items */
+                /* Afficher 3 items sur une ligne puis 2 items sur une autre */
+                padding: 60px 0;
+                max-width: calc(3 * ($column-gap + $column-width));
+                margin: 0 auto;
+            }
+        }
     }
 
-    &__description {
-      width: 294px;
+    .features-wrapper {
+        &__item {
+            width: $column-width;
+            text-align: center;
+            display: block;
+        }
+
+        &-item__image {
+            height: 74px;
+            display: block;
+        }
+
+        &-item__content {
+            margin-left: 0;
+        }
     }
-  }
 }

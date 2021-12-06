@@ -11,7 +11,7 @@
           v-for="(slice, index) in logos"
           :key="`navigation-slice-left-${index}`"
         >
-          <slices-logos-zone :slice="slice" />
+          <slices-logos-zone :slice="slice" :max-height="50" />
         </section>
       </div>
       <section

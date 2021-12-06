@@ -6,9 +6,18 @@
       class="logos-zone__content"
     >
       <pix-link v-if="hasLink(logo)" :field="logo.url">
-        <pix-image :field="logo.image" />
+        <pix-image
+          :field="logo.image"
+          :has-fixed-dimensions="true"
+          :max-height="maxHeight"
+        />
       </pix-link>
-      <pix-image v-else :field="logo.image" />
+      <pix-image
+        v-else
+        :field="logo.image"
+        :has-fixed-dimensions="true"
+        :max-height="maxHeight"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +29,10 @@ export default {
     slice: {
       type: Object,
       default: null,
+    },
+    maxHeight: {
+      type: Number,
+      default: undefined,
     },
   },
   methods: {
@@ -43,7 +56,6 @@ export default {
     }
 
     img {
-      height: 50px;
       margin: 15px 0 15px 0;
     }
 

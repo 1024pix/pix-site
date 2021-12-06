@@ -166,7 +166,6 @@ export default {
   &__secondary-content {
     grid-area: b;
     align-self: center;
-    max-height: 80%;
   }
 
   &--reverse {
