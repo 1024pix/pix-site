@@ -1,5 +1,5 @@
 <template>
-  <header class="navigation-slice-zone">
+  <header class="navigation-slice-zone" role="banner">
     <client-only>
       <slide-menu width="320" class="burger-menu">
         <burger-menu-nav :items="burgerMenuLinks" />

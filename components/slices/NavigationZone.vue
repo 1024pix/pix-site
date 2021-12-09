@@ -1,5 +1,5 @@
 <template>
-  <nav class="navigation-zone">
+  <nav class="navigation-zone" role="navigation">
     <ul>
       <li
         v-for="(menuItem, index) in navigationLinks"
