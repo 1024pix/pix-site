@@ -2,7 +2,7 @@
   <div id="app" class="app-viewport">
     <hot-news-banner />
     <navigation-slice-zone />
-    <main>
+    <main role="main">
       <nuxt />
     </main>
     <footer-slice-zone />
