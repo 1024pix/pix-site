@@ -1,9 +1,17 @@
-@mixin colorizeButton($fontColor, $borderColor, $bgColor, $hoverBgColor, $hoverFontColor, $hoverBorderColor) {
+@mixin colorizeButton(
+  $fontColor,
+  $borderColor,
+  $bgColor,
+  $hoverBgColor,
+  $hoverFontColor,
+  $hoverBorderColor
+) {
   color: $fontColor;
   border-color: $borderColor;
   background-color: $bgColor;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     font-weight: 1rem;
     cursor: pointer;
     background-color: $hoverBgColor;
@@ -16,7 +24,8 @@
 .button {
   font-family: $font-roboto;
   font-size: 1rem;
-  height: 44px; width: 280px;
+  height: 44px;
+  width: 280px;
   padding: 0 20px;
   border: 2px solid transparent;
   border-radius: 4px;
@@ -28,27 +37,65 @@
 
   transition: background-color 0.3s ease;
 
-  @include colorizeButton($white, transparent, $blue, $blue-hover, $white, $white);
+  @include colorizeButton(
+    $white,
+    transparent,
+    $blue,
+    $blue-hover,
+    $white,
+    $white
+  );
 
   &--light {
-    @include colorizeButton($grey-80, transparent, $yellow, $yellow-hover, $grey-80, $blue);
+    @include colorizeButton(
+      $grey-80,
+      transparent,
+      $yellow,
+      $yellow-hover,
+      $grey-80,
+      $blue
+    );
 
     &.button-video {
-      svg { margin-right: 10px; }
-      @include colorizeButton($white, $white, transparent, $blue-hover, $white, $white);
+      svg {
+        margin-right: 10px;
+      }
+      @include colorizeButton(
+        $white,
+        $white,
+        transparent,
+        $blue-hover,
+        $white,
+        $white
+      );
     }
   }
 
   &--dark {
-    @include colorizeButton($white, transparent, $blue, $blue-hover, $white, $white);
+    @include colorizeButton(
+      $white,
+      transparent,
+      $blue,
+      $blue-hover,
+      $white,
+      $white
+    );
 
     &.button-video {
-      svg { margin-right: 10px; }
-      @include colorizeButton($grey-80, $grey-80, $white, $yellow, $grey-80, $white );
+      svg {
+        margin-right: 10px;
+      }
+      @include colorizeButton(
+        $grey-80,
+        $grey-80,
+        $white,
+        $yellow,
+        $grey-80,
+        $white
+      );
     }
   }
 }
-
 
 @include device-is('tablet') {
   .button {

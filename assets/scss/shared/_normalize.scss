@@ -28,7 +28,7 @@ img {
 }
 
 a {
-  transition: all ease-in .1s;
+  transition: all ease-in 0.1s;
   text-decoration: none;
 }
 
@@ -46,7 +46,7 @@ h2 {
   margin-top: 60px;
   font-size: 1.75rem;
   line-height: 32px;
-  
+
   @include device-is('tablet') {
     font-size: 2rem;
   }
@@ -75,7 +75,7 @@ ul {
     padding-left: 15px;
 
     &::before {
-      content: "● ";
+      content: '● ';
       color: $blue;
       margin-right: 5px;
     }
@@ -102,7 +102,7 @@ ol {
     padding-left: 15px;
 
     &::before {
-      content: counter(item) ".";
+      content: counter(item) '.';
       margin-right: 8px;
       color: $blue;
       font-weight: 600;

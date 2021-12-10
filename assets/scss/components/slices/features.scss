@@ -1,104 +1,104 @@
 .features {
-    &__title h2 {
-        color: $grey-80;
-        font-weight: normal;
-        letter-spacing: 0.15px;
-        line-height: 49px;
-        text-align: center;
-        margin-top: 0;
-        padding: 100px 0 0;
-    }
+  &__title h2 {
+    color: $grey-80;
+    font-weight: normal;
+    letter-spacing: 0.15px;
+    line-height: 49px;
+    text-align: center;
+    margin-top: 0;
+    padding: 100px 0 0;
+  }
 
-    &__wrapper {
-        padding: 60px 10%;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        word-break: break-word;
-    }
+  &__wrapper {
+    padding: 60px 10%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    word-break: break-word;
+  }
 }
 
 .features-wrapper {
-    &__item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 40px;
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  &-item {
+    &__image {
+      min-width: 100px;
+      height: 74px;
+      display: flex;
+      justify-content: center;
     }
 
-    &-item {
-        &__image {
-            min-width: 100px;
-            height: 74px;
-            display: flex;
-            justify-content: center;
-        }
-
-        &__content {
-            margin-left: 20px;
-        }
-
-        &-content {
-            &__title h3 {
-                color: $grey-90;
-                font-size: 1.25rem;
-                letter-spacing: 0;
-                line-height: 30px;
-                font-family: $font-open-sans;
-                font-weight: $font-medium;
-                margin-top: 16px;
-            }
-
-            &__description {
-                color: $grey-60;
-                font-family: $font-roboto;
-                font-size: 0.875rem;
-                letter-spacing: 0.15px;
-                line-height: 24px;
-            }
-        }
+    &__content {
+      margin-left: 20px;
     }
+
+    &-content {
+      &__title h3 {
+        color: $grey-90;
+        font-size: 1.25rem;
+        letter-spacing: 0;
+        line-height: 30px;
+        font-family: $font-open-sans;
+        font-weight: $font-medium;
+        margin-top: 16px;
+      }
+
+      &__description {
+        color: $grey-60;
+        font-family: $font-roboto;
+        font-size: 0.875rem;
+        letter-spacing: 0.15px;
+        line-height: 24px;
+      }
+    }
+  }
 }
 
 @include device-is('large-screen') {
-    $gap: 74px;
+  $gap: 74px;
 
-    .features {
-        &__wrapper {
-            display: flex;
-            flex-direction: row;
-            gap: $gap;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            align-items: stretch;
+  .features {
+    &__wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: $gap;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: stretch;
 
-            &-5-items {
-                /* Si 5 items */
-                /* Afficher 3 items sur une ligne puis 2 items sur une autre */
-                padding: 60px 0;
-                max-width: 75%;
-                margin: 0 auto;
+      &-5-items {
+        /* Si 5 items */
+        /* Afficher 3 items sur une ligne puis 2 items sur une autre */
+        padding: 60px 0;
+        max-width: 75%;
+        margin: 0 auto;
 
-                .features-wrapper__item {
-                    flex-basis: calc((100% / 3) - $gap * 2 / 3);
-                }
-            }
+        .features-wrapper__item {
+          flex-basis: calc((100% / 3) - $gap * 2 / 3);
         }
+      }
+    }
+  }
+
+  .features-wrapper {
+    &__item {
+      text-align: center;
+      display: block;
+      flex-basis: calc((100% / 4) - $gap * 3 / 4);
     }
 
-    .features-wrapper {
-        &__item {
-            text-align: center;
-            display: block;
-            flex-basis: calc((100% / 4) - $gap * 3 / 4);
-        }
-
-        &-item__image {
-            height: 74px;
-            display: block;
-        }
-
-        &-item__content {
-            margin-left: 0;
-        }
+    &-item__image {
+      height: 74px;
+      display: block;
     }
+
+    &-item__content {
+      margin-left: 0;
+    }
+  }
 }
