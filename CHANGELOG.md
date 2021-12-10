@@ -1,5 +1,17 @@
 # pix-site Changelog
 
+## v3.24.0 (10/12/2021)
+
+
+### :building_construction: Tech
+- [#327](https://github.com/1024pix/pix-site/pull/327) [TECH] Migration vers @nuxt/image (PIX-3945)
+- [#336](https://github.com/1024pix/pix-site/pull/336) [TECH] Nettoyage document fetcher (PIX-3929, PIX-3932)
+- [#337](https://github.com/1024pix/pix-site/pull/337) [TECH] Les pages en erreur renvoient une erreur Nginx
+
+### :bug: Bug fix
+- [#340](https://github.com/1024pix/pix-site/pull/340) [BUGFIX] Ajout de roles sémantiques dans les balises html (PIX-3999)
+- [#339](https://github.com/1024pix/pix-site/pull/339) [BUGFIX] Utilisation d'unités relatives pour les colonnes de features
+
 ## v3.23.2 (18/11/2021)
 
 
