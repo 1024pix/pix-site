@@ -142,7 +142,7 @@ const config = {
   i18n: {
     defaultLocale: 'fr-fr',
     locales:
-      process.env.SITE === 'pix-pro'
+      process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO
         ? [
             {
               code: 'fr-fr',

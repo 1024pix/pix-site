@@ -1,4 +1,5 @@
 import Prismic from '@prismicio/client'
+import { SITES_PRISMIC_TAGS } from './available-sites'
 import { DOCUMENTS } from './document-fetcher'
 
 export default async function () {
@@ -20,7 +21,7 @@ async function getRoutesInPage(api, page) {
     {
       pageSize: 100,
       page,
-      lang: process.env.SITE === 'pix-site' ? '*' : 'fr-fr',
+      lang: process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE ? '*' : 'fr-fr',
     }
   )
 

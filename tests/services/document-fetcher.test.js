@@ -1,4 +1,5 @@
 import prismic from '@prismicio/client'
+import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
 import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 jest.mock('@prismicio/client')
@@ -105,9 +106,12 @@ describe('DocumentFetcher', () => {
   test('#findMainNavigation', async () => {
     // Given
     jest.resetModules() // nettoye le cache pour mocker process.env
-    process.env = { SITE: 'pix-site' }
+    process.env = { SITE: SITES_PRISMIC_TAGS.PIX_SITE }
     const expectedValue = [
-      { type: DOCUMENTS.MAIN_NAVIGATION, navigation_for: 'pix-site' },
+      {
+        type: DOCUMENTS.MAIN_NAVIGATION,
+        navigation_for: SITES_PRISMIC_TAGS.PIX_SITE,
+      },
     ]
     const expectedPredicatesAtValue = Symbol('AT')
     const findMock = () => ({ results: expectedValue })
@@ -139,7 +143,7 @@ describe('DocumentFetcher', () => {
     expect(prismicPredicates.at).toHaveBeenNthCalledWith(
       2,
       `my.${DOCUMENTS.MAIN_NAVIGATION}.navigation_for`,
-      'pix-site'
+      SITES_PRISMIC_TAGS.PIX_SITE
     )
     expect(response).toEqual(expectedValue[0])
     process.env = { ...SAVED_ENV }
@@ -148,9 +152,9 @@ describe('DocumentFetcher', () => {
   test('#findMainFooter', async () => {
     // Given
     jest.resetModules() // nettoie le cache pour mocker process.env
-    process.env = { SITE: 'pix-pro' }
+    process.env = { SITE: SITES_PRISMIC_TAGS.PIX_PRO }
     const expectedValue = [
-      { type: DOCUMENTS.MAIN_FOOTER, footer_for: 'pix-pro' },
+      { type: DOCUMENTS.MAIN_FOOTER, footer_for: SITES_PRISMIC_TAGS.PIX_PRO },
     ]
     const expectedPredicatesAtValue = Symbol('AT')
     const findMock = () => ({ results: expectedValue })
@@ -182,7 +186,7 @@ describe('DocumentFetcher', () => {
     expect(prismicPredicates.at).toHaveBeenNthCalledWith(
       2,
       `my.${DOCUMENTS.MAIN_FOOTER}.footer_for`,
-      'pix-pro'
+      SITES_PRISMIC_TAGS.PIX_PRO
     )
     expect(response).toEqual(expectedValue[0])
     process.env = { ...SAVED_ENV }
