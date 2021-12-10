@@ -69,9 +69,6 @@ export default {
     this.usedMainFooter = mainFooter.data.body
   },
   computed: {
-    isPixPro() {
-      return process.env.isPixPro
-    },
     navigationGroups() {
       return this.usedMainFooter.filter(
         (slice) => slice.slice_type === 'navigation_group'
