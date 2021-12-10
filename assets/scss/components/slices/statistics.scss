@@ -5,13 +5,13 @@
 }
 
 .statistics__wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .statistics-wrapper {
@@ -35,7 +35,6 @@
 }
 
 .statistics-wrapper-item-content {
-
   &__title h2 {
     color: $grey-90;
     font-weight: normal;
@@ -84,15 +83,15 @@
 
 @include device-is('tablet') {
   .statistics__wrapper {
-      flex-direction: row;
+    flex-direction: row;
   }
 }
 
 @include device-is('large-screen') {
   .statistics__wrapper {
-      padding: 0 98px;
-      max-width: 1920px;
-      margin: 0 auto 24px;
+    padding: 0 98px;
+    max-width: 1920px;
+    margin: 0 auto 24px;
   }
 
   .statistics-wrapper {
