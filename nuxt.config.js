@@ -1,6 +1,7 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
+import { SITES_PRISMIC_TAGS } from './services/available-sites'
 
 const config = {
   generate: { routes, fallback: '404.html' },
@@ -214,6 +215,13 @@ const config = {
       },
     },
   },
+}
+
+const availablesSites = Object.values(SITES_PRISMIC_TAGS)
+if (!availablesSites.includes(process.env.SITE)) {
+  throw new Error(
+    `The SITE environment variable must have one of these values: (${availablesSites})`
+  )
 }
 
 if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
