@@ -18,7 +18,6 @@ describe('NavigationSliceZone', () => {
 
   const expectedSiteNavigation = {
     data: {
-      navigation_for: 'pix-site',
       body: [
         {
           slice_type: 'logos_zone',
@@ -38,21 +37,21 @@ describe('NavigationSliceZone', () => {
 
   describe('Slice: NavigationSliceZone', () => {
     describe('#usedMainNavigation', () => {
-        it('should return the site navigation', () => {
-            // given
-            component = shallowMount(NavigationSliceZone, {
-            data() {
-                return { usedMainNavigation: expectedSiteNavigation.data.body }
-            },
-            stubs,
-            })
-
-            // when
-            const result = component.vm.usedMainNavigation
-
-            // then
-            expect(result).toEqual(expectedSiteNavigation.data.body)
+      it('should return the site navigation', () => {
+        // given
+        component = shallowMount(NavigationSliceZone, {
+          data() {
+            return { usedMainNavigation: expectedSiteNavigation.data.body }
+          },
+          stubs,
         })
+
+        // when
+        const result = component.vm.usedMainNavigation
+
+        // then
+        expect(result).toEqual(expectedSiteNavigation.data.body)
+      })
     })
   })
 })
