@@ -55,6 +55,8 @@
 </template>
 
 <script>
+import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
+
 export default {
   name: 'LanguageSwitcher',
   props: {
@@ -78,7 +80,7 @@ export default {
   computed: {
     showLanguageDropdown() {
       return (
-        process.env.isPixSite &&
+        process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE &&
         this.$config.languageSwitchEnabled &&
         this.$i18n.locale !== 'fr-fr'
       )

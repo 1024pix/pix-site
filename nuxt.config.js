@@ -14,10 +14,6 @@ const config = {
   server: {
     port: process.env.PORT || 5000,
   },
-  env: {
-    isPixSite: process.env.SITE === 'pix-site',
-    isPixPro: process.env.SITE === 'pix-pro',
-  },
   dir: {
     pages: `pages/${process.env.SITE}`,
   },
