@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v3.24.1 (14/12/2021)
+
+
+### :building_construction: Tech
+- [#342](https://github.com/1024pix/pix-site/pull/342) [TECH] Supprime le dossier `store` qui était inutilisé (PIX-4011)
+
+### :bug: Bug fix
+- [#344](https://github.com/1024pix/pix-site/pull/344) [BUGFIX] Boucle infinie Nginx sur les 404 pix.org
+- [#341](https://github.com/1024pix/pix-site/pull/341) [BUGFIX] Lance Prettier sur les fichiers SCSS (PIX-4010)
+
 ## v3.24.0 (10/12/2021)
 
 
