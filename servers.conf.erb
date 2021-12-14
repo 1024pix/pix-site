@@ -28,8 +28,8 @@ server {
 
   root /app/dist/;
 
-  rewrite ^/(aide|help)$ https://support.pix.org permanent;
-  rewrite ^/employeurs$ https://pro.pix.fr permanent;
+  rewrite ^/(aide|help)$ https://support.pix.org redirect;
+  rewrite ^/employeurs$ https://pro.pix.fr redirect;
 
   error_page 400 401 403 404 418 500 502 503 504 /404.html;
 
@@ -40,10 +40,10 @@ server {
   }
 
   if ($host ~ \.org) {
-    rewrite ^/(?!404.html)(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $scheme://$host/fr$request_uri permanent;
+    rewrite ^/(?!404.html)(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $scheme://$host/fr$request_uri redirect;
   }
 
   if ($http_x_forwarded_host ~ \.org) {
-    rewrite ^/(?!404.html)(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $http_x_forwarded_proto://$http_x_forwarded_host/fr$request_uri permanent;
+    rewrite ^/(?!404.html)(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $http_x_forwarded_proto://$http_x_forwarded_host/fr$request_uri redirect;
   }
 }
