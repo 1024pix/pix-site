@@ -162,6 +162,10 @@ const config = {
               code: 'en-gb',
               file: 'en-gb.js',
             },
+            {
+              code: 'fr-be',
+              file: 'fr-be.js',
+            },
           ],
     lazy: true,
     langDir: 'lang/',

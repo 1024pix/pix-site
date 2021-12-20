@@ -14,6 +14,7 @@ export default {
       fr: '/',
       'fr-fr': '/',
       'en-gb': '/',
+      'fr-be': '/',
     },
   },
   async asyncData({ app, req, error, currentPagePath }) {

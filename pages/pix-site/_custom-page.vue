@@ -22,6 +22,7 @@ export default {
       fr: '/:uid',
       'fr-fr': '/:uid',
       'en-gb': '/:uid',
+      'fr-be': '/:uid',
     },
   },
   async asyncData({ params, app, req, error, currentPagePath }) {
