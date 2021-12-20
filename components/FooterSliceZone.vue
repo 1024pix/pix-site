@@ -93,7 +93,6 @@ export default {
     justify-content: flex-start;
 
     .logos-zone__content {
-      margin-right: 32px;
       display: inline;
 
       img {
