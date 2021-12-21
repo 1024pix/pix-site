@@ -58,6 +58,7 @@ function getLocaleUrl(url, localePath) {
   if (
     url.startsWith('/fr') ||
     url.startsWith('/en-gb') ||
+    url.startsWith('/fr-be') ||
     url.startsWith('/fr-fr')
   ) {
     return url
