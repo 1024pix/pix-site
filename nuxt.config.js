@@ -114,6 +114,7 @@ const config = {
             icons: [
               'faAngleDown',
               'faAngleUp',
+              'faAngleRight',
               'faArrowRight',
               'faCalendar',
               'faCheck',
