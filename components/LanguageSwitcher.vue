@@ -17,24 +17,54 @@
       <fa v-else icon="angle-down" />
     </button>
     <ul v-if="showMenu" class="language-switcher__dropdown-menu">
-      <li v-for="option in languageLocales" :key="option.key">
-        <span
-          v-if="option === currentLanguage"
-          class="language-switcher__lang language-switcher__lang--active"
-          >{{ option.name }}</span
-        >
-        <span v-else class="language-switcher__lang">
-          <a :href="'/' + option.lang">
-            {{ option.name }}
+      <li v-for="option in languages" :key="option.key">
+        <div class="language-switcher__lang">
+          <span v-if="!option.target">
+            <img
+              class="language-switcher__img"
+              :src="'/images/' + option.icon"
+              alt=""
+            />
+            <div class="lang__text">{{ $t(option.name) }}</div>
+            <fa
+              v-if="!option.target"
+              icon="angle-right"
+              class="language-switcher__icon"
+            />
+          </span>
+          <a v-else-if="option.target" :href="'/' + option.lang">
+            <img
+              class="language-switcher__img"
+              :src="'/images/' + option.icon"
+              alt=""
+            />
+            <div class="lang__text">
+              <div>{{ $t(option.name) }}</div>
+              <div v-if="option.sub" class="language-switcher__subtitle">
+                {{ $t(option.sub) }}
+              </div>
+            </div>
           </a>
-        </span>
+        </div>
+        <ul
+          v-if="!option.target"
+          class="language-switcher__dropdown-menu child"
+        >
+          <li v-for="child in option.children" :key="child.key">
+            <div class="language-switcher__lang">
+              <a :href="'/' + child.lang">
+                {{ $t(child.name) }}
+              </a>
+            </div>
+          </li>
+        </ul>
       </li>
     </ul>
     <span class="separator" />
   </div>
   <div v-else-if="showLanguageDropdown && type === 'only-text'">
     <ul class="language-switcher-burger-menu">
-      <li v-for="option in languageLocales" :key="option.key">
+      <li v-for="option in languages" :key="option.key">
         <span
           v-if="option !== currentLanguage"
           class="language-switcher-burger-menu__lang"
@@ -56,6 +86,7 @@
 
 <script>
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
+import { languageMenu } from '~/config/language'
 
 export default {
   name: 'LanguageSwitcher',
@@ -72,9 +103,13 @@ export default {
     const languageLocales = availableLocales.filter(
       (locale) => locale.lang !== 'fr-fr'
     )
+    const languages = languageMenu
     return {
       showMenu: false,
+      showInternational: false,
       languageLocales,
+      languages,
+      activeClass: 'language-switcher__lang--active',
     }
   },
   computed: {
@@ -154,8 +189,8 @@ export default {
       position: absolute;
       z-index: 5;
       float: left;
-      min-width: 120px;
-      padding: 5px 0;
+      min-width: 150px;
+      padding: 0;
       margin: 35px 0 0 0;
 
       list-style: none;
@@ -166,53 +201,95 @@ export default {
       border-radius: 4px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
       background-clip: padding-box;
+      .child {
+        top: -1px;
+        left: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: 0 0;
+        display: none;
+        min-height: 25px;
+        .language-switcher__lang > a {
+          line-height: 23px;
+        }
+      }
 
       & > li {
         list-style: none;
-        overflow: hidden;
+        //overflow: hidden;
         width: 100%;
         position: relative;
         margin: 0;
-        padding: 5px 0 5px 10px;
+        padding: 0;
         &::before {
           content: '';
           margin: 0;
         }
+        &:hover {
+          background: $grey-10;
+          .child {
+            display: block;
+          }
+        }
       }
-      & > li > a {
-        padding: 0;
+      & > li > a,
+      & > li > span {
         display: block;
         line-height: 1.6rem;
         color: $grey-20;
         white-space: nowrap;
         text-decoration: none;
       }
-      & > li > a:hover {
+      & > li > a:hover,
+      & > li > span {
         background: $grey-10;
-        color: $blue;
+        //color: $blue;
       }
       & > li:not(:last-child) {
         border-bottom: 1px solid $grey-20;
       }
     }
     &__lang {
-      a {
+      min-height: 25px;
+      //height: auto;
+      a,
+      span {
+        padding: 10px;
         font-family: $font-roboto;
         font-size: 0.9rem;
         font-weight: $font-medium;
         letter-spacing: 0.008rem;
-        line-height: 1.375rem;
-        color: $grey-60;
-
+        line-height: 1;
+        color: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         &:focus,
         &:hover {
-          color: $blue-hover;
+          color: $blue;
         }
       }
 
       &--active {
         color: $grey-30;
       }
+      .lang {
+        &__text {
+          flex: 1;
+        }
+      }
+    }
+    &__icon {
+      font-size: large;
+      float: right;
+    }
+    &__subtitle {
+      font-size: smaller;
+    }
+    &__img {
+      margin-right: 10px;
+      height: 23px;
+      width: 23px;
     }
   }
 }
