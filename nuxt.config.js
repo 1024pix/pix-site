@@ -1,5 +1,6 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
+import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
 
 const config = {
   generate: { routes, fallback: '404.html' },
@@ -36,6 +37,7 @@ const config = {
         content:
           'Pix est le service public en ligne pour évaluer, développer et certifier ses compétences numériques tout au long de la vie.',
       },
+      isSeoIndexingEnabled() ? {} : { name: 'robots', content: 'noindex' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
@@ -100,6 +102,7 @@ const config = {
     '@nuxtjs/style-resources',
     ['@nuxtjs/i18n', { detectBrowserLanguage: false }],
     '@nuxtjs/moment',
+    '@nuxtjs/robots',
     [
       'nuxt-fontawesome',
       {
@@ -182,6 +185,12 @@ const config = {
   router: {
     middleware: 'current-page-path',
     linkExactActiveClass: 'current-active-link',
+  },
+  robots: () => {
+    return {
+      UserAgent: '*',
+      Disallow: isSeoIndexingEnabled() ? '' : '/',
+    }
   },
   /*
    ** Build configuration
