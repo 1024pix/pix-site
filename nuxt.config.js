@@ -1,6 +1,6 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
-import isSeoIndexationEnabled from './services/is-seo-indexation-enabled'
+import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
 
 const config = {
   generate: { routes, fallback: '404.html' },
@@ -37,7 +37,7 @@ const config = {
         content:
           'Pix est le service public en ligne pour évaluer, développer et certifier ses compétences numériques tout au long de la vie.',
       },
-      isSeoIndexationEnabled() ? {} : { name: 'robots', content: 'noindex' },
+      isSeoIndexingEnabled() ? {} : { name: 'robots', content: 'noindex' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
@@ -189,7 +189,7 @@ const config = {
   robots: () => {
     return {
       UserAgent: '*',
-      Disallow: isSeoIndexationEnabled() ? '' : '/',
+      Disallow: isSeoIndexingEnabled() ? '' : '/',
     }
   },
   /*
