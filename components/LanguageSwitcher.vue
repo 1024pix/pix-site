@@ -17,9 +17,20 @@
       <fa v-else icon="angle-down" />
     </button>
     <ul v-if="showMenu" class="language-switcher__dropdown-menu">
-      <li v-for="option in languages" :key="option.key">
+      <li
+        v-for="option in languages.menu"
+        :key="option.key"
+        :class="{
+          'language-switcher__dropdown-menu--active':
+            option.lang === currentLanguage.lang,
+        }"
+      >
         <div class="language-switcher__lang">
-          <span v-if="!option.target">
+          <button
+            v-if="!option.target"
+            @click="toggleMenuSub()"
+            @click.stop.prevent
+          >
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -31,8 +42,8 @@
               icon="angle-right"
               class="language-switcher__icon"
             />
-          </span>
-          <a v-else-if="option.target" :href="'/' + option.lang">
+          </button>
+          <a v-else-if="option.target" :href="option.target">
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -47,12 +58,19 @@
           </a>
         </div>
         <ul
-          v-if="!option.target"
+          v-if="!option.target && showMenuSub"
           class="language-switcher__dropdown-menu child"
         >
-          <li v-for="child in option.children" :key="child.key">
+          <li
+            v-for="child in option.children"
+            :key="child.key"
+            :class="{
+              'language-switcher__dropdown-menu--active':
+                child.lang === currentLanguage.lang,
+            }"
+          >
             <div class="language-switcher__lang">
-              <a :href="'/' + child.lang">
+              <a :href="child.target">
                 {{ $t(child.name) }}
               </a>
             </div>
@@ -64,21 +82,36 @@
   </div>
   <div v-else-if="showLanguageDropdown && type === 'only-text'">
     <ul class="language-switcher-burger-menu">
-      <li v-for="option in languages" :key="option.key">
-        <span
-          v-if="option !== currentLanguage"
-          class="language-switcher-burger-menu__lang"
-        >
-          <a :href="'/' + option.lang">
-            {{ option.name }}
-          </a>
-        </span>
-        <span
-          v-if="option === currentLanguage"
-          class="language-switcher-burger-menu__lang"
-        >
-          {{ option.name }}
-        </span>
+      <li v-for="option in languages.menu" :key="option.key">
+        <template v-if="!option.target">
+          <span
+            v-for="child in option.children"
+            :key="child.name"
+            :class="{
+              'language-switcher-burger-menu__lang': true,
+              'language-switcher-burger-menu--active':
+                child.lang === currentLanguage.lang,
+            }"
+          >
+            <a :href="child.target">
+              {{ $t(option.name) }} - {{ $t(child.name) }}
+            </a>
+            <br />
+          </span>
+        </template>
+        <template v-if="option.target">
+          <span
+            :class="{
+              'language-switcher-burger-menu__lang': true,
+              'language-switcher-burger-menu--active':
+                option.lang === currentLanguage.lang,
+            }"
+          >
+            <a :href="option.target">
+              {{ $t(option.name) }}
+            </a>
+          </span>
+        </template>
       </li>
     </ul>
   </div>
@@ -86,7 +119,7 @@
 
 <script>
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
-import { languageMenu } from '~/config/language'
+import { language } from '~/config/language'
 
 export default {
   name: 'LanguageSwitcher',
@@ -103,13 +136,12 @@ export default {
     const languageLocales = availableLocales.filter(
       (locale) => locale.lang !== 'fr-fr'
     )
-    const languages = languageMenu
+    const languages = language
     return {
       showMenu: false,
-      showInternational: false,
+      showMenuSub: false,
       languageLocales,
       languages,
-      activeClass: 'language-switcher__lang--active',
     }
   },
   computed: {
@@ -141,9 +173,12 @@ export default {
     toggleMenu() {
       this.showMenu = !this.showMenu
     },
-
+    toggleMenuSub() {
+      this.showMenuSub = !this.showMenuSub
+    },
     hideMenu() {
       this.showMenu = false
+      this.showMenuSub = false
     },
   },
 }
@@ -201,13 +236,14 @@ export default {
       border-radius: 4px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
       background-clip: padding-box;
+
       .child {
         top: -1px;
         left: 100%;
         margin: 0;
         padding: 0;
         box-shadow: 0 0;
-        display: none;
+        display: block;
         min-height: 25px;
         .language-switcher__lang > a {
           line-height: 23px;
@@ -216,7 +252,6 @@ export default {
 
       & > li {
         list-style: none;
-        //overflow: hidden;
         width: 100%;
         position: relative;
         margin: 0;
@@ -243,17 +278,23 @@ export default {
       & > li > a:hover,
       & > li > span {
         background: $grey-10;
-        //color: $blue;
       }
       & > li:not(:last-child) {
         border-bottom: 1px solid $grey-20;
       }
+      &--active {
+        color: $grey-30;
+        pointer-events: none;
+        a {
+          color: white;
+        }
+      }
     }
     &__lang {
       min-height: 25px;
-      //height: auto;
       a,
-      span {
+      span,
+      button {
         padding: 10px;
         font-family: $font-roboto;
         font-size: 0.9rem;
@@ -267,15 +308,28 @@ export default {
         &:focus,
         &:hover {
           color: $blue;
+          background: $grey-10;
+        }
+        .lang {
+          &__text {
+            flex: 1;
+          }
         }
       }
-
-      &--active {
-        color: $grey-30;
-      }
-      .lang {
-        &__text {
-          flex: 1;
+      button {
+        width: 100%;
+        border: none;
+        background: white;
+        &:focus,
+        &:hover {
+          color: $blue;
+          background: $grey-10;
+        }
+        .lang {
+          &__text {
+            flex: 1;
+            text-align: left;
+          }
         }
       }
     }
@@ -311,15 +365,22 @@ export default {
     content: '';
     margin: 0;
   }
-
-  &__lang a {
-    color: $grey-80;
-    &:visited,
-    &:active,
-    &:focus,
-    &:hover {
+  &__lang {
+    a {
       color: $grey-80;
-      text-decoration: underline;
+      &:visited,
+      &:focus,
+      &:active,
+      &:hover {
+        color: $grey-80;
+        text-decoration: underline;
+      }
+    }
+  }
+  &--active {
+    pointer-events: none;
+    a {
+      color: $grey-25 !important;
     }
   }
 }

@@ -2,6 +2,7 @@ import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
 import { SITES_PRISMIC_TAGS } from './services/available-sites'
+import { language } from './config/language'
 
 const config = {
   generate: { routes, fallback: '404.html' },
@@ -146,32 +147,7 @@ const config = {
   },
   i18n: {
     defaultLocale: 'fr-fr',
-    locales:
-      process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO
-        ? [
-            {
-              code: 'fr-fr',
-              file: 'fr-fr.js',
-            },
-          ]
-        : [
-            {
-              code: 'fr-fr',
-              file: 'fr-fr.js',
-            },
-            {
-              code: 'fr',
-              file: 'fr.js',
-            },
-            {
-              code: 'en-gb',
-              file: 'en-gb.js',
-            },
-            {
-              code: 'fr-be',
-              file: 'fr-be.js',
-            },
-          ],
+    locales: language.locales,
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
