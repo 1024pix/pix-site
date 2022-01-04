@@ -72,13 +72,10 @@ function getRelativeLinkPrefix(url) {
   if (!url) {
     return ''
   }
-  const defaultPrefixes =
+  const relativeLinkPrefixes =
     process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO
-      ? 'https://pro.pix.fr'
-      : 'https://pix.org,https://pix.fr'
-  const relativeLinkPrefixes = (
-    process.env.RELATIVE_LINK_PREFIXES || defaultPrefixes
-  ).split(',')
+      ? ['https://pro.pix.fr']
+      : ['https://pix.org', 'https://pix.fr']
   return relativeLinkPrefixes
     .map((relativeLinkPrefix) =>
       url.startsWith(relativeLinkPrefix) ? `${relativeLinkPrefix}/` : ''
