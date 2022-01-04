@@ -47,10 +47,6 @@ export default {
     this.usedMainNavigation = mainNavigation.data.body
   },
   computed: {
-    isPixPro() {
-      return process.env.isPixPro
-    },
-
     logos() {
       const headerBlocks = this.usedMainNavigation
       return headerBlocks.filter((block) => block.slice_type === 'logos_zone')

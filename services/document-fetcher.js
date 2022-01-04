@@ -32,7 +32,7 @@ export function documentFetcher(
           prismic.predicates.at('document.type', DOCUMENTS.MAIN_NAVIGATION),
           prismic.predicates.at(
             `my.${DOCUMENTS.MAIN_NAVIGATION}.navigation_for`,
-            process.env.SITE === 'pix-site' ? 'pix-site' : 'pix-pro'
+            process.env.SITE
           ),
         ],
         { lang }
@@ -45,7 +45,7 @@ export function documentFetcher(
           prismic.predicates.at('document.type', DOCUMENTS.MAIN_FOOTER),
           prismic.predicates.at(
             `my.${DOCUMENTS.MAIN_FOOTER}.footer_for`,
-            process.env.SITE === 'pix-site' ? 'pix-site' : 'pix-pro'
+            process.env.SITE
           ),
         ],
         { lang }

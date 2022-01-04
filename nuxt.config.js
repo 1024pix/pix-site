@@ -1,6 +1,7 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
+import { SITES_PRISMIC_TAGS } from './services/available-sites'
 
 const config = {
   generate: { routes, fallback: '404.html' },
@@ -14,8 +15,8 @@ const config = {
     port: process.env.PORT || 5000,
   },
   env: {
-    isPixSite: process.env.SITE === 'pix-site',
-    isPixPro: process.env.SITE === 'pix-pro',
+    // Nuxt env are required to be usable client-side (e.g.: PixLink)
+    SITE: process.env.SITE,
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
@@ -145,7 +146,7 @@ const config = {
   i18n: {
     defaultLocale: 'fr-fr',
     locales:
-      process.env.SITE === 'pix-pro'
+      process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO
         ? [
             {
               code: 'fr-fr',
@@ -214,6 +215,13 @@ const config = {
       },
     },
   },
+}
+
+const availablesSites = Object.values(SITES_PRISMIC_TAGS)
+if (!availablesSites.includes(process.env.SITE)) {
+  throw new Error(
+    `The SITE environment variable must have one of these values: (${availablesSites})`
+  )
 }
 
 if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
