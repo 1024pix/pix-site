@@ -17,6 +17,13 @@ const config = {
   dir: {
     pages: `pages/${process.env.SITE}`,
   },
+
+
+
+  env: {
+    SITE: process.env.SITE,
+  },
+
   /*
    ** Headers of the page
    */
