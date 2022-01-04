@@ -14,6 +14,10 @@ const config = {
   server: {
     port: process.env.PORT || 5000,
   },
+  env: {
+    // Nuxt env are required to be usable client-side (e.g.: PixLink)
+    SITE: process.env.SITE,
+  },
   dir: {
     pages: `pages/${process.env.SITE}`,
   },
