@@ -37,6 +37,7 @@ export default {
     paths: {
       fr: '/actualites',
       'fr-fr': '/actualites',
+      'fr-be': '/actualites',
       'en-gb': '/news',
     },
   },

@@ -9,46 +9,104 @@
       :aria-label="$t('language-switcher-label')"
       aria-haspopup="true"
       :aria-expanded="showMenu.toString()"
-      @click="toggleMenu()"
-      @click.stop.prevent
+      @click.stop.prevent="toggleMenu()"
     >
       {{ currentLanguage.name }}
       <fa v-if="showMenu" icon="angle-up" />
       <fa v-else icon="angle-down" />
     </button>
     <ul v-if="showMenu" class="language-switcher__dropdown-menu">
-      <li v-for="option in languageLocales" :key="option.key">
-        <span
-          v-if="option === currentLanguage"
-          class="language-switcher__lang language-switcher__lang--active"
-          >{{ option.name }}</span
-        >
-        <span v-else class="language-switcher__lang">
-          <a :href="'/' + option.lang">
-            {{ option.name }}
+      <li
+        v-for="option in languages.menu"
+        :key="option.key"
+        :class="{
+          'language-switcher__dropdown-menu--active':
+            option.lang === currentLanguage.lang,
+        }"
+      >
+        <div class="language-switcher__lang">
+          <button v-if="!option.target" @click.stop.prevent="toggleSubMenu()">
+            <img
+              class="language-switcher__img"
+              :src="'/images/' + option.icon"
+              alt=""
+            />
+            <div class="lang__text">{{ $t(option.name) }}</div>
+            <fa
+              v-if="!option.target"
+              icon="angle-right"
+              class="language-switcher__icon"
+            />
+          </button>
+          <a v-else-if="option.target" :href="option.target">
+            <img
+              class="language-switcher__img"
+              :src="'/images/' + option.icon"
+              alt=""
+            />
+            <div class="lang__text">
+              <div>{{ $t(option.name) }}</div>
+              <div v-if="option.sub" class="language-switcher__subtitle">
+                {{ $t(option.sub) }}
+              </div>
+            </div>
           </a>
-        </span>
+        </div>
+        <ul
+          v-if="!option.target && showSubMenu"
+          class="language-switcher__dropdown-menu child"
+        >
+          <li
+            v-for="child in option.children"
+            :key="child.key"
+            :class="{
+              'language-switcher__dropdown-menu--active':
+                child.lang === currentLanguage.lang,
+            }"
+          >
+            <div class="language-switcher__lang">
+              <a :href="child.target">
+                {{ $t(child.name) }}
+              </a>
+            </div>
+          </li>
+        </ul>
       </li>
     </ul>
     <span class="separator" />
   </div>
   <div v-else-if="showLanguageDropdown && type === 'only-text'">
     <ul class="language-switcher-burger-menu">
-      <li v-for="option in languageLocales" :key="option.key">
-        <span
-          v-if="option !== currentLanguage"
-          class="language-switcher-burger-menu__lang"
-        >
-          <a :href="'/' + option.lang">
-            {{ option.name }}
-          </a>
-        </span>
-        <span
-          v-if="option === currentLanguage"
-          class="language-switcher-burger-menu__lang"
-        >
-          {{ option.name }}
-        </span>
+      <li v-for="option in languages.menu" :key="option.key">
+        <template v-if="!option.target">
+          <span
+            v-for="child in option.children"
+            :key="child.name"
+            :class="{
+              'language-switcher-burger-menu__lang': true,
+              'language-switcher-burger-menu--active':
+                child.lang === currentLanguage.lang,
+            }"
+          >
+            <a :href="child.target">
+              {{ $t(option.name) }} - {{ $t(child.name) }}
+            </a>
+            <br />
+          </span>
+        </template>
+        <template v-if="option.target">
+          <span
+            :class="{
+              'language-switcher-burger-menu__lang': true,
+              'language-switcher-burger-menu--active':
+                option.lang === currentLanguage.lang,
+            }"
+          >
+            <a :href="option.target">
+              {{ $t(option.name) }}
+            </a>
+          </span>
+        </template>
       </li>
     </ul>
   </div>
@@ -56,6 +114,7 @@
 
 <script>
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
+import { language } from '~/config/language'
 
 export default {
   name: 'LanguageSwitcher',
@@ -72,9 +131,12 @@ export default {
     const languageLocales = availableLocales.filter(
       (locale) => locale.lang !== 'fr-fr'
     )
+    const languages = language
     return {
       showMenu: false,
+      showSubMenu: false,
       languageLocales,
+      languages,
     }
   },
   computed: {
@@ -106,9 +168,12 @@ export default {
     toggleMenu() {
       this.showMenu = !this.showMenu
     },
-
+    toggleSubMenu() {
+      this.showSubMenu = !this.showSubMenu
+    },
     hideMenu() {
       this.showMenu = false
+      this.showSubMenu = false
     },
   },
 }
@@ -154,8 +219,8 @@ export default {
       position: absolute;
       z-index: 5;
       float: left;
-      min-width: 120px;
-      padding: 5px 0;
+      min-width: 150px;
+      padding: 0;
       margin: 35px 0 0 0;
 
       list-style: none;
@@ -167,52 +232,113 @@ export default {
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
       background-clip: padding-box;
 
+      .child {
+        top: -1px;
+        left: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: 0 0;
+        display: block;
+        min-height: 25px;
+        .language-switcher__lang > a {
+          line-height: 23px;
+        }
+      }
+
       & > li {
         list-style: none;
-        overflow: hidden;
         width: 100%;
         position: relative;
         margin: 0;
-        padding: 5px 0 5px 10px;
+        padding: 0;
         &::before {
           content: '';
           margin: 0;
         }
+        &:hover {
+          background: $grey-10;
+          .child {
+            display: block;
+          }
+        }
       }
-      & > li > a {
-        padding: 0;
+      & > li > a,
+      & > li > span {
         display: block;
         line-height: 1.6rem;
         color: $grey-20;
         white-space: nowrap;
         text-decoration: none;
       }
-      & > li > a:hover {
+      & > li > a:hover,
+      & > li > span {
         background: $grey-10;
-        color: $blue;
       }
       & > li:not(:last-child) {
         border-bottom: 1px solid $grey-20;
       }
+      &--active {
+        color: $grey-30;
+        pointer-events: none;
+        a {
+          color: white;
+        }
+      }
     }
     &__lang {
-      a {
+      min-height: 25px;
+      a,
+      span,
+      button {
+        padding: 10px;
         font-family: $font-roboto;
         font-size: 0.9rem;
         font-weight: $font-medium;
         letter-spacing: 0.008rem;
-        line-height: 1.375rem;
-        color: $grey-60;
-
+        line-height: 1;
+        color: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         &:focus,
         &:hover {
-          color: $blue-hover;
+          color: $blue;
+          background: $grey-10;
+        }
+        .lang {
+          &__text {
+            flex: 1;
+          }
         }
       }
-
-      &--active {
-        color: $grey-30;
+      button {
+        width: 100%;
+        border: none;
+        background: white;
+        &:focus,
+        &:hover {
+          color: $blue;
+          background: $grey-10;
+        }
+        .lang {
+          &__text {
+            flex: 1;
+            text-align: left;
+          }
+        }
       }
+    }
+    &__icon {
+      font-size: large;
+      float: right;
+    }
+    &__subtitle {
+      font-size: smaller;
+    }
+    &__img {
+      margin-right: 10px;
+      height: 23px;
+      width: 23px;
     }
   }
 }
@@ -234,15 +360,22 @@ export default {
     content: '';
     margin: 0;
   }
-
-  &__lang a {
-    color: $grey-80;
-    &:visited,
-    &:active,
-    &:focus,
-    &:hover {
+  &__lang {
+    a {
       color: $grey-80;
-      text-decoration: underline;
+      &:visited,
+      &:focus,
+      &:active,
+      &:hover {
+        color: $grey-80;
+        text-decoration: underline;
+      }
+    }
+  }
+  &--active {
+    pointer-events: none;
+    a {
+      color: $grey-25 !important;
     }
   }
 }

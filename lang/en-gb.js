@@ -1,7 +1,14 @@
 export default {
-  fr: 'Français',
-  'en-gb': 'English',
-  'fr-fr': 'Franco-Français',
+  fr: 'France',
+  'fr-fr': 'International FR',
+  'en-gb': 'International EN',
+  'fr-be': 'FWB',
+  france: 'France',
+  english: 'English',
+  french: 'Français',
+  international: 'International',
+  fwb: 'Fédération Wallonie-Bruxelles',
+  'fwb-acronym': 'FWB',
   'contact-digital-mediation': {
     'page-title': 'Information request',
     'form-id': '28758',
