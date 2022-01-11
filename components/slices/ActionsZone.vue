@@ -1,6 +1,10 @@
 <template>
   <nav class="actions-zone">
-    <language-switcher type="with-dropdown" />
+    <language-switcher
+      v-if="isFrBeLanguageLocaleAvailable"
+      type="with-dropdown"
+    />
+    <language-switcher-legacy v-else type="with-dropdown" />
     <ul>
       <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
         <pix-link
@@ -35,6 +39,12 @@ export default {
       type: Object,
       default: null,
     },
+  },
+  data() {
+    return {
+      isFrBeLanguageLocaleAvailable:
+        process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === 'true',
+    }
   },
 }
 </script>
