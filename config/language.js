@@ -5,7 +5,7 @@ export const language = {
     {
       name: 'international',
       icon: 'globe-europe.svg',
-      target: false,
+      target: null,
       sub: null,
       children: [
         {
