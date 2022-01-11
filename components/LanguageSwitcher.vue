@@ -28,7 +28,7 @@
         <div class="language-switcher__lang">
           <button
             v-if="!option.target"
-            @click="toggleMenuSub()"
+            @click="toggleSubMenu()"
             @click.stop.prevent
           >
             <img
@@ -58,7 +58,7 @@
           </a>
         </div>
         <ul
-          v-if="!option.target && showMenuSub"
+          v-if="!option.target && showSubMenu"
           class="language-switcher__dropdown-menu child"
         >
           <li
@@ -139,7 +139,7 @@ export default {
     const languages = language
     return {
       showMenu: false,
-      showMenuSub: false,
+      showSubMenu: false,
       languageLocales,
       languages,
     }
@@ -173,12 +173,12 @@ export default {
     toggleMenu() {
       this.showMenu = !this.showMenu
     },
-    toggleMenuSub() {
-      this.showMenuSub = !this.showMenuSub
+    toggleSubMenu() {
+      this.showSubMenu = !this.showSubMenu
     },
     hideMenu() {
       this.showMenu = false
-      this.showMenuSub = false
+      this.showSubMenu = false
     },
   },
 }
