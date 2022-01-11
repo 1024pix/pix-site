@@ -9,8 +9,7 @@
       :aria-label="$t('language-switcher-label')"
       aria-haspopup="true"
       :aria-expanded="showMenu.toString()"
-      @click="toggleMenu()"
-      @click.stop.prevent
+      @click.stop.prevent="toggleMenu()"
     >
       {{ currentLanguage.name }}
       <fa v-if="showMenu" icon="angle-up" />
@@ -26,11 +25,7 @@
         }"
       >
         <div class="language-switcher__lang">
-          <button
-            v-if="!option.target"
-            @click="toggleSubMenu()"
-            @click.stop.prevent
-          >
+          <button v-if="!option.target" @click.stop.prevent="toggleSubMenu()">
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
