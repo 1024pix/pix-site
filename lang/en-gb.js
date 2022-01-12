@@ -1,7 +1,13 @@
 export default {
-  fr: 'France',
+  fr:
+    process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === true
+      ? 'International FR'
+      : 'Français',
   'fr-fr': 'International FR',
-  'en-gb': 'International EN',
+  'en-gb':
+    process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === true
+      ? 'International EN'
+      : 'English',
   'fr-be': 'FWB',
   france: 'France',
   english: 'English',

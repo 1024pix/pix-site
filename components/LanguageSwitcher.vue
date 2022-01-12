@@ -179,7 +179,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .language-switcher {
   display: none;
 }

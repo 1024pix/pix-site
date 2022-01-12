@@ -8,7 +8,7 @@ const config = {
   generate: { routes, fallback: '404.html' },
   target: 'static',
   publicRuntimeConfig: {
-    languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED || false,
+    languageSwitchEnabled: process.env.LANGUAGE_SWITCH_ENABLED === 'true',
     orgDomain: process.env.DOMAIN_ORG || 'pix.org',
     formKeysToMap: process.env.FORM_KEYS_TO_MAP || {},
   },
@@ -18,6 +18,8 @@ const config = {
   env: {
     // Nuxt env are required to be usable client-side (e.g.: PixLink)
     SITE: process.env.SITE,
+    IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE:
+      process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE,
   },
   dir: {
     pages: `pages/${process.env.SITE}`,

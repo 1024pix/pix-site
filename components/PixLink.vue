@@ -60,7 +60,8 @@ function getLocaleUrl(url, localePath) {
   if (
     url.startsWith('/fr') ||
     url.startsWith('/en-gb') ||
-    url.startsWith('/fr-be') ||
+    (process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === 'true' &&
+      url.startsWith('/fr-be')) ||
     url.startsWith('/fr-fr')
   ) {
     return url

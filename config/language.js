@@ -60,9 +60,13 @@ export const language = {
             code: 'en-gb',
             file: 'en-gb.js',
           },
-          {
-            code: 'fr-be',
-            file: 'fr-be.js',
-          },
+          ...(process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === 'true'
+            ? [
+                {
+                  code: 'fr-be',
+                  file: 'fr-be.js',
+                },
+              ]
+            : []),
         ],
 }
