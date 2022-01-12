@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.25.1 (12/01/2022)
+
+
+### :bug: Bug fix
+- [#355](https://github.com/1024pix/pix-site/pull/355) [BUGFIX] Affichage de la bannière de nouveautés
+
 ## v3.25.0 (12/01/2022)
 
 
