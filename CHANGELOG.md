@@ -1,5 +1,23 @@
 # pix-site Changelog
 
+## v3.25.0 (12/01/2022)
+
+
+### :rocket: Enhancement
+- [#353](https://github.com/1024pix/pix-site/pull/353) [FEATURE] Ajout d'un Feature Toggle pour le switch de langue FR-BE  (PIX-4101).
+- [#349](https://github.com/1024pix/pix-site/pull/349) [FEATURE] Ajouter le menu Switch de langue sur le .org (PIX-4038)
+- [#348](https://github.com/1024pix/pix-site/pull/348) [FEATURE] Ajouter le langage 'FR-BE' dans pix-site (PIX-4035)
+
+### :building_construction: Tech
+- [#352](https://github.com/1024pix/pix-site/pull/352) [TECH] Montée de version action d'auto-merge en v0.1.2
+- [#351](https://github.com/1024pix/pix-site/pull/351) [TECH] Utiliser la github action d'auto-merge commune de Pix
+- [#343](https://github.com/1024pix/pix-site/pull/343) [TECH] Meilleure gestion de la var d'env `SITE` (PIX-4014)
+
+### :bug: Bug fix
+- [#345](https://github.com/1024pix/pix-site/pull/345) [BUGFIX] Éviter les redirections permanentes sur des liens qui peuvent changer
+- [#346](https://github.com/1024pix/pix-site/pull/346) [BUGFIX] Laisse Google indexer le site seulement si `SEO_ENABLE_INDEXING` est settée à `true` (PIX-4040)
+- [#347](https://github.com/1024pix/pix-site/pull/347) [BUGFIX] Logo Pix qui bouge selon les environnements (PIX-3927)
+
 ## v3.24.1 (14/12/2021)
 
 
