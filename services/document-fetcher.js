@@ -24,7 +24,7 @@ export function documentFetcher(
         prismic.predicates.at('document.type', DOCUMENTS.HOT_NEWS),
         { lang }
       )
-      return documents.results
+      return documents.results[0]
     },
     findMainNavigation: async () => {
       const documents = await prismic.api.query(
