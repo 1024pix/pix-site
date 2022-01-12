@@ -100,7 +100,7 @@ describe('DocumentFetcher', () => {
       'document.type',
       DOCUMENTS.HOT_NEWS
     )
-    expect(response).toEqual(expectedValue)
+    expect(response).toEqual(expectedValue[0])
   })
 
   test('#findMainNavigation', async () => {
