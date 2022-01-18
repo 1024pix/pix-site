@@ -39,6 +39,37 @@ describe('#getRoutesToGenerate', () => {
     expect(result).toEqual(expected)
   })
 
+  test('it should filter unhandled languages', async () => {
+    // Given
+    const expected = [
+      '/route-to-generate',
+      '/fr/route-to-generate',
+      '/en-gb/route-to-generate',
+    ]
+    const prismicApi = {
+      query: jest.fn().mockResolvedValueOnce({
+        results: [
+          { uid: 'route-to-generate', lang: 'fr-fr' },
+          { uid: 'route-to-generate', lang: 'fr' },
+          { uid: 'route-to-generate', lang: 'en-gb' },
+          { uid: 'route-to-generate', lang: 'xh-ZA' },
+        ],
+      }),
+    }
+    prismic.getApi = () => prismicApi
+
+    // When
+    const result = await getRoutesToGenerate(prismic)
+
+    // Then
+    expect(prismicApi.query).toBeCalledWith(prismicDocPredicates, {
+      lang: '*',
+      pageSize: 100,
+      page: 1,
+    })
+    expect(result).toEqual(expected)
+  })
+
   test('it should not return null routes', async () => {
     // Given
     const expected = ['/route-to-generate']

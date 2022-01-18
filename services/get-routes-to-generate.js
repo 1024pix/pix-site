@@ -1,4 +1,5 @@
 import Prismic from '@prismicio/client'
+import { language } from '../config/language'
 import { SITES_PRISMIC_TAGS } from './available-sites'
 import { DOCUMENTS } from './document-fetcher'
 
@@ -29,8 +30,10 @@ async function getRoutesInPage(api, page) {
     }
   )
 
+  const availableLangs = language.locales.map((locale) => locale.code)
   const routes = results
-    .filter(({ uid, type }) => Boolean(uid))
+    .filter(({ uid }) => Boolean(uid))
+    .filter(({ lang }) => availableLangs.includes(lang))
     .map(({ uid, lang }) => {
       if (lang === 'fr-fr') return `/${uid}`
       return `/${lang}/${uid}`
