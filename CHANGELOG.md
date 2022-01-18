@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v3.25.2 (18/01/2022)
+
+
+### :building_construction: Tech
+- [#356](https://github.com/1024pix/pix-site/pull/356) [TECH] Ajoute un log pour afficher le nombre de routes générées
+
+### :bug: Bug fix
+- [#357](https://github.com/1024pix/pix-site/pull/357) [BUGFIX] Ne pas inclure les routes à générer si la langue n'est pas gérée (PIX-4173)
+
 ## v3.25.1 (12/01/2022)
 
 
