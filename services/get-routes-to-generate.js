@@ -5,10 +5,14 @@ import { DOCUMENTS } from './document-fetcher'
 export default async function () {
   const api = await Prismic.getApi(process.env.PRISMIC_API_ENDPOINT)
   const { routes, totalPages } = await getRoutesInPage(api, 1)
+
   for (let page = 2; page <= totalPages; page++) {
     const { routes: nextPageRoutes } = await getRoutesInPage(api, page)
     routes.push(...nextPageRoutes)
   }
+
+  console.info(`${routes.length} routes will be generated`)
+
   return routes
 }
 
