@@ -144,10 +144,8 @@ export default {
       cursor: pointer;
       background-image: url('/images/globe.svg');
       background-repeat: no-repeat;
-      &:hover,
-      &:focus {
+      &:hover {
         color: $blue;
-        background-image: url('/images/globe-blue.svg');
       }
     }
     &__dropdown-menu {
