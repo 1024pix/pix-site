@@ -136,10 +136,12 @@ export default {
       color: $grey-60;
       letter-spacing: 0.008rem;
       line-height: 1.375rem;
+      margin-bottom: 2px;
       border: none;
       outline: inherit;
       height: 1.5rem;
-      background-size: 1.5rem;
+      background-size: 1.3rem;
+      background-position: 5% 50%;
       padding: 2px 3px 0 30px;
       cursor: pointer;
       background-image: url('/images/globe.svg');
