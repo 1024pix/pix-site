@@ -24,22 +24,22 @@ export default {
       }
       let template = ''
       const url = prismicDOM.Link.url(this.field, this.$prismic.linkResolver)
-      const relativeLinkPrefix = getRelativeLinkPrefix(url)
+      const relativeLinkPrefix = getRelativeLinkPrefix(url, this.$i18n.locale)
 
       if (this.field.link_type === 'Document') {
         const localeURL = getLocaleUrl(url, this.localePath)
         template = `
-          <router-link to="${localeURL}" exact>
+          <nuxt-link to="${localeURL}" exact>
             <slot/>
-          </router-link>
+          </nuxt-link>
         `
       } else if (relativeLinkPrefix) {
         const relativeUrl = url.replace(relativeLinkPrefix, '/')
         const localeURL = getLocaleUrl(relativeUrl, this.localePath)
         template = `
-          <router-link to="${localeURL}" exact>
+          <nuxt-link to="${localeURL}" exact>
             <slot/>
-          </router-link>
+          </nuxt-link>
         `
       } else {
         const target = this.field.target
@@ -69,18 +69,19 @@ function getLocaleUrl(url, localePath) {
   return localePath(url)
 }
 
-function getRelativeLinkPrefix(url) {
-  if (!url) {
-    return ''
+function getRelativeLinkPrefix(url, locale) {
+  if (!url) return ''
+  let relativeLinkPrefix
+  if (process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO) {
+    relativeLinkPrefix = 'https://pro.pix.fr'
+  } else {
+    relativeLinkPrefix = {
+      'fr-fr': 'https://pix.fr/',
+      fr: 'https://pix.org/fr/',
+      'fr-be': 'https://pix.org/fr-be/',
+      'en-gb': 'https://pix.org/en-gb/',
+    }[locale]
   }
-  const relativeLinkPrefixes =
-    process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO
-      ? ['https://pro.pix.fr']
-      : ['https://pix.org', 'https://pix.fr']
-  return relativeLinkPrefixes
-    .map((relativeLinkPrefix) =>
-      url.startsWith(relativeLinkPrefix) ? `${relativeLinkPrefix}/` : ''
-    )
-    .filter((relativeLinkPrefix) => relativeLinkPrefix !== '')[0]
+  return url.startsWith(relativeLinkPrefix) ? relativeLinkPrefix : ''
 }
 </script>
