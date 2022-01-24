@@ -2,8 +2,7 @@
   <div class="burger-menu-nav">
     <burger-menu-nav-items :items="items.navigationZone" />
     <burger-menu-nav-items :items="items.actionsZone" :is-action="true" />
-    <language-switcher v-if="isFrBeLanguageLocaleAvailable" type="only-text" />
-    <language-switcher-legacy v-else type="only-text" />
+    <language-switcher type="only-text" />
   </div>
 </template>
 
@@ -15,12 +14,6 @@ export default {
       type: Object,
       default: null,
     },
-  },
-  data() {
-    return {
-      isFrBeLanguageLocaleAvailable:
-        process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === 'true',
-    }
   },
 }
 </script>

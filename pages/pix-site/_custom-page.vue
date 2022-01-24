@@ -22,9 +22,7 @@ export default {
       fr: '/:uid',
       'fr-fr': '/:uid',
       'en-gb': '/:uid',
-      ...(process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === 'true' && {
-        'fr-be': '/:uid',
-      }),
+      'fr-be': '/:uid',
     },
   },
   async asyncData({ params, app, req, error, currentPagePath }) {

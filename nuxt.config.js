@@ -18,8 +18,6 @@ const config = {
   env: {
     // Nuxt env are required to be usable client-side (e.g.: PixLink)
     SITE: process.env.SITE,
-    IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE:
-      process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE,
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
