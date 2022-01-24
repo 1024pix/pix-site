@@ -70,7 +70,6 @@ const config = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/i18n.js',
     '~/plugins/components.js',
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', ssr: false },
