@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.26.1 (26/01/2022)
+
+
+### :coffee: Various
+- [#360](https://github.com/1024pix/pix-site/pull/360) [FIX] Correction des redirections vers le site belge renvoyant une page 404.
+
 ## v3.25.2 (18/01/2022)
 
 
