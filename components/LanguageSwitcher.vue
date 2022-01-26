@@ -300,7 +300,6 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        &:focus,
         &:hover {
           color: $blue;
           background: $grey-10;
@@ -315,7 +314,6 @@ export default {
         width: 100%;
         border: none;
         background: white;
-        &:focus,
         &:hover {
           color: $blue;
           background: $grey-10;

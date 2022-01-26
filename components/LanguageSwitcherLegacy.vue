@@ -204,7 +204,6 @@ export default {
         line-height: 1.375rem;
         color: $grey-60;
 
-        &:focus,
         &:hover {
           color: $blue-hover;
         }
