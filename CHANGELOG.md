@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.26.2 (27/01/2022)
+
+
+### :bug: Bug fix
+- [#363](https://github.com/1024pix/pix-site/pull/363) [BUGFIX] Les URLs inter-locales ne fonctionnent pas correctement
+
 ## v3.26.1 (26/01/2022)
 
 
