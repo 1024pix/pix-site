@@ -37,9 +37,7 @@ export default {
     paths: {
       fr: '/actualites',
       'fr-fr': '/actualites',
-      ...(process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === 'true' && {
-        'fr-be': '/actualites',
-      }),
+      'fr-be': '/actualites',
       'en-gb': '/news',
     },
   },

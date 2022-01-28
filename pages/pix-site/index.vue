@@ -14,9 +14,7 @@ export default {
       fr: '/',
       'fr-fr': '/',
       'en-gb': '/',
-      ...(process.env.IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE === 'true' && {
-        'fr-be': '/',
-      }),
+      'fr-be': '/',
     },
   },
   async asyncData({ app, req, error, currentPagePath }) {
