@@ -1,6 +1,6 @@
 export default {
   fr: 'International FR',
-  'fr-fr': 'International FR',
+  'fr-fr': 'France',
   'en-gb': 'International EN',
   'fr-be': 'FWB',
   france: 'France',
