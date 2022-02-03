@@ -141,11 +141,7 @@ export default {
   },
   computed: {
     showLanguageDropdown() {
-      return (
-        process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE &&
-        this.$config.languageSwitchEnabled &&
-        this.$i18n.locale !== 'fr-fr'
-      )
+      return process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE
     },
     currentLocale() {
       return this.$i18n.locale || this.$i18n.defaultLocale
