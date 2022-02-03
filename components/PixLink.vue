@@ -6,7 +6,7 @@
 
 <script>
 import prismicDOM from 'prismic-dom'
-import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
+import { getCurrentSiteHost } from '~/services/get-current-site-host'
 
 export default {
   name: 'PixLink',
@@ -100,11 +100,5 @@ export function removeHostIfCurrentSite(url, locale) {
 
 function isCurrentSiteURL(url, locale) {
   return url.host === getCurrentSiteHost(locale)
-}
-
-function getCurrentSiteHost(locale) {
-  if (process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO) return 'pro.pix.fr'
-  if (locale === 'fr-fr') return 'pix.fr'
-  return 'pix.org'
 }
 </script>
