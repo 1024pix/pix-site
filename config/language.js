@@ -28,7 +28,7 @@ export const language = {
       name: 'france',
       lang: 'fr-fr',
       icon: 'flag-fr.svg',
-      target: 'https://www.pix.fr',
+      target: '/',
       sub: null,
     },
     {
