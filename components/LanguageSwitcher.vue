@@ -11,7 +11,7 @@
       :aria-expanded="showMenu.toString()"
       @click.stop.prevent="toggleMenu()"
     >
-      {{ currentLanguage.name }}
+      {{ $t(currentLanguage.code) }}
       <fa v-if="showMenu" icon="angle-up" />
       <fa v-else icon="angle-down" />
     </button>
@@ -126,7 +126,7 @@ export default {
   },
   data() {
     const availableLocales = this.$i18n.locales.map((locale) => {
-      return { name: this.$t(locale.code), lang: locale.code }
+      return { code: locale.code, lang: locale.code }
     })
     const languageLocales = availableLocales.filter(
       (locale) => locale.lang !== 'fr-fr'
