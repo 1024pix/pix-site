@@ -128,14 +128,11 @@ export default {
     const availableLocales = this.$i18n.locales.map((locale) => {
       return { code: locale.code, lang: locale.code }
     })
-    const languageLocales = availableLocales.filter(
-      (locale) => locale.lang !== 'fr-fr'
-    )
     const languages = language
     return {
       showMenu: false,
       showSubMenu: false,
-      languageLocales,
+      languageLocales: availableLocales,
       languages,
     }
   },
