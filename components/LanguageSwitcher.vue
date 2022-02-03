@@ -38,7 +38,12 @@
               class="language-switcher__icon"
             />
           </button>
-          <a v-else-if="option.target" :href="option.target">
+          <a
+            v-else-if="option.target"
+            :href="
+              getAbsoluteUrlIfSwitchWebsite(option.target, option.isOnPixOrg)
+            "
+          >
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -65,7 +70,11 @@
             }"
           >
             <div class="language-switcher__lang">
-              <a :href="child.target">
+              <a
+                :href="
+                  getAbsoluteUrlIfSwitchWebsite(child.target, child.isOnPixOrg)
+                "
+              >
                 {{ $t(child.name) }}
               </a>
             </div>
@@ -102,7 +111,11 @@
                 option.lang === currentLanguage.lang,
             }"
           >
-            <a :href="option.target">
+            <a
+              :href="
+                getAbsoluteUrlIfSwitchWebsite(option.target, option.isOnPixOrg)
+              "
+            >
               {{ $t(option.name) }}
             </a>
           </span>
@@ -115,6 +128,7 @@
 <script>
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
 import { language } from '~/config/language'
+import { getCurrentSiteHost } from '~/services/get-current-site-host'
 
 export default {
   name: 'LanguageSwitcher',
@@ -167,6 +181,16 @@ export default {
     hideMenu() {
       this.showMenu = false
       this.showSubMenu = false
+    },
+    getAbsoluteUrlIfSwitchWebsite(target, isOnPixOrg) {
+      const currentSiteHost = getCurrentSiteHost(this.currentLocale)
+      if (currentSiteHost === 'pix.fr' && isOnPixOrg) {
+        return process.env.DOMAIN_ORG + target
+      } else if (currentSiteHost === 'pix.org' && !isOnPixOrg) {
+        return process.env.DOMAIN_FR + target
+      }
+
+      return target
     },
   },
 }
