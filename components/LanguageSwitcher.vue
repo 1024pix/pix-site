@@ -11,7 +11,7 @@
       :aria-expanded="showMenu.toString()"
       @click.stop.prevent="toggleMenu()"
     >
-      {{ $t(currentLanguage.code) }}
+      {{ $t(currentLocale) }}
       <fa v-if="showMenu" icon="angle-up" />
       <fa v-else icon="angle-down" />
     </button>
@@ -21,7 +21,7 @@
         :key="option.key"
         :class="{
           'language-switcher__dropdown-menu--active':
-            option.lang === currentLanguage.lang,
+            option.lang === currentLocale,
         }"
       >
         <div class="language-switcher__lang">
@@ -66,7 +66,7 @@
             :key="child.key"
             :class="{
               'language-switcher__dropdown-menu--active':
-                child.lang === currentLanguage.lang,
+                child.lang === currentLocale,
             }"
           >
             <div class="language-switcher__lang">
@@ -94,7 +94,7 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                child.lang === currentLanguage.lang,
+                child.lang === currentLocale,
             }"
           >
             <a :href="child.target">
@@ -108,7 +108,7 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                option.lang === currentLanguage.lang,
+                option.lang === currentLocale,
             }"
           >
             <a
@@ -139,14 +139,10 @@ export default {
     },
   },
   data() {
-    const availableLocales = this.$i18n.locales.map((locale) => {
-      return { code: locale.code, lang: locale.code }
-    })
     const languages = language
     return {
       showMenu: false,
       showSubMenu: false,
-      languageLocales: availableLocales,
       languages,
     }
   },
@@ -156,11 +152,6 @@ export default {
     },
     currentLocale() {
       return this.$i18n.locale || this.$i18n.defaultLocale
-    },
-    currentLanguage() {
-      return this.languageLocales.find(
-        (locale) => locale.lang === this.currentLocale
-      )
     },
   },
   mounted() {
