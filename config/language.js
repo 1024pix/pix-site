@@ -13,6 +13,7 @@ export const language = {
           lang: 'fr',
           icon: 'icon',
           target: '/fr',
+          isOnPixOrg: true,
           sub: null,
         },
         {
@@ -20,6 +21,7 @@ export const language = {
           lang: 'en-gb',
           icon: 'icon',
           target: '/en-gb',
+          isOnPixOrg: true,
           sub: null,
         },
       ],
@@ -29,6 +31,7 @@ export const language = {
       lang: 'fr-fr',
       icon: 'flag-fr.svg',
       target: '/',
+      isOnPixOrg: false,
       sub: null,
     },
     {
@@ -36,6 +39,7 @@ export const language = {
       lang: 'fr-be',
       icon: 'flag-be.svg',
       target: '/fr-be',
+      isOnPixOrg: true,
       sub: 'fwb',
     },
   ],
