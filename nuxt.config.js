@@ -8,7 +8,6 @@ const config = {
   generate: { routes, fallback: '404.html' },
   target: 'static',
   publicRuntimeConfig: {
-    orgDomain: process.env.DOMAIN_ORG || 'pix.org',
     formKeysToMap: process.env.FORM_KEYS_TO_MAP || {},
   },
   server: {
@@ -17,6 +16,8 @@ const config = {
   env: {
     // Nuxt env are required to be usable client-side (e.g.: PixLink)
     SITE: process.env.SITE,
+    DOMAIN_ORG: process.env.DOMAIN_ORG,
+    DOMAIN_FR: process.env.DOMAIN_FR,
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
@@ -190,6 +191,14 @@ const config = {
       },
     },
   },
+}
+
+if (process.env.DOMAIN_ORG === undefined) {
+  throw new Error(`The DOMAIN_ORG environment variable must be provided`)
+}
+
+if (process.env.DOMAIN_FR === undefined) {
+  throw new Error(`The DOMAIN_FR environment variable must be provided`)
 }
 
 const availablesSites = Object.values(SITES_PRISMIC_TAGS)
