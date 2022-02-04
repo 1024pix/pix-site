@@ -11,7 +11,7 @@
       :aria-expanded="showMenu.toString()"
       @click.stop.prevent="toggleMenu()"
     >
-      {{ $t(currentLocale) }}
+      {{ $t(currentLocaleCode) }}
       <fa v-if="showMenu" icon="angle-up" />
       <fa v-else icon="angle-down" />
     </button>
@@ -21,7 +21,7 @@
         :key="option.key"
         :class="{
           'language-switcher__dropdown-menu--active':
-            option.lang === currentLocale,
+            option.lang === currentLocaleCode,
         }"
       >
         <div class="language-switcher__lang">
@@ -66,7 +66,7 @@
             :key="child.key"
             :class="{
               'language-switcher__dropdown-menu--active':
-                child.lang === currentLocale,
+                child.lang === currentLocaleCode,
             }"
           >
             <div class="language-switcher__lang">
@@ -94,7 +94,7 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                child.lang === currentLocale,
+                child.lang === currentLocaleCode,
             }"
           >
             <a :href="child.target">
@@ -108,7 +108,7 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                option.lang === currentLocale,
+                option.lang === currentLocaleCode,
             }"
           >
             <a
@@ -128,7 +128,6 @@
 <script>
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
 import { language } from '~/config/language'
-import { getCurrentSiteHost } from '~/services/get-current-site-host'
 
 export default {
   name: 'LanguageSwitcher',
@@ -150,8 +149,14 @@ export default {
     showLanguageDropdown() {
       return process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE
     },
-    currentLocale() {
+    currentLocaleCode() {
       return this.$i18n.locale || this.$i18n.defaultLocale
+    },
+    selectedMenu() {
+      return this.languages.menu
+        .map((menuItem) => menuItem.children ?? menuItem)
+        .flat()
+        .find((locale) => locale.lang === this.currentLocaleCode)
     },
   },
   mounted() {
@@ -173,17 +178,27 @@ export default {
       this.showMenu = false
       this.showSubMenu = false
     },
-    getAbsoluteUrlIfSwitchWebsite(target, isOnPixOrg) {
-      const currentSiteHost = getCurrentSiteHost(this.currentLocale)
-      if (currentSiteHost === 'pix.fr' && isOnPixOrg) {
-        return process.env.DOMAIN_ORG + target
-      } else if (currentSiteHost === 'pix.org' && !isOnPixOrg) {
-        return process.env.DOMAIN_FR + target
+    getAbsoluteUrlIfSwitchWebsite(relativeTarget, isTargetOnPixOrg) {
+      if (!this.selectedMenu.isOnPixOrg && isTargetOnPixOrg) {
+        const orgBaseUrl = getBaseUrl(process.env.DOMAIN_ORG)
+        return new URL(relativeTarget, orgBaseUrl)
       }
 
-      return target
+      if (this.selectedMenu.isOnPixOrg && !isTargetOnPixOrg) {
+        const frBaseUrl = getBaseUrl(process.env.DOMAIN_FR)
+        return new URL(relativeTarget, frBaseUrl)
+      }
+
+      return relativeTarget
     },
   },
+}
+
+/**
+ * Add current URL scheme to a domain (http:// or https://)
+ */
+function getBaseUrl(domain) {
+  return new URL(`//${domain}`, document.location)
 }
 </script>
 
