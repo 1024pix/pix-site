@@ -41,7 +41,7 @@
           <a
             v-else-if="option.target"
             :href="
-              getAbsoluteUrlIfSwitchWebsite(option.target, option.isOnPixOrg)
+              useGetAbsoluteUrlIfSwitchWebsite(option.target, option.isOnPixOrg)
             "
           >
             <img
@@ -72,7 +72,10 @@
             <div class="language-switcher__lang">
               <a
                 :href="
-                  getAbsoluteUrlIfSwitchWebsite(child.target, child.isOnPixOrg)
+                  useGetAbsoluteUrlIfSwitchWebsite(
+                    child.target,
+                    child.isOnPixOrg
+                  )
                 "
               >
                 {{ $t(child.name) }}
@@ -113,7 +116,10 @@
           >
             <a
               :href="
-                getAbsoluteUrlIfSwitchWebsite(option.target, option.isOnPixOrg)
+                useGetAbsoluteUrlIfSwitchWebsite(
+                  option.target,
+                  option.isOnPixOrg
+                )
               "
             >
               {{ $t(option.name) }}
@@ -154,8 +160,7 @@ export default {
     },
     selectedMenu() {
       return this.languages.menu
-        .map((menuItem) => menuItem.children ?? menuItem)
-        .flat()
+        .flatMap((menuItem) => menuItem.children ?? menuItem)
         .find((locale) => locale.lang === this.currentLocaleCode)
     },
   },
@@ -178,27 +183,38 @@ export default {
       this.showMenu = false
       this.showSubMenu = false
     },
-    getAbsoluteUrlIfSwitchWebsite(relativeTarget, isTargetOnPixOrg) {
-      if (!this.selectedMenu.isOnPixOrg && isTargetOnPixOrg) {
-        const orgBaseUrl = getBaseUrl(process.env.DOMAIN_ORG)
-        return new URL(relativeTarget, orgBaseUrl)
-      }
-
-      if (this.selectedMenu.isOnPixOrg && !isTargetOnPixOrg) {
-        const frBaseUrl = getBaseUrl(process.env.DOMAIN_FR)
-        return new URL(relativeTarget, frBaseUrl)
-      }
-
-      return relativeTarget
+    useGetAbsoluteUrlIfSwitchWebsite(relativeTarget, isTargetOnPixOrg) {
+      return getAbsoluteUrlIfSwitchWebsite(
+        relativeTarget,
+        isTargetOnPixOrg,
+        this.selectedMenu.isOnPixOrg
+      )
     },
   },
 }
 
 /**
- * Add current URL scheme to a domain (http:// or https://)
+ * Adds current URL scheme to a domain (http:// or https://)
  */
 function getBaseUrl(domain) {
   return new URL(`//${domain}`, document.location)
+}
+export function getAbsoluteUrlIfSwitchWebsite(
+  relativeTarget,
+  isTargetOnPixOrg,
+  isOnPixOrg
+) {
+  if (!isOnPixOrg && isTargetOnPixOrg) {
+    const orgBaseUrl = getBaseUrl(process.env.DOMAIN_ORG)
+    return new URL(relativeTarget, orgBaseUrl).href
+  }
+
+  if (isOnPixOrg && !isTargetOnPixOrg) {
+    const frBaseUrl = getBaseUrl(process.env.DOMAIN_FR)
+    return new URL(relativeTarget, frBaseUrl).href
+  }
+
+  return relativeTarget
 }
 </script>
 
