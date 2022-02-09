@@ -11,7 +11,7 @@
       :aria-expanded="showMenu.toString()"
       @click.stop.prevent="toggleMenu()"
     >
-      {{ currentLanguage.name }}
+      {{ $t(currentLocaleCode) }}
       <fa v-if="showMenu" icon="angle-up" />
       <fa v-else icon="angle-down" />
     </button>
@@ -21,7 +21,7 @@
         :key="option.key"
         :class="{
           'language-switcher__dropdown-menu--active':
-            option.lang === currentLanguage.lang,
+            option.lang === currentLocaleCode,
         }"
       >
         <div class="language-switcher__lang">
@@ -38,7 +38,12 @@
               class="language-switcher__icon"
             />
           </button>
-          <a v-else-if="option.target" :href="option.target">
+          <a
+            v-else-if="option.target"
+            :href="
+              useGetAbsoluteUrlIfSwitchWebsite(option.target, option.isOnPixOrg)
+            "
+          >
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -61,11 +66,18 @@
             :key="child.key"
             :class="{
               'language-switcher__dropdown-menu--active':
-                child.lang === currentLanguage.lang,
+                child.lang === currentLocaleCode,
             }"
           >
             <div class="language-switcher__lang">
-              <a :href="child.target">
+              <a
+                :href="
+                  useGetAbsoluteUrlIfSwitchWebsite(
+                    child.target,
+                    child.isOnPixOrg
+                  )
+                "
+              >
                 {{ $t(child.name) }}
               </a>
             </div>
@@ -85,7 +97,7 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                child.lang === currentLanguage.lang,
+                child.lang === currentLocaleCode,
             }"
           >
             <a :href="child.target">
@@ -99,10 +111,17 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                option.lang === currentLanguage.lang,
+                option.lang === currentLocaleCode,
             }"
           >
-            <a :href="option.target">
+            <a
+              :href="
+                useGetAbsoluteUrlIfSwitchWebsite(
+                  option.target,
+                  option.isOnPixOrg
+                )
+              "
+            >
               {{ $t(option.name) }}
             </a>
           </span>
@@ -125,35 +144,24 @@ export default {
     },
   },
   data() {
-    const availableLocales = this.$i18n.locales.map((locale) => {
-      return { name: this.$t(locale.code), lang: locale.code }
-    })
-    const languageLocales = availableLocales.filter(
-      (locale) => locale.lang !== 'fr-fr'
-    )
     const languages = language
     return {
       showMenu: false,
       showSubMenu: false,
-      languageLocales,
       languages,
     }
   },
   computed: {
     showLanguageDropdown() {
-      return (
-        process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE &&
-        this.$config.languageSwitchEnabled &&
-        this.$i18n.locale !== 'fr-fr'
-      )
+      return process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE
     },
-    currentLocale() {
+    currentLocaleCode() {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
-    currentLanguage() {
-      return this.languageLocales.find(
-        (locale) => locale.lang === this.currentLocale
-      )
+    selectedMenu() {
+      return this.languages.menu
+        .flatMap((menuItem) => menuItem.children ?? menuItem)
+        .find((locale) => locale.lang === this.currentLocaleCode)
     },
   },
   mounted() {
@@ -175,7 +183,38 @@ export default {
       this.showMenu = false
       this.showSubMenu = false
     },
+    useGetAbsoluteUrlIfSwitchWebsite(relativeTarget, isTargetOnPixOrg) {
+      return getAbsoluteUrlIfSwitchWebsite(
+        relativeTarget,
+        isTargetOnPixOrg,
+        this.selectedMenu.isOnPixOrg
+      )
+    },
   },
+}
+
+/**
+ * Adds current URL scheme to a domain (http:// or https://)
+ */
+function getBaseUrl(domain) {
+  return new URL(`//${domain}`, document.location)
+}
+export function getAbsoluteUrlIfSwitchWebsite(
+  relativeTarget,
+  isTargetOnPixOrg,
+  isOnPixOrg
+) {
+  if (!isOnPixOrg && isTargetOnPixOrg) {
+    const orgBaseUrl = getBaseUrl(process.env.DOMAIN_ORG)
+    return new URL(relativeTarget, orgBaseUrl).href
+  }
+
+  if (isOnPixOrg && !isTargetOnPixOrg) {
+    const frBaseUrl = getBaseUrl(process.env.DOMAIN_FR)
+    return new URL(relativeTarget, frBaseUrl).href
+  }
+
+  return relativeTarget
 }
 </script>
 
