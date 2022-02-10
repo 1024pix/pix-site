@@ -1,5 +1,28 @@
 # pix-site Changelog
 
+## v3.27.0 (10/02/2022)
+
+
+### :rocket: Enhancement
+- [#371](https://github.com/1024pix/pix-site/pull/371) [FEATURE] Ajoute de l'espacement en dessous du language switcher du burger menu
+- [#366](https://github.com/1024pix/pix-site/pull/366) [FEATURE] Ajoute le Language Switcher sur pix.fr (PIX-4302)
+- [#362](https://github.com/1024pix/pix-site/pull/362) [FEATURE] Supprime le feature toggle `IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE`
+
+### :building_construction: Tech
+- [#370](https://github.com/1024pix/pix-site/pull/370) [TECH] Ajoute un fichier .env d'exemple
+- [#365](https://github.com/1024pix/pix-site/pull/365) [TECH] Supprime le composant LanguageSwitcherLegacy
+
+### :coffee: Various
+- [#369](https://github.com/1024pix/pix-site/pull/369) [DOCS] Lance Prettier sur le readme
+- [#323](https://github.com/1024pix/pix-site/pull/323) Bump tmpl from 1.0.4 to 1.0.5
+- [#359](https://github.com/1024pix/pix-site/pull/359) chore(deps): bump nanoid from 3.1.20 to 3.2.0
+- [#367](https://github.com/1024pix/pix-site/pull/367) build(deps): bump browserslist from 4.14.7 to 4.19.1
+- [#338](https://github.com/1024pix/pix-site/pull/338) chore(deps): bump color-string from 1.5.4 to 1.9.0
+- [#354](https://github.com/1024pix/pix-site/pull/354) chore(deps): bump postcss from 7.0.35 to 7.0.39
+- [#368](https://github.com/1024pix/pix-site/pull/368) build(deps): bump ssri from 6.0.1 to 6.0.2
+- [#364](https://github.com/1024pix/pix-site/pull/364) build(deps): bump simple-get from 4.0.0 to 4.0.1
+- [#358](https://github.com/1024pix/pix-site/pull/358) [STYLE] Correctifs sur le switch de langue sur Pix.org (PIX-4133).
+
 ## v3.26.2 (27/01/2022)
 
 
