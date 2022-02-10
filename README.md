@@ -74,7 +74,11 @@ If not present, Metabase cards will not be loaded.
 - type: String
 - default: none
 
-## Build Setup pix-site
+## Build Setup
+
+En dev, copier le fichier `sample.env` vers un `.env` et remplacer les valeurs.
+
+### pix-site
 
 ```bash
 # install dependencies
@@ -88,7 +92,7 @@ $ npm run build:site
 $ npm run start:site
 ```
 
-## Build Setup pix-pro
+### pix-pro
 
 ```bash
 # install dependencies
@@ -102,8 +106,7 @@ $ npm run build:pro
 $ npm run start:pro
 ```
 
-
-## Build Setup sur Scalingo
+### Scalingo
 
 ```bash
 # install dependencies
