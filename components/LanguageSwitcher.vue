@@ -381,7 +381,7 @@ export function getAbsoluteUrlIfSwitchWebsite(
 }
 
 .language-switcher-burger-menu {
-  margin: 0;
+  margin: 0 0 50px 0;
   font-size: 1rem;
   line-height: 1.5rem;
   color: $grey-30;
