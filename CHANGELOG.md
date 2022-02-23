@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.27.1 (23/02/2022)
+
+
+### :bug: Bug fix
+- [#372](https://github.com/1024pix/pix-site/pull/372) [BUGFIX] Permettre d'afficher 4 blocks dans les multiple blocks "process" quelque soit la résolution (PIX-4012)
+
 ## v3.27.0 (10/02/2022)
 
 
