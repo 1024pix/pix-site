@@ -237,7 +237,6 @@ export function getAbsoluteUrlIfSwitchWebsite(
       height: 1.5rem;
     }
     &__button {
-      background: none;
       font-family: $font-roboto;
       font-size: 0.875rem;
       font-weight: $font-medium;
@@ -252,8 +251,7 @@ export function getAbsoluteUrlIfSwitchWebsite(
       background-position: 5% 50%;
       padding: 2px 3px 0 30px;
       cursor: pointer;
-      background-image: url('/images/globe.svg');
-      background-repeat: no-repeat;
+      background: url('/images/globe.svg') no-repeat;
       &:hover {
         color: $blue;
       }
