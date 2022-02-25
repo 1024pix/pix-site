@@ -155,8 +155,6 @@ const config = {
   },
   prismic: {
     endpoint: process.env.PRISMIC_API_ENDPOINT,
-    linkResolver: '@/plugins/link-resolver',
-    htmlSerializer: '@/plugins/html-serializer',
     modern: true,
   },
   router: {
