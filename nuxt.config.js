@@ -101,7 +101,7 @@ const config = {
    */
   modules: [
     '@nuxtjs/style-resources',
-    ['@nuxtjs/i18n', { detectBrowserLanguage: false }],
+    '@nuxtjs/i18n',
     '@nuxtjs/moment',
     '@nuxtjs/robots',
     [
@@ -145,6 +145,7 @@ const config = {
     scss: ['assets/scss/globals.scss'],
   },
   i18n: {
+    detectBrowserLanguage: false,
     defaultLocale: 'fr-fr',
     locales: language.locales,
     lazy: true,
