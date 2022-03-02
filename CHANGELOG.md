@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.27.2 (02/03/2022)
+
+
+### :bug: Correction
+- [#374](https://github.com/1024pix/pix-site/pull/374) [BUGFIX] Suppression de liens vers pix.fr/fr et pix.fr/en-gb
+
 ## v3.27.1 (23/02/2022)
 
 
