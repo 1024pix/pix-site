@@ -100,7 +100,11 @@
                 child.lang === currentLocaleCode,
             }"
           >
-            <a :href="child.target">
+            <a
+              :href="
+                useGetAbsoluteUrlIfSwitchWebsite(child.target, child.isOnPixOrg)
+              "
+            >
               {{ $t(option.name) }} - {{ $t(child.name) }}
             </a>
             <br />
