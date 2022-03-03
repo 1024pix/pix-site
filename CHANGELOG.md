@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.28.0 (03/03/2022)
+
+
+### :bug: Correction
+- [#375](https://github.com/1024pix/pix-site/pull/375) [BUGFIX] Redirige les pages localisées de pix.fr vers pix.org (PIX-4496)
+
 ## v3.27.2 (02/03/2022)
 
 
