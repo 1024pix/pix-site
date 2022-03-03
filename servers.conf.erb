@@ -29,7 +29,7 @@ server {
   root /app/dist/;
 
   rewrite ^/(aide|help)$ https://support.pix.org redirect;
-  rewrite ^/employeurs$ https://pro.pix.fr redirect;
+  rewrite ^/employeurs$ https://pro.<%= ENV['DOMAIN_FR'] %> redirect;
 
   error_page 400 401 403 404 418 500 502 503 504 /404.html;
 
@@ -41,15 +41,15 @@ server {
 
   # Redirect pix.fr localized pages to pix.org
   if ($host ~ \.fr) {
-    rewrite ^/fr-be $scheme://pix.org/$request_uri redirect;
-    rewrite ^/en-gb $scheme://pix.org/$request_uri redirect;
-    rewrite ^/fr $scheme://pix.org/$request_uri redirect;
+    rewrite ^/fr-be $scheme://<%= ENV['DOMAIN_ORG'] %>/$request_uri redirect;
+    rewrite ^/en-gb $scheme://<%= ENV['DOMAIN_ORG'] %>/$request_uri redirect;
+    rewrite ^/fr $scheme://<%= ENV['DOMAIN_ORG'] %>/$request_uri redirect;
   }
 
   if ($http_x_forwarded_host ~ \.fr) {
-    rewrite ^/fr-be $http_x_forwarded_proto://pix.org/$request_uri redirect;
-    rewrite ^/en-gb $http_x_forwarded_proto://pix.org/$request_uri redirect;
-    rewrite ^/fr $http_x_forwarded_proto://pix.org/$request_uri redirect;
+    rewrite ^/fr-be $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>/$request_uri redirect;
+    rewrite ^/en-gb $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>/$request_uri redirect;
+    rewrite ^/fr $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>/$request_uri redirect;
   }
 
   if ($host ~ \.org) {
