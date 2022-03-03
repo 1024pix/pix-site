@@ -39,6 +39,19 @@ server {
     add_header ETag "";
   }
 
+  # Redirect pix.fr localized pages to pix.org
+  if ($host ~ \.fr) {
+    rewrite ^/fr-be $scheme://pix.org/$request_uri redirect;
+    rewrite ^/en-gb $scheme://pix.org/$request_uri redirect;
+    rewrite ^/fr $scheme://pix.org/$request_uri redirect;
+  }
+
+  if ($http_x_forwarded_host ~ \.fr) {
+    rewrite ^/fr-be $http_x_forwarded_proto://pix.org/$request_uri redirect;
+    rewrite ^/en-gb $http_x_forwarded_proto://pix.org/$request_uri redirect;
+    rewrite ^/fr $http_x_forwarded_proto://pix.org/$request_uri redirect;
+  }
+
   if ($host ~ \.org) {
     rewrite ^/(?!404.html)(?!fr-be)(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $scheme://$host/fr$request_uri redirect;
   }
