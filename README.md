@@ -207,7 +207,7 @@ Pour tester la configuration NGINX des sites statiques en local, il suffit de fa
 ```
 npm run build:site
 
-PORT=80 erb servers.conf.erb > nginx.conf && docker-compose up
+PORT=80 DOMAIN_FR=pix.fr DOMAIN_ORG=pix.org erb servers.conf.erb > nginx.conf && docker-compose --env-file .env up
 ```
 
 Aller sur `http://localhost` ou `http://localhost.org`

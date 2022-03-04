@@ -28,12 +28,12 @@ checkRedirect pix.fr / "" "" 200
 checkRedirect pix.fr /competences "" "" 301 http://pix.fr/competences/
 checkRedirect pix.org /_nuxt/LICENSES "" "" 200
 checkRedirect pix.org /images/ "" "" 403
-checkRedirect pix.fr /aide "" "" 301 https://support.pix.org/
-checkRedirect pix.fr /help "" "" 301 https://support.pix.org/
-checkRedirect pix.fr /employeurs "" "" 301 https://pro.pix.fr/
-checkRedirect pix.org / "" "" 301 http://pix.org/fr/
-checkRedirect review.scalingo.io / "review.pix.org" "https" 301 https://review.pix.org/fr/
-checkRedirect pix.org /_assets/ "" "" 403
-checkRedirect review.scalingo.io /_assets/ "review.pix.org" "https" 403
+checkRedirect pix.fr /aide "" "" 302 https://support.pix.org/
+checkRedirect pix.fr /help "" "" 302 https://support.pix.org/
+checkRedirect pix.fr /employeurs "" "" 302 https://pro.pix.fr/
+checkRedirect pix.org / "" "" 302 http://pix.org/fr/
+checkRedirect review.scalingo.io / "review.pix.org" "https" 302 https://review.pix.org/fr/
+checkRedirect pix.org /_assets/ "" "" 404
+checkRedirect review.scalingo.io /_assets/ "review.pix.org" "https" 404
 checkRedirect pix.org /favicon.ico "" "" 200
 checkRedirect pix.org /favicon.ico "review.pix.org" "" 200
