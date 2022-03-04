@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.28.1 (04/03/2022)
+
+
+### :bug: Correction
+- [#376](https://github.com/1024pix/pix-site/pull/376) [BUGFIX] Bloquer l'indexation Google des liens dépréciés
+
 ## v3.28.0 (03/03/2022)
 
 
