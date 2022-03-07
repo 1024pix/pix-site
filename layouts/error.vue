@@ -1,12 +1,12 @@
 <template>
   <div class="error">
-    <nuxt-link to="/">
+    <a :href="$t('home-page-url')">
       <img
         class="logo"
         src="/images/pix-logo.svg"
         alt="Lien pour revenir à l'accueil"
       />
-    </nuxt-link>
+    </a>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="$t('error-content')" />
   </div>

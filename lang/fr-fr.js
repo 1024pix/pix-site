@@ -54,11 +54,12 @@ export default {
     'pix-orga-registration': "Demande d'information | Pix pro",
   },
   'preview-page-load': 'Chargement de la page de prévisualisation...',
+  'home-page-url': `https://${process.env.DOMAIN_FR}/`,
   'error-content':
     '<p>Oups ! Un problème est survenu, mais pas de panix !</p>' +
     '<p>Vous pouvez revenir sur la ' +
-    "<a href='https://pix.fr/'>page d'accueil</a>." +
+    `<a href="https://${process.env.DOMAIN_FR}/">page d'accueil</a>.` +
     '<br/>Si vous avez besoin d’aide, vous pouvez consulter le ' +
-    '<a href="https://support.pix.fr/">support</a>.' +
+    '<a href="https://support.pix.org/fr/support/home">support</a>.' +
     '</p>',
 }
