@@ -14,6 +14,7 @@ export default {
     this.renderChart(this.data, {
       legend: {
         position: 'bottom',
+        onClick: () => {},
       },
       scales: {
         yAxes: [
