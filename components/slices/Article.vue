@@ -59,7 +59,7 @@
       <video
         v-if="isMediaLayout && containsVideo"
         class="article__secondary-content article-secondary-content__video"
-        :poster="content.article_video_poster.url"
+        :poster="$img(content.article_video_poster.url)"
         controls
       >
         <source :src="content.article_video.url" type="video/mp4" />
