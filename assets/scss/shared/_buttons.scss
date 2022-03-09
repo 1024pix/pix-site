@@ -12,7 +12,7 @@
 
   &:hover,
   &:focus {
-    font-weight: 1rem;
+    font-weight: $font-normal;
     cursor: pointer;
     background-color: $hoverBgColor;
     border: 2px solid $hoverBorderColor;

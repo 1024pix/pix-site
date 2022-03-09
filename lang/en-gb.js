@@ -57,7 +57,7 @@ export default {
   'error-content':
     '<p>Oups ! Un problème est survenu, mais pas de panix !</p>' +
     '<p>Vous pouvez revenir sur la ' +
-    "<a href='http://pix.fr/'>page d'accueil</a>." +
+    "<a href='https://pix.fr/'>page d'accueil</a>." +
     '<br/>Si vous avez besoin d’aide, vous pouvez consulter le ' +
     '<a href="https://support.pix.fr/">support</a>.' +
     '</p>',

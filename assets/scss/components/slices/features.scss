@@ -79,7 +79,7 @@
         margin: 0 auto;
 
         .features-wrapper__item {
-          flex-basis: calc((100% / 3) - $gap * 2 / 3);
+          flex-basis: calc((100% / 3) - #{$gap} * 2 / 3);
         }
       }
     }
@@ -89,7 +89,7 @@
     &__item {
       text-align: center;
       display: block;
-      flex-basis: calc((100% / 4) - $gap * 3 / 4);
+      flex-basis: calc((100% / 4) - #{$gap} * 3 / 4);
     }
 
     &-item__image {

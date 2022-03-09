@@ -65,10 +65,8 @@ export default {
 
 <style lang="scss">
 .news-item-card {
-  margin: 20px;
   max-width: 340px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
   background: #fff;
