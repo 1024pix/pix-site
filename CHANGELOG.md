@@ -1,5 +1,18 @@
 # pix-site Changelog
 
+## v3.28.2 (09/03/2022)
+
+
+### :rocket: Amélioration
+- [#378](https://github.com/1024pix/pix-site/pull/378) [FEATURE] Ne cache pas la donnée au click sur la légende d'un graphique
+
+### :building_construction: Tech
+- [#373](https://github.com/1024pix/pix-site/pull/373) [TECH] Améliorer la propreté du code
+- [#377](https://github.com/1024pix/pix-site/pull/377) [TECH] Correction tests NGINX
+
+### :bug: Correction
+- [#379](https://github.com/1024pix/pix-site/pull/379) [BUGFIX] Traduction page d'erreur et liens localisés
+
 ## v3.28.1 (04/03/2022)
 
 
