@@ -89,7 +89,9 @@ export default {
       let style = {}
       if (this.isOnlyTextLayout && this.hasBackgroundImage) {
         style = {
-          background: `no-repeat url(${this.content.article_background.url})`,
+          background: `no-repeat url(${this.img(
+            this.content.article_background.url
+          )})`,
           backgroundSize: '100%',
           backgroundPosition: 'top right',
         }
