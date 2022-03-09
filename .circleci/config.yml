@@ -4,7 +4,7 @@ version: 2.0
 jobs:
   test:
     docker:
-      - image: circleci/node:14.17.5
+      - image: cimg/node:16.14.0
     steps:
       - checkout
       - run: cat package*.json > cachekey
