@@ -8,7 +8,7 @@
         <!-- /!\ We keep this line if we think that an image would be better -->
         <div
           class="news-item-card__illustration"
-          :style="`background-image: url(${slice.illustration.url})`"
+          :style="`background-image: url(${$img(slice.illustration.url)})`"
         ></div>
       </div>
 

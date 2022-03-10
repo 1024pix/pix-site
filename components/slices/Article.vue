@@ -59,7 +59,7 @@
       <video
         v-if="isMediaLayout && containsVideo"
         class="article__secondary-content article-secondary-content__video"
-        :poster="content.article_video_poster.url"
+        :poster="$img(content.article_video_poster.url)"
         controls
       >
         <source :src="content.article_video.url" type="video/mp4" />
@@ -89,7 +89,9 @@ export default {
       let style = {}
       if (this.isOnlyTextLayout && this.hasBackgroundImage) {
         style = {
-          background: `no-repeat url(${this.content.article_background.url})`,
+          background: `no-repeat url(${this.img(
+            this.content.article_background.url
+          )})`,
           backgroundSize: '100%',
           backgroundPosition: 'top right',
         }
