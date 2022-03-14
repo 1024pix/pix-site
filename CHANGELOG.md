@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v3.28.3 (14/03/2022)
+
+
+### :bug: Correction
+- [#381](https://github.com/1024pix/pix-site/pull/381) [BUGFIX] Utilise nuxt/image sur toute les images
+
+### :coffee: Autre
+- [#321](https://github.com/1024pix/pix-site/pull/321) Bump path-parse from 1.0.6 to 1.0.7
+- [#322](https://github.com/1024pix/pix-site/pull/322) Bump tar from 6.0.5 to 6.1.11
+
 ## v3.28.2 (09/03/2022)
 
 
