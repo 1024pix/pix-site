@@ -39,17 +39,17 @@ server {
     add_header ETag "";
   }
 
-  # Redirect pix.fr localized pages to pix.org
-  if ($host ~ \.fr) {
-    rewrite ^/fr-be $scheme://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
-    rewrite ^/en-gb $scheme://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
-    rewrite ^/fr $scheme://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
+  # Localized pages must not exist on pix.fr
+  location ~ ^/(fr-be|en-gb|fr)/ {
+    if ($host ~ \.fr) {
+      return 404;
+    }
   }
 
-  if ($http_x_forwarded_host ~ \.fr) {
-    rewrite ^/fr-be $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
-    rewrite ^/en-gb $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
-    rewrite ^/fr $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
+  location ~ ^/(fr-be|en-gb|fr)/ {
+    if ($http_x_forwarded_host ~ \.fr) {
+      return 404;
+    }
   }
 
   if ($host ~ \.org) {
