@@ -21,12 +21,18 @@ port_in_redirect off;
 server {
   listen <%= ENV['PORT'] %>;
 
+  server_name ~(?<extension>(fr|org))$;
+  if ($extension = '') {
+    set $extension 'fr';
+  }
+
   charset utf-8;
 
   # Disable compression that is performed by the Scalingo router anyway
   gzip off;
 
-  root /app/dist/;
+  # Redirect to dist/pix.fr or dist/pix.org depending on the extension
+  root /app/dist/pix.$extension;
 
   rewrite ^/(aide|help)$ https://support.pix.org redirect;
   rewrite ^/employeurs$ https://pro.<%= ENV['DOMAIN_FR'] %> redirect;
