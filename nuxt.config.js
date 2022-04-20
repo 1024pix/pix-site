@@ -5,7 +5,11 @@ import { SITES_PRISMIC_TAGS } from './services/available-sites'
 import { language } from './config/language'
 
 const config = {
-  generate: { routes, fallback: '404.html' },
+  generate: {
+    routes,
+    dir: `dist/${process.env.SITE_DOMAIN}`,
+    fallback: '404.html',
+  },
   target: 'static',
   publicRuntimeConfig: {
     formKeysToMap: process.env.FORM_KEYS_TO_MAP || {},
@@ -198,6 +202,13 @@ if (process.env.DOMAIN_ORG === undefined) {
 
 if (process.env.DOMAIN_FR === undefined) {
   throw new Error(`The DOMAIN_FR environment variable must be provided`)
+}
+
+const availableSiteDomains = ['pix.fr', 'pix.org']
+if (!availableSiteDomains.includes(process.env.SITE_DOMAIN)) {
+  throw new Error(
+    `The SITE_DOMAIN environment variable must have one of these values (${availableSiteDomains})`
+  )
 }
 
 const availablesSites = Object.values(SITES_PRISMIC_TAGS)
