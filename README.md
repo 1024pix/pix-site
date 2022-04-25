@@ -212,10 +212,10 @@ PORT=80 DOMAIN_FR=pix.fr DOMAIN_ORG=pix.org erb servers.conf.erb > nginx.conf &&
 
 Aller sur `http://localhost` ou `http://localhost.org`
 
-Pour que localhost.org soit fonctionnel, il faut éditer votre fichier `/etc/hosts` en y ajoutant la ligne suivante :
+Pour que localhost.org soit fonctionnel, il faut éditer votre fichier `/etc/hosts` en y créant/modifiant la ligne du localhost pour y ajouter les domaines `.fr` et `.org`:
 
 ```
-127.0.0.1	localhost.org
+127.0.0.1 localhost localhost.fr localhost.org
 ```
 
 Des tests unitaires existent dans `tests.sh`.
