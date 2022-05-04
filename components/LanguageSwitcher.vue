@@ -137,6 +137,7 @@
 
 <script>
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
+import { getBaseUrl } from '~/services/get-base-url'
 import { language } from '~/config/language'
 
 export default {
@@ -197,12 +198,6 @@ export default {
   },
 }
 
-/**
- * Adds current URL scheme to a domain (http:// or https://)
- */
-function getBaseUrl(domain) {
-  return new URL(`//${domain}`, document.location)
-}
 export function getAbsoluteUrlIfSwitchWebsite(
   relativeTarget,
   isTargetOnPixOrg,
