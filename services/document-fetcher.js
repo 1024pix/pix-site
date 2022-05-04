@@ -7,7 +7,6 @@ export const DOCUMENTS = {
   SIMPLE_PAGE: 'simple_page',
   FORM_PAGE: 'form_page',
   SLICES_PAGE: 'slices_page',
-  COMPETENCES: 'competences',
   STATISTIQUES: 'statistiques',
 }
 
