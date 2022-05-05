@@ -1,5 +1,6 @@
 import Prismic from '@prismicio/client'
 import { language } from '../config/language'
+import { linkResolver } from '../services/link-resolver'
 import { SITES_PRISMIC_TAGS } from './available-sites'
 import { DOCUMENTS } from './document-fetcher'
 
@@ -34,10 +35,7 @@ async function getRoutesInPage(api, page) {
   const routes = results
     .filter(({ uid }) => Boolean(uid))
     .filter(({ lang }) => availableLangs.includes(lang))
-    .map(({ uid, lang }) => {
-      if (lang === 'fr-fr') return `/${uid}`
-      return `/${lang}/${uid}`
-    })
+    .map(linkResolver)
 
   return { totalPages, routes }
 }
