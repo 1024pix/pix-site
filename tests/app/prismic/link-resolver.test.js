@@ -49,7 +49,7 @@ describe('linkResolver', () => {
       {
         lang: 'en-gb',
         uid: 'test-uid',
-        expectedUrl: '/actualites/test-uid',
+        expectedUrl: '/news/test-uid',
       },
     ]
 

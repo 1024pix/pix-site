@@ -1,4 +1,6 @@
 import { DOCUMENTS } from '~/services/document-fetcher'
+import { translation } from '~/lang'
+
 export const STATIC_ROUTE = [
   DOCUMENTS.STATISTIQUES,
   DOCUMENTS.SIMPLE_PAGE,
@@ -10,7 +12,7 @@ export function linkResolver(doc) {
     return `${locale}/${doc.uid}`
   }
   if (doc.type === DOCUMENTS.NEWS_ITEM) {
-    return `/actualites/${doc.uid}`
+    return `/${translation[doc.lang]['news-page-prefix']}/${doc.uid}`
   }
   if (doc.type === DOCUMENTS.INDEX) {
     return `/`
