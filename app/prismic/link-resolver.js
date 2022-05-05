@@ -1,9 +1,7 @@
 import { DOCUMENTS } from '~/services/document-fetcher'
-
-export default function (doc) {
-  const staticRoute = [DOCUMENTS.STATISTIQUES, DOCUMENTS.SIMPLE_PAGE]
-
-  if (staticRoute.includes(doc.type)) {
+export const STATIC_ROUTE = [DOCUMENTS.STATISTIQUES, DOCUMENTS.SIMPLE_PAGE]
+export function linkResolver(doc) {
+  if (STATIC_ROUTE.includes(doc.type)) {
     const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
     return `${locale}/${doc.uid}`
   }
@@ -14,3 +12,5 @@ export default function (doc) {
     return `/`
   }
 }
+
+export default linkResolver
