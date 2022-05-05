@@ -44,12 +44,12 @@ describe('linkResolver', () => {
       {
         lang: 'fr-be',
         uid: 'test-uid',
-        expectedUrl: '/actualites/test-uid',
+        expectedUrl: '/fr-be/actualites/test-uid',
       },
       {
         lang: 'en-gb',
         uid: 'test-uid',
-        expectedUrl: '/news/test-uid',
+        expectedUrl: '/en-gb/news/test-uid',
       },
     ]
 
@@ -72,11 +72,11 @@ describe('linkResolver', () => {
       },
       {
         lang: 'fr-be',
-        expectedUrl: '/',
+        expectedUrl: '/fr-be/',
       },
       {
         lang: 'en-gb',
-        expectedUrl: '/',
+        expectedUrl: '/en-gb/',
       },
     ]
 

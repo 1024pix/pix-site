@@ -7,15 +7,15 @@ export const STATIC_ROUTE = [
   DOCUMENTS.SLICES_PAGE,
 ]
 export function linkResolver(doc) {
+  const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
   if (STATIC_ROUTE.includes(doc.type)) {
-    const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
     return `${locale}/${doc.uid}`
   }
   if (doc.type === DOCUMENTS.NEWS_ITEM) {
-    return `/${translation[doc.lang]['news-page-prefix']}/${doc.uid}`
+    return `${locale}/${translation[doc.lang]['news-page-prefix']}/${doc.uid}`
   }
   if (doc.type === DOCUMENTS.INDEX) {
-    return `/`
+    return `${locale}/`
   }
 }
 
