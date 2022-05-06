@@ -1,6 +1,6 @@
 import VueMeta from 'vue-meta'
 import { getInitialised, createLocalVue } from './utils'
-import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
+import { documentFetcher, TAGS } from '~/services/document-fetcher'
 import getMeta, { fallbackDescription } from '~/services/meta-builder'
 
 const localVue = createLocalVue()
@@ -41,7 +41,7 @@ describe('Index Page', () => {
           },
         }),
     })
-    wrapper = await getInitialised(DOCUMENTS.INDEX, {
+    wrapper = await getInitialised(TAGS.INDEX, {
       localVue,
       computed: {
         $prismic() {
@@ -77,7 +77,7 @@ describe('Index Page', () => {
   })
 
   test('uses the fallback meta description when not filled in Prismic', async () => {
-    wrapper = await getInitialised(DOCUMENTS.INDEX, {
+    wrapper = await getInitialised(TAGS.INDEX, {
       localVue,
       computed: {
         $prismic() {

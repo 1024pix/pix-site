@@ -1,4 +1,4 @@
-import { DOCUMENTS } from '~/services/document-fetcher'
+import { DOCUMENTS, TAGS } from '~/services/document-fetcher'
 import { linkResolver } from '~/app/prismic/link-resolver'
 
 describe('linkResolver', () => {
@@ -63,17 +63,17 @@ describe('linkResolver', () => {
   describe('when document is an index', () => {
     const testCases = [
       {
-        tags: ['index', 'another-tag'],
+        tags: [TAGS.INDEX, 'another-tag'],
         lang: 'fr-fr',
         expectedUrl: '/',
       },
       {
-        tags: ['index'],
+        tags: [TAGS.INDEX],
         lang: 'fr-be',
         expectedUrl: '/fr-be/',
       },
       {
-        tags: ['index'],
+        tags: [TAGS.INDEX],
         lang: 'en-gb',
         expectedUrl: '/en-gb/',
       },

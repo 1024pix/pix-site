@@ -1,6 +1,5 @@
 export const DOCUMENTS = {
   HOT_NEWS: 'hot_news',
-  INDEX: 'index',
   MAIN_FOOTER: 'main_footer',
   MAIN_NAVIGATION: 'main_navigation',
   NEWS_ITEM: 'news_item',
@@ -8,6 +7,10 @@ export const DOCUMENTS = {
   FORM_PAGE: 'form_page',
   SLICES_PAGE: 'slices_page',
   STATISTIQUES: 'statistiques',
+}
+
+export const TAGS = {
+  INDEX: 'index',
 }
 
 export function documentFetcher(

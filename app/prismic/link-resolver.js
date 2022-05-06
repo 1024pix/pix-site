@@ -1,4 +1,4 @@
-import { DOCUMENTS } from '~/services/document-fetcher'
+import { DOCUMENTS, TAGS } from '~/services/document-fetcher'
 import { translation } from '~/lang'
 
 export function linkResolver(doc) {
@@ -7,7 +7,7 @@ export function linkResolver(doc) {
   if (doc.type === DOCUMENTS.NEWS_ITEM) {
     return `${locale}/${translation[doc.lang]['news-page-prefix']}/${doc.uid}`
   }
-  if (doc.tags?.includes('index')) {
+  if (doc.tags?.includes(TAGS.INDEX)) {
     return `${locale}/`
   }
   return `${locale}/${doc.uid}`
