@@ -14,9 +14,6 @@ describe('MetabaseFetcher', () => {
     global.fetch = jest
       .fn()
       .mockReturnValue(fetchResponse({ id: 'session-id' }))
-    process.env.METABASE_API_URL = 'https://test.metabase.fr'
-    process.env.METABASE_USERNAME = 'username'
-    process.env.METABASE_PASSWORD = 'password'
 
     // when
     await metabaseFetcher()
@@ -42,7 +39,6 @@ describe('MetabaseFetcher', () => {
         .mockReturnValueOnce(fetchResponse({ id: 'session-id' }))
         .mockReturnValueOnce(fetchResponse([]))
       const cardId = 1234
-      process.env.METABASE_API_URL = 'https://test.metabase.fr'
 
       // when
       const fetcher = await metabaseFetcher()
