@@ -1,16 +1,16 @@
 import { DOCUMENTS } from '~/services/document-fetcher'
+import { translation } from '~/lang'
 
-export default function (doc) {
-  const staticRoute = [DOCUMENTS.STATISTIQUES, DOCUMENTS.SIMPLE_PAGE]
+export function linkResolver(doc) {
+  const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
 
-  if (staticRoute.includes(doc.type)) {
-    const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
-    return `${locale}/${doc.uid}`
-  }
   if (doc.type === DOCUMENTS.NEWS_ITEM) {
-    return `/actualites/${doc.uid}`
+    return `${locale}/${translation[doc.lang]['news-page-prefix']}/${doc.uid}`
   }
   if (doc.type === DOCUMENTS.INDEX) {
-    return `/`
+    return `${locale}/`
   }
+  return `${locale}/${doc.uid}`
 }
+
+export default linkResolver

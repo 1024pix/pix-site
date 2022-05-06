@@ -29,6 +29,7 @@ export default {
     'page-title': 'Finalize your Pix Orga workspace request',
     'form-id': '28772',
   },
+  'news-page-prefix': 'news',
   'news-page-title': 'News',
   'news-page-title-level-two': 'News List',
   'news-page-no-news': 'No news available for the moment.',

@@ -29,6 +29,7 @@ export default {
     'page-title': "Finalisez votre demande d'espace Pix Orga",
     'form-id': '22797',
   },
+  'news-page-prefix': 'actualites',
   'news-page-title': 'Actualités',
   'news-page-title-level-two': 'Liste des actualités',
   'news-page-no-news': "Il n’y a pas encore d'actualités",
