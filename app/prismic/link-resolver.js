@@ -7,7 +7,7 @@ export function linkResolver(doc) {
   if (doc.type === DOCUMENTS.NEWS_ITEM) {
     return `${locale}/${translation[doc.lang]['news-page-prefix']}/${doc.uid}`
   }
-  if (doc.type === DOCUMENTS.INDEX) {
+  if (doc.tags?.includes('index')) {
     return `${locale}/`
   }
   return `${locale}/${doc.uid}`

@@ -63,23 +63,26 @@ describe('linkResolver', () => {
   describe('when document is an index', () => {
     const testCases = [
       {
+        tags: ['index', 'another-tag'],
         lang: 'fr-fr',
         expectedUrl: '/',
       },
       {
+        tags: ['index'],
         lang: 'fr-be',
         expectedUrl: '/fr-be/',
       },
       {
+        tags: ['index'],
         lang: 'en-gb',
         expectedUrl: '/en-gb/',
       },
     ]
 
-    testCases.forEach(({ lang, expectedUrl }) => {
-      test(`it should return root url for lang ${lang}`, () => {
+    testCases.forEach(({ tags, lang, expectedUrl }) => {
+      test(`it should return root url for lang ${lang} when one of tag is index`, () => {
         // when
-        const result = linkResolver({ type: DOCUMENTS.INDEX, lang })
+        const result = linkResolver({ tags, lang })
 
         // then
         expect(result).toEqual(expectedUrl)
