@@ -4,10 +4,17 @@ import { DOCUMENTS } from '~/services/document-fetcher'
 jest.mock('@prismicio/client')
 
 describe('#getRoutesToGenerate', () => {
-  const prismicDocPredicates = prismic.Predicates.any('document.type', [
-    DOCUMENTS.SIMPLE_PAGE,
-    DOCUMENTS.FORM_PAGE,
-  ])
+  let prismicDocPredicates
+
+  beforeEach(() => {
+    prismic.Predicates.any = jest
+      .fn()
+      .mockReturnValue(Symbol('prismic-predicates'))
+    prismicDocPredicates = prismic.Predicates.any('document.type', [
+      DOCUMENTS.SIMPLE_PAGE,
+      DOCUMENTS.FORM_PAGE,
+    ])
+  })
 
   test('it should fetch routes to generate document for each lang', async () => {
     // Given
@@ -36,6 +43,10 @@ describe('#getRoutesToGenerate', () => {
       pageSize: 100,
       page: 1,
     })
+    expect(prismic.Predicates.any).lastCalledWith('document.type', [
+      DOCUMENTS.SIMPLE_PAGE,
+      DOCUMENTS.FORM_PAGE,
+    ])
     expect(result).toEqual(expected)
   })
 
