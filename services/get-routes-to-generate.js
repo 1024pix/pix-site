@@ -2,7 +2,6 @@ import Prismic from '@prismicio/client'
 import { language } from '../config/language'
 import { linkResolver } from '../services/link-resolver'
 import { SITES_PRISMIC_TAGS } from './available-sites'
-import { DOCUMENTS } from './document-fetcher'
 
 export default async function () {
   const api = await Prismic.getApi(process.env.PRISMIC_API_ENDPOINT)
@@ -20,10 +19,10 @@ export default async function () {
 
 async function getRoutesInPage(api, page) {
   const { results, total_pages: totalPages } = await api.query(
-    Prismic.Predicates.any('document.type', [
-      DOCUMENTS.SIMPLE_PAGE,
-      DOCUMENTS.FORM_PAGE,
-    ]),
+    [
+      Prismic.Predicates.at('document.tags', [process.env.SITE]),
+      Prismic.Predicates.not('document.tags', ['fragment']),
+    ],
     {
       pageSize: 100,
       page,

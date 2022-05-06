@@ -1,19 +1,20 @@
 import prismic from '@prismicio/client'
 import getRoutesToGenerate from '@/services/get-routes-to-generate'
-import { DOCUMENTS } from '~/services/document-fetcher'
 jest.mock('@prismicio/client')
 
 describe('#getRoutesToGenerate', () => {
-  let prismicDocPredicates
+  let prismicDocPredicatesAt
+  let prismicDocPredicatesNot
 
   beforeEach(() => {
-    prismic.Predicates.any = jest
+    prismic.Predicates.at = jest
       .fn()
-      .mockReturnValue(Symbol('prismic-predicates'))
-    prismicDocPredicates = prismic.Predicates.any('document.type', [
-      DOCUMENTS.SIMPLE_PAGE,
-      DOCUMENTS.FORM_PAGE,
-    ])
+      .mockReturnValue(Symbol('prismic-predicates-at'))
+    prismic.Predicates.not = jest
+      .fn()
+      .mockReturnValue(Symbol('prismic-predicates-not'))
+    prismicDocPredicatesAt = prismic.Predicates.at()
+    prismicDocPredicatesNot = prismic.Predicates.not()
   })
 
   test('it should fetch routes to generate document for each lang', async () => {
@@ -38,15 +39,18 @@ describe('#getRoutesToGenerate', () => {
     const result = await getRoutesToGenerate(prismic)
 
     // Then
-    expect(prismicApi.query).toBeCalledWith(prismicDocPredicates, {
-      lang: '*',
-      pageSize: 100,
-      page: 1,
-    })
-    expect(prismic.Predicates.any).lastCalledWith('document.type', [
-      DOCUMENTS.SIMPLE_PAGE,
-      DOCUMENTS.FORM_PAGE,
+    expect(prismicApi.query).toBeCalledWith(
+      [prismicDocPredicatesAt, prismicDocPredicatesNot],
+      {
+        lang: '*',
+        pageSize: 100,
+        page: 1,
+      }
+    )
+    expect(prismic.Predicates.at).lastCalledWith('document.tags', [
+      process.env.SITE,
     ])
+    expect(prismic.Predicates.not).lastCalledWith('document.tags', ['fragment'])
     expect(result).toEqual(expected)
   })
 
@@ -73,11 +77,14 @@ describe('#getRoutesToGenerate', () => {
     const result = await getRoutesToGenerate(prismic)
 
     // Then
-    expect(prismicApi.query).toBeCalledWith(prismicDocPredicates, {
-      lang: '*',
-      pageSize: 100,
-      page: 1,
-    })
+    expect(prismicApi.query).toBeCalledWith(
+      [prismicDocPredicatesAt, prismicDocPredicatesNot],
+      {
+        lang: '*',
+        pageSize: 100,
+        page: 1,
+      }
+    )
     expect(result).toEqual(expected)
   })
 
@@ -99,11 +106,14 @@ describe('#getRoutesToGenerate', () => {
     const result = await getRoutesToGenerate(prismic)
 
     // Then
-    expect(prismicApi.query).toBeCalledWith(prismicDocPredicates, {
-      lang: '*',
-      pageSize: 100,
-      page: 1,
-    })
+    expect(prismicApi.query).toBeCalledWith(
+      [prismicDocPredicatesAt, prismicDocPredicatesNot],
+      {
+        lang: '*',
+        pageSize: 100,
+        page: 1,
+      }
+    )
     expect(result).toEqual(expected)
   })
 
@@ -135,16 +145,22 @@ describe('#getRoutesToGenerate', () => {
     const result = await getRoutesToGenerate(prismic)
 
     // Then
-    expect(prismicApi.query).toBeCalledWith(prismicDocPredicates, {
-      lang: '*',
-      pageSize: 100,
-      page: 1,
-    })
-    expect(prismicApi.query).toBeCalledWith(prismicDocPredicates, {
-      lang: '*',
-      pageSize: 100,
-      page: 2,
-    })
+    expect(prismicApi.query).toBeCalledWith(
+      [prismicDocPredicatesAt, prismicDocPredicatesNot],
+      {
+        lang: '*',
+        pageSize: 100,
+        page: 1,
+      }
+    )
+    expect(prismicApi.query).toBeCalledWith(
+      [prismicDocPredicatesAt, prismicDocPredicatesNot],
+      {
+        lang: '*',
+        pageSize: 100,
+        page: 2,
+      }
+    )
     expect(result).toEqual(expected)
   })
 })
