@@ -1,5 +1,5 @@
 import { DOCUMENTS, TAGS } from '~/services/document-fetcher'
-import { linkResolver } from '~/app/prismic/link-resolver'
+import { linkResolver } from '~/services/link-resolver'
 
 describe('linkResolver', () => {
   const testCases = [

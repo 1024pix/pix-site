@@ -9,6 +9,7 @@ const config = {
     routes,
     dir: `dist/${process.env.SITE_DOMAIN}`,
     fallback: '404.html',
+    crawler: false,
   },
   target: 'static',
   publicRuntimeConfig: {
