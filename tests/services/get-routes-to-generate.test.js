@@ -8,6 +8,7 @@ describe('#getRoutesToGenerate', () => {
   let prismicDocPredicatesAt
   let prismicDocPredicatesNot
   const envVar = process.env.SITE
+  const siteDomainEnvVar = process.env.SITE_DOMAIN
 
   beforeEach(() => {
     prismic.Predicates.at = jest
@@ -23,19 +24,17 @@ describe('#getRoutesToGenerate', () => {
   describe('When fetching Pix Pro pages', () => {
     beforeEach(() => {
       process.env.SITE = 'pix-pro'
+      process.env.SITE_DOMAIN = 'pix.org'
     })
 
     afterEach(() => {
       process.env.SITE = envVar
+      process.env.SITE_DOMAIN = siteDomainEnvVar
     })
 
     test('it should fetch routes to generate document for each lang', async () => {
       // Given
-      const expected = [
-        '/route-to-generate',
-        '/fr/route-to-generate',
-        '/en-gb/route-to-generate',
-      ]
+      const expected = ['/fr/route-to-generate', '/en-gb/route-to-generate']
       const prismicApi = {
         query: jest.fn().mockResolvedValueOnce({
           results: [
@@ -72,11 +71,7 @@ describe('#getRoutesToGenerate', () => {
   describe('When fetching Pix Site pages', () => {
     test('it should fetch routes to generate document for each lang', async () => {
       // Given
-      const expected = [
-        '/route-to-generate',
-        '/fr/route-to-generate',
-        '/en-gb/route-to-generate',
-      ]
+      const expected = ['/route-to-generate']
       const prismicApi = {
         query: jest.fn().mockResolvedValueOnce({
           results: [
@@ -111,11 +106,7 @@ describe('#getRoutesToGenerate', () => {
 
     test('it should filter unhandled languages', async () => {
       // Given
-      const expected = [
-        '/route-to-generate',
-        '/fr/route-to-generate',
-        '/en-gb/route-to-generate',
-      ]
+      const expected = ['/route-to-generate']
       const prismicApi = {
         query: jest.fn().mockResolvedValueOnce({
           results: [

@@ -33,6 +33,9 @@ async function getRoutesInPage(api, page) {
   const availableLangs = language.locales.map((locale) => locale.code)
   const routes = results
     .filter(({ uid }) => Boolean(uid))
+    .filter((doc) =>
+      filterDocumentByChosenLanguage(doc, process.env.SITE_DOMAIN)
+    )
     .filter(({ lang }) => availableLangs.includes(lang))
     .map(linkResolver)
 
