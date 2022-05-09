@@ -38,3 +38,13 @@ async function getRoutesInPage(api, page) {
 
   return { totalPages, routes }
 }
+
+export function filterDocumentByChosenLanguage(doc, siteDomain) {
+  if (siteDomain === 'pix.fr' && doc.lang === 'fr-fr') {
+    return true
+  }
+  if (siteDomain !== 'pix.fr' && doc.lang !== 'fr-fr') {
+    return true
+  }
+  return false
+}
