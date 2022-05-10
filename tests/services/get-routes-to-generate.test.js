@@ -2,13 +2,21 @@ import prismic from '@prismicio/client'
 import getRoutesToGenerate, {
   filterDocumentByChosenLanguage,
 } from '@/services/get-routes-to-generate'
+import { config } from '~/config/environment'
 jest.mock('@prismicio/client')
+jest.mock('~/config/environment', () => {
+  return {
+    config: {
+      site: 'pix-site',
+      siteDomain: 'pix.fr',
+      prismic: { apiEndpoint: 'https://prismic.example.net' },
+    },
+  }
+})
 
 describe('#getRoutesToGenerate', () => {
   let prismicDocPredicatesAt
   let prismicDocPredicatesNot
-  const envVar = process.env.SITE
-  const siteDomainEnvVar = process.env.SITE_DOMAIN
 
   beforeEach(() => {
     prismic.Predicates.at = jest
@@ -23,13 +31,9 @@ describe('#getRoutesToGenerate', () => {
 
   describe('When fetching Pix Pro pages', () => {
     beforeEach(() => {
-      process.env.SITE = 'pix-pro'
-      process.env.SITE_DOMAIN = 'pix.fr'
-    })
-
-    afterEach(() => {
-      process.env.SITE = envVar
-      process.env.SITE_DOMAIN = siteDomainEnvVar
+      config.site = 'pix-pro'
+      config.siteDomain = 'pix.fr'
+      config.isPixSite = false
     })
 
     test('it should fetch routes to generate document for each lang', async () => {
@@ -59,7 +63,7 @@ describe('#getRoutesToGenerate', () => {
         }
       )
       expect(prismic.Predicates.at).lastCalledWith('document.tags', [
-        process.env.SITE,
+        config.site,
       ])
       expect(prismic.Predicates.not).lastCalledWith('document.tags', [
         'fragment',
@@ -69,6 +73,9 @@ describe('#getRoutesToGenerate', () => {
   })
 
   describe('When fetching Pix Site pages', () => {
+    beforeEach(() => {
+      config.isPixSite = true
+    })
     test('it should fetch routes to generate document for each lang', async () => {
       // Given
       const expected = ['/route-to-generate']
@@ -96,7 +103,7 @@ describe('#getRoutesToGenerate', () => {
         }
       )
       expect(prismic.Predicates.at).lastCalledWith('document.tags', [
-        process.env.SITE,
+        config.site,
       ])
       expect(prismic.Predicates.not).lastCalledWith('document.tags', [
         'fragment',

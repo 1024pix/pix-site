@@ -1,3 +1,5 @@
+import { config } from './environment'
+
 export const language = {
   menu: [
     {
@@ -41,26 +43,25 @@ export const language = {
       sub: 'fwb',
     },
   ],
-  locales:
-    process.env.SITE_DOMAIN === 'pix.fr'
-      ? [
-          {
-            code: 'fr-fr',
-            file: 'fr-fr.js',
-          },
-        ]
-      : [
-          {
-            code: 'fr',
-            file: 'fr.js',
-          },
-          {
-            code: 'en-gb',
-            file: 'en-gb.js',
-          },
-          {
-            code: 'fr-be',
-            file: 'fr-be.js',
-          },
-        ],
+  locales: config.isFrenchDomain
+    ? [
+        {
+          code: 'fr-fr',
+          file: 'fr-fr.js',
+        },
+      ]
+    : [
+        {
+          code: 'fr',
+          file: 'fr.js',
+        },
+        {
+          code: 'en-gb',
+          file: 'en-gb.js',
+        },
+        {
+          code: 'fr-be',
+          file: 'fr-be.js',
+        },
+      ],
 }

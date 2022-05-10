@@ -1,13 +1,13 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
-import { SITES_PRISMIC_TAGS } from './services/available-sites'
 import { language } from './config/language'
+import { config } from './config/environment'
 
-const config = {
+const nuxtConfig = {
   generate: {
     routes,
-    dir: `dist/${process.env.SITE_DOMAIN}`,
+    dir: `dist/${config.siteDomain}`,
     fallback: '404.html',
     crawler: false,
   },
@@ -25,7 +25,7 @@ const config = {
     DOMAIN_FR: process.env.DOMAIN_FR,
   },
   dir: {
-    pages: `pages/${process.env.SITE}`,
+    pages: `pages/${config.site}`,
   },
   /*
    ** Headers of the page
@@ -50,14 +50,14 @@ const config = {
     script: [
       {
         type: 'text/javascript',
-        src: process.env.MATOMO_CONTAINER,
+        src: config.matomo.containerUrl,
         async: true,
         defer: true,
       },
       {
         type: 'text/javascript',
         src: '/scripts/start-matomo-event.js',
-        'data-matomo-debug-mode': process.env.MATOMO_DEBUG,
+        'data-matomo-debug-mode': config.matomo.debug,
       },
     ],
   },
@@ -151,18 +151,17 @@ const config = {
   },
   i18n: {
     detectBrowserLanguage: false,
-    defaultLocale: process.env.SITE_DOMAIN === 'pix.fr' ? 'fr-fr' : 'fr',
-    strategy:
-      process.env.SITE_DOMAIN === 'pix.fr' ? 'prefix_except_default' : 'prefix',
+    defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
+    strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
     locales: language.locales,
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
-      fallbackLocale: process.env.SITE_DOMAIN === 'pix.fr' ? 'fr-fr' : 'fr',
+      fallbackLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
     },
   },
   prismic: {
-    endpoint: process.env.PRISMIC_API_ENDPOINT,
+    endpoint: config.prismic.apiEndpoint,
     modern: true,
   },
   router: {
@@ -199,28 +198,6 @@ const config = {
   },
 }
 
-if (process.env.DOMAIN_ORG === undefined) {
-  throw new Error(`The DOMAIN_ORG environment variable must be provided`)
-}
-
-if (process.env.DOMAIN_FR === undefined) {
-  throw new Error(`The DOMAIN_FR environment variable must be provided`)
-}
-
-const availableSiteDomains = ['pix.fr', 'pix.org']
-if (!availableSiteDomains.includes(process.env.SITE_DOMAIN)) {
-  throw new Error(
-    `The SITE_DOMAIN environment variable must have one of these values (${availableSiteDomains})`
-  )
-}
-
-const availablesSites = Object.values(SITES_PRISMIC_TAGS)
-if (!availablesSites.includes(process.env.SITE)) {
-  throw new Error(
-    `The SITE environment variable must have one of these values: (${availablesSites})`
-  )
-}
-
 if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
   config.modules.push([
     'nuxt-matomo',
@@ -235,4 +212,4 @@ if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
   )
 }
 
-export default config
+export default nuxtConfig
