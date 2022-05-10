@@ -43,25 +43,31 @@ export const language = {
       sub: 'fwb',
     },
   ],
-  locales: config.isFrenchDomain
-    ? [
-        {
-          code: 'fr-fr',
-          file: 'fr-fr.js',
-        },
-      ]
-    : [
-        {
-          code: 'fr',
-          file: 'fr.js',
-        },
-        {
-          code: 'en-gb',
-          file: 'en-gb.js',
-        },
-        {
-          code: 'fr-be',
-          file: 'fr-be.js',
-        },
-      ],
+  locales: availableLocale(),
+}
+
+export function availableLocale() {
+  if (config.isPixSite && !config.isFrenchDomain) {
+    return [
+      {
+        code: 'fr',
+        file: 'fr.js',
+      },
+      {
+        code: 'en-gb',
+        file: 'en-gb.js',
+      },
+      {
+        code: 'fr-be',
+        file: 'fr-be.js',
+      },
+    ]
+  }
+
+  return [
+    {
+      code: 'fr-fr',
+      file: 'fr-fr.js',
+    },
+  ]
 }
