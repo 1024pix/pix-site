@@ -87,6 +87,7 @@ const config = {
     // Doc: https://github.com/nuxt-community/eslint-module
     ['@nuxtjs/eslint-module', { fix: true }],
     '~/modules/propagate-fetch-error-during-generation',
+    '@nuxtjs/i18n',
     '@nuxtjs/prismic',
     '@nuxt/image',
   ],
@@ -106,7 +107,6 @@ const config = {
    */
   modules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/i18n',
     '@nuxtjs/moment',
     '@nuxtjs/robots',
     [
@@ -151,12 +151,14 @@ const config = {
   },
   i18n: {
     detectBrowserLanguage: false,
-    defaultLocale: 'fr-fr',
+    defaultLocale: process.env.SITE_DOMAIN === 'pix.fr' ? 'fr-fr' : 'fr',
+    strategy:
+      process.env.SITE_DOMAIN === 'pix.fr' ? 'prefix_except_default' : 'prefix',
     locales: language.locales,
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
-      fallbackLocale: 'fr-fr',
+      fallbackLocale: process.env.SITE_DOMAIN === 'pix.fr' ? 'fr-fr' : 'fr',
     },
   },
   prismic: {

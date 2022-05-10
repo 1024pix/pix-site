@@ -1,5 +1,3 @@
-import { SITES_PRISMIC_TAGS } from '../services/available-sites'
-
 export const language = {
   menu: [
     {
@@ -44,7 +42,7 @@ export const language = {
     },
   ],
   locales:
-    process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO
+    process.env.SITE_DOMAIN === 'pix.fr'
       ? [
           {
             code: 'fr-fr',
@@ -52,10 +50,6 @@ export const language = {
           },
         ]
       : [
-          {
-            code: 'fr-fr',
-            file: 'fr-fr.js',
-          },
           {
             code: 'fr',
             file: 'fr.js',

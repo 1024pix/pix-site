@@ -24,7 +24,7 @@ describe('#getRoutesToGenerate', () => {
   describe('When fetching Pix Pro pages', () => {
     beforeEach(() => {
       process.env.SITE = 'pix-pro'
-      process.env.SITE_DOMAIN = 'pix.org'
+      process.env.SITE_DOMAIN = 'pix.fr'
     })
 
     afterEach(() => {
@@ -34,7 +34,7 @@ describe('#getRoutesToGenerate', () => {
 
     test('it should fetch routes to generate document for each lang', async () => {
       // Given
-      const expected = ['/fr/route-to-generate', '/en-gb/route-to-generate']
+      const expected = ['/route-to-generate']
       const prismicApi = {
         query: jest.fn().mockResolvedValueOnce({
           results: [
