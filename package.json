@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules .nuxt",
-    "build": "SITE_DOMAIN=pix.fr nuxt generate --fail-on-error && SITE_DOMAIN=pix.org nuxt generate --fail-on-error && npm run signal-github",
+    "build": "SITE_DOMAIN=pix.fr nuxt generate --fail-on-error && SITE_DOMAIN=pix.org nuxt generate --fail-on-error && npm run signal-github && npm run signal-jira",
     "start": "nuxt start",
     "dev:site": "SITE=pix-site SITE_DOMAIN=pix.fr nuxt",
     "build:site": "SITE=pix-site SITE_DOMAIN=pix.fr nuxt generate --fail-on-error",
@@ -28,11 +28,8 @@
     "start:pro": "SITE=pix-pro SITE_DOMAIN=pix.fr npm run start",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "SITE=pix-site jest --no-coverage",
-    "release": "npm run release:minor",
-    "release:patch": "npm version patch -m \"Release v%s\"",
-    "release:minor": "npm version minor -m \"Release v%s\"",
-    "release:major": "npm version major -m \"Release v%s\"",
-    "signal-github": "./scripts/signal_deploy_to_pr.sh"
+    "signal-github": "./scripts/signal_deploy_to_pr.sh",
+    "signal-jira": "node ./scripts/jira/comment-with-review-app-url.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -61,6 +58,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "@vue/test-utils": "^1.2.2",
     "autoprefixer": "^10.4.0",
+    "axios": "^0.27.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^27.3.1",
     "eslint": "^8.1.0",
