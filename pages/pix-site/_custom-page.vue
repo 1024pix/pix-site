@@ -7,7 +7,7 @@
       <simple-page :content="document.data" />
     </div>
     <div v-if="type === SLICES_PAGE">
-      <slice-zone :slices="slices" />
+      <prismic-custom-slice-zone :slices="slices" />
     </div>
   </div>
 </template>

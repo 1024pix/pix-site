@@ -17,7 +17,7 @@
     <div class="news-item-post__body">
       <div class="news-item-post__excerpt">
         <prismic-rich-text :field="newsItem.data.body" />
-        <slice-zone :slices="newsItem.data.slices" />
+        <prismic-custom-slice-zone :slices="newsItem.data.slices" />
       </div>
     </div>
     <footer class="news-item-post__footer"></footer>

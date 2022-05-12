@@ -2,6 +2,6 @@
 
 exports[`Index Page renders properly 1`] = `
 "<div class=\\"index\\">
-  <slice-zone-stub slices=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></slice-zone-stub>
+  <prismic-custom-slice-zone-stub slices=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></prismic-custom-slice-zone-stub>
 </div>"
 `;
