@@ -3,6 +3,7 @@ import routes from './services/get-routes-to-generate'
 import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
 import { language } from './config/language'
 import { config } from './config/environment'
+import { SITES_PRISMIC_TAGS } from './services/available-sites'
 
 const nuxtConfig = {
   generate: {
@@ -25,7 +26,7 @@ const nuxtConfig = {
     DOMAIN_FR: process.env.DOMAIN_FR,
   },
   dir: {
-    pages: `pages/${config.site}`,
+    pages: `pages/${process.env.SITE}`,
   },
   /*
    ** Headers of the page
@@ -196,6 +197,28 @@ const nuxtConfig = {
       },
     },
   },
+}
+
+if (process.env.DOMAIN_ORG === undefined) {
+  throw new Error(`The DOMAIN_ORG environment variable must be provided`)
+}
+
+if (process.env.DOMAIN_FR === undefined) {
+  throw new Error(`The DOMAIN_FR environment variable must be provided`)
+}
+
+const availableSiteDomains = ['pix.fr', 'pix.org']
+if (!availableSiteDomains.includes(process.env.SITE_DOMAIN)) {
+  throw new Error(
+    `The SITE_DOMAIN environment variable must have one of these values (${availableSiteDomains})`
+  )
+}
+
+const availableSites = Object.values(SITES_PRISMIC_TAGS)
+if (!availableSites.includes(process.env.SITE)) {
+  throw new Error(
+    `The SITE environment variable must have one of these values: (${availableSites})`
+  )
 }
 
 if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {

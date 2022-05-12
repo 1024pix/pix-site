@@ -13,25 +13,3 @@ export const config = {
     debug: process.env.MATOMO_DEBUG || false,
   },
 }
-
-if (process.env.DOMAIN_ORG === undefined) {
-  throw new Error(`The DOMAIN_ORG environment variable must be provided`)
-}
-
-if (process.env.DOMAIN_FR === undefined) {
-  throw new Error(`The DOMAIN_FR environment variable must be provided`)
-}
-
-const availableSiteDomains = ['pix.fr', 'pix.org']
-if (!availableSiteDomains.includes(process.env.SITE_DOMAIN)) {
-  throw new Error(
-    `The SITE_DOMAIN environment variable must have one of these values (${availableSiteDomains})`
-  )
-}
-
-const availableSites = Object.values(SITES_PRISMIC_TAGS)
-if (!availableSites.includes(process.env.SITE)) {
-  throw new Error(
-    `The SITE environment variable must have one of these values: (${availableSites})`
-  )
-}
