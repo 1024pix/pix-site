@@ -49,7 +49,7 @@ describe('Index Page', () => {
         },
       },
       stubs: {
-        'slice-zone': true,
+        'prismic-custom-slice-zone': true,
       },
     })
   })
@@ -85,7 +85,7 @@ describe('Index Page', () => {
         },
       },
       stubs: {
-        'slice-zone': true,
+        'prismic-custom-slice-zone': true,
       },
     })
 

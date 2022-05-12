@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <slice-zone :slices="slices" />
+    <prismic-custom-slice-zone :slices="slices" />
   </div>
 </template>
 
