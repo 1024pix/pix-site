@@ -57,12 +57,4 @@ server {
     rewrite ^/en-gb $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
     rewrite ^/fr $http_x_forwarded_proto://<%= ENV['DOMAIN_ORG'] %>$request_uri permanent;
   }
-
-  if ($host ~ \.org) {
-    rewrite ^/(?!404.html)(?!fr-be)(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $scheme://$host/fr$request_uri redirect;
-  }
-
-  if ($http_x_forwarded_host ~ \.org) {
-    rewrite ^/(?!404.html)(?!fr-be)(?!fr)(?!en-gb)(?!_assets)(?!_nuxt)(?!documents)(?!images)(?!scripts)(?!apple-touch-icon)(?!favicon)(?!robots\.txt) $http_x_forwarded_proto://$http_x_forwarded_host/fr$request_uri redirect;
-  }
 }
