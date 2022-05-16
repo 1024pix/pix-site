@@ -33,7 +33,7 @@ server {
   # Disable compression that is performed by the Scalingo router anyway
   gzip off;
 
-  # Redirect to dist/pix.fr or dist/pix.org depending on the extension
+  # Serve from dist/pix.fr or dist/pix.org depending on the extension
   root /app/dist/pix.$extension;
 
   rewrite ^/(aide|help)$ https://support.pix.org redirect;
