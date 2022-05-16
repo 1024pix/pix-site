@@ -19,6 +19,8 @@ access_log off;
 port_in_redirect off;
 
 server {
+  access_log logs/access.log keyvalue;
+
   listen <%= ENV['PORT'] %>;
 
   server_name ~(?<extension>(fr|org))$;
