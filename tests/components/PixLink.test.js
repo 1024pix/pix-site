@@ -171,75 +171,132 @@ describe('Component: PixLink', () => {
   describe('#isCurrentLocaleURL', () => {
     let $i18n
 
-    beforeEach(() => {
-      $i18n = {
-        localeCodes: ['fr-fr', 'fr', 'fr-be', 'en-gb'],
-        defaultLocale: 'fr-fr',
-      }
-    })
-
-    it('should return false if the given URL is absolute', () => {
-      const urls = [
-        'https://pix.fr',
-        'https://pix.fr/une-page',
-        'https://pix.org/fr',
-        'https://google.com/',
-      ]
-
-      for (const url of urls) {
-        expect(isCurrentLocaleURL(url, $i18n)).toBe(false)
-      }
-    })
-
-    describe('when current locale is fr-fr', () => {
+    describe('pix.fr', () => {
       beforeEach(() => {
-        $i18n.locale = 'fr-fr'
-      })
-
-      it('should return true if the given URL is in fr-fr', () => {
-        const urls = ['/', '/une-page', '/path/subpath', '/fr-ca/tabernacle']
-
-        for (const url of urls) {
-          expect(isCurrentLocaleURL(url, $i18n)).toBe(true)
+        $i18n = {
+          localeCodes: ['fr-fr'],
+          defaultLocale: 'fr-fr',
         }
       })
 
-      it('should return false if the given URL is outside of fr-fr', () => {
-        const urls = ['/fr', '/en-gb', '/fr/une-page', '/en-gb/path/subpath']
-
-        for (const url of urls) {
-          expect(isCurrentLocaleURL(url, $i18n)).toBe(false)
-        }
-      })
-    })
-
-    describe('when current locale is fr-be', () => {
-      beforeEach(() => {
-        $i18n.locale = 'fr-be'
-      })
-
-      it('should return true if the given URL is in fr-be', () => {
-        const urls = ['/fr-be', '/fr-be/une-fois', '/fr-be/path/subpath']
-
-        for (const url of urls) {
-          expect(isCurrentLocaleURL(url, $i18n)).toBe(true)
-        }
-      })
-
-      it('should return false if the given URL is outside of fr-be', () => {
+      it('should return false if the given URL is absolute', () => {
         const urls = [
-          '/',
-          '/une-page',
-          '/path/subpath',
-          '/fr',
-          '/en-gb',
-          '/fr/une-page',
-          '/en-gb/path/subpath',
+          'https://pix.fr',
+          'https://pix.fr/une-page',
+          'https://pix.org/fr',
+          'https://google.com/',
         ]
 
         for (const url of urls) {
           expect(isCurrentLocaleURL(url, $i18n)).toBe(false)
         }
+      })
+
+      describe('when current locale is fr-fr', () => {
+        beforeEach(() => {
+          $i18n.locale = 'fr-fr'
+        })
+
+        it('should return true everytime', () => {
+          const urls = [
+            '/',
+            '/une-page',
+            '/path/subpath',
+            '/fr-ca/tabernacle',
+            '/fr',
+            '/en-gb',
+            '/fr/une-page',
+            '/en-gb/path/subpath',
+          ]
+
+          for (const url of urls) {
+            expect(isCurrentLocaleURL(url, $i18n)).toBe(true)
+          }
+        })
+      })
+    })
+
+    describe('pix.org', () => {
+      beforeEach(() => {
+        $i18n = {
+          localeCodes: ['fr', 'fr-be', 'en-gb'],
+          defaultLocale: 'fr',
+        }
+      })
+
+      it('should return false if the given URL is absolute', () => {
+        const urls = [
+          'https://pix.fr',
+          'https://pix.fr/une-page',
+          'https://pix.org/fr',
+          'https://google.com/',
+        ]
+
+        for (const url of urls) {
+          expect(isCurrentLocaleURL(url, $i18n)).toBe(false)
+        }
+      })
+
+      describe('when current locale is fr', () => {
+        beforeEach(() => {
+          $i18n.locale = 'fr'
+        })
+
+        it('should return true if the given URL is in fr', () => {
+          const urls = [
+            '/fr',
+            '/fr/une-page',
+            '/fr/path/subpath',
+            '/fr/fr-ca/tabernacle',
+          ]
+
+          for (const url of urls) {
+            expect(isCurrentLocaleURL(url, $i18n)).toBe(true)
+          }
+        })
+
+        it('should return false if the given URL is outside of fr', () => {
+          const urls = [
+            '/fr-be',
+            '/en-gb',
+            '/fr-be/une-page',
+            '/en-gb/path/subpath',
+          ]
+
+          for (const url of urls) {
+            expect(isCurrentLocaleURL(url, $i18n)).toBe(false)
+          }
+        })
+      })
+
+      describe('when current locale is fr-be', () => {
+        beforeEach(() => {
+          $i18n.locale = 'fr-be'
+        })
+
+        it('should return true if the given URL is in fr-be', () => {
+          const urls = ['/fr-be', '/fr-be/une-fois', '/fr-be/path/subpath']
+
+          for (const url of urls) {
+            expect(isCurrentLocaleURL(url, $i18n)).toBe(true)
+          }
+        })
+
+        it('should return false if the given URL is outside of fr-be', () => {
+          const urls = [
+            '/',
+            '/une-page',
+            '/path/subpath',
+            '/fr',
+            '/en-gb',
+            '/fr/une-page',
+            '/en-gb/path/subpath',
+          ]
+
+          for (const url of urls) {
+            expect(isCurrentLocaleURL(url, $i18n)).toBe(false)
+          }
+        })
       })
     })
   })
