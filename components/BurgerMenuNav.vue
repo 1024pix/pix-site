@@ -2,17 +2,24 @@
   <div class="burger-menu-nav">
     <burger-menu-nav-items :items="items.navigationZone" />
     <burger-menu-nav-items :items="items.actionsZone" :is-action="true" />
-    <language-switcher type="only-text" />
+    <language-switcher v-if="shouldDisplayLanguageSwitcher" type="only-text" />
   </div>
 </template>
 
 <script>
+import { config } from '~/config/environment'
+
 export default {
   name: 'BurgerMenuNav',
   props: {
     items: {
       type: Object,
       default: null,
+    },
+  },
+  computed: {
+    shouldDisplayLanguageSwitcher() {
+      return !config.featureToggles.disableLanguageSwitcherPixProOrg
     },
   },
 }

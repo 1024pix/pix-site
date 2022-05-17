@@ -12,4 +12,10 @@ export const config = {
     containerUrl: process.env.MATOMO_CONTAINER,
     debug: process.env.MATOMO_DEBUG || false,
   },
+  featureToggles: {
+    disableLanguageSwitcherPixProOrg:
+      process.env.FT_DISABLE_PIX_PRO_LANGUAGE_SWITCHER &&
+      process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO &&
+      process.env.SITE_DOMAIN === 'pix.org',
+  },
 }
