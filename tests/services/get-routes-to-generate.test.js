@@ -1,6 +1,18 @@
 import prismic from '@prismicio/client'
-import getRoutesToGenerate from '@/services/get-routes-to-generate'
+import getRoutesToGenerate, {
+  filterDocumentByChosenLanguage,
+} from '@/services/get-routes-to-generate'
+import { config } from '~/config/environment'
 jest.mock('@prismicio/client')
+jest.mock('~/config/environment', () => {
+  return {
+    config: {
+      site: 'pix-site',
+      siteDomain: 'pix.fr',
+      prismic: { apiEndpoint: 'https://prismic.example.net' },
+    },
+  }
+})
 
 describe('#getRoutesToGenerate', () => {
   let prismicDocPredicatesAt
@@ -17,150 +29,232 @@ describe('#getRoutesToGenerate', () => {
     prismicDocPredicatesNot = prismic.Predicates.not()
   })
 
-  test('it should fetch routes to generate document for each lang', async () => {
-    // Given
-    const expected = [
-      '/route-to-generate',
-      '/fr/route-to-generate',
-      '/en-gb/route-to-generate',
-    ]
-    const prismicApi = {
-      query: jest.fn().mockResolvedValueOnce({
-        results: [
-          { uid: 'route-to-generate', lang: 'fr-fr' },
-          { uid: 'route-to-generate', lang: 'fr' },
-          { uid: 'route-to-generate', lang: 'en-gb' },
-        ],
-      }),
-    }
-    prismic.getApi = () => prismicApi
+  describe('When fetching Pix Pro pages', () => {
+    beforeEach(() => {
+      config.site = 'pix-pro'
+      config.siteDomain = 'pix.fr'
+      config.isPixSite = false
+    })
 
-    // When
-    const result = await getRoutesToGenerate(prismic)
-
-    // Then
-    expect(prismicApi.query).toBeCalledWith(
-      [prismicDocPredicatesAt, prismicDocPredicatesNot],
-      {
-        lang: '*',
-        pageSize: 100,
-        page: 1,
+    test('it should fetch routes to generate document for each lang', async () => {
+      // Given
+      const expected = ['/route-to-generate']
+      const prismicApi = {
+        query: jest.fn().mockResolvedValueOnce({
+          results: [
+            { uid: 'route-to-generate', lang: 'fr-fr' },
+            { uid: 'route-to-generate', lang: 'fr' },
+            { uid: 'route-to-generate', lang: 'en-gb' },
+          ],
+        }),
       }
-    )
-    expect(prismic.Predicates.at).lastCalledWith('document.tags', [
-      process.env.SITE,
-    ])
-    expect(prismic.Predicates.not).lastCalledWith('document.tags', ['fragment'])
-    expect(result).toEqual(expected)
+      prismic.getApi = () => prismicApi
+
+      // When
+      const result = await getRoutesToGenerate(prismic)
+
+      // Then
+      expect(prismicApi.query).toBeCalledWith(
+        [prismicDocPredicatesAt, prismicDocPredicatesNot],
+        {
+          lang: 'fr-fr',
+          pageSize: 100,
+          page: 1,
+        }
+      )
+      expect(prismic.Predicates.at).lastCalledWith('document.tags', [
+        config.site,
+      ])
+      expect(prismic.Predicates.not).lastCalledWith('document.tags', [
+        'fragment',
+      ])
+      expect(result).toEqual(expected)
+    })
   })
 
-  test('it should filter unhandled languages', async () => {
-    // Given
-    const expected = [
-      '/route-to-generate',
-      '/fr/route-to-generate',
-      '/en-gb/route-to-generate',
-    ]
-    const prismicApi = {
-      query: jest.fn().mockResolvedValueOnce({
-        results: [
-          { uid: 'route-to-generate', lang: 'fr-fr' },
-          { uid: 'route-to-generate', lang: 'fr' },
-          { uid: 'route-to-generate', lang: 'en-gb' },
-          { uid: 'route-to-generate', lang: 'xh-ZA' },
-        ],
-      }),
-    }
-    prismic.getApi = () => prismicApi
-
-    // When
-    const result = await getRoutesToGenerate(prismic)
-
-    // Then
-    expect(prismicApi.query).toBeCalledWith(
-      [prismicDocPredicatesAt, prismicDocPredicatesNot],
-      {
-        lang: '*',
-        pageSize: 100,
-        page: 1,
+  describe('When fetching Pix Site pages', () => {
+    beforeEach(() => {
+      config.isPixSite = true
+    })
+    test('it should fetch routes to generate document for each lang', async () => {
+      // Given
+      const expected = ['/route-to-generate']
+      const prismicApi = {
+        query: jest.fn().mockResolvedValueOnce({
+          results: [
+            { uid: 'route-to-generate', lang: 'fr-fr' },
+            { uid: 'route-to-generate', lang: 'fr' },
+            { uid: 'route-to-generate', lang: 'en-gb' },
+          ],
+        }),
       }
-    )
-    expect(result).toEqual(expected)
+      prismic.getApi = () => prismicApi
+
+      // When
+      const result = await getRoutesToGenerate(prismic)
+
+      // Then
+      expect(prismicApi.query).toBeCalledWith(
+        [prismicDocPredicatesAt, prismicDocPredicatesNot],
+        {
+          lang: '*',
+          pageSize: 100,
+          page: 1,
+        }
+      )
+      expect(prismic.Predicates.at).lastCalledWith('document.tags', [
+        config.site,
+      ])
+      expect(prismic.Predicates.not).lastCalledWith('document.tags', [
+        'fragment',
+      ])
+      expect(result).toEqual(expected)
+    })
+
+    test('it should filter unhandled languages', async () => {
+      // Given
+      const expected = ['/route-to-generate']
+      const prismicApi = {
+        query: jest.fn().mockResolvedValueOnce({
+          results: [
+            { uid: 'route-to-generate', lang: 'fr-fr' },
+            { uid: 'route-to-generate', lang: 'fr' },
+            { uid: 'route-to-generate', lang: 'en-gb' },
+            { uid: 'route-to-generate', lang: 'xh-ZA' },
+          ],
+        }),
+      }
+      prismic.getApi = () => prismicApi
+
+      // When
+      const result = await getRoutesToGenerate(prismic)
+
+      // Then
+      expect(prismicApi.query).toBeCalledWith(
+        [prismicDocPredicatesAt, prismicDocPredicatesNot],
+        {
+          lang: '*',
+          pageSize: 100,
+          page: 1,
+        }
+      )
+      expect(result).toEqual(expected)
+    })
+
+    test('it should not return null routes', async () => {
+      // Given
+      const expected = ['/route-to-generate']
+      const prismicApi = {
+        query: jest.fn().mockReturnValueOnce({
+          results: [
+            { uid: 'route-to-generate', lang: 'fr-fr' },
+            {},
+            { uid: null },
+          ],
+        }),
+      }
+      prismic.getApi = () => prismicApi
+
+      // When
+      const result = await getRoutesToGenerate(prismic)
+
+      // Then
+      expect(prismicApi.query).toBeCalledWith(
+        [prismicDocPredicatesAt, prismicDocPredicatesNot],
+        {
+          lang: '*',
+          pageSize: 100,
+          page: 1,
+        }
+      )
+      expect(result).toEqual(expected)
+    })
+
+    test('it should handle pagination', async () => {
+      // Given
+      const expected = [
+        '/route-to-generate-from-first-page',
+        '/route-to-generate-from-second-page',
+      ]
+
+      const firstPage = {
+        total_pages: 2,
+        results: [{ uid: 'route-to-generate-from-first-page', lang: 'fr-fr' }],
+      }
+      const secondPage = {
+        total_pages: 2,
+        results: [{ uid: 'route-to-generate-from-second-page', lang: 'fr-fr' }],
+      }
+
+      const prismicApi = {
+        query: jest
+          .fn()
+          .mockResolvedValueOnce(firstPage)
+          .mockResolvedValueOnce(secondPage),
+      }
+      prismic.getApi = () => prismicApi
+
+      // When
+      const result = await getRoutesToGenerate(prismic)
+
+      // Then
+      expect(prismicApi.query).toBeCalledWith(
+        [prismicDocPredicatesAt, prismicDocPredicatesNot],
+        {
+          lang: '*',
+          pageSize: 100,
+          page: 1,
+        }
+      )
+      expect(prismicApi.query).toBeCalledWith(
+        [prismicDocPredicatesAt, prismicDocPredicatesNot],
+        {
+          lang: '*',
+          pageSize: 100,
+          page: 2,
+        }
+      )
+      expect(result).toEqual(expected)
+    })
   })
+})
 
-  test('it should not return null routes', async () => {
-    // Given
-    const expected = ['/route-to-generate']
-    const prismicApi = {
-      query: jest.fn().mockReturnValueOnce({
-        results: [
-          { uid: 'route-to-generate', lang: 'fr-fr' },
-          {},
-          { uid: null },
-        ],
-      }),
-    }
-    prismic.getApi = () => prismicApi
-
-    // When
-    const result = await getRoutesToGenerate(prismic)
-
-    // Then
-    expect(prismicApi.query).toBeCalledWith(
-      [prismicDocPredicatesAt, prismicDocPredicatesNot],
-      {
-        lang: '*',
-        pageSize: 100,
-        page: 1,
-      }
-    )
-    expect(result).toEqual(expected)
-  })
-
-  test('it should handle pagination', async () => {
-    // Given
-    const expected = [
-      '/route-to-generate-from-first-page',
-      '/route-to-generate-from-second-page',
-    ]
-
-    const firstPage = {
-      total_pages: 2,
-      results: [{ uid: 'route-to-generate-from-first-page', lang: 'fr-fr' }],
-    }
-    const secondPage = {
-      total_pages: 2,
-      results: [{ uid: 'route-to-generate-from-second-page', lang: 'fr-fr' }],
-    }
-
-    const prismicApi = {
-      query: jest
-        .fn()
-        .mockResolvedValueOnce(firstPage)
-        .mockResolvedValueOnce(secondPage),
-    }
-    prismic.getApi = () => prismicApi
-
-    // When
-    const result = await getRoutesToGenerate(prismic)
-
-    // Then
-    expect(prismicApi.query).toBeCalledWith(
-      [prismicDocPredicatesAt, prismicDocPredicatesNot],
-      {
-        lang: '*',
-        pageSize: 100,
-        page: 1,
-      }
-    )
-    expect(prismicApi.query).toBeCalledWith(
-      [prismicDocPredicatesAt, prismicDocPredicatesNot],
-      {
-        lang: '*',
-        pageSize: 100,
-        page: 2,
-      }
-    )
-    expect(result).toEqual(expected)
+describe('#filterDocumentByChosenLanguage', () => {
+  const testCases = [
+    {
+      doc: {
+        lang: 'fr-fr',
+      },
+      siteDomain: 'pix.fr',
+      expectedResult: true,
+    },
+    {
+      doc: {
+        lang: 'fr-fr',
+      },
+      siteDomain: 'pix.org',
+      expectedResult: false,
+    },
+    {
+      doc: {
+        lang: 'fr',
+      },
+      siteDomain: 'pix.fr',
+      expectedResult: false,
+    },
+    {
+      doc: {
+        lang: 'fr',
+      },
+      siteDomain: 'pix.org',
+      expectedResult: true,
+    },
+  ]
+  testCases.forEach(({ doc, siteDomain, expectedResult }) => {
+    it(`should return ${expectedResult} if the given document language is ${doc.lang} and it is allowed by the ${siteDomain} site domain`, () => {
+      expect(filterDocumentByChosenLanguage(doc, siteDomain)).toBe(
+        expectedResult
+      )
+    })
   })
 })

@@ -72,6 +72,9 @@ export function getPathLocale(path, $i18n) {
     (code) => code !== $i18n.defaultLocale
   )
 
+  // When fr-fr, no other locale is available, so return undefined
+  if (localeCodesWithoutDefault.length === 0) return undefined
+
   const rootMatch = new RegExp(
     `^/(${localeCodesWithoutDefault.join('|')})$`
   ).exec(path)

@@ -15,7 +15,7 @@
   },
   "scripts": {
     "clean": "rm -rf node_modules .nuxt",
-    "build": "SITE_DOMAIN=pix.fr nuxt generate --fail-on-error && SITE_DOMAIN=pix.org nuxt generate --fail-on-error && npm run signal-github && npm run signal-jira",
+    "build": "SITE_DOMAIN=pix.fr nuxt generate --fail-on-error && if [ $SITE = \"pix-site\" ]; then SITE_DOMAIN=pix.org nuxt generate --fail-on-error; fi && npm run signal-github && npm run signal-jira",
     "start": "nuxt start",
     "dev:site": "SITE=pix-site SITE_DOMAIN=pix.fr nuxt",
     "build:site": "SITE=pix-site SITE_DOMAIN=pix.fr nuxt generate --fail-on-error",

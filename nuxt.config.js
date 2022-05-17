@@ -1,13 +1,14 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 import isSeoIndexingEnabled from './services/is-seo-indexing-enabled'
-import { SITES_PRISMIC_TAGS } from './services/available-sites'
 import { language } from './config/language'
+import { config } from './config/environment'
+import { SITES_PRISMIC_TAGS } from './services/available-sites'
 
-const config = {
+const nuxtConfig = {
   generate: {
     routes,
-    dir: `dist/${process.env.SITE_DOMAIN}`,
+    dir: `dist/${config.siteDomain}`,
     fallback: '404.html',
     crawler: false,
   },
@@ -50,14 +51,14 @@ const config = {
     script: [
       {
         type: 'text/javascript',
-        src: process.env.MATOMO_CONTAINER,
+        src: config.matomo.containerUrl,
         async: true,
         defer: true,
       },
       {
         type: 'text/javascript',
         src: '/scripts/start-matomo-event.js',
-        'data-matomo-debug-mode': process.env.MATOMO_DEBUG,
+        'data-matomo-debug-mode': config.matomo.debug,
       },
     ],
   },
@@ -87,6 +88,7 @@ const config = {
     // Doc: https://github.com/nuxt-community/eslint-module
     ['@nuxtjs/eslint-module', { fix: true }],
     '~/modules/propagate-fetch-error-during-generation',
+    '@nuxtjs/i18n',
     '@nuxtjs/prismic',
     '@nuxt/image',
   ],
@@ -106,7 +108,6 @@ const config = {
    */
   modules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/i18n',
     '@nuxtjs/moment',
     '@nuxtjs/robots',
     [
@@ -151,16 +152,17 @@ const config = {
   },
   i18n: {
     detectBrowserLanguage: false,
-    defaultLocale: 'fr-fr',
+    defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
+    strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
     locales: language.locales,
     lazy: true,
     langDir: 'lang/',
     vueI18n: {
-      fallbackLocale: 'fr-fr',
+      fallbackLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
     },
   },
   prismic: {
-    endpoint: process.env.PRISMIC_API_ENDPOINT,
+    endpoint: config.prismic.apiEndpoint,
     modern: true,
   },
   router: {
@@ -212,10 +214,10 @@ if (!availableSiteDomains.includes(process.env.SITE_DOMAIN)) {
   )
 }
 
-const availablesSites = Object.values(SITES_PRISMIC_TAGS)
-if (!availablesSites.includes(process.env.SITE)) {
+const availableSites = Object.values(SITES_PRISMIC_TAGS)
+if (!availableSites.includes(process.env.SITE)) {
   throw new Error(
-    `The SITE environment variable must have one of these values: (${availablesSites})`
+    `The SITE environment variable must have one of these values: (${availableSites})`
   )
 }
 
@@ -233,4 +235,4 @@ if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
   )
 }
 
-export default config
+export default nuxtConfig

@@ -1,10 +1,10 @@
 import Prismic from '@prismicio/client'
 import { language } from '../config/language'
+import { config } from '../config/environment'
 import { linkResolver } from '../services/link-resolver'
-import { SITES_PRISMIC_TAGS } from './available-sites'
 
 export default async function () {
-  const api = await Prismic.getApi(process.env.PRISMIC_API_ENDPOINT)
+  const api = await Prismic.getApi(config.prismic.apiEndpoint)
   const { routes, totalPages } = await getRoutesInPage(api, 1)
 
   for (let page = 2; page <= totalPages; page++) {
@@ -20,21 +20,32 @@ export default async function () {
 async function getRoutesInPage(api, page) {
   const { results, total_pages: totalPages } = await api.query(
     [
-      Prismic.Predicates.at('document.tags', [process.env.SITE]),
+      Prismic.Predicates.at('document.tags', [config.site]),
       Prismic.Predicates.not('document.tags', ['fragment']),
     ],
     {
       pageSize: 100,
       page,
-      lang: process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE ? '*' : 'fr-fr',
+      lang: config.isPixSite ? '*' : 'fr-fr',
     }
   )
 
   const availableLangs = language.locales.map((locale) => locale.code)
   const routes = results
     .filter(({ uid }) => Boolean(uid))
+    .filter((doc) => filterDocumentByChosenLanguage(doc, config.siteDomain))
     .filter(({ lang }) => availableLangs.includes(lang))
     .map(linkResolver)
 
   return { totalPages, routes }
+}
+
+export function filterDocumentByChosenLanguage(doc, siteDomain) {
+  if (siteDomain === 'pix.fr' && doc.lang === 'fr-fr') {
+    return true
+  }
+  if (siteDomain !== 'pix.fr' && doc.lang !== 'fr-fr') {
+    return true
+  }
+  return false
 }
