@@ -48,19 +48,7 @@ const nuxtConfig = {
       isSeoIndexingEnabled() ? {} : { name: 'robots', content: 'noindex' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      {
-        type: 'text/javascript',
-        src: config.matomo.containerUrl,
-        async: true,
-        defer: true,
-      },
-      {
-        type: 'text/javascript',
-        src: '/scripts/start-matomo-event.js',
-        'data-matomo-debug-mode': config.matomo.debug,
-      },
-    ],
+    script: [],
   },
   /*
    ** Customize the progress-bar color
@@ -218,6 +206,22 @@ const availableSites = Object.values(SITES_PRISMIC_TAGS)
 if (!availableSites.includes(process.env.SITE)) {
   throw new Error(
     `The SITE environment variable must have one of these values: (${availableSites})`
+  )
+}
+
+if (config.matomo.containerUrl) {
+  nuxtConfig.head.script.push(
+    {
+      type: 'text/javascript',
+      src: config.matomo.containerUrl,
+      async: true,
+      defer: true,
+    },
+    {
+      type: 'text/javascript',
+      src: '/scripts/start-matomo-event.js',
+      'data-matomo-debug-mode': config.matomo.debug,
+    }
   )
 }
 
