@@ -221,18 +221,4 @@ if (!availableSites.includes(process.env.SITE)) {
   )
 }
 
-if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
-  config.modules.push([
-    'nuxt-matomo',
-    {
-      matomoUrl: process.env.MATOMO_URL,
-      siteId: process.env.MATOMO_SITE_ID,
-    },
-  ])
-} else {
-  console.warn(
-    'Both MATOMO_URL and MATOMO_SITE_ID environment variables must be provided'
-  )
-}
-
 export default nuxtConfig
