@@ -28,6 +28,10 @@ server {
     set $extension 'fr';
   }
 
+  if ($http_x_forwarded_host ~ \.org) {
+    set $extension 'org';
+  }
+
   charset utf-8;
 
   # Disable compression that is performed by the Scalingo router anyway
