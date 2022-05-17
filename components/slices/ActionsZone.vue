@@ -1,6 +1,9 @@
 <template>
   <nav class="actions-zone">
-    <language-switcher type="with-dropdown" />
+    <language-switcher
+      v-if="shouldDisplayLanguageSwitcher"
+      type="with-dropdown"
+    />
     <ul>
       <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
         <pix-link
@@ -28,12 +31,19 @@
 </template>
 
 <script>
+import { config } from '~/config/environment'
+
 export default {
   name: 'ActionsZone',
   props: {
     slice: {
       type: Object,
       default: null,
+    },
+  },
+  computed: {
+    shouldDisplayLanguageSwitcher() {
+      return !config.featureToggles.disableLanguageSwitcherPixProOrg
     },
   },
 }
