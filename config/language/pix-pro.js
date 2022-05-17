@@ -9,14 +9,6 @@ export const language = {
       sub: null,
       children: [
         {
-          name: 'french',
-          lang: 'fr',
-          icon: 'icon',
-          target: '/fr',
-          isOnPixOrg: true,
-          sub: null,
-        },
-        {
           name: 'english',
           lang: 'en-gb',
           icon: 'icon',
@@ -33,14 +25,6 @@ export const language = {
       target: '/',
       isOnPixOrg: false,
       sub: null,
-    },
-    {
-      name: 'fwb-acronym',
-      lang: 'fr-be',
-      icon: 'flag-be.svg',
-      target: '/fr-be',
-      isOnPixOrg: true,
-      sub: 'fwb',
     },
   ],
   locales: availableLocale(),

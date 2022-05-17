@@ -1,4 +1,4 @@
-import { availableLocale } from '~/config/language/pix-pro'
+import { availableLocale, language } from '~/config/language/pix-pro'
 import { config } from '~/config/environment'
 
 jest.mock('~/config/environment', () => {
@@ -34,5 +34,40 @@ describe('#availableLocale', () => {
     ]
 
     expect(availableLocale()).toEqual(expectedLocales)
+  })
+})
+
+describe('#language', () => {
+  it('should return all menu entries for pix-pro', () => {
+    // given
+    const expectedResult = [
+      {
+        name: 'international',
+        icon: 'globe-europe.svg',
+        target: null,
+        sub: null,
+        children: [
+          {
+            name: 'english',
+            lang: 'en-gb',
+            icon: 'icon',
+            target: '/en-gb',
+            isOnPixOrg: true,
+            sub: null,
+          },
+        ],
+      },
+      {
+        name: 'france',
+        lang: 'fr-fr',
+        icon: 'flag-fr.svg',
+        target: '/',
+        isOnPixOrg: false,
+        sub: null,
+      },
+    ]
+
+    // when & then
+    expect(language.menu).toEqual(expectedResult)
   })
 })
