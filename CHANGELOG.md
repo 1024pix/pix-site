@@ -1,5 +1,26 @@
 # pix-site Changelog
 
+## v3.29.0 (20/05/2022)
+
+
+### :rocket: Amélioration
+- [#400](https://github.com/1024pix/pix-site/pull/400) [FEATURE] Ajout d'un FT pour l'affichage du Language-Switcher dans pro.pix.org (PIX-4934).
+- [#398](https://github.com/1024pix/pix-site/pull/398) [FEATURE] Générer les routes en fonctions de la variable SITE_DOMAIN (fr,org) (PIX-4807).
+- [#395](https://github.com/1024pix/pix-site/pull/395) [FEATURE] Générer les pages des sites en fonctions des tags Prismic (PIX-4905).
+- [#393](https://github.com/1024pix/pix-site/pull/393) [FEATURE] Renvoyer vers les bonnes locales quand les pages de prismic référencent des liens vers d'autres pages (PIX-4903).
+
+### :building_construction: Tech
+- [#403](https://github.com/1024pix/pix-site/pull/403) [TECH] Accéder au domaine .org sur les RA (PIX-4963).
+- [#397](https://github.com/1024pix/pix-site/pull/397) [TECH] Ajouter un commentaire avec les liens des RA et de la PR GitHub directement sur le ticket Jira associée (PIX-4918).
+- [#394](https://github.com/1024pix/pix-site/pull/394) [TECH] Utilisation du tag index dans le link-resolver.
+- [#392](https://github.com/1024pix/pix-site/pull/392) [TECH] Supprimer les types de document Prismic inutiles (PIX-4895).
+- [#380](https://github.com/1024pix/pix-site/pull/380) [TECH] Utiliser la nouvelle version LTS de node 16.14.0
+- [#387](https://github.com/1024pix/pix-site/pull/387) [TECH] Séparer les sources compilées de pix.fr et pix.org (PIX-4806)
+- [#386](https://github.com/1024pix/pix-site/pull/386) [TECH] Supprime des fichiers inutiles de l'image compilée (PIX-4805)
+
+### :bug: Correction
+- [#401](https://github.com/1024pix/pix-site/pull/401) [BUGFIX] Répare l'environnement de dev
+
 ## v3.28.3 (14/03/2022)
 
 
