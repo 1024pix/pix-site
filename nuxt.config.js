@@ -48,19 +48,7 @@ const nuxtConfig = {
       isSeoIndexingEnabled() ? {} : { name: 'robots', content: 'noindex' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      {
-        type: 'text/javascript',
-        src: config.matomo.containerUrl,
-        async: true,
-        defer: true,
-      },
-      {
-        type: 'text/javascript',
-        src: '/scripts/start-matomo-event.js',
-        'data-matomo-debug-mode': config.matomo.debug,
-      },
-    ],
+    script: [],
   },
   /*
    ** Customize the progress-bar color
@@ -221,17 +209,19 @@ if (!availableSites.includes(process.env.SITE)) {
   )
 }
 
-if (process.env.MATOMO_URL && process.env.MATOMO_SITE_ID) {
-  config.modules.push([
-    'nuxt-matomo',
+if (config.matomo.containerUrl) {
+  nuxtConfig.head.script.push(
     {
-      matomoUrl: process.env.MATOMO_URL,
-      siteId: process.env.MATOMO_SITE_ID,
+      type: 'text/javascript',
+      src: config.matomo.containerUrl,
+      async: true,
+      defer: true,
     },
-  ])
-} else {
-  console.warn(
-    'Both MATOMO_URL and MATOMO_SITE_ID environment variables must be provided'
+    {
+      type: 'text/javascript',
+      src: '/scripts/start-matomo-event.js',
+      'data-matomo-debug-mode': config.matomo.debug,
+    }
   )
 }
 

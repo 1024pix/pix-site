@@ -32,13 +32,6 @@ Domain name for `.org` extension.
 - type: String
 - default: none
 
-`MATOMO_URL`
-If not present, nuxt-matomo will not be loaded and analytics will not be active
-
-- presence: optional
-- type: Url
-- default: none
-
 `MATOMO_CONTAINER`
 If not present, nuxt-matomo will not be loaded and tag managers will not be active
 
