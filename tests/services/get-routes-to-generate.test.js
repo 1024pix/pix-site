@@ -1,7 +1,5 @@
 import prismic from '@prismicio/client'
-import getRoutesToGenerate, {
-  filterDocumentByChosenLanguage,
-} from '@/services/get-routes-to-generate'
+import getRoutesToGenerate from '@/services/get-routes-to-generate'
 import { config } from '~/config/environment'
 jest.mock('@prismicio/client')
 jest.mock('~/config/environment', () => {
@@ -222,46 +220,6 @@ describe('#getRoutesToGenerate', () => {
         }
       )
       expect(result).toEqual(expected)
-    })
-  })
-})
-
-describe('#filterDocumentByChosenLanguage', () => {
-  const testCases = [
-    {
-      doc: {
-        lang: 'fr-fr',
-      },
-      siteDomain: 'pix.fr',
-      expectedResult: true,
-    },
-    {
-      doc: {
-        lang: 'fr-fr',
-      },
-      siteDomain: 'pix.org',
-      expectedResult: false,
-    },
-    {
-      doc: {
-        lang: 'fr',
-      },
-      siteDomain: 'pix.fr',
-      expectedResult: false,
-    },
-    {
-      doc: {
-        lang: 'fr',
-      },
-      siteDomain: 'pix.org',
-      expectedResult: true,
-    },
-  ]
-  testCases.forEach(({ doc, siteDomain, expectedResult }) => {
-    it(`should return ${expectedResult} if the given document language is ${doc.lang} and it is allowed by the ${siteDomain} site domain`, () => {
-      expect(filterDocumentByChosenLanguage(doc, siteDomain)).toBe(
-        expectedResult
-      )
     })
   })
 })
