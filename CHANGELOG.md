@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v3.30.0 (20/05/2022)
+
+
+### :building_construction: Tech
+- [#404](https://github.com/1024pix/pix-site/pull/404) [TECH] Supprimer les appels inutiles à /undefined (PIX-4966).
+
 ## v3.29.0 (20/05/2022)
 
 
