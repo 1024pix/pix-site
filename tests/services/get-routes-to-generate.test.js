@@ -13,6 +13,13 @@ jest.mock('~/config/environment', () => {
     },
   }
 })
+jest.mock('~/config/language', () => {
+  return {
+    language: {
+      locales: [{ code: 'fr-fr' }],
+    },
+  }
+})
 
 describe('#getRoutesToGenerate', () => {
   let prismicDocPredicatesAt
