@@ -11,6 +11,7 @@ function fetchResponse(response) {
 describe('MetabaseFetcher', () => {
   test('it should get session id', async () => {
     // given
+    process.env.METABASE_API_URL = 'https://test.metabase.fr'
     global.fetch = jest
       .fn()
       .mockReturnValue(fetchResponse({ id: 'session-id' }))
@@ -34,6 +35,7 @@ describe('MetabaseFetcher', () => {
   describe('#getCard', () => {
     test('it should call metabase with sessionId and cardId', async () => {
       // given
+      process.env.METABASE_API_URL = 'https://test.metabase.fr'
       global.fetch = jest
         .fn()
         .mockReturnValueOnce(fetchResponse({ id: 'session-id' }))
