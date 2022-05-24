@@ -28,6 +28,10 @@ describe('#availableLocale', () => {
 
     const expectedLocales = [
       {
+        code: 'fr',
+        file: 'fr.js',
+      },
+      {
         code: 'en-gb',
         file: 'en-gb.js',
       },
@@ -47,6 +51,14 @@ describe('#language', () => {
         target: null,
         sub: null,
         children: [
+          {
+            name: 'french',
+            lang: 'fr',
+            icon: 'icon',
+            target: '/fr',
+            isOnPixOrg: true,
+            sub: null,
+          },
           {
             name: 'english',
             lang: 'en-gb',

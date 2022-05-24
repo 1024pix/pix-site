@@ -9,6 +9,14 @@ export const language = {
       sub: null,
       children: [
         {
+          name: 'french',
+          lang: 'fr',
+          icon: 'icon',
+          target: '/fr',
+          isOnPixOrg: true,
+          sub: null,
+        },
+        {
           name: 'english',
           lang: 'en-gb',
           icon: 'icon',
@@ -33,6 +41,10 @@ export const language = {
 export function availableLocale() {
   if (!config.isFrenchDomain) {
     return [
+      {
+        code: 'fr',
+        file: 'fr.js',
+      },
       {
         code: 'en-gb',
         file: 'en-gb.js',
