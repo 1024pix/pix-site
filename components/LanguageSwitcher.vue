@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="showLanguageDropdown && type === 'with-dropdown'"
+    v-if="type === 'with-dropdown'"
     class="language-switcher"
     @keydown.esc="hideMenu"
   >
@@ -17,15 +17,19 @@
     </button>
     <ul v-if="showMenu" class="language-switcher__dropdown-menu">
       <li
-        v-for="option in languages.menu"
-        :key="option.key"
+        v-for="(option, index) in languages.menu"
+        :key="`language-switcher-${index}`"
         :class="{
           'language-switcher__dropdown-menu--active':
             option.lang === currentLocaleCode,
         }"
       >
         <div class="language-switcher__lang">
-          <button v-if="!option.target" @click.stop.prevent="toggleSubMenu()">
+          <button
+            v-if="!option.target"
+            class="language-switcher-sub-menu-button"
+            @click.stop.prevent="toggleSubMenu()"
+          >
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -87,7 +91,7 @@
     </ul>
     <span class="separator" />
   </div>
-  <div v-else-if="showLanguageDropdown && type === 'only-text'">
+  <div v-else-if="type === 'only-text'">
     <ul class="language-switcher-burger-menu">
       <li v-for="option in languages.menu" :key="option.key">
         <template v-if="!option.target">
@@ -136,7 +140,6 @@
 </template>
 
 <script>
-import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
 import { language } from '~/config/language'
 
 export default {
@@ -156,9 +159,6 @@ export default {
     }
   },
   computed: {
-    showLanguageDropdown() {
-      return process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE
-    },
     currentLocaleCode() {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
@@ -170,6 +170,7 @@ export default {
   },
   mounted() {
     const page = document.getElementsByTagName('body')[0]
+
     page.addEventListener('click', this.hideMenu)
   },
   beforeDestroy() {
