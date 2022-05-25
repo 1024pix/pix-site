@@ -45,7 +45,11 @@
           <a
             v-else-if="option.target"
             :href="
-              useGetAbsoluteUrlIfSwitchWebsite(option.target, option.isOnPixOrg)
+              useGetAbsoluteUrlIfSwitchWebsite(
+                option.target,
+                option.isOnPixOrg,
+                selectedMenu
+              )
             "
           >
             <img
@@ -61,32 +65,14 @@
             </div>
           </a>
         </div>
-        <ul
-          v-if="!option.target && showSubMenu"
-          class="language-switcher__dropdown-menu child"
-        >
-          <li
-            v-for="child in option.children"
-            :key="child.key"
-            :class="{
-              'language-switcher__dropdown-menu--active':
-                child.lang === currentLocaleCode,
-            }"
-          >
-            <div class="language-switcher__lang">
-              <a
-                :href="
-                  useGetAbsoluteUrlIfSwitchWebsite(
-                    child.target,
-                    child.isOnPixOrg
-                  )
-                "
-              >
-                {{ $t(child.name) }}
-              </a>
-            </div>
-          </li>
-        </ul>
+        <language-switcher-sub-menu
+          :show-sub-menu="showSubMenu"
+          :available-languages="option.children"
+          :target="option.target"
+          :is-on-pix-org="option.isOnPixOrg"
+          :current-locale-code="currentLocaleCode"
+          :selected-menu="selectedMenu"
+        />
       </li>
     </ul>
     <span class="separator" />
@@ -106,7 +92,11 @@
           >
             <a
               :href="
-                useGetAbsoluteUrlIfSwitchWebsite(child.target, child.isOnPixOrg)
+                useGetAbsoluteUrlIfSwitchWebsite(
+                  child.target,
+                  child.isOnPixOrg,
+                  selectedMenu
+                )
               "
             >
               {{ $t(option.name) }} - {{ $t(child.name) }}
@@ -126,7 +116,8 @@
               :href="
                 useGetAbsoluteUrlIfSwitchWebsite(
                   option.target,
-                  option.isOnPixOrg
+                  option.isOnPixOrg,
+                  selectedMenu
                 )
               "
             >
@@ -140,10 +131,15 @@
 </template>
 
 <script>
+import LanguageSwitcherSubMenuVue from './LanguageSwitcherSubMenu.vue'
 import { language } from '~/config/language'
+import { useGetAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
 
 export default {
   name: 'LanguageSwitcher',
+  components: {
+    'language-switcher-sub-menu': LanguageSwitcherSubMenuVue,
+  },
   props: {
     type: {
       type: String,
@@ -188,42 +184,12 @@ export default {
       this.showMenu = false
       this.showSubMenu = false
     },
-    useGetAbsoluteUrlIfSwitchWebsite(relativeTarget, isTargetOnPixOrg) {
-      return getAbsoluteUrlIfSwitchWebsite(
-        relativeTarget,
-        isTargetOnPixOrg,
-        this.selectedMenu.isOnPixOrg
-      )
-    },
+    useGetAbsoluteUrlIfSwitchWebsite,
   },
-}
-
-/**
- * Adds current URL scheme to a domain (http:// or https://)
- */
-function getBaseUrl(domain) {
-  return new URL(`//${domain}`, document.location)
-}
-export function getAbsoluteUrlIfSwitchWebsite(
-  relativeTarget,
-  isTargetOnPixOrg,
-  isOnPixOrg
-) {
-  if (!isOnPixOrg && isTargetOnPixOrg) {
-    const orgBaseUrl = getBaseUrl(process.env.DOMAIN_ORG)
-    return new URL(relativeTarget, orgBaseUrl).href
-  }
-
-  if (isOnPixOrg && !isTargetOnPixOrg) {
-    const frBaseUrl = getBaseUrl(process.env.DOMAIN_FR)
-    return new URL(relativeTarget, frBaseUrl).href
-  }
-
-  return relativeTarget
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .language-switcher {
   display: none;
 }
