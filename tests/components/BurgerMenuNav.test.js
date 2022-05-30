@@ -2,18 +2,22 @@ import { shallowMount } from '@vue/test-utils'
 import BurgerMenuNav from '~/components/BurgerMenuNav'
 import { config } from '~/config/environment'
 
+jest.mock('~/config/environment', () => {
+  return {
+    config: {
+      featureToggles: {
+        disableLanguageSwitcherPixProFr: null,
+      },
+    },
+  }
+})
+
 describe('Component: Burger Menu Nav', () => {
   let component
 
-  describe('When FT_DISABLE_PIX_PRO_LANGUAGE_SWITCHER is set to true', () => {
-    jest.mock('~/config/environment', () => {
-      return {
-        config: {
-          featureToggles: {
-            disableLanguageSwitcherPixProOrg: true,
-          },
-        },
-      }
+  describe('When disableLanguageSwitcherPixProFr is set to true', () => {
+    beforeEach(() => {
+      config.featureToggles.disableLanguageSwitcherPixProFr = true
     })
 
     it('it should not display the language switcher', () => {
@@ -32,13 +36,13 @@ describe('Component: Burger Menu Nav', () => {
       const result = component.html()
 
       // then
-      expect(result).toMatchSnapshot()
+      expect(result).not.toContain('<language-switcher-stub')
     })
   })
 
-  describe('When FT_DISABLE_PIX_PRO_LANGUAGE_SWITCHER is set to false', () => {
+  describe('When disableLanguageSwitcherPixProFr is set to false', () => {
     beforeEach(() => {
-      config.featureToggles.disableLanguageSwitcherPixProOrg = false
+      config.featureToggles.disableLanguageSwitcherPixProFr = false
     })
 
     it('it should display the language switcher', () => {
@@ -57,7 +61,7 @@ describe('Component: Burger Menu Nav', () => {
       const result = component.html()
 
       // then
-      expect(result).toMatchSnapshot()
+      expect(result).toContain('<language-switcher-stub')
     })
   })
 })

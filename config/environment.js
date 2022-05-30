@@ -13,9 +13,9 @@ export const config = {
     debug: process.env.MATOMO_DEBUG || false,
   },
   featureToggles: {
-    disableLanguageSwitcherPixProOrg:
-      process.env.FT_DISABLE_PIX_PRO_LANGUAGE_SWITCHER &&
+    disableLanguageSwitcherPixProFr:
+      process.env.FT_DISABLE_PIX_PRO_LANGUAGE_SWITCHER === 'true' &&
       process.env.SITE === SITES_PRISMIC_TAGS.PIX_PRO &&
-      process.env.SITE_DOMAIN === 'pix.org',
+      process.env.SITE_DOMAIN === 'pix.fr',
   },
 }

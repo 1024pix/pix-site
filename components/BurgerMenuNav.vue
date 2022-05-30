@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     shouldDisplayLanguageSwitcher() {
-      return !config.featureToggles.disableLanguageSwitcherPixProOrg
+      return !config.featureToggles.disableLanguageSwitcherPixProFr
     },
   },
 }
