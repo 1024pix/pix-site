@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v3.31.0 (31/05/2022)
+
+
+### :rocket: Amélioration
+- [#407](https://github.com/1024pix/pix-site/pull/407) [FEATURE] - Builder pix site et pix pro pour tous les contextes (PIX-4980).
+- [#405](https://github.com/1024pix/pix-site/pull/405) [FEATURE] Ajout du switch de langues sur Pix Pro (PIX-4808).
+
+### :bug: Correction
+- [#406](https://github.com/1024pix/pix-site/pull/406) [BUGFIX] Ne pas afficher le LanguageSwitcher sur pro.pix.fr si le FT est mis à `true` (PIX-4934)
+
 ## v3.30.0 (20/05/2022)
 
 

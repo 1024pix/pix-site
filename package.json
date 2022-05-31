@@ -1,6 +1,6 @@
 {
   "name": "pix-site",
-  "version": "3.30.0",
+  "version": "3.31.0",
   "private": false,
   "description": "Service en ligne d’évaluation et de certification des compétences numériques pour tous, tout au long de la vie.",
   "repository": {
@@ -26,7 +26,7 @@
     "dev:pro": "SITE=pix-pro SITE_DOMAIN=pix.fr nuxt",
     "build:pro": "SITE=pix-pro SITE_DOMAIN=pix.fr nuxt generate --fail-on-error",
     "start:pro": "SITE=pix-pro SITE_DOMAIN=pix.fr npm run start",
-    "dev:pro:org":"SITE=pix-pro SITE_DOMAIN=pix.org nuxt",
+    "dev:pro:org": "SITE=pix-pro SITE_DOMAIN=pix.org nuxt",
     "build:pro:org": "SITE=pix-pro SITE_DOMAIN=pix.org nuxt generate --fail-on-error",
     "start:pro:org": "SITE=pix-pro SITE_DOMAIN=pix.org npm run start",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
