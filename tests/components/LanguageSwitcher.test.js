@@ -1,15 +1,56 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import LanguageSwitcher from '~/components/LanguageSwitcher/LanguageSwitcher'
+import { config } from '~/config/environment'
+
+jest.mock('~/config/environment', () => {
+  return {
+    config: {
+      featureToggles: {
+        disableLanguageSwitcherPixProFr: null,
+      },
+    },
+  }
+})
 
 describe('Component: LanguageSwitcher', () => {
-  it('should render the submenu if site is pix pro', async () => {
+  it('should not render the language switcher if site is pix-pro.fr', () => {
     // given
-    process.env.SITE = 'pix-pro'
+    config.featureToggles.disableLanguageSwitcherPixProFr = true
     const $t = () => {}
     const $i18n = { locale: 'fr-fr' }
 
-    const wrapper = mount(LanguageSwitcher, {
+    // when
+    const wrapper = shallowMount(LanguageSwitcher, {
       stubs: {
+        LanguageSwitcherSubMenu: true,
+        fa: true,
+      },
+      propsData: {
+        type: 'with-dropdown',
+      },
+      data: LanguageSwitcher.data,
+      computed: LanguageSwitcher.computed,
+      mocks: { $t, $i18n },
+    })
+
+    // then
+    expect(wrapper.find('.language-switcher__button').exists()).toBe(false)
+  })
+
+  it('should render the language switcher if site is pix-pro.org', async () => {
+    // given
+    config.featureToggles.disableLanguageSwitcherPixProFr = false
+    const $t = () => {}
+    const $i18n = { locale: 'fr' }
+
+    const LanguageSwitcherSubMenuStub = {
+      name: 'language-switcher-burger-menu',
+      template: '<div class="language-switcher__dropdown-menu child"/>',
+    }
+
+    const wrapper = shallowMount(LanguageSwitcher, {
+      stubs: {
+        LanguageSwitcherSubMenu: LanguageSwitcherSubMenuStub,
         fa: true,
       },
       propsData: {
@@ -33,8 +74,6 @@ describe('Component: LanguageSwitcher', () => {
     )
 
     // then
-    expect(languageSwitcher.exists()).toBe(true)
-    expect(languageChildrenSubMenuButton.exists()).toBe(true)
     expect(languageChildrenSubMenu.exists()).toBe(true)
   })
 })

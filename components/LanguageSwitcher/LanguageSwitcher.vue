@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="type === 'with-dropdown'"
+    v-if="showLanguageDropdown && type === 'with-dropdown'"
     class="language-switcher"
     @keydown.esc="hideMenu"
   >
@@ -77,7 +77,7 @@
     </ul>
     <span class="separator" />
   </div>
-  <div v-else-if="type === 'only-text'">
+  <div v-else-if="showLanguageDropdown && type === 'only-text'">
     <ul class="language-switcher-burger-menu">
       <li v-for="option in languages.menu" :key="option.key">
         <template v-if="!option.target">
@@ -131,15 +131,12 @@
 </template>
 
 <script>
-import LanguageSwitcherSubMenuVue from './LanguageSwitcherSubMenu.vue'
 import { language } from '~/config/language'
 import { useGetAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { config } from '~/config/environment'
 
 export default {
   name: 'LanguageSwitcher',
-  components: {
-    'language-switcher-sub-menu': LanguageSwitcherSubMenuVue,
-  },
   props: {
     type: {
       type: String,
@@ -155,6 +152,9 @@ export default {
     }
   },
   computed: {
+    showLanguageDropdown() {
+      return !config.featureToggles.disableLanguageSwitcherPixProFr
+    },
     currentLocaleCode() {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
