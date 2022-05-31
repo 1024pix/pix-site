@@ -33,19 +33,8 @@ async function getRoutesInPage(api, page) {
   const availableLangs = language.locales.map((locale) => locale.code)
   const routes = results
     .filter(({ uid }) => Boolean(uid))
-    .filter((doc) => filterDocumentByChosenLanguage(doc, config.siteDomain))
     .filter(({ lang }) => availableLangs.includes(lang))
     .map(linkResolver)
 
   return { totalPages, routes }
-}
-
-export function filterDocumentByChosenLanguage(doc, siteDomain) {
-  if (siteDomain === 'pix.fr' && doc.lang === 'fr-fr') {
-    return true
-  }
-  if (siteDomain !== 'pix.fr' && doc.lang !== 'fr-fr') {
-    return true
-  }
-  return false
 }

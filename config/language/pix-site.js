@@ -1,4 +1,4 @@
-import { config } from './environment'
+import { config } from '../environment'
 
 export const language = {
   menu: [
@@ -47,7 +47,7 @@ export const language = {
 }
 
 export function availableLocale() {
-  if (config.isPixSite && !config.isFrenchDomain) {
+  if (!config.isFrenchDomain) {
     return [
       {
         code: 'fr',
