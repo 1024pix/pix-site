@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.0.0 (08/06/2022)
+
+
+### :building_construction: Tech
+- [#408](https://github.com/1024pix/pix-site/pull/408) [TECH] Supprimer les redirections pix.fr (PIX-4497).
+
 ## v3.31.0 (31/05/2022)
 
 
