@@ -24,6 +24,9 @@ const nuxtConfig = {
     SITE: process.env.SITE,
     DOMAIN_ORG: process.env.DOMAIN_ORG,
     DOMAIN_FR: process.env.DOMAIN_FR,
+    FT_DISABLE_PIX_PRO_LANGUAGE_SWITCHER:
+      process.env.FT_DISABLE_PIX_PRO_LANGUAGE_SWITCHER,
+    SITE_DOMAIN: process.env.SITE_DOMAIN,
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
