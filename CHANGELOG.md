@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.0.1 (13/06/2022)
+
+
+### :bug: Correction
+- [#410](https://github.com/1024pix/pix-site/pull/410) [BUGFIX] Affichage burger menu sur pro.pix.fr (PIX-5051)
+
 ## v4.0.0 (08/06/2022)
 
 
