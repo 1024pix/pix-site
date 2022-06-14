@@ -3,7 +3,7 @@ const { getCurrentSiteHost } = require('~/services/get-current-site-host')
 describe('getCurrentSiteHost', () => {
   let savedProcessEnvSite
   beforeEach(() => {
-    savedProcessEnvSite = process.env.SITE
+    savedProcessEnvSite = { ...process.env.SITE }
   })
 
   afterEach(() => {
@@ -22,6 +22,11 @@ describe('getCurrentSiteHost', () => {
 
   test('should return pro.pix.fr if `SITE` env variable is `pix-pro`', () => {
     process.env.SITE = 'pix-pro'
-    expect(getCurrentSiteHost()).toBe('pro.pix.fr')
+    expect(getCurrentSiteHost('fr-fr')).toBe('pro.pix.fr')
+  })
+
+  test('should return pro.pix.org if `SITE` env variable is `pix-pro` and locale is not `fr-fr`', () => {
+    process.env.SITE = 'pix-pro'
+    expect(getCurrentSiteHost('fr')).toBe('pro.pix.org')
   })
 })
