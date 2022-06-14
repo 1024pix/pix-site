@@ -1,15 +1,8 @@
-import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
+import { getCurrentSiteHost } from '~/services/get-current-site-host'
 
 // Middleware computes og:url for meta tags (SEO)
 export default function (context) {
   const { app, route } = context
-  const host = getHost(app.i18n.locale)
+  const host = getCurrentSiteHost(app.i18n.locale, true)
   context.currentPagePath = `${host}${route.path}`
-}
-
-function getHost(locale) {
-  if (process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE) {
-    return locale === 'fr-fr' ? 'https://pix.fr' : 'https://pix.org'
-  }
-  return 'https://pro.pix.fr'
 }

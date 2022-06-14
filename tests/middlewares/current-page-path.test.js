@@ -34,7 +34,7 @@ describe('Middlewares | current-page-path', () => {
       locale: 'fr',
       site: 'pix-pro',
       path: '/fr/test',
-      expectedResult: 'https://pro.pix.fr/fr/test',
+      expectedResult: 'https://pro.pix.org/fr/test',
     },
   ]
 
