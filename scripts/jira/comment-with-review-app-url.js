@@ -27,7 +27,8 @@ async function main() {
 
   const raSiteFrURL = `https://site-pr${prNumber}.review.pix.fr`
   const raSiteOrgURL = `https://site-pr${prNumber}.review.pix.org`
-  const raProURL = `https://pro-pr${prNumber}.review.pix.fr`
+  const raProFrURL = `https://pro-pr${prNumber}.review.pix.fr`
+  const raProOrgURL = `https://pro-pr${prNumber}.review.pix.org`
   const prGithubURL = `https://github.com/1024pix/pix-site/pull/${prNumber}`
 
   const scalingoCommentRegex = new RegExp(raSiteFrURL, 'i')
@@ -64,7 +65,8 @@ async function main() {
       'Je viens de déployer la Review App. Elle sera consultable sur les URL suivantes :\n' +
       `- Site FR : ${raSiteFrURL}\n` +
       `- Site ORG : ${raSiteOrgURL}\n` +
-      `- Pro : ${raProURL}\n` +
+      `- Pro FR : ${raProFrURL}\n` +
+      `- Pro ORG : ${raProOrgURL}\n` +
       `Le lien Github de la PR : ${prGithubURL}`
 
     console.log(
