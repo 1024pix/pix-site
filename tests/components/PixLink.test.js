@@ -91,12 +91,48 @@ describe('Component: PixLink', () => {
     describe('when current site is pro.pix.fr', () => {
       beforeEach(() => {
         process.env.SITE = SITES_PRISMIC_TAGS.PIX_PRO
+        locale = 'fr-fr'
+      })
+
+      it('should remove host from URLs under https://pro.pix.fr', () => {
+        const urls = [
+          ['https://pro.pix.fr/', '/'],
+          ['https://pro.pix.fr/une-page-de-pro', '/une-page-de-pro'],
+        ]
+
+        for (const [url, expected] of urls) {
+          expect(removeHostIfCurrentSite(url, locale)).toBe(expected)
+        }
+      })
+
+      it('should not remove host from URLs outside of https://pro.pix.fr', () => {
+        const urls = [
+          'https://pix.fr',
+          'https://pix.fr/une-page-de-la-france',
+          'https://pix.org/',
+          'https://pix.org/fr',
+          'https://pix.org/fr/pourquoi',
+          'https://pix.org/fr-be/une-fois',
+          'https://pix.org/en-gb/tea-time',
+          'https://google.com/',
+        ]
+
+        for (const url of urls) {
+          expect(removeHostIfCurrentSite(url, locale)).toBe(url)
+        }
+      })
+    })
+
+    describe('when current site is pro.pix.org', () => {
+      beforeEach(() => {
+        process.env.SITE = SITES_PRISMIC_TAGS.PIX_PRO
+        locale = 'fr'
       })
 
       it('should remove host from URLs under https://pro.pix.org', () => {
         const urls = [
-          ['https://pro.pix.fr/', '/'],
-          ['https://pro.pix.fr/une-page-de-pro', '/une-page-de-pro'],
+          ['https://pro.pix.org/', '/'],
+          ['https://pro.pix.org/une-page-de-pro', '/une-page-de-pro'],
         ]
 
         for (const [url, expected] of urls) {
