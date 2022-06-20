@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v4.0.2 (20/06/2022)
+
+
+### :building_construction: Tech
+- [#412](https://github.com/1024pix/pix-site/pull/412) [TECH] Ajouter le lien pro org dans les commentaires (PIX-5133).
+
+### :bug: Correction
+- [#411](https://github.com/1024pix/pix-site/pull/411) [BUGFIX] Rétablir l'affichage du lien actif dans la barre de navigation du site Pro.pix.org (PIX-5026).
+
 ## v4.0.1 (13/06/2022)
 
 
