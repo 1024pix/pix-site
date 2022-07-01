@@ -22,6 +22,14 @@ export default {
             ticks: { beginAtZero: true },
           },
         ],
+        xAxes: [
+          {
+            type: 'time',
+            time: {
+              tooltipFormat: 'L',
+            },
+          },
+        ],
       },
     })
   },
