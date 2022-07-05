@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.0.3 (05/07/2022)
+
+
+### :bug: Correction
+- [#413](https://github.com/1024pix/pix-site/pull/413) [BUGFIX] Mettre les dates des graphiques dans un format plus lisible (PIX-5188).
+
 ## v4.0.2 (20/06/2022)
 
 
