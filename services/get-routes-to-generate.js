@@ -26,7 +26,7 @@ async function getRoutesInPage(api, page) {
     {
       pageSize: 100,
       page,
-      lang: config.isPixSite ? '*' : 'fr-fr',
+      lang: '*',
     }
   )
 
