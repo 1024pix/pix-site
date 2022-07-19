@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v4.0.4 (19/07/2022)
+
+
+### :rocket: Amélioration
+- [#417](https://github.com/1024pix/pix-site/pull/417) [FEATURE] Ajout de la licence AGPL v3
+
+### :bug: Correction
+- [#418](https://github.com/1024pix/pix-site/pull/418) [BUGFIX] Générer toutes les langues pour Pix Pro (PIX-5367).
+
 ## v4.0.3 (05/07/2022)
 
 
