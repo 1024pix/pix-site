@@ -32,13 +32,13 @@ describe('#getRoutesToGenerate', () => {
       .mockReturnValue(Symbol('prismic-predicates-not'))
     prismicDocPredicatesAt = prismic.Predicates.at()
     prismicDocPredicatesNot = prismic.Predicates.not()
+    global.console = { info: jest.fn() }
   })
 
   describe('When fetching Pix Pro pages', () => {
     beforeEach(() => {
       config.site = 'pix-pro'
       config.siteDomain = 'pix.fr'
-      config.isPixSite = false
     })
 
     test('it should fetch routes to generate document for each lang', async () => {
@@ -62,7 +62,7 @@ describe('#getRoutesToGenerate', () => {
       expect(prismicApi.query).toBeCalledWith(
         [prismicDocPredicatesAt, prismicDocPredicatesNot],
         {
-          lang: 'fr-fr',
+          lang: '*',
           pageSize: 100,
           page: 1,
         }
@@ -79,7 +79,7 @@ describe('#getRoutesToGenerate', () => {
 
   describe('When fetching Pix Site pages', () => {
     beforeEach(() => {
-      config.isPixSite = true
+      config.site = 'pix-site'
     })
     test('it should fetch routes to generate document for each lang', async () => {
       // Given
