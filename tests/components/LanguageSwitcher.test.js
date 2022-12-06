@@ -1,21 +1,9 @@
 import { shallowMount } from '@vue/test-utils'
 import LanguageSwitcher from '~/components/LanguageSwitcher/LanguageSwitcher'
-import { config } from '~/config/environment'
-
-jest.mock('~/config/environment', () => {
-  return {
-    config: {
-      featureToggles: {
-        disableLanguageSwitcherPixProFr: null,
-      },
-    },
-  }
-})
 
 describe('Component: LanguageSwitcher', () => {
-  it('should not render the language switcher if site is pix-pro.fr', () => {
+  it('should render the language switcher if site is pix-pro.fr', () => {
     // given
-    config.featureToggles.disableLanguageSwitcherPixProFr = true
     const $t = () => {}
     const $i18n = { locale: 'fr-fr' }
 
@@ -34,12 +22,11 @@ describe('Component: LanguageSwitcher', () => {
     })
 
     // then
-    expect(wrapper.find('.language-switcher__button').exists()).toBe(false)
+    expect(wrapper.find('.language-switcher__button').exists()).toBe(true)
   })
 
   it('should render the language switcher if site is pix-pro.org', async () => {
     // given
-    config.featureToggles.disableLanguageSwitcherPixProFr = false
     const $t = () => {}
     const $i18n = { locale: 'fr' }
 
