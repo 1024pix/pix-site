@@ -1,5 +1,22 @@
 # pix-site Changelog
 
+## v4.0.5 (06/12/2022)
+
+
+### :building_construction: Tech
+- [#429](https://github.com/1024pix/pix-site/pull/429) [TECH] Supprimer le workflow qui transitionne les tickets JIRA.
+- [#427](https://github.com/1024pix/pix-site/pull/427) [TECH] Supprime les conditions d'affichage du `LanguageSwitcher` (PIX-6480)
+
+### :coffee: Autre
+- [#423](https://github.com/1024pix/pix-site/pull/423) [CLEANUP] Met à jour l'action commune d'automerge
+- [#421](https://github.com/1024pix/pix-site/pull/421) chore(deps): bump parse-url from 6.0.0 to 6.0.5
+- [#399](https://github.com/1024pix/pix-site/pull/399) build(deps): bump node-forge from 1.2.1 to 1.3.1
+- [#419](https://github.com/1024pix/pix-site/pull/419) chore(deps): bump terser from 4.8.0 to 4.8.1
+- [#414](https://github.com/1024pix/pix-site/pull/414) chore(deps): bump sharp from 0.30.2 to 0.30.7
+- [#384](https://github.com/1024pix/pix-site/pull/384) build(deps): bump minimist from 1.2.5 to 1.2.6
+- [#416](https://github.com/1024pix/pix-site/pull/416) chore(deps): bump moment from 2.29.1 to 2.29.4
+- [#420](https://github.com/1024pix/pix-site/pull/420) Bump automerge action
+
 ## v4.0.4 (19/07/2022)
 
 
