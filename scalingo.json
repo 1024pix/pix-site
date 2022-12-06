@@ -12,6 +12,30 @@
     "DOMAIN_FR": {
       "generator": "template",
       "template": "site-pr%PR_NUMBER%.review.pix.fr"
+    },
+    "TEST_APP": {
+      "generator": "template",
+      "template": "%APP%"
+    },
+    "TEST_PARENT_APP": {
+      "generator": "template",
+      "template": "%PARENT_APP%"
+    },
+    "TEST_URL": {
+      "generator": "template",
+      "template": "%URL%"
+    },
+    "TEST_OTHER_VAR_ENV": {
+      "generator": "template",
+      "template": "%ENV%"
+    },
+    "TEST_OTHER_VAR_GITHUB_USER": {
+      "generator": "template",
+      "template": "%GITHUB_USER%"
+    },
+    "TEST_OTHER_VAR_TEST_URL": {
+      "generator": "template",
+      "template": "%TEST_URL%"
     }
   },
   "addons": [],
