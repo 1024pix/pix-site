@@ -143,6 +143,7 @@ const nuxtConfig = {
     detectBrowserLanguage: false,
     defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
     strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
+    rootRedirect: config.isFrenchDomain ? null : 'locale-choice',
     locales: language.locales,
     lazy: true,
     langDir: 'lang/',
