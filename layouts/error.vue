@@ -23,6 +23,9 @@ export default {
   head() {
     return {
       title: 'Error | Pix',
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
     }
   },
 }
