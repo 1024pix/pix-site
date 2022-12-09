@@ -53,9 +53,9 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.0",
     "@nuxt/image": "^0.6.0",
+    "@nuxtjs/dayjs": "^1.4.1",
     "@nuxtjs/eslint-config": "^7.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/moment": "1.6.1",
     "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/style-resources": "^1.2.1",
     "@vue/test-utils": "^1.2.2",

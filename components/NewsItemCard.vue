@@ -55,7 +55,7 @@ export default {
       return this.slice.category.toLowerCase()
     },
     date() {
-      return this.$moment(this.slice.date)
+      return this.$dayjs(this.slice.date)
         .locale(this.$i18n.locale.split('-')[0])
         .format('LL')
     },

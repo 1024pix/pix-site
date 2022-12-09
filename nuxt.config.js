@@ -94,7 +94,7 @@ const nuxtConfig = {
    */
   modules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/moment',
+    '@nuxtjs/dayjs',
     '@nuxtjs/robots',
     [
       'nuxt-fontawesome',
@@ -130,8 +130,9 @@ const nuxtConfig = {
       },
     ],
   ],
-  moment: {
-    locales: ['fr'],
+  dayjs: {
+    locales: ['fr', 'en'],
+    plugins: ['localizedFormat'],
   },
   styleResources: {
     scss: ['assets/scss/globals.scss'],
