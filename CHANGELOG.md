@@ -1,5 +1,18 @@
 # pix-site Changelog
 
+## v4.0.6 (09/12/2022)
+
+
+### :building_construction: Tech
+- [#432](https://github.com/1024pix/pix-site/pull/432) [TECH] Permettre d'utiliser une version plus récente de npm
+
+### :coffee: Autre
+- [#434](https://github.com/1024pix/pix-site/pull/434) chore(deps): bump undici and ohmyfetch
+- [#430](https://github.com/1024pix/pix-site/pull/430) chore(deps): bump decode-uri-component from 0.2.0 to 0.2.2
+- [#436](https://github.com/1024pix/pix-site/pull/436) chore(deps): bump moment-timezone from 0.5.34 to 0.5.39
+- [#426](https://github.com/1024pix/pix-site/pull/426) chore(deps): bump loader-utils from 1.4.0 to 1.4.2
+- [#431](https://github.com/1024pix/pix-site/pull/431) chore(deps): bump parse-url and @nuxt/telemetry
+
 ## v4.0.5 (06/12/2022)
 
 
