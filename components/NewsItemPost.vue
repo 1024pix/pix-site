@@ -44,7 +44,7 @@ export default {
       if (!this.newsItem.first_publication_date) {
         return 'Preview'
       }
-      return this.$moment(this.newsItem.data.date)
+      return this.$dayjs(this.newsItem.data.date)
         .locale(this.$i18n.locale.split('-')[0])
         .format('LL')
     },
