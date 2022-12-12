@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.0.8 (12/12/2022)
+
+
+### :building_construction: Tech
+- [#438](https://github.com/1024pix/pix-site/pull/438) [TECH] Migrer de moment à dayjs
+
 ## v4.0.7 (12/12/2022)
 
 
