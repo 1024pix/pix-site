@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.0.7 (12/12/2022)
+
+
+### :rocket: Amélioration
+- [#439](https://github.com/1024pix/pix-site/pull/439) [FEATURE] Utiliser la bonne valeur d'attribut `lang` sur la balise `html` (PIX-6520)
+
 ## v4.0.6 (09/12/2022)
 
 
