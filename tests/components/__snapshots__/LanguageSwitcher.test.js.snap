@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: LanguageSwitcher when site is pix-pro should render the language switcher correctly for pix-pro 1`] = `
+<div
+  class="language-switcher"
+>
+  <button
+    aria-expanded="true"
+    aria-haspopup="true"
+    class="language-switcher__button"
+  >
+    
+    
+    
+    <fa-stub
+      class="language-switcher-button__angle"
+      icon="angle-up"
+    />
+  </button>
+   
+  <ul
+    class="language-switcher__dropdown-menu"
+  >
+    <li
+      class=""
+    >
+      <div
+        class="language-switcher__lang"
+      >
+        <button
+          class="language-switcher-sub-menu-button"
+        >
+          <img
+            alt=""
+            class="language-switcher__img"
+            src="/images/globe-europe.svg"
+          />
+           
+          <div
+            class="lang__text"
+          >
+            
+          </div>
+           
+          <fa-stub
+            class="language-switcher__icon language-switcher-button__angle"
+            icon="angle-right"
+          />
+        </button>
+      </div>
+       
+      <ul
+        class="language-switcher__dropdown-menu child"
+      >
+        <li
+          class=""
+        >
+          <div
+            class="language-switcher__lang"
+          >
+            <a
+              href="http://example.org/fr"
+            >
+              
+        
+      
+            </a>
+          </div>
+        </li>
+        <li
+          class=""
+        >
+          <div
+            class="language-switcher__lang"
+          >
+            <a
+              href="http://example.org/en-gb"
+            >
+              
+        
+      
+            </a>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li
+      class="language-switcher__dropdown-menu--active"
+    >
+      <div
+        class="language-switcher__lang"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt=""
+            class="language-switcher__img"
+            src="/images/flag-fr.svg"
+          />
+           
+          <div
+            class="lang__text"
+          >
+            <div>
+              
+            </div>
+             
+            <!---->
+          </div>
+        </a>
+      </div>
+       
+      <!---->
+    </li>
+    <li
+      class=""
+    >
+      <div
+        class="language-switcher__lang"
+      >
+        <a
+          href="http://example.org/fr-be"
+        >
+          <img
+            alt=""
+            class="language-switcher__img"
+            src="/images/flag-be.svg"
+          />
+           
+          <div
+            class="lang__text"
+          >
+            <div>
+              
+            </div>
+             
+            <div
+              class="language-switcher__subtitle"
+            >
+              
+              
+            
+            </div>
+          </div>
+        </a>
+      </div>
+       
+      <!---->
+    </li>
+  </ul>
+   
+  <span
+    class="separator"
+  />
+</div>
+`;
+
+exports[`Component: LanguageSwitcher when site is pix-site should render the language switcher correctly for pix-site 1`] = `
+<div
+  class="language-switcher"
+>
+  <button
+    aria-expanded="true"
+    aria-haspopup="true"
+    class="language-switcher__button"
+  >
+    
+    
+    
+    <fa-stub
+      class="language-switcher-button__angle"
+      icon="angle-up"
+    />
+  </button>
+   
+  <ul
+    class="language-switcher__dropdown-menu"
+  >
+    <li
+      class=""
+    >
+      <div
+        class="language-switcher__lang"
+      >
+        <button
+          class="language-switcher-sub-menu-button"
+        >
+          <img
+            alt=""
+            class="language-switcher__img"
+            src="/images/globe-europe.svg"
+          />
+           
+          <div
+            class="lang__text"
+          >
+            
+          </div>
+           
+          <fa-stub
+            class="language-switcher__icon language-switcher-button__angle"
+            icon="angle-right"
+          />
+        </button>
+      </div>
+       
+      <ul
+        class="language-switcher__dropdown-menu child"
+      >
+        <li
+          class=""
+        >
+          <div
+            class="language-switcher__lang"
+          >
+            <a
+              href="http://example.org/fr"
+            >
+              
+        
+      
+            </a>
+          </div>
+        </li>
+        <li
+          class=""
+        >
+          <div
+            class="language-switcher__lang"
+          >
+            <a
+              href="http://example.org/en-gb"
+            >
+              
+        
+      
+            </a>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li
+      class="language-switcher__dropdown-menu--active"
+    >
+      <div
+        class="language-switcher__lang"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt=""
+            class="language-switcher__img"
+            src="/images/flag-fr.svg"
+          />
+           
+          <div
+            class="lang__text"
+          >
+            <div>
+              
+            </div>
+             
+            <!---->
+          </div>
+        </a>
+      </div>
+       
+      <!---->
+    </li>
+    <li
+      class=""
+    >
+      <div
+        class="language-switcher__lang"
+      >
+        <a
+          href="http://example.org/fr-be"
+        >
+          <img
+            alt=""
+            class="language-switcher__img"
+            src="/images/flag-be.svg"
+          />
+           
+          <div
+            class="lang__text"
+          >
+            <div>
+              
+            </div>
+             
+            <div
+              class="language-switcher__subtitle"
+            >
+              
+              
+            
+            </div>
+          </div>
+        </a>
+      </div>
+       
+      <!---->
+    </li>
+  </ul>
+   
+  <span
+    class="separator"
+  />
+</div>
+`;
