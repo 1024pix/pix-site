@@ -114,15 +114,7 @@ const nuxtConfig = {
     '@nuxtjs/dayjs',
     '@nuxtjs/robots',
     'nuxt-fontawesome',
-    [
-      'nuxt-winston-log',
-      {
-        loggerOptions: {
-          level: 'debug',
-          transports: [new transports.Console()],
-        },
-      },
-    ],
+    'nuxt-winston-log',
   ],
 
   styleResources: {
@@ -161,6 +153,13 @@ const nuxtConfig = {
         ],
       },
     ],
+  },
+
+  winstonLog: {
+    loggerOptions: {
+      level: 'debug',
+      transports: [new transports.Console()],
+    },
   },
 
   router: {
