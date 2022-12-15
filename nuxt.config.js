@@ -113,30 +113,7 @@ const nuxtConfig = {
     '@nuxtjs/style-resources',
     '@nuxtjs/dayjs',
     '@nuxtjs/robots',
-    [
-      'nuxt-fontawesome',
-      {
-        component: 'fa',
-        imports: [
-          {
-            set: '@fortawesome/free-solid-svg-icons',
-            icons: [
-              'faAngleDown',
-              'faAngleUp',
-              'faAngleRight',
-              'faArrowRight',
-              'faCalendar',
-              'faCheck',
-              'faCircle',
-              'faCog',
-              'faExclamationTriangle',
-              'faHome',
-              'faPlayCircle',
-            ],
-          },
-        ],
-      },
-    ],
+    'nuxt-fontawesome',
     [
       'nuxt-winston-log',
       {
@@ -162,6 +139,28 @@ const nuxtConfig = {
       UserAgent: '*',
       Disallow: isSeoIndexingEnabled() ? '' : '/',
     }
+  },
+
+  fontAwesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: [
+          'faAngleDown',
+          'faAngleUp',
+          'faAngleRight',
+          'faArrowRight',
+          'faCalendar',
+          'faCheck',
+          'faCircle',
+          'faCog',
+          'faExclamationTriangle',
+          'faHome',
+          'faPlayCircle',
+        ],
+      },
+    ],
   },
 
   router: {
