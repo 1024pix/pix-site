@@ -72,12 +72,16 @@ const nuxtConfig = {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    ['@nuxtjs/eslint-module', { fix: true }],
+    '@nuxtjs/eslint-module',
     '~/modules/propagate-fetch-error-during-generation',
     '@nuxtjs/i18n',
     '@nuxtjs/prismic',
     '@nuxt/image',
   ],
+
+  eslint: {
+    fix: true,
+  },
 
   i18n: {
     detectBrowserLanguage: false,
