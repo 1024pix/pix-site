@@ -157,16 +157,18 @@ const nuxtConfig = {
     plugins: ['localizedFormat'],
   },
 
-  router: {
-    middleware: 'current-page-path',
-    linkExactActiveClass: 'current-active-link',
-  },
   robots: () => {
     return {
       UserAgent: '*',
       Disallow: isSeoIndexingEnabled() ? '' : '/',
     }
   },
+
+  router: {
+    middleware: 'current-page-path',
+    linkExactActiveClass: 'current-active-link',
+  },
+
   /*
    ** Build configuration
    */
