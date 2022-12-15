@@ -147,12 +147,14 @@ const nuxtConfig = {
       },
     ],
   ],
+
+  styleResources: {
+    scss: ['assets/scss/globals.scss'],
+  },
+
   dayjs: {
     locales: ['fr', 'en'],
     plugins: ['localizedFormat'],
-  },
-  styleResources: {
-    scss: ['assets/scss/globals.scss'],
   },
 
   router: {
