@@ -5,6 +5,22 @@ import { language } from './config/language'
 import { config } from './config/environment'
 import { SITES_PRISMIC_TAGS } from './services/available-sites'
 
+const i18nConfigurationForFrenchDomain = {
+  defaultLocale: 'fr-fr',
+  strategy: 'prefix_except_default',
+  vueI18n: {
+    fallbackLocale: 'fr-fr',
+  },
+}
+
+const i18nConfigurationForInternationalDomain = {
+  defaultLocale: 'fr',
+  strategy: 'prefix',
+  vueI18n: {
+    fallbackLocale: 'fr',
+  },
+}
+
 const nuxtConfig = {
   generate: {
     routes,
@@ -85,14 +101,12 @@ const nuxtConfig = {
 
   i18n: {
     detectBrowserLanguage: false,
-    defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
-    strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
     locales: language.locales,
     lazy: true,
     langDir: 'lang/',
-    vueI18n: {
-      fallbackLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
-    },
+    ...(config.isFrenchDomain
+      ? i18nConfigurationForFrenchDomain
+      : i18nConfigurationForInternationalDomain),
   },
 
   prismic: {
