@@ -5,6 +5,7 @@ export const config = {
   siteDomain: process.env.SITE_DOMAIN,
   isFrenchDomain: process.env.SITE_DOMAIN === 'pix.fr',
   isPixSite: process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE,
+  isSeoIndexingEnabled: process.env.SEO_ENABLE_INDEXING === 'true',
   prismic: {
     apiEndpoint: process.env.PRISMIC_API_ENDPOINT,
   },
