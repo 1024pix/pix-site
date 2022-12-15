@@ -91,6 +91,11 @@ const nuxtConfig = {
     },
   },
 
+  prismic: {
+    endpoint: config.prismic.apiEndpoint,
+    modern: true,
+  },
+
   image: {
     provider: 'static',
     domains: [
@@ -150,10 +155,6 @@ const nuxtConfig = {
     scss: ['assets/scss/globals.scss'],
   },
 
-  prismic: {
-    endpoint: config.prismic.apiEndpoint,
-    modern: true,
-  },
   router: {
     middleware: 'current-page-path',
     linkExactActiveClass: 'current-active-link',
