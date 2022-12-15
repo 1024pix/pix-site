@@ -79,6 +79,18 @@ const nuxtConfig = {
     '@nuxt/image',
   ],
 
+  i18n: {
+    detectBrowserLanguage: false,
+    defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
+    strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
+    locales: language.locales,
+    lazy: true,
+    langDir: 'lang/',
+    vueI18n: {
+      fallbackLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
+    },
+  },
+
   image: {
     provider: 'static',
     domains: [
@@ -137,17 +149,7 @@ const nuxtConfig = {
   styleResources: {
     scss: ['assets/scss/globals.scss'],
   },
-  i18n: {
-    detectBrowserLanguage: false,
-    defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
-    strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
-    locales: language.locales,
-    lazy: true,
-    langDir: 'lang/',
-    vueI18n: {
-      fallbackLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
-    },
-  },
+
   prismic: {
     endpoint: config.prismic.apiEndpoint,
     modern: true,
