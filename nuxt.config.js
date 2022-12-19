@@ -72,12 +72,33 @@ const nuxtConfig = {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    ['@nuxtjs/eslint-module', { fix: true }],
+    '@nuxtjs/eslint-module',
     '~/modules/propagate-fetch-error-during-generation',
     '@nuxtjs/i18n',
     '@nuxtjs/prismic',
     '@nuxt/image',
   ],
+
+  eslint: {
+    fix: true,
+  },
+
+  i18n: {
+    detectBrowserLanguage: false,
+    defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
+    strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
+    locales: language.locales,
+    lazy: true,
+    langDir: 'lang/',
+    vueI18n: {
+      fallbackLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
+    },
+  },
+
+  prismic: {
+    endpoint: config.prismic.apiEndpoint,
+    modern: true,
+  },
 
   image: {
     provider: 'static',
@@ -96,72 +117,60 @@ const nuxtConfig = {
     '@nuxtjs/style-resources',
     '@nuxtjs/dayjs',
     '@nuxtjs/robots',
-    [
-      'nuxt-fontawesome',
-      {
-        component: 'fa',
-        imports: [
-          {
-            set: '@fortawesome/free-solid-svg-icons',
-            icons: [
-              'faAngleDown',
-              'faAngleUp',
-              'faAngleRight',
-              'faArrowRight',
-              'faCalendar',
-              'faCheck',
-              'faCircle',
-              'faCog',
-              'faExclamationTriangle',
-              'faHome',
-              'faPlayCircle',
-            ],
-          },
-        ],
-      },
-    ],
-    [
-      'nuxt-winston-log',
-      {
-        loggerOptions: {
-          level: 'debug',
-          transports: [new transports.Console()],
-        },
-      },
-    ],
+    'nuxt-fontawesome',
+    'nuxt-winston-log',
   ],
+
+  styleResources: {
+    scss: ['assets/scss/globals.scss'],
+  },
+
   dayjs: {
     locales: ['fr', 'en'],
     plugins: ['localizedFormat'],
   },
-  styleResources: {
-    scss: ['assets/scss/globals.scss'],
-  },
-  i18n: {
-    detectBrowserLanguage: false,
-    defaultLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
-    strategy: config.isFrenchDomain ? 'prefix_except_default' : 'prefix',
-    locales: language.locales,
-    lazy: true,
-    langDir: 'lang/',
-    vueI18n: {
-      fallbackLocale: config.isFrenchDomain ? 'fr-fr' : 'fr',
-    },
-  },
-  prismic: {
-    endpoint: config.prismic.apiEndpoint,
-    modern: true,
-  },
-  router: {
-    middleware: 'current-page-path',
-    linkExactActiveClass: 'current-active-link',
-  },
+
   robots: () => {
     return {
       UserAgent: '*',
       Disallow: isSeoIndexingEnabled() ? '' : '/',
     }
   },
+
+  fontAwesome: {
+    component: 'fa',
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: [
+          'faAngleDown',
+          'faAngleUp',
+          'faAngleRight',
+          'faArrowRight',
+          'faCalendar',
+          'faCheck',
+          'faCircle',
+          'faCog',
+          'faExclamationTriangle',
+          'faHome',
+          'faPlayCircle',
+        ],
+      },
+    ],
+  },
+
+  winstonLog: {
+    loggerOptions: {
+      level: 'debug',
+      transports: [new transports.Console()],
+    },
+  },
+
+  router: {
+    middleware: 'current-page-path',
+    linkExactActiveClass: 'current-active-link',
+  },
+
   /*
    ** Build configuration
    */
