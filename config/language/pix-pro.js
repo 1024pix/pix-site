@@ -1,5 +1,19 @@
 import { config } from '../environment'
 
+export const availableLocales = [
+  {
+    code: 'fr',
+    file: 'fr.js',
+  },
+  {
+    code: 'en-gb',
+    file: 'en-gb.js',
+  },
+  {
+    code: 'fr-fr',
+    file: 'fr-fr.js',
+  },
+]
 export const language = {
   menu: [
     {
@@ -35,27 +49,14 @@ export const language = {
       sub: null,
     },
   ],
-  locales: availableLocale(),
+  locales: availableLocales,
+  localesForCurrentSite: getLocalesForCurrentSite(),
 }
 
-export function availableLocale() {
-  if (!config.isFrenchDomain) {
-    return [
-      {
-        code: 'fr',
-        file: 'fr.js',
-      },
-      {
-        code: 'en-gb',
-        file: 'en-gb.js',
-      },
-    ]
+export function getLocalesForCurrentSite() {
+  if (config.isFrenchDomain) {
+    return [{ code: 'fr-fr', file: 'fr-fr.js' }]
   }
 
-  return [
-    {
-      code: 'fr-fr',
-      file: 'fr-fr.js',
-    },
-  ]
+  return availableLocales.filter((locale) => locale.code !== 'fr-fr')
 }

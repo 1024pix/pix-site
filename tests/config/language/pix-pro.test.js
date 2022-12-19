@@ -1,4 +1,4 @@
-import { availableLocale, language } from '~/config/language/pix-pro'
+import { getLocalesForCurrentSite, language } from '~/config/language/pix-pro'
 import { config } from '~/config/environment'
 
 jest.mock('~/config/environment', () => {
@@ -9,7 +9,7 @@ jest.mock('~/config/environment', () => {
   }
 })
 
-describe('#availableLocale', () => {
+describe('#getLocalesForCurrentSite', () => {
   it(`should return only fr-fr when siteDomain is pix.fr`, () => {
     config.isFrenchDomain = true
 
@@ -20,7 +20,7 @@ describe('#availableLocale', () => {
       },
     ]
 
-    expect(availableLocale()).toEqual(expectedLocales)
+    expect(getLocalesForCurrentSite()).toEqual(expectedLocales)
   })
 
   it(`should return all locales except fr-fr when siteDomain is pix.org`, () => {
@@ -37,7 +37,7 @@ describe('#availableLocale', () => {
       },
     ]
 
-    expect(availableLocale()).toEqual(expectedLocales)
+    expect(getLocalesForCurrentSite()).toEqual(expectedLocales)
   })
 })
 
