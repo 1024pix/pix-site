@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.0.10 (20/12/2022)
+
+
+### :bug: Correction
+- [#446](https://github.com/1024pix/pix-site/pull/446) [BUGFIX] Corriger l'affichage des icônes (PIX-6602).
+
 ## v4.0.9 (20/12/2022)
 
 
