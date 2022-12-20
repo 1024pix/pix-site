@@ -1,8 +1,5 @@
 <template>
-  <ul
-    v-if="!target && showSubMenu"
-    class="language-switcher__dropdown-menu child"
-  >
+  <ul v-if="showSubMenu" class="language-switcher__dropdown-menu child">
     <li
       v-for="availableLanguage in availableLanguages"
       :key="availableLanguage.key"
@@ -34,14 +31,6 @@ export default {
     availableLanguages: {
       type: Array,
       default: null,
-    },
-    target: {
-      type: String,
-      default: '',
-    },
-    isOnPixOrg: {
-      type: Boolean,
-      default: false,
     },
     currentLocaleCode: {
       type: String,

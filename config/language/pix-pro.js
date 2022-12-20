@@ -22,21 +22,18 @@ export const language = {
     {
       name: 'international',
       icon: 'globe-europe.svg',
-      target: null,
       sub: null,
       children: [
         {
           name: 'french',
           lang: 'fr',
           icon: 'icon',
-          target: '/fr',
           sub: null,
         },
         {
           name: 'english',
           lang: 'en-gb',
           icon: 'icon',
-          target: '/en-gb',
           sub: null,
         },
       ],
@@ -45,7 +42,6 @@ export const language = {
       name: 'france',
       lang: 'fr-fr',
       icon: 'flag-fr.svg',
-      target: '/',
       sub: null,
     },
   ],

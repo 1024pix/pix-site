@@ -47,42 +47,42 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
             icon="angle-right"
           />
         </button>
+         
+        <ul
+          class="language-switcher__dropdown-menu child"
+        >
+          <li
+            class=""
+          >
+            <div
+              class="language-switcher__lang"
+            >
+              <a
+                href="http://example.org/fr"
+              >
+                
+        
+      
+              </a>
+            </div>
+          </li>
+          <li
+            class=""
+          >
+            <div
+              class="language-switcher__lang"
+            >
+              <a
+                href="http://example.org/en-gb"
+              >
+                
+        
+      
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
-       
-      <ul
-        class="language-switcher__dropdown-menu child"
-      >
-        <li
-          class=""
-        >
-          <div
-            class="language-switcher__lang"
-          >
-            <a
-              href="http://example.org/fr"
-            >
-              
-        
-      
-            </a>
-          </div>
-        </li>
-        <li
-          class=""
-        >
-          <div
-            class="language-switcher__lang"
-          >
-            <a
-              href="http://example.org/en-gb"
-            >
-              
-        
-      
-            </a>
-          </div>
-        </li>
-      </ul>
     </li>
     <li
       class="language-switcher__dropdown-menu--active"
@@ -110,8 +110,6 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
           </div>
         </a>
       </div>
-       
-      <!---->
     </li>
     <li
       class=""
@@ -145,8 +143,6 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
           </div>
         </a>
       </div>
-       
-      <!---->
     </li>
   </ul>
    
@@ -203,42 +199,42 @@ exports[`Component: LanguageSwitcher when site is pix-site should render the lan
             icon="angle-right"
           />
         </button>
+         
+        <ul
+          class="language-switcher__dropdown-menu child"
+        >
+          <li
+            class=""
+          >
+            <div
+              class="language-switcher__lang"
+            >
+              <a
+                href="http://example.org/fr"
+              >
+                
+        
+      
+              </a>
+            </div>
+          </li>
+          <li
+            class=""
+          >
+            <div
+              class="language-switcher__lang"
+            >
+              <a
+                href="http://example.org/en-gb"
+              >
+                
+        
+      
+              </a>
+            </div>
+          </li>
+        </ul>
       </div>
-       
-      <ul
-        class="language-switcher__dropdown-menu child"
-      >
-        <li
-          class=""
-        >
-          <div
-            class="language-switcher__lang"
-          >
-            <a
-              href="http://example.org/fr"
-            >
-              
-        
-      
-            </a>
-          </div>
-        </li>
-        <li
-          class=""
-        >
-          <div
-            class="language-switcher__lang"
-          >
-            <a
-              href="http://example.org/en-gb"
-            >
-              
-        
-      
-            </a>
-          </div>
-        </li>
-      </ul>
     </li>
     <li
       class="language-switcher__dropdown-menu--active"
@@ -266,8 +262,6 @@ exports[`Component: LanguageSwitcher when site is pix-site should render the lan
           </div>
         </a>
       </div>
-       
-      <!---->
     </li>
     <li
       class=""
@@ -301,8 +295,6 @@ exports[`Component: LanguageSwitcher when site is pix-site should render the lan
           </div>
         </a>
       </div>
-       
-      <!---->
     </li>
   </ul>
    

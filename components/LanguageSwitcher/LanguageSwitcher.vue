@@ -29,27 +29,31 @@
         }"
       >
         <div class="language-switcher__lang">
-          <button
-            v-if="!option.target"
-            class="language-switcher-sub-menu-button"
-            @click.stop.prevent="toggleSubMenu()"
-          >
-            <img
-              class="language-switcher__img"
-              :src="'/images/' + option.icon"
-              alt=""
+          <template v-if="option.children">
+            <button
+              v-if="option.children"
+              class="language-switcher-sub-menu-button"
+              @click.stop.prevent="toggleSubMenu()"
+            >
+              <img
+                class="language-switcher__img"
+                :src="'/images/' + option.icon"
+                alt=""
+              />
+              <div class="lang__text">{{ $t(option.name) }}</div>
+              <fa
+                icon="angle-right"
+                class="language-switcher__icon language-switcher-button__angle"
+              />
+            </button>
+            <language-switcher-sub-menu
+              :show-sub-menu="showSubMenu"
+              :available-languages="option.children"
+              :current-locale-code="currentLocaleCode"
+              :selected-menu="selectedMenu"
             />
-            <div class="lang__text">{{ $t(option.name) }}</div>
-            <fa
-              v-if="!option.target"
-              icon="angle-right"
-              class="language-switcher__icon language-switcher-button__angle"
-            />
-          </button>
-          <a
-            v-else-if="option.target"
-            :href="getIndexUrl(option)"
-          >
+          </template>
+          <a v-else-if="!option.children" :href="getIndexUrl(option)">
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -63,14 +67,6 @@
             </div>
           </a>
         </div>
-        <language-switcher-sub-menu
-          :show-sub-menu="showSubMenu"
-          :available-languages="option.children"
-          :target="option.target"
-          :is-on-pix-org="option.isOnPixOrg"
-          :current-locale-code="currentLocaleCode"
-          :selected-menu="selectedMenu"
-        />
       </li>
     </ul>
     <span class="separator" />
@@ -78,7 +74,7 @@
   <div v-else-if="type === 'only-text'">
     <ul class="language-switcher-burger-menu">
       <li v-for="option in languages.menu" :key="option.key">
-        <template v-if="!option.target">
+        <template v-if="option.children">
           <span
             v-for="child in option.children"
             :key="child.name"
@@ -94,7 +90,7 @@
             <br />
           </span>
         </template>
-        <template v-if="option.target">
+        <template v-if="!option.children">
           <span
             :class="{
               'language-switcher-burger-menu__lang': true,
