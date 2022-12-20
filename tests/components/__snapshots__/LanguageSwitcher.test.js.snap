@@ -91,7 +91,7 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
         class="language-switcher__lang"
       >
         <a
-          href="/"
+          href="http://example.fr/"
         >
           <img
             alt=""
@@ -247,7 +247,7 @@ exports[`Component: LanguageSwitcher when site is pix-site should render the lan
         class="language-switcher__lang"
       >
         <a
-          href="/"
+          href="http://example.fr/"
         >
           <img
             alt=""

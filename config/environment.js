@@ -14,4 +14,8 @@ export const config = {
     debug: process.env.MATOMO_DEBUG || false,
   },
   featureToggles: {},
+  domain: {
+    french: process.env.DOMAIN_FR,
+    international: process.env.DOMAIN_ORG,
+  },
 }

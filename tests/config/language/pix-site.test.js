@@ -5,6 +5,10 @@ jest.mock('~/config/environment', () => {
   return {
     config: {
       isFrenchDomain: true,
+      domain: {
+        french: 'pix.fr',
+        international: 'pix.org',
+      },
     },
   }
 })
@@ -55,7 +59,7 @@ describe('#language', () => {
             lang: 'fr',
             icon: 'icon',
             target: '/fr',
-            isOnPixOrg: true,
+            domain: 'pix.org',
             sub: null,
           },
           {
@@ -63,7 +67,7 @@ describe('#language', () => {
             lang: 'en-gb',
             icon: 'icon',
             target: '/en-gb',
-            isOnPixOrg: true,
+            domain: 'pix.org',
             sub: null,
           },
         ],
@@ -73,7 +77,7 @@ describe('#language', () => {
         lang: 'fr-fr',
         icon: 'flag-fr.svg',
         target: '/',
-        isOnPixOrg: false,
+        domain: 'pix.fr',
         sub: null,
       },
       {
@@ -81,7 +85,7 @@ describe('#language', () => {
         lang: 'fr-be',
         icon: 'flag-be.svg',
         target: '/fr-be',
-        isOnPixOrg: true,
+        domain: 'pix.org',
         sub: 'fwb',
       },
     ]

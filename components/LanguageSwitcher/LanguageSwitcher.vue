@@ -49,11 +49,10 @@
           <a
             v-else-if="option.target"
             :href="
-              useGetAbsoluteUrlIfSwitchWebsite(
-                option.target,
-                option.isOnPixOrg,
-                selectedMenu
-              )
+              getAbsoluteUrlIfSwitchWebsite({
+                relativeTarget: option.target,
+                targetDomain: option.domain,
+              })
             "
           >
             <img
@@ -96,11 +95,10 @@
           >
             <a
               :href="
-                useGetAbsoluteUrlIfSwitchWebsite(
-                  child.target,
-                  child.isOnPixOrg,
-                  selectedMenu
-                )
+                getAbsoluteUrlIfSwitchWebsite({
+                  relativeTarget: option.target,
+                  targetDomain: option.domain,
+                })
               "
             >
               {{ $t(option.name) }} - {{ $t(child.name) }}
@@ -118,11 +116,10 @@
           >
             <a
               :href="
-                useGetAbsoluteUrlIfSwitchWebsite(
-                  option.target,
-                  option.isOnPixOrg,
-                  selectedMenu
-                )
+                getAbsoluteUrlIfSwitchWebsite({
+                  relativeTarget: option.target,
+                  targetDomain: option.domain,
+                })
               "
             >
               {{ $t(option.name) }}
@@ -136,7 +133,7 @@
 
 <script>
 import { language } from '~/config/language'
-import { useGetAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
 
 export default {
   name: 'LanguageSwitcher',
@@ -184,7 +181,7 @@ export default {
       this.showMenu = false
       this.showSubMenu = false
     },
-    useGetAbsoluteUrlIfSwitchWebsite,
+    getAbsoluteUrlIfSwitchWebsite,
   },
 }
 </script>

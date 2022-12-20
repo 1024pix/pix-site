@@ -14,11 +14,10 @@
       <div class="language-switcher__lang">
         <a
           :href="
-            useGetAbsoluteUrlIfSwitchWebsite(
-              availableLanguage.target,
-              availableLanguage.isOnPixOrg,
-              selectedMenu
-            )
+            getAbsoluteUrlIfSwitchWebsite({
+              relativeTarget: availableLanguage.target,
+              targetDomain: availableLanguage.domain,
+            })
           "
         >
           {{ $t(availableLanguage.name) }}
@@ -29,7 +28,7 @@
 </template>
 
 <script>
-import { useGetAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
 
 export default {
   name: 'LanguageSwitcherSubMenu',
@@ -60,7 +59,7 @@ export default {
     },
   },
   methods: {
-    useGetAbsoluteUrlIfSwitchWebsite,
+    getAbsoluteUrlIfSwitchWebsite,
   },
 }
 </script>
