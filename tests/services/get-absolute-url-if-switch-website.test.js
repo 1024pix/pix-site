@@ -1,4 +1,4 @@
-import { getAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
 
 describe('#getAbsoluteUrlIfSwitchWebsite', () => {
   it('should return relative url if target is in domain', () => {

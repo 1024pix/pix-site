@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { getAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
 import { language } from '~/config/language'
 
 export default {

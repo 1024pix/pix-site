@@ -110,7 +110,7 @@
 
 <script>
 import { language } from '~/config/language'
-import { getAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
 
 export default {
   name: 'LanguageSwitcher',
