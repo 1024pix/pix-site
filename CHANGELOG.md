@@ -1,5 +1,13 @@
 # pix-site Changelog
 
+## v4.0.9 (20/12/2022)
+
+
+### :building_construction: Tech
+- [#443](https://github.com/1024pix/pix-site/pull/443) [TECH] Relaxe les versions de Node.js et npm (PIX-6574)
+- [#440](https://github.com/1024pix/pix-site/pull/440) [TECH] Simplifier la lecture des configurations i18n en fonction du domaine.
+- [#441](https://github.com/1024pix/pix-site/pull/441) [TECH] Améliorer la lisibilité des configurations des modules 
+
 ## v4.0.8 (12/12/2022)
 
 
