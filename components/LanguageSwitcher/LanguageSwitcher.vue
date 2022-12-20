@@ -61,8 +61,8 @@
             />
             <div class="lang__text">
               <div>{{ $t(option.name) }}</div>
-              <div v-if="option.sub" class="language-switcher__subtitle">
-                {{ $t(option.sub) }}
+              <div v-if="option.subtitle" class="language-switcher__subtitle">
+                {{ $t(option.subtitle) }}
               </div>
             </div>
           </a>

@@ -56,19 +56,19 @@ describe('#language', () => {
       {
         name: 'international',
         icon: 'globe-europe.svg',
-        sub: null,
+        subtitle: null,
         children: [
           {
             name: 'french',
             lang: 'fr',
             icon: 'icon',
-            sub: null,
+            subtitle: null,
           },
           {
             name: 'english',
             lang: 'en-gb',
             icon: 'icon',
-            sub: null,
+            subtitle: null,
           },
         ],
       },
@@ -76,7 +76,7 @@ describe('#language', () => {
         name: 'france',
         lang: 'fr-fr',
         icon: 'flag-fr.svg',
-        sub: null,
+        subtitle: null,
       },
     ]
 
