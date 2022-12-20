@@ -91,6 +91,7 @@ const nuxtConfig = {
     '~/modules/propagate-fetch-error-during-generation',
     '@nuxtjs/i18n',
     '@nuxtjs/prismic',
+    '@nuxtjs/fontawesome',
     '@nuxt/image',
   ],
 
@@ -113,6 +114,25 @@ const nuxtConfig = {
     modern: true,
   },
 
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: [
+        'faAngleDown',
+        'faAngleUp',
+        'faAngleRight',
+        'faArrowRight',
+        'faCalendar',
+        'faCheck',
+        'faCircle',
+        'faCog',
+        'faExclamationTriangle',
+        'faHome',
+        'faPlayCircle',
+      ],
+    },
+  },
+
   image: {
     provider: 'static',
     domains: [
@@ -130,7 +150,6 @@ const nuxtConfig = {
     '@nuxtjs/style-resources',
     '@nuxtjs/dayjs',
     '@nuxtjs/robots',
-    'nuxt-fontawesome',
     'nuxt-winston-log',
   ],
 
@@ -148,28 +167,6 @@ const nuxtConfig = {
       UserAgent: '*',
       Disallow: config.isSeoIndexingEnabled ? '' : '/',
     }
-  },
-
-  fontawesome: {
-    component: 'fa',
-    imports: [
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: [
-          'faAngleDown',
-          'faAngleUp',
-          'faAngleRight',
-          'faArrowRight',
-          'faCalendar',
-          'faCheck',
-          'faCircle',
-          'faCog',
-          'faExclamationTriangle',
-          'faHome',
-          'faPlayCircle',
-        ],
-      },
-    ],
   },
 
   winstonLog: {

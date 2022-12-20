@@ -37,12 +37,11 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/vue-fontawesome": "^2.0.6",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/i18n": "^7.1.0",
     "@nuxtjs/prismic": "^1.4.2",
     "chart.js": "^2.9.4",
     "nuxt": "^2.15.1",
-    "nuxt-fontawesome": "0.4.0",
     "nuxt-winston-log": "^1.2.0",
     "postcss-cli": "^9.0.1",
     "vue-burger-menu": "2.0.5",
