@@ -70,7 +70,7 @@
 
 <script>
 export default {
-  name: 'Article',
+  name: 'SlicesArticle',
   props: {
     slice: {
       type: Object,
