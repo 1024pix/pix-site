@@ -150,7 +150,7 @@ const nuxtConfig = {
     }
   },
 
-  fontAwesome: {
+  fontawesome: {
     component: 'fa',
     imports: [
       {
