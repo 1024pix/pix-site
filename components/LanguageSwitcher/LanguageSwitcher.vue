@@ -48,12 +48,7 @@
           </button>
           <a
             v-else-if="option.target"
-            :href="
-              getAbsoluteUrlIfSwitchWebsite({
-                relativeTarget: option.target,
-                targetDomain: option.domain,
-              })
-            "
+            :href="getIndexUrl(option)"
           >
             <img
               class="language-switcher__img"
@@ -93,14 +88,7 @@
                 child.lang === currentLocaleCode,
             }"
           >
-            <a
-              :href="
-                getAbsoluteUrlIfSwitchWebsite({
-                  relativeTarget: option.target,
-                  targetDomain: option.domain,
-                })
-              "
-            >
+            <a :href="getIndexUrl(child)">
               {{ $t(option.name) }} - {{ $t(child.name) }}
             </a>
             <br />
@@ -114,14 +102,7 @@
                 option.lang === currentLocaleCode,
             }"
           >
-            <a
-              :href="
-                getAbsoluteUrlIfSwitchWebsite({
-                  relativeTarget: option.target,
-                  targetDomain: option.domain,
-                })
-              "
-            >
+            <a :href="getIndexUrl(option)">
               {{ $t(option.name) }}
             </a>
           </span>
@@ -181,7 +162,15 @@ export default {
       this.showMenu = false
       this.showSubMenu = false
     },
-    getAbsoluteUrlIfSwitchWebsite,
+    getIndexUrl(menuItem) {
+      const locale = language.locales.find(
+        (locale) => locale.code === menuItem.lang
+      )
+      return getAbsoluteUrlIfSwitchWebsite({
+        relativeTarget: locale.code === 'fr-fr' ? '/' : `/${locale.code}`,
+        targetDomain: locale.domain,
+      })
+    },
   },
 }
 </script>

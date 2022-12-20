@@ -4,14 +4,17 @@ export const availableLocales = [
   {
     code: 'fr',
     file: 'fr.js',
+    domain: config.domain.international,
   },
   {
     code: 'en-gb',
     file: 'en-gb.js',
+    domain: config.domain.international,
   },
   {
     code: 'fr-fr',
     file: 'fr-fr.js',
+    domain: config.domain.french,
   },
 ]
 export const language = {
@@ -27,7 +30,6 @@ export const language = {
           lang: 'fr',
           icon: 'icon',
           target: '/fr',
-          domain: config.domain.international,
           sub: null,
         },
         {
@@ -35,7 +37,6 @@ export const language = {
           lang: 'en-gb',
           icon: 'icon',
           target: '/en-gb',
-          domain: config.domain.international,
           sub: null,
         },
       ],
@@ -45,7 +46,6 @@ export const language = {
       lang: 'fr-fr',
       icon: 'flag-fr.svg',
       target: '/',
-      domain: config.domain.french,
       sub: null,
     },
   ],

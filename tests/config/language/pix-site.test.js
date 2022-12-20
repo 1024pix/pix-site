@@ -40,7 +40,11 @@ describe('#getLocalesForCurrentSite', () => {
       },
     ]
 
-    expect(getLocalesForCurrentSite()).toEqual(expectedLocales)
+    expect(
+      getLocalesForCurrentSite().map(({ code, file }) => {
+        return { code, file }
+      })
+    ).toEqual(expectedLocales)
   })
 })
 
@@ -59,7 +63,6 @@ describe('#language', () => {
             lang: 'fr',
             icon: 'icon',
             target: '/fr',
-            domain: 'pix.org',
             sub: null,
           },
           {
@@ -67,7 +70,6 @@ describe('#language', () => {
             lang: 'en-gb',
             icon: 'icon',
             target: '/en-gb',
-            domain: 'pix.org',
             sub: null,
           },
         ],
@@ -77,7 +79,6 @@ describe('#language', () => {
         lang: 'fr-fr',
         icon: 'flag-fr.svg',
         target: '/',
-        domain: 'pix.fr',
         sub: null,
       },
       {
@@ -85,7 +86,6 @@ describe('#language', () => {
         lang: 'fr-be',
         icon: 'flag-be.svg',
         target: '/fr-be',
-        domain: 'pix.org',
         sub: 'fwb',
       },
     ]

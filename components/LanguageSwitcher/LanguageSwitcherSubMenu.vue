@@ -12,14 +12,7 @@
       }"
     >
       <div class="language-switcher__lang">
-        <a
-          :href="
-            getAbsoluteUrlIfSwitchWebsite({
-              relativeTarget: availableLanguage.target,
-              targetDomain: availableLanguage.domain,
-            })
-          "
-        >
+        <a :href="getIndexUrl(availableLanguage)">
           {{ $t(availableLanguage.name) }}
         </a>
       </div>
@@ -29,6 +22,7 @@
 
 <script>
 import { getAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { language } from '~/config/language'
 
 export default {
   name: 'LanguageSwitcherSubMenu',
@@ -59,7 +53,15 @@ export default {
     },
   },
   methods: {
-    getAbsoluteUrlIfSwitchWebsite,
+    getIndexUrl(menuItem) {
+      const locale = language.locales.find(
+        (locale) => locale.code === menuItem.lang
+      )
+      return getAbsoluteUrlIfSwitchWebsite({
+        relativeTarget: `/${locale.code}`,
+        targetDomain: locale.domain,
+      })
+    },
   },
 }
 </script>
