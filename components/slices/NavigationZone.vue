@@ -43,7 +43,7 @@
 const SEPARATOR = Symbol('SEPARATOR')
 
 export default {
-  name: 'NavigationZone',
+  name: 'SlicesNavigationZone',
   props: {
     navigationZoneItems: {
       type: Array,

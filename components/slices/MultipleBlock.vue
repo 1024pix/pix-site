@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: 'MultipleBlock',
+  name: 'SlicesMultipleBlock',
   props: {
     slice: {
       type: Object,

@@ -3,6 +3,7 @@ module.exports = {
   env: {
     browser: true,
     node: true,
+    'jest/globals': true,
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
@@ -13,7 +14,7 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:nuxt/recommended',
   ],
-  plugins: ['prettier'],
+  plugins: ['prettier', 'jest'],
   // add your custom rules here
   rules: {
     'no-console': 'off',

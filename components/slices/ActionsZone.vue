@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'ActionsZone',
+  name: 'SlicesActionsZone',
   props: {
     slice: {
       type: Object,

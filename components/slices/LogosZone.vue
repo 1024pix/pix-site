@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'LogosZone',
+  name: 'SlicesLogosZone',
   props: {
     slice: {
       type: Object,
