@@ -41,7 +41,7 @@
     "@nuxtjs/i18n": "^7.1.0",
     "@nuxtjs/prismic": "^1.4.2",
     "chart.js": "^2.9.4",
-    "nuxt": "^2.15.1",
+    "nuxt": "^3.0.0",
     "nuxt-winston-log": "^1.2.0",
     "postcss-cli": "^9.0.1",
     "vue-burger-menu": "2.0.5",
