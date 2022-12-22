@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v4.0.11 (22/12/2022)
+
+
+### :building_construction: Tech
+- [#448](https://github.com/1024pix/pix-site/pull/448) [TECH] Suppression de warnings au `npm ci`
+- [#447](https://github.com/1024pix/pix-site/pull/447) [TECH] Migrer de nuxt-fontawesome à @nuxtjs/fontawesome
+- [#450](https://github.com/1024pix/pix-site/pull/450) [TECH] Supprimer le template de pull request
+- [#444](https://github.com/1024pix/pix-site/pull/444) [TECH] Améliorer la lisibilité de la configuration des locales.
+
 ## v4.0.10 (20/12/2022)
 
 
