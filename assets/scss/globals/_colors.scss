@@ -20,7 +20,7 @@ $pure-orange: #f45c00;
 
 // gradients
 $blue-gradient: linear-gradient(135deg, #12a3ff 0%, #3d68ff 100%);
-$default-gradient: linear-gradient(135deg, #388aff 0%, #985fff 100%);
+$default-gradient: linear-gradient(91.59deg, #3d68ff 0%, #8845ff 100%);
 $green-gradient: linear-gradient(0deg, #52d987 0%, #1a8c89 100%);
 $pix-orange-gradient: linear-gradient(180deg, #f24645 0%, #f1a141 100%);
 $pix-orga-gradient: linear-gradient(134deg, #00ddff 0%, #0095c0 100%);
@@ -77,4 +77,4 @@ $box-shadow-competence-cards: 0 3px 4px 0 rgba(12, 22, 58, 0.1),
 $box-shadow-competence-cards-hover: 0 7px 14px 0 rgba(12, 22, 58, 0.2),
   0 3px 6px 0 rgba($grey-200, 0.2);
 
-$shadow-xs: 0px 4px 8px rgba(7, 20, 46, 0.08);
+$shadow-xs: 0 4px 8px rgba(7, 20, 46, 0.08);
