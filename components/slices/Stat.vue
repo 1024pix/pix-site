@@ -10,7 +10,7 @@
 import metabaseFetcher from '~/services/metabase-fetcher'
 
 export default {
-  name: 'StatSlice',
+  name: 'SlicesStatSlice',
   props: {
     slice: {
       type: Object,

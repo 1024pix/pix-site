@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'PartnersLogosSlice',
+  name: 'SlicesPartnersLogosSlice',
   props: {
     slice: {
       type: Object,

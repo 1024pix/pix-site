@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'LatestNews',
+  name: 'SlicesLatestNews',
   props: {
     slice: {
       type: Object,

@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'PageSection',
+  name: 'SlicesPageSection',
   props: {
     slice: {
       type: Object,

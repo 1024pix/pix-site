@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: 'PageBanner',
+  name: 'SlicesPageBanner',
   props: {
     slice: {
       type: Object,

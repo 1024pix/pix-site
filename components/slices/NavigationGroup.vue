@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'NavigationGroup',
+  name: 'SlicesNavigationGroup',
   props: {
     slice: {
       type: Object,
