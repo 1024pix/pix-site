@@ -1,32 +1,24 @@
 import { shallowMount, mount } from '@vue/test-utils'
+import { config } from '~/config/environment'
 import LanguageSwitcher from '~/components/LanguageSwitcher/LanguageSwitcher'
 import LanguageSwitcherSubMenu from '~/components/LanguageSwitcher/LanguageSwitcherSubMenu.vue'
 
+jest.mock('~/config/environment', () => ({
+  config: {
+    site: 'pix-site',
+    isPixSite: true,
+    domain: {
+      french: 'example.fr',
+      international: 'example.org',
+    },
+  },
+}))
+
 describe('Component: LanguageSwitcher', () => {
-  let oldDomainFr
-  let oldDomainOrg
-
-  beforeEach(() => {
-    oldDomainFr = process.env.DOMAIN_FR
-    oldDomainOrg = process.env.DOMAIN_ORG
-    process.env.DOMAIN_FR = 'example.fr'
-    process.env.DOMAIN_ORG = 'example.org'
-  })
-
-  afterEach(() => {
-    process.env.DOMAIN_FR = oldDomainFr
-    process.env.DOMAIN_ORG = oldDomainOrg
-  })
-
   describe('when site is pix-pro', () => {
-    let oldSite
     beforeEach(() => {
-      oldSite = process.env.SITE
-      process.env.SITE = 'pix-pro'
-    })
-
-    afterEach(() => {
-      process.env.SITE = oldSite
+      config.site = 'pix-pro'
+      config.isPixSite = false
     })
 
     it('should render the language switcher', () => {
@@ -72,14 +64,9 @@ describe('Component: LanguageSwitcher', () => {
   })
 
   describe('when site is pix-site', () => {
-    let oldSite
     beforeEach(() => {
-      oldSite = process.env.SITE
-      process.env.SITE = 'pix-site'
-    })
-
-    afterEach(() => {
-      process.env.SITE = oldSite
+      config.site = 'pix-site'
+      config.isPixSite = true
     })
 
     it('should render the language switcher correctly for pix-site', async () => {

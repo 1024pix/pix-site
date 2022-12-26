@@ -5,6 +5,10 @@ jest.mock('~/config/environment', () => {
   return {
     config: {
       isFrenchDomain: true,
+      domain: {
+        french: 'pix.fr',
+        international: 'pix.org',
+      },
     },
   }
 })
@@ -37,7 +41,11 @@ describe('#getLocalesForCurrentSite', () => {
       },
     ]
 
-    expect(getLocalesForCurrentSite()).toEqual(expectedLocales)
+    expect(
+      getLocalesForCurrentSite().map(({ code, file }) => {
+        return { code, file }
+      })
+    ).toEqual(expectedLocales)
   })
 })
 
@@ -48,24 +56,19 @@ describe('#language', () => {
       {
         name: 'international',
         icon: 'globe-europe.svg',
-        target: null,
-        sub: null,
+        subtitle: null,
         children: [
           {
             name: 'french',
             lang: 'fr',
             icon: 'icon',
-            target: '/fr',
-            isOnPixOrg: true,
-            sub: null,
+            subtitle: null,
           },
           {
             name: 'english',
             lang: 'en-gb',
             icon: 'icon',
-            target: '/en-gb',
-            isOnPixOrg: true,
-            sub: null,
+            subtitle: null,
           },
         ],
       },
@@ -73,9 +76,7 @@ describe('#language', () => {
         name: 'france',
         lang: 'fr-fr',
         icon: 'flag-fr.svg',
-        target: '/',
-        isOnPixOrg: false,
-        sub: null,
+        subtitle: null,
       },
     ]
 

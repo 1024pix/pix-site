@@ -29,33 +29,31 @@
         }"
       >
         <div class="language-switcher__lang">
-          <button
-            v-if="!option.target"
-            class="language-switcher-sub-menu-button"
-            @click.stop.prevent="toggleSubMenu()"
-          >
-            <img
-              class="language-switcher__img"
-              :src="'/images/' + option.icon"
-              alt=""
+          <template v-if="option.children">
+            <button
+              v-if="option.children"
+              class="language-switcher-sub-menu-button"
+              @click.stop.prevent="toggleSubMenu()"
+            >
+              <img
+                class="language-switcher__img"
+                :src="'/images/' + option.icon"
+                alt=""
+              />
+              <div class="lang__text">{{ $t(option.name) }}</div>
+              <fa
+                icon="angle-right"
+                class="language-switcher__icon language-switcher-button__angle"
+              />
+            </button>
+            <language-switcher-sub-menu
+              :show-sub-menu="showSubMenu"
+              :available-languages="option.children"
+              :current-locale-code="currentLocaleCode"
+              :selected-menu="selectedMenu"
             />
-            <div class="lang__text">{{ $t(option.name) }}</div>
-            <fa
-              v-if="!option.target"
-              icon="angle-right"
-              class="language-switcher__icon language-switcher-button__angle"
-            />
-          </button>
-          <a
-            v-else-if="option.target"
-            :href="
-              useGetAbsoluteUrlIfSwitchWebsite(
-                option.target,
-                option.isOnPixOrg,
-                selectedMenu
-              )
-            "
-          >
+          </template>
+          <a v-else-if="!option.children" :href="getIndexUrl(option)">
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -63,20 +61,12 @@
             />
             <div class="lang__text">
               <div>{{ $t(option.name) }}</div>
-              <div v-if="option.sub" class="language-switcher__subtitle">
-                {{ $t(option.sub) }}
+              <div v-if="option.subtitle" class="language-switcher__subtitle">
+                {{ $t(option.subtitle) }}
               </div>
             </div>
           </a>
         </div>
-        <language-switcher-sub-menu
-          :show-sub-menu="showSubMenu"
-          :available-languages="option.children"
-          :target="option.target"
-          :is-on-pix-org="option.isOnPixOrg"
-          :current-locale-code="currentLocaleCode"
-          :selected-menu="selectedMenu"
-        />
       </li>
     </ul>
     <span class="separator" />
@@ -84,7 +74,7 @@
   <div v-else-if="type === 'only-text'">
     <ul class="language-switcher-burger-menu">
       <li v-for="option in languages.menu" :key="option.key">
-        <template v-if="!option.target">
+        <template v-if="option.children">
           <span
             v-for="child in option.children"
             :key="child.name"
@@ -94,21 +84,13 @@
                 child.lang === currentLocaleCode,
             }"
           >
-            <a
-              :href="
-                useGetAbsoluteUrlIfSwitchWebsite(
-                  child.target,
-                  child.isOnPixOrg,
-                  selectedMenu
-                )
-              "
-            >
+            <a :href="getIndexUrl(child)">
               {{ $t(option.name) }} - {{ $t(child.name) }}
             </a>
             <br />
           </span>
         </template>
-        <template v-if="option.target">
+        <template v-if="!option.children">
           <span
             :class="{
               'language-switcher-burger-menu__lang': true,
@@ -116,15 +98,7 @@
                 option.lang === currentLocaleCode,
             }"
           >
-            <a
-              :href="
-                useGetAbsoluteUrlIfSwitchWebsite(
-                  option.target,
-                  option.isOnPixOrg,
-                  selectedMenu
-                )
-              "
-            >
+            <a :href="getIndexUrl(option)">
               {{ $t(option.name) }}
             </a>
           </span>
@@ -136,7 +110,7 @@
 
 <script>
 import { language } from '~/config/language'
-import { useGetAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
 
 export default {
   name: 'LanguageSwitcher',
@@ -184,7 +158,15 @@ export default {
       this.showMenu = false
       this.showSubMenu = false
     },
-    useGetAbsoluteUrlIfSwitchWebsite,
+    getIndexUrl(menuItem) {
+      const locale = language.locales.find(
+        (locale) => locale.code === menuItem.lang
+      )
+      return getAbsoluteUrlIfSwitchWebsite({
+        relativeTarget: locale.code === 'fr-fr' ? '/' : `/${locale.code}`,
+        targetDomain: locale.domain,
+      })
+    },
   },
 }
 </script>

@@ -1,8 +1,5 @@
 <template>
-  <ul
-    v-if="!target && showSubMenu"
-    class="language-switcher__dropdown-menu child"
-  >
+  <ul v-if="showSubMenu" class="language-switcher__dropdown-menu child">
     <li
       v-for="availableLanguage in availableLanguages"
       :key="availableLanguage.key"
@@ -12,15 +9,7 @@
       }"
     >
       <div class="language-switcher__lang">
-        <a
-          :href="
-            useGetAbsoluteUrlIfSwitchWebsite(
-              availableLanguage.target,
-              availableLanguage.isOnPixOrg,
-              selectedMenu
-            )
-          "
-        >
+        <a :href="getIndexUrl(availableLanguage)">
           {{ $t(availableLanguage.name) }}
         </a>
       </div>
@@ -29,7 +18,8 @@
 </template>
 
 <script>
-import { useGetAbsoluteUrlIfSwitchWebsite } from '~/services/use-get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
+import { language } from '~/config/language'
 
 export default {
   name: 'LanguageSwitcherSubMenu',
@@ -42,14 +32,6 @@ export default {
       type: Array,
       default: null,
     },
-    target: {
-      type: String,
-      default: '',
-    },
-    isOnPixOrg: {
-      type: Boolean,
-      default: false,
-    },
     currentLocaleCode: {
       type: String,
       default: 'fr-fr',
@@ -60,7 +42,15 @@ export default {
     },
   },
   methods: {
-    useGetAbsoluteUrlIfSwitchWebsite,
+    getIndexUrl(menuItem) {
+      const locale = language.locales.find(
+        (locale) => locale.code === menuItem.lang
+      )
+      return getAbsoluteUrlIfSwitchWebsite({
+        relativeTarget: `/${locale.code}`,
+        targetDomain: locale.domain,
+      })
+    },
   },
 }
 </script>

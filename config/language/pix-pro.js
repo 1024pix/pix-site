@@ -4,14 +4,17 @@ export const availableLocales = [
   {
     code: 'fr',
     file: 'fr.js',
+    domain: config.domain.international,
   },
   {
     code: 'en-gb',
     file: 'en-gb.js',
+    domain: config.domain.international,
   },
   {
     code: 'fr-fr',
     file: 'fr-fr.js',
+    domain: config.domain.french,
   },
 ]
 export const language = {
@@ -19,24 +22,19 @@ export const language = {
     {
       name: 'international',
       icon: 'globe-europe.svg',
-      target: null,
-      sub: null,
+      subtitle: null,
       children: [
         {
           name: 'french',
           lang: 'fr',
           icon: 'icon',
-          target: '/fr',
-          isOnPixOrg: true,
-          sub: null,
+          subtitle: null,
         },
         {
           name: 'english',
           lang: 'en-gb',
           icon: 'icon',
-          target: '/en-gb',
-          isOnPixOrg: true,
-          sub: null,
+          subtitle: null,
         },
       ],
     },
@@ -44,9 +42,7 @@ export const language = {
       name: 'france',
       lang: 'fr-fr',
       icon: 'flag-fr.svg',
-      target: '/',
-      isOnPixOrg: false,
-      sub: null,
+      subtitle: null,
     },
   ],
   locales: availableLocales,
