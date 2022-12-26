@@ -18,7 +18,7 @@ export function getAbsoluteUrlIfSwitchWebsite({
 }
 
 function _isOnCurrentDomain(targetUrl, currentUrl) {
-  return targetUrl.hostname === currentUrl.hostname
+  return targetUrl.origin === currentUrl.origin
 }
 
 function getBaseUrl(domain, currentLocation = document.location) {
