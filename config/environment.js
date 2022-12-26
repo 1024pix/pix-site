@@ -3,7 +3,7 @@ import { SITES_PRISMIC_TAGS } from '../services/available-sites'
 export const config = {
   site: process.env.SITE,
   siteDomain: process.env.SITE_DOMAIN,
-  isFrenchDomain: process.env.SITE_DOMAIN === 'pix.fr',
+  isFrenchDomain: process.env.SITE_DOMAIN === process.env.DOMAIN_FR,
   isPixSite: process.env.SITE === SITES_PRISMIC_TAGS.PIX_SITE,
   isSeoIndexingEnabled: process.env.SEO_ENABLE_INDEXING === 'true',
   prismic: {
