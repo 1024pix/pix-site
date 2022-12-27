@@ -29,7 +29,7 @@ describe('NavigationZone slice', () => {
     beforeEach(() => {
       component = shallowMount(NavigationZone, {
         mocks: { $route },
-        stubs: { 'pix-link': true, fa: true, 'navigation-dropdown': true },
+        stubs: { 'pix-prismic-link': true, fa: true, 'navigation-dropdown': true },
         propsData: {
           navigationZoneItems: [
             {

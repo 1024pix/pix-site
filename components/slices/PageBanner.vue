@@ -15,14 +15,14 @@
         <slot></slot>
         <div class="banner__button-group">
           <div v-for="(link, index) in links" :key="`item-${index}`">
-            <pix-link
+            <pix-prismic-link
               v-if="!isVideo(link)"
               :field="link.banner_link_url"
               class="button"
               :class="videoClass(link)"
             >
               {{ link.banner_link_text }}
-            </pix-link>
+            </pix-prismic-link>
             <template v-if="isVideo(link)">
               <button
                 class="button button-video"

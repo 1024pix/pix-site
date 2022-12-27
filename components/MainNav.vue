@@ -1,6 +1,6 @@
 <template>
   <div class="navigation">
-    <pix-link
+    <pix-prismic-link
       v-for="(item, index) in mainNavItems"
       :key="item.id"
       :field="item.primary.link"
@@ -15,7 +15,7 @@
       ]"
     >
       {{ $prismic.asText(item.primary.title) }}
-    </pix-link>
+    </pix-prismic-link>
   </div>
 </template>
 

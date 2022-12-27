@@ -1,7 +1,7 @@
 <template>
   <div class="btn-group navigation-dropdown">
     <ul class="dropdown-menu">
-      <pix-link
+      <pix-prismic-link
         v-for="option in options"
         :key="option.key"
         :field="option.link"
@@ -9,7 +9,7 @@
         <li>
           {{ $prismic.asText(option.name) }}
         </li>
-      </pix-link>
+      </pix-prismic-link>
     </ul>
   </div>
 </template>

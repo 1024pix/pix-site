@@ -37,7 +37,7 @@ const nuxtConfig = {
     port: process.env.PORT || 5000,
   },
   env: {
-    // Nuxt env are required to be usable client-side (e.g.: PixLink)
+    // Nuxt env are required to be usable client-side (e.g.: PixPrismicLink)
     SITE: process.env.SITE,
     DOMAIN_ORG: process.env.DOMAIN_ORG,
     DOMAIN_FR: process.env.DOMAIN_FR,

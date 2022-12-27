@@ -18,13 +18,13 @@
         :uid="item.uid"
       />
     </ul>
-    <pix-link
+    <pix-prismic-link
       class="latest-news__link-to"
       :field="slice.primary.latest_news_redirection_link_url"
     >
       <fa icon="arrow-right" />
       {{ slice.primary.latest_news_redirection_link_text }}
-    </pix-link>
+    </pix-prismic-link>
   </section>
 </template>
 

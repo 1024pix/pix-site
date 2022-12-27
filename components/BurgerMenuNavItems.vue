@@ -10,9 +10,9 @@
           : 'burger-menu-nav-items__link--regular-link'
       "
     >
-      <pix-link :field="item.link">
+      <pix-prismic-link :field="item.link">
         {{ $prismic.asText(item.name) }}
-      </pix-link>
+      </pix-prismic-link>
     </li>
   </ul>
 </template>

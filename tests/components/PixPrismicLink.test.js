@@ -2,10 +2,10 @@ import {
   removeHostIfCurrentSite,
   getPathLocale,
   isCurrentLocaleURL,
-} from '~/components/PixLink'
+} from '~/components/PixPrismicLink'
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
 
-describe('Component: PixLink', () => {
+describe('Component: PixPrismicLink', () => {
   describe('#removeHostIfCurrentSite', () => {
     let locale
 

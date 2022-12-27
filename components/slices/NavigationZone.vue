@@ -30,9 +30,13 @@
             >
             </navigation-dropdown>
           </div>
-          <pix-link v-else :field="menuItem.link" class="navigation-zone__item">
+          <pix-prismic-link
+            v-else
+            :field="menuItem.link"
+            class="navigation-zone__item"
+          >
             {{ $prismic.asText(menuItem.name) }}
-          </pix-link>
+          </pix-prismic-link>
         </template>
       </li>
     </ul>

@@ -22,7 +22,7 @@
           class="footer-left__social-media"
         >
           <li>
-            <pix-link
+            <pix-prismic-link
               v-for="(socialMedia, socialMediaIndex) in slice.items"
               :key="`socialMedia-${socialMediaIndex}`"
               :field="socialMedia.socialmedia_url"
@@ -33,7 +33,7 @@
                 :has-fixed-dimensions="true"
                 :max-height="30"
               />
-            </pix-link>
+            </pix-prismic-link>
           </li>
         </ul>
       </div>

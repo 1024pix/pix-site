@@ -1,7 +1,7 @@
 <template>
-  <pix-link :field="link" class="cta-button">
+  <pix-prismic-link :field="link" class="cta-button">
     {{ name }}
-  </pix-link>
+  </pix-prismic-link>
 </template>
 
 <script>
