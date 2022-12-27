@@ -1,5 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils'
 import { config } from '~/config/environment'
+import PixLink from '~/components/PixLink'
 import LanguageSwitcher from '~/components/LanguageSwitcher/LanguageSwitcher'
 import LanguageSwitcherSubMenu from '~/components/LanguageSwitcher/LanguageSwitcherSubMenu.vue'
 
@@ -13,6 +14,8 @@ jest.mock('~/config/environment', () => ({
     },
   },
 }))
+
+LanguageSwitcherSubMenu.components = { 'pix-link': PixLink }
 
 describe('Component: LanguageSwitcher', () => {
   describe('when site is pix-pro', () => {
@@ -51,7 +54,7 @@ describe('Component: LanguageSwitcher', () => {
 
       // when
       const wrapper = mount(LanguageSwitcher, {
-        components: { LanguageSwitcherSubMenu },
+        components: { LanguageSwitcherSubMenu, PixLink },
         mocks: { $t, $i18n },
         stubs: { fa: true },
       })
@@ -76,7 +79,7 @@ describe('Component: LanguageSwitcher', () => {
 
       // when
       const wrapper = mount(LanguageSwitcher, {
-        components: { LanguageSwitcherSubMenu },
+        components: { LanguageSwitcherSubMenu, PixLink },
         mocks: { $t, $i18n },
         stubs: { fa: true },
       })

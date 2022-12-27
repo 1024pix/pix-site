@@ -9,9 +9,9 @@
       }"
     >
       <div class="language-switcher__lang">
-        <a :href="getIndexUrl(availableLanguage)">
+        <pix-link :href="getIndexUrl(availableLanguage)">
           {{ $t(availableLanguage.name) }}
-        </a>
+        </pix-link>
       </div>
     </li>
   </ul>
