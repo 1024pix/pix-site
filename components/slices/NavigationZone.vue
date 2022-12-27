@@ -51,7 +51,7 @@ export default {
   props: {
     navigationZoneItems: {
       type: Array,
-      default: null,
+      default: () => [],
     },
   },
   data() {
@@ -62,6 +62,10 @@ export default {
   },
   computed: {
     navigationLinks() {
+      if (this.navigationZoneItems.length === 0) {
+        return null
+      }
+
       return this.navigationZoneItems
         .map(({ items: navItems }) =>
           navItems.reduce((navGroup, navItem) => {

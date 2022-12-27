@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       socialMediasHoverMap: {},
-      usedMainFooter: null,
+      usedMainFooter: [],
     }
   },
   async fetch() {
