@@ -75,6 +75,9 @@ export default {
       )
     },
   },
+  watch: {
+    '$i18n.locale': '$fetch',
+  },
 }
 </script>
 

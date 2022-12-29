@@ -29,6 +29,9 @@ export default {
 
     this.hotNews = hotNews?.data?.description
   },
+  watch: {
+    '$i18n.locale': '$fetch',
+  },
   methods: {
     closeBanner() {
       this.isOpen = false
