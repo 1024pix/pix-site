@@ -11,9 +11,9 @@
           :key="`link-${index}`"
           class="navigation-group-link"
         >
-          <pix-link :field="link.link_url">
+          <pix-prismic-link :field="link.link_url">
             <prismic-rich-text :field="link.link_name" />
-          </pix-link>
+          </pix-prismic-link>
         </li>
       </ul>
     </div>

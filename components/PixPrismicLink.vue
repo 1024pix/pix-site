@@ -9,7 +9,7 @@ import prismicDOM from 'prismic-dom'
 import { getCurrentSiteHost } from '~/services/get-current-site-host'
 
 export default {
-  name: 'PixLink',
+  name: 'PixPrismicLink',
   props: {
     field: {
       required: true,

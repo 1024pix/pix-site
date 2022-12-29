@@ -37,13 +37,13 @@
             :link="content.article_link_url"
             :name="content.article_link_name"
           />
-          <pix-link
+          <pix-prismic-link
             v-else-if="content.article_link_type === 'link-to'"
             :field="content.article_link_url"
             class="article-content__link-to"
           >
             <fa icon="arrow-right" /> {{ content.article_link_name }}
-          </pix-link>
+          </pix-prismic-link>
         </div>
       </div>
       <pix-image

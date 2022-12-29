@@ -9,7 +9,7 @@ describe('Slice: Actions Zone', () => {
     component = shallowMount(ActionsZone, {
       stubs: {
         'language-switcher': true,
-        'pix-link': true,
+        'pix-prismic-link': true,
       },
       propsData: {
         slice: {

@@ -3,7 +3,7 @@
     <language-switcher type="with-dropdown" />
     <ul>
       <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
-        <pix-link
+        <pix-prismic-link
           :field="menuItem.link"
           class="actions-zone__item"
           :class="{
@@ -21,7 +21,7 @@
             height="22"
           />
           {{ $prismic.asText(menuItem.name) }}
-        </pix-link>
+        </pix-prismic-link>
       </li>
     </ul>
   </nav>
