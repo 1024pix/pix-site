@@ -1,8 +1,8 @@
 <template>
-  <a class="locale-link" :href="indexForGivenLocale()">
+  <pix-link class="locale-link" :href="indexForGivenLocale()">
     <img :src="'/images/' + locale.icon" alt="" />
     <span class="locale-link__text">{{ locale.name }}</span>
-  </a>
+  </pix-link>
 </template>
 
 <script>

@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       socialMediasHoverMap: {},
-      usedMainFooter: null,
+      usedMainFooter: [],
     }
   },
   async fetch() {
@@ -74,6 +74,9 @@ export default {
         (slice) => slice.slice_type === 'navigation_group'
       )
     },
+  },
+  watch: {
+    '$i18n.locale': '$fetch',
   },
 }
 </script>

@@ -35,7 +35,7 @@ export default {
   name: 'NavigationSliceZone',
   data() {
     return {
-      usedMainNavigation: null,
+      usedMainNavigation: [],
     }
   },
   async fetch() {
@@ -67,15 +67,18 @@ export default {
     burgerMenuLinks() {
       const navigationZone = this.usedMainNavigation.find(
         (slice) => slice.slice_type === 'navigation_zone'
-      )
+      ) || { items: [] }
       const actionsZone = this.usedMainNavigation.find(
         (slice) => slice.slice_type === 'actions_zone'
-      )
+      ) || { items: [] }
       return {
         navigationZone: navigationZone.items,
         actionsZone: actionsZone.items,
       }
     },
+  },
+  watch: {
+    '$i18n.locale': '$fetch',
   },
 }
 </script>

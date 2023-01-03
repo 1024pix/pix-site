@@ -53,7 +53,7 @@
               :selected-menu="selectedMenu"
             />
           </template>
-          <a v-else-if="!option.children" :href="getIndexUrl(option)">
+          <pix-link v-else-if="!option.children" :href="getIndexUrl(option)">
             <img
               class="language-switcher__img"
               :src="'/images/' + option.icon"
@@ -65,7 +65,7 @@
                 {{ $t(option.subtitle) }}
               </div>
             </div>
-          </a>
+          </pix-link>
         </div>
       </li>
     </ul>
@@ -84,9 +84,9 @@
                 child.lang === currentLocaleCode,
             }"
           >
-            <a :href="getIndexUrl(child)">
+            <pix-link :href="getIndexUrl(child)">
               {{ $t(option.name) }} - {{ $t(child.name) }}
-            </a>
+            </pix-link>
             <br />
           </span>
         </template>
@@ -98,9 +98,9 @@
                 option.lang === currentLocaleCode,
             }"
           >
-            <a :href="getIndexUrl(option)">
+            <pix-link :href="getIndexUrl(option)">
               {{ $t(option.name) }}
-            </a>
+            </pix-link>
           </span>
         </template>
       </li>
