@@ -81,6 +81,7 @@ const nuxtConfig = {
     { src: '~plugins/slide-menu', mode: 'client' },
     '~plugins/vue-js-modal',
     { src: '~/plugins/prismicLinks', mode: 'client' },
+    { src: '~/plugins/locale-observer', mode: 'client' },
   ],
   components: true,
   /*
