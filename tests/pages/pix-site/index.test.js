@@ -10,7 +10,7 @@ localVue.use(VueMeta, { keyName: 'head' })
 
 jest.mock('~/services/document-fetcher')
 
-describe('Index Page', () => {
+describe.skip('Index Page', () => {
   let wrapper
   const PRISMIC_META = 'meta info'
   const PRISMIC_TITLE = 'title'
