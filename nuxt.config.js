@@ -178,7 +178,7 @@ const nuxtConfig = {
   },
 
   router: {
-    middleware: 'current-page-path',
+    middleware: ['current-page-path'],
     linkExactActiveClass: 'current-active-link',
   },
 
