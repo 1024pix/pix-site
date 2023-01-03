@@ -11,10 +11,11 @@ function checkRedirect() {
   local forwardedScheme=$4
   local expectedStatus=$5
   local expectedLocation=$6
+  local cookie=$7
 
   echo -e "\nWhen url = $host$path and X-Forwarded-Host header = $forwardedHost"
   echo -e "   It returns $expectedStatus and location header = $expectedLocation"
-  local response=$(curl -w "%{http_code} %{redirect_url}" -k http://localhost$path -H "Host: $host" -H "X-Forwarded-Host: $forwardedHost" -H "X-Forwarded-Proto: $forwardedScheme" -o /dev/null --silent)
+  local response=$(curl -w "%{http_code} %{redirect_url}" -k http://localhost$path -H "Host: $host" -H "X-Forwarded-Host: $forwardedHost" -H "X-Forwarded-Proto: $forwardedScheme" --cookie "locale=$cookie" -o /dev/null --silent)
 
   if [ "$response" != "$expectedStatus $expectedLocation" ]; then
     echo "${RED}❌ Expected $expectedStatus $expectedLocation for url $host$path, got $response ${RESET}"
@@ -26,6 +27,10 @@ function checkRedirect() {
 
 checkRedirect pix.fr / "" "" 200
 checkRedirect pix.fr /competences "" "" 301 http://pix.fr/competences/
+checkRedirect pix.org / "" "" 200 # redirect to /locale-choice is done by the js
+checkRedirect pix.org / "" "" 302 http://pix.org/fr-be/ "fr-be"
+checkRedirect pix.org / "" "" 302 http://pix.org/fr/ "fr"
+checkRedirect pix.org / "" "" 200 "" "1234-invalid-cookie-value"
 checkRedirect pix.org /_nuxt/LICENSES "" "" 200
 checkRedirect pix.org /images/ "" "" 403
 checkRedirect pix.fr /aide "" "" 302 https://support.pix.org/
