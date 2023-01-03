@@ -180,6 +180,13 @@ const nuxtConfig = {
   router: {
     middleware: ['current-page-path'],
     linkExactActiveClass: 'current-active-link',
+    extendRoutes(routes) {
+      if (config.isFrenchDomain) {
+        return routes.filter(
+          (route) => !(route.name === 'index' && route.path === '/')
+        )
+      }
+    },
   },
 
   /*
