@@ -78,9 +78,9 @@ const nuxtConfig = {
   plugins: [
     '~/plugins/components.js',
     '~/plugins/meta.js',
-    { src: '~plugins/slide-menu', ssr: false },
+    { src: '~plugins/slide-menu', mode: 'client' },
     '~plugins/vue-js-modal',
-    { src: '~/plugins/prismicLinks', ssr: false },
+    { src: '~/plugins/prismicLinks', mode: 'client' },
   ],
   components: true,
   /*
