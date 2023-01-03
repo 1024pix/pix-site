@@ -32,6 +32,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.locale-choice {
+  padding: 3rem 0;
+}
+
 .logo-pix {
   margin: 0 auto 5vh;
   display: block;
@@ -46,7 +50,7 @@ export default {
 .planet {
   margin: 5vh auto 0;
   display: block;
-  min-width: 295px;
+  width: max(16vw, 90%);
 }
 
 @include device-is('large-mobile') {
@@ -56,11 +60,11 @@ export default {
 
   .planet {
     position: absolute;
-    top: 0;
-    right: calc(100% + 3vw);
-    width: 20vw;
+    top: 50%;
+    right: calc(100% + 4vw);
     max-width: unset;
     margin: 0;
+    transform: translateY(-50%);
   }
 }
 </style>
