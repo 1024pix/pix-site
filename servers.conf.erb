@@ -50,10 +50,4 @@ server {
     add_header Cache-Control public;
     add_header ETag "";
   }
-
-  location = / {
-    if ($cookie_locale ~ ^[a-zA-Z-]+$) {
-      return 302 /$cookie_locale/;
-    }
-  }
 }

@@ -13,12 +13,11 @@ const i18nConfigurationForFrenchDomain = {
 }
 
 const i18nConfigurationForInternationalDomain = {
-  defaultLocale: 'fr',
+  defaultLocale: null,
   strategy: 'prefix',
   vueI18n: {
     fallbackLocale: 'fr',
   },
-  rootRedirect: config.isPixSite && !config.isFrenchDomain && 'locale-choice',
 }
 
 const nuxtConfig = {
@@ -179,7 +178,7 @@ const nuxtConfig = {
   },
 
   router: {
-    middleware: ['current-page-path'],
+    middleware: ['current-page-path', 'locale-redirection'],
     linkExactActiveClass: 'current-active-link',
   },
 
