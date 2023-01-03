@@ -18,7 +18,6 @@ const i18nConfigurationForInternationalDomain = {
   vueI18n: {
     fallbackLocale: 'fr',
   },
-  rootRedirect: config.isPixSite && !config.isFrenchDomain && 'locale-choice',
 }
 
 const nuxtConfig = {

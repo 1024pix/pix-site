@@ -1,63 +1,31 @@
-<template>
-  <div class="index">
-    <prismic-custom-slice-zone :slices="slices" />
-  </div>
-</template>
+<template><div></div></template>
 
 <script>
-import { documentFetcher } from '~/services/document-fetcher'
+import { language } from '~/config/language'
 
 export default {
-  name: 'Index',
-  nuxtI18n: {
-    paths: {
-      fr: '/',
-      'fr-fr': '/',
-      'en-gb': '/',
-      'fr-be': '/',
-    },
+  nuxtI18n: false,
+  layout: 'simple',
+  mounted() {
+    const chosenLocale = this.getLocaleFromCookie()
+    const url = chosenLocale ? `/${chosenLocale}/` : '/locale-choice'
+    this.$router.push(url)
   },
-  async asyncData({ app, req, error, currentPagePath }) {
-    try {
-      const document = await documentFetcher(
-        app.$prismic,
-        app.i18n,
-        req
-      ).getPageByUid('index-pix-site')
+  methods: {
+    getLocaleFromCookie() {
+      const localeCookie = document.cookie
+        .split('; ')
+        .find((item) => item.startsWith('locale'))
+      if (!localeCookie) return null
 
-      const latestNewsItems = await documentFetcher(
-        app.$prismic,
-        app.i18n,
-        req
-      ).findNewsItems({ page: 1, pageSize: 3 })
+      const chosenLocale = localeCookie.split('=')[1]
 
-      return {
-        currentPagePath,
-        meta: document.data.meta,
-        document: document.data.body,
-        title: document.data.title[0].text,
-        latestNewsItems,
-      }
-    } catch (e) {
-      console.error({ e })
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
-  head() {
-    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
-    return {
-      title: `${this.title} | Pix`,
-      meta,
-    }
-  },
-  computed: {
-    slices() {
-      return this.document.map((slice, index) => {
-        if (slice.slice_type === 'latest_news') {
-          slice.primary.latest_news_items = this.latestNewsItems
-        }
-        return slice
-      })
+      const currentLocales = language.localesForCurrentSite.map(
+        ({ code }) => code
+      )
+      if (!currentLocales.includes(chosenLocale)) return null
+
+      return chosenLocale
     },
   },
 }
