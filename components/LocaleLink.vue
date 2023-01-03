@@ -1,6 +1,6 @@
 <template>
   <pix-link class="locale-link" :href="indexForGivenLocale()">
-    <img :src="'/images/' + locale.icon" alt="" />
+    <img class="locale-link__icon" :src="'/images/' + locale.icon" alt="" />
     <span class="locale-link__text">{{ locale.name }}</span>
   </pix-link>
 </template>
@@ -32,7 +32,7 @@ export default {
 .locale-link {
   display: flex;
   align-items: center;
-  gap: 16px;
+  min-width: min(18em, 90vw);
   padding: 16px;
   background: rgba(255, 255, 255, 0.8);
   transition: background-color ease-out 320ms;
@@ -53,8 +53,22 @@ export default {
     background: rgba(193, 199, 208, 0.6);
   }
 
+  &__icon {
+    flex-shrink: 0;
+    margin-right: 16px;
+  }
+
   &__text {
+    flex-grow: 1;
+    overflow-x: hidden;
     overflow-wrap: break-word;
+  }
+}
+
+[href$='/fr'],
+[href$='/en-gb'] {
+  .locale-link__icon {
+    filter: brightness(50%);
   }
 }
 </style>
