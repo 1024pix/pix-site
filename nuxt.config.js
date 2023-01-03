@@ -13,7 +13,7 @@ const i18nConfigurationForFrenchDomain = {
 }
 
 const i18nConfigurationForInternationalDomain = {
-  defaultLocale: null,
+  defaultLocale: 'fr',
   strategy: 'prefix',
   vueI18n: {
     fallbackLocale: 'fr',
@@ -178,7 +178,7 @@ const nuxtConfig = {
   },
 
   router: {
-    middleware: ['current-page-path', 'locale-redirection'],
+    middleware: ['current-page-path'],
     linkExactActiveClass: 'current-active-link',
   },
 
