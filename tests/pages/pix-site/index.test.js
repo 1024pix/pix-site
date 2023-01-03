@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
+import Vue from 'vue'
 import Index from '@/pages/pix-site/index.vue'
 
 describe('Index Page', () => {
@@ -19,28 +20,40 @@ describe('Index Page', () => {
 
   describe('#mounted', () => {
     describe('when there is no cookie', () => {
-      test('redirects to /locale-choice page', () => {
+      test('do not redirect', async () => {
         // given
         document.cookie = ''
 
         // when
-        shallowMount(Index, { mocks: { $router } })
+        const wrapper = shallowMount(Index, {
+          mocks: { $router },
+          stubs: ['client-only', 'pix-image', 'locale-link'],
+        })
+        await Vue.nextTick()
 
         // then
-        expect($router.push).toHaveBeenCalledWith('/locale-choice')
+        expect($router.push).not.toHaveBeenCalled()
+        const localeLinks = wrapper.findAll('locale-link-stub')
+        expect(localeLinks.length).toBe(4)
       })
     })
 
     describe('when there is a cookie', () => {
-      test('redirects to locale page', () => {
+      test('redirects to locale page', async () => {
         // given
         document.cookie = 'foo=bar; locale=fr'
 
         // when
-        shallowMount(Index, { mocks: { $router } })
+        const wrapper = shallowMount(Index, {
+          mocks: { $router },
+          stubs: ['client-only', 'pix-image', 'locale-link'],
+        })
+        await Vue.nextTick()
 
         // then
         expect($router.push).toHaveBeenCalledWith('/fr/')
+        const localeLinks = wrapper.findAll('locale-link-stub')
+        expect(localeLinks.length).toBe(0)
       })
     })
   })
@@ -51,7 +64,10 @@ describe('Index Page', () => {
         test('returns no locale', () => {
           // given
           document.cookie = ''
-          const wrapper = shallowMount(Index, { mocks: { $router } })
+          const wrapper = shallowMount(Index, {
+            mocks: { $router },
+            stubs: ['client-only', 'pix-image', 'locale-link'],
+          })
 
           // when
           const chosenLocale = wrapper.vm.getLocaleFromCookie()
@@ -65,7 +81,10 @@ describe('Index Page', () => {
         test('returns the proper locale', () => {
           // given
           document.cookie = 'foo=bar; locale=fr'
-          const wrapper = shallowMount(Index, { mocks: { $router } })
+          const wrapper = shallowMount(Index, {
+            mocks: { $router },
+            stubs: ['client-only', 'pix-image', 'locale-link'],
+          })
 
           // when
           const chosenLocale = wrapper.vm.getLocaleFromCookie()
@@ -79,7 +98,10 @@ describe('Index Page', () => {
         test('cookie value is ignored', () => {
           // given
           document.cookie = 'foo=bar; locale=1234-crafted-cookie'
-          const wrapper = shallowMount(Index, { mocks: { $router } })
+          const wrapper = shallowMount(Index, {
+            mocks: { $router },
+            stubs: ['client-only', 'pix-image', 'locale-link'],
+          })
 
           // when
           const chosenLocale = wrapper.vm.getLocaleFromCookie()
