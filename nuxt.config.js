@@ -1,5 +1,6 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
+import { filterNuxtPages } from './services/filter-nuxt-pages'
 import { language } from './config/language'
 import { config } from './config/environment'
 import { SITES_PRISMIC_TAGS } from './services/available-sites'
@@ -180,6 +181,9 @@ const nuxtConfig = {
   router: {
     middleware: ['current-page-path'],
     linkExactActiveClass: 'current-active-link',
+    extendRoutes(routes) {
+      return filterNuxtPages(routes, config)
+    },
   },
 
   /*
