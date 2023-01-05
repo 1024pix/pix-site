@@ -14,7 +14,7 @@
     "test": "tests"
   },
   "scripts": {
-    "clean": "rm -rf node_modules .nuxt",
+    "clean": "rm -rf .nuxt dist",
     "build": "SITE_DOMAIN=pix.fr nuxt generate --fail-on-error && SITE_DOMAIN=pix.org nuxt generate --fail-on-error && npm run signal-jira",
     "start": "nuxt start",
     "dev:site": "SITE=pix-site SITE_DOMAIN=pix.fr nuxt",
