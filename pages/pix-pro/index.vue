@@ -16,7 +16,7 @@
 import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
 export default {
-  name: 'LocaleHome',
+  name: 'Index',
   nuxtI18n: {
     paths: {
       fr: '/',
