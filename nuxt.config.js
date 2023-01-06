@@ -14,7 +14,7 @@ const i18nConfigurationForFrenchDomain = {
 }
 
 const i18nConfigurationForInternationalDomain = {
-  defaultLocale: 'fr',
+  defaultLocale: config.isPixSite ? null : 'fr',
   strategy: 'prefix',
   vueI18n: {
     fallbackLocale: 'fr',
