@@ -1,101 +1,93 @@
-import VueMeta from 'vue-meta'
-import { getInitialised, createLocalVue } from './utils'
-import { documentFetcher, TAGS } from '~/services/document-fetcher'
-import getMeta, { fallbackDescription } from '~/services/meta-builder'
-
-const localVue = createLocalVue()
-localVue.prototype.$getMeta = getMeta
-
-localVue.use(VueMeta, { keyName: 'head' })
-
-jest.mock('~/services/document-fetcher')
+import { shallowMount } from '@vue/test-utils'
+import Index from '@/pages/pix-site/index.vue'
 
 describe('Index Page', () => {
-  let wrapper
-  const PRISMIC_META = 'meta info'
-  const PRISMIC_TITLE = 'title'
+  let $router
 
-  beforeEach(async () => {
-    documentFetcher.mockReturnValue({
-      getPageByUid: () =>
-        Promise.resolve({
-          data: {
-            id: '',
-            meta: [
-              {
-                slice_type: 'general_card',
-                primary: { description: '', image: {} },
-              },
-            ],
-            type: 'slice_page',
-            body: [{}, {}, {}, {}, {}, {}, {}, {}],
-            title: [{ text: PRISMIC_TITLE }],
-          },
-        }),
-      findNewsItems: () =>
-        Promise.resolve({
-          data: {
-            id: '',
-            meta: '',
-            body: [{}, {}, {}, {}, {}, {}, {}, {}],
-          },
-        }),
+  beforeEach(() => {
+    $router = {
+      push: jest.fn(),
+    }
+
+    let cookieJar = ''
+
+    jest.spyOn(document, 'cookie', 'set').mockImplementation((cookie) => {
+      cookieJar = cookie
     })
-    wrapper = await getInitialised(TAGS.INDEX, {
-      localVue,
-      computed: {
-        $prismic() {
-          return { asText: () => PRISMIC_META }
-        },
-      },
-      stubs: {
-        'prismic-custom-slice-zone': true,
-      },
-    })
+    jest.spyOn(document, 'cookie', 'get').mockImplementation(() => cookieJar)
   })
 
-  afterEach(() => {
-    wrapper.destroy()
-  })
+  describe('#mounted', () => {
+    describe('when there is no cookie', () => {
+      test('redirects to /locale-choice page', () => {
+        // given
+        document.cookie = ''
 
-  test('mounts properly', () => {
-    expect(wrapper.vm).toBeTruthy()
-  })
+        // when
+        shallowMount(Index, { mocks: { $router } })
 
-  test('renders properly', () => {
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-
-  test('gets the correct title', () => {
-    expect(wrapper.vm.$metaInfo.title).toBe(`${PRISMIC_TITLE} | Pix`)
-    expect(wrapper.vm.$data.title).toBe(PRISMIC_TITLE)
-  })
-
-  test('gets the correct meta description from Prismic', () => {
-    expect(findMetaContent('og:description')).toBe(PRISMIC_META)
-    expect(findMetaContent('description')).toBe(PRISMIC_META)
-  })
-
-  test('uses the fallback meta description when not filled in Prismic', async () => {
-    wrapper = await getInitialised(TAGS.INDEX, {
-      localVue,
-      computed: {
-        $prismic() {
-          return { asText: () => '' }
-        },
-      },
-      stubs: {
-        'prismic-custom-slice-zone': true,
-      },
+        // then
+        expect($router.push).toHaveBeenCalledWith('/locale-choice')
+      })
     })
 
-    expect(findMetaContent('og:description')).toBe(fallbackDescription)
-    expect(findMetaContent('description')).toBe(fallbackDescription)
+    describe('when there is a cookie', () => {
+      test('redirects to locale page', () => {
+        // given
+        document.cookie = 'foo=bar; locale=fr'
+
+        // when
+        shallowMount(Index, { mocks: { $router } })
+
+        // then
+        expect($router.push).toHaveBeenCalledWith('/fr/')
+      })
+    })
   })
 
-  function findMetaContent(hid) {
-    const meta = wrapper.vm.$metaInfo.meta.find((m) => m.hid === hid)
-    expect(meta).toBeTruthy()
-    return wrapper.vm.$metaInfo.meta.find((m) => m.hid === hid).content
-  }
+  describe('#methods', () => {
+    describe('#getLocaleFromCookie', () => {
+      describe('when there is no cookie', () => {
+        test('returns no locale', () => {
+          // given
+          document.cookie = ''
+          const wrapper = shallowMount(Index, { mocks: { $router } })
+
+          // when
+          const chosenLocale = wrapper.vm.getLocaleFromCookie()
+
+          // then
+          expect(chosenLocale).toBe(null)
+        })
+      })
+
+      describe('when there is a cookie', () => {
+        test('returns the proper locale', () => {
+          // given
+          document.cookie = 'foo=bar; locale=fr'
+          const wrapper = shallowMount(Index, { mocks: { $router } })
+
+          // when
+          const chosenLocale = wrapper.vm.getLocaleFromCookie()
+
+          // then
+          expect(chosenLocale).toBe('fr')
+        })
+      })
+
+      describe('with a crafted cookie', () => {
+        test('cookie value is ignored', () => {
+          // given
+          document.cookie = 'foo=bar; locale=1234-crafted-cookie'
+          const wrapper = shallowMount(Index, { mocks: { $router } })
+
+          // when
+          const chosenLocale = wrapper.vm.getLocaleFromCookie()
+
+          // then
+          expect(chosenLocale).toBe(null)
+        })
+      })
+    })
+  })
 })

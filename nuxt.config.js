@@ -1,5 +1,6 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
+import { filterNuxtPages } from './services/filter-nuxt-pages'
 import { language } from './config/language'
 import { config } from './config/environment'
 import { SITES_PRISMIC_TAGS } from './services/available-sites'
@@ -18,7 +19,6 @@ const i18nConfigurationForInternationalDomain = {
   vueI18n: {
     fallbackLocale: 'fr',
   },
-  rootRedirect: config.isPixSite && !config.isFrenchDomain && 'locale-choice',
 }
 
 const nuxtConfig = {
@@ -78,9 +78,10 @@ const nuxtConfig = {
   plugins: [
     '~/plugins/components.js',
     '~/plugins/meta.js',
-    { src: '~plugins/slide-menu', ssr: false },
+    { src: '~plugins/slide-menu', mode: 'client' },
     '~plugins/vue-js-modal',
-    { src: '~/plugins/prismicLinks', ssr: false },
+    { src: '~/plugins/prismicLinks', mode: 'client' },
+    { src: '~/plugins/locale-observer', mode: 'client' },
   ],
   components: true,
   /*
@@ -178,8 +179,11 @@ const nuxtConfig = {
   },
 
   router: {
-    middleware: 'current-page-path',
+    middleware: ['current-page-path'],
     linkExactActiveClass: 'current-active-link',
+    extendRoutes(routes) {
+      return filterNuxtPages(routes, config)
+    },
   },
 
   /*
