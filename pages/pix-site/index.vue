@@ -35,7 +35,7 @@ export default {
   mounted() {
     const chosenLocale = this.getLocaleFromCookie()
     if (chosenLocale) {
-      return this.$router.push(`/${chosenLocale}/`)
+      return this.$router.replace(`/${chosenLocale}/`)
     }
     this.shouldDisplayLocaleChoice = true
   },

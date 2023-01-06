@@ -7,7 +7,7 @@ describe('Index Page', () => {
 
   beforeEach(() => {
     $router = {
-      push: jest.fn(),
+      replace: jest.fn(),
     }
 
     let cookieJar = ''
@@ -32,7 +32,7 @@ describe('Index Page', () => {
         await Vue.nextTick()
 
         // then
-        expect($router.push).not.toHaveBeenCalled()
+        expect($router.replace).not.toHaveBeenCalled()
         const localeLinks = wrapper.findAll('locale-link-stub')
         expect(localeLinks.length).toBe(4)
       })
@@ -51,7 +51,7 @@ describe('Index Page', () => {
         await Vue.nextTick()
 
         // then
-        expect($router.push).toHaveBeenCalledWith('/fr/')
+        expect($router.replace).toHaveBeenCalledWith('/fr/')
         const localeLinks = wrapper.findAll('locale-link-stub')
         expect(localeLinks.length).toBe(0)
       })
