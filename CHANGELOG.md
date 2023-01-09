@@ -1,5 +1,27 @@
 # pix-site Changelog
 
+## v4.1.0 (09/01/2023)
+
+
+### :rocket: Amélioration
+- [#459](https://github.com/1024pix/pix-site/pull/459) [FEATURE] Ne pas passer par la page `/locale-choice` pour choisir sa locale
+- [#455](https://github.com/1024pix/pix-site/pull/455) [FEATURE] Enregistrer et utiliser la préférence de locale de l'utilisateur (PIX-6506).
+- [#456](https://github.com/1024pix/pix-site/pull/456) [FEATURE] Fluidifier la navigation de l'utilisateur (PIX-6705) 
+- [#445](https://github.com/1024pix/pix-site/pull/445) [FEATURE] Ajouter une page d'accueil proposant à l'utilisateur de choisir sa langue (PIX-6433).
+
+### :building_construction: Tech
+- [#460](https://github.com/1024pix/pix-site/pull/460) [TECH] Rendre le script npm run clean vraiment utile en supprimant le répertoire dist et pas node_modules
+- [#452](https://github.com/1024pix/pix-site/pull/452) [TECH] Ne plus ajouter de lien vers la review-app dans la pull-request
+- [#449](https://github.com/1024pix/pix-site/pull/449) [TECH] Refactorer le language switcher (PIX-6604).
+- [#442](https://github.com/1024pix/pix-site/pull/442) [TECH] Ajouter des tests sur le language switcher
+
+### :bug: Correction
+- [#463](https://github.com/1024pix/pix-site/pull/463) [BUGFIX] Stocker la préférence de locale "International Français"
+- [#462](https://github.com/1024pix/pix-site/pull/462) [BUGFIX] Fermer le Burger Menu à la navigation
+
+### :coffee: Autre
+- [#457](https://github.com/1024pix/pix-site/pull/457) [FIX] Correction de style sur la page de choix de locale
+
 ## v4.0.11 (22/12/2022)
 
 
