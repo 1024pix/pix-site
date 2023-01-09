@@ -21,14 +21,14 @@
 </template>
 
 <script>
-import { language } from '~/config/language'
+import { localization } from '~/config/localization'
 
 export default {
   layout: 'empty',
   nuxtI18n: false,
   data() {
     return {
-      locales: language.locales,
+      locales: localization.locales,
       shouldDisplayLocaleChoice: false,
     }
   },
@@ -48,7 +48,7 @@ export default {
 
       const chosenLocale = localeCookie.split('=')[1]
 
-      const currentLocales = language.localesForCurrentSite.map(
+      const currentLocales = localization.localesForCurrentSite.map(
         ({ code }) => code
       )
       if (!currentLocales.includes(chosenLocale)) return null

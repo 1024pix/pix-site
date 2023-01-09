@@ -31,7 +31,7 @@ export const availableLocales = [
   },
 ]
 
-export const language = {
+export const localization = {
   menu: [
     {
       name: 'international',

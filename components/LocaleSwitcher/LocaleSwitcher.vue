@@ -21,7 +21,7 @@
     </button>
     <ul v-if="showMenu" class="locale-switcher__dropdown-menu">
       <li
-        v-for="(option, index) in languages.menu"
+        v-for="(option, index) in menu"
         :key="`locale-switcher-${index}`"
         :class="{
           'locale-switcher__dropdown-menu--active':
@@ -48,7 +48,7 @@
             </button>
             <locale-switcher-sub-menu
               :show-sub-menu="showSubMenu"
-              :available-languages="option.children"
+              :available-locales="option.children"
               :current-locale-code="currentLocaleCode"
               :selected-menu="selectedMenu"
             />
@@ -73,7 +73,7 @@
   </div>
   <div v-else-if="type === 'only-text'">
     <ul class="locale-switcher-burger-menu">
-      <li v-for="option in languages.menu" :key="option.key">
+      <li v-for="option in menu" :key="option.key">
         <template v-if="option.children">
           <span
             v-for="child in option.children"
@@ -109,7 +109,7 @@
 </template>
 
 <script>
-import { language } from '~/config/language'
+import { localization } from '~/config/localization'
 import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
 
 export default {
@@ -121,11 +121,10 @@ export default {
     },
   },
   data() {
-    const languages = language
     return {
       showMenu: false,
       showSubMenu: false,
-      languages,
+      menu: localization.menu,
     }
   },
   computed: {
@@ -133,7 +132,7 @@ export default {
       return this.$i18n.locale || this.$i18n.defaultLocale
     },
     selectedMenu() {
-      return this.languages.menu
+      return localization.menu
         .flatMap((menuItem) => menuItem.children ?? menuItem)
         .find((locale) => locale.localeCode === this.currentLocaleCode)
     },
@@ -159,7 +158,7 @@ export default {
       this.showSubMenu = false
     },
     getIndexUrl(menuItem) {
-      const locale = language.locales.find(
+      const locale = localization.locales.find(
         (locale) => locale.code === menuItem.localeCode
       )
       return getAbsoluteUrlIfSwitchWebsite({

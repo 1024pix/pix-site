@@ -1,5 +1,5 @@
 import Prismic from '@prismicio/client'
-import { language } from '../config/language'
+import { localization } from '../config/localization'
 import { config } from '../config/environment'
 import { linkResolver } from '../services/link-resolver'
 
@@ -30,7 +30,9 @@ async function getRoutesInPage(api, page) {
     }
   )
 
-  const localesToBuild = language.localesForCurrentSite.map(({ code }) => code)
+  const localesToBuild = localization.localesForCurrentSite.map(
+    ({ code }) => code
+  )
   const routes = results
     .filter(({ uid }) => Boolean(uid))
     .filter(({ lang }) => localesToBuild.includes(lang))

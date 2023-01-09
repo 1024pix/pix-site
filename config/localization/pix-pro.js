@@ -17,7 +17,7 @@ export const availableLocales = [
     domain: config.domain.french,
   },
 ]
-export const language = {
+export const localization = {
   menu: [
     {
       name: 'international',
