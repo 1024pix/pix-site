@@ -5,7 +5,7 @@
       :key="availableLanguage.key"
       :class="{
         'language-switcher__dropdown-menu--active':
-          availableLanguage.lang === currentLocaleCode,
+          availableLanguage.localeCode === currentLocaleCode,
       }"
     >
       <div class="language-switcher__lang">
@@ -44,7 +44,7 @@ export default {
   methods: {
     getIndexUrl(menuItem) {
       const locale = language.locales.find(
-        (locale) => locale.code === menuItem.lang
+        (locale) => locale.code === menuItem.localeCode
       )
       return getAbsoluteUrlIfSwitchWebsite({
         relativeTarget: `/${locale.code}`,

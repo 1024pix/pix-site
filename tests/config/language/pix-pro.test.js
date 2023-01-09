@@ -60,13 +60,13 @@ describe('#language', () => {
         children: [
           {
             name: 'french',
-            lang: 'fr',
+            localeCode: 'fr',
             icon: 'icon',
             subtitle: null,
           },
           {
             name: 'english',
-            lang: 'en-gb',
+            localeCode: 'en-gb',
             icon: 'icon',
             subtitle: null,
           },
@@ -74,7 +74,7 @@ describe('#language', () => {
       },
       {
         name: 'france',
-        lang: 'fr-fr',
+        localeCode: 'fr-fr',
         icon: 'flag-fr.svg',
         subtitle: null,
       },

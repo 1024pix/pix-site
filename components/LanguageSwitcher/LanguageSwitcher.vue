@@ -25,7 +25,7 @@
         :key="`language-switcher-${index}`"
         :class="{
           'language-switcher__dropdown-menu--active':
-            option.lang === currentLocaleCode,
+            option.localeCode === currentLocaleCode,
         }"
       >
         <div class="language-switcher__lang">
@@ -81,7 +81,7 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                child.lang === currentLocaleCode,
+                child.localeCode === currentLocaleCode,
             }"
           >
             <pix-link :href="getIndexUrl(child)">
@@ -95,7 +95,7 @@
             :class="{
               'language-switcher-burger-menu__lang': true,
               'language-switcher-burger-menu--active':
-                option.lang === currentLocaleCode,
+                option.localeCode === currentLocaleCode,
             }"
           >
             <pix-link :href="getIndexUrl(option)">
@@ -135,7 +135,7 @@ export default {
     selectedMenu() {
       return this.languages.menu
         .flatMap((menuItem) => menuItem.children ?? menuItem)
-        .find((locale) => locale.lang === this.currentLocaleCode)
+        .find((locale) => locale.localeCode === this.currentLocaleCode)
     },
   },
   mounted() {
@@ -160,7 +160,7 @@ export default {
     },
     getIndexUrl(menuItem) {
       const locale = language.locales.find(
-        (locale) => locale.code === menuItem.lang
+        (locale) => locale.code === menuItem.localeCode
       )
       return getAbsoluteUrlIfSwitchWebsite({
         relativeTarget: locale.code === 'fr-fr' ? '/' : `/${locale.code}`,
