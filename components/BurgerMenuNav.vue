@@ -2,7 +2,7 @@
   <div class="burger-menu-nav">
     <burger-menu-nav-items :items="items.navigationZone" />
     <burger-menu-nav-items :items="items.actionsZone" :is-action="true" />
-    <language-switcher type="only-text" />
+    <locale-switcher type="only-text" />
   </div>
 </template>
 

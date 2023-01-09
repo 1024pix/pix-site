@@ -42,7 +42,7 @@ export default {
     'not-supported':
       'Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)',
   },
-  'language-switcher-label': 'Languages',
+  'locale-switcher-label': 'Languages',
   'page-titles': {
     'contact-digital-mediation': 'Request for information | Pix',
     'higher-education-establishment-registration':

@@ -4,11 +4,11 @@ import ActionsZone from '~/components/slices/ActionsZone'
 describe('Slice: Actions Zone', () => {
   let component
 
-  it('it should display the language switcher', () => {
+  it('it should display the locale switcher', () => {
     // given
     component = shallowMount(ActionsZone, {
       stubs: {
-        'language-switcher': true,
+        'locale-switcher': true,
         'pix-prismic-link': true,
       },
       propsData: {
@@ -22,6 +22,6 @@ describe('Slice: Actions Zone', () => {
     const result = component.html()
 
     // then
-    expect(result).toContain('<language-switcher-stub')
+    expect(result).toContain('<locale-switcher-stub')
   })
 })

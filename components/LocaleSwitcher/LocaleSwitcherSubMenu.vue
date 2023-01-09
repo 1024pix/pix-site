@@ -1,14 +1,14 @@
 <template>
-  <ul v-if="showSubMenu" class="language-switcher__dropdown-menu child">
+  <ul v-if="showSubMenu" class="locale-switcher__dropdown-menu child">
     <li
       v-for="availableLanguage in availableLanguages"
       :key="availableLanguage.key"
       :class="{
-        'language-switcher__dropdown-menu--active':
+        'locale-switcher__dropdown-menu--active':
           availableLanguage.localeCode === currentLocaleCode,
       }"
     >
-      <div class="language-switcher__lang">
+      <div class="locale-switcher__locale">
         <pix-link :href="getIndexUrl(availableLanguage)">
           {{ $t(availableLanguage.name) }}
         </pix-link>
@@ -22,7 +22,7 @@ import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-sw
 import { language } from '~/config/language'
 
 export default {
-  name: 'LanguageSwitcherSubMenu',
+  name: 'LocaleSwitcherSubMenu',
   props: {
     showSubMenu: {
       type: Boolean,

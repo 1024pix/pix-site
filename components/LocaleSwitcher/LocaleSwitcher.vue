@@ -1,12 +1,12 @@
 <template>
   <div
     v-if="type === 'with-dropdown'"
-    class="language-switcher"
+    class="locale-switcher"
     @keydown.esc="hideMenu"
   >
     <button
-      class="language-switcher__button"
-      :aria-label="$t('language-switcher-label')"
+      class="locale-switcher__button"
+      :aria-label="$t('locale-switcher-label')"
       aria-haspopup="true"
       :aria-expanded="showMenu.toString()"
       @click.stop.prevent="toggleMenu()"
@@ -15,38 +15,38 @@
       <fa
         v-if="showMenu"
         icon="angle-up"
-        class="language-switcher-button__angle"
+        class="locale-switcher-button__angle"
       />
-      <fa v-else icon="angle-down" class="language-switcher-button__angle" />
+      <fa v-else icon="angle-down" class="locale-switcher-button__angle" />
     </button>
-    <ul v-if="showMenu" class="language-switcher__dropdown-menu">
+    <ul v-if="showMenu" class="locale-switcher__dropdown-menu">
       <li
         v-for="(option, index) in languages.menu"
-        :key="`language-switcher-${index}`"
+        :key="`locale-switcher-${index}`"
         :class="{
-          'language-switcher__dropdown-menu--active':
+          'locale-switcher__dropdown-menu--active':
             option.localeCode === currentLocaleCode,
         }"
       >
-        <div class="language-switcher__lang">
+        <div class="locale-switcher__locale">
           <template v-if="option.children">
             <button
               v-if="option.children"
-              class="language-switcher-sub-menu-button"
+              class="locale-switcher-sub-menu-button"
               @click.stop.prevent="toggleSubMenu()"
             >
               <img
-                class="language-switcher__img"
+                class="locale-switcher__img"
                 :src="'/images/' + option.icon"
                 alt=""
               />
-              <div class="lang__text">{{ $t(option.name) }}</div>
+              <div class="locale__text">{{ $t(option.name) }}</div>
               <fa
                 icon="angle-right"
-                class="language-switcher__icon language-switcher-button__angle"
+                class="locale-switcher__icon locale-switcher-button__angle"
               />
             </button>
-            <language-switcher-sub-menu
+            <locale-switcher-sub-menu
               :show-sub-menu="showSubMenu"
               :available-languages="option.children"
               :current-locale-code="currentLocaleCode"
@@ -55,13 +55,13 @@
           </template>
           <pix-link v-else-if="!option.children" :href="getIndexUrl(option)">
             <img
-              class="language-switcher__img"
+              class="locale-switcher__img"
               :src="'/images/' + option.icon"
               alt=""
             />
-            <div class="lang__text">
+            <div class="locale__text">
               <div>{{ $t(option.name) }}</div>
-              <div v-if="option.subtitle" class="language-switcher__subtitle">
+              <div v-if="option.subtitle" class="locale-switcher__subtitle">
                 {{ $t(option.subtitle) }}
               </div>
             </div>
@@ -72,15 +72,15 @@
     <span class="separator" />
   </div>
   <div v-else-if="type === 'only-text'">
-    <ul class="language-switcher-burger-menu">
+    <ul class="locale-switcher-burger-menu">
       <li v-for="option in languages.menu" :key="option.key">
         <template v-if="option.children">
           <span
             v-for="child in option.children"
             :key="child.name"
             :class="{
-              'language-switcher-burger-menu__lang': true,
-              'language-switcher-burger-menu--active':
+              'locale-switcher-burger-menu__locale': true,
+              'locale-switcher-burger-menu--active':
                 child.localeCode === currentLocaleCode,
             }"
           >
@@ -93,8 +93,8 @@
         <template v-if="!option.children">
           <span
             :class="{
-              'language-switcher-burger-menu__lang': true,
-              'language-switcher-burger-menu--active':
+              'locale-switcher-burger-menu__locale': true,
+              'locale-switcher-burger-menu--active':
                 option.localeCode === currentLocaleCode,
             }"
           >
@@ -113,7 +113,7 @@ import { language } from '~/config/language'
 import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
 
 export default {
-  name: 'LanguageSwitcher',
+  name: 'LocaleSwitcher',
   props: {
     type: {
       type: String,
@@ -172,11 +172,11 @@ export default {
 </script>
 
 <style lang="scss">
-.language-switcher {
+.locale-switcher {
   display: none;
 }
 @include device-is('large-screen') {
-  .language-switcher {
+  .locale-switcher {
     display: flex;
 
     .separator {
@@ -230,7 +230,7 @@ export default {
         box-shadow: 0 0;
         display: block;
         min-height: 25px;
-        .language-switcher__lang > a {
+        .locale-switcher__locale > a {
           line-height: 23px;
         }
       }
@@ -275,7 +275,7 @@ export default {
         }
       }
     }
-    &__lang {
+    &__locale {
       min-height: 25px;
       a,
       span,
@@ -294,7 +294,7 @@ export default {
           color: $blue;
           background: $grey-10;
         }
-        .lang {
+        .locale {
           &__text {
             flex: 1;
           }
@@ -308,7 +308,7 @@ export default {
           color: $blue;
           background: $grey-10;
         }
-        .lang {
+        .locale {
           &__text {
             flex: 1;
             text-align: left;
@@ -329,14 +329,14 @@ export default {
       width: 23px;
     }
   }
-  .language-switcher-button {
+  .locale-switcher-button {
     &__angle {
       margin-left: 8px;
     }
   }
 }
 
-.language-switcher-burger-menu {
+.locale-switcher-burger-menu {
   margin: 0 0 50px 0;
   font-size: 1rem;
   line-height: 1.5rem;
@@ -353,7 +353,7 @@ export default {
     content: '';
     margin: 0;
   }
-  &__lang {
+  &__locale {
     a {
       color: $grey-80;
       &:visited,
