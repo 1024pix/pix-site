@@ -105,7 +105,7 @@ const nuxtConfig = {
     detectBrowserLanguage: false,
     locales: localization.localesForCurrentSite,
     lazy: true,
-    langDir: 'translations/',
+    langDir: 'config/localization/translations/',
     ...(config.isFrenchDomain
       ? i18nConfigurationForFrenchDomain
       : i18nConfigurationForInternationalDomain),

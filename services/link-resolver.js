@@ -1,4 +1,4 @@
-import { translations } from '../translations'
+import { translations } from '../config/localization/translations'
 import { DOCUMENTS, TAGS } from './document-fetcher'
 
 export function linkResolver(doc) {
