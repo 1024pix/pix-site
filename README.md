@@ -77,8 +77,11 @@ En dev, copier le fichier `sample.env` vers un `.env` et remplacer les valeurs.
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:5000
+# serve french site with hot reload at localhost:7000
 $ npm run dev:site
+
+# serve international site with hot reload at localhost:8000
+$ npm run dev:site:org
 
 # build for production and launch server
 $ npm run build:site
@@ -91,8 +94,11 @@ $ npm run start:site
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:5000
+# serve french pro site with hot reload at localhost:7000
 $ npm run dev:pro
+
+# serve international pro site with hot reload at localhost:8000
+$ npm run dev:pro:org
 
 # build for production and launch server
 $ npm run build:pro

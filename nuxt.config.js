@@ -33,7 +33,7 @@ const nuxtConfig = {
     formKeysToMap: process.env.FORM_KEYS_TO_MAP || {},
   },
   server: {
-    port: process.env.PORT || 5000,
+    port: process.env.PORT || 7000,
   },
   env: {
     // Nuxt env are required to be usable client-side (e.g.: PixPrismicLink)
