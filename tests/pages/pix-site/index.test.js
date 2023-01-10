@@ -2,6 +2,16 @@ import { shallowMount } from '@vue/test-utils'
 import Vue from 'vue'
 import Index from '@/pages/pix-site/index.vue'
 
+jest.mock('~/config/environment', () => ({
+  config: {
+    isPixSite: true,
+    domain: {
+      french: 'example.fr',
+      international: 'example.org',
+    },
+  },
+}))
+
 describe('Index Page', () => {
   let $router
 
