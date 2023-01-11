@@ -186,6 +186,8 @@ const nuxtConfig = {
     },
   },
 
+  buildDir: `.nuxt/${process.env.SITE_DOMAIN}`,
+
   /*
    ** Build configuration
    */
