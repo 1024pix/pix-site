@@ -1,61 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component: LanguageSwitcher when site is pix-pro should render the language switcher correctly for pix-pro 1`] = `
+exports[`Component: LocaleSwitcher when site is pix-pro should render the locale switcher correctly for pix-pro 1`] = `
 <div
-  class="language-switcher"
+  class="locale-switcher"
 >
   <button
     aria-expanded="true"
     aria-haspopup="true"
-    class="language-switcher__button"
+    class="locale-switcher__button"
   >
     
     
     
     <fa-stub
-      class="language-switcher-button__angle"
+      class="locale-switcher-button__angle"
       icon="angle-up"
     />
   </button>
    
   <ul
-    class="language-switcher__dropdown-menu"
+    class="locale-switcher__dropdown-menu"
   >
     <li
       class=""
     >
       <div
-        class="language-switcher__lang"
+        class="locale-switcher__locale"
       >
         <button
-          class="language-switcher-sub-menu-button"
+          class="locale-switcher-sub-menu-button"
         >
           <img
             alt=""
-            class="language-switcher__img"
+            class="locale-switcher__img"
             src="/images/globe-europe.svg"
           />
            
           <div
-            class="lang__text"
+            class="locale__text"
           >
             
           </div>
            
           <fa-stub
-            class="language-switcher__icon language-switcher-button__angle"
+            class="locale-switcher__icon locale-switcher-button__angle"
             icon="angle-right"
           />
         </button>
          
         <ul
-          class="language-switcher__dropdown-menu child"
+          class="locale-switcher__dropdown-menu child"
         >
           <li
             class=""
           >
             <div
-              class="language-switcher__lang"
+              class="locale-switcher__locale"
             >
               <a
                 href="http://example.org/fr"
@@ -70,7 +70,7 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
             class=""
           >
             <div
-              class="language-switcher__lang"
+              class="locale-switcher__locale"
             >
               <a
                 href="http://example.org/en-gb"
@@ -85,22 +85,22 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
       </div>
     </li>
     <li
-      class="language-switcher__dropdown-menu--active"
+      class="locale-switcher__dropdown-menu--active"
     >
       <div
-        class="language-switcher__lang"
+        class="locale-switcher__locale"
       >
         <a
           href="http://example.fr/"
         >
           <img
             alt=""
-            class="language-switcher__img"
+            class="locale-switcher__img"
             src="/images/flag-fr.svg"
           />
            
           <div
-            class="lang__text"
+            class="locale__text"
           >
             <div>
               
@@ -115,26 +115,26 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
       class=""
     >
       <div
-        class="language-switcher__lang"
+        class="locale-switcher__locale"
       >
         <a
           href="http://example.org/fr-be"
         >
           <img
             alt=""
-            class="language-switcher__img"
+            class="locale-switcher__img"
             src="/images/flag-be.svg"
           />
            
           <div
-            class="lang__text"
+            class="locale__text"
           >
             <div>
               
             </div>
              
             <div
-              class="language-switcher__subtitle"
+              class="locale-switcher__subtitle"
             >
               
               
@@ -152,62 +152,62 @@ exports[`Component: LanguageSwitcher when site is pix-pro should render the lang
 </div>
 `;
 
-exports[`Component: LanguageSwitcher when site is pix-site should render the language switcher correctly for pix-site 1`] = `
+exports[`Component: LocaleSwitcher when site is pix-site should render the locale switcher correctly for pix-site 1`] = `
 <div
-  class="language-switcher"
+  class="locale-switcher"
 >
   <button
     aria-expanded="true"
     aria-haspopup="true"
-    class="language-switcher__button"
+    class="locale-switcher__button"
   >
     
     
     
     <fa-stub
-      class="language-switcher-button__angle"
+      class="locale-switcher-button__angle"
       icon="angle-up"
     />
   </button>
    
   <ul
-    class="language-switcher__dropdown-menu"
+    class="locale-switcher__dropdown-menu"
   >
     <li
       class=""
     >
       <div
-        class="language-switcher__lang"
+        class="locale-switcher__locale"
       >
         <button
-          class="language-switcher-sub-menu-button"
+          class="locale-switcher-sub-menu-button"
         >
           <img
             alt=""
-            class="language-switcher__img"
+            class="locale-switcher__img"
             src="/images/globe-europe.svg"
           />
            
           <div
-            class="lang__text"
+            class="locale__text"
           >
             
           </div>
            
           <fa-stub
-            class="language-switcher__icon language-switcher-button__angle"
+            class="locale-switcher__icon locale-switcher-button__angle"
             icon="angle-right"
           />
         </button>
          
         <ul
-          class="language-switcher__dropdown-menu child"
+          class="locale-switcher__dropdown-menu child"
         >
           <li
             class=""
           >
             <div
-              class="language-switcher__lang"
+              class="locale-switcher__locale"
             >
               <a
                 href="http://example.org/fr"
@@ -222,7 +222,7 @@ exports[`Component: LanguageSwitcher when site is pix-site should render the lan
             class=""
           >
             <div
-              class="language-switcher__lang"
+              class="locale-switcher__locale"
             >
               <a
                 href="http://example.org/en-gb"
@@ -237,22 +237,22 @@ exports[`Component: LanguageSwitcher when site is pix-site should render the lan
       </div>
     </li>
     <li
-      class="language-switcher__dropdown-menu--active"
+      class="locale-switcher__dropdown-menu--active"
     >
       <div
-        class="language-switcher__lang"
+        class="locale-switcher__locale"
       >
         <a
           href="http://example.fr/"
         >
           <img
             alt=""
-            class="language-switcher__img"
+            class="locale-switcher__img"
             src="/images/flag-fr.svg"
           />
            
           <div
-            class="lang__text"
+            class="locale__text"
           >
             <div>
               
@@ -267,26 +267,26 @@ exports[`Component: LanguageSwitcher when site is pix-site should render the lan
       class=""
     >
       <div
-        class="language-switcher__lang"
+        class="locale-switcher__locale"
       >
         <a
           href="http://example.org/fr-be"
         >
           <img
             alt=""
-            class="language-switcher__img"
+            class="locale-switcher__img"
             src="/images/flag-be.svg"
           />
            
           <div
-            class="lang__text"
+            class="locale__text"
           >
             <div>
               
             </div>
              
             <div
-              class="language-switcher__subtitle"
+              class="locale-switcher__subtitle"
             >
               
               

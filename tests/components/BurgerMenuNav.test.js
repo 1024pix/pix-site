@@ -4,11 +4,11 @@ import BurgerMenuNav from '~/components/BurgerMenuNav'
 describe('Component: Burger Menu Nav', () => {
   let component
 
-  it('it should display the language switcher', () => {
+  it('it should display the locale switcher', () => {
     // given
     component = shallowMount(BurgerMenuNav, {
       stubs: {
-        'language-switcher': true,
+        'locale-switcher': true,
         'burger-menu-nav-items': true,
       },
       propsData: {
@@ -20,6 +20,6 @@ describe('Component: Burger Menu Nav', () => {
     const result = component.html()
 
     // then
-    expect(result).toContain('<language-switcher-stub')
+    expect(result).toContain('<locale-switcher-stub')
   })
 })

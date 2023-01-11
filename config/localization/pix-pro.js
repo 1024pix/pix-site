@@ -5,33 +5,19 @@ export const availableLocales = [
     code: 'fr',
     file: 'fr.js',
     domain: config.domain.international,
-    name: 'International Français',
-    icon: 'globe-europe.svg',
   },
   {
     code: 'en-gb',
     file: 'en-gb.js',
     domain: config.domain.international,
-    name: 'International English',
-    icon: 'globe-europe.svg',
-  },
-  {
-    code: 'fr-be',
-    file: 'fr-be.js',
-    domain: config.domain.international,
-    name: 'FWB',
-    icon: 'flag-be.svg',
   },
   {
     code: 'fr-fr',
     file: 'fr-fr.js',
     domain: config.domain.french,
-    name: 'France',
-    icon: 'flag-fr.svg',
   },
 ]
-
-export const language = {
+export const localization = {
   menu: [
     {
       name: 'international',
@@ -40,13 +26,13 @@ export const language = {
       children: [
         {
           name: 'french',
-          lang: 'fr',
+          localeCode: 'fr',
           icon: 'icon',
           subtitle: null,
         },
         {
           name: 'english',
-          lang: 'en-gb',
+          localeCode: 'en-gb',
           icon: 'icon',
           subtitle: null,
         },
@@ -54,15 +40,9 @@ export const language = {
     },
     {
       name: 'france',
-      lang: 'fr-fr',
+      localeCode: 'fr-fr',
       icon: 'flag-fr.svg',
       subtitle: null,
-    },
-    {
-      name: 'fwb-acronym',
-      lang: 'fr-be',
-      icon: 'flag-be.svg',
-      subtitle: 'fwb',
     },
   ],
   locales: availableLocales,

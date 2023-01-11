@@ -1,4 +1,7 @@
-import { getLocalesForCurrentSite, language } from '~/config/language/pix-pro'
+import {
+  getLocalesForCurrentSite,
+  localization,
+} from '~/config/localization/pix-site'
 import { config } from '~/config/environment'
 
 jest.mock('~/config/environment', () => {
@@ -17,12 +20,7 @@ describe('#getLocalesForCurrentSite', () => {
   it(`should return only fr-fr when siteDomain is pix.fr`, () => {
     config.isFrenchDomain = true
 
-    const expectedLocales = [
-      {
-        code: 'fr-fr',
-        file: 'fr-fr.js',
-      },
-    ]
+    const expectedLocales = [{ code: 'fr-fr', file: 'fr-fr.js' }]
 
     expect(getLocalesForCurrentSite()).toEqual(expectedLocales)
   })
@@ -39,6 +37,10 @@ describe('#getLocalesForCurrentSite', () => {
         code: 'en-gb',
         file: 'en-gb.js',
       },
+      {
+        code: 'fr-be',
+        file: 'fr-be.js',
+      },
     ]
 
     expect(
@@ -49,8 +51,8 @@ describe('#getLocalesForCurrentSite', () => {
   })
 })
 
-describe('#language', () => {
-  it('should return all menu entries for pix-pro', () => {
+describe('#localization', () => {
+  it('should return all menu entries for pix-site', () => {
     // given
     const expectedResult = [
       {
@@ -60,13 +62,13 @@ describe('#language', () => {
         children: [
           {
             name: 'french',
-            lang: 'fr',
+            localeCode: 'fr',
             icon: 'icon',
             subtitle: null,
           },
           {
             name: 'english',
-            lang: 'en-gb',
+            localeCode: 'en-gb',
             icon: 'icon',
             subtitle: null,
           },
@@ -74,13 +76,19 @@ describe('#language', () => {
       },
       {
         name: 'france',
-        lang: 'fr-fr',
+        localeCode: 'fr-fr',
         icon: 'flag-fr.svg',
         subtitle: null,
+      },
+      {
+        name: 'fwb-acronym',
+        localeCode: 'fr-be',
+        icon: 'flag-be.svg',
+        subtitle: 'fwb',
       },
     ]
 
     // when & then
-    expect(language.menu).toEqual(expectedResult)
+    expect(localization.menu).toEqual(expectedResult)
   })
 })

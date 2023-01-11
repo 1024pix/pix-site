@@ -1,8 +1,8 @@
 import { shallowMount, mount } from '@vue/test-utils'
 import { config } from '~/config/environment'
 import PixLink from '~/components/PixLink'
-import LanguageSwitcher from '~/components/LanguageSwitcher/LanguageSwitcher'
-import LanguageSwitcherSubMenu from '~/components/LanguageSwitcher/LanguageSwitcherSubMenu.vue'
+import LocaleSwitcher from '~/components/LocaleSwitcher/LocaleSwitcher.vue'
+import LocaleSwitcherSubMenu from '~/components/LocaleSwitcher/LocaleSwitcherSubMenu.vue'
 
 jest.mock('~/config/environment', () => ({
   config: {
@@ -15,51 +15,51 @@ jest.mock('~/config/environment', () => ({
   },
 }))
 
-LanguageSwitcherSubMenu.components = { 'pix-link': PixLink }
+LocaleSwitcherSubMenu.components = { 'pix-link': PixLink }
 
-describe('Component: LanguageSwitcher', () => {
+describe('Component: LocaleSwitcher', () => {
   describe('when site is pix-pro', () => {
     beforeEach(() => {
       config.site = 'pix-pro'
       config.isPixSite = false
     })
 
-    it('should render the language switcher', () => {
+    it('should render the locale switcher', () => {
       // given
       const $t = () => {}
       const $i18n = { locale: 'fr-fr' }
 
       // when
-      const wrapper = shallowMount(LanguageSwitcher, {
+      const wrapper = shallowMount(LocaleSwitcher, {
         stubs: {
-          LanguageSwitcherSubMenu: true,
+          LocaleSwitcherSubMenu: true,
           fa: true,
         },
         propsData: {
           type: 'with-dropdown',
         },
-        data: LanguageSwitcher.data,
-        computed: LanguageSwitcher.computed,
+        data: LocaleSwitcher.data,
+        computed: LocaleSwitcher.computed,
         mocks: { $t, $i18n },
       })
 
       // then
-      expect(wrapper.find('.language-switcher__button').exists()).toBe(true)
+      expect(wrapper.find('.locale-switcher__button').exists()).toBe(true)
     })
 
-    it('should render the language switcher correctly for pix-pro', async () => {
+    it('should render the locale switcher correctly for pix-pro', async () => {
       // given
       const $t = () => {}
       const $i18n = { locale: 'fr-fr' }
 
       // when
-      const wrapper = mount(LanguageSwitcher, {
-        components: { LanguageSwitcherSubMenu, PixLink },
+      const wrapper = mount(LocaleSwitcher, {
+        components: { LocaleSwitcherSubMenu, PixLink },
         mocks: { $t, $i18n },
         stubs: { fa: true },
       })
       await wrapper.find('button').trigger('click')
-      await wrapper.find('.language-switcher-sub-menu-button').trigger('click')
+      await wrapper.find('.locale-switcher-sub-menu-button').trigger('click')
 
       // then
       expect(wrapper.element).toMatchSnapshot()
@@ -72,19 +72,19 @@ describe('Component: LanguageSwitcher', () => {
       config.isPixSite = true
     })
 
-    it('should render the language switcher correctly for pix-site', async () => {
+    it('should render the locale switcher correctly for pix-site', async () => {
       // given
       const $t = () => {}
       const $i18n = { locale: 'fr-fr' }
 
       // when
-      const wrapper = mount(LanguageSwitcher, {
-        components: { LanguageSwitcherSubMenu, PixLink },
+      const wrapper = mount(LocaleSwitcher, {
+        components: { LocaleSwitcherSubMenu, PixLink },
         mocks: { $t, $i18n },
         stubs: { fa: true },
       })
       await wrapper.find('button').trigger('click')
-      await wrapper.find('.language-switcher-sub-menu-button').trigger('click')
+      await wrapper.find('.locale-switcher-sub-menu-button').trigger('click')
 
       // then
       expect(wrapper.element).toMatchSnapshot()

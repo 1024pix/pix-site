@@ -1,16 +1,16 @@
 <template>
-  <ul v-if="showSubMenu" class="language-switcher__dropdown-menu child">
+  <ul v-if="showSubMenu" class="locale-switcher__dropdown-menu child">
     <li
-      v-for="availableLanguage in availableLanguages"
-      :key="availableLanguage.key"
+      v-for="availableLocale in availableLocales"
+      :key="availableLocale.key"
       :class="{
-        'language-switcher__dropdown-menu--active':
-          availableLanguage.lang === currentLocaleCode,
+        'locale-switcher__dropdown-menu--active':
+          availableLocale.localeCode === currentLocaleCode,
       }"
     >
-      <div class="language-switcher__lang">
-        <pix-link :href="getIndexUrl(availableLanguage)">
-          {{ $t(availableLanguage.name) }}
+      <div class="locale-switcher__locale">
+        <pix-link :href="getIndexUrl(availableLocale)">
+          {{ $t(availableLocale.name) }}
         </pix-link>
       </div>
     </li>
@@ -19,16 +19,16 @@
 
 <script>
 import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
-import { language } from '~/config/language'
+import { localization } from '~/config/localization'
 
 export default {
-  name: 'LanguageSwitcherSubMenu',
+  name: 'LocaleSwitcherSubMenu',
   props: {
     showSubMenu: {
       type: Boolean,
       default: false,
     },
-    availableLanguages: {
+    availableLocales: {
       type: Array,
       default: null,
     },
@@ -43,8 +43,8 @@ export default {
   },
   methods: {
     getIndexUrl(menuItem) {
-      const locale = language.locales.find(
-        (locale) => locale.code === menuItem.lang
+      const locale = localization.locales.find(
+        (locale) => locale.code === menuItem.localeCode
       )
       return getAbsoluteUrlIfSwitchWebsite({
         relativeTarget: `/${locale.code}`,

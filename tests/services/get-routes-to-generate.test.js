@@ -11,9 +11,9 @@ jest.mock('~/config/environment', () => {
     },
   }
 })
-jest.mock('~/config/language', () => {
+jest.mock('~/config/localization', () => {
   return {
-    language: {
+    localization: {
       localesForCurrentSite: [{ code: 'fr-fr' }],
     },
   }
@@ -116,7 +116,7 @@ describe('#getRoutesToGenerate', () => {
       expect(result).toEqual(expected)
     })
 
-    test('it should filter unhandled languages', async () => {
+    test('it should filter unhandled locales', async () => {
       // Given
       const expected = ['/route-to-generate']
       const prismicApi = {

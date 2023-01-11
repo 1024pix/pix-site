@@ -1,7 +1,7 @@
 import { transports } from 'winston'
 import routes from './services/get-routes-to-generate'
 import { filterNuxtPages } from './services/filter-nuxt-pages'
-import { language } from './config/language'
+import { localization } from './config/localization'
 import { config } from './config/environment'
 import { SITES_PRISMIC_TAGS } from './services/available-sites'
 
@@ -103,9 +103,9 @@ const nuxtConfig = {
 
   i18n: {
     detectBrowserLanguage: false,
-    locales: language.localesForCurrentSite,
+    locales: localization.localesForCurrentSite,
     lazy: true,
-    langDir: 'lang/',
+    langDir: 'config/localization/translations/',
     ...(config.isFrenchDomain
       ? i18nConfigurationForFrenchDomain
       : i18nConfigurationForInternationalDomain),

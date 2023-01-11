@@ -1,11 +1,11 @@
-import { translation } from '../lang'
+import { translations } from '../config/localization/translations'
 import { DOCUMENTS, TAGS } from './document-fetcher'
 
 export function linkResolver(doc) {
   const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
 
   if (doc.type === DOCUMENTS.NEWS_ITEM) {
-    return `${locale}/${translation[doc.lang]['news-page-prefix']}/${doc.uid}`
+    return `${locale}/${translations[doc.lang]['news-page-prefix']}/${doc.uid}`
   }
   if (doc.tags?.includes(TAGS.INDEX)) {
     return `${locale}/`
