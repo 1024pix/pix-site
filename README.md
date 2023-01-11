@@ -204,12 +204,19 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
 
 ```
-npm run build:site
+# Build site et site:org puis lance Nginx sur le port 80
+npm run dev:site:e2e
+npm run dev:pro:e2e
 
-PORT=80 DOMAIN_FR=pix.fr DOMAIN_ORG=pix.org erb servers.conf.erb > nginx.conf && docker-compose --env-file .env up
+# Rebuilder suite à des modifs en dev
+npm run build:site:e2e
+npm run build:pro:e2e
+
+# Pour des modifs de conf Nginx il faut recompiler le servers.conf.erb (nginx.conf) puis relancer Nginx
+npm run start:nginx:e2e
 ```
 
-Aller sur `http://localhost` ou `http://localhost.org`
+Aller sur `http://localhost.fr` ou `http://localhost.org`
 
 Pour que localhost.org soit fonctionnel, il faut éditer votre fichier `/etc/hosts` en y créant/modifiant la ligne du localhost pour y ajouter les domaines `.fr` et `.org`:
 
