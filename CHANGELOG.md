@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.1.1 (11/01/2023)
+
+
+### :building_construction: Tech
+- [#464](https://github.com/1024pix/pix-site/pull/464) [TECH] Utiliser les termes "locales" au lieu de "languages" (PIX-6772)
+
 ## v4.1.0 (09/01/2023)
 
 
