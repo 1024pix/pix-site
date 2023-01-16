@@ -61,9 +61,6 @@
             />
             <div class="locale__text">
               <div>{{ $t(option.name) }}</div>
-              <div v-if="option.subtitle" class="locale-switcher__subtitle">
-                {{ $t(option.subtitle) }}
-              </div>
             </div>
           </pix-link>
         </div>
@@ -318,9 +315,6 @@ export default {
     &__icon {
       font-size: large;
       float: right;
-    }
-    &__subtitle {
-      font-size: smaller;
     }
     &__img {
       margin-right: 10px;

@@ -105,14 +105,6 @@ exports[`Component: LocaleSwitcher when site is pix-pro should render the locale
             <div>
               
             </div>
-             
-            <div
-              class="locale-switcher__subtitle"
-            >
-              
-              
-            
-            </div>
           </div>
         </a>
       </div>
@@ -138,8 +130,6 @@ exports[`Component: LocaleSwitcher when site is pix-pro should render the locale
             <div>
               
             </div>
-             
-            <!---->
           </div>
         </a>
       </div>
@@ -257,14 +247,6 @@ exports[`Component: LocaleSwitcher when site is pix-site should render the local
             <div>
               
             </div>
-             
-            <div
-              class="locale-switcher__subtitle"
-            >
-              
-              
-            
-            </div>
           </div>
         </a>
       </div>
@@ -290,8 +272,6 @@ exports[`Component: LocaleSwitcher when site is pix-site should render the local
             <div>
               
             </div>
-             
-            <!---->
           </div>
         </a>
       </div>
