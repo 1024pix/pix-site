@@ -19,7 +19,7 @@ export const availableLocales = [
     code: 'fr-be',
     file: 'fr-be.js',
     domain: config.domain.international,
-    name: 'FWB',
+    name: 'Fédération Wallonie-Bruxelles',
     icon: 'flag-be.svg',
   },
   {
@@ -53,7 +53,7 @@ export const localization = {
       ],
     },
     {
-      name: 'fwb-acronym',
+      name: 'fwb',
       localeCode: 'fr-be',
       icon: 'flag-be.svg',
       subtitle: 'fwb',

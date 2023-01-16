@@ -75,7 +75,7 @@ describe('#localization', () => {
         ],
       },
       {
-        name: 'fwb-acronym',
+        name: 'fwb',
         localeCode: 'fr-be',
         icon: 'flag-be.svg',
         subtitle: 'fwb',
