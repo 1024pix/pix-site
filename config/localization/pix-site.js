@@ -53,16 +53,16 @@ export const localization = {
       ],
     },
     {
-      name: 'france',
-      localeCode: 'fr-fr',
-      icon: 'flag-fr.svg',
-      subtitle: null,
-    },
-    {
       name: 'fwb-acronym',
       localeCode: 'fr-be',
       icon: 'flag-be.svg',
       subtitle: 'fwb',
+    },
+    {
+      name: 'france',
+      localeCode: 'fr-fr',
+      icon: 'flag-fr.svg',
+      subtitle: null,
     },
   ],
   locales: availableLocales,
