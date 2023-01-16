@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.1.2 (16/01/2023)
+
+
+### :bug: Correction
+- [#467](https://github.com/1024pix/pix-site/pull/467) [BUGFIX] Corrections d'accessibilité de la langue sur la page de choix de locale
+
 ## v4.1.1 (11/01/2023)
 
 
