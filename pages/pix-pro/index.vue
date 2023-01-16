@@ -1,65 +1,114 @@
 <template>
-  <div>
-    <div v-if="type === FORM_PAGE">
-      <form-page :content="document.data" />
-    </div>
-    <div v-if="type === SIMPLE_PAGE">
-      <simple-page :content="document.data" />
-    </div>
-    <div v-if="type === SLICES_PAGE">
-      <prismic-custom-slice-zone :slices="document.data.body" />
-    </div>
-  </div>
+  <client-only v-if="shouldDisplayLocaleChoice">
+    <main class="home">
+      <div class="locale-choice">
+        <h1>
+          <pix-image
+            class="logo-pix"
+            :field="{ url: '/images/logo-pix-blanc.svg', alt: 'Pix' }"
+          />
+        </h1>
+        <locale-link
+          v-for="locale in locales"
+          :key="locale.code"
+          class="locale-choice__link"
+          :locale="locale"
+        />
+        <pix-image class="planet" :field="{ url: '/images/planet.svg' }" />
+      </div>
+    </main>
+  </client-only>
 </template>
 
 <script>
-import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
+import { localization } from '~/config/localization'
 
 export default {
-  name: 'Index',
-  nuxtI18n: {
-    paths: {
-      fr: '/',
-      'fr-fr': '/',
-      'en-gb': '/',
-    },
-  },
-  async asyncData({ app, req, error, currentPagePath }) {
-    try {
-      const document = await documentFetcher(
-        app.$prismic,
-        app.i18n,
-        req
-      ).getPageByUid('decouvrir-pix-pro')
-      const meta = document.data.meta
-
-      return { currentPagePath, meta, document }
-    } catch (e) {
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
+  layout: 'empty',
+  nuxtI18n: false,
   data() {
     return {
-      FORM_PAGE: DOCUMENTS.FORM_PAGE,
-      SIMPLE_PAGE: DOCUMENTS.SIMPLE_PAGE,
-      SLICES_PAGE: DOCUMENTS.SLICES_PAGE,
+      locales: localization.locales,
+      shouldDisplayLocaleChoice: false,
     }
   },
-  head() {
-    const meta = this.$getMeta(this.meta, this.currentPagePath, this.$prismic)
+  mounted() {
+    const chosenLocale = this.getLocaleFromCookie()
+    if (chosenLocale) {
+      return this.$router.replace(`/${chosenLocale}/`)
+    }
+    this.shouldDisplayLocaleChoice = true
+  },
+  methods: {
+    getLocaleFromCookie() {
+      const localeCookie = document.cookie
+        .split('; ')
+        .find((item) => item.startsWith('locale'))
+      if (!localeCookie) return null
 
-    return {
-      meta,
-      title: `${this.title} | Pix Pro`,
-    }
-  },
-  computed: {
-    type() {
-      return this.document.type
-    },
-    title() {
-      return this.document.data.title[0].text
+      const chosenLocale = localeCookie.split('=')[1]
+
+      const currentLocales = localization.localesForCurrentSite.map(
+        ({ code }) => code
+      )
+      if (!currentLocales.includes(chosenLocale)) return null
+
+      return chosenLocale
     },
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.home {
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1rem 0;
+  background: url('/images/stars.svg') repeat, $default-gradient;
+
+  @include device-is('large-mobile') {
+    padding: 0;
+  }
+}
+
+.locale-choice {
+  padding: 3rem 0;
+}
+
+.logo-pix {
+  margin: 0 auto 5vh;
+  display: block;
+  width: 11rem;
+  max-width: 100%;
+}
+
+.locale-choice__link + .locale-choice__link {
+  margin-top: 1rem;
+}
+
+.planet {
+  margin: 5vh auto 0;
+  display: block;
+  width: max(16vw, 90%);
+}
+
+@include device-is('large-mobile') {
+  .locale-choice {
+    position: relative;
+  }
+
+  .planet {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 4vw);
+    max-width: unset;
+    margin: 0;
+    transform: translateY(-50%);
+  }
+}
+</style>

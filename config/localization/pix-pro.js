@@ -5,16 +5,22 @@ export const availableLocales = [
     code: 'fr',
     file: 'fr.js',
     domain: config.domain.international,
+    name: 'International Français',
+    icon: 'globe-europe.svg',
   },
   {
     code: 'en-gb',
     file: 'en-gb.js',
     domain: config.domain.international,
+    name: 'International English',
+    icon: 'globe-europe.svg',
   },
   {
     code: 'fr-fr',
     file: 'fr-fr.js',
     domain: config.domain.french,
+    name: 'France',
+    icon: 'flag-fr.svg',
   },
 ]
 export const localization = {
