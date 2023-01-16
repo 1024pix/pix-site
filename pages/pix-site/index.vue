@@ -13,6 +13,7 @@
           :key="locale.code"
           class="locale-choice__link"
           :locale="locale"
+          :lang="locale.code"
         />
         <pix-image class="planet" :field="{ url: '/images/planet.svg' }" />
       </div>
