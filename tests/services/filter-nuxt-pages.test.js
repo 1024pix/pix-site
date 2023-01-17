@@ -5,7 +5,6 @@ describe('FilterNuxtPages', () => {
     it('should return only locale home at root path', function () {
       // given
       const config = {
-        isPixSite: true,
         isFrenchDomain: true,
       }
       const routes = [
@@ -29,7 +28,6 @@ describe('FilterNuxtPages', () => {
     it('should return routes as is', function () {
       // given
       const config = {
-        isPixSite: true,
         isFrenchDomain: false,
       }
       const routes = [
