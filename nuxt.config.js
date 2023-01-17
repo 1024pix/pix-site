@@ -95,6 +95,7 @@ const nuxtConfig = {
     '@nuxtjs/prismic',
     '@nuxtjs/fontawesome',
     '@nuxt/image',
+    '@nuxt/postcss8',
   ],
 
   eslint: {
