@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v4.1.4 (17/01/2023)
+
+
+### :rocket: Amélioration
+- [#470](https://github.com/1024pix/pix-site/pull/470) [FEATURE] Ne plus utiliser l'acronyme "FWB" (PIX-6843)
+- [#468](https://github.com/1024pix/pix-site/pull/468) [FEATURE] Reordonner les choix du language-switcher pour être iso avec la page d'accueil de Pix.org (PIX-6833).
+
 ## v4.1.2 (16/01/2023)
 
 
