@@ -22,19 +22,16 @@ export const localization = {
     {
       name: 'international',
       icon: 'globe-europe.svg',
-      subtitle: null,
       children: [
         {
           name: 'french',
           localeCode: 'fr',
           icon: 'icon',
-          subtitle: null,
         },
         {
           name: 'english',
           localeCode: 'en-gb',
           icon: 'icon',
-          subtitle: null,
         },
       ],
     },
@@ -42,7 +39,6 @@ export const localization = {
       name: 'france',
       localeCode: 'fr-fr',
       icon: 'flag-fr.svg',
-      subtitle: null,
     },
   ],
   locales: availableLocales,
