@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.2.0 (18/01/2023)
+
+
+### :coffee: Autre
+- [#469](https://github.com/1024pix/pix-site/pull/469)  [FEATURE] Ajouter la page de choix de locale sur pro.pix.org (PIX-6834).
+
 ## v4.1.4 (17/01/2023)
 
 
