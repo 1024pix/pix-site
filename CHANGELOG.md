@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v4.2.1 (26/01/2023)
+
+
+### :building_construction: Tech
+- [#472](https://github.com/1024pix/pix-site/pull/472) [TECH] Classer les dépendances (dependencies vs devDependencies) et supprimer les dépendances inutiles
+
+### :bug: Correction
+- [#475](https://github.com/1024pix/pix-site/pull/475) [BUGFIX] Eviter l'erreur de déploiement quand une URL de la navigation n'est pas encore définie
+- [#471](https://github.com/1024pix/pix-site/pull/471) [BUGFIX] Supprimer les messages d'avertissement PostCSS qui défilent et qui encombrent la ligne de commande
+
 ## v4.2.0 (18/01/2023)
 
 
