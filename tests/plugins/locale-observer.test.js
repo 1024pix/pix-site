@@ -1,5 +1,11 @@
 import localeObserver from '~/plugins/locale-observer'
 
+jest.mock('~/config/environment', () => ({
+  config: {
+    siteDomain: 'pix.org',
+  },
+}))
+
 describe('Plugins | locale-observer', () => {
   beforeEach(() => {
     let cookieJar = ''
@@ -32,7 +38,7 @@ describe('Plugins | locale-observer', () => {
 
         // then
         expect(document.cookie).toEqual(
-          'locale=en-gb; path=/; max-age=31536000'
+          'locale=en-gb; path=/; domain=pix.org; max-age=31536000'
         )
       })
     })
@@ -57,7 +63,9 @@ describe('Plugins | locale-observer', () => {
         context.app.i18n.onBeforeLanguageSwitch(oldLocale, newLocale)
 
         // then
-        expect(document.cookie).toEqual('locale=fr; path=/; max-age=31536000')
+        expect(document.cookie).toEqual(
+          'locale=fr; path=/; domain=pix.org; max-age=31536000'
+        )
       })
     })
   })
