@@ -18,7 +18,7 @@ export default {
       fr: '/actualites/:slug',
       'fr-fr': '/actualites/:slug',
       'fr-be': '/actualites/:slug',
-      'en-gb': '/news/:slug',
+      en: '/news/:slug',
     },
   },
   async asyncData({ params, app, req, error, route, currentPagePath }) {

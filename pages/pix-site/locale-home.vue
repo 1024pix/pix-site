@@ -13,7 +13,7 @@ export default {
     paths: {
       fr: '/',
       'fr-fr': '/',
-      'en-gb': '/',
+      en: '/',
       'fr-be': '/',
     },
   },

@@ -3,20 +3,23 @@ import { config } from '../environment'
 export const availableLocales = [
   {
     code: 'fr',
+    prismicLang: 'fr',
     file: 'fr.js',
     domain: config.domain.international,
     name: 'International Français',
     icon: 'globe-europe.svg',
   },
   {
-    code: 'en-gb',
-    file: 'en-gb.js',
+    code: 'en',
+    prismicLang: 'en-gb',
+    file: 'en.js',
     domain: config.domain.international,
     name: 'International English',
     icon: 'globe-europe.svg',
   },
   {
     code: 'fr-be',
+    prismicLang: 'fr-be',
     file: 'fr-be.js',
     domain: config.domain.international,
     name: 'Fédération Wallonie-Bruxelles',
@@ -24,6 +27,7 @@ export const availableLocales = [
   },
   {
     code: 'fr-fr',
+    prismicLang: 'fr-fr',
     file: 'fr-fr.js',
     domain: config.domain.french,
     name: 'France',
@@ -44,7 +48,7 @@ export const localization = {
         },
         {
           name: 'english',
-          localeCode: 'en-gb',
+          localeCode: 'en',
           icon: 'icon',
         },
       ],

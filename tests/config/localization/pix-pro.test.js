@@ -39,8 +39,8 @@ describe('#getLocalesForCurrentSite', () => {
         file: 'fr.js',
       },
       {
-        code: 'en-gb',
-        file: 'en-gb.js',
+        code: 'en',
+        file: 'en.js',
       },
     ]
 
@@ -67,7 +67,7 @@ describe('#localization', () => {
           },
           {
             name: 'english',
-            localeCode: 'en-gb',
+            localeCode: 'en',
             icon: 'icon',
           },
         ],
@@ -81,5 +81,38 @@ describe('#localization', () => {
 
     // when & then
     expect(localization.menu).toEqual(expectedResult)
+  })
+
+  it('should return all locales', () => {
+    // given
+    const expectedResult = [
+      {
+        code: 'fr',
+        prismicLang: 'fr',
+        file: 'fr.js',
+        domain: config.domain.international,
+        name: 'International Français',
+        icon: 'globe-europe.svg',
+      },
+      {
+        code: 'en',
+        prismicLang: 'en-gb',
+        file: 'en.js',
+        domain: config.domain.international,
+        name: 'International English',
+        icon: 'globe-europe.svg',
+      },
+      {
+        code: 'fr-fr',
+        prismicLang: 'fr-fr',
+        file: 'fr-fr.js',
+        domain: config.domain.french,
+        name: 'France',
+        icon: 'flag-fr.svg',
+      },
+    ]
+
+    // when & then
+    expect(localization.locales).toEqual(expectedResult)
   })
 })

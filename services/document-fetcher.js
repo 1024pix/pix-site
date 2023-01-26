@@ -13,18 +13,15 @@ export const TAGS = {
   INDEX: 'index',
 }
 
-export function documentFetcher(
-  prismic,
-  i18n = { defaultLocale: 'fr-fr' },
-  req
-) {
-  const locale = i18n.locale || i18n.defaultLocale
+export function documentFetcher(prismic, i18n) {
+  const prismicLang = getPrismicLang(i18n)
+
   return {
     get: getSingle,
     findHotNewsBanner: async () => {
       const documents = await prismic.api.query(
         prismic.predicates.at('document.type', DOCUMENTS.HOT_NEWS),
-        { lang: locale }
+        { lang: prismicLang }
       )
       return documents.results[0]
     },
@@ -37,7 +34,7 @@ export function documentFetcher(
             process.env.SITE
           ),
         ],
-        { lang: locale }
+        { lang: prismicLang }
       )
       return documents.results[0]
     },
@@ -50,13 +47,13 @@ export function documentFetcher(
             process.env.SITE
           ),
         ],
-        { lang: locale }
+        { lang: prismicLang }
       )
       return documents.results[0]
     },
     getEmployers: async () => {
       const document = await prismic.api.getSingle('employers', {
-        lang: locale,
+        lang: prismicLang,
         fetchLinks: [
           'distributor_item.description',
           'distributor_item.footer',
@@ -74,7 +71,7 @@ export function documentFetcher(
           page,
           pageSize,
           orderings: `[my.${DOCUMENTS.NEWS_ITEM}.date desc]`,
-          lang: locale,
+          lang: prismicLang,
         }
       )
       return documents.results
@@ -82,7 +79,7 @@ export function documentFetcher(
     getNewsItemByUid: async (slug) => {
       const document = await prismic.api.query(
         prismic.predicates.at(`my.${DOCUMENTS.NEWS_ITEM}.uid`, slug),
-        { lang: locale }
+        { lang: prismicLang }
       )
       return document.results[0]
     },
@@ -96,13 +93,13 @@ export function documentFetcher(
   }
 
   function getSingle(type) {
-    return prismic.api.getSingle(type, { lang: locale })
+    return prismic.api.getSingle(type, { lang: prismicLang })
   }
 
   async function getSimplePageByUid(uid) {
     const document = await prismic.api.query(
       prismic.predicates.at(`my.${DOCUMENTS.SIMPLE_PAGE}.uid`, uid),
-      { lang: locale }
+      { lang: prismicLang }
     )
     return document.results[0]
   }
@@ -110,7 +107,7 @@ export function documentFetcher(
   async function getFormPageByUid(uid) {
     const document = await prismic.api.query(
       prismic.predicates.at(`my.${DOCUMENTS.FORM_PAGE}.uid`, uid),
-      { lang: locale }
+      { lang: prismicLang }
     )
     return document.results[0]
   }
@@ -118,8 +115,13 @@ export function documentFetcher(
   async function getSlicesPageByUid(uid) {
     const document = await prismic.api.query(
       prismic.predicates.at(`my.${DOCUMENTS.SLICES_PAGE}.uid`, uid),
-      { lang: locale }
+      { lang: prismicLang }
     )
     return document.results[0]
   }
+}
+
+export function getPrismicLang(i18n = { defaultLocale: 'fr-fr' }) {
+  const userLocale = i18n.locale || i18n.defaultLocale
+  return i18n.locales.find((locale) => locale.code === userLocale).prismicLang
 }

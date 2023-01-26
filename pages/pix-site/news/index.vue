@@ -38,7 +38,7 @@ export default {
       fr: '/actualites',
       'fr-fr': '/actualites',
       'fr-be': '/actualites',
-      'en-gb': '/news',
+      en: '/news',
     },
   },
   async asyncData({ app, error, req }) {

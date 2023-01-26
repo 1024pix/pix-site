@@ -38,8 +38,8 @@ describe('Component: PixPrismicLink', () => {
           'https://pix.org/fr/une-page-si-t-es-pas-en-france',
           'https://pix.org/fr-be',
           'https://pix.org/fr-be/une-fois',
-          'https://pix.org/en-gb',
-          'https://pix.org/en-gb/tea-time',
+          'https://pix.org/en',
+          'https://pix.org/en/tea-time',
           'https://google.com/',
         ]
 
@@ -65,7 +65,7 @@ describe('Component: PixPrismicLink', () => {
             '/fr/la/totale?foo=bar#la-precision',
           ],
           ['https://pix.org/fr-be/une-fois', '/fr-be/une-fois'],
-          ['https://pix.org/en-gb/tea-time', '/en-gb/tea-time'],
+          ['https://pix.org/en/tea-time', '/en/tea-time'],
         ]
 
         for (const [url, expected] of urls) {
@@ -113,7 +113,7 @@ describe('Component: PixPrismicLink', () => {
           'https://pix.org/fr',
           'https://pix.org/fr/pourquoi',
           'https://pix.org/fr-be/une-fois',
-          'https://pix.org/en-gb/tea-time',
+          'https://pix.org/en/tea-time',
           'https://google.com/',
         ]
 
@@ -148,7 +148,7 @@ describe('Component: PixPrismicLink', () => {
           'https://pix.org/fr',
           'https://pix.org/fr/pourquoi',
           'https://pix.org/fr-be/une-fois',
-          'https://pix.org/en-gb/tea-time',
+          'https://pix.org/en/tea-time',
           'https://google.com/',
         ]
 
@@ -164,7 +164,7 @@ describe('Component: PixPrismicLink', () => {
 
     beforeEach(() => {
       $i18n = {
-        localeCodes: ['fr-fr', 'fr', 'fr-be', 'en-gb'],
+        localeCodes: ['fr-fr', 'fr', 'fr-be', 'en'],
         defaultLocale: 'fr-fr',
       }
     })
@@ -173,13 +173,13 @@ describe('Component: PixPrismicLink', () => {
       const paths = [
         ['/fr', 'fr'],
         ['/fr-be', 'fr-be'],
-        ['/en-gb', 'en-gb'],
+        ['/en', 'en'],
         ['/fr/path', 'fr'],
         ['/fr-be/path', 'fr-be'],
-        ['/en-gb/path', 'en-gb'],
+        ['/en/path', 'en'],
         ['/fr/path/subpath', 'fr'],
         ['/fr-be/path/subpath', 'fr-be'],
-        ['/en-gb/path/subpath', 'en-gb'],
+        ['/en/path/subpath', 'en'],
       ]
 
       for (const [path, expectedLocale] of paths) {
@@ -240,9 +240,9 @@ describe('Component: PixPrismicLink', () => {
             '/path/subpath',
             '/fr-ca/tabernacle',
             '/fr',
-            '/en-gb',
+            '/en',
             '/fr/une-page',
-            '/en-gb/path/subpath',
+            '/en/path/subpath',
           ]
 
           for (const url of urls) {
@@ -255,7 +255,7 @@ describe('Component: PixPrismicLink', () => {
     describe('pix.org', () => {
       beforeEach(() => {
         $i18n = {
-          localeCodes: ['fr', 'fr-be', 'en-gb'],
+          localeCodes: ['fr', 'fr-be', 'en'],
           defaultLocale: 'fr',
         }
       })
@@ -292,12 +292,7 @@ describe('Component: PixPrismicLink', () => {
         })
 
         it('should return false if the given URL is outside of fr', () => {
-          const urls = [
-            '/fr-be',
-            '/en-gb',
-            '/fr-be/une-page',
-            '/en-gb/path/subpath',
-          ]
+          const urls = ['/fr-be', '/en', '/fr-be/une-page', '/en/path/subpath']
 
           for (const url of urls) {
             expect(isCurrentLocaleURL(url, $i18n)).toBe(false)
@@ -324,9 +319,9 @@ describe('Component: PixPrismicLink', () => {
             '/une-page',
             '/path/subpath',
             '/fr',
-            '/en-gb',
+            '/en',
             '/fr/une-page',
-            '/en-gb/path/subpath',
+            '/en/path/subpath',
           ]
 
           for (const url of urls) {

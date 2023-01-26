@@ -1,7 +1,7 @@
 export default {
   fr: 'International FR',
   'fr-fr': 'France',
-  'en-gb': 'International EN',
+  en: 'International EN',
   'fr-be': 'Fédération Wallonie-Bruxelles',
   france: 'France',
   english: 'English',
@@ -54,11 +54,11 @@ export default {
     'pix-orga-registration': 'Request for information | Pix pro',
   },
   'preview-page-load': 'Preview page loading...',
-  'home-page-url': `https://${process.env.DOMAIN_ORG}/en-gb/`,
+  'home-page-url': `https://${process.env.DOMAIN_ORG}/en/`,
   'error-content':
     '<p>Oops! A problem has occurred, but do not panic!</p>' +
     '<p>You can go back to the ' +
-    `<a href="https://${process.env.DOMAIN_ORG}/en-gb/">homepage</a>.` +
+    `<a href="https://${process.env.DOMAIN_ORG}/en/">homepage</a>.` +
     '<br/>If you need help, you can check out the ' +
     '<a href="https://support.pix.org/en/support/home">support</a>.' +
     '</p>',

@@ -26,6 +26,7 @@ export default {
       let url = prismicDOM.Link.url(this.field, this.$prismic.linkResolver)
 
       url = removeHostIfCurrentSite(url, this.$i18n.locale)
+      console.log({ url })
 
       if (this.field.link_type === 'Document') {
         const localeURL = getLocaleURL(url, this.$i18n, this.localePath)

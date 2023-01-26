@@ -73,7 +73,7 @@ exports[`Component: LocaleSwitcher when site is pix-pro should render the locale
               class="locale-switcher__locale"
             >
               <a
-                href="http://example.org/en-gb"
+                href="http://example.org/en"
               >
                 
         
@@ -215,7 +215,7 @@ exports[`Component: LocaleSwitcher when site is pix-site should render the local
               class="locale-switcher__locale"
             >
               <a
-                href="http://example.org/en-gb"
+                href="http://example.org/en"
               >
                 
         

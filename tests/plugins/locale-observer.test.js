@@ -16,7 +16,7 @@ describe('Plugins | locale-observer', () => {
         // given
         document.cookie = ''
         const oldLocale = ''
-        const newLocale = 'en-gb'
+        const newLocale = 'en'
         const context = {
           app: {
             i18n: {},
@@ -31,17 +31,15 @@ describe('Plugins | locale-observer', () => {
         context.app.i18n.onBeforeLanguageSwitch(oldLocale, newLocale)
 
         // then
-        expect(document.cookie).toEqual(
-          'locale=en-gb; path=/; max-age=31536000'
-        )
+        expect(document.cookie).toEqual('locale=en; path=/; max-age=31536000')
       })
     })
 
     describe('when cookie', () => {
       it('save locale cookie', () => {
         // given
-        document.cookie = 'locale=en-gb; path=/; max-age=31536000'
-        const oldLocale = 'en-gb'
+        document.cookie = 'locale=en; path=/; max-age=31536000'
+        const oldLocale = 'en'
         const newLocale = 'fr'
         const context = {
           app: {

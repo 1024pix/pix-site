@@ -2,55 +2,58 @@
 
 ## v4.2.0 (18/01/2023)
 
-
 ### :coffee: Autre
-- [#469](https://github.com/1024pix/pix-site/pull/469)  [FEATURE] Ajouter la page de choix de locale sur pro.pix.org (PIX-6834).
+
+- [#469](https://github.com/1024pix/pix-site/pull/469) [FEATURE] Ajouter la page de choix de locale sur pro.pix.org (PIX-6834).
 
 ## v4.1.4 (17/01/2023)
 
-
 ### :rocket: Amélioration
+
 - [#470](https://github.com/1024pix/pix-site/pull/470) [FEATURE] Ne plus utiliser l'acronyme "FWB" (PIX-6843)
 - [#468](https://github.com/1024pix/pix-site/pull/468) [FEATURE] Reordonner les choix du language-switcher pour être iso avec la page d'accueil de Pix.org (PIX-6833).
 
 ## v4.1.2 (16/01/2023)
 
-
 ### :bug: Correction
+
 - [#467](https://github.com/1024pix/pix-site/pull/467) [BUGFIX] Corrections d'accessibilité de la langue sur la page de choix de locale
 
 ## v4.1.1 (11/01/2023)
 
-
 ### :building_construction: Tech
+
 - [#464](https://github.com/1024pix/pix-site/pull/464) [TECH] Utiliser les termes "locales" au lieu de "languages" (PIX-6772)
 
 ## v4.1.0 (09/01/2023)
 
-
 ### :rocket: Amélioration
+
 - [#459](https://github.com/1024pix/pix-site/pull/459) [FEATURE] Ne pas passer par la page `/locale-choice` pour choisir sa locale
 - [#455](https://github.com/1024pix/pix-site/pull/455) [FEATURE] Enregistrer et utiliser la préférence de locale de l'utilisateur (PIX-6506).
-- [#456](https://github.com/1024pix/pix-site/pull/456) [FEATURE] Fluidifier la navigation de l'utilisateur (PIX-6705) 
+- [#456](https://github.com/1024pix/pix-site/pull/456) [FEATURE] Fluidifier la navigation de l'utilisateur (PIX-6705)
 - [#445](https://github.com/1024pix/pix-site/pull/445) [FEATURE] Ajouter une page d'accueil proposant à l'utilisateur de choisir sa langue (PIX-6433).
 
 ### :building_construction: Tech
+
 - [#460](https://github.com/1024pix/pix-site/pull/460) [TECH] Rendre le script npm run clean vraiment utile en supprimant le répertoire dist et pas node_modules
 - [#452](https://github.com/1024pix/pix-site/pull/452) [TECH] Ne plus ajouter de lien vers la review-app dans la pull-request
 - [#449](https://github.com/1024pix/pix-site/pull/449) [TECH] Refactorer le language switcher (PIX-6604).
 - [#442](https://github.com/1024pix/pix-site/pull/442) [TECH] Ajouter des tests sur le language switcher
 
 ### :bug: Correction
+
 - [#463](https://github.com/1024pix/pix-site/pull/463) [BUGFIX] Stocker la préférence de locale "International Français"
 - [#462](https://github.com/1024pix/pix-site/pull/462) [BUGFIX] Fermer le Burger Menu à la navigation
 
 ### :coffee: Autre
+
 - [#457](https://github.com/1024pix/pix-site/pull/457) [FIX] Correction de style sur la page de choix de locale
 
 ## v4.0.11 (22/12/2022)
 
-
 ### :building_construction: Tech
+
 - [#448](https://github.com/1024pix/pix-site/pull/448) [TECH] Suppression de warnings au `npm ci`
 - [#447](https://github.com/1024pix/pix-site/pull/447) [TECH] Migrer de nuxt-fontawesome à @nuxtjs/fontawesome
 - [#450](https://github.com/1024pix/pix-site/pull/450) [TECH] Supprimer le template de pull request
@@ -58,37 +61,38 @@
 
 ## v4.0.10 (20/12/2022)
 
-
 ### :bug: Correction
+
 - [#446](https://github.com/1024pix/pix-site/pull/446) [BUGFIX] Corriger l'affichage des icônes (PIX-6602).
 
 ## v4.0.9 (20/12/2022)
 
-
 ### :building_construction: Tech
+
 - [#443](https://github.com/1024pix/pix-site/pull/443) [TECH] Relaxe les versions de Node.js et npm (PIX-6574)
 - [#440](https://github.com/1024pix/pix-site/pull/440) [TECH] Simplifier la lecture des configurations i18n en fonction du domaine.
-- [#441](https://github.com/1024pix/pix-site/pull/441) [TECH] Améliorer la lisibilité des configurations des modules 
+- [#441](https://github.com/1024pix/pix-site/pull/441) [TECH] Améliorer la lisibilité des configurations des modules
 
 ## v4.0.8 (12/12/2022)
 
-
 ### :building_construction: Tech
+
 - [#438](https://github.com/1024pix/pix-site/pull/438) [TECH] Migrer de moment à dayjs
 
 ## v4.0.7 (12/12/2022)
 
-
 ### :rocket: Amélioration
+
 - [#439](https://github.com/1024pix/pix-site/pull/439) [FEATURE] Utiliser la bonne valeur d'attribut `lang` sur la balise `html` (PIX-6520)
 
 ## v4.0.6 (09/12/2022)
 
-
 ### :building_construction: Tech
+
 - [#432](https://github.com/1024pix/pix-site/pull/432) [TECH] Permettre d'utiliser une version plus récente de npm
 
 ### :coffee: Autre
+
 - [#434](https://github.com/1024pix/pix-site/pull/434) chore(deps): bump undici and ohmyfetch
 - [#430](https://github.com/1024pix/pix-site/pull/430) chore(deps): bump decode-uri-component from 0.2.0 to 0.2.2
 - [#436](https://github.com/1024pix/pix-site/pull/436) chore(deps): bump moment-timezone from 0.5.34 to 0.5.39
@@ -97,12 +101,13 @@
 
 ## v4.0.5 (06/12/2022)
 
-
 ### :building_construction: Tech
+
 - [#429](https://github.com/1024pix/pix-site/pull/429) [TECH] Supprimer le workflow qui transitionne les tickets JIRA.
 - [#427](https://github.com/1024pix/pix-site/pull/427) [TECH] Supprime les conditions d'affichage du `LanguageSwitcher` (PIX-6480)
 
 ### :coffee: Autre
+
 - [#423](https://github.com/1024pix/pix-site/pull/423) [CLEANUP] Met à jour l'action commune d'automerge
 - [#421](https://github.com/1024pix/pix-site/pull/421) chore(deps): bump parse-url from 6.0.0 to 6.0.5
 - [#399](https://github.com/1024pix/pix-site/pull/399) build(deps): bump node-forge from 1.2.1 to 1.3.1
@@ -114,66 +119,70 @@
 
 ## v4.0.4 (19/07/2022)
 
-
 ### :rocket: Amélioration
+
 - [#417](https://github.com/1024pix/pix-site/pull/417) [FEATURE] Ajout de la licence AGPL v3
 
 ### :bug: Correction
+
 - [#418](https://github.com/1024pix/pix-site/pull/418) [BUGFIX] Générer toutes les langues pour Pix Pro (PIX-5367).
 
 ## v4.0.3 (05/07/2022)
 
-
 ### :bug: Correction
+
 - [#413](https://github.com/1024pix/pix-site/pull/413) [BUGFIX] Mettre les dates des graphiques dans un format plus lisible (PIX-5188).
 
 ## v4.0.2 (20/06/2022)
 
-
 ### :building_construction: Tech
+
 - [#412](https://github.com/1024pix/pix-site/pull/412) [TECH] Ajouter le lien pro org dans les commentaires (PIX-5133).
 
 ### :bug: Correction
+
 - [#411](https://github.com/1024pix/pix-site/pull/411) [BUGFIX] Rétablir l'affichage du lien actif dans la barre de navigation du site Pro.pix.org (PIX-5026).
 
 ## v4.0.1 (13/06/2022)
 
-
 ### :bug: Correction
+
 - [#410](https://github.com/1024pix/pix-site/pull/410) [BUGFIX] Affichage burger menu sur pro.pix.fr (PIX-5051)
 
 ## v4.0.0 (08/06/2022)
 
-
 ### :building_construction: Tech
+
 - [#408](https://github.com/1024pix/pix-site/pull/408) [TECH] Supprimer les redirections pix.fr (PIX-4497).
 
 ## v3.31.0 (31/05/2022)
 
-
 ### :rocket: Amélioration
+
 - [#407](https://github.com/1024pix/pix-site/pull/407) [FEATURE] - Builder pix site et pix pro pour tous les contextes (PIX-4980).
 - [#405](https://github.com/1024pix/pix-site/pull/405) [FEATURE] Ajout du switch de langues sur Pix Pro (PIX-4808).
 
 ### :bug: Correction
+
 - [#406](https://github.com/1024pix/pix-site/pull/406) [BUGFIX] Ne pas afficher le LanguageSwitcher sur pro.pix.fr si le FT est mis à `true` (PIX-4934)
 
 ## v3.30.0 (20/05/2022)
 
-
 ### :building_construction: Tech
+
 - [#404](https://github.com/1024pix/pix-site/pull/404) [TECH] Supprimer les appels inutiles à /undefined (PIX-4966).
 
 ## v3.29.0 (20/05/2022)
 
-
 ### :rocket: Amélioration
+
 - [#400](https://github.com/1024pix/pix-site/pull/400) [FEATURE] Ajout d'un FT pour l'affichage du Language-Switcher dans pro.pix.org (PIX-4934).
 - [#398](https://github.com/1024pix/pix-site/pull/398) [FEATURE] Générer les routes en fonctions de la variable SITE_DOMAIN (fr,org) (PIX-4807).
 - [#395](https://github.com/1024pix/pix-site/pull/395) [FEATURE] Générer les pages des sites en fonctions des tags Prismic (PIX-4905).
 - [#393](https://github.com/1024pix/pix-site/pull/393) [FEATURE] Renvoyer vers les bonnes locales quand les pages de prismic référencent des liens vers d'autres pages (PIX-4903).
 
 ### :building_construction: Tech
+
 - [#403](https://github.com/1024pix/pix-site/pull/403) [TECH] Accéder au domaine .org sur les RA (PIX-4963).
 - [#397](https://github.com/1024pix/pix-site/pull/397) [TECH] Ajouter un commentaire avec les liens des RA et de la PR GitHub directement sur le ticket Jira associée (PIX-4918).
 - [#394](https://github.com/1024pix/pix-site/pull/394) [TECH] Utilisation du tag index dans le link-resolver.
@@ -183,68 +192,74 @@
 - [#386](https://github.com/1024pix/pix-site/pull/386) [TECH] Supprime des fichiers inutiles de l'image compilée (PIX-4805)
 
 ### :bug: Correction
+
 - [#401](https://github.com/1024pix/pix-site/pull/401) [BUGFIX] Répare l'environnement de dev
 
 ## v3.28.3 (14/03/2022)
 
-
 ### :bug: Correction
+
 - [#381](https://github.com/1024pix/pix-site/pull/381) [BUGFIX] Utilise nuxt/image sur toute les images
 
 ### :coffee: Autre
+
 - [#321](https://github.com/1024pix/pix-site/pull/321) Bump path-parse from 1.0.6 to 1.0.7
 - [#322](https://github.com/1024pix/pix-site/pull/322) Bump tar from 6.0.5 to 6.1.11
 
 ## v3.28.2 (09/03/2022)
 
-
 ### :rocket: Amélioration
+
 - [#378](https://github.com/1024pix/pix-site/pull/378) [FEATURE] Ne cache pas la donnée au click sur la légende d'un graphique
 
 ### :building_construction: Tech
+
 - [#373](https://github.com/1024pix/pix-site/pull/373) [TECH] Améliorer la propreté du code
 - [#377](https://github.com/1024pix/pix-site/pull/377) [TECH] Correction tests NGINX
 
 ### :bug: Correction
+
 - [#379](https://github.com/1024pix/pix-site/pull/379) [BUGFIX] Traduction page d'erreur et liens localisés
 
 ## v3.28.1 (04/03/2022)
 
-
 ### :bug: Correction
+
 - [#376](https://github.com/1024pix/pix-site/pull/376) [BUGFIX] Bloquer l'indexation Google des liens dépréciés
 
 ## v3.28.0 (03/03/2022)
 
-
 ### :bug: Correction
+
 - [#375](https://github.com/1024pix/pix-site/pull/375) [BUGFIX] Redirige les pages localisées de pix.fr vers pix.org (PIX-4496)
 
 ## v3.27.2 (02/03/2022)
 
-
 ### :bug: Correction
-- [#374](https://github.com/1024pix/pix-site/pull/374) [BUGFIX] Suppression de liens vers pix.fr/fr et pix.fr/en-gb
+
+- [#374](https://github.com/1024pix/pix-site/pull/374) [BUGFIX] Suppression de liens vers pix.fr/fr et pix.fr/en
 
 ## v3.27.1 (23/02/2022)
 
-
 ### :bug: Bug fix
+
 - [#372](https://github.com/1024pix/pix-site/pull/372) [BUGFIX] Permettre d'afficher 4 blocks dans les multiple blocks "process" quelque soit la résolution (PIX-4012)
 
 ## v3.27.0 (10/02/2022)
 
-
 ### :rocket: Enhancement
+
 - [#371](https://github.com/1024pix/pix-site/pull/371) [FEATURE] Ajoute de l'espacement en dessous du language switcher du burger menu
 - [#366](https://github.com/1024pix/pix-site/pull/366) [FEATURE] Ajoute le Language Switcher sur pix.fr (PIX-4302)
 - [#362](https://github.com/1024pix/pix-site/pull/362) [FEATURE] Supprime le feature toggle `IS_FR_BE_LANGUAGE_LOCALE_AVAILABLE`
 
 ### :building_construction: Tech
+
 - [#370](https://github.com/1024pix/pix-site/pull/370) [TECH] Ajoute un fichier .env d'exemple
 - [#365](https://github.com/1024pix/pix-site/pull/365) [TECH] Supprime le composant LanguageSwitcherLegacy
 
 ### :coffee: Various
+
 - [#369](https://github.com/1024pix/pix-site/pull/369) [DOCS] Lance Prettier sur le readme
 - [#323](https://github.com/1024pix/pix-site/pull/323) Bump tmpl from 1.0.4 to 1.0.5
 - [#359](https://github.com/1024pix/pix-site/pull/359) chore(deps): bump nanoid from 3.1.20 to 3.2.0
@@ -257,146 +272,160 @@
 
 ## v3.26.2 (27/01/2022)
 
-
 ### :bug: Bug fix
+
 - [#363](https://github.com/1024pix/pix-site/pull/363) [BUGFIX] Les URLs inter-locales ne fonctionnent pas correctement
 
 ## v3.26.1 (26/01/2022)
 
-
 ### :coffee: Various
+
 - [#360](https://github.com/1024pix/pix-site/pull/360) [FIX] Correction des redirections vers le site belge renvoyant une page 404.
 
 ## v3.25.2 (18/01/2022)
 
-
 ### :building_construction: Tech
+
 - [#356](https://github.com/1024pix/pix-site/pull/356) [TECH] Ajoute un log pour afficher le nombre de routes générées
 
 ### :bug: Bug fix
+
 - [#357](https://github.com/1024pix/pix-site/pull/357) [BUGFIX] Ne pas inclure les routes à générer si la langue n'est pas gérée (PIX-4173)
 
 ## v3.25.1 (12/01/2022)
 
-
 ### :bug: Bug fix
+
 - [#355](https://github.com/1024pix/pix-site/pull/355) [BUGFIX] Affichage de la bannière de nouveautés
 
 ## v3.25.0 (12/01/2022)
 
-
 ### :rocket: Enhancement
-- [#353](https://github.com/1024pix/pix-site/pull/353) [FEATURE] Ajout d'un Feature Toggle pour le switch de langue FR-BE  (PIX-4101).
+
+- [#353](https://github.com/1024pix/pix-site/pull/353) [FEATURE] Ajout d'un Feature Toggle pour le switch de langue FR-BE (PIX-4101).
 - [#349](https://github.com/1024pix/pix-site/pull/349) [FEATURE] Ajouter le menu Switch de langue sur le .org (PIX-4038)
 - [#348](https://github.com/1024pix/pix-site/pull/348) [FEATURE] Ajouter le langage 'FR-BE' dans pix-site (PIX-4035)
 
 ### :building_construction: Tech
+
 - [#352](https://github.com/1024pix/pix-site/pull/352) [TECH] Montée de version action d'auto-merge en v0.1.2
 - [#351](https://github.com/1024pix/pix-site/pull/351) [TECH] Utiliser la github action d'auto-merge commune de Pix
 - [#343](https://github.com/1024pix/pix-site/pull/343) [TECH] Meilleure gestion de la var d'env `SITE` (PIX-4014)
 
 ### :bug: Bug fix
+
 - [#345](https://github.com/1024pix/pix-site/pull/345) [BUGFIX] Éviter les redirections permanentes sur des liens qui peuvent changer
 - [#346](https://github.com/1024pix/pix-site/pull/346) [BUGFIX] Laisse Google indexer le site seulement si `SEO_ENABLE_INDEXING` est settée à `true` (PIX-4040)
 - [#347](https://github.com/1024pix/pix-site/pull/347) [BUGFIX] Logo Pix qui bouge selon les environnements (PIX-3927)
 
 ## v3.24.1 (14/12/2021)
 
-
 ### :building_construction: Tech
+
 - [#342](https://github.com/1024pix/pix-site/pull/342) [TECH] Supprime le dossier `store` qui était inutilisé (PIX-4011)
 
 ### :bug: Bug fix
+
 - [#344](https://github.com/1024pix/pix-site/pull/344) [BUGFIX] Boucle infinie Nginx sur les 404 pix.org
 - [#341](https://github.com/1024pix/pix-site/pull/341) [BUGFIX] Lance Prettier sur les fichiers SCSS (PIX-4010)
 
 ## v3.24.0 (10/12/2021)
 
-
 ### :building_construction: Tech
+
 - [#327](https://github.com/1024pix/pix-site/pull/327) [TECH] Migration vers @nuxt/image (PIX-3945)
 - [#336](https://github.com/1024pix/pix-site/pull/336) [TECH] Nettoyage document fetcher (PIX-3929, PIX-3932)
 - [#337](https://github.com/1024pix/pix-site/pull/337) [TECH] Les pages en erreur renvoient une erreur Nginx
 
 ### :bug: Bug fix
+
 - [#340](https://github.com/1024pix/pix-site/pull/340) [BUGFIX] Ajout de roles sémantiques dans les balises html (PIX-3999)
 - [#339](https://github.com/1024pix/pix-site/pull/339) [BUGFIX] Utilisation d'unités relatives pour les colonnes de features
 
 ## v3.23.2 (18/11/2021)
 
-
 ### :bug: Bug fix
+
 - [#335](https://github.com/1024pix/pix-site/pull/335) [BUGFIX] Correction logo pix-pro
 
 ## v3.23.1 (18/11/2021)
 
-
 ### :rocket: Enhancement
+
 - [#328](https://github.com/1024pix/pix-site/pull/328) [FEATURE] Corriger les titles pour les actualités.
 
 ### :building_construction: Tech
+
 - [#334](https://github.com/1024pix/pix-site/pull/334) [TECH] Utilise le PIX_SERVICE_ACTIONS_TOKEN dans l'action d'automerge
 
 ### :bug: Bug fix
+
 - [#325](https://github.com/1024pix/pix-site/pull/325) [BUGFIX] Ajoute les attributs `width` et `height` aux icônes
 - [#312](https://github.com/1024pix/pix-site/pull/312) [BUGFIX] Amélioration de l'auto-merge.
 
 ### :coffee: Various
+
 - [#333](https://github.com/1024pix/pix-site/pull/333) [INFRA] Mettre en cache les contenus des dossiers `images` et `scripts`
 - [#331](https://github.com/1024pix/pix-site/pull/331) [INFRA] Setup Circle CI
 - [#324](https://github.com/1024pix/pix-site/pull/324) [INFRA] Mise à jour de node de 14.16.0 à 14.17.0
 
 ## v3.23.0 (10/11/2021)
 
-
 ### :building_construction: Tech
-- [#320](https://github.com/1024pix/pix-site/pull/320) [TECH] Supprimer le store Vuex (PIX-1468). 
+
+- [#320](https://github.com/1024pix/pix-site/pull/320) [TECH] Supprimer le store Vuex (PIX-1468).
 
 ### :bug: Bug fix
+
 - [#318](https://github.com/1024pix/pix-site/pull/318) [BUGFIX] Redirections Nginx
 - [#314](https://github.com/1024pix/pix-site/pull/314) [BUGFIX] a11y - Ordre des headers de la page d'actualités
-- [#319](https://github.com/1024pix/pix-site/pull/319) [BUGFIX] Retirer le texte des actions de la barre de navigation sur mobile. 
+- [#319](https://github.com/1024pix/pix-site/pull/319) [BUGFIX] Retirer le texte des actions de la barre de navigation sur mobile.
 
 ### :coffee: Various
+
 - [#305](https://github.com/1024pix/pix-site/pull/305) [INFRA] Utilise seulement le mode static de Nuxt
 
 ## v3.22.0 (03/11/2021)
 
-
 ### :building_construction: Tech
+
 - [#306](https://github.com/1024pix/pix-site/pull/306) [TECH] Mettre à jour les dépendances
 - [#313](https://github.com/1024pix/pix-site/pull/313) [TECH] Mettre à jour le package @nuxtjs/i18n
-- [#316](https://github.com/1024pix/pix-site/pull/316) [TECH] Supprimer axios 
+- [#316](https://github.com/1024pix/pix-site/pull/316) [TECH] Supprimer axios
 - [#315](https://github.com/1024pix/pix-site/pull/315) [TECH] Fixer la version de assets-extractor-module
 - [#311](https://github.com/1024pix/pix-site/pull/311) [TECH] Utiliser sass au lieu de node-sass
 
 ### :bug: Bug fix
+
 - [#317](https://github.com/1024pix/pix-site/pull/317) [BUGFIX] Affichage de la vidéo au scroll sur la page d'accueil
 - [#310](https://github.com/1024pix/pix-site/pull/310) [BUGFIX] Problème de texte alternative sur les icones du menu.
 - [#309](https://github.com/1024pix/pix-site/pull/309) [BUGFIX] Réaligner les éléments dans le menu action (PIX-3760).
 
 ## v3.21.1 (28/10/2021)
 
-
 ### :bug: Bug fix
+
 - [#308](https://github.com/1024pix/pix-site/pull/308) [BUGFIX] Correction lien icones sur le site .org
 
 ## v3.21.0 (28/10/2021)
 
-
 ### :rocket: Enhancement
+
 - [#300](https://github.com/1024pix/pix-site/pull/300) [FEATURE] Double navigation (PIX-3690 PIX-1723)
 
 ### :building_construction: Tech
-- [#301](https://github.com/1024pix/pix-site/pull/301) [TECH] Ajoute les headers de cache navigateurs pour les dossiers _assets et _nuxt
+
+- [#301](https://github.com/1024pix/pix-site/pull/301) [TECH] Ajoute les headers de cache navigateurs pour les dossiers \_assets et \_nuxt
 - [#303](https://github.com/1024pix/pix-site/pull/303) [TECH] Importer seulement les fonctions de lodash qui sont utilisées.
 - [#302](https://github.com/1024pix/pix-site/pull/302) [TECH] Mise à jour de l'assets-extractor
 
 ### :bug: Bug fix
+
 - [#307](https://github.com/1024pix/pix-site/pull/307) [BUGFIX] Espacement de bloc feature
 - [#299](https://github.com/1024pix/pix-site/pull/299) [BUGFIX] Corrige l'alignement vertical dans la bannière de nouvelles.
 
 ### :coffee: Various
+
 - [#304](https://github.com/1024pix/pix-site/pull/304) [INFRA] Supprime la dépendance à lodash
 
 ## v3.20.0 (13/10/2021)
@@ -405,9 +434,9 @@
 
 ## v3.19.0 (16/09/2021)
 
-- [#296](https://github.com/1024pix/pix-site/pull/296) [FEATURE] Permettre de changer les paramètres envoyés à 123FormBuilder. 
+- [#296](https://github.com/1024pix/pix-site/pull/296) [FEATURE] Permettre de changer les paramètres envoyés à 123FormBuilder.
 - [#297](https://github.com/1024pix/pix-site/pull/297) [BUGFIX] Corriger l'alignement des blocs process
-- [#294](https://github.com/1024pix/pix-site/pull/294) [TECH] Extraire et utiliser le module assets-extractor 
+- [#294](https://github.com/1024pix/pix-site/pull/294) [TECH] Extraire et utiliser le module assets-extractor
 
 ## v3.18.0 (07/09/2021)
 
@@ -422,7 +451,7 @@
 ## v3.16.0 (04/08/2021)
 
 - [#290](https://github.com/1024pix/pix-site/pull/290) [FEATURE] Ajout du tag manager sur le site vitrine.
-- [#288](https://github.com/1024pix/pix-site/pull/288) [FEATURE] Créer à chaque déploiement les graphiques de statistiques (PIX-2919). 
+- [#288](https://github.com/1024pix/pix-site/pull/288) [FEATURE] Créer à chaque déploiement les graphiques de statistiques (PIX-2919).
 
 ## v3.15.0 (20/07/2021)
 
@@ -431,10 +460,10 @@
 - [#279](https://github.com/1024pix/pix-site/pull/279) [BUGFIX] Aligner les logos des partenaires sur un grand écran.
 - [#286](https://github.com/1024pix/pix-site/pull/286) [TECH] Utilise l'option modern du module prismic pour éviter un appel vers prismic sur la prod
 - [#285](https://github.com/1024pix/pix-site/pull/285) [TECH] Mise à jour de Jest vers la 27.0.6
-- [#278](https://github.com/1024pix/pix-site/pull/278) [TECH] Utiliser l'auto-import des composants proposé par Nuxt. 
+- [#278](https://github.com/1024pix/pix-site/pull/278) [TECH] Utiliser l'auto-import des composants proposé par Nuxt.
 - [#283](https://github.com/1024pix/pix-site/pull/283) [TECH] Suppression de l'appel à Google Font.
 - [#281](https://github.com/1024pix/pix-site/pull/281) [TECH] Monter de version @nuxtjs/prismic
-- [#280](https://github.com/1024pix/pix-site/pull/280) [TECH] Mettre à jour les dépendances. 
+- [#280](https://github.com/1024pix/pix-site/pull/280) [TECH] Mettre à jour les dépendances.
 - [#282](https://github.com/1024pix/pix-site/pull/282) [FEAT] Ajout de Matomo à Pix Pro (PIX-2800).
 
 ## v3.14.0 (21/06/2021)
@@ -451,10 +480,9 @@
 
 ## v3.13.0 (20/05/2021)
 
-
 ## v3.12.0 (12/05/2021)
 
-- [#266](https://github.com/1024pix/pix-site/pull/266) [FEATURE]  Changer les specs de la font (PIX-2269).
+- [#266](https://github.com/1024pix/pix-site/pull/266) [FEATURE] Changer les specs de la font (PIX-2269).
 - [#264](https://github.com/1024pix/pix-site/pull/264) [FEATURE] Changer la taille des titres h2 des slices (PIX-2270).
 - [#265](https://github.com/1024pix/pix-site/pull/265) [FEATURE] Changer la police des titres (PIX-2268).
 - [#267](https://github.com/1024pix/pix-site/pull/267) [BUGFIX] Fix affichage du favicon sur le site .org (PIX-2351).
@@ -606,7 +634,7 @@
 - [#185](https://github.com/1024pix/pix-site/pull/185) [FEATURE] Ajouter la possibilité de mettre une vidéo sur Article (PIX-1310).
 - [#179](https://github.com/1024pix/pix-site/pull/179) [FEATURE] Création du bloc process (PIX-1198).
 - [#187](https://github.com/1024pix/pix-site/pull/187) [BUGFIX] Pouvoir cliquer sur l'icon du bouton dropdown de la navigation
-- [#184](https://github.com/1024pix/pix-site/pull/184) [BUGFIX] La navigation ne s'affiche correctement sur les écrans intermédiaire. 
+- [#184](https://github.com/1024pix/pix-site/pull/184) [BUGFIX] La navigation ne s'affiche correctement sur les écrans intermédiaire.
 - [#183](https://github.com/1024pix/pix-site/pull/183) [TECH] Ajouter des tests pour LogosZone.
 
 ## v2.28.0 (08/10/2020)
@@ -614,7 +642,7 @@
 - [#185](https://github.com/1024pix/pix-site/pull/185) [FEATURE] Ajouter la possibilité de mettre une vidéo sur Article (PIX-1310).
 - [#179](https://github.com/1024pix/pix-site/pull/179) [FEATURE] Création du bloc process (PIX-1198).
 - [#187](https://github.com/1024pix/pix-site/pull/187) [BUGFIX] Pouvoir cliquer sur l'icon du bouton dropdown de la navigation
-- [#184](https://github.com/1024pix/pix-site/pull/184) [BUGFIX] La navigation ne s'affiche correctement sur les écrans intermédiaire. 
+- [#184](https://github.com/1024pix/pix-site/pull/184) [BUGFIX] La navigation ne s'affiche correctement sur les écrans intermédiaire.
 - [#183](https://github.com/1024pix/pix-site/pull/183) [TECH] Ajouter des tests pour LogosZone.
 
 ## v2.28.0 (05/10/2020)
@@ -629,7 +657,7 @@
 - [#170](https://github.com/1024pix/pix-site/pull/170) [FEATURE] Faire des builds dédiés pour pix-site et pix-pro (PIX-1260)
 - [#168](https://github.com/1024pix/pix-site/pull/168) [FEATURE] Migrer les pages pro dans pix-site (PIX-1261)
 - [#174](https://github.com/1024pix/pix-site/pull/174) [BUGFIX] Correction visuelle sur Pix-site (PF-1271).
-- [#180](https://github.com/1024pix/pix-site/pull/180) [TECH] Amélioration du temps de chargement des pages. 
+- [#180](https://github.com/1024pix/pix-site/pull/180) [TECH] Amélioration du temps de chargement des pages.
 - [#182](https://github.com/1024pix/pix-site/pull/182) [FIX] Correction des instructions d'installation des dépendances dans le README.md
 - [#176](https://github.com/1024pix/pix-site/pull/176) [CLEANUP] Ajout d'un component PixImage au dessus du PrismicImage (PIX-1323).
 - [#175](https://github.com/1024pix/pix-site/pull/175) Ajout de l'ADR pour la migration de pix-pro dans pix-site
@@ -641,8 +669,6 @@
 ## v2.26.0 (17/09/2020)
 
 - [#167](https://github.com/1024pix/pix-site/pull/167) [BUGFIX] Ajuster l'alignement des titres d'articles (PIX-1286).
-
-
 
 ## v2.25.0 (14/09/2020)
 

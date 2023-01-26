@@ -21,7 +21,7 @@ export default {
     paths: {
       fr: '/:uid',
       'fr-fr': '/:uid',
-      'en-gb': '/:uid',
+      en: '/:uid',
       'fr-be': '/:uid',
     },
   },

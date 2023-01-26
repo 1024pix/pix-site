@@ -35,4 +35,4 @@ checkRedirect pix.org /_assets/ "" "" 404
 checkRedirect review.scalingo.io /_assets/ "review.pix.org" "https" 404
 checkRedirect pix.org /favicon.ico "" "" 200
 checkRedirect pix.org /favicon.ico "review.pix.org" "" 200
-checkRedirect review.scalingo.io /en-gb/the-tests/ "review.pix.org" "" 200
+checkRedirect review.scalingo.io /en/the-tests/ "review.pix.org" "" 200

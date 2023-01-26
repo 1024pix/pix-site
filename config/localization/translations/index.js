@@ -1,6 +1,6 @@
 import fr from './fr'
 import frFr from './fr-fr'
 import frBe from './fr-be'
-import enGb from './en-gb'
+import en from './en'
 
-export const translations = { fr, 'fr-fr': frFr, 'fr-be': frBe, 'en-gb': enGb }
+export const translations = { fr, 'fr-fr': frFr, 'fr-be': frBe, en }

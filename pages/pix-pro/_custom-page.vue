@@ -21,7 +21,7 @@ export default {
     paths: {
       fr: '/:uid',
       'fr-fr': '/:uid',
-      'en-gb': '/:uid',
+      en: '/:uid',
     },
   },
   async asyncData({ params, app, req, error, currentPagePath }) {

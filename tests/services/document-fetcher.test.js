@@ -1,13 +1,17 @@
 import prismic from '@prismicio/client'
 import { SITES_PRISMIC_TAGS } from '~/services/available-sites'
-import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
+import {
+  documentFetcher,
+  DOCUMENTS,
+  getPrismicLang,
+} from '~/services/document-fetcher'
 
 jest.mock('@prismicio/client')
 
 describe('DocumentFetcher', () => {
   const SAVED_ENV = process.env
 
-  test('it should get employers page with distributors informations', async () => {
+  it('it should get employers page with distributors informations', async () => {
     // Given
     const expected = { uid: 'navigation' }
     const prismicApi = {
@@ -30,7 +34,7 @@ describe('DocumentFetcher', () => {
     expect(result).toEqual(expected)
   })
 
-  test('it should get simplePage by UID', async () => {
+  it('it should get simplePage by UID', async () => {
     // Given
     const expectedValue = Symbol('VALUE')
     const expectedPredicatesAtValue = Symbol('AT')
@@ -74,7 +78,7 @@ describe('DocumentFetcher', () => {
     expect(response).toEqual(expectedValue)
   })
 
-  test('#findHotNewsBanner', async () => {
+  it('#findHotNewsBanner', async () => {
     // Given
     const expectedValue = [{ type: DOCUMENTS.HOT_NEWS }]
     const expectedPredicatesAtValue = Symbol('AT')
@@ -103,7 +107,7 @@ describe('DocumentFetcher', () => {
     expect(response).toEqual(expectedValue[0])
   })
 
-  test('#findMainNavigation', async () => {
+  it('#findMainNavigation', async () => {
     // Given
     jest.resetModules() // nettoye le cache pour mocker process.env
     process.env = { SITE: SITES_PRISMIC_TAGS.PIX_SITE }
@@ -149,7 +153,7 @@ describe('DocumentFetcher', () => {
     process.env = { ...SAVED_ENV }
   })
 
-  test('#findMainFooter', async () => {
+  it('#findMainFooter', async () => {
     // Given
     jest.resetModules() // nettoie le cache pour mocker process.env
     process.env = { SITE: SITES_PRISMIC_TAGS.PIX_PRO }
@@ -190,5 +194,36 @@ describe('DocumentFetcher', () => {
     )
     expect(response).toEqual(expectedValue[0])
     process.env = { ...SAVED_ENV }
+  })
+
+  describe('#getPrismicLang', () => {
+    let i18n
+
+    beforeEach(() => {
+      i18n = {
+        localization: {
+          locales: [
+            { code: 'fr-fr', prismicLang: 'fr-fr' },
+            { code: 'fr-be', prismicLang: 'fr-be' },
+            { code: 'en', prismicLang: 'en-gb' },
+          ],
+        },
+      }
+    })
+    it('should return fr-fr when locale is fr-fr', () => {
+      // When
+      const response = getPrismicLang({ ...i18n, locale: 'fr-fr' })
+
+      // Then
+      expect(response).toEqual('fr-fr')
+    })
+
+    it('should return en-gb when locale is en', () => {
+      // When
+      const response = getPrismicLang({ ...i18n, locale: 'en' })
+
+      // Then
+      expect(response).toEqual('en-gb')
+    })
   })
 })
