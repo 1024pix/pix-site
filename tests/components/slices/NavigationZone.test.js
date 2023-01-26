@@ -111,5 +111,19 @@ describe('NavigationZone slice', () => {
         expect(component.vm.isOpenDropdown(dropdownIndex)).toBeFalsy()
       })
     })
+
+    describe('#subIsActive', () => {
+      it("should return false if links does not contain a link.url that's the same as the current route", () => {
+        $route.path = '/tests'
+        const links = [{ link: { url: '/current' } }]
+        expect(component.vm.subIsActive(links)).toBe(false)
+      })
+
+      it('should return true if links contains link.url same as the current route', () => {
+        $route.path = '/tests'
+        const links = [{ link: {} }, { link: { url: '/tests' } }]
+        expect(component.vm.subIsActive(links)).toBe(true)
+      })
+    })
   })
 })
