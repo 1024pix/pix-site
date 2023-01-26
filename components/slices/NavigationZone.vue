@@ -111,11 +111,13 @@ export default {
       }
     },
     subIsActive(subNavigationLinks) {
-      const paths = subNavigationLinks.map((subNavigationLink) => {
-        const splittedLink = subNavigationLink.link.url.split('/')
-        const linkIndex = splittedLink.length - 1
-        return splittedLink[linkIndex]
-      })
+      const paths = subNavigationLinks
+        .filter((subNavigationLink) => subNavigationLink.link.url !== undefined)
+        .map((subNavigationLink) => {
+          const splittedLink = subNavigationLink.link.url.split('/')
+          const linkIndex = splittedLink.length - 1
+          return splittedLink[linkIndex]
+        })
       return paths.some((path) => {
         return this.$route.path.includes(path)
       })
