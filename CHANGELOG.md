@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v4.3.0 (27/01/2023)
+
+
+### :rocket: Amélioration
+- [#466](https://github.com/1024pix/pix-site/pull/466) [FEATURE] Faire en sorte que le cookie de langue de pix.org soit lisible sur app.pix.org (PIX-6904)
+
+### :building_construction: Tech
+- [#474](https://github.com/1024pix/pix-site/pull/474) [TECH] Permettre l'ajout de logs dynamiquement grâce à une variable d'environnement.
+- [#473](https://github.com/1024pix/pix-site/pull/473) [TECH] Supprimer le dossier lang du fichier `.slugignore`
+
 ## v4.2.1 (26/01/2023)
 
 
