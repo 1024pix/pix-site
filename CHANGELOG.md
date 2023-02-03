@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.4.1 (03/02/2023)
+
+
+### :building_construction: Tech
+- [#498](https://github.com/1024pix/pix-site/pull/498) [TECH] Mettre à jour jest
+
 ## v4.4.0 (03/02/2023)
 
 
