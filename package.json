@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@nuxtjs/prismic": "^1.4.2",
-    "nuxt": "^2.15.1",
+    "nuxt": "^3.1.2",
     "nuxt-winston-log": "^1.2.0",
     "winston": "3.8.2"
   },
