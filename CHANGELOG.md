@@ -1,5 +1,22 @@
 # pix-site Changelog
 
+## v4.4.0 (03/02/2023)
+
+
+### :building_construction: Tech
+- [#479](https://github.com/1024pix/pix-site/pull/479) [TECH] Ajouter la config pour renovate
+
+### :coffee: Autre
+- [#495](https://github.com/1024pix/pix-site/pull/495) chore(deps): update npm to v9
+- [#491](https://github.com/1024pix/pix-site/pull/491) chore(deps): update font awesome to v6 (major)
+- [#490](https://github.com/1024pix/pix-site/pull/490) chore(deps): update dependency vue-js-modal to v2
+- [#487](https://github.com/1024pix/pix-site/pull/487) chore(deps): update dependency eslint-plugin-nuxt to v4
+- [#485](https://github.com/1024pix/pix-site/pull/485) chore(deps): update dependency axios to v1
+- [#483](https://github.com/1024pix/pix-site/pull/483) chore(deps): update dependency @nuxtjs/robots to v3
+- [#482](https://github.com/1024pix/pix-site/pull/482) chore(deps): update dependency @nuxtjs/eslint-config to v12
+- [#480](https://github.com/1024pix/pix-site/pull/480) chore(deps): update all non-major dependencies
+- [#481](https://github.com/1024pix/pix-site/pull/481) chore(deps): update node.js to v16.19.0
+
 ## v4.3.0 (27/01/2023)
 
 
