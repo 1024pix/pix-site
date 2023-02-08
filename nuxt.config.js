@@ -238,9 +238,10 @@ if (config.matomo.containerUrl) {
   nuxtConfig.head.script.push(
     {
       type: 'text/javascript',
-      src: config.matomo.containerUrl,
-      async: true,
-      defer: true,
+      src: '/scripts/matomo-tracking.js',
+      'data-global-site-id': config.matomo.globalSiteId,
+      'data-fwb-site-id': config.matomo.fwbSiteId,
+      'data-matomo-tracking': true,
     },
     {
       type: 'text/javascript',
