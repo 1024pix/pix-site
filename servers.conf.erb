@@ -29,7 +29,7 @@ access_log off;
 port_in_redirect off;
 
 upstream api {
-    server pix-geoapi-test.osc-fr1.scalingo.io:443 max_fails=<%= ENV['NGINX_UPSTREAM_MAX_FAILS'] || 3 %> fail_timeout=<%= ENV['NGINX_UPSTREAM_FAIL_TIMEOUT'] || '5s' %>;
+    server <%= ENV['NGINX_UPSTREAM_HOST'] %>:443 max_fails=<%= ENV['NGINX_UPSTREAM_MAX_FAILS'] || 3 %> fail_timeout=<%= ENV['NGINX_UPSTREAM_FAIL_TIMEOUT'] || '5s' %>;
 }
 
 server {
