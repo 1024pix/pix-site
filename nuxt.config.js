@@ -241,6 +241,8 @@ if (config.matomo.containerUrl) {
       src: '/scripts/matomo-tracking.js',
       'data-global-site-id': config.matomo.globalSiteId,
       'data-fwb-site-id': config.matomo.fwbSiteId,
+      'data-global-container': config.matomo.containerUrl,
+      'data-fwb-container': config.matomo.fwbContainerUrl,
       'data-matomo-tracking': true,
     },
     {

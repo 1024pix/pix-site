@@ -11,6 +11,7 @@ export const config = {
   },
   matomo: {
     containerUrl: process.env.MATOMO_CONTAINER,
+    fwbContainerUrl: process.env.MATOMO_CONTAINER_FWB,
     debug: process.env.MATOMO_DEBUG || false,
     globalSiteId: process.env.MATOMO_GLOBAL_SITE_ID,
     fwbSiteId: process.env.MATOMO_FWB_SITE_ID,
