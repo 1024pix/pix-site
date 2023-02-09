@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.4.2 (09/02/2023)
+
+
+### :building_construction: Tech
+- [#499](https://github.com/1024pix/pix-site/pull/499) [TECH] Passage à nuxt@2.16.0
+
 ## v4.4.1 (03/02/2023)
 
 
