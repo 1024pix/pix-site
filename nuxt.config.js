@@ -95,6 +95,7 @@ const nuxtConfig = {
     '@nuxtjs/prismic',
     '@nuxtjs/fontawesome',
     '@nuxt/image',
+    '@nuxtjs/proxy',
   ],
 
   eslint: {
@@ -114,6 +115,16 @@ const nuxtConfig = {
   prismic: {
     endpoint: config.prismic.apiEndpoint,
     modern: true,
+  },
+
+  // This is only useful in local dev mode. GEOAPI_HOST is overriden in nginx conf
+  // (NGINX_GEOAPI_UPSTREAM_HOST) in review-app / integration / production
+  proxy: {
+    '/geolocate': {
+      target: `https://${process.env.GEOAPI_HOST}/`,
+      changeOrigin: true,
+      pathRewrite: { '^/geolocate': '/me' },
+    },
   },
 
   fontawesome: {

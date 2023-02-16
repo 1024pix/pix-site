@@ -31,6 +31,18 @@ describe.only('Default layout', () => {
     expect(wrapper.find('#app').exists()).toBe(true)
   })
 
+  it('should set data default values', () => {
+    // given
+    wrapper = shallowMount(DefaultLayout, {
+      localVue,
+      stubs,
+      mocks: { $i18n },
+    })
+
+    // then
+    expect(wrapper.vm.showOutOfFranceBanner).toBe(false)
+  })
+
   it('should define the current locale as html lang', () => {
     // given
     wrapper = shallowMount(DefaultLayout, {

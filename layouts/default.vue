@@ -10,7 +10,29 @@
 </template>
 
 <script>
+import { shouldShowOutOfFranceBanner } from '~/services/should-show-out-of-france-banner'
+import { getBaseUrl } from '~/config/url'
+
 export default {
+  /**  When building with nuxt generate on target static mode,
+   * fetch lifecycle is only called during build process and not on runtime
+   * (see {@link https://nuxtjs.org/announcements/going-full-static/#crazy-fast-static-applications}).
+   * We are preventing this behaviour by calling fetch only on client side. */
+  fetchOnServer: false,
+  data() {
+    return {
+      showOutOfFranceBanner: false,
+    }
+  },
+  async fetch() {
+    const baseUrl = getBaseUrl(this.$nuxt.context)
+
+    try {
+      this.showOutOfFranceBanner = await shouldShowOutOfFranceBanner(baseUrl)
+    } catch (error) {
+      this.showOutOfFranceBanner = false
+    }
+  },
   head() {
     return {
       htmlAttrs: {
