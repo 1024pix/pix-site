@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slice: Page Banner should render component 1`] = `
+"<div id="slice-0">
+  <section class="banner row-block">
+    <div class="row-block__main-content">
+      <prismic-rich-text-stub class="title--big title--"></prismic-rich-text-stub>
+      <prismic-rich-text-stub class="text--normal text--"></prismic-rich-text-stub>
+      <div class="banner__button-group">
+        <div>
+          <!----> <button class="button button-video button--">
+            <fa-stub icon="play-circle"></fa-stub>
+
+          </button>
+          <modal-stub name="videoModal" resizeedges="r,br,b,bl,l,tl,t,tr" centerresize="true" resizeindicator="true" overlaytransition="vm-transition--overlay" transition="vm-transition--modal" clicktoclose="true" classes="" minwidth="0" minheight="0" maxwidth="9007199254740991" maxheight="9007199254740991" width="600" height="auto" shiftx="0.5" shifty="0.5">
+            <media-player-stub video-url="pix-videos/"></media-player-stub>
+          </modal-stub>
+        </div>
+      </div>
+    </div>
+    <!---->
+  </section>
+</div>"
+`;

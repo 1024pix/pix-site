@@ -79,7 +79,7 @@ const nuxtConfig = {
     '~/plugins/components.js',
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', mode: 'client' },
-    '~plugins/vue-js-modal',
+    { src: '~plugins/vue-js-modal.js', mode: 'client' },
     { src: '~/plugins/prismicLinks', mode: 'client' },
     { src: '~/plugins/locale-observer', mode: 'client' },
   ],
