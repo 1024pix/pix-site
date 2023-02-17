@@ -35,6 +35,9 @@
     "dev:pro:e2e": "npm run build:pro:e2e && npm run start:nginx:e2e",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "test": "SITE=pix-site jest --no-coverage",
+    "test:e2e": "npm run test:e2e:install && npm run test:e2e:run",
+    "test:e2e:install": "playwright install",
+    "test:e2e:run": "playwright test",
     "signal-jira": "node ./scripts/jira/comment-with-review-app-url.js"
   },
   "dependencies": {
