@@ -86,6 +86,7 @@ If not present, nginx will start and stop in error with message "nginx: [emerg] 
 - default: none
 
 `NGINX_GEOAPI_UPSTREAM_MAX_FAILS`
+Number of failed request to upstream before putting it in quarantine.
 This variable is used only in the nginx configuration.
 
 - presence: optional
@@ -93,6 +94,7 @@ This variable is used only in the nginx configuration.
 - default: 3
 
 `NGINX_GEOAPI_UPSTREAM_FAIL_TIMEOUT`
+Duration of the quarantine for a failed upstream server.
 This variable is used only in the nginx configuration.
 
 - presence: optional
