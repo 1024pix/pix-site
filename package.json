@@ -54,7 +54,7 @@
     "@nuxtjs/fontawesome": "^1.1.2",
     "@nuxtjs/i18n": "^7.1.0",
     "@nuxtjs/proxy": "^2.1.0",
-    "@nuxtjs/robots": "^3.0.0",
+    "@nuxtjs/robots": "^2.5.0",
     "@nuxtjs/style-resources": "^1.2.1",
     "@vue/test-utils": "^1.2.2",
     "autoprefixer": "^10.4.0",
