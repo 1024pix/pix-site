@@ -61,7 +61,7 @@
     "axios": "^1.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^29.4.1",
-    "chart.js": "^2.9.4",
+    "chart.js": "^4.0.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^27.1.7",
