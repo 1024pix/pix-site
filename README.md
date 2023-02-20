@@ -32,6 +32,13 @@ Domain name for `.org` extension.
 - type: String
 - default: none
 
+`GEOAPI_HOST`
+Host for Pix Geo-api which is only used in local dev mode.
+
+- presence: optional
+- type: String
+- default: none
+
 `MATOMO_CONTAINER`
 If not present, nuxt-matomo will not be loaded and tag managers will not be active
 
