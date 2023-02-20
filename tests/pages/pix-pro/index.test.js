@@ -1,5 +1,4 @@
 import { shallowMount } from '@vue/test-utils'
-import Vue from 'vue'
 import Index from '@/pages/pix-pro/index.vue'
 
 describe('Index Page', () => {
@@ -29,7 +28,7 @@ describe('Index Page', () => {
           mocks: { $router },
           stubs: ['client-only', 'pix-image', 'locale-link'],
         })
-        await Vue.nextTick()
+        await wrapper.vm.$nextTick()
 
         // then
         expect($router.replace).not.toHaveBeenCalled()
@@ -48,7 +47,7 @@ describe('Index Page', () => {
           mocks: { $router },
           stubs: ['client-only', 'pix-image', 'locale-link'],
         })
-        await Vue.nextTick()
+        await wrapper.vm.$nextTick()
 
         // then
         expect($router.replace).toHaveBeenCalledWith('/fr/')
