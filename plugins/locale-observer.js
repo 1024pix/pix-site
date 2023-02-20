@@ -1,11 +1,21 @@
 import { config } from '../config/environment'
 
-export default function ({ app }) {
+export default function (context) {
+  const { app, isDev } = context
   app.i18n.onBeforeLanguageSwitch = (oldLocale, newLocale) => {
-    _setLocaleCookie(newLocale)
+    _setLocaleCookie(newLocale, isDev)
   }
 }
 
-function _setLocaleCookie(locale) {
-  document.cookie = `locale=${locale}; path=/; domain=${config.siteDomain}; max-age=31536000`
+function _setLocaleCookie(locale, isDev) {
+  const localeCookieProperties = [
+    `locale=${locale}`,
+    'path=/',
+    'max-age=31536000',
+  ]
+  if (!isDev) {
+    localeCookieProperties.push(`domain=${config.siteDomain}`)
+  }
+
+  document.cookie = localeCookieProperties.join('; ')
 }
