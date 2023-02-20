@@ -74,6 +74,34 @@ If not present, Metabase cards will not be loaded.
 - type: String
 - default: none
 
+---
+
+`NGINX_GEOAPI_UPSTREAM_HOST`
+Host name of the GEOAPI service that is providing the "/me" endpoint.
+This variable is used only in the nginx configuration.
+If not present, nginx will start and stop in error with message "nginx: [emerg] no host in upstream".
+
+- presence: required
+- type: String
+- default: none
+
+`NGINX_GEOAPI_UPSTREAM_MAX_FAILS`
+Number of failed request to upstream before putting it in quarantine.
+This variable is used only in the nginx configuration.
+
+- presence: optional
+- type: Number
+- default: 3
+
+`NGINX_GEOAPI_UPSTREAM_FAIL_TIMEOUT`
+Duration of the quarantine for a failed upstream server.
+This variable is used only in the nginx configuration.
+
+- presence: optional
+- type: String
+- default: 5s
+
+
 ## Build Setup
 
 En dev, copier le fichier `sample.env` vers un `.env` et remplacer les valeurs.
