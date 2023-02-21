@@ -39,7 +39,7 @@ describe('Plugins | locale-observer', () => {
 
           // then
           expect(document.cookie).toEqual(
-            'locale=en-gb; path=/; max-age=31536000; domain=pix.org'
+            'locale=en-gb; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
           )
         })
       })
@@ -47,7 +47,8 @@ describe('Plugins | locale-observer', () => {
       describe('when cookie', () => {
         it('saves locale cookie', () => {
           // given
-          document.cookie = 'locale=en-gb; path=/; max-age=31536000'
+          document.cookie =
+            'locale=en-gb; path=/; max-age=31536000; SameSite=Strict'
           const oldLocale = 'en-gb'
           const newLocale = 'fr'
           const context = {
@@ -65,7 +66,7 @@ describe('Plugins | locale-observer', () => {
 
           // then
           expect(document.cookie).toEqual(
-            'locale=fr; path=/; max-age=31536000; domain=pix.org'
+            'locale=fr; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
           )
         })
       })
@@ -95,7 +96,7 @@ describe('Plugins | locale-observer', () => {
 
         // then
         expect(document.cookie).toEqual(
-          'locale=en-gb; path=/; max-age=31536000'
+          'locale=en-gb; path=/; max-age=31536000; SameSite=Strict'
         )
       })
     })
@@ -103,7 +104,8 @@ describe('Plugins | locale-observer', () => {
     describe('when cookie', () => {
       it('saves locale cookie', () => {
         // given
-        document.cookie = 'locale=en-gb; path=/; max-age=31536000'
+        document.cookie =
+          'locale=en-gb; path=/; max-age=31536000; SameSite=Strict'
         const oldLocale = 'en-gb'
         const newLocale = 'fr'
         const context = {
@@ -121,7 +123,9 @@ describe('Plugins | locale-observer', () => {
         context.app.i18n.onBeforeLanguageSwitch(oldLocale, newLocale)
 
         // then
-        expect(document.cookie).toEqual('locale=fr; path=/; max-age=31536000')
+        expect(document.cookie).toEqual(
+          'locale=fr; path=/; max-age=31536000; SameSite=Strict'
+        )
       })
     })
   })

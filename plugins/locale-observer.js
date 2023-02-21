@@ -12,6 +12,7 @@ function _setLocaleCookie(locale, isDev) {
     `locale=${locale}`,
     'path=/',
     'max-age=31536000',
+    'SameSite=Strict',
   ]
   if (!isDev) {
     localeCookieProperties.push(`domain=${config.siteDomain}`)
