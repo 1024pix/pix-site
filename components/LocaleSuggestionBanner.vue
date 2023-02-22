@@ -28,12 +28,12 @@ export default {
 .locale-suggestion-banner {
   top: 0;
   left: 0;
-  height: 70px;
+  height: 4.375rem;
   width: 100%;
 
   color: $white;
   background-color: $black;
-  padding: 2px;
+  padding: 0.125rem;
 
   display: flex;
   flex-direction: row;
@@ -53,14 +53,14 @@ export default {
 }
 
 .close {
-  margin-right: 20px;
+  margin-right: 1.25rem;
   opacity: 0.5;
   transition: 0.5s;
   cursor: pointer;
-  height: 20px;
+  height: 1.25rem;
 
-  @media (min-width: 769px) {
-    margin-right: 32px;
+  @include device-is('tablet') {
+    margin-right: 2rem;
   }
 
   &:hover {

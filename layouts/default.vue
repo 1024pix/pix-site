@@ -1,6 +1,10 @@
 <template>
   <div id="app" class="app-viewport">
     <hot-news-banner />
+    <locale-suggestion-banner
+      :is-open="showOutOfFranceBanner"
+      @handleCloseBanner="closeLocaleSuggestionBanner"
+    />
     <navigation-slice-zone />
     <main role="main">
       <nuxt />
@@ -39,6 +43,11 @@ export default {
         lang: this.$i18n.locale,
       },
     }
+  },
+  methods: {
+    closeLocaleSuggestionBanner() {
+      this.showOutOfFranceBanner = false
+    },
   },
 }
 </script>
