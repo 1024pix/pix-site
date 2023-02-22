@@ -17,13 +17,71 @@ describe('Plugins | locale-observer', () => {
   })
 
   describe('when user switch locale', () => {
+    describe('when not isDev', () => {
+      describe('when no cookie', () => {
+        it('saves locale cookie', () => {
+          // given
+          document.cookie = ''
+          const oldLocale = ''
+          const newLocale = 'en-gb'
+          const context = {
+            app: {
+              i18n: {},
+            },
+            route: {
+              path: '/',
+            },
+          }
+
+          // when
+          localeObserver(context)
+          context.app.i18n.onBeforeLanguageSwitch(oldLocale, newLocale)
+
+          // then
+          expect(document.cookie).toEqual(
+            'locale=en-gb; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
+          )
+        })
+      })
+
+      describe('when cookie', () => {
+        it('saves locale cookie', () => {
+          // given
+          document.cookie =
+            'locale=en-gb; path=/; max-age=31536000; SameSite=Strict'
+          const oldLocale = 'en-gb'
+          const newLocale = 'fr'
+          const context = {
+            app: {
+              i18n: {},
+            },
+            route: {
+              path: '/',
+            },
+          }
+
+          // when
+          localeObserver(context)
+          context.app.i18n.onBeforeLanguageSwitch(oldLocale, newLocale)
+
+          // then
+          expect(document.cookie).toEqual(
+            'locale=fr; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
+          )
+        })
+      })
+    })
+  })
+
+  describe('when isDev', () => {
     describe('when no cookie', () => {
-      it('save locale cookie', () => {
+      it('saves locale cookie', () => {
         // given
         document.cookie = ''
         const oldLocale = ''
         const newLocale = 'en-gb'
         const context = {
+          isDev: true,
           app: {
             i18n: {},
           },
@@ -38,18 +96,20 @@ describe('Plugins | locale-observer', () => {
 
         // then
         expect(document.cookie).toEqual(
-          'locale=en-gb; path=/; domain=pix.org; max-age=31536000'
+          'locale=en-gb; path=/; max-age=31536000; SameSite=Strict'
         )
       })
     })
 
     describe('when cookie', () => {
-      it('save locale cookie', () => {
+      it('saves locale cookie', () => {
         // given
-        document.cookie = 'locale=en-gb; path=/; max-age=31536000'
+        document.cookie =
+          'locale=en-gb; path=/; max-age=31536000; SameSite=Strict'
         const oldLocale = 'en-gb'
         const newLocale = 'fr'
         const context = {
+          isDev: true,
           app: {
             i18n: {},
           },
@@ -64,7 +124,7 @@ describe('Plugins | locale-observer', () => {
 
         // then
         expect(document.cookie).toEqual(
-          'locale=fr; path=/; domain=pix.org; max-age=31536000'
+          'locale=fr; path=/; max-age=31536000; SameSite=Strict'
         )
       })
     })
