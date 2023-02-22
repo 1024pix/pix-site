@@ -62,4 +62,5 @@ export default {
     '<br/>Si vous avez besoin d’aide, vous pouvez consulter le ' +
     '<a href="https://support.pix.org/fr/support/home">support</a>.' +
     '</p>',
+  'locale-suggestion-banner-text': `Vous semblez ne pas être en France. Voulez-vous accéder au <a href="https://${process.env.DOMAIN_ORG}">site Pix international</a> ?`,
 }
