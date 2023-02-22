@@ -236,6 +236,12 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ### NGINX
 
+La configuration NGINX a besoin de la variable NGINX_GEOAPI_UPSTREAM_HOST (ne pas la définir cause une erreur) :
+
+```
+export NGINX_GEOAPI_UPSTREAM_HOST=example.net # remplacer example.net par le host name du service de geolocalisation
+```
+
 Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
 
 ```
