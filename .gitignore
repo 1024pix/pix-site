@@ -91,3 +91,7 @@ sw.*
 
 # Vim swap files
 *.swp
+
+/test-results/
+/playwright-report/
+/playwright/.cache/
