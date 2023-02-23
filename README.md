@@ -79,9 +79,9 @@ If not present, Metabase cards will not be loaded.
 `NGINX_GEOAPI_UPSTREAM_HOST`
 Host name of the GEOAPI service that is providing the "/me" endpoint.
 This variable is used only in the nginx configuration.
-If not present, nginx will start and stop in error with message "nginx: [emerg] no host in upstream".
+If not present, the geolocalisation won't be available in the application.
 
-- presence: required
+- presence: optional
 - type: String
 - default: none
 
