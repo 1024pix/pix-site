@@ -1,5 +1,25 @@
 # pix-site Changelog
 
+## v4.5.0 (23/02/2023)
+
+
+### :rocket: Amélioration
+- [#512](https://github.com/1024pix/pix-site/pull/512) [FEATURE] Afficher une bannière pour suggérer aux utilisateurs hors de France visitant pix.fr d'aller sur pix.org (PIX-7041)
+- [#504](https://github.com/1024pix/pix-site/pull/504) [FEATURE] Appeler le service de géolocalisation depuis pix-site (PIX-7036)
+
+### :building_construction: Tech
+- [#510](https://github.com/1024pix/pix-site/pull/510) [TECH] Corrige un warning sur l'usage du `nextTick`
+- [#502](https://github.com/1024pix/pix-site/pull/502) [TECH] Ajouter un endpoint de géolocalisation (PIX-7084)
+
+### :bug: Correction
+- [#505](https://github.com/1024pix/pix-site/pull/505) [BUGFIX] Corriger la régression d'indexation des sites (PIX-7208).
+- [#513](https://github.com/1024pix/pix-site/pull/513) [BUGFIX] Permettre de visionner la vidéo de la page d'accueil
+- [#511](https://github.com/1024pix/pix-site/pull/511) [BUGFIX] Corriger le positionnement du cookie locale en local en mode dev
+
+### :coffee: Autre
+- [#507](https://github.com/1024pix/pix-site/pull/507) [DOC] Documenter les nouvelle variables d'env de pix-site introduites pour la géolocalisation (PIX-7200)
+- [#506](https://github.com/1024pix/pix-site/pull/506) [BUMP] Update Node.js to v16.19.1 (.circleci)
+
 ## v4.4.2 (09/02/2023)
 
 
