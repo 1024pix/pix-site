@@ -86,6 +86,7 @@ export default {
 <style lang="scss">
 .navigation-slice-zone {
   box-shadow: -1px 9px 29px -16px rgba(199, 191, 199, 0.9);
+  position: relative;
 
   .burger-menu {
     display: block;
