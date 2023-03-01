@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.5.1 (01/03/2023)
+
+
+### :bug: Correction
+- [#518](https://github.com/1024pix/pix-site/pull/518) [BUGFIX]: Corriger le problème d'affichage de la bannière hors de France en affichage réduit
+
 ## v4.5.0 (23/02/2023)
 
 
