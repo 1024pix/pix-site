@@ -28,9 +28,11 @@ access_log off;
 
 port_in_redirect off;
 
+<% if ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>
 upstream api {
   server <%= ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>:443 max_fails=<%= ENV['NGINX_GEOAPI_UPSTREAM_MAX_FAILS'] || 3 %> fail_timeout=<%= ENV['NGINX_GEOAPI_UPSTREAM_FAIL_TIMEOUT'] || '5s' %>;
 }
+<% end %>
 
 server {
   access_log logs/access.log keyvalue;
@@ -46,12 +48,14 @@ server {
     set $extension 'org';
   }
 
+<% if ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>
   location /geolocate {
     proxy_pass https://api/me;
     proxy_redirect default;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host <%= ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>;
   }
+<% end %>
 
   charset utf-8;
 
