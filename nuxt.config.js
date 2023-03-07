@@ -76,6 +76,7 @@ const nuxtConfig = {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    '~/plugins/polyfills.js',
     '~/plugins/components.js',
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', mode: 'client' },
