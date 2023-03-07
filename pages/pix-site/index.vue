@@ -47,11 +47,12 @@ export default {
         .find((item) => item.startsWith('locale'))
       if (!localeCookie) return null
 
-      const chosenLocale = localeCookie.split('=')[1]
+      const chosenLocale = localeCookie.split('=')?.[1]?.toLowerCase()
 
       const currentLocales = localization.localesForCurrentSite.map(
-        ({ code }) => code
+        ({ code }) => code.toLowerCase()
       )
+
       if (!currentLocales.includes(chosenLocale)) return null
 
       return chosenLocale
