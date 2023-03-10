@@ -8,7 +8,8 @@ export default function (context) {
 }
 
 function _setLocaleCookie(locale, isDev) {
-  const localeName = new Intl.Locale(locale).baseName
+  const localeName = Intl.getCanonicalLocales(locale)?.[0]
+
   const localeCookieProperties = [
     `locale=${localeName}`,
     'path=/',
