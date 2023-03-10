@@ -41,7 +41,6 @@
     "signal-jira": "node ./scripts/jira/comment-with-review-app-url.js"
   },
   "dependencies": {
-    "@formatjs/intl-locale": "^3.1.1",
     "@nuxtjs/prismic": "^1.4.2",
     "nuxt": "^2.16.0",
     "nuxt-winston-log": "^1.2.0",
