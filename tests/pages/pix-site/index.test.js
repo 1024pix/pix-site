@@ -117,7 +117,7 @@ describe('Index Page', () => {
       })
 
       describe('when there is a locale cookie', () => {
-        describe('with international format', () => {
+        describe('with value being only one subtag', () => {
           test('returns the proper locale', () => {
             // given
             document.cookie = 'foo=bar; locale=fr'
@@ -134,7 +134,7 @@ describe('Index Page', () => {
           })
         })
 
-        describe('with BCP47 format', () => {
+        describe('with value being in canonical BCP 47 format', () => {
           test('returns the proper locale in lowercase', () => {
             // given
             document.cookie = 'foo=bar; locale=en-GB'
