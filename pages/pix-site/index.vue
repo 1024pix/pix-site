@@ -49,11 +49,13 @@ export default {
       if (!localeCookie) return null
 
       try {
-        const chosenLocale = localeCookie.split('=')?.[1]
-        const canonicalChosenLocale =
-          Intl.getCanonicalLocales(chosenLocale)?.[0]
+        const chosenLocale = localeCookie.split('=')[1]
+
+        if (!chosenLocale) return null
+
+        const canonicalChosenLocale = Intl.getCanonicalLocales(chosenLocale)[0]
         const canonicalCurrentLocales = localization.localesForCurrentSite.map(
-          ({ code }) => Intl.getCanonicalLocales(code)?.[0]
+          ({ code }) => Intl.getCanonicalLocales(code)[0]
         )
 
         if (!canonicalCurrentLocales.includes(canonicalChosenLocale))
