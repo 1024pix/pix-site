@@ -8,8 +8,10 @@ export default function (context) {
 }
 
 function _setLocaleCookie(locale, isDev) {
+  const canonicalName = Intl.getCanonicalLocales(locale)?.[0]
+
   const localeCookieProperties = [
-    `locale=${locale}`,
+    `locale=${canonicalName}`,
     'path=/',
     'max-age=31536000',
     'SameSite=Strict',

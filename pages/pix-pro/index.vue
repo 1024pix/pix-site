@@ -44,16 +44,26 @@ export default {
       const localeCookie = document.cookie
         .split('; ')
         .find((item) => item.startsWith('locale'))
+
       if (!localeCookie) return null
 
-      const chosenLocale = localeCookie.split('=')[1]
+      try {
+        const chosenLocale = localeCookie.split('=')[1]
 
-      const currentLocales = localization.localesForCurrentSite.map(
-        ({ code }) => code
-      )
-      if (!currentLocales.includes(chosenLocale)) return null
+        if (!chosenLocale) return null
 
-      return chosenLocale
+        const canonicalChosenLocale = Intl.getCanonicalLocales(chosenLocale)[0]
+        const canonicalCurrentLocales = localization.localesForCurrentSite.map(
+          ({ code }) => Intl.getCanonicalLocales(code)[0]
+        )
+
+        if (!canonicalCurrentLocales.includes(canonicalChosenLocale))
+          return null
+
+        return canonicalChosenLocale.toLowerCase()
+      } catch (error) {
+        return null
+      }
     },
   },
 }

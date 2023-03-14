@@ -39,7 +39,7 @@ describe('Plugins | locale-observer', () => {
 
           // then
           expect(document.cookie).toEqual(
-            'locale=en-gb; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
+            'locale=en-GB; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
           )
         })
       })
@@ -96,7 +96,7 @@ describe('Plugins | locale-observer', () => {
 
         // then
         expect(document.cookie).toEqual(
-          'locale=en-gb; path=/; max-age=31536000; SameSite=Strict'
+          'locale=en-GB; path=/; max-age=31536000; SameSite=Strict'
         )
       })
     })
