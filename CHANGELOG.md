@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v4.6.0 (14/03/2023)
+
+
+### :building_construction: Tech
+- [#520](https://github.com/1024pix/pix-site/pull/520) [TECH] Stocker le cookie locale au format BCP 47 (PIX-6906)
+- [#514](https://github.com/1024pix/pix-site/pull/514) [TECH] Rendre la variable NGINX_GEOAPI_UPSTREAM_HOST optionnelle pour l'utilisation du projet en version statique (PIX-7328)
+
 ## v4.5.1 (01/03/2023)
 
 
