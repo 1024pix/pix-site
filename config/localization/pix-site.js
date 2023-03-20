@@ -9,8 +9,8 @@ export const availableLocales = [
     icon: 'globe-europe.svg',
   },
   {
-    code: 'en-gb',
-    file: 'en-gb.js',
+    code: 'en',
+    file: 'en.js',
     domain: config.domain.international,
     name: 'International English',
     icon: 'globe-europe.svg',
@@ -44,7 +44,7 @@ export const localization = {
         },
         {
           name: 'english',
-          localeCode: 'en-gb',
+          localeCode: 'en',
           icon: 'icon',
         },
       ],

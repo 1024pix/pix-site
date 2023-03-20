@@ -1,7 +1,7 @@
 export default {
   fr: 'International FR',
   'fr-fr': 'France',
-  'en-gb': 'International EN',
+  en: 'International EN',
   'fr-be': 'Fédération Wallonie-Bruxelles',
   france: 'France',
   english: 'English',
