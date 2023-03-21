@@ -22,6 +22,7 @@
 
 <script>
 import { localization } from '~/config/localization'
+import { getLocaleFromCookie } from '~/services/get-locale-from-cookie'
 
 export default {
   layout: 'empty',
@@ -33,38 +34,11 @@ export default {
     }
   },
   mounted() {
-    const chosenLocale = this.getLocaleFromCookie()
+    const chosenLocale = getLocaleFromCookie()
     if (chosenLocale) {
       return this.$router.replace(`/${chosenLocale}/`)
     }
     this.shouldDisplayLocaleChoice = true
-  },
-  methods: {
-    getLocaleFromCookie() {
-      const localeCookie = document.cookie
-        .split('; ')
-        .find((item) => item.startsWith('locale'))
-
-      if (!localeCookie) return null
-
-      try {
-        const chosenLocale = localeCookie.split('=')[1]
-
-        if (!chosenLocale) return null
-
-        const canonicalChosenLocale = Intl.getCanonicalLocales(chosenLocale)[0]
-        const canonicalCurrentLocales = localization.localesForCurrentSite.map(
-          ({ code }) => Intl.getCanonicalLocales(code)[0]
-        )
-
-        if (!canonicalCurrentLocales.includes(canonicalChosenLocale))
-          return null
-
-        return canonicalChosenLocale.toLowerCase()
-      } catch (error) {
-        return null
-      }
-    },
   },
 }
 </script>
