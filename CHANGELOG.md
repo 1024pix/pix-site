@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.7.0 (23/03/2023)
+
+
+### :rocket: Amélioration
+- [#522](https://github.com/1024pix/pix-site/pull/522) [FEATURE] Remplacer la locale en-GB par en dans le cookie (PIX-7474)
+
 ## v4.6.0 (14/03/2023)
 
 
