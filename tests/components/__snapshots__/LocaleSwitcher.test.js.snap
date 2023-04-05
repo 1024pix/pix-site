@@ -8,6 +8,7 @@ exports[`Component: LocaleSwitcher when site is pix-pro should render the locale
     aria-expanded="true"
     aria-haspopup="true"
     class="locale-switcher__button"
+    style="background: url(/images/flag-fr.svg) no-repeat left;"
   >
     
     
@@ -150,6 +151,7 @@ exports[`Component: LocaleSwitcher when site is pix-site should render the local
     aria-expanded="true"
     aria-haspopup="true"
     class="locale-switcher__button"
+    style="background: url(/images/flag-fr.svg) no-repeat left;"
   >
     
     
