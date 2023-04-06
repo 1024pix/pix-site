@@ -6,9 +6,12 @@
   >
     <button
       class="locale-switcher__button"
-      :aria-label="$t('locale-switcher-label')"
       aria-haspopup="true"
+      :aria-label="$t('locale-switcher-label')"
       :aria-expanded="showMenu.toString()"
+      :style="{
+        background: `url(${getSelectedMenuIconPath()}) no-repeat left`,
+      }"
       @click.stop.prevent="toggleMenu()"
     >
       {{ $t(currentLocaleCode) }}
@@ -163,6 +166,13 @@ export default {
         targetDomain: locale.domain,
       })
     },
+    getSelectedMenuIconPath() {
+      if (!this.selectedMenu?.icon || this.selectedMenu.icon === 'icon') {
+        return '/images/globe-europe.svg'
+      }
+
+      return `/images/${this.selectedMenu.icon}`
+    },
   },
 }
 </script>
@@ -196,7 +206,6 @@ export default {
       background-position: 5% 50%;
       padding: 2px 3px 0 30px;
       cursor: pointer;
-      background: url('/images/globe.svg') no-repeat left;
       &:hover {
         color: $blue;
       }
