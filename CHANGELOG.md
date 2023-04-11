@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.8.0 (11/04/2023)
+
+
+### :rocket: Amélioration
+- [#524](https://github.com/1024pix/pix-site/pull/524) [FEATURE] Rendre dynamique l'affichage de l'icône à gauche du locale switcher (PIX-7553)
+
 ## v4.7.0 (23/03/2023)
 
 
