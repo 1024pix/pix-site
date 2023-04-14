@@ -78,6 +78,22 @@ describe('shouldShowOutOfFranceBanner', () => {
     })
   })
 
+  describe("When user's location is in a DOM-TOM", () => {
+    it('returns false', async () => {
+      // given
+      global.fetch = jest
+        .fn()
+        .mockResolvedValue(fetchResponse({ country: 'GA' }))
+
+      // when
+      const result = await shouldShowOutOfFranceBanner(baseUrl)
+
+      // then
+      expect(global.fetch).toHaveBeenCalled()
+      expect(result).toBe(false)
+    })
+  })
+
   describe("When user's location is not provided", () => {
     it('returns false', async () => {
       // given
