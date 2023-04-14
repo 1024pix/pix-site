@@ -1,14 +1,20 @@
 import { config } from '~/config/environment'
 
 export async function shouldShowOutOfFranceBanner(baseUrl) {
-  const FR_COUNTRY_CODE = 'FR'
-  const url = new URL('/geolocate', baseUrl)
-
   if (!config.isFrenchDomain || !config.isPixSite) return false
 
+  const country = await _getUserCountryFromGeolocationService(baseUrl)
+  if (!country) return false
+
+  const FR_COUNTRY_CODE = 'FR'
+  return country !== FR_COUNTRY_CODE
+}
+
+async function _getUserCountryFromGeolocationService(baseUrl) {
+  const url = new URL('/geolocate', baseUrl)
+
   const response = await fetch(url).then((res) => res.json())
+  if (!response) return undefined
 
-  if (!response?.country) return false
-
-  return response.country !== FR_COUNTRY_CODE
+  return response.country
 }
