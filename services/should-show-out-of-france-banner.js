@@ -1,6 +1,6 @@
 import { config } from '~/config/environment'
 
-const FR_COUNTRY_CODE = 'FR'
+const FRANCE_COUNTRY_CODE = 'FR'
 const DOM_TOM_COUNTRY_CODES = [
   'GA',
   'GF',
@@ -16,7 +16,7 @@ const DOM_TOM_COUNTRY_CODES = [
   'WF',
 ]
 const COUNTRIES_WHERE_BANNER_SHOULD_NOT_BE_SHOWN = [
-  FR_COUNTRY_CODE,
+  FRANCE_COUNTRY_CODE,
   ...DOM_TOM_COUNTRY_CODES,
 ]
 
