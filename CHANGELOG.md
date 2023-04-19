@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.9.0 (19/04/2023)
+
+
+### :rocket: Amélioration
+- [#525](https://github.com/1024pix/pix-site/pull/525) [FEATURE] Ne pas afficher le bandeau "vous semblez ne pas être en France" dans les DOM-TOMs (PIX-7713)
+
 ## v4.8.0 (11/04/2023)
 
 
