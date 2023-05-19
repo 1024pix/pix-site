@@ -8,11 +8,7 @@ export default function (context) {
 }
 
 function _setLocaleCookie(locale, isDev) {
-  let canonicalName = Intl.getCanonicalLocales(locale)?.[0]
-
-  if (canonicalName === 'en-GB') {
-    canonicalName = 'en'
-  }
+  const canonicalName = Intl.getCanonicalLocales(locale)?.[0]
 
   const localeCookieProperties = [
     `locale=${canonicalName}`,
