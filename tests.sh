@@ -24,6 +24,7 @@ function checkRedirect() {
   fi
 }
 
+checkRedirect pix.fr /en-gb "" "" 301 https://pix.fr/en/
 checkRedirect pix.fr / "" "" 200
 checkRedirect pix.fr /competences "" "" 301 http://pix.fr/competences/
 checkRedirect pix.org /_nuxt/LICENSES "" "" 200
