@@ -14,8 +14,8 @@ export function getLocaleFromCookie() {
 
     let canonicalChosenLocale = Intl.getCanonicalLocales(chosenLocale)[0]
 
-    if (canonicalChosenLocale === 'en') {
-      canonicalChosenLocale = 'en-GB'
+    if (canonicalChosenLocale === 'en-GB') {
+      canonicalChosenLocale = 'en'
     }
 
     const canonicalCurrentLocales = localization.localesForCurrentSite.map(
