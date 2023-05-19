@@ -35,10 +35,10 @@ export default {
   name: 'Index',
   nuxtI18n: {
     paths: {
+      en: '/news',
       fr: '/actualites',
       'fr-fr': '/actualites',
       'fr-be': '/actualites',
-      'en-gb': '/news',
     },
   },
   async asyncData({ app, error, req }) {

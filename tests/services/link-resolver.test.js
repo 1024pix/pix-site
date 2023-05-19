@@ -14,9 +14,9 @@ describe('linkResolver', () => {
       expectedUrl: '/fr-be/test-uid',
     },
     {
-      lang: 'en-gb',
+      lang: 'en',
       uid: 'test-uid',
-      expectedUrl: '/en-gb/test-uid',
+      expectedUrl: '/en/test-uid',
     },
   ]
 
@@ -43,9 +43,9 @@ describe('linkResolver', () => {
         expectedUrl: '/fr-be/actualites/test-uid',
       },
       {
-        lang: 'en-gb',
+        lang: 'en',
         uid: 'test-uid',
-        expectedUrl: '/en-gb/news/test-uid',
+        expectedUrl: '/en/news/test-uid',
       },
     ]
 
@@ -74,8 +74,8 @@ describe('linkResolver', () => {
       },
       {
         tags: [TAGS.INDEX],
-        lang: 'en-gb',
-        expectedUrl: '/en-gb/',
+        lang: 'en',
+        expectedUrl: '/en/',
       },
     ]
 

@@ -19,9 +19,9 @@ export default {
   name: 'LocaleHome',
   nuxtI18n: {
     paths: {
+      en: '/',
       fr: '/',
       'fr-fr': '/',
-      'en-gb': '/',
     },
   },
   async asyncData({ app, req, error, currentPagePath }) {

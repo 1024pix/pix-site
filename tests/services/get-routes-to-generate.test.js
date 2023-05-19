@@ -49,7 +49,7 @@ describe('#getRoutesToGenerate', () => {
           results: [
             { uid: 'route-to-generate', lang: 'fr-fr' },
             { uid: 'route-to-generate', lang: 'fr' },
-            { uid: 'route-to-generate', lang: 'en-gb' },
+            { uid: 'route-to-generate', lang: 'en' },
           ],
         }),
       }
@@ -89,7 +89,7 @@ describe('#getRoutesToGenerate', () => {
           results: [
             { uid: 'route-to-generate', lang: 'fr-fr' },
             { uid: 'route-to-generate', lang: 'fr' },
-            { uid: 'route-to-generate', lang: 'en-gb' },
+            { uid: 'route-to-generate', lang: 'en' },
           ],
         }),
       }
@@ -124,7 +124,7 @@ describe('#getRoutesToGenerate', () => {
           results: [
             { uid: 'route-to-generate', lang: 'fr-fr' },
             { uid: 'route-to-generate', lang: 'fr' },
-            { uid: 'route-to-generate', lang: 'en-gb' },
+            { uid: 'route-to-generate', lang: 'en' },
             { uid: 'route-to-generate', lang: 'xh-ZA' },
           ],
         }),

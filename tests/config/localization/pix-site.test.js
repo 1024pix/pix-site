@@ -66,7 +66,7 @@ describe('#localization', () => {
           },
           {
             name: 'english',
-            localeCode: 'en-gb',
+            localeCode: 'en',
             icon: 'globe-europe.svg',
           },
         ],

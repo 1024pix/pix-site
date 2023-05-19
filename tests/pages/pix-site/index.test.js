@@ -4,11 +4,12 @@ import Index from '@/pages/pix-site/index.vue'
 jest.mock('~/config/environment', () => {
   return {
     config: {
-      isPixSite: true,
       domain: {
         french: 'pix.fr',
         international: 'pix.org',
       },
+      isPixSite: true,
+      siteDomain: 'pix.fr',
     },
   }
 })
@@ -72,7 +73,7 @@ describe('Index Page', () => {
       describe('with value being in canonical BCP 47 format', () => {
         test('redirects to correct locale page', async () => {
           // given
-          document.cookie = 'foo=bar; locale=en-GB'
+          document.cookie = 'foo=bar; locale=fr-BE'
 
           // when
           const wrapper = shallowMount(Index, {
@@ -82,7 +83,7 @@ describe('Index Page', () => {
           await wrapper.vm.$nextTick()
 
           // then
-          expect($router.replace).toHaveBeenCalledWith('/en-gb/')
+          expect($router.replace).toHaveBeenCalledWith('/fr-be/')
           const localeLinks = wrapper.findAll('locale-link-stub')
           expect(localeLinks.length).toBe(0)
         })
@@ -91,7 +92,7 @@ describe('Index Page', () => {
       describe('in lowercase', () => {
         test('redirects to correct locale page', async () => {
           // given
-          document.cookie = 'foo=bar; locale=en-gb'
+          document.cookie = 'foo=bar; locale=fr-be'
 
           // when
           const wrapper = shallowMount(Index, {
@@ -101,7 +102,7 @@ describe('Index Page', () => {
           await wrapper.vm.$nextTick()
 
           // then
-          expect($router.replace).toHaveBeenCalledWith('/en-gb/')
+          expect($router.replace).toHaveBeenCalledWith('/fr-be/')
           const localeLinks = wrapper.findAll('locale-link-stub')
           expect(localeLinks.length).toBe(0)
         })
