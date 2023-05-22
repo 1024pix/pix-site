@@ -7,10 +7,10 @@
     <button
       class="locale-switcher__button"
       aria-haspopup="true"
-      :aria-label="$t('locale-switcher-label')"
+      :aria-label="$t('locale-switcher.label')"
       :aria-expanded="showMenu.toString()"
       :style="{
-        background: `url(${getSelectedMenuIconPath()}) no-repeat left`,
+        background: `url(${getMenuItemIconPath(selectedMenu)}) no-repeat left`,
       }"
       @click.stop.prevent="toggleMenu()"
     >
@@ -71,38 +71,36 @@
     </ul>
     <span class="separator" />
   </div>
-  <div v-else-if="type === 'only-text'">
-    <ul class="locale-switcher-burger-menu">
+  <div v-else-if="type === 'only-text'" class="locale-switcher-burger-menu">
+    <p class="locale-switcher-burger-menu__title">
+      {{ $t('locale-switcher.title') }}
+    </p>
+    <ul class="locale-switcher-burger-menu__list">
       <li v-for="option in menu" :key="option.key">
-        <template v-if="option.children">
-          <span
-            v-for="child in option.children"
+        <ul>
+          <li
+            v-for="child in option.children || [option]"
             :key="child.name"
-            :class="{
-              'locale-switcher-burger-menu__locale': true,
-              'locale-switcher-burger-menu--active':
-                child.localeCode === currentLocaleCode,
-            }"
+            :class="[
+              'locale-switcher-burger-menu-list__locale',
+              {
+                'locale-switcher-burger-menu__list--active':
+                  option.localeCode === currentLocaleCode,
+              },
+            ]"
           >
-            <pix-link :href="getIndexUrl(child)">
-              {{ $t(option.name) }} - {{ $t(child.name) }}
-            </pix-link>
-            <br />
-          </span>
-        </template>
-        <template v-if="!option.children">
-          <span
-            :class="{
-              'locale-switcher-burger-menu__locale': true,
-              'locale-switcher-burger-menu--active':
-                option.localeCode === currentLocaleCode,
-            }"
-          >
-            <pix-link :href="getIndexUrl(option)">
+            <pix-link
+              :href="getIndexUrl(child)"
+              class="locale-switcher-burger-menu-list__locale-link"
+            >
+              <img :src="getMenuItemIconPath(child)" :alt="child.icon" />
               {{ $t(option.name) }}
+              {{
+                child.icon === 'globe-europe.svg' ? ' - ' + $t(child.name) : ''
+              }}
             </pix-link>
-          </span>
-        </template>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -166,12 +164,12 @@ export default {
         targetDomain: locale.domain,
       })
     },
-    getSelectedMenuIconPath() {
-      if (!this.selectedMenu?.icon || this.selectedMenu.icon === 'icon') {
+    getMenuItemIconPath(menuItem) {
+      if (!menuItem?.icon) {
         return '/images/globe-europe.svg'
       }
 
-      return `/images/${this.selectedMenu.icon}`
+      return `/images/${menuItem.icon}`
     },
   },
 }
@@ -181,6 +179,7 @@ export default {
 .locale-switcher {
   display: none;
 }
+
 @include device-is('large-screen') {
   .locale-switcher {
     display: flex;
@@ -191,6 +190,7 @@ export default {
       display: block;
       height: 1.5rem;
     }
+
     &__button {
       font-family: $font-roboto;
       font-size: 0.875rem;
@@ -206,10 +206,12 @@ export default {
       background-position: 5% 50%;
       padding: 2px 3px 0 30px;
       cursor: pointer;
+
       &:hover {
         color: $blue;
       }
     }
+
     &__dropdown-menu {
       position: absolute;
       z-index: 5;
@@ -235,6 +237,7 @@ export default {
         box-shadow: 0 0;
         display: block;
         min-height: 25px;
+
         .locale-switcher__locale > a {
           line-height: 23px;
         }
@@ -246,17 +249,21 @@ export default {
         position: relative;
         margin: 0;
         padding: 0;
+
         &::before {
           content: '';
           margin: 0;
         }
+
         &:hover {
           background: $grey-10;
+
           .child {
             display: block;
           }
         }
       }
+
       & > li > a,
       & > li > span {
         display: block;
@@ -265,23 +272,29 @@ export default {
         white-space: nowrap;
         text-decoration: none;
       }
+
       & > li > a:hover,
       & > li > span {
         background: $grey-10;
       }
+
       & > li:not(:last-child) {
         border-bottom: 1px solid $grey-20;
       }
+
       &--active {
         color: $grey-30;
         pointer-events: none;
+
         a {
           color: white;
         }
       }
     }
+
     &__locale {
       min-height: 25px;
+
       a,
       span,
       button {
@@ -295,24 +308,29 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         &:hover {
           color: $blue;
           background: $grey-10;
         }
+
         .locale {
           &__text {
             flex: 1;
           }
         }
       }
+
       button {
         width: 100%;
         border: none;
         background: white;
+
         &:hover {
           color: $blue;
           background: $grey-10;
         }
+
         .locale {
           &__text {
             flex: 1;
@@ -321,16 +339,19 @@ export default {
         }
       }
     }
+
     &__icon {
       font-size: large;
       float: right;
     }
+
     &__img {
       margin-right: 10px;
       height: 23px;
       width: 23px;
     }
   }
+
   .locale-switcher-button {
     &__angle {
       margin-left: 8px;
@@ -339,38 +360,67 @@ export default {
 }
 
 .locale-switcher-burger-menu {
-  margin: 0 0 50px 0;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  color: $grey-30;
-  list-style: none;
-  ul {
+  &__title {
+    font-size: 1rem;
+    font-weight: $font-semi-bold;
+    line-height: 1.5rem;
+    color: $grey-60;
+    border-top: 1px solid $grey-20;
+    padding-top: 24px;
+    width: 256px;
+  }
+
+  &__list {
+    margin: 0 0 50px 0;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    list-style: none;
     padding: 0;
-  }
-  li {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  li::before {
-    content: '';
     margin: 0;
-  }
-  &__locale {
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li::before {
+      content: '';
+      margin: 0;
+    }
+
+    &--active {
+      pointer-events: none;
+
+      a {
+        color: $grey-45;
+      }
+    }
+
     a {
-      color: $grey-80;
-      &:visited,
-      &:focus,
-      &:active,
-      &:hover {
-        color: $grey-80;
-        text-decoration: underline;
+      display: flex;
+      margin-bottom: 16px;
+
+      img {
+        margin-right: 8px;
       }
     }
   }
-  &--active {
-    pointer-events: none;
-    a {
-      color: $grey-25 !important;
+}
+
+.locale-switcher-burger-menu-list {
+  &__locale-link {
+    color: $grey-80;
+
+    &:visited,
+    &:focus,
+    &:active,
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

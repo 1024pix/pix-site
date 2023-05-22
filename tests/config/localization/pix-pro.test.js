@@ -63,12 +63,12 @@ describe('#localization', () => {
           {
             name: 'french',
             localeCode: 'fr',
-            icon: 'icon',
+            icon: 'globe-europe.svg',
           },
           {
             name: 'english',
             localeCode: 'en-gb',
-            icon: 'icon',
+            icon: 'globe-europe.svg',
           },
         ],
       },
