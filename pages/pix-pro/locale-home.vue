@@ -15,6 +15,15 @@
 <script>
 import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
+const EN_HOME_DOCUMENT_UID = 'discover-pix-pro'
+const FR_HOME_DOCUMENT_UID = 'decouvrir-pix-pro'
+
+const HOME_DOCUMENT_UID_BY_LOCALE = {
+  en: EN_HOME_DOCUMENT_UID,
+  fr: FR_HOME_DOCUMENT_UID,
+  'fr-fr': FR_HOME_DOCUMENT_UID,
+}
+
 export default {
   name: 'LocaleHome',
   nuxtI18n: {
@@ -26,11 +35,14 @@ export default {
   },
   async asyncData({ app, req, error, currentPagePath }) {
     try {
+      const locale = app.i18n.locale || app.i18n.defaultLocale
+      const homeDocumentUid = HOME_DOCUMENT_UID_BY_LOCALE[locale]
+
       const document = await documentFetcher(
         app.$prismic,
         app.i18n,
         req
-      ).getPageByUid('decouvrir-pix-pro')
+      ).getPageByUid(homeDocumentUid)
       const meta = document.data.meta
 
       return { currentPagePath, meta, document }
