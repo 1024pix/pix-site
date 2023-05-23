@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v4.10.0 (23/05/2023)
+
+
+### :rocket: Amélioration
+- [#537](https://github.com/1024pix/pix-site/pull/537) [FEATURE] Changer le design du locale switcher en affichage réduit (PIX-7356).
+
+### :coffee: Autre
+- [#527](https://github.com/1024pix/pix-site/pull/527) [BUMP] Update Node.js to v16.20.0
+
 ## v4.9.0 (19/04/2023)
 
 
