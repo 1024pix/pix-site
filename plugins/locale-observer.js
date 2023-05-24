@@ -1,4 +1,4 @@
-import { config } from '../config/environment'
+import { setCookie } from '~/services/cookie'
 
 export default function (context) {
   const { app, isDev } = context
@@ -9,16 +9,5 @@ export default function (context) {
 
 function _setLocaleCookie(locale, isDev) {
   const canonicalName = Intl.getCanonicalLocales(locale)?.[0]
-
-  const localeCookieProperties = [
-    `locale=${canonicalName}`,
-    'path=/',
-    'max-age=31536000',
-    'SameSite=Strict',
-  ]
-  if (!isDev) {
-    localeCookieProperties.push(`domain=${config.siteDomain}`)
-  }
-
-  document.cookie = localeCookieProperties.join('; ')
+  setCookie('locale', canonicalName, isDev)
 }
