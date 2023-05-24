@@ -15,13 +15,13 @@
 <script>
 import { documentFetcher, DOCUMENTS } from '~/services/document-fetcher'
 
-const EN_HOME_DOCUMENT_UID = 'discover-pix-pro'
-const FR_HOME_DOCUMENT_UID = 'decouvrir-pix-pro'
+const HOME_DOCUMENT_UID_EN = 'discover-pix-pro'
+const HOME_DOCUMENT_UID_FR = 'decouvrir-pix-pro'
 
 const HOME_DOCUMENT_UID_BY_LOCALE = {
-  en: EN_HOME_DOCUMENT_UID,
-  fr: FR_HOME_DOCUMENT_UID,
-  'fr-fr': FR_HOME_DOCUMENT_UID,
+  en: HOME_DOCUMENT_UID_EN,
+  fr: HOME_DOCUMENT_UID_FR,
+  'fr-fr': HOME_DOCUMENT_UID_FR,
 }
 
 export default {
