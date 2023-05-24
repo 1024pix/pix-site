@@ -70,6 +70,31 @@ describe('Plugins | locale-observer', () => {
         )
       })
     })
+
+    describe('when user already has an "en-GB" locale cookie value', () => {
+      it('updates locale cookie value with "en"', () => {
+        // given
+        document.cookie =
+          'locale=en-GB; path=/; max-age=31536000; SameSite=Strict'
+        const context = {
+          isDev: true,
+          app: {
+            i18n: {},
+          },
+          route: {
+            path: '/',
+          },
+        }
+
+        // when
+        localeObserver(context)
+
+        // then
+        expect(document.cookie).toEqual(
+          'locale=en; path=/; max-age=31536000; SameSite=Strict'
+        )
+      })
+    })
   })
 
   describe('when in production mode', () => {
