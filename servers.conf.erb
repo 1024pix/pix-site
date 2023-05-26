@@ -65,6 +65,7 @@ server {
   # Serve from dist/pix.fr or dist/pix.org depending on the extension
   root /app/dist/pix.$extension;
 
+  rewrite ^/en-gb(.*)$ /en$1 permanent;
   rewrite ^/(aide|help)$ https://support.pix.org redirect;
   rewrite ^/employeurs$ https://pro.pix.fr redirect;
 

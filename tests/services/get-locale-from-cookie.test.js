@@ -47,8 +47,8 @@ describe('getLocaleFromCookie', () => {
       })
     })
 
-    describe('with value equal to "en"', () => {
-      test('returns "en-gb"', () => {
+    describe('with value equal to "en-gb"', () => {
+      test('returns "en"', () => {
         // given
         document.cookie = `foo=bar; locale=en`
 
@@ -56,7 +56,7 @@ describe('getLocaleFromCookie', () => {
         const chosenLocale = getLocaleFromCookie()
 
         // then
-        expect(chosenLocale).toBe('en-gb')
+        expect(chosenLocale).toBe('en')
       })
     })
 

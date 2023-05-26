@@ -1,21 +1,16 @@
+import { getCookie } from '~/services/cookie'
 import { localization } from '~/config/localization'
 
 export function getLocaleFromCookie() {
-  const localeCookie = document.cookie
-    .split('; ')
-    .find((item) => item.startsWith('locale'))
-
-  if (!localeCookie) return null
-
   try {
-    const chosenLocale = localeCookie.split('=')[1]
+    const chosenLocale = getCookie('locale')
 
     if (!chosenLocale) return null
 
     let canonicalChosenLocale = Intl.getCanonicalLocales(chosenLocale)[0]
 
-    if (canonicalChosenLocale === 'en') {
-      canonicalChosenLocale = 'en-GB'
+    if (canonicalChosenLocale === 'en-GB') {
+      canonicalChosenLocale = 'en'
     }
 
     const canonicalCurrentLocales = localization.localesForCurrentSite.map(

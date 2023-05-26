@@ -1,28 +1,27 @@
-import { config } from '../config/environment'
+import { getCookie, setCookie } from '~/services/cookie'
 
 export default function (context) {
   const { app, isDev } = context
   app.i18n.onBeforeLanguageSwitch = (oldLocale, newLocale) => {
     _setLocaleCookie(newLocale, isDev)
   }
+
+  _handleLocaleCookie(isDev)
 }
 
 function _setLocaleCookie(locale, isDev) {
-  let canonicalName = Intl.getCanonicalLocales(locale)?.[0]
+  const canonicalName = Intl.getCanonicalLocales(locale)?.[0]
+  setCookie('locale', canonicalName, isDev)
+}
 
-  if (canonicalName === 'en-GB') {
-    canonicalName = 'en'
-  }
+function _handleLocaleCookie(isDev) {
+  const localeCookie = getCookie('locale')
 
-  const localeCookieProperties = [
-    `locale=${canonicalName}`,
-    'path=/',
-    'max-age=31536000',
-    'SameSite=Strict',
-  ]
-  if (!isDev) {
-    localeCookieProperties.push(`domain=${config.siteDomain}`)
-  }
+  if (!localeCookie) return
 
-  document.cookie = localeCookieProperties.join('; ')
+  try {
+    if (Intl.getCanonicalLocales(localeCookie)[0] === 'en-GB') {
+      setCookie('locale', 'en', isDev)
+    }
+  } catch (error) {}
 }

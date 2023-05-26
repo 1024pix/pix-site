@@ -34,8 +34,8 @@ describe('#getLocalesForCurrentSite', () => {
         file: 'fr.js',
       },
       {
-        code: 'en-gb',
-        file: 'en-gb.js',
+        code: 'en',
+        file: 'en.js',
       },
       {
         code: 'fr-be',
@@ -66,7 +66,7 @@ describe('#localization', () => {
           },
           {
             name: 'english',
-            localeCode: 'en-gb',
+            localeCode: 'en',
             icon: 'globe-europe.svg',
           },
         ],

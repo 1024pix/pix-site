@@ -15,10 +15,10 @@ import { documentFetcher } from '~/services/document-fetcher'
 export default {
   nuxtI18n: {
     paths: {
+      en: '/news/:slug',
       fr: '/actualites/:slug',
       'fr-fr': '/actualites/:slug',
       'fr-be': '/actualites/:slug',
-      'en-gb': '/news/:slug',
     },
   },
   async asyncData({ params, app, req, error, route, currentPagePath }) {

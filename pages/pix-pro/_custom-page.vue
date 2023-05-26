@@ -19,9 +19,9 @@ export default {
   name: 'CustomPage',
   nuxtI18n: {
     paths: {
+      en: '/:uid',
       fr: '/:uid',
       'fr-fr': '/:uid',
-      'en-gb': '/:uid',
     },
   },
   async asyncData({ params, app, req, error, currentPagePath }) {

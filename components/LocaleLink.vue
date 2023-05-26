@@ -66,7 +66,7 @@ export default {
 }
 
 [href$='/fr'],
-[href$='/en-gb'] {
+[href$='/en'] {
   .locale-link__icon {
     filter: brightness(50%);
   }

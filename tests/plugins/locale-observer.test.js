@@ -71,12 +71,11 @@ describe('Plugins | locale-observer', () => {
       })
     })
 
-    describe('when user choose "en-gb" as locale', () => {
-      it('saves locale cookie with "en" value in the cookie storage', () => {
+    describe('when user already has an "en-GB" locale cookie value', () => {
+      it('updates locale cookie value with "en"', () => {
         // given
-        document.cookie = ''
-        const oldLocale = ''
-        const newLocale = 'en-gb'
+        document.cookie =
+          'locale=en-GB; path=/; max-age=31536000; SameSite=Strict'
         const context = {
           isDev: true,
           app: {
@@ -89,7 +88,6 @@ describe('Plugins | locale-observer', () => {
 
         // when
         localeObserver(context)
-        context.app.i18n.onBeforeLanguageSwitch(oldLocale, newLocale)
 
         // then
         expect(document.cookie).toEqual(
@@ -148,32 +146,6 @@ describe('Plugins | locale-observer', () => {
         // then
         expect(document.cookie).toEqual(
           'locale=fr-BE; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
-        )
-      })
-    })
-
-    describe('when user choose "en-gb" as locale', () => {
-      it('saves locale cookie with "en" value in the cookie storage', () => {
-        // given
-        document.cookie = ''
-        const oldLocale = ''
-        const newLocale = 'en-gb'
-        const context = {
-          app: {
-            i18n: {},
-          },
-          route: {
-            path: '/',
-          },
-        }
-
-        // when
-        localeObserver(context)
-        context.app.i18n.onBeforeLanguageSwitch(oldLocale, newLocale)
-
-        // then
-        expect(document.cookie).toEqual(
-          'locale=en; path=/; max-age=31536000; SameSite=Strict; domain=pix.org'
         )
       })
     })
