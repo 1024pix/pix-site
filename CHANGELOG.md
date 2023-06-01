@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.11.0 (01/06/2023)
+
+
+### :building_construction: Tech
+- [#538](https://github.com/1024pix/pix-site/pull/538) [TECH] Remplacer la locale "en-gb" en "en" (PIX-7514)
+
 ## v4.10.0 (23/05/2023)
 
 
