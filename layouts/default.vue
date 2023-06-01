@@ -67,6 +67,9 @@ html {
   background-color: $white;
 }
 
+#app {
+  height: 100vh;
+}
 *,
 *:before,
 *:after {

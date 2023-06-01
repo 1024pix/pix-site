@@ -1,12 +1,12 @@
 <template>
   <div v-if="isOpen" class="consent-banner">
     <iframe
-      style="border: 0; width: 100%; height: 100%"
+      style="border: 0; width: 100%"
       src="https://pix-stats.cloud-ed.fr/index.php?module=CoreAdminHome&action=optOut&language=fr"
     ></iframe>
     <img
       class="close"
-      src="/images/close-icon.svg"
+      src="/images/close-icon-black.svg"
       alt="Fermer"
       @click.stop="closeBanner"
     />
@@ -31,24 +31,21 @@ export default {
 
 <style lang="scss">
 .consent-banner {
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 150px;
-
-  @media (min-width: 769px) {
-    height: 120px;
-  }
-
+  z-index: 200;
+  position: absolute;
   color: $grey-200;
-  background-color: $yellow;
-  padding: 0 0 -50px 0;
+  background-color: #ffbe00aa;
 
   display: flex;
   flex-direction: row;
   align-items: center;
 
   div {
+    padding: 10px 5px;
+
     text-align: center;
     line-height: 1rem;
     font-size: 0.875rem;
