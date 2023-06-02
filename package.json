@@ -44,7 +44,7 @@
     "@nuxtjs/prismic": "^1.4.2",
     "nuxt": "^2.16.0",
     "nuxt-winston-log": "^1.2.0",
-    "winston": "3.8.2"
+    "winston": "3.9.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.0",
