@@ -95,9 +95,7 @@
             >
               <img :src="getMenuItemIconPath(child)" :alt="child.icon" />
               {{ $t(option.name) }}
-              {{
-                child.icon === 'globe-europe.svg' ? ' - ' + $t(child.name) : ''
-              }}
+              {{ isInternational(child) ? ' - ' + $t(child.name) : '' }}
             </pix-link>
           </li>
         </ul>
@@ -170,6 +168,9 @@ export default {
       }
 
       return `/images/${menuItem.icon}`
+    },
+    isInternational(locale) {
+      return !locale.localeCode.includes('-')
     },
   },
 }
