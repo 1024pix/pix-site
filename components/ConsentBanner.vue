@@ -1,7 +1,7 @@
 <template>
   <div v-if="isOpen" class="consent-banner">
     <iframe
-      style="border: 0; width: 100%"
+      class="iframe"
       src="https://pix-stats.cloud-ed.fr/index.php?module=CoreAdminHome&action=optOut&language=fr"
     ></iframe>
     <img
@@ -75,5 +75,10 @@ export default {
   &:hover {
     opacity: 1;
   }
+}
+
+.iframe {
+  border: 0;
+  width: 100%;
 }
 </style>
