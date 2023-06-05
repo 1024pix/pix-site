@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v4.12.0 (05/06/2023)
+
+
+### :rocket: Amélioration
+- [#541](https://github.com/1024pix/pix-site/pull/541) [FEATURE] Ajout d'un bandeau de consentement le temps d'un audit
+
+### :building_construction: Tech
+- [#542](https://github.com/1024pix/pix-site/pull/542) [TECH] Améliorer la condition d'affichage précisant si la locale est international dans le locale switcher en affichage réduit (PIX-8230)
+
 ## v4.11.0 (01/06/2023)
 
 
