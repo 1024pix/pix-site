@@ -56,7 +56,7 @@ describe('Component: LocaleSwitcher', () => {
       const wrapper = mount(LocaleSwitcher, {
         components: { LocaleSwitcherSubMenu, PixLink },
         mocks: { $t, $i18n },
-        stubs: { fa: true },
+        stubs: ['fa'],
       })
       await wrapper.find('button').trigger('click')
       await wrapper.find('.locale-switcher-sub-menu-button').trigger('click')
@@ -81,13 +81,58 @@ describe('Component: LocaleSwitcher', () => {
       const wrapper = mount(LocaleSwitcher, {
         components: { LocaleSwitcherSubMenu, PixLink },
         mocks: { $t, $i18n },
-        stubs: { fa: true },
+        stubs: ['fa'],
       })
       await wrapper.find('button').trigger('click')
       await wrapper.find('.locale-switcher-sub-menu-button').trigger('click')
 
       // then
       expect(wrapper.element).toMatchSnapshot()
+    })
+  })
+
+  describe.only('#isInternational', () => {
+    describe('when locale is international', () => {
+      it('returns true', () => {
+        // given
+        const $t = () => {}
+        const $i18n = { locale: 'fr-fr' }
+        const locale = {
+          localeCode: 'fr',
+        }
+        const wrapper = mount(LocaleSwitcher, {
+          components: { PixLink },
+          mocks: { $t, $i18n },
+          stubs: ['fa'],
+        })
+
+        // when
+        const result = wrapper.vm.isInternational(locale)
+
+        // then
+        expect(result).toBe(true)
+      })
+    })
+    describe('when locale is not international', () => {
+      it('returns false', () => {
+        // given
+        const $t = () => {}
+        const $i18n = { locale: 'fr-fr' }
+        const locale = {
+          localeCode: 'fr-fr',
+        }
+        const wrapper = mount(LocaleSwitcher, {
+          components: { PixLink },
+          mocks: { $t, $i18n },
+          stubs: ['fa'],
+        })
+
+        // when
+        const result = wrapper.vm.isInternational(locale)
+
+        // then
+        expect(result).toBe(false)
+      })
     })
   })
 })
