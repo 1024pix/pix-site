@@ -8,7 +8,7 @@ module.exports = {
   moduleFileExtensions: ['js', 'vue', 'json', 'node'],
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '.*\\.(vue)$': 'vue-jest',
+    '.*\\.(vue)$': '@vue/vue2-jest',
   },
   testEnvironment: 'jsdom',
 }
