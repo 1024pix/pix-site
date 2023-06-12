@@ -53,33 +53,57 @@ describe('#getLocalesForCurrentSite', () => {
 })
 
 describe('#localization', () => {
-  it('should return all menu entries for pix-pro', () => {
-    // given
-    const expectedResult = [
-      {
-        name: 'international',
-        icon: 'globe-europe.svg',
-        children: [
-          {
-            name: 'french',
-            localeCode: 'fr',
-            icon: 'globe-europe.svg',
-          },
-          {
-            name: 'english',
-            localeCode: 'en',
-            icon: 'globe-europe.svg',
-          },
-        ],
-      },
-      {
-        name: 'france',
-        localeCode: 'fr-fr',
-        icon: 'flag-fr.svg',
-      },
-    ]
+  describe('Desktop menu', function () {
+    it('return all menu entries for pix-pro', () => {
+      // when & then
+      const expectedResult = [
+        {
+          name: 'international',
+          icon: 'globe-europe.svg',
+          children: [
+            {
+              name: 'french',
+              localeCode: 'fr',
+              icon: 'globe-europe.svg',
+            },
+            {
+              name: 'english',
+              localeCode: 'en',
+              icon: 'globe-europe.svg',
+            },
+          ],
+        },
+        {
+          name: 'france',
+          localeCode: 'fr-fr',
+          icon: 'flag-fr.svg',
+        },
+      ]
+      expect(localization.menu).toEqual(expectedResult)
+    })
+  })
 
-    // when & then
-    expect(localization.menu).toEqual(expectedResult)
+  describe('Mobile menu', function () {
+    it('returns all menu entries for pix-pro', () => {
+      // when & then
+      const expectedResult = [
+        {
+          name: 'french',
+          localeCode: 'fr',
+          icon: 'globe-europe.svg',
+        },
+        {
+          name: 'english',
+          localeCode: 'en',
+          icon: 'globe-europe.svg',
+        },
+        {
+          name: 'france',
+          localeCode: 'fr-fr',
+          icon: 'flag-fr.svg',
+        },
+      ]
+      expect(localization.menuForMobile).toEqual(expectedResult)
+    })
   })
 })
