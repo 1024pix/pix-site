@@ -91,7 +91,7 @@ describe('Component: LocaleSwitcher', () => {
     })
   })
 
-  describe.only('#isInternational', () => {
+  describe('#isInternational', () => {
     describe('when locale is international', () => {
       it('returns true', () => {
         // given
@@ -113,6 +113,7 @@ describe('Component: LocaleSwitcher', () => {
         expect(result).toBe(true)
       })
     })
+
     describe('when locale is not international', () => {
       it('returns false', () => {
         // given
