@@ -42,7 +42,7 @@
     "signal-jira": "node ./scripts/jira/comment-with-review-app-url.js"
   },
   "dependencies": {
-    "@nuxtjs/prismic": "^1.4.2",
+    "@nuxtjs/prismic": "^3.0.0",
     "nuxt": "^2.16.0",
     "nuxt-winston-log": "^1.2.0",
     "winston": "3.8.2"
