@@ -76,29 +76,25 @@
       {{ $t('locale-switcher.title') }}
     </p>
     <ul class="locale-switcher-burger-menu__list">
-      <li v-for="option in menu" :key="option.key">
-        <ul>
-          <li
-            v-for="child in option.children || [option]"
-            :key="child.name"
-            :class="[
-              'locale-switcher-burger-menu-list__locale',
-              {
-                'locale-switcher-burger-menu__list--active':
-                  option.localeCode === currentLocaleCode,
-              },
-            ]"
-          >
-            <pix-link
-              :href="getIndexUrl(child)"
-              class="locale-switcher-burger-menu-list__locale-link"
-            >
-              <img :src="getMenuItemIconPath(child)" :alt="child.icon" />
-              {{ $t(option.name) }}
-              {{ isInternational(child) ? ' - ' + $t(child.name) : '' }}
-            </pix-link>
-          </li>
-        </ul>
+      <li
+        v-for="menuItem in menuForMobile"
+        :key="menuItem.name"
+        :class="[
+          'locale-switcher-burger-menu-list__locale',
+          {
+            'locale-switcher-burger-menu__list--active':
+              menuItem.localeCode === currentLocaleCode,
+          },
+        ]"
+      >
+        <pix-link
+          :href="getIndexUrl(menuItem)"
+          class="locale-switcher-burger-menu-list__locale-link"
+        >
+          <img :src="getMenuItemIconPath(menuItem)" :alt="menuItem.icon" />
+          {{ isInternational(menuItem) ? $t('international') + ' - ' : '' }}
+          {{ $t(menuItem.name) }}
+        </pix-link>
       </li>
     </ul>
   </div>
@@ -121,6 +117,7 @@ export default {
       showMenu: false,
       showSubMenu: false,
       menu: localization.menu,
+      menuForMobile: localization.menuForMobile,
     }
   },
   computed: {

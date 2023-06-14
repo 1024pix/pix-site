@@ -60,9 +60,14 @@ export const localization = {
       icon: 'flag-fr.svg',
     },
   ],
+  menuForMobile: [],
   locales: availableLocales,
   localesForCurrentSite: getLocalesForCurrentSite(),
 }
+
+localization.menuForMobile = localization.menu.flatMap(
+  (menuItem) => menuItem.children || menuItem
+)
 
 export function getLocalesForCurrentSite() {
   if (config.isFrenchDomain) {
