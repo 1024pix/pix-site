@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v4.12.1 (15/06/2023)
+
+
+### :building_construction: Tech
+- [#544](https://github.com/1024pix/pix-site/pull/544) [TECH] Correction des vulnérabilités NPM (PIX-8254).
+
+### :bug: Correction
+- [#545](https://github.com/1024pix/pix-site/pull/545) [BUGFIX] Associer le style actif aux liens des locales internationales du localeSwitcher du burger menu (PIX-8244).
+
 ## v4.12.0 (05/06/2023)
 
 
