@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.12.2 (16/06/2023)
+
+
+### :bug: Correction
+- [#547](https://github.com/1024pix/pix-site/pull/547) [BUGFIX] Rendre l'affichage des nouvelles actualités plus résilientes (PIX-8376).
+
 ## v4.12.1 (15/06/2023)
 
 
