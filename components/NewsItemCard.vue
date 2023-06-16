@@ -4,7 +4,7 @@
       class="news-item-card__link"
       :to="localePath({ name: 'news-slug', params: { slug: uid } })"
     >
-      <div class="news-item-card__header">
+      <div v-if="slice.illustration?.url" class="news-item-card__header">
         <!-- /!\ We keep this line if we think that an image would be better -->
         <div
           class="news-item-card__illustration"
