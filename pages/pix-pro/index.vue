@@ -16,7 +16,6 @@
         />
         <pix-image class="planet" :field="{ url: '/images/planet.svg' }" />
       </div>
-      <consent-banner />
     </main>
   </client-only>
 </template>
