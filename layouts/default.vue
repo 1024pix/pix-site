@@ -10,14 +10,12 @@
       <nuxt />
     </main>
     <footer-slice-zone />
-    <consent-banner v-if="showConsentBanner" />
   </div>
 </template>
 
 <script>
 import { shouldShowOutOfFranceBanner } from '~/services/should-show-out-of-france-banner'
 import { getBaseUrl } from '~/config/url'
-import { config } from '~/config/environment'
 
 export default {
   /**  When building with nuxt generate on target static mode,
@@ -28,7 +26,6 @@ export default {
   data() {
     return {
       showOutOfFranceBanner: false,
-      showConsentBanner: !config.isPixSite,
     }
   },
   async fetch() {
@@ -67,9 +64,6 @@ html {
   background-color: $white;
 }
 
-#app {
-  height: 100vh;
-}
 *,
 *:before,
 *:after {
