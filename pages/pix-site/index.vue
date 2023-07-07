@@ -3,6 +3,13 @@
     <main class="home">
       <div class="locale-choice">
         <h1>
+          <pix-button first="Jéjé" :is-disabled="true"></pix-button>
+          <pix-button
+            first="Iris"
+            :is-disabled="false"
+            @click="testClick"
+          ></pix-button>
+          <pix-button first="Rébecca"></pix-button>
           <pix-image
             class="logo-pix"
             :field="{ url: '/images/logo-pix-blanc.svg', alt: 'Pix' }"
@@ -22,8 +29,18 @@
 </template>
 
 <script>
+// import '@webcomponents/shadydom'
+import {
+  defineCustomElements,
+  applyPolyfills,
+} from '@1024pix/pix-ui-webcomponents/loader'
+
 import { localization } from '~/config/localization'
 import { getLocaleFromCookie } from '~/services/get-locale-from-cookie'
+;(async function () {
+  await applyPolyfills()
+  await defineCustomElements()
+})()
 
 export default {
   layout: 'empty',
@@ -40,6 +57,11 @@ export default {
       return this.$router.replace(`/${chosenLocale}/`)
     }
     this.shouldDisplayLocaleChoice = true
+  },
+  methods: {
+    testClick(e) {
+      console.log({ testClick: e })
+    },
   },
 }
 </script>
