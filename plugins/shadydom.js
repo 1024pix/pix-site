@@ -1,0 +1,2 @@
+import '@webcomponents/shadydom'
+

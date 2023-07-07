@@ -29,7 +29,6 @@
 </template>
 
 <script>
-// import '@webcomponents/shadydom'
 import {
   defineCustomElements,
   applyPolyfills,

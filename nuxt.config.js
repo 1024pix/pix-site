@@ -82,6 +82,7 @@ const nuxtConfig = {
     '~plugins/vue-js-modal',
     { src: '~/plugins/prismicLinks', mode: 'client' },
     { src: '~/plugins/locale-observer', mode: 'client' },
+    { src: '~/plugins/shadydom', mode: 'client' },
   ],
   components: true,
   /*
