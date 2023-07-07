@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v4.12.3 (07/07/2023)
+
+
+### :rocket: Amélioration
+- [#550](https://github.com/1024pix/pix-site/pull/550) [FEATURE] Retirer le bandeau de consentement.
+
+### :coffee: Autre
+- [#552](https://github.com/1024pix/pix-site/pull/552) [BUMP] Update dependency @nuxtjs/eslint-module to v4 (dossier racine).
+- [#551](https://github.com/1024pix/pix-site/pull/551) [BUMP] Update dependency winston to v3.9.0 (dossier racine).
+
 ## v4.12.2 (16/06/2023)
 
 
