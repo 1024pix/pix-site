@@ -70,7 +70,7 @@
     "chart.js": "^3.0.0",
     "core-js": "^3.30.2",
     "eslint": "^8.30.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jest": "^27.1.7",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.0.0",
