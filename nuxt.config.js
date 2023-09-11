@@ -41,6 +41,7 @@ const nuxtConfig = {
     DOMAIN_ORG: process.env.DOMAIN_ORG,
     DOMAIN_FR: process.env.DOMAIN_FR,
     SITE_DOMAIN: process.env.SITE_DOMAIN,
+    FT_IS_NEW_MENU_AVAILABLE: process.env.FT_IS_NEW_MENU_AVAILABLE,
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
