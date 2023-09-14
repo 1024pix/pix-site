@@ -1,0 +1,2 @@
+export const DESKTOP_MIN_WIDTH = 960
+export const EXTRA_LARGE_SCREEN_MIN_WIDTH = 1440
