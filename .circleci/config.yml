@@ -41,6 +41,7 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache/ms-playwright
+      - run: npx playwright install --with-deps
       - run:
           name: Run E2E tests
           environment:
