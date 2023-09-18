@@ -1,6 +1,9 @@
 <template>
   <header class="navigation-slice-zone" role="banner">
-    <client-only>
+    <client-only v-if="isNewMenuAvailable">
+      <button class="new-burger-menu">new burger menu</button>
+    </client-only>
+    <client-only v-else>
       <slide-menu width="320" class="burger-menu" :close-on-navigation="true">
         <burger-menu-nav :items="burgerMenuLinks" />
       </slide-menu>
@@ -23,7 +26,10 @@
       </section>
     </div>
     <section class="navigation-slice-zone-content__bottom-side">
-      <slices-navigation-zone :navigation-zone-items="navigation" />
+      <nav v-if="isNewMenuAvailable" class="new-navigation-menu">
+        <p>new navigation zone</p>
+      </nav>
+      <slices-navigation-zone v-else :navigation-zone-items="navigation" />
     </section>
   </header>
 </template>
@@ -36,6 +42,7 @@ export default {
   data() {
     return {
       usedMainNavigation: [],
+      isNewMenuAvailable: process.env.FT_IS_NEW_MENU_AVAILABLE === 'true',
     }
   },
   async fetch() {

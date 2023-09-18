@@ -53,5 +53,35 @@ describe('NavigationSliceZone', () => {
         expect(result).toEqual(expectedSiteNavigation.data.body)
       })
     })
+
+    describe('when FT_IS_NEW_MENU_AVAILABLE is available', () => {
+      it('should return the new burger menu', () => {
+        // given
+        component = shallowMount(NavigationSliceZone, {
+          data() {
+            return { isNewMenuAvailable: true }
+          },
+          stubs,
+        })
+
+        // then
+        expect(component.find('button.new-burger-menu').exists()).toBe(true)
+        expect(component.find('.burger-menu').exists()).toBe(false)
+      })
+
+      it('should return the new navigation menu', () => {
+        // given
+        component = shallowMount(NavigationSliceZone, {
+          data() {
+            return { isNewMenuAvailable: true }
+          },
+          stubs,
+        })
+
+        // then
+        expect(component.find('nav.new-navigation-menu').exists()).toBe(true)
+        expect(component.find('nav.navigation-zone').exists()).toBe(false)
+      })
+    })
   })
 })
