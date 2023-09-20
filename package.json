@@ -1,0 +1,27 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "slicemachine": "start-slicemachine"
+  },
+  "devDependencies": {
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.0.0-rc.2",
+    "@nuxtjs/i18n": "^8.0.0-rc.4",
+    "@nuxtjs/prismic": "^3.0.2",
+    "@slicemachine/adapter-nuxt": "^0.3.16",
+    "chart.js": "^4.4.0",
+    "nuxt": "^3.7.3",
+    "prismic-dom": "^2.2.7",
+    "sass": "^1.67.0",
+    "slice-machine-ui": "^1.14.0",
+    "vue-chartjs": "^5.2.0"
+  }
+}
