@@ -3,127 +3,103 @@
     <section class="banner row-block">
       <div class="row-block__main-content">
         <prismic-rich-text
-          :field="title"
+          :field="slice.primary.banner_title"
           class="title--big"
-          :class="`title--${fontContrast}`"
+          :class="`title--${slice.primary.banner_font_contrast}`"
         />
         <prismic-rich-text
-          :field="textContent"
+          :field="slice.primary.banner_content"
           class="text--normal"
-          :class="`text--${fontContrast}`"
+          :class="`text--${slice.primary.banner_font_contrast}`"
         />
         <slot></slot>
-        <div class="banner__button-group">
-          <div v-for="(link, index) in links" :key="`item-${index}`">
-            <nuxt-link
-              v-if="!isVideo(link)"
-              :to="link.banner_link_url"
-              class="button"
-              :class="videoClass(link)"
+      </div>
+      <div class="banner__button-group">
+        <div v-for="(link, index) in slice.items" :key="`item-${index}`">
+          <pix-prismic-link
+            v-if="!isVideo(link)"
+            :field="link.banner_link_url"
+            class="button"
+            :class="videoClass(link)"
+          >
+            {{ link.banner_link_text }}
+          </pix-prismic-link>
+          <template v-if="isVideo(link)">
+            <button
+              class="button button-video"
+              :class="`button--${fontContrast}`"
+              @click="openVideoModal()"
             >
+              <fa icon="play-circle" />
               {{ link.banner_link_text }}
-            </nuxt-link>
-            <template v-if="isVideo(link)">
-              <button
-                class="button button-video"
-                :class="`button--${fontContrast}`"
-                @click="openVideoModal()"
-              >
-                {{ link.banner_link_text }}
-              </button>
-              <modal ref="modal" name="videoModal" height="auto">
-                <media-player :video-url="link.banner_link_url.url" />
-              </modal>
-            </template>
-          </div>
+            </button>
+            <modal ref="modal" name="videoModal" height="auto">
+              <media-player :video-url="link.banner_link_url.url" />
+            </modal>
+          </template>
         </div>
       </div>
       <pix-image
         v-if="hasImage"
-        :field="imageUrl"
+        :field="slice.primary.banner_image"
         class="row-block__side-content"
       />
     </section>
   </div>
 </template>
 
-<script>
-export default {
-  name: "SlicesPageBanner",
-  props: {
-    slice: {
-      type: Object,
-      default: null,
-    },
-    indexForId: {
-      type: Number,
-      default: 0,
-    },
-  },
-  computed: {
-    fontContrast() {
-      return this.slice.primary.banner_font_contrast;
-    },
-    title() {
-      return this.slice.primary.banner_title;
-    },
-    textContent() {
-      return this.slice.primary.banner_content;
-    },
-    links() {
-      return this.slice.items;
-    },
-    hasImage() {
-      return (
-        this.slice.primary.banner_image && this.slice.primary.banner_image.url
-      );
-    },
-    hasBackgroundImage() {
-      return (
-        this.slice.primary.banner_background &&
-        this.slice.primary.banner_background.url
-      );
-    },
-    imageUrl() {
-      return this.slice.primary.banner_image;
-    },
-  },
-  methods: {
-    openVideoModal() {
-      this.$modal.show("videoModal");
-    },
-    isVideo(link) {
-      return link?.banner_link_url?.url?.includes("pix-videos/");
-    },
-    videoClass(link) {
-      return this.isVideo(link)
-        ? "banner__video"
-        : "button--" + this.fontContrast;
-    },
-  },
-  setup() {
-    const img = useImage();
+<script setup>
+const { client } = usePrismic();
+const img = useImage();
 
-    const background = () => {
-      let style = {};
-      if (this.hasBackgroundImage) {
-        style = {
-          // Use @nuxt/image to download image during static build
-          background: `no-repeat url(${img(
-            this.slice.primary.banner_background.url
-          )})`,
-          backgroundSize: "cover",
-          backgroundPosition: "bottom",
-        };
-      } else {
-        style.backgroundColor = this.slice.primary.banner_background_color;
-      }
-      return style;
-    };
-
-    return background;
+const props = defineProps({
+  slice: {
+    type: Object,
+    default: null,
   },
-};
+  indexForId: {
+    type: Number,
+    default: 0,
+  },
+});
+
+/* Background */
+const hasBackgroundImage =
+  props.slice.primary.banner_background &&
+  props.slice.primary.banner_background.url;
+
+let background = {};
+if (hasBackgroundImage) {
+  background = {
+    // Use @nuxt/image to download image during static build
+    background: `no-repeat url(${img(
+      props.slice.primary.banner_background.url
+    )})`,
+    backgroundSize: "cover",
+    backgroundPosition: "bottom",
+  };
+} else {
+  background.backgroundColor = props.slice.primary.banner_background_color;
+}
+
+/* Image */
+const hasImage =
+  props.slice.primary.banner_image && props.slice.primary.banner_image.url;
+
+/* Video */
+function isVideo(link) {
+  return link?.banner_link_url?.url?.includes("pix-videos/");
+}
+
+function videoClass(link) {
+  return this.isVideo(link)
+    ? "banner__video"
+    : "button--" + props.slice.primary.banner_font_contrast;
+}
+
+function openVideoModal() {
+  // this.$modal.show('videoModal')
+}
 </script>
 
 <style lang="scss">

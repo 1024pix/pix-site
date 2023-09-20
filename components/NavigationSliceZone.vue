@@ -1,13 +1,8 @@
 <template>
   <header class="navigation-slice-zone" role="banner">
-    <client-only v-if="isNewMenuAvailable">
-      <button class="new-burger-menu">new burger menu</button>
-    </client-only>
-    <client-only v-else>
-      <slide-menu width="320" class="burger-menu" :close-on-navigation="true">
-        <burger-menu-nav :items="burgerMenuLinks" />
-      </slide-menu>
-    </client-only>
+    <slide-menu width="320" class="burger-menu" :close-on-navigation="true">
+      <burger-menu-nav :items="burgerMenuLinks" />
+    </slide-menu>
     <div class="navigation-slice-zone__content">
       <div class="navigation-slice-zone-content__left-side">
         <section
