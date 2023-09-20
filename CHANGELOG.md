@@ -1,5 +1,31 @@
 # pix-site Changelog
 
+## v4.13.0 (20/09/2023)
+
+
+### :rocket: Amélioration
+- [#568](https://github.com/1024pix/pix-site/pull/568) [FEATURE] Ajouter un feature toggle pour l'affichage des nouveaux menus (PIX-8995).
+
+### :building_construction: Tech
+- [#577](https://github.com/1024pix/pix-site/pull/577) [TECH] Revenir à une version de webpack compatible.
+- [#576](https://github.com/1024pix/pix-site/pull/576) [TECH] Désactiver renovate.
+
+### :bug: Correction
+- [#572](https://github.com/1024pix/pix-site/pull/572) [BUGFIX] Réparer la position du burger-menu lorsque une bannière d'info est affichée (PIX-8179).
+
+### :arrow_up: Montée de version
+- [#575](https://github.com/1024pix/pix-site/pull/575) [BUMP] Update dependency webpack to v5 (dossier racine).
+- [#569](https://github.com/1024pix/pix-site/pull/569) [BUMP] Update Node.js to v20.6.0.
+- [#567](https://github.com/1024pix/pix-site/pull/567) [BUMP] Update npm to v10.
+- [#566](https://github.com/1024pix/pix-site/pull/566) [BUMP] Update dependency eslint-config-prettier to v9 (dossier racine).
+- [#565](https://github.com/1024pix/pix-site/pull/565) [BUMP] Update Node.js to v20.5.1.
+- [#563](https://github.com/1024pix/pix-site/pull/563) [BUMP] Update Node.js to v20.
+- [#561](https://github.com/1024pix/pix-site/pull/561) [BUMP] Update dependency winston to v3.10.0 (dossier racine).
+- [#558](https://github.com/1024pix/pix-site/pull/558) [BUMP] Update Node.js to v19.
+- [#557](https://github.com/1024pix/pix-site/pull/557) [BUMP] Update node to v18 (major).
+- [#554](https://github.com/1024pix/pix-site/pull/554) [BUMP] Update dependency sass-loader to v11 (dossier racine).
+- [#553](https://github.com/1024pix/pix-site/pull/553) [BUMP] Update dependency chart.js to v3 (dossier racine).
+
 ## v4.12.3 (07/07/2023)
 
 
