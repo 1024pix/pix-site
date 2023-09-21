@@ -30,7 +30,7 @@
 </template>
 <script setup>
 const { client } = usePrismic();
-const { t } = useI18n();
+const { locale: i18nLocale, t } = useI18n();
 
 /* I18n Routes */
 defineI18nRoute({
@@ -50,7 +50,7 @@ useHead({
 /* Fetch news items */
 const { data: newsItems } = await useAsyncData(() => {
   return client.getAllByType("news_item", {
-    lang: "fr",
+    lang: i18nLocale.value,
   });
 });
 </script>
