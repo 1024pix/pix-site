@@ -49,7 +49,6 @@
 </template>
 
 <script setup>
-const { client } = usePrismic();
 const img = useImage();
 
 const props = defineProps({

@@ -9,7 +9,13 @@
   </div>
 </template>
 
-<script></script>
+<script setup>
+useHead({
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} | Pix` : "Pix";
+  },
+});
+</script>
 
 <style lang="scss">
 html {

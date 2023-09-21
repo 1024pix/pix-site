@@ -1,20 +1,18 @@
 <template>
   <div>
-    <div v-if="data.type === DOCUMENTS.FORM_PAGE">
+    <div v-if="data.type === 'form_page'">
       <form-page :content="data.data" />
     </div>
-    <div v-if="data.type === DOCUMENTS.SIMPLE_PAGE">
+    <div v-if="data.type === 'simple_page'">
       <simple-page :content="data.data" />
     </div>
-    <div v-if="data.type === DOCUMENTS.SLICES_PAGE">
+    <div v-if="data.type === 'slices_page'">
       <prismic-custom-slice-zone :slices="data.data.body" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { DOCUMENTS } from "~/services/document-fetcher";
-
 const { client } = usePrismic();
 const { data } = await useAsyncData(() => {
   return client.getByUID("slices_page", "index-pix-site", { lang: "fr" });

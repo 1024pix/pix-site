@@ -3,14 +3,14 @@
     <header class="page-header">
       <div class="container md padding-container">
         <h1 class="page-header__title">
-          {{ $t('news-page-title') }}
+          {{ t("news-page-title") }}
         </h1>
       </div>
     </header>
 
     <main class="page-body">
       <h2 class="sr-only">
-        {{ $t('news-page-title-level-two') }}
+        {{ t("news-page-title-level-two") }}
       </h2>
       <ul class="news__list">
         <template v-if="newsItems && newsItems.length">
@@ -22,45 +22,37 @@
           />
         </template>
         <template v-else>
-          <p>{{ $t('news-page-no-news') }}</p>
+          <p>{{ t("news-page-no-news") }}</p>
         </template>
       </ul>
     </main>
   </div>
 </template>
-<script>
-import { documentFetcher } from '~/services/document-fetcher'
+<script setup>
+const { client } = usePrismic();
+const { t } = useI18n();
 
-export default {
-  name: 'Index',
-  nuxtI18n: {
-    paths: {
-      en: '/news',
-      fr: '/actualites',
-      'fr-fr': '/actualites',
-      'fr-be': '/actualites',
-    },
+/* I18n Routes */
+defineI18nRoute({
+  paths: {
+    en: "/news",
+    fr: "/actualites",
+    "fr-fr": "/actualites",
+    "fr-be": "/actualites",
   },
-  async asyncData({ app, error, req }) {
-    try {
-      const newsItems = await documentFetcher(
-        app.$prismic,
-        app.i18n,
-        req
-      ).findNewsItems()
-      return { newsItems }
-    } catch (e) {
-      console.error({ e })
-      error({ statusCode: 404, message: 'Page not found' })
-    }
-  },
-  head() {
-    const pageTitle = this.$t('page-titles.news')
-    return {
-      title: pageTitle,
-    }
-  },
-}
+});
+
+/* Metadata */
+useHead({
+  title: t("page-titles.news"),
+});
+
+/* Fetch news items */
+const { data: newsItems } = await useAsyncData(() => {
+  return client.getAllByType("news_item", {
+    lang: "fr",
+  });
+});
 </script>
 
 <style lang="scss">
@@ -80,7 +72,7 @@ export default {
     flex-direction: column;
     padding-left: 0;
 
-    @include device-is('tablet') {
+    @include device-is("tablet") {
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: space-evenly;

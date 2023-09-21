@@ -5,17 +5,16 @@
       :to="localePath({ name: 'news-slug', params: { slug: uid } })"
     >
       <div v-if="slice.illustration?.url" class="news-item-card__header">
-        <!-- /!\ We keep this line if we think that an image would be better -->
         <div
           class="news-item-card__illustration"
-          :style="`background-image: url(${$img(slice.illustration.url)})`"
+          :style="`background-image: url(${img(slice.illustration.url)})`"
         ></div>
       </div>
 
       <div class="news-item-card__body">
         <p class="news-item-card__meta">
           <span :class="`news-item-card__category ${categoryClassName}`">
-            {{ $t(categoryLabel) }}
+            {{ t(categoryLabel) }}
           </span>
           •
           <span class="news-item-card__date">
@@ -34,33 +33,30 @@
   </li>
 </template>
 
-<script>
-export default {
-  name: 'NewsItemCard',
-  props: {
-    slice: {
-      type: Object,
-      default: null,
-    },
-    uid: {
-      type: String,
-      default: null,
-    },
+<script setup>
+import { useDateFormat } from "@vueuse/core";
+const { locale: i18nLocale, t } = useI18n();
+
+const img = useImage();
+
+const props = defineProps({
+  slice: {
+    type: Object,
+    default: null,
   },
-  computed: {
-    categoryClassName() {
-      return `news-item-card__category--${this.slice.category.toLowerCase()}`
-    },
-    categoryLabel() {
-      return this.slice.category.toLowerCase()
-    },
-    date() {
-      return this.$dayjs(this.slice.date)
-        .locale(this.$i18n.locale.split('-')[0])
-        .format('LL')
-    },
+  uid: {
+    type: String,
+    default: null,
   },
-}
+});
+
+const categoryClassName = `news-item-card__category--${props.slice.category.toLowerCase()}`;
+
+const categoryLabel = props.slice.category.toLowerCase();
+
+const date = useDateFormat(props.slice.date, "DD MMMM YYYY", {
+  locales: i18nLocale,
+});
 </script>
 
 <style lang="scss">
@@ -82,12 +78,12 @@ export default {
     font-family: $font-open-sans;
   }
 
-  @include device-is('tablet') {
+  @include device-is("tablet") {
     margin: 20px;
   }
 
   &:hover {
-    @include device-is('desktop') {
+    @include device-is("desktop") {
       box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
       transform: translate3D(0, -20px, 0);
     }
