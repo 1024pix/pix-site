@@ -1,7 +1,7 @@
 export default {
   lazy: true,
   langDir: "translations",
-  defaultLocale: "fr",
+  defaultLocale: "fr-fr",
   locales: [
     {
       code: "en",
@@ -12,11 +12,11 @@ export default {
       file: "fr.js",
     },
     {
-      code: "fr-BE",
+      code: "fr-be",
       file: "fr-be.js",
     },
     {
-      code: "fr-FR",
+      code: "fr-fr",
       file: "fr-fr.js",
     },
   ],

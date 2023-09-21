@@ -5,7 +5,7 @@
       :key="`logo-${index}`"
       class="logos-zone__content"
     >
-      <nuxt-link v-if="hasLink(logo)" :to="logo.url">
+      <nuxt-link v-if="hasLink(logo)" :to="logo.url.url">
         <pix-image
           :field="logo.image"
           :has-fixed-dimensions="true"
@@ -22,25 +22,21 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "SlicesLogosZone",
-  props: {
-    slice: {
-      type: Object,
-      default: null,
-    },
-    maxHeight: {
-      type: Number,
-      default: undefined,
-    },
+<script setup>
+defineProps({
+  slice: {
+    type: Object,
+    default: null,
   },
-  methods: {
-    hasLink(item) {
-      return item.url.link_type !== "Any";
-    },
+  maxHeight: {
+    type: Number,
+    default: undefined,
   },
-};
+});
+
+function hasLink(item) {
+  return item.url.link_type !== "Any";
+}
 </script>
 
 <style scoped lang="scss">

@@ -1,8 +1,8 @@
 <template>
   <header class="navigation-slice-zone" role="banner">
-    <slide-menu width="320" class="burger-menu" :close-on-navigation="true">
+    <!-- <slide-menu width="320" class="burger-menu" :close-on-navigation="true">
       <burger-menu-nav :items="burgerMenuLinks" />
-    </slide-menu>
+    </slide-menu> -->
     <div class="navigation-slice-zone__content">
       <div class="navigation-slice-zone-content__left-side">
         <section
@@ -28,9 +28,11 @@
 
 <script setup>
 const { client } = usePrismic();
+const { locale: i18nLocale } = useI18n();
+
 const { data } = await useAsyncData(async () => {
   let navs = await client.getAllByType("main_navigation", {
-    lang: "fr",
+    lang: i18nLocale.value,
   });
 
   const menu = navs.find((nav) => {
