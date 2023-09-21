@@ -2,122 +2,81 @@
   <nav class="navigation-zone" role="navigation">
     <ul>
       <li
-        v-for="(menuItem, index) in navigationLinks"
+        v-for="(menuItem, index) in menuLinks"
         :key="`item-${index}`"
         class="navigation-zone-block"
-        :class="{ 'navigation-separator': menuItem === SEPARATOR }"
       >
-        <template v-if="menuItem !== SEPARATOR">
-          <div v-if="menuItem.children && menuItem.children.length > 0">
-            <button
-              :dropdown-index="`${index}`"
-              class="dropdown-toggle navigation-zone__item links-group"
-              :class="{
-                'current-active-link': subIsActive(menuItem.children),
-              }"
-              @click="toggleDropdown(`${index}`)"
-              @click.stop.prevent
-            >
-              {{ menuItem.name }}
-            </button>
-            <navigation-dropdown
-              v-show="isOpenDropdown(`${index}`)"
-              type="button"
-              :options="menuItem.children"
-              :dropdown-index="`${index}`"
-            >
-            </navigation-dropdown>
-          </div>
-          <nuxt-link v-else :to="menuItem.link" class="navigation-zone__item">
-            {{ $prismic.asText(menuItem.name) }}
-          </nuxt-link>
-        </template>
+        <div v-if="menuItem.subItems && menuItem.subItems.length > 0">
+          <button
+            :dropdown-index="`${index}`"
+            class="dropdown-toggle navigation-zone__item links-group"
+            :class="{
+              'current-active-link': subIsActive(menuItem.subItems),
+            }"
+            @click="toggleDropdown(`${index}`)"
+            @click.stop.prevent
+          >
+            {{ menuItem.name }}
+            <fa icon="angle-down" />
+          </button>
+        </div>
+        <a v-else :href="menuItem.link.url" class="navigation-zone__item">
+          {{ menuItem.name[0].text }}
+        </a>
       </li>
     </ul>
   </nav>
 </template>
 
-<script>
-const SEPARATOR = Symbol("SEPARATOR");
+<script setup>
+const route = useRoute();
 
-export default {
-  name: "SlicesNavigationZone",
-  props: {
-    navigationZoneItems: {
-      type: Array,
-      default: () => [],
-    },
+const props = defineProps({
+  navigationZoneItems: {
+    type: Array,
+    default: () => [],
   },
-  data() {
-    return {
-      openDropdownIndex: undefined,
-      SEPARATOR,
-    };
-  },
-  computed: {
-    navigationLinks() {
-      if (this.navigationZoneItems.length === 0) {
-        return null;
-      }
+});
 
-      return this.navigationZoneItems
-        .map(({ items: navItems }) =>
-          navItems.reduce((navGroup, navItem) => {
-            if (navItem.group.length > 0) {
-              const groupName = navItem.group[0].text;
-              const prevNavItem = navGroup[navGroup.length - 1];
+/* Generate menu */
+const menuLinks = props.navigationZoneItems[0].items.reduce(
+  (accumulator, currentMenuItem) => {
+    if (!currentMenuItem.group.length) {
+      return [...accumulator, currentMenuItem];
+    }
 
-              if (prevNavItem?.name === groupName) {
-                prevNavItem.children.push(navItem);
-                return navGroup;
-              }
+    const existingGroup = accumulator.find(
+      (item) => item.name === currentMenuItem.group[0].text
+    );
+    if (existingGroup) {
+      existingGroup.subItems.push(currentMenuItem);
+      return accumulator;
+    } else {
+      return [
+        ...accumulator,
+        {
+          name: currentMenuItem.group[0].text,
+          subItems: [currentMenuItem],
+        },
+      ];
+    }
+  },
+  []
+);
 
-              return [...navGroup, { name: groupName, children: [navItem] }];
-            }
-
-            return [...navGroup, navItem];
-          }, [])
-        )
-        .reduce((prevNavGroup, nextNavGroup) => [
-          ...prevNavGroup,
-          SEPARATOR,
-          ...nextNavGroup,
-        ]);
-    },
-  },
-  mounted() {
-    const page = document.getElementsByTagName("body")[0];
-    page.addEventListener("click", this.toggleDropdown);
-  },
-  beforeDestroy() {
-    const page = document.getElementsByTagName("body")[0];
-    page.removeEventListener("click", this.toggleDropdown);
-  },
-  methods: {
-    isOpenDropdown(dropdownIndex) {
-      return this.openDropdownIndex === dropdownIndex;
-    },
-    toggleDropdown(dropdownIndex) {
-      if (this.isOpenDropdown(dropdownIndex)) {
-        this.openDropdownIndex = undefined;
-      } else {
-        this.openDropdownIndex = dropdownIndex;
-      }
-    },
-    subIsActive(subNavigationLinks) {
-      const paths = subNavigationLinks
-        .filter((subNavigationLink) => subNavigationLink.link.url !== undefined)
-        .map((subNavigationLink) => {
-          const splittedLink = subNavigationLink.link.url.split("/");
-          const linkIndex = splittedLink.length - 1;
-          return splittedLink[linkIndex];
-        });
-      return paths.some((path) => {
-        return this.$route.path.includes(path);
-      });
-    },
-  },
-};
+/* Methods */
+function subIsActive(subNavigationLinks) {
+  const paths = subNavigationLinks
+    .filter((subNavigationLink) => subNavigationLink.link.url !== undefined)
+    .map((subNavigationLink) => {
+      const splittedLink = subNavigationLink.link.url.split("/");
+      const linkIndex = splittedLink.length - 1;
+      return splittedLink[linkIndex];
+    });
+  return paths.some((path) => {
+    return route.path.includes(path);
+  });
+}
 </script>
 
 <style scoped lang="scss">

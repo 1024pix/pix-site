@@ -11,7 +11,6 @@
     "slicemachine": "start-slicemachine"
   },
   "devDependencies": {
-    "@fortawesome/vue-fontawesome": "^3.0.3",
     "@nuxt/devtools": "latest",
     "@nuxt/image": "^1.0.0-rc.2",
     "@nuxtjs/i18n": "^8.0.0-rc.4",

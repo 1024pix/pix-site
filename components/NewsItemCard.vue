@@ -57,7 +57,7 @@ const categoryClassName = `news-item-card__category--${props.slice.category.toLo
 const categoryLabel = props.slice.category.toLowerCase();
 
 const date = useDateFormat(props.slice.date, "DD MMMM YYYY", {
-  locales: i18nLocale,
+  locales: i18nLocale.value,
 });
 </script>
 
