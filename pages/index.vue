@@ -14,7 +14,11 @@
 
 <script setup>
 const { client } = usePrismic();
+const { locale: i18nLocale } = useI18n();
+
 const { data } = await useAsyncData(() => {
-  return client.getByUID("slices_page", "index-pix-site", { lang: "fr" });
+  return client.getByUID("slices_page", "index-pix-site", {
+    lang: i18nLocale.value,
+  });
 });
 </script>

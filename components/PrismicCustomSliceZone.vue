@@ -26,14 +26,11 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'SliceZone',
-  props: {
-    slices: {
-      type: Array,
-      default: null,
-    },
+<script setup>
+const props = defineProps({
+  slices: {
+    type: Array,
+    default: null,
   },
-}
+});
 </script>
