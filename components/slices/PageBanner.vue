@@ -28,12 +28,12 @@
             <button
               class="button button-video"
               :class="`button--${fontContrast}`"
-              @click="openVideoModal()"
+              @click="toggleModal"
             >
               <fa icon="play-circle" />
               {{ link.banner_link_text }}
             </button>
-            <modal ref="modal" name="videoModal" height="auto">
+            <modal v-if="showModal" @close-modal="toggleModal">
               <media-player :video-url="link.banner_link_url.url" />
             </modal>
           </template>
@@ -96,8 +96,11 @@ function videoClass(link) {
     : "button--" + props.slice.primary.banner_font_contrast;
 }
 
-function openVideoModal() {
-  // this.$modal.show('videoModal')
+/* Video */
+const showModal = ref(false);
+
+function toggleModal() {
+  showModal.value = !showModal.value;
 }
 </script>
 

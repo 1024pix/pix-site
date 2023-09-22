@@ -6,14 +6,14 @@
 
 <script>
 export default {
-  name: 'MediaPlayer',
+  name: "MediaPlayer",
   props: {
     videoUrl: {
       type: String,
       default: null,
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
