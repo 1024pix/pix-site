@@ -1,5 +1,6 @@
 <template>
   <nav class="actions-zone">
+    <locale-switcher></locale-switcher>
     <ul>
       <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
         <nuxt-link
