@@ -4,7 +4,7 @@
     <ul>
       <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`">
         <nuxt-link
-          :to="menuItem.link"
+          :to="menuItem.link.url"
           class="actions-zone__item"
           :class="{
             'button button--with-border-focus': menuItem.style === 'button',

@@ -39,7 +39,7 @@
           />
           <nuxt-link
             v-else-if="content.article_link_type === 'link-to'"
-            :to="content.article_link_url"
+            :to="content.article_link_url.url"
             class="article-content__link-to"
           >
             {{ content.article_link_name }}

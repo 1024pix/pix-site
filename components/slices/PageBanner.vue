@@ -16,14 +16,14 @@
       </div>
       <div class="banner__button-group">
         <div v-for="(link, index) in slice.items" :key="`item-${index}`">
-          <pix-prismic-link
+          <nuxt-link
             v-if="!isVideo(link)"
-            :field="link.banner_link_url"
+            :to="link.banner_link_url.url"
             class="button"
             :class="videoClass(link)"
           >
             {{ link.banner_link_text }}
-          </pix-prismic-link>
+          </nuxt-link>
           <template v-if="isVideo(link)">
             <button
               class="button button-video"

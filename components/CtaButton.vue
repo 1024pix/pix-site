@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="link" exact class="cta-button">
+  <nuxt-link :to="link.url" exact class="cta-button">
     {{ name }}
   </nuxt-link>
 </template>
