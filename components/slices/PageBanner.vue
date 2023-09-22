@@ -13,30 +13,30 @@
           :class="`text--${slice.primary.banner_font_contrast}`"
         />
         <slot></slot>
-      </div>
-      <div class="banner__button-group">
-        <div v-for="(link, index) in slice.items" :key="`item-${index}`">
-          <nuxt-link
-            v-if="!isVideo(link)"
-            :to="link.banner_link_url.url"
-            class="button"
-            :class="videoClass(link)"
-          >
-            {{ link.banner_link_text }}
-          </nuxt-link>
-          <template v-if="isVideo(link)">
-            <button
-              class="button button-video"
-              :class="`button--${fontContrast}`"
-              @click="toggleModal"
+        <div class="banner__button-group">
+          <div v-for="(link, index) in slice.items" :key="`item-${index}`">
+            <nuxt-link
+              v-if="!isVideo(link)"
+              :to="link.banner_link_url.url"
+              class="button"
+              :class="videoClass(link)"
             >
-              <fa icon="play-circle" />
               {{ link.banner_link_text }}
-            </button>
-            <modal v-if="showModal" @close-modal="toggleModal">
-              <media-player :video-url="link.banner_link_url.url" />
-            </modal>
-          </template>
+            </nuxt-link>
+            <template v-if="isVideo(link)">
+              <button
+                class="button button-video"
+                :class="`button--${fontContrast}`"
+                @click="toggleModal"
+              >
+                <fa icon="play-circle" />
+                {{ link.banner_link_text }}
+              </button>
+              <modal v-if="showModal" @close-modal="toggleModal">
+                <media-player :video-url="link.banner_link_url.url" />
+              </modal>
+            </template>
+          </div>
         </div>
       </div>
       <pix-image
@@ -96,7 +96,7 @@ function videoClass(link) {
     : "button--" + props.slice.primary.banner_font_contrast;
 }
 
-/* Video */
+/* Modal */
 const showModal = ref(false);
 
 function toggleModal() {
