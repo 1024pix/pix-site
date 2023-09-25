@@ -1,15 +1,5 @@
 <template>
-  <div>
-    <div v-if="data.type === 'form_page'">
-      <form-page :content="data.data" />
-    </div>
-    <div v-if="data.type === 'simple_page'">
-      <simple-page :content="data.data" />
-    </div>
-    <div v-if="data.type === 'slices_page'">
-      <prismic-custom-slice-zone :slices="data.data.body" />
-    </div>
-  </div>
+  <prismic-custom-slice-zone :slices="data.data.body" />
 </template>
 
 <script setup>
