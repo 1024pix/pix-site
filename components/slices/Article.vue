@@ -59,7 +59,7 @@
       <video
         v-if="isMediaLayout && containsVideo"
         class="article__secondary-content article-secondary-content__video"
-        :poster="$img(content.article_video_poster.url)"
+        :poster="img(content.article_video_poster.url)"
         controls
       >
         <source :src="content.article_video.url" type="video/mp4" />
@@ -68,64 +68,53 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "SlicesArticle",
-  props: {
-    slice: {
-      type: Object,
-      default: null,
-    },
-    indexForId: {
-      type: Number,
-      default: 0,
-    },
+<script setup>
+import { computed } from "vue";
+const img = useImage();
+
+const props = defineProps({
+  slice: {
+    type: Object,
+    default: null,
   },
-  computed: {
-    content() {
-      return this.slice.primary;
-    },
-    background() {
-      let style = {};
-      if (this.isOnlyTextLayout && this.hasBackgroundImage) {
-        style = {
-          background: `no-repeat url(${this.img(
-            this.content.article_background.url
-          )})`,
-          backgroundSize: "100%",
-          backgroundPosition: "top right",
-        };
-      }
-      style["background-color"] = `${this.content.article_background_color}`;
-      return style;
-    },
-    containsVideo() {
-      return (
-        this.content.article_video &&
-        this.content.article_video.link_type !== "Any"
-      );
-    },
-    hasBackgroundImage() {
-      return (
-        this.content.article_background && this.content.article_background.url
-      );
-    },
-    isOnlyTextLayout() {
-      return this.content.article_layout === "only-text";
-    },
-    isMediaLayout() {
-      return ["text-image", "image-text", "vertical-text-image"].includes(
-        this.content.article_layout
-      );
-    },
-    shouldBeReversed() {
-      return this.content.article_layout === "image-text";
-    },
-    shouldBeVertical() {
-      return this.content.article_layout === "vertical-text-image";
-    },
+  indexForId: {
+    type: Number,
+    default: 0,
   },
-};
+});
+
+const content = props.slice.primary;
+
+const containsVideo =
+  content.article_video && content.article_video.link_type !== "Any";
+
+const hasBackgroundImage =
+  content.article_background && content.article_background.url;
+
+const background = computed(() => {
+  let style = {};
+  if (isOnlyTextLayout && hasBackgroundImage) {
+    style = {
+      background: `no-repeat url(${img(content.article_background.url)})`,
+      backgroundSize: "100%",
+      backgroundPosition: "top right",
+    };
+  }
+  style["background-color"] = `${content.article_background_color}`;
+  return style;
+});
+
+const isOnlyTextLayout = content.article_layout === "only-text";
+
+const isMediaLayout = [
+  "text-image",
+  "image-text",
+  "vertical-text-image",
+].includes(content.article_layout);
+
+const shouldBeReversed = content.article_layout === "image-text";
+
+const shouldBeVertical = content.article_layout === "vertical-text-image";
 </script>
 
 <style lang="scss">
