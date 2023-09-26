@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import metabaseFetcher from '~/services/metabase-fetcher'
+import metabaseFetcher from "@shared/services/metabase-fetcher";
 
 export default {
-  name: 'SlicesStatSlice',
+  name: "SlicesStatSlice",
   props: {
     slice: {
       type: Object,
@@ -25,37 +25,37 @@ export default {
     return {
       values: [],
       labels: [],
-    }
+    };
   },
   async fetch() {
-    const metabase = await metabaseFetcher()
+    const metabase = await metabaseFetcher();
     const { values, labels } = await metabase.getCard({
       cardId: this.content.metabase_card_id,
       xAxisLabel: this.content.metabase_x_axis_label,
       yAxisLabel: this.content.metabase_y_axis_label,
-    })
-    this.values = values
-    this.labels = labels
+    });
+    this.values = values;
+    this.labels = labels;
   },
   computed: {
     content() {
-      return this.slice.primary
+      return this.slice.primary;
     },
     data() {
-      return this.slice.items
+      return this.slice.items;
     },
     chartData() {
       function backgroundColorFrom(color) {
-        const hex = color.replace('#', '')
-        const r = parseInt(hex.substring(0, 2), 16)
-        const g = parseInt(hex.substring(2, 4), 16)
-        const b = parseInt(hex.substring(4, 6), 16)
+        const hex = color.replace("#", "");
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
 
-        return 'rgba(' + r + ',' + g + ',' + b + ',0.2)'
+        return "rgba(" + r + "," + g + "," + b + ",0.2)";
       }
 
-      const valueData = this.values
-      const labelData = this.labels
+      const valueData = this.values;
+      const labelData = this.labels;
 
       return {
         datasets: [
@@ -66,14 +66,14 @@ export default {
             borderColor: this.content.block_graph_color,
             data: valueData,
             label: this.content.block_data_name[0].text,
-            type: 'line',
+            type: "line",
           },
         ],
         labels: labelData,
-      }
+      };
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -82,7 +82,7 @@ export default {
   max-width: 1140px;
   margin: 0 50px;
 
-  @include device-is('desktop') {
+  @include device-is("desktop") {
     margin: 0 auto;
   }
 

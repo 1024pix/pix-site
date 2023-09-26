@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import { getAbsoluteUrlIfSwitchWebsite } from '~/services/get-absolute-url-if-switch-website'
+import { getAbsoluteUrlIfSwitchWebsite } from "@shared/services/get-absolute-url-if-switch-website";
 
 export default {
-  name: 'LocaleLink',
+  name: "LocaleLink",
   props: {
     locale: {
       type: Object,
@@ -20,12 +20,12 @@ export default {
     indexForGivenLocale() {
       return getAbsoluteUrlIfSwitchWebsite({
         relativeTarget:
-          this.locale.code === 'fr-fr' ? '/' : `/${this.locale.code}`,
+          this.locale.code === "fr-fr" ? "/" : `/${this.locale.code}`,
         targetDomain: this.locale.domain,
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -65,8 +65,8 @@ export default {
   }
 }
 
-[href$='/fr'],
-[href$='/en'] {
+[href$="/fr"],
+[href$="/en"] {
   .locale-link__icon {
     filter: brightness(50%);
   }

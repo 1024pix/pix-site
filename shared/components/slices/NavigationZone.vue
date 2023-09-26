@@ -20,7 +20,11 @@
             <fa icon="angle-down" />
           </button>
         </div>
-        <a v-else :href="menuItem.link.url" class="navigation-zone__item">
+        <a
+          v-else
+          :href="localUrl(menuItem.link.url)"
+          class="navigation-zone__item"
+        >
           {{ menuItem.name[0].text }}
         </a>
       </li>
@@ -29,6 +33,10 @@
 </template>
 
 <script setup>
+import useLocalhostUrl from "@shared/hooks/useLocalhostUrl";
+
+const { localUrl } = useLocalhostUrl();
+
 const route = useRoute();
 
 const props = defineProps({

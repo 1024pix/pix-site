@@ -36,7 +36,7 @@ const { data } = await useAsyncData(async () => {
   });
 
   const menu = navs.find((nav) => {
-    return nav.data.navigation_for === "pix-site";
+    return nav.data.navigation_for === process.env.SITE;
   });
 
   return menu;

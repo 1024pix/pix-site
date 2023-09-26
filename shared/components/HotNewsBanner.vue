@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { documentFetcher } from "~/services/document-fetcher";
+import { documentFetcher } from "@shared/services/document-fetcher";
 
 export default {
   name: "HotNewsBanner",
