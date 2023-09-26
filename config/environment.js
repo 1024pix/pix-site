@@ -1,6 +1,9 @@
 import { SITES_PRISMIC_TAGS } from '../services/available-sites'
 
 export const config = {
+  easiware: {
+    scriptUrl: process.env.EASIWARE_SCRIPT_URL,
+  },
   site: process.env.SITE,
   siteDomain: process.env.SITE_DOMAIN,
   isFrenchDomain: process.env.SITE_DOMAIN === 'pix.fr',

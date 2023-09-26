@@ -5,6 +5,7 @@ export const DOCUMENTS = {
   NEWS_ITEM: 'news_item',
   SIMPLE_PAGE: 'simple_page',
   FORM_PAGE: 'form_page',
+  EASIWARE_FORM_PAGE: 'easiware_form',
   SLICES_PAGE: 'slices_page',
   STATISTIQUES: 'statistiques',
 }

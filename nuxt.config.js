@@ -42,6 +42,7 @@ const nuxtConfig = {
     DOMAIN_FR: process.env.DOMAIN_FR,
     SITE_DOMAIN: process.env.SITE_DOMAIN,
     FT_IS_NEW_MENU_AVAILABLE: process.env.FT_IS_NEW_MENU_AVAILABLE,
+    EASIWARE_SCRIPT_URL: process.env.EASIWARE_SCRIPT_URL,
   },
   dir: {
     pages: `pages/${process.env.SITE}`,
@@ -63,7 +64,6 @@ const nuxtConfig = {
       config.isSeoIndexingEnabled ? {} : { name: 'robots', content: 'noindex' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [],
   },
   /*
    ** Customize the progress-bar color
@@ -78,6 +78,7 @@ const nuxtConfig = {
    */
   plugins: [
     '~/plugins/components.js',
+    '~/plugins/easiware.js',
     '~/plugins/meta.js',
     { src: '~plugins/slide-menu', mode: 'client' },
     '~plugins/vue-js-modal',
@@ -177,10 +178,16 @@ const nuxtConfig = {
   },
 
   robots: () => {
-    return {
-      UserAgent: '*',
-      Disallow: config.isSeoIndexingEnabled ? '' : '/',
-    }
+    return [
+      {
+        UserAgent: '*',
+        Disallow: config.isSeoIndexingEnabled ? '' : '/',
+      },
+      {
+        UserAgent: '*',
+        Disallow: '/support/*',
+      },
+    ]
   },
 
   winstonLog: {
