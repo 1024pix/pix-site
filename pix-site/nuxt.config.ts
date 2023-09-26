@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { resolve } from "path";
-import i18nConfig from "./i18n.config";
+import i18nConfig from "../shared/i18n.config";
 
 export default defineNuxtConfig({
   alias: {
