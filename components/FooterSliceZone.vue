@@ -2,7 +2,7 @@
   <footer class="footer" role="contentinfo">
     <div class="footer__left">
       <div
-        v-for="(slice, index) in usedMainFooter"
+        v-for="(slice, index) in mainFooter"
         :key="`footer-slice-left-${index}`"
       >
         <template v-if="slice.slice_type === 'logos_zone'">
@@ -50,33 +50,25 @@
   </footer>
 </template>
 
-<script>
-import { documentFetcher } from "~/services/document-fetcher";
+<script setup>
+const { client } = usePrismic();
+const { locale: i18nLocale } = useI18n();
 
-export default {
-  name: "FooterSliceZone",
-  data() {
-    return {
-      socialMediasHoverMap: {},
-      usedMainFooter: [],
-    };
-  },
-  async fetch() {
-    const mainFooter = await documentFetcher(
-      this.$prismic,
-      this.$i18n
-    ).findMainFooter();
+const { data: mainFooter } = await useAsyncData(async () => {
+  let footers = await client.getAllByType("main_footer", {
+    lang: i18nLocale.value,
+  });
 
-    this.usedMainFooter = mainFooter.data.body;
-  },
-  computed: {
-    navigationGroups() {
-      return this.usedMainFooter.filter(
-        (slice) => slice.slice_type === "navigation_group"
-      );
-    },
-  },
-};
+  const currentFooter = footers.find((footer) => {
+    return footer.data.footer_for === "pix-site";
+  });
+
+  return currentFooter.data.body;
+});
+
+const navigationGroups = mainFooter.value.filter(
+  (slice) => slice.slice_type === "navigation_group"
+);
 </script>
 
 <style lang="scss">
