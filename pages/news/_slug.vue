@@ -10,6 +10,11 @@
 </template>
 
 <script setup>
+const { client } = usePrismic();
+const { locale: i18nLocale } = useI18n();
+const route = useRoute();
+
+/* Routes */
 defineI18nRoute({
   paths: {
     en: "/news/:slug",
@@ -17,5 +22,18 @@ defineI18nRoute({
     "fr-fr": "/actualites/:slug",
     "fr-be": "/actualites/:slug",
   },
+});
+
+/* Fetch news item */
+const { data: newsItem } = await useAsyncData(() => {
+  return client.getByUID("news_item", route.params.slug, {
+    lang: i18nLocale.value,
+  });
+});
+
+/* Metadata */
+useHead({
+  meta: newsItem.value.data.meta,
+  title: `${newsItem.value.data.title[0].text} | Pix`,
 });
 </script>

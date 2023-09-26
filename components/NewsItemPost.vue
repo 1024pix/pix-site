@@ -6,7 +6,9 @@
         :field="newsItem.data.title"
       />
       <p class="news-item-post__meta">
-        <span :class="`news-item-post__category ${categoryClassName}`">
+        <span
+          :class="`news-item-post__category ${`news-item-card__category--${categoryLabel}`}`"
+        >
           {{ $t(categoryLabel) }}
         </span>
         •
@@ -24,32 +26,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'NewsItemPost',
-  props: {
-    newsItem: {
-      type: Object,
-      default: null,
-    },
+<script setup>
+import { useDateFormat } from "@vueuse/core";
+
+const props = defineProps({
+  newsItem: {
+    type: Object,
+    default: null,
   },
-  computed: {
-    categoryClassName() {
-      return `news-item-card__category--${this.categoryLabel}`
-    },
-    categoryLabel() {
-      return this.newsItem.data.category.toLowerCase()
-    },
-    date() {
-      if (!this.newsItem.first_publication_date) {
-        return 'Preview'
-      }
-      return this.$dayjs(this.newsItem.data.date)
-        .locale(this.$i18n.locale.split('-')[0])
-        .format('LL')
-    },
-  },
-}
+});
+
+const categoryLabel = props.newsItem.data.category.toLowerCase();
+
+const date = props.newsItem.first_publication_date
+  ? "Preview"
+  : useDateFormat(props.newsItem.data.date, "DD MMMM YYYY", {
+      locales: i18nLocale.value,
+    });
 </script>
 
 <style lang="scss">
@@ -79,7 +72,7 @@ export default {
     padding: 30px;
     text-align: center;
 
-    @include device-is('tablet') {
+    @include device-is("tablet") {
       padding: 70px 150px 30px;
     }
   }
@@ -87,7 +80,7 @@ export default {
   &__body {
     padding: 0 30px 30px;
 
-    @include device-is('tablet') {
+    @include device-is("tablet") {
       padding: 0 150px 70px;
     }
 
@@ -239,7 +232,7 @@ export default {
     font-size: 1.875rem;
     line-height: 2.375rem;
 
-    @include device-is('tablet') {
+    @include device-is("tablet") {
       font-size: 2.875rem;
       line-height: 3.875rem;
     }
@@ -263,7 +256,7 @@ export default {
 .multiple-column {
   margin: 0 -10px;
 
-  @include device-is('large-mobile') {
+  @include device-is("large-mobile") {
     display: flex;
     justify-content: space-between;
   }
