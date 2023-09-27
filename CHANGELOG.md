@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.14.1 (27/09/2023)
+
+
+### :bug: Correction
+- [#580](https://github.com/1024pix/pix-site/pull/580) [BUGFIX] Restaurer la configuration de nuxt pour réparer le build.
+
 ## v4.14.0 (27/09/2023)
 
 
