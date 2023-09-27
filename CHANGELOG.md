@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.14.0 (27/09/2023)
+
+
+### :rocket: Amélioration
+- [#578](https://github.com/1024pix/pix-site/pull/578) [FEATURE] Créer une page pour afficher les formulaires easiware pour le support (PIX-9376).
+
 ## v4.13.0 (20/09/2023)
 
 
