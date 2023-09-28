@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app-viewport">
     <hot-news-banner />
-    <share-navigation-slice-zone />
+    <shared-navigation-slice-zone />
     <main role="main">
       <slot />
     </main>
