@@ -12,7 +12,9 @@ describe('NavigationSliceZone', () => {
     'organization-nav': true,
     'slices-logos-zone': true,
     'slices-navigation-zone': true,
+    'slices-navigation-zone-v2': true,
     'slices-actions-zone': true,
+    'slices-actions-zone-v2': true,
     fa: true,
   }
 
@@ -59,7 +61,10 @@ describe('NavigationSliceZone', () => {
         // given
         component = shallowMount(NavigationSliceZone, {
           data() {
-            return { isNewMenuAvailable: true }
+            return {
+              isNewMenuAvailable: true,
+              navigation: [{ items: [] }],
+            }
           },
           stubs,
         })
@@ -73,13 +78,13 @@ describe('NavigationSliceZone', () => {
         // given
         component = shallowMount(NavigationSliceZone, {
           data() {
-            return { isNewMenuAvailable: true }
+            return { isNewMenuAvailable: true, navigation: [{ items: [] }] }
           },
           stubs,
         })
 
         // then
-        expect(component.find('nav.new-navigation-menu').exists()).toBe(true)
+        expect(component.find('nav.navigation-zone-v2').exists()).toBe(true)
         expect(component.find('nav.navigation-zone').exists()).toBe(false)
       })
     })

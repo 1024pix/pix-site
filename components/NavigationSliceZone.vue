@@ -1,9 +1,31 @@
 <template>
-  <header class="navigation-slice-zone" role="banner">
-    <client-only v-if="isNewMenuAvailable">
+  <header v-if="isNewMenuAvailable" class="navigation-slice-zone">
+    <client-only>
       <button class="new-burger-menu">new burger menu</button>
     </client-only>
-    <client-only v-else>
+    <div class="navigation-slice-zone__content">
+      <div class="navigation-slice-zone-content__left-side">
+        <section
+          v-for="(slice, index) in logos"
+          :key="`navigation-slice-left-${index}`"
+        >
+          <slices-logos-zone :slice="slice" :max-height="48" />
+        </section>
+      </div>
+      <section
+        v-for="(slice, index) in actions"
+        :key="`navigation-slice-right-${index}`"
+        class="navigation-slice-zone-content__right-side"
+      >
+        <slices-actions-zone-v2 :slice="slice" />
+      </section>
+    </div>
+    <section class="navigation-slice-zone-content-v2__bottom-side">
+      <slices-navigation-zone-v2 :navigation-zone-items="navigation[0].items" />
+    </section>
+  </header>
+  <header v-else class="navigation-slice-zone" role="banner">
+    <client-only>
       <slide-menu width="320" class="burger-menu" :close-on-navigation="true">
         <burger-menu-nav :items="burgerMenuLinks" />
       </slide-menu>
@@ -26,10 +48,7 @@
       </section>
     </div>
     <section class="navigation-slice-zone-content__bottom-side">
-      <nav v-if="isNewMenuAvailable" class="new-navigation-menu">
-        <p>new navigation zone</p>
-      </nav>
-      <slices-navigation-zone v-else :navigation-zone-items="navigation" />
+      <slices-navigation-zone :navigation-zone-items="navigation" />
     </section>
   </header>
 </template>
@@ -93,7 +112,6 @@ export default {
 <style lang="scss">
 .navigation-slice-zone {
   box-shadow: -1px 9px 29px -16px rgba(199, 191, 199, 0.9);
-  position: relative;
 
   .burger-menu {
     display: block;
@@ -117,14 +135,29 @@ export default {
     justify-content: center;
   }
 
+  .navigation-slice-zone-content-v2__bottom-side {
+    height: 4.5rem;
+    padding: 0 5rem;
+    border-top: 1px solid $grey-15;
+    display: none;
+
+    @include device-is('large-screen') {
+      display: flex;
+    }
+  }
+
   @include device-is('large-screen') {
     .burger-menu {
       display: none;
     }
 
+    .new-burger-menu {
+      display: none;
+    }
+
     .navigation-slice-zone__content {
       justify-content: space-between;
-      margin: 0 4vw;
+      margin: 0 5rem;
       padding-right: 0;
     }
 
