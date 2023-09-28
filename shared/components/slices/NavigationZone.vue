@@ -22,7 +22,7 @@
         </div>
         <a
           v-else
-          :href="localUrl(menuItem.link.url)"
+          :href="getEnvironmentUrl(menuItem.link.url)"
           class="navigation-zone__item"
         >
           {{ menuItem.name[0].text }}
@@ -33,9 +33,9 @@
 </template>
 
 <script setup>
-import useLocalhostUrl from "@shared/hooks/useLocalhostUrl";
+import useEnvironmentUrl from "@shared/hooks/useEnvironmentUrl";
 
-const { localUrl } = useLocalhostUrl();
+const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const route = useRoute();
 

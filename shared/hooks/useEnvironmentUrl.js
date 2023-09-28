@@ -1,7 +1,7 @@
 import { useRuntimeConfig } from "#imports";
 
-export default function useLocalhostUrl() {
-  const localUrl = (url) => {
+export default function useEnvironmentUrl() {
+  const getEnvironmentUrl = (url) => {
     const runtimeConfig = useRuntimeConfig();
 
     if (
@@ -14,5 +14,5 @@ export default function useLocalhostUrl() {
     return url;
   };
 
-  return { localUrl };
+  return { getEnvironmentUrl };
 }
