@@ -1,8 +1,6 @@
-import { resolve } from "path";
-
 export default {
   lazy: true,
-  langDir: resolve(__dirname, "translations"),
+  langDir: "translations",
   locales: [
     {
       code: "en",
