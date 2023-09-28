@@ -1,14 +1,20 @@
 <template>
-  <prismic-custom-slice-zone :slices="data.data.body" />
+  <prismic-custom-slice-zone :slices="indexContent.data.body" />
 </template>
 
 <script setup>
 const { client } = usePrismic();
 const { locale: i18nLocale } = useI18n();
 
-const { data } = await useAsyncData(() => {
-  return client.getByUID("slices_page", "decouvrir-pix-pro", {
+const { data: indexContent } = await useAsyncData(async () => {
+  const indexPages = await client.getAllByTag("index", {
     lang: i18nLocale.value,
   });
+
+  const currentSiteIndexPage = indexPages.find((page) =>
+    page.tags.includes(process.env.SITE)
+  );
+
+  return currentSiteIndexPage;
 });
 </script>
