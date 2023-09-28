@@ -136,10 +136,6 @@ exports[`Component: LocaleSwitcher when site is pix-pro should render the locale
       </div>
     </li>
   </ul>
-   
-  <span
-    class="separator"
-  />
 </div>
 `;
 
@@ -279,9 +275,5 @@ exports[`Component: LocaleSwitcher when site is pix-site should render the local
       </div>
     </li>
   </ul>
-   
-  <span
-    class="separator"
-  />
 </div>
 `;
