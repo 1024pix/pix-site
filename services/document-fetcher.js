@@ -1,6 +1,7 @@
 export const DOCUMENTS = {
   HOT_NEWS: 'hot_news',
   MAIN_FOOTER: 'main_footer',
+  MAIN_NAVIGATION_V2: 'main_navigation_v2',
   MAIN_NAVIGATION: 'main_navigation',
   NEWS_ITEM: 'news_item',
   SIMPLE_PAGE: 'simple_page',
@@ -30,11 +31,15 @@ export function documentFetcher(
       return documents.results[0]
     },
     findMainNavigation: async () => {
+      const navigationDocument =
+        process.env.FT_IS_NEW_MENU_AVAILABLE === 'true'
+          ? DOCUMENTS.MAIN_NAVIGATION_V2
+          : DOCUMENTS.MAIN_NAVIGATION
       const documents = await prismic.api.query(
         [
-          prismic.predicates.at('document.type', DOCUMENTS.MAIN_NAVIGATION),
+          prismic.predicates.at('document.type', navigationDocument),
           prismic.predicates.at(
-            `my.${DOCUMENTS.MAIN_NAVIGATION}.navigation_for`,
+            `my.${navigationDocument}.navigation_for`,
             process.env.SITE
           ),
         ],
