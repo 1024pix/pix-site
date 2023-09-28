@@ -3,6 +3,9 @@ import { resolve } from "path";
 import i18nConfig from "../shared/i18n.config";
 
 export default defineNuxtConfig({
+  devServer: {
+    port: 7001,
+  },
   alias: {
     "@shared": resolve(__dirname, "../shared"),
   },

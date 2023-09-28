@@ -12,7 +12,7 @@
 <script setup>
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | Pix` : "Pix";
+    return titleChunk ? `${titleChunk} | Pix Pro` : "Pix Pro";
   },
 });
 </script>
