@@ -155,7 +155,7 @@ describe('DocumentFetcher', () => {
       jest.resetModules() // nettoye le cache pour mocker process.env
       process.env = {
         SITE: SITES_PRISMIC_TAGS.PIX_SITE,
-        FT_IS_NEW_MENU_AVAILABLE: true,
+        FT_IS_NEW_MENU_AVAILABLE: 'true',
       }
       const expectedValue = [
         {

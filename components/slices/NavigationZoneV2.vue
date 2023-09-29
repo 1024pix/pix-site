@@ -72,7 +72,7 @@
 
 <script>
 export default {
-  name: 'SlicesNavigationZone',
+  name: 'SlicesNavigationZoneV2',
   props: {
     navigationZoneItems: {
       type: Array,
@@ -246,14 +246,17 @@ export default {
     display: flex;
     align-items: center;
     padding: 0;
+
     li::before {
       content: none;
     }
+
     li:first-of-type {
       a {
         margin-left: 0;
       }
     }
+
     li {
       align-self: center;
       padding: 0;
@@ -279,6 +282,7 @@ export default {
 
     button.dropdown-toggle {
       height: 1.875rem;
+
       &.current-active-link {
         @include active-link;
       }
