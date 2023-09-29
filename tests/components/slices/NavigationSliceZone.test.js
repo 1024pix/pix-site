@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import NavigationSliceZone from '~/components/NavigationSliceZone'
 
 jest.mock('~/services/document-fetcher')
@@ -76,11 +76,14 @@ describe('NavigationSliceZone', () => {
 
       it('should return the new navigation menu', () => {
         // given
-        component = shallowMount(NavigationSliceZone, {
+        component = mount(NavigationSliceZone, {
           data() {
-            return { isNewMenuAvailable: true, navigation: [{ items: [] }] }
+            return {
+              isNewMenuAvailable: true,
+              usedMainNavigation: [{ slice_type: 'navigation_zone' }],
+            }
           },
-          stubs,
+          shallow: true,
         })
 
         // then

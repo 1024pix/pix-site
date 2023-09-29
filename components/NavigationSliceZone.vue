@@ -55,9 +55,13 @@
 
 <script>
 import { documentFetcher } from '~/services/document-fetcher'
+import SlicesNavigationZoneV2 from '~/components/slices/NavigationZoneV2.vue'
 
 export default {
   name: 'NavigationSliceZone',
+  components: {
+    SlicesNavigationZoneV2,
+  },
   data() {
     return {
       usedMainNavigation: [],
