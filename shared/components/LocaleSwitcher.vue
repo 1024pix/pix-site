@@ -18,20 +18,26 @@
         <span>International</span>
         <ul>
           <li>
-            <a href="#" @click.prevent.stop="setLocale('fr')">Français</a>
+            <a :href="getEnvironmentUrl(`${frLocale.domain}/fr`)">
+              {{ frLocale.name }}
+            </a>
           </li>
           <li>
-            <a href="#" @click.prevent.stop="setLocale('en')">English</a>
+            <a :href="getEnvironmentUrl(`${enLocale.domain}/en`)">
+              {{ enLocale.name }}
+            </a>
           </li>
         </ul>
       </li>
       <li>
-        <a href="#" @click.prevent.stop="setLocale('fr-be')">
-          Fédération Wallonie-Bruxelles
+        <a :href="getEnvironmentUrl(`${frBeLocale.domain}/fr-be`)">
+          {{ frBeLocale.name }}
         </a>
       </li>
       <li>
-        <a href="#" @click.prevent.stop="setLocale('fr-fr')">France</a>
+        <a :href="getEnvironmentUrl(`${frFrLocale.domain}/`)">
+          {{ frFrLocale.name }}
+        </a>
       </li>
     </ul>
   </div>
@@ -39,8 +45,16 @@
 
 <script setup>
 import { onClickOutside } from "@vueuse/core";
+import useEnvironmentUrl from "@shared/hooks/useEnvironmentUrl";
 
-const { setLocale, localeProperties } = useI18n();
+const { getEnvironmentUrl } = useEnvironmentUrl();
+
+const { localeProperties, locales } = useI18n();
+
+const frLocale = locales.value.find((l) => l.code === "fr");
+const enLocale = locales.value.find((l) => l.code === "en");
+const frFrLocale = locales.value.find((l) => l.code === "fr-fr");
+const frBeLocale = locales.value.find((l) => l.code === "fr-be");
 
 const buttonRef = ref(null);
 const languagesMenuRef = ref(null);
