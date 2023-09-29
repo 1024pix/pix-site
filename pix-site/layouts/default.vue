@@ -5,7 +5,7 @@
     <main role="main">
       <slot />
     </main>
-    <footer-slice-zone />
+    <shared-footer-slice-zone />
   </div>
 </template>
 
