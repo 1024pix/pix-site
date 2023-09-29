@@ -27,30 +27,27 @@
 </template>
 
 <script setup>
-const { client } = usePrismic();
+const { client, filter } = usePrismic();
 const { locale: i18nLocale } = useI18n();
 
-const { data } = await useAsyncData(async () => {
-  let navs = await client.getAllByType("main_navigation", {
+const { data: mainNav } = await useAsyncData(async () => {
+  const { results: nav } = await client.getByType("main_navigation", {
+    filters: [filter.at("my.main_navigation.navigation_for", process.env.SITE)],
     lang: i18nLocale.value,
   });
 
-  const menu = navs.find((nav) => {
-    return nav.data.navigation_for === process.env.SITE;
-  });
-
-  return menu;
+  return nav[0].data.body;
 });
 
-const logos = data.value.data.body.filter(
+const logos = mainNav.value.filter(
   (block) => block.slice_type === "logos_zone"
 );
 
-const actions = data.value.data.body.filter(
+const actions = mainNav.value.filter(
   (block) => block.slice_type === "actions_zone"
 );
 
-const navigation = data.value.data.body.filter(
+const navigation = mainNav.value.filter(
   (block) => block.slice_type === "navigation_zone"
 );
 </script>

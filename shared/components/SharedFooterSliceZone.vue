@@ -51,19 +51,16 @@
 </template>
 
 <script setup>
-const { client } = usePrismic();
+const { client, filter } = usePrismic();
 const { locale: i18nLocale } = useI18n();
 
 const { data: mainFooter } = await useAsyncData(async () => {
-  let footers = await client.getAllByType("main_footer", {
+  const { results: footer } = await client.getByType("main_footer", {
+    filters: [filter.at("my.main_footer.footer_for", process.env.SITE)],
     lang: i18nLocale.value,
   });
 
-  const currentFooter = footers.find((footer) => {
-    return footer.data.footer_for === "pix-site";
-  });
-
-  return currentFooter.data.body;
+  return footer[0].data.body;
 });
 
 const navigationGroups = mainFooter.value.filter(
