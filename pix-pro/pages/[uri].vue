@@ -17,21 +17,30 @@ const route = useRoute();
 
 const { data } = await useAsyncData(async () => {
   const formPage = await client.get({
-    filters: [filter.at("my.form_page.uid", route.params.uri)],
+    filters: [
+      filter.at("my.form_page.uid", route.params.uri),
+      filter.any("document.tags", ["pix-pro"]),
+    ],
     lang: i18nLocale.value,
   });
 
   if (formPage.total_results_size > 0) return formPage.results[0];
 
   const simplePage = await client.get({
-    filters: [filter.at("my.simple_page.uid", route.params.uri)],
+    filters: [
+      filter.at("my.simple_page.uid", route.params.uri),
+      filter.any("document.tags", ["pix-pro"]),
+    ],
     lang: i18nLocale.value,
   });
 
   if (simplePage.total_results_size > 0) return simplePage.results[0];
 
   const slicesPage = await client.get({
-    filters: [filter.at("my.slices_page.uid", route.params.uri)],
+    filters: [
+      filter.at("my.slices_page.uid", route.params.uri),
+      filter.any("document.tags", ["pix-pro"]),
+    ],
     lang: i18nLocale.value,
   });
 
