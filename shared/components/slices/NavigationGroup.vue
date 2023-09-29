@@ -11,7 +11,7 @@
           :key="`link-${index}`"
           class="navigation-group-link"
         >
-          <nuxt-link :to="link.link_url">
+          <nuxt-link :to="getEnvironmentUrl(link.link_url.url)">
             <prismic-rich-text :field="link.link_name" />
           </nuxt-link>
         </li>
@@ -20,16 +20,17 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "SlicesNavigationGroup",
-  props: {
-    slice: {
-      type: Object,
-      default: null,
-    },
+<script setup>
+import useEnvironmentUrl from "@shared/hooks/useEnvironmentUrl";
+
+const { getEnvironmentUrl } = useEnvironmentUrl();
+
+defineProps({
+  slice: {
+    type: Object,
+    default: null,
   },
-};
+});
 </script>
 
 <style lang="scss">

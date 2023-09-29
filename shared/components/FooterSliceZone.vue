@@ -25,7 +25,7 @@
             <nuxt-link
               v-for="(socialMedia, socialMediaIndex) in slice.items"
               :key="`socialMedia-${socialMediaIndex}`"
-              :to="socialMedia.socialmedia_url"
+              :to="socialMedia.socialmedia_url.url"
               exact
               class="footer-social-media__icon"
             >
