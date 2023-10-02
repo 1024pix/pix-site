@@ -5,16 +5,18 @@ export default {
     {
       code: "en",
       file: "en.js",
-      name: "International English",
+      name: "English",
       icon: "globe-europe.svg",
       domain: process.env.DOMAIN_ORG,
+      active: true,
     },
     {
       code: "fr",
       file: "fr.js",
-      name: "International Français",
+      name: "Français",
       icon: "globe-europe.svg",
       domain: process.env.DOMAIN_ORG,
+      active: true,
     },
     {
       code: "fr-be",
@@ -22,6 +24,7 @@ export default {
       name: "Fédération Wallonie-Bruxelles",
       icon: "flag-be.svg",
       domain: process.env.DOMAIN_ORG,
+      active: process.env.SITE === "pix-site",
     },
     {
       code: "fr-fr",
@@ -29,6 +32,7 @@ export default {
       name: "France",
       icon: "flag-fr.svg",
       domain: process.env.DOMAIN_FR,
+      active: true,
     },
   ],
   defaultLocale: "fr-fr",
