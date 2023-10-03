@@ -3,7 +3,7 @@
     <button
       ref="buttonRef"
       class="locale-switcher__button"
-      @click="toggleLanguagesMenu()"
+      @click="toggleLanguagesMenu"
       @keyup.esc="isLanguagesMenuVisible && toggleLanguagesMenu()"
     >
       <img :src="`/images/${localeProperties.icon}`" />

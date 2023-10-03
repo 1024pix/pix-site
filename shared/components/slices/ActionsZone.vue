@@ -87,17 +87,9 @@ export default {
     }
 
     &.button {
-      display: none;
-    }
-  }
-
-  @include device-is("large-screen") {
-    &__item {
-      &.button {
-        display: flex;
-        color: $white;
-        height: 36px;
-      }
+      display: flex;
+      color: $white;
+      height: 36px;
     }
   }
 }
