@@ -1,30 +1,30 @@
 <template>
-  <nav class="navigation-zone" role="navigation">
-    <ul>
+  <nav ref="navigationZoneRef" class="navigation-zone" role="navigation">
+    <ul class="navigation-zone__main">
       <li
         v-for="(menuItem, index) in menuLinks"
         :key="`item-${index}`"
-        class="navigation-zone-block"
+        class="navigation-zone__item"
+        :class="{
+          'navigation-zone__item--active': activeSubMenu === index,
+        }"
       >
-        <div v-if="menuItem.subItems && menuItem.subItems.length > 0">
-          <button
-            :dropdown-index="`${index}`"
-            class="dropdown-toggle navigation-zone__item links-group"
-            :class="{
-              'current-active-link': subIsActive(menuItem.subItems),
-            }"
-            @click="toggleDropdown(`${index}`)"
-            @click.stop.prevent
-          >
+        <template v-if="menuItem.subItems && menuItem.subItems.length > 0">
+          <button @click.stop.prevent="toggleSubMenu(index)">
             {{ menuItem.name }}
-            <fa icon="angle-down" />
           </button>
-        </div>
-        <a
-          v-else
-          :href="getEnvironmentUrl(menuItem.link.url)"
-          class="navigation-zone__item"
-        >
+          <ul
+            v-show="activeSubMenu === index"
+            class="navigation-zone__sub-menu"
+          >
+            <li v-for="(subItem, index) in menuItem.subItems">
+              <a :href="getEnvironmentUrl(subItem.link.url)">
+                {{ subItem.name[0].text }}
+              </a>
+            </li>
+          </ul>
+        </template>
+        <a v-else :href="getEnvironmentUrl(menuItem.link.url)">
           {{ menuItem.name[0].text }}
         </a>
       </li>
@@ -33,11 +33,10 @@
 </template>
 
 <script setup>
+import { onClickOutside } from "@vueuse/core";
 import useEnvironmentUrl from "@shared/hooks/useEnvironmentUrl";
 
 const { getEnvironmentUrl } = useEnvironmentUrl();
-
-const route = useRoute();
 
 const props = defineProps({
   navigationZoneItems: {
@@ -45,6 +44,10 @@ const props = defineProps({
     default: () => [],
   },
 });
+
+const navigationZoneRef = ref(null);
+
+const activeSubMenu = ref(undefined);
 
 /* Generate menu */
 const menuLinks = props.navigationZoneItems[0].items.reduce(
@@ -73,94 +76,115 @@ const menuLinks = props.navigationZoneItems[0].items.reduce(
 );
 
 /* Methods */
-function subIsActive(subNavigationLinks) {
-  const paths = subNavigationLinks
-    .filter((subNavigationLink) => subNavigationLink.link.url !== undefined)
-    .map((subNavigationLink) => {
-      const splittedLink = subNavigationLink.link.url.split("/");
-      const linkIndex = splittedLink.length - 1;
-      return splittedLink[linkIndex];
-    });
-  return paths.some((path) => {
-    return route.path.includes(path);
-  });
+function toggleSubMenu(subMenuIndex) {
+  if (activeSubMenu.value === subMenuIndex) {
+    activeSubMenu.value = undefined;
+  } else {
+    activeSubMenu.value = subMenuIndex;
+  }
 }
+
+onClickOutside(
+  navigationZoneRef,
+  () => {
+    toggleSubMenu();
+  }
+  // { ignore: [buttonRef] }
+);
 </script>
 
 <style scoped lang="scss">
-@mixin active-link($theme: DarkGray) {
-  border-bottom: 2px solid $blue;
-
-  &:active,
-  &:hover {
-    color: $blue;
-  }
-}
-
 .navigation-zone {
-  display: none;
+  font-family: $font-roboto;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.5em;
 
   ul {
     list-style: none;
-    display: flex;
+    padding-left: 0;
+  }
+
+  li {
     padding: 0;
-    li::before {
+
+    &::before {
       content: none;
     }
-    li {
-      align-self: center;
-      display: inline;
-      padding: 0;
-    }
+  }
+}
+
+.navigation-zone__main {
+  display: flex;
+  margin: 0;
+}
+
+.navigation-zone__item {
+  position: relative;
+
+  & + .navigation-zone__item {
+    margin-left: 1.5em;
   }
 
-  .navigation-zone-block {
-    height: 24px;
-  }
-
-  .navigation-separator {
-    margin: auto 10px;
-    height: 24px;
-    border-left: 1px solid $grey-60;
-  }
-
-  & > div {
-    position: relative;
-  }
-
-  @include device-is("large-screen") {
-    display: flex;
+  button {
     align-items: center;
-    height: 100%;
+    appearance: none;
+    padding: 0;
+    background: transparent;
+    border: none;
+    font: inherit;
+    line-height: inherit;
+    cursor: pointer;
 
-    button.dropdown-toggle {
-      height: 30px;
-      &.current-active-link {
-        @include active-link;
-      }
+    &::after {
+      content: "";
+      display: block;
+      width: 0.5em;
+      height: 0.5em;
+      margin-left: 0.75em;
+      border-bottom: 2px solid currentColor;
+      border-right: 2px solid currentColor;
+      transform: translateY(-0.15em) rotate(45deg);
     }
+  }
 
-    &__item {
-      color: $grey-60;
-      font-family: $font-roboto;
-      font-size: 14px;
-      font-weight: $font-medium;
-      height: 22px;
-      letter-spacing: 0.13px;
-      line-height: 22px;
-      padding: 0 8px 10px 8px;
-      cursor: pointer;
-      white-space: nowrap;
+  a,
+  button {
+    display: flex;
+    color: $grey-60;
 
-      &.current-active-link {
-        @include active-link;
-      }
-
-      &.links-group {
-        border: none;
-        background-color: transparent;
-      }
+    &:hover,
+    &:focus {
+      color: $blue;
     }
+  }
+
+  & > a,
+  & > button {
+    padding: 1.5em 0;
+  }
+}
+
+.navigation-zone__item--active {
+  button::after {
+    transform: translateY(0.15em) rotate(-135deg);
+  }
+}
+
+.navigation-zone__sub-menu {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% - 1em);
+  left: -1em;
+  margin: 0;
+  padding: 0.5em 0;
+  background-color: white;
+
+  a {
+    display: block;
+    padding: 0.75em 1em;
+    white-space: nowrap;
+    font-weight: 400;
   }
 }
 </style>
