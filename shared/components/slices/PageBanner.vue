@@ -91,7 +91,7 @@ function isVideo(link) {
 }
 
 function videoClass(link) {
-  return this.isVideo(link)
+  return isVideo(link)
     ? "banner__video"
     : "button--" + props.slice.primary.banner_font_contrast;
 }
