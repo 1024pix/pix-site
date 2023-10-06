@@ -27,12 +27,13 @@
 </template>
 
 <script setup>
-const { client, filter } = usePrismic();
+const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
+const { client, filter } = usePrismic();
 
 const { data: mainNav } = await useAsyncData(async () => {
   const { results: nav } = await client.getByType("main_navigation", {
-    filters: [filter.at("my.main_navigation.navigation_for", process.env.SITE)],
+    filters: [filter.at("my.main_navigation.navigation_for", appConfig.site)],
     lang: i18nLocale.value,
   });
 

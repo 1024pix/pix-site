@@ -51,12 +51,13 @@
 </template>
 
 <script setup>
-const { client, filter } = usePrismic();
+const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
+const { client, filter } = usePrismic();
 
 const { data: mainFooter } = await useAsyncData(async () => {
   const { results: footer } = await client.getByType("main_footer", {
-    filters: [filter.at("my.main_footer.footer_for", process.env.SITE)],
+    filters: [filter.at("my.main_footer.footer_for", appConfig.site)],
     lang: i18nLocale.value,
   });
 

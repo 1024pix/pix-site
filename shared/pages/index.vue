@@ -3,8 +3,9 @@
 </template>
 
 <script setup>
-const { client } = usePrismic();
+const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
+const { client } = usePrismic();
 
 const { data: indexContent } = await useAsyncData(async () => {
   const indexPages = await client.getAllByTag("index", {
@@ -12,7 +13,7 @@ const { data: indexContent } = await useAsyncData(async () => {
   });
 
   const currentSiteIndexPage = indexPages.find((page) =>
-    page.tags.includes(process.env.SITE)
+    page.tags.includes(appConfig.site)
   );
 
   return currentSiteIndexPage;

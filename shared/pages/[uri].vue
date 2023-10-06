@@ -11,15 +11,16 @@
 </template>
 
 <script setup>
-const { client, filter } = usePrismic();
+const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
+const { client, filter } = usePrismic();
 const route = useRoute();
 
 const { data } = await useAsyncData(async () => {
   const formPage = await client.get({
     filters: [
       filter.at("my.form_page.uid", route.params.uri),
-      filter.any("document.tags", [process.env.SITE]),
+      filter.any("document.tags", [appConfig.site]),
     ],
     lang: i18nLocale.value,
   });
@@ -29,7 +30,7 @@ const { data } = await useAsyncData(async () => {
   const simplePage = await client.get({
     filters: [
       filter.at("my.simple_page.uid", route.params.uri),
-      filter.any("document.tags", [process.env.SITE]),
+      filter.any("document.tags", [appConfig.site]),
     ],
     lang: i18nLocale.value,
   });
@@ -39,7 +40,7 @@ const { data } = await useAsyncData(async () => {
   const slicesPage = await client.get({
     filters: [
       filter.at("my.slices_page.uid", route.params.uri),
-      filter.any("document.tags", [process.env.SITE]),
+      filter.any("document.tags", [appConfig.site]),
     ],
     lang: i18nLocale.value,
   });

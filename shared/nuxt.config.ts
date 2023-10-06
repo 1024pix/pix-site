@@ -2,6 +2,9 @@ import { resolve } from "path";
 import i18nConfig from "./i18n.config";
 
 export default {
+  appConfig: {
+    site: process.env.SITE,
+  },
   alias: {
     "@shared": resolve(__dirname, "../shared"),
   },
