@@ -12,6 +12,9 @@ export default async function () {
     routes.push(...nextPageRoutes)
   }
 
+  if (config?.featureToggles?.isNewSupportPageEnabled) {
+    routes.push('/support/contact')
+  }
   console.info(`${routes.length} routes will be generated`)
 
   return routes

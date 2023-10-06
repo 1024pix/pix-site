@@ -47,4 +47,75 @@ describe('FilterNuxtPages', () => {
       ])
     })
   })
+
+  describe('New support page route', () => {
+    describe('When feature toggle is enabled', () => {
+      it('Should contain /support/:support-form? route', function () {
+        // given
+        const config = {
+          isFrenchDomain: true,
+          featureToggles: {
+            isNewSupportPageEnabled: true,
+          },
+        }
+        const routes = [
+          {
+            name: 'foo',
+            path: '/foo',
+          },
+          {
+            name: 'support-support-form',
+            path: '/support/:support-form?',
+          },
+        ]
+
+        // when
+        const filteredRoutes = filterNuxtPages(routes, config)
+
+        // then
+        expect(filteredRoutes).toEqual([
+          {
+            name: 'foo',
+            path: '/foo',
+          },
+          {
+            name: 'support-support-form',
+            path: '/support/:support-form?',
+          },
+        ])
+      })
+    })
+    describe('When feature toggle is disabled', () => {
+      it('Should not contain /support/:support-form? route', function () {
+        // given
+        const config = {
+          isFrenchDomain: true,
+          featureToggles: {
+            isNewSupportPageEnabled: false,
+          },
+        }
+        const routes = [
+          {
+            name: 'foo',
+            path: '/foo',
+          },
+          {
+            name: 'support-support-form',
+            path: '/support/:support-form?',
+          },
+        ]
+
+        // when
+        const filteredRoutes = filterNuxtPages(routes, config)
+
+        // then
+        expect(filteredRoutes).toEqual([
+          {
+            name: 'foo',
+            path: '/foo',
+          },
+        ])
+      })
+    })
+  })
 })

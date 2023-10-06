@@ -16,7 +16,9 @@ export const config = {
     containerUrl: process.env.MATOMO_CONTAINER,
     debug: process.env.MATOMO_DEBUG || false,
   },
-  featureToggles: {},
+  featureToggles: {
+    isNewSupportPageEnabled: process.env.FT_IS_NEW_SUPPORT_PAGE_ENABLED,
+  },
   domain: {
     french: process.env.DOMAIN_FR,
     international: process.env.DOMAIN_ORG,

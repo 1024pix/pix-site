@@ -42,6 +42,7 @@ const nuxtConfig = {
     DOMAIN_FR: process.env.DOMAIN_FR,
     SITE_DOMAIN: process.env.SITE_DOMAIN,
     FT_IS_NEW_MENU_AVAILABLE: process.env.FT_IS_NEW_MENU_AVAILABLE,
+    FT_IS_NEW_SUPPORT_PAGE_ENABLED: process.env.FT_IS_NEW_SUPPORT_PAGE_ENABLED,
     EASIWARE_SCRIPT_URL: process.env.EASIWARE_SCRIPT_URL,
   },
   dir: {
