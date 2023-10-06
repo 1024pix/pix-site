@@ -19,7 +19,7 @@ const { data } = await useAsyncData(async () => {
   const formPage = await client.get({
     filters: [
       filter.at("my.form_page.uid", route.params.uri),
-      filter.not("document.tags", ["pix-pro"]),
+      filter.any("document.tags", [process.env.SITE]),
     ],
     lang: i18nLocale.value,
   });
@@ -29,7 +29,7 @@ const { data } = await useAsyncData(async () => {
   const simplePage = await client.get({
     filters: [
       filter.at("my.simple_page.uid", route.params.uri),
-      filter.not("document.tags", ["pix-pro"]),
+      filter.any("document.tags", [process.env.SITE]),
     ],
     lang: i18nLocale.value,
   });
@@ -39,7 +39,7 @@ const { data } = await useAsyncData(async () => {
   const slicesPage = await client.get({
     filters: [
       filter.at("my.slices_page.uid", route.params.uri),
-      filter.not("document.tags", ["pix-pro"]),
+      filter.any("document.tags", [process.env.SITE]),
     ],
     lang: i18nLocale.value,
   });
