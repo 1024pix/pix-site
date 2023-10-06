@@ -1,4 +1,4 @@
-import useEnvironmentUrl from "../../hooks/useEnvironmentUrl";
+import useEnvironmentUrl from "../../composables/useEnvironmentUrl";
 
 const { getEnvironmentUrl } = useEnvironmentUrl();
 

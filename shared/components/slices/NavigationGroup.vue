@@ -21,8 +21,6 @@
 </template>
 
 <script setup>
-import useEnvironmentUrl from "@shared/hooks/useEnvironmentUrl";
-
 const { getEnvironmentUrl } = useEnvironmentUrl();
 
 defineProps({
