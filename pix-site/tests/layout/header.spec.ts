@@ -32,7 +32,7 @@ test.describe("layout/header", () => {
     ).toBeVisible();
   });
 
-  test("language switcher behaviour", async ({ page, context }) => {
+  test("language switcher behaviour", async ({ page }) => {
     await page.goto("/", {
       waitUntil: "networkidle",
     });
@@ -44,5 +44,21 @@ test.describe("layout/header", () => {
     await page.getByText("English").click();
 
     await expect(page).toHaveURL(/.*en/);
+  });
+
+  test("main navigation behaviour", async ({ page }) => {
+    await page.goto("/", {
+      waitUntil: "networkidle",
+    });
+
+    await page.getByRole("button", { name: "Découvrir Pix" }).click();
+
+    await page.getByText("Défis et compétences").click();
+
+    await expect(page).toHaveURL(/.*les-tests/);
+
+    await page.getByText("Accueil").click();
+
+    await expect(page).toHaveURL(/.*/);
   });
 });
