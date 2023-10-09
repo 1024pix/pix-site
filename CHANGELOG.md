@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v4.14.2 (09/10/2023)
+
+
+### :rocket: Amélioration
+- [#579](https://github.com/1024pix/pix-site/pull/579) [FEATURE] Créer le nouveau menu (PIX-8994).
+
+### :bug: Correction
+- [#582](https://github.com/1024pix/pix-site/pull/582) [BUGFIX] Réparer les graphiques sur la page de statistiques (PIX-9542).
+
 ## v4.14.1 (27/09/2023)
 
 
