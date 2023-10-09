@@ -13,7 +13,9 @@ export default function useEnvironmentUrl() {
       !!currentSite &&
       url.includes(currentSite)
     ) {
-      return url.replace(/^.*\/\/[^\/]+/, "");
+      const formatedUrl = url.replace(/^.*\/\/[^\/]+/, "");
+      const isHomePage = formatedUrl.length > 0;
+      return isHomePage ? formatedUrl : "/";
     }
 
     return url;

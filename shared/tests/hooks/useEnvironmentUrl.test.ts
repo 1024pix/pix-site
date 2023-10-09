@@ -21,7 +21,7 @@ describe("#getEnvironmentUrl", () => {
     });
 
     test(".fr", () => {
-      expect(getEnvironmentUrl(`${DOMAIN}.fr/`)).toBe("/");
+      expect(getEnvironmentUrl(`${DOMAIN}.fr`)).toBe("/");
     });
 
     test(".org/fr", () => {
@@ -55,7 +55,7 @@ describe("#getEnvironmentUrl", () => {
     });
 
     test(".fr", () => {
-      expect(getEnvironmentUrl(`${DOMAIN}.fr/`)).toBe(`${DOMAIN}.fr/`);
+      expect(getEnvironmentUrl(`${DOMAIN}.fr`)).toBe(`${DOMAIN}.fr`);
     });
 
     test(".org/fr", () => {
