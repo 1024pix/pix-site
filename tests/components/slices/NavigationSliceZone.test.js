@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils'
+import { shallowMount, mount } from '@vue/test-utils'
 import NavigationSliceZone from '~/components/NavigationSliceZone'
 
 jest.mock('~/services/document-fetcher')
@@ -12,7 +12,9 @@ describe('NavigationSliceZone', () => {
     'organization-nav': true,
     'slices-logos-zone': true,
     'slices-navigation-zone': true,
+    'slices-navigation-zone-v2': true,
     'slices-actions-zone': true,
+    'slices-actions-zone-v2': true,
     fa: true,
   }
 
@@ -59,7 +61,10 @@ describe('NavigationSliceZone', () => {
         // given
         component = shallowMount(NavigationSliceZone, {
           data() {
-            return { isNewMenuAvailable: true }
+            return {
+              isNewMenuAvailable: true,
+              navigation: [{ items: [] }],
+            }
           },
           stubs,
         })
@@ -71,15 +76,18 @@ describe('NavigationSliceZone', () => {
 
       it('should return the new navigation menu', () => {
         // given
-        component = shallowMount(NavigationSliceZone, {
+        component = mount(NavigationSliceZone, {
           data() {
-            return { isNewMenuAvailable: true }
+            return {
+              isNewMenuAvailable: true,
+              usedMainNavigation: [{ slice_type: 'navigation_zone' }],
+            }
           },
-          stubs,
+          shallow: true,
         })
 
         // then
-        expect(component.find('nav.new-navigation-menu').exists()).toBe(true)
+        expect(component.find('nav.navigation-zone-v2').exists()).toBe(true)
         expect(component.find('nav.navigation-zone').exists()).toBe(false)
       })
     })
