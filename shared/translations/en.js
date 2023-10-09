@@ -1,17 +1,26 @@
 export default {
-  fr: "International FR",
-  "fr-fr": "France",
-  en: "International EN",
-  "fr-be": "Fédération Wallonie-Bruxelles",
-  france: "France",
-  english: "English",
-  french: "Français",
-  international: "International",
-  fwb: "Fédération Wallonie-Bruxelles",
-  "contact-digital-mediation": {
-    "page-title": "Information request",
-    "form-id": "28758",
+  "locale-switcher": {
+    button: {
+      "main-label": "Choice of language",
+      "international-label": "International languages list",
+    },
+    locales: {
+      fr: "International FR",
+      "fr-fr": "France",
+      en: "International EN",
+      "fr-be": "Fédération Wallonie-Bruxelles",
+      france: "France",
+      english: "English",
+      french: "Français",
+      international: "International",
+      fwb: "Fédération Wallonie-Bruxelles",
+      "contact-digital-mediation": {
+        "page-title": "Information request",
+        "form-id": "28758",
+      },
+    },
   },
+
   "higher-education-establishment-registration": {
     "page-title": "Pix Orga workspace request",
     "form-id": "28771",
@@ -40,10 +49,6 @@ export default {
   form: {
     "not-supported":
       "Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)",
-  },
-  "locale-switcher": {
-    label: "Languages",
-    title: "Choice of language",
   },
   "page-titles": {
     "contact-digital-mediation": "Request for information | Pix",

@@ -1,13 +1,21 @@
 export default {
-  fr: "International FR",
-  "fr-fr": "France",
-  en: "International EN",
-  "fr-be": "Fédération Wallonie-Bruxelles",
-  france: "France",
-  english: "English",
-  french: "Français",
-  international: "International",
-  fwb: "Fédération Wallonie-Bruxelles",
+  "locale-switcher": {
+    button: {
+      "main-label": "Choix de la langue",
+      "international-label": "Liste des sites internationaux",
+    },
+    locales: {
+      fr: "International FR",
+      "fr-fr": "France",
+      en: "International EN",
+      "fr-be": "Fédération Wallonie-Bruxelles",
+      france: "France",
+      english: "English",
+      french: "Français",
+      international: "International",
+      fwb: "Fédération Wallonie-Bruxelles",
+    },
+  },
   "contact-digital-mediation": {
     "page-title": "Demande d'information",
     "form-id": "24665",
@@ -37,10 +45,6 @@ export default {
   event: "Événement",
   feature: "Nouveauté",
   society: "Société",
-  "locale-switcher": {
-    label: "Langues",
-    title: "Choix de la langue",
-  },
   "page-titles": {
     "contact-digital-mediation": "Demande d'information | Pix",
     "higher-education-establishment-registration":

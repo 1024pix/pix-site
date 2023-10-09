@@ -5,6 +5,9 @@
       class="locale-switcher__button"
       @click="toggleLanguagesMenu"
       @keyup.esc="isLanguagesMenuVisible && toggleLanguagesMenu()"
+      :aria-label="t('locale-switcher.button.main-label')"
+      aria-haspopup="menu"
+      :aria-expanded="isLanguagesMenuVisible"
     >
       <img :src="`/images/${localeProperties.icon}`" />
       <span>{{ localeProperties.name }}</span>
@@ -18,17 +21,20 @@
         <button
           class="sub-menu-toggler"
           @click="toggleInternationalLanguages"
-          :aria-label="t('locale-switcher.label')"
+          :aria-label="t('locale-switcher.button.international-label')"
         >
           <img :src="`/images/${frLocale.icon}`" />
-          <span>{{ t("international") }}</span>
+          <span>{{ t("locale-switcher.locales.international") }}</span>
         </button>
         <ul v-if="isInternationalLanguagesVisible" class="sub-menu">
           <li
             v-if="frLocale.active"
             :class="{ active: localeProperties.code === frLocale.code }"
           >
-            <a :href="getEnvironmentUrl(`${frLocale.domain}/fr`)">
+            <a
+              :href="getEnvironmentUrl(`${frLocale.domain}/fr`)"
+              :aria-current="localeProperties.code === frLocale.code && 'page'"
+            >
               {{ frLocale.name }}
             </a>
           </li>
@@ -36,7 +42,10 @@
             v-if="enLocale.active"
             :class="{ active: localeProperties.code === enLocale.code }"
           >
-            <a :href="getEnvironmentUrl(`${enLocale.domain}/en`)">
+            <a
+              :href="getEnvironmentUrl(`${enLocale.domain}/en`)"
+              :aria-current="localeProperties.code === enLocale.code && 'page'"
+            >
               {{ enLocale.name }}
             </a>
           </li>
@@ -46,7 +55,10 @@
         v-if="frBeLocale.active"
         :class="{ active: localeProperties.code === frBeLocale.code }"
       >
-        <a :href="getEnvironmentUrl(`${frBeLocale.domain}/fr-be`)">
+        <a
+          :href="getEnvironmentUrl(`${frBeLocale.domain}/fr-be`)"
+          :aria-current="localeProperties.code === frBeLocale.code && 'page'"
+        >
           <img :src="`/images/${frBeLocale.icon}`" />
           <span>{{ frBeLocale.name }}</span>
         </a>
@@ -55,7 +67,10 @@
         v-if="frFrLocale.active"
         :class="{ active: localeProperties.code === frFrLocale.code }"
       >
-        <a :href="getEnvironmentUrl(`${frFrLocale.domain}/`)">
+        <a
+          :href="getEnvironmentUrl(`${frFrLocale.domain}/`)"
+          :aria-current="localeProperties.code === frFrLocale.code && 'page'"
+        >
           <img :src="`/images/${frFrLocale.icon}`" />
           <span>{{ frFrLocale.name }}</span>
         </a>
