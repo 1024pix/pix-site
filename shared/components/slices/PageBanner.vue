@@ -15,27 +15,27 @@
         <slot></slot>
         <div class="banner__button-group">
           <div v-for="(link, index) in slice.items" :key="`item-${index}`">
-            <nuxt-link
-              v-if="!isVideo(link)"
-              :to="link.banner_link_url.url"
-              class="button"
-              :class="videoClass(link)"
-            >
-              {{ link.banner_link_text }}
-            </nuxt-link>
             <template v-if="isVideo(link)">
               <button
                 class="button button-video"
-                :class="`button--${fontContrast}`"
+                :class="`button--${slice.primary.banner_font_contrast}`"
                 @click="toggleModal"
               >
-                <fa icon="play-circle" />
+                <PlayIconComponent />
                 {{ link.banner_link_text }}
               </button>
               <modal v-if="showModal" @close-modal="toggleModal">
                 <media-player :video-url="link.banner_link_url.url" />
               </modal>
             </template>
+            <nuxt-link
+              v-else
+              :to="link.banner_link_url.url"
+              class="button"
+              :class="`button--${slice.primary.banner_font_contrast}`"
+            >
+              {{ link.banner_link_text }}
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -49,6 +49,8 @@
 </template>
 
 <script setup>
+import PlayIconComponent from "@/src/icons/play-circle-fill.svg?component";
+
 const img = useImage();
 
 const props = defineProps({
@@ -88,12 +90,6 @@ const hasImage =
 /* Video */
 function isVideo(link) {
   return link?.banner_link_url?.url?.includes("pix-videos/");
-}
-
-function videoClass(link) {
-  return isVideo(link)
-    ? "banner__video"
-    : "button--" + props.slice.primary.banner_font_contrast;
 }
 
 /* Modal */

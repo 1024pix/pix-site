@@ -57,9 +57,6 @@
     );
 
     &.button-video {
-      svg {
-        margin-right: 10px;
-      }
       @include colorizeButton(
         $white,
         $white,
@@ -82,9 +79,6 @@
     );
 
     &.button-video {
-      svg {
-        margin-right: 10px;
-      }
       @include colorizeButton(
         $grey-80,
         $grey-80,
@@ -97,7 +91,15 @@
   }
 }
 
-@include device-is('tablet') {
+.button-video {
+  svg {
+    height: 1.25em;
+    margin-right: 10px;
+    fill: currentColor;
+  }
+}
+
+@include device-is("tablet") {
   .button {
     width: initial;
   }
