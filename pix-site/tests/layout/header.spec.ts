@@ -2,7 +2,9 @@ import { test, expect } from "@playwright/test";
 
 test.describe("layout/header", () => {
   test("elements visible in header", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/", {
+      waitUntil: "networkidle",
+    });
 
     const siteHeader = page.getByRole("banner");
 
@@ -15,7 +17,7 @@ test.describe("layout/header", () => {
     expect(siteHeader.getByAltText("Pix")).toBeVisible();
 
     // Locale switcher visibility
-    expect(siteHeader.getByRole("button", { name: "France" })).toBeVisible();
+    expect(siteHeader.getByLabel("Choix de la langue")).toBeVisible();
 
     // Actions zone
     expect(siteHeader.getByText("Entrer un code")).toBeVisible();
@@ -31,14 +33,16 @@ test.describe("layout/header", () => {
   });
 
   test("language switcher behaviour", async ({ page, context }) => {
-    await page.goto("/");
+    await page.goto("/", {
+      waitUntil: "networkidle",
+    });
 
-    await page.getByRole("button", { name: "France" }).click();
+    await page.getByLabel("Choix de la langue").click();
 
-    await page.getByRole("button", { name: /international /i });
+    await page.getByLabel("Liste des sites internationaux").click();
 
-    // await page.getByText("English").click();
+    await page.getByText("English").click();
 
-    await expect(page).toHaveURL(new RegExp("$/en"));
+    await expect(page).toHaveURL(/.*en/);
   });
 });
