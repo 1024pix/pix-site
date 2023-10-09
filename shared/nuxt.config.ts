@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import i18nConfig from "./i18n.config";
+import svgLoader from "vite-svg-loader";
 
 export default {
   appConfig: {
@@ -18,6 +19,7 @@ export default {
         },
       },
     },
+    plugins: [svgLoader()],
   },
   devtools: { enabled: true },
   i18n: i18nConfig,

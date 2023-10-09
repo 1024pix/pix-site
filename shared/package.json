@@ -45,6 +45,7 @@
     "why-is-node-running": "^2.2.2"
   },
   "devDependencies": {
+    "vite-svg-loader": "^4.0.0",
     "vitest": "^0.34.5"
   },
   "scripts": {
