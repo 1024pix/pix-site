@@ -11,8 +11,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "slicemachine": "start-slicemachine",
-    "preinstall": "cd ../shared && npm ci"
+    "slicemachine": "start-slicemachine"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",

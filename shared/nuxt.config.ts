@@ -19,7 +19,6 @@ export default {
         },
       },
     },
-    plugins: [svgLoader()],
   },
   devtools: { enabled: true },
   i18n: i18nConfig,

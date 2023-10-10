@@ -21,7 +21,7 @@
                 :class="`button--${slice.primary.banner_font_contrast}`"
                 @click="toggleModal"
               >
-                <PlayIconComponent />
+                <!-- <PlayIconComponent /> -->
                 {{ link.banner_link_text }}
               </button>
               <modal v-if="showModal" @close-modal="toggleModal">
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import PlayIconComponent from "@/src/icons/play-circle-fill.svg?component";
+// import PlayIconComponent from "@/src/icons/play-circle-fill.svg?component";
 
 const img = useImage();
 
