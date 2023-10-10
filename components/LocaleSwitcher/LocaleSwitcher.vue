@@ -69,6 +69,7 @@
         </div>
       </li>
     </ul>
+    <span class="separator" />
   </div>
   <div v-else-if="type === 'only-text'" class="locale-switcher-burger-menu">
     <p class="locale-switcher-burger-menu__title">
@@ -181,6 +182,13 @@ export default {
   .locale-switcher {
     display: flex;
 
+    .separator {
+      margin-left: 15px;
+      border-left: 1px solid $grey-20;
+      display: block;
+      height: 1.5rem;
+    }
+
     &__button {
       font-family: $font-roboto;
       font-size: 0.875rem;
@@ -247,6 +255,7 @@ export default {
 
         &:hover {
           background: $grey-10;
+
           .child {
             display: block;
           }
