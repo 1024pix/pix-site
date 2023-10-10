@@ -63,7 +63,7 @@ server {
   gzip off;
 
   # Serve from dist/pix.fr or dist/pix.org depending on the extension
-  root /app/dist/pix.$extension;
+  root /app/pix-pro/.output/public;
 
   rewrite ^/en-gb(.*)$ /en$1 permanent;
   rewrite ^/(aide|help)$ https://support.pix.org redirect;
