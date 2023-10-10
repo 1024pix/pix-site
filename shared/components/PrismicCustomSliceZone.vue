@@ -19,9 +19,9 @@
       <template v-if="slice.slice_type === 'latest_news'">
         <slices-latest-news :slice="slice" :index-for-id="index" />
       </template>
-      <template v-if="slice.slice_type === 'stat'">
+      <!-- <template v-if="slice.slice_type === 'stat'">
         <slices-stat :slice="slice" :index-for-id="index" />
-      </template>
+      </template> -->
     </section>
   </div>
 </template>

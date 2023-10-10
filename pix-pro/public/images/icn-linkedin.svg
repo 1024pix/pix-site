@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="23px" viewBox="0 0 23 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M29.4713208,28.8 L24.6713208,28.8 L24.6713208,20.7 C24.6713208,19.428 23.2433208,18.372 21.9713208,18.372 C20.6993208,18.372 19.8713208,19.428 19.8713208,20.7 L19.8713208,28.8 L15.0713208,28.8 L15.0713208,14.4 L19.8713208,14.4 L19.8713208,16.8 C20.6633208,15.516 22.7033208,14.688 24.0713208,14.688 C27.0713208,14.688 29.4713208,17.136 29.4713208,20.1 L29.4713208,28.8 Z M12.6713208,28.8 L7.87132075,28.8 L7.87132075,14.4 L12.6713208,14.4 L12.6713208,28.8 Z M10.2713208,7.2 C11.5968042,7.2 12.6713208,8.2745166 12.6713208,9.6 C12.6713208,10.9254834 11.5968042,12 10.2713208,12 C8.94583736,12 7.87132075,10.9254834 7.87132075,9.6 C7.87132075,8.2745166 8.94583736,7.2 10.2713208,7.2 Z" id="path-1"></path>
+    </defs>
+    <g id="SCO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-Sco-V2" transform="translate(-1224.000000, -5561.000000)">
+            <g id="FOOTER" transform="translate(0.000000, 5390.255952)">
+                <g id="Group-8" transform="translate(1217.000000, 164.000000)">
+                    <g id="Group-11">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Shape" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
