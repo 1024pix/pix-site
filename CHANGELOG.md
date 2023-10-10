@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.14.3 (10/10/2023)
+
+
+### :bug: Correction
+- [#583](https://github.com/1024pix/pix-site/pull/583) [BUGFIX] On revert le PR du nouveau menu qui introduit un bug (PIX-8994).
+
 ## v4.14.2 (09/10/2023)
 
 
