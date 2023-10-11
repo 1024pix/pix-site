@@ -103,50 +103,101 @@ describe('DocumentFetcher', () => {
     expect(response).toEqual(expectedValue[0])
   })
 
-  test('#findMainNavigation', async () => {
-    // Given
-    jest.resetModules() // nettoye le cache pour mocker process.env
-    process.env = { SITE: SITES_PRISMIC_TAGS.PIX_SITE }
-    const expectedValue = [
-      {
-        type: DOCUMENTS.MAIN_NAVIGATION,
-        navigation_for: SITES_PRISMIC_TAGS.PIX_SITE,
-      },
-    ]
-    const expectedPredicatesAtValue = Symbol('AT')
-    const findMock = () => ({ results: expectedValue })
-    const prismicApi = {
-      query: jest.fn().mockImplementationOnce(findMock),
-    }
-    prismic.api = prismicApi
-
-    const prismicPredicates = {
-      at: jest.fn(() => expectedPredicatesAtValue),
-    }
-    prismic.predicates = prismicPredicates
-
-    // When
-    const response = await documentFetcher(prismic).findMainNavigation()
-
-    // Then
-    expect(prismicApi.query).toBeCalledWith(
-      [expectedPredicatesAtValue, expectedPredicatesAtValue],
-      {
-        lang: 'fr-fr',
+  describe('#findMainNavigation', () => {
+    test('it should find main navigation', async () => {
+      // Given
+      jest.resetModules() // nettoye le cache pour mocker process.env
+      process.env = { SITE: SITES_PRISMIC_TAGS.PIX_SITE }
+      const expectedValue = [
+        {
+          type: DOCUMENTS.MAIN_NAVIGATION,
+          navigation_for: SITES_PRISMIC_TAGS.PIX_SITE,
+        },
+      ]
+      const expectedPredicatesAtValue = Symbol('AT')
+      const findMock = () => ({ results: expectedValue })
+      const prismicApi = {
+        query: jest.fn().mockImplementationOnce(findMock),
       }
-    )
-    expect(prismicPredicates.at).toHaveBeenNthCalledWith(
-      1,
-      'document.type',
-      DOCUMENTS.MAIN_NAVIGATION
-    )
-    expect(prismicPredicates.at).toHaveBeenNthCalledWith(
-      2,
-      `my.${DOCUMENTS.MAIN_NAVIGATION}.navigation_for`,
-      SITES_PRISMIC_TAGS.PIX_SITE
-    )
-    expect(response).toEqual(expectedValue[0])
-    process.env = { ...SAVED_ENV }
+      prismic.api = prismicApi
+
+      const prismicPredicates = {
+        at: jest.fn(() => expectedPredicatesAtValue),
+      }
+      prismic.predicates = prismicPredicates
+
+      // When
+      const response = await documentFetcher(prismic).findMainNavigation()
+
+      // Then
+      expect(prismicApi.query).toBeCalledWith(
+        [expectedPredicatesAtValue, expectedPredicatesAtValue],
+        {
+          lang: 'fr-fr',
+        }
+      )
+      expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+        1,
+        'document.type',
+        DOCUMENTS.MAIN_NAVIGATION
+      )
+      expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+        2,
+        `my.${DOCUMENTS.MAIN_NAVIGATION}.navigation_for`,
+        SITES_PRISMIC_TAGS.PIX_SITE
+      )
+      expect(response).toEqual(expectedValue[0])
+      process.env = { ...SAVED_ENV }
+    })
+
+    test('it should find main navigation v2', async () => {
+      // Given
+      jest.resetModules() // nettoye le cache pour mocker process.env
+      process.env = {
+        SITE: SITES_PRISMIC_TAGS.PIX_SITE,
+        FT_IS_NEW_MENU_AVAILABLE: 'true',
+      }
+      const expectedValue = [
+        {
+          type: DOCUMENTS.MAIN_NAVIGATION_V2,
+          navigation_for: SITES_PRISMIC_TAGS.PIX_SITE,
+        },
+      ]
+      const expectedPredicatesAtValue = Symbol('AT')
+      const findMock = () => ({ results: expectedValue })
+      const prismicApi = {
+        query: jest.fn().mockImplementationOnce(findMock),
+      }
+      prismic.api = prismicApi
+
+      const prismicPredicates = {
+        at: jest.fn(() => expectedPredicatesAtValue),
+      }
+      prismic.predicates = prismicPredicates
+
+      // When
+      const response = await documentFetcher(prismic).findMainNavigation()
+
+      // Then
+      expect(prismicApi.query).toBeCalledWith(
+        [expectedPredicatesAtValue, expectedPredicatesAtValue],
+        {
+          lang: 'fr-fr',
+        }
+      )
+      expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+        1,
+        'document.type',
+        DOCUMENTS.MAIN_NAVIGATION_V2
+      )
+      expect(prismicPredicates.at).toHaveBeenNthCalledWith(
+        2,
+        `my.${DOCUMENTS.MAIN_NAVIGATION_V2}.navigation_for`,
+        SITES_PRISMIC_TAGS.PIX_SITE
+      )
+      expect(response).toEqual(expectedValue[0])
+      process.env = { ...SAVED_ENV }
+    })
   })
 
   test('#findMainFooter', async () => {
