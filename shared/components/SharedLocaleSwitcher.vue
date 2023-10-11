@@ -28,22 +28,22 @@
         </button>
         <ul v-if="isInternationalLanguagesVisible" class="sub-menu">
           <li
-            v-if="frLocale.active"
+            v-if="frLocale"
             :class="{ active: localeProperties.code === frLocale.code }"
           >
             <a
-              :href="getEnvironmentUrl(`${frLocale.domain}/fr`)"
+              :href="getEnvironmentUrl(`${frLocale.domain || ''}/fr`)"
               :aria-current="localeProperties.code === frLocale.code && 'page'"
             >
               {{ frLocale.name }}
             </a>
           </li>
           <li
-            v-if="enLocale.active"
+            v-if="enLocale"
             :class="{ active: localeProperties.code === enLocale.code }"
           >
             <a
-              :href="getEnvironmentUrl(`${enLocale.domain}/en`)"
+              :href="getEnvironmentUrl(`${enLocale.domain || ''}/en`)"
               :aria-current="localeProperties.code === enLocale.code && 'page'"
             >
               {{ enLocale.name }}
@@ -52,11 +52,11 @@
         </ul>
       </li>
       <li
-        v-if="frBeLocale.active"
+        v-if="frBeLocale"
         :class="{ active: localeProperties.code === frBeLocale.code }"
       >
         <a
-          :href="getEnvironmentUrl(`${frBeLocale.domain}/fr-be`)"
+          :href="getEnvironmentUrl(`${frBeLocale.domain || ''}/fr-be`)"
           :aria-current="localeProperties.code === frBeLocale.code && 'page'"
         >
           <img :src="`/images/${frBeLocale.icon}`" />
@@ -64,11 +64,11 @@
         </a>
       </li>
       <li
-        v-if="frFrLocale.active"
+        v-if="frFrLocale"
         :class="{ active: localeProperties.code === frFrLocale.code }"
       >
         <a
-          :href="getEnvironmentUrl(`${frFrLocale.domain}/`)"
+          :href="getEnvironmentUrl(`${frFrLocale.domain || ''}/`)"
           :aria-current="localeProperties.code === frFrLocale.code && 'page'"
         >
           <img :src="`/images/${frFrLocale.icon}`" />
