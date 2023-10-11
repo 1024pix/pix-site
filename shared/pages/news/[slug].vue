@@ -17,10 +17,10 @@ const route = useRoute();
 /* Routes */
 defineI18nRoute({
   paths: {
-    en: "/news/:slug",
-    fr: "/actualites/:slug",
-    "fr-fr": "/actualites/:slug",
-    "fr-be": "/actualites/:slug",
+    en: "/news/[slug]",
+    fr: "/actualites/[slug]",
+    "fr-fr": "/actualites/[slug]",
+    "fr-be": "/actualites/[slug]",
   },
 });
 
