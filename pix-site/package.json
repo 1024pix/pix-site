@@ -6,7 +6,7 @@
     "node": "^18.18.0"
   },
   "scripts": {
-    "build": "nuxt build",
+    "build": "nuxt build --prerender",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

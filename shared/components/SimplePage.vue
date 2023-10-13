@@ -18,16 +18,29 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'SimplePage',
-  props: {
-    content: {
-      type: Object,
-      default: null,
-    },
+<script setup>
+const localeRoute = useLocaleRoute();
+
+const props = defineProps({
+  content: {
+    type: Object,
+    default: null,
   },
-}
+});
+
+props.content.body.forEach((bodyItem) => {
+  if (
+    bodyItem.spans?.length &&
+    bodyItem.spans.find((i) => i.type === "hyperlink")
+  ) {
+    bodyItem.spans.forEach((span) => {
+      if (span.type === "hyperlink" && span.data.link_type === "Document") {
+        const localeUrl = localeRoute(`/${span.data.uid}`, span.data.lang);
+        span.data.url = localeUrl.fullPath;
+      }
+    });
+  }
+});
 </script>
 
 <style lang="scss">
