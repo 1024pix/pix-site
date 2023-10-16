@@ -111,15 +111,14 @@ export default {
       }
     },
     subIsActive(subNavigationLinks) {
-      const paths = subNavigationLinks
-        .filter((subNavigationLink) => subNavigationLink.link.url !== undefined)
-        .map((subNavigationLink) => {
-          const splittedLink = subNavigationLink.link.url.split('/')
-          const linkIndex = splittedLink.length - 1
-          return splittedLink[linkIndex]
-        })
-      return paths.some((path) => {
-        return this.$route.path.includes(path)
+      const currentPath = this.$route.path
+      const subLinksUrls = subNavigationLinks.map((link) => link.link.url)
+
+      const isHomePage = currentPath === '/'
+      if (isHomePage) return false
+
+      return subLinksUrls.find((link) => {
+        return link.endsWith(currentPath) || link.endsWith(currentPath + '/')
       })
     },
   },
