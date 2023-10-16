@@ -24,8 +24,11 @@
 
 <script setup>
 const { setLocaleCookie } = useLocaleCookie();
-
 const { locales, defaultLocale } = useI18n();
+
+onBeforeMount(() => {
+  setPageLayout(false);
+});
 
 function updateLocale(localeCode) {
   setLocaleCookie(localeCode);

@@ -1,7 +1,8 @@
 <template>
-  <NuxtLayout v-if="localeCookie" name="default">
-    <prismic-custom-slice-zone :slices="indexContent.data.body" />
-  </NuxtLayout>
+  <prismic-custom-slice-zone
+    v-if="localeCookie"
+    :slices="indexContent.data.body"
+  />
   <locale-choice v-else />
 </template>
 
@@ -10,10 +11,6 @@ const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
 const { localeCookie } = useLocaleCookie();
-
-definePageMeta({
-  layout: false, // We want an empty layout for the LocaleChoice page
-});
 
 const { data: indexContent } = await useAsyncData(async () => {
   const indexPages = await client.getAllByTag("index", {
