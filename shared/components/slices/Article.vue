@@ -26,6 +26,7 @@
         />
         <prismic-rich-text
           :field="content.article_description"
+          :serializer="customPrismicRichTextSerializer"
           class="article-content__description"
           :class="{
             'article-content__description--only-text': isOnlyTextLayout,
@@ -71,6 +72,8 @@
 <script setup>
 import { computed } from "vue";
 const img = useImage();
+
+const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 
 const props = defineProps({
   slice: {

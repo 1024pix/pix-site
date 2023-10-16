@@ -6,14 +6,20 @@
         <pix-image :field="image" />
       </template>
       <prismic-rich-text :field="title" />
-      <prismic-rich-text :field="description" />
+      <prismic-rich-text
+        :field="description"
+        :serializer="customPrismicRichTextSerializer"
+      />
       <div :class="flexContainerClass">
         <div
           v-for="(item, index) in paragraphs"
           :key="`item-${index}`"
           :class="flexContentClass"
         >
-          <prismic-rich-text :field="item.paragraph" />
+          <prismic-rich-text
+            :field="item.paragraph"
+            :serializer="customPrismicRichTextSerializer"
+          />
         </div>
       </div>
       <nuxt-link v-if="hasButton" :to="buttonLink" :class="buttonClass">
@@ -55,6 +61,10 @@ export default {
       type: String,
       default: "section__button",
     },
+  },
+  setup() {
+    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
+    return { customPrismicRichTextSerializer };
   },
   computed: {
     paragraphs() {

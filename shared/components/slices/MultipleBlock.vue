@@ -39,6 +39,7 @@
           <prismic-rich-text
             :class="`${blockClass}-wrapper-item-content__description`"
             :field="item.item_description"
+            :serializer="customPrismicRichTextSerializer"
           />
         </div>
       </div>
@@ -48,7 +49,7 @@
 
 <script>
 export default {
-  name: 'SlicesMultipleBlock',
+  name: "SlicesMultipleBlock",
   props: {
     slice: {
       type: Object,
@@ -62,25 +63,29 @@ export default {
   data() {
     return {
       rows: [],
-    }
+    };
+  },
+  setup() {
+    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
+    return { customPrismicRichTextSerializer };
   },
   computed: {
     background() {
       return {
         backgroundColor: `${this.slice.primary.block_background_color}`,
-      }
+      };
     },
     blockClass() {
-      return this.slice.primary.block_style
+      return this.slice.primary.block_style;
     },
     items() {
-      return this.slice.items
+      return this.slice.items;
     },
     shouldDisplayTitle() {
-      return this.slice.primary.block_should_display_title
+      return this.slice.primary.block_should_display_title;
     },
     shouldUseSubtitle() {
-      return this.slice.primary.block_should_use_subtitle
+      return this.slice.primary.block_should_use_subtitle;
     },
     hasTitle() {
       return (
@@ -88,7 +93,7 @@ export default {
         this.slice.primary.block_title.length &&
         this.slice.primary.block_title[0].text &&
         this.slice.primary.block_title[0].text.length
-      )
+      );
     },
     hasSubtitle() {
       return (
@@ -96,37 +101,37 @@ export default {
         this.slice.primary.block_subtitle.length &&
         this.slice.primary.block_subtitle[0].text &&
         this.slice.primary.block_subtitle[0].text.length
-      )
+      );
     },
     title() {
-      return this.slice.primary.block_title
+      return this.slice.primary.block_title;
     },
     subtitle() {
-      return this.slice.primary.block_subtitle
+      return this.slice.primary.block_subtitle;
     },
     imageMaxHeight() {
       switch (this.blockClass) {
-        case 'process':
-          return 51
-        case 'statistics':
-          return 64
-        case 'features':
-          return 74
+        case "process":
+          return 51;
+        case "statistics":
+          return 64;
+        case "features":
+          return 74;
       }
-      return 100
+      return 100;
     },
   },
   methods: {
     hasImage(item) {
-      const image = item.item_image
-      return image?.url !== undefined && image?.url !== null
+      const image = item.item_image;
+      return image?.url !== undefined && image?.url !== null;
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
-@import '../../assets/scss/components/slices/features.scss';
-@import '../../assets/scss/components/slices/process.scss';
-@import '../../assets/scss/components/slices/statistics.scss';
+@import "../../assets/scss/components/slices/features.scss";
+@import "../../assets/scss/components/slices/process.scss";
+@import "../../assets/scss/components/slices/statistics.scss";
 </style>

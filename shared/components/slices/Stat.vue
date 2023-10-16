@@ -1,7 +1,10 @@
 <template>
   <div :id="`slice-${indexForId}`" class="stat">
     <prismic-rich-text :field="content.block_title" />
-    <prismic-rich-text :field="content.block_presentation" />
+    <prismic-rich-text
+      :field="content.block_presentation"
+      :serializer="customPrismicRichTextSerializer"
+    />
     <chart-section :data="chartData" />
   </div>
 </template>
@@ -36,6 +39,10 @@ export default {
     });
     this.values = values;
     this.labels = labels;
+  },
+  setup() {
+    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
+    return { customPrismicRichTextSerializer };
   },
   computed: {
     content() {

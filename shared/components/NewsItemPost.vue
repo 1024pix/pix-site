@@ -18,7 +18,10 @@
 
     <div class="news-item-post__body">
       <div class="news-item-post__excerpt">
-        <prismic-rich-text :field="newsItem.data.body" />
+        <prismic-rich-text
+          :field="newsItem.data.body"
+          :serializer="customPrismicRichTextSerializer"
+        />
         <prismic-custom-slice-zone :slices="newsItem.data.slices" />
       </div>
     </div>
@@ -28,6 +31,8 @@
 
 <script setup>
 import { useDateFormat } from "@vueuse/core";
+
+const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 
 const props = defineProps({
   newsItem: {

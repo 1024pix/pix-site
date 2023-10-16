@@ -10,7 +10,10 @@
       <section class="page-section">
         <div class="container md padding-container">
           <div class="page-section__description">
-            <prismic-rich-text :field="content.body" />
+            <prismic-rich-text
+              :field="content.body"
+              :serializer="customPrismicRichTextSerializer"
+            />
           </div>
         </div>
       </section>
@@ -19,8 +22,6 @@
 </template>
 
 <script setup>
-const localeRoute = useLocaleRoute();
-
 const props = defineProps({
   content: {
     type: Object,
@@ -28,19 +29,7 @@ const props = defineProps({
   },
 });
 
-props.content.body.forEach((bodyItem) => {
-  if (
-    bodyItem.spans?.length &&
-    bodyItem.spans.find((i) => i.type === "hyperlink")
-  ) {
-    bodyItem.spans.forEach((span) => {
-      if (span.type === "hyperlink" && span.data.link_type === "Document") {
-        const localeUrl = localeRoute(`/${span.data.uid}`, span.data.lang);
-        span.data.url = localeUrl.fullPath;
-      }
-    });
-  }
-});
+const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 </script>
 
 <style lang="scss">

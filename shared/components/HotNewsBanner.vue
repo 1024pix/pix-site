@@ -1,6 +1,9 @@
 <template>
   <div v-if="isOpen && hotNews" class="hot-news">
-    <prismic-rich-text :field="hotNews" />
+    <prismic-rich-text
+      :field="hotNews"
+      :serializer="customPrismicRichTextSerializer"
+    />
     <img
       class="close"
       src="/images/close-icon.svg"
@@ -28,6 +31,10 @@ export default {
     ).findHotNewsBanner();
 
     this.hotNews = hotNews?.data?.description;
+  },
+  setup() {
+    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
+    return { customPrismicRichTextSerializer };
   },
   methods: {
     closeBanner() {

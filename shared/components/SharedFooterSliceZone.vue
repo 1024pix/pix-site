@@ -16,6 +16,7 @@
           v-if="slice.slice_type === 'text'"
           class="footer-left__description"
           :field="slice.primary.text"
+          :serializer="customPrismicRichTextSerializer"
         />
         <ul
           v-if="slice.slice_type === 'social_media'"
@@ -54,6 +55,8 @@
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client, filter } = usePrismic();
+
+const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 
 const { data: mainFooter } = await useAsyncData(async () => {
   const { results: footer } = await client.getByType("main_footer", {
