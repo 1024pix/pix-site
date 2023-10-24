@@ -1,6 +1,6 @@
 <template>
   <prismic-custom-slice-zone
-    v-if="localeCookie"
+    v-if="hasLocale"
     :slices="indexContent.data.body"
   />
   <locale-choice v-else />
@@ -11,6 +11,13 @@ const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
 const { localeCookie } = useLocaleCookie();
+const route = useRoute();
+
+const hasLocale = computed(() => {
+  const hasLocaleUrl = route.path !== "/";
+
+  return localeCookie || hasLocaleUrl;
+});
 
 const { data: indexContent } = await useAsyncData(async () => {
   const indexPages = await client.getAllByTag("index", {
