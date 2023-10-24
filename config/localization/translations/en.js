@@ -66,4 +66,15 @@ export default {
     '<a href="https://support.pix.org/en/support/home">support</a>.' +
     '</p>',
   'locale-suggestion-banner-text': `You don't seem to be in France. Do you want to access the <a href="https://${process.env.DOMAIN_ORG}">Pix international website</a>?`,
+  'burger-menu': {
+    name: 'Main Navigation',
+    open: 'Open menu',
+    close: 'Close menu',
+    'open-category': 'Open category',
+    'close-category': 'Close Category',
+    'open-locale-switcher': 'Open locale switcher',
+    'close-locale-switcher': 'Close locale switcher',
+    'change-locale-switcher': 'Change language',
+    'change-locale-switcher-button': 'Change',
+  },
 }
