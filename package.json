@@ -43,6 +43,8 @@
   },
   "dependencies": {
     "@nuxtjs/prismic": "^1.4.2",
+    "focus-trap": "^6.9.4",
+    "focus-trap-vue": "^1.1.1",
     "nuxt": "^2.16.0",
     "nuxt-winston-log": "^1.2.0",
     "winston": "3.10.0"
