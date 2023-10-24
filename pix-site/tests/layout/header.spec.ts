@@ -5,6 +5,8 @@ test.describe("layout/header", () => {
     await page.goto("/", {
       waitUntil: "networkidle",
     });
+    await page.getByText("France").click();
+    await page.waitForLoadState("networkidle");
 
     const siteHeader = page.getByRole("banner");
 
@@ -36,6 +38,8 @@ test.describe("layout/header", () => {
     await page.goto("/", {
       waitUntil: "networkidle",
     });
+    await page.getByText("France").click();
+    await page.waitForLoadState("networkidle");
 
     await page.getByLabel("Choix de la langue").click();
 
@@ -50,6 +54,8 @@ test.describe("layout/header", () => {
     await page.goto("/", {
       waitUntil: "networkidle",
     });
+    await page.getByText("France").click();
+    await page.waitForLoadState("networkidle");
 
     await page.getByRole("button", { name: "Découvrir Pix" }).click();
 
