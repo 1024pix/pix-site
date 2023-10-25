@@ -22,18 +22,18 @@
           v-if="slice.slice_type === 'social_media'"
           class="footer-left__social-media"
         >
-          <li>
+          <li
+            v-for="(socialMedia, socialMediaIndex) in slice.items"
+            :key="`socialMedia-${socialMediaIndex}`"
+          >
             <nuxt-link
-              v-for="(socialMedia, socialMediaIndex) in slice.items"
-              :key="`socialMedia-${socialMediaIndex}`"
               :to="socialMedia.socialmedia_url.url"
               exact
               class="footer-social-media__icon"
             >
-              <pix-image
-                :field="socialMedia.socialmedia_image"
-                :has-fixed-dimensions="true"
-                :max-height="30"
+              <img
+                :src="socialMedia.socialmedia_image.url"
+                :alt="socialMedia.socialmedia_image.alt"
               />
             </nuxt-link>
           </li>
@@ -91,31 +91,38 @@ const navigationGroups = mainFooter.value.filter(
       }
     }
   }
-  &__social-media {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    li::before {
-      content: none;
-    }
-    li {
-      align-self: center;
-      display: inline;
-      padding: 0;
-    }
-  }
+
   &__description {
     font-size: 0.875rem;
     margin: 0 0 24px 0;
     color: $grey-60;
   }
-}
 
-.footer-social-media {
-  &__icon {
-    margin-right: 16px;
-    &:hover {
-      filter: brightness(60%);
+  &__social-media {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+
+    li::before {
+      content: none;
+    }
+
+    li {
+      padding: 0;
+
+      & + li {
+        margin-left: 1rem;
+      }
+    }
+
+    img {
+      display: block;
+      width: 30px;
+
+      &:hover {
+        filter: brightness(60%);
+      }
     }
   }
 }

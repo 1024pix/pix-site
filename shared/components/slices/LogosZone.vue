@@ -6,18 +6,9 @@
       class="logos-zone__content"
     >
       <nuxt-link v-if="hasLink(logo)" :to="logo.url.url">
-        <pix-image
-          :field="logo.image"
-          :has-fixed-dimensions="true"
-          :max-height="maxHeight"
-        />
+        <img :src="logo.image.url" :alt="logo.image.alt" />
       </nuxt-link>
-      <pix-image
-        v-else
-        :field="logo.image"
-        :has-fixed-dimensions="true"
-        :max-height="maxHeight"
-      />
+      <img v-else :src="logo.image.url" :alt="logo.image.alt" />
     </div>
   </div>
 </template>
@@ -52,6 +43,7 @@ function hasLink(item) {
     }
 
     img {
+      height: 50px;
       margin: 15px 0 15px 0;
     }
 

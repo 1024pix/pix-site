@@ -39,10 +39,12 @@
           </div>
         </div>
       </div>
-      <pix-image
+      <img
         v-if="hasImage"
-        :field="slice.primary.banner_image"
         class="row-block__side-content"
+        :src="slice.primary.banner_image.url"
+        alt=""
+        role="presentation"
       />
     </section>
   </div>

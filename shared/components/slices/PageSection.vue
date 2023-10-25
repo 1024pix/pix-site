@@ -3,7 +3,11 @@
     <div class="background"></div>
     <div :class="containerClass">
       <template v-if="hasImage">
-        <pix-image :field="image" />
+        <img
+          :src="image.url"
+          :alt="image.alt || ''"
+          :role="!!image.alt ? undefined : 'presentation'"
+        />
       </template>
       <prismic-rich-text :field="title" />
       <prismic-rich-text

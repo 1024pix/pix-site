@@ -12,10 +12,10 @@
         :key="`item-${itemIndex}`"
         class="partners-logos-wrapper__item"
       >
-        <pix-image
-          :field="item.logos_image"
-          :has-fixed-dimensions="true"
-          :max-height="112"
+        <nuxt-img
+          :src="item.logos_image.url"
+          :alt="item.logos_image.alt"
+          height="112"
         />
       </div>
     </div>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'SlicesPartnersLogosSlice',
+  name: "SlicesPartnersLogosSlice",
   props: {
     slice: {
       type: Object,
@@ -37,22 +37,22 @@ export default {
   },
   computed: {
     items() {
-      return this.slice.items
+      return this.slice.items;
     },
     shouldDisplayTitle() {
-      return this.slice.primary.logos_should_display_title
+      return this.slice.primary.logos_should_display_title;
     },
     hasTitle() {
       return (
         this.slice.primary.logos_title.length &&
         this.slice.primary.logos_title[0].text.length
-      )
+      );
     },
     title() {
-      return this.slice.primary.logos_title
+      return this.slice.primary.logos_title;
     },
   },
-}
+};
 </script>
 
 <style lang="scss">
@@ -88,13 +88,13 @@ export default {
   }
 }
 
-@include device-is('tablet') {
+@include device-is("tablet") {
   .partners-logos {
     margin: 0 32px;
   }
 }
 
-@include device-is('desktop') {
+@include device-is("desktop") {
   .partners-logos {
     &__title h2 {
       margin-bottom: 48px;
@@ -114,7 +114,7 @@ export default {
   }
 }
 
-@include device-is('large-screen') {
+@include device-is("large-screen") {
   .partners-logos {
     max-width: 1920px;
     margin: 0 auto;

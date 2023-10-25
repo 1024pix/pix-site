@@ -2,10 +2,7 @@
   <main class="home">
     <div class="locale-choice">
       <h1>
-        <pix-image
-          class="logo-pix"
-          :field="{ url: '/images/logo-pix-blanc.svg', alt: 'Pix' }"
-        />
+        <img class="logo-pix" src="/images/logo-pix-blanc.svg" alt="Pix" />
       </h1>
       <a
         v-for="locale in locales"

@@ -24,11 +24,11 @@
         :class="`${blockClass}-wrapper__item`"
       >
         <div :class="`${blockClass}-wrapper-item__image`">
-          <pix-image
+          <img
             v-if="hasImage(item)"
-            :field="item.item_image"
-            :has-fixed-dimensions="true"
-            :max-height="imageMaxHeight"
+            :src="item.item_image.url"
+            alt=""
+            role="presentation"
           />
         </div>
         <div :class="`${blockClass}-wrapper-item__content`">
@@ -108,17 +108,6 @@ export default {
     },
     subtitle() {
       return this.slice.primary.block_subtitle;
-    },
-    imageMaxHeight() {
-      switch (this.blockClass) {
-        case "process":
-          return 51;
-        case "statistics":
-          return 64;
-        case "features":
-          return 74;
-      }
-      return 100;
     },
   },
   methods: {

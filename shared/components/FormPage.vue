@@ -1,10 +1,12 @@
 <template>
   <div class="content">
     <div v-if="hasDescription" class="content__description">
-      <pix-image
+      <img
         v-if="hasImage"
         class="content-description__image"
-        :field="content.image"
+        :src="content.image.url"
+        alt=""
+        role="presentation"
       />
 
       <header class="content-description__title">

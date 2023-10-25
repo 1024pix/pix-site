@@ -62,9 +62,12 @@
 
   &-item__image {
     min-width: 51px;
-    height: 51px;
     display: flex;
     justify-content: center;
+
+    img {
+      height: 51px;
+    }
   }
 
   &-item__content {
@@ -76,7 +79,7 @@
   }
 }
 
-@include device-is('large-screen') {
+@include device-is("large-screen") {
   $gap: 56px;
 
   .process {

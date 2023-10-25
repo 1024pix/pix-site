@@ -47,14 +47,18 @@
           </nuxt-link>
         </div>
       </div>
-      <pix-image
+      <img
         v-if="isMediaLayout && content.article_background.url && !containsVideo"
-        :field="content.article_background"
+        :src="content.article_background.url"
+        :alt="content.article_background.alt || ''"
+        :role="!!content.article_background.alt ? undefined : 'presentation'"
         class="article__secondary-content article-secondary-content__background"
       />
-      <pix-image
+      <img
         v-if="isMediaLayout && !containsVideo"
-        :field="content.article_image"
+        :src="content.article_image.url"
+        :alt="content.article_image.alt || ''"
+        :role="!!content.article_image.alt ? undefined : 'presentation'"
         class="article__secondary-content article-secondary-content__image"
       />
       <video
