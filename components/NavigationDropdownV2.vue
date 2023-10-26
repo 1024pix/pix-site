@@ -16,8 +16,8 @@
     </div>
     <ul class="navigation-dropdown__list">
       <li
-        v-for="section in sections"
-        :key="section.title"
+        v-for="(section, index) in sections"
+        :key="`section-${index}`"
         class="navigation-dropdown-list__item"
       >
         <div class="navigation-dropdown-list-item__text">
@@ -25,8 +25,8 @@
         </div>
         <ul class="navigation-dropdown__sub-list">
           <li
-            v-for="link in section.links"
-            :key="link"
+            v-for="(link, indexLink) in section.links"
+            :key="`link-${indexLink}`"
             class="navigation-dropdown-sub-list__sub-item"
           >
             <pix-prismic-link
