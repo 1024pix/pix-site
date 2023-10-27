@@ -30,6 +30,9 @@ const config = {
   compilation: {
     strictMessage: false,
   },
+  detectBrowserLanguage: {
+    useCookie: false,
+  },
 };
 
 if (process.env.SITE === "pix-site") {

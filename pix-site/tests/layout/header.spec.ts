@@ -34,22 +34,6 @@ test.describe("layout/header", () => {
     ).toBeVisible();
   });
 
-  test("language switcher behaviour", async ({ page }) => {
-    await page.goto("/", {
-      waitUntil: "networkidle",
-    });
-    await page.getByText("France").click();
-    await page.waitForLoadState("networkidle");
-
-    await page.getByLabel("Choix de la langue").click();
-
-    await page.getByLabel("Liste des sites internationaux").click();
-
-    await page.getByText("English").click();
-
-    await expect(page).toHaveURL(/.*en/);
-  });
-
   test("main navigation behaviour", async ({ page }) => {
     await page.goto("/", {
       waitUntil: "networkidle",

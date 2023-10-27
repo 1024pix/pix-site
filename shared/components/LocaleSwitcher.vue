@@ -13,7 +13,7 @@
       <span>{{ localeProperties.name }}</span>
     </button>
     <ul
-      v-if="isLanguagesMenuVisible"
+      v-show="isLanguagesMenuVisible"
       ref="languagesMenuRef"
       class="locale-switcher__languages-menu"
     >
@@ -26,7 +26,7 @@
           <img :src="`/images/${frLocale.icon}`" />
           <span>{{ t("locale-switcher.locales.international") }}</span>
         </button>
-        <ul v-if="isInternationalLanguagesVisible" class="sub-menu">
+        <ul v-show="isInternationalLanguagesVisible" class="sub-menu">
           <li
             v-if="frLocale"
             :class="{ active: localeProperties.code === frLocale.code }"
@@ -34,6 +34,7 @@
             <a
               :href="getEnvironmentUrl(`${frLocale.domain || ''}/fr`)"
               :aria-current="localeProperties.code === frLocale.code && 'page'"
+              @click="updateLocaleCookie(frLocale.code)"
             >
               {{ frLocale.name }}
             </a>
@@ -45,6 +46,7 @@
             <a
               :href="getEnvironmentUrl(`${enLocale.domain || ''}/en`)"
               :aria-current="localeProperties.code === enLocale.code && 'page'"
+              @click="updateLocaleCookie(enLocale.code)"
             >
               {{ enLocale.name }}
             </a>
@@ -58,6 +60,7 @@
         <a
           :href="getEnvironmentUrl(`${frBeLocale.domain || ''}/fr-be`)"
           :aria-current="localeProperties.code === frBeLocale.code && 'page'"
+          @click="updateLocaleCookie(frBeLocale.code)"
         >
           <img :src="`/images/${frBeLocale.icon}`" />
           <span>{{ frBeLocale.name }}</span>
@@ -70,6 +73,7 @@
         <a
           :href="getEnvironmentUrl(`${frFrLocale.domain || ''}/`)"
           :aria-current="localeProperties.code === frFrLocale.code && 'page'"
+          @click="updateLocaleCookie(frFrLocale.code)"
         >
           <img :src="`/images/${frFrLocale.icon}`" />
           <span>{{ frFrLocale.name }}</span>
@@ -83,6 +87,7 @@
 import { onClickOutside } from "@vueuse/core";
 
 const { getEnvironmentUrl } = useEnvironmentUrl();
+const { setLocaleCookie } = useLocaleCookie();
 
 const { localeProperties, locales, t } = useI18n();
 
@@ -107,6 +112,10 @@ function toggleLanguagesMenu() {
 function toggleInternationalLanguages() {
   isInternationalLanguagesVisible.value =
     !isInternationalLanguagesVisible.value;
+}
+
+function updateLocaleCookie(localeCode) {
+  setLocaleCookie(localeCode);
 }
 
 onClickOutside(

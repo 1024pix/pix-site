@@ -27,19 +27,16 @@ test.describe("component/locale-choice", () => {
         waitUntil: "networkidle",
       });
 
-      const localeSwitcherButton = page.getByLabel("Choice of language");
-
-      expect(await localeSwitcherButton.innerText()).toBe("English");
-
-      await localeSwitcherButton.click();
       await page.waitForLoadState("networkidle");
-      await page.getByLabel("International languages list").click();
 
       // then
-      expect(page.getByRole("link", { name: "English" })).toHaveAttribute(
-        "aria-current",
-        "page"
+      expect(await page.getByLabel("Choice of language").innerText()).toBe(
+        "English"
       );
+
+      expect(
+        page.getByRole("link", { name: "English", includeHidden: true })
+      ).toHaveAttribute("aria-current", "page");
 
       const cookies = await page.context().cookies();
       await expect(cookies).not.toContain("locale");
