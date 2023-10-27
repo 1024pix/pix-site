@@ -76,23 +76,31 @@
     </p>
     <ul class="locale-switcher-burger-menu__list">
       <li
-        v-for="menuItem in menuForMobile"
-        :key="menuItem.name"
+        v-for="menuItemForMobile in menuForMobile"
+        :key="menuItemForMobile.name"
         :class="[
           'locale-switcher-burger-menu-list__locale',
           {
             'locale-switcher-burger-menu__list--active':
-              menuItem.localeCode === currentLocaleCode,
+              menuItemForMobile.localeCode === currentLocaleCode,
           },
         ]"
+        @click="handleMenuItemClick(selectedMenu)"
       >
         <pix-link
-          :href="getIndexUrl(menuItem)"
+          :href="getIndexUrl(menuItemForMobile)"
           class="locale-switcher-burger-menu-list__locale-link"
         >
-          <img :src="getMenuItemIconPath(menuItem)" :alt="menuItem.icon" />
-          {{ isInternational(menuItem) ? $t('international') + ' - ' : '' }}
-          {{ $t(menuItem.name) }}
+          <img
+            :src="getMenuItemIconPath(menuItemForMobile)"
+            :alt="menuItemForMobile.name"
+          />
+          {{
+            isInternational(menuItemForMobile)
+              ? $t('international') + ' - '
+              : ''
+          }}
+          {{ $t(menuItemForMobile.name) }}
         </pix-link>
       </li>
     </ul>
@@ -117,6 +125,7 @@ export default {
       showSubMenu: false,
       menu: localization.menu,
       menuForMobile: localization.menuForMobile,
+      menuItem: {},
     }
   },
   computed: {
@@ -129,10 +138,18 @@ export default {
         .find((locale) => locale.localeCode === this.currentLocaleCode)
     },
   },
+  watch: {
+    menuItem(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.$emit('locale-switcher-data', newValue)
+      }
+    },
+  },
   mounted() {
     const page = document.getElementsByTagName('body')[0]
 
     page.addEventListener('click', this.hideMenu)
+    this.$emit('locale-switcher-data', this.selectedMenu)
   },
   beforeDestroy() {
     const page = document.getElementsByTagName('body')[0]
@@ -167,6 +184,9 @@ export default {
     },
     isInternational(locale) {
       return !locale.localeCode.includes('-')
+    },
+    handleMenuItemClick(selectedMenu) {
+      this.$emit('locale-switcher-data', selectedMenu)
     },
   },
 }
@@ -349,18 +369,18 @@ export default {
 }
 
 .locale-switcher-burger-menu {
+  font-family: $font-roboto;
   &__title {
     font-size: 1rem;
     font-weight: $font-semi-bold;
     line-height: 1.5rem;
-    color: $grey-60;
-    border-top: 1px solid $grey-20;
+    color: $grey-90;
     padding-top: 24px;
     width: 256px;
+    margin-top: 0;
   }
 
   &__list {
-    margin: 0 0 50px 0;
     font-size: 1rem;
     line-height: 1.5rem;
     list-style: none;
@@ -386,7 +406,7 @@ export default {
       pointer-events: none;
 
       a {
-        color: $grey-45;
+        color: $grey-50;
       }
     }
 
@@ -403,7 +423,8 @@ export default {
 
 .locale-switcher-burger-menu-list {
   &__locale-link {
-    color: $grey-80;
+    color: $grey-90;
+    font-weight: $font-medium;
 
     &:visited,
     &:focus,

@@ -1,4 +1,4 @@
-import { shallowMount, mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import NavigationSliceZone from '~/components/NavigationSliceZone'
 
 jest.mock('~/services/document-fetcher')
@@ -9,6 +9,7 @@ describe('NavigationSliceZone', () => {
     'client-only': true,
     'slide-menu': true,
     'burger-menu-nav': true,
+    'burger-menu-nav-v2': true,
     'organization-nav': true,
     'slices-logos-zone': true,
     'slices-navigation-zone': true,
@@ -63,32 +64,42 @@ describe('NavigationSliceZone', () => {
           data() {
             return {
               isNewMenuAvailable: true,
-              navigation: [{ items: [] }],
+              usedMainNavigation: expectedSiteNavigation.data.body,
             }
           },
           stubs,
         })
 
         // then
-        expect(component.find('button.new-burger-menu').exists()).toBe(true)
+        expect(component.find('.burger-menu-v2').exists()).toBe(true)
         expect(component.find('.burger-menu').exists()).toBe(false)
       })
 
       it('should return the new navigation menu', () => {
         // given
-        component = mount(NavigationSliceZone, {
+        component = shallowMount(NavigationSliceZone, {
           data() {
             return {
               isNewMenuAvailable: true,
-              usedMainNavigation: [{ slice_type: 'navigation_zone' }],
+              usedMainNavigation: expectedSiteNavigation.data.body,
             }
           },
-          shallow: true,
+          stubs,
         })
 
+        console.log(component)
+
         // then
-        expect(component.find('nav.navigation-zone-v2').exists()).toBe(true)
-        expect(component.find('nav.navigation-zone').exists()).toBe(false)
+        expect(
+          component
+            .find('section.navigation-slice-zone-content-v2__bottom-side')
+            .exists()
+        ).toBe(true)
+        expect(
+          component
+            .find('section.navigation-slice-zone-content__bottom-side')
+            .exists()
+        ).toBe(false)
       })
     })
   })

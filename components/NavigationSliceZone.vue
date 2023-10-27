@@ -1,10 +1,13 @@
 <template>
-  <header v-if="isNewMenuAvailable" class="navigation-slice-zone">
-    <client-only>
-      <button class="new-burger-menu">new burger menu</button>
-    </client-only>
-    <div class="navigation-slice-zone__content">
-      <div class="navigation-slice-zone-content__left-side">
+  <header v-if="isNewMenuAvailable" class="navigation-slice-zone-v2">
+    <div class="navigation-slice-zone-v2__content">
+      <div class="navigation-slice-zone-v2-content__left-side">
+        <client-only>
+          <burger-menu-nav-v2
+            class="burger-menu-v2"
+            :items="burgerMenuLinksV2"
+          />
+        </client-only>
         <section
           v-for="(slice, index) in logos"
           :key="`navigation-slice-left-${index}`"
@@ -15,7 +18,7 @@
       <section
         v-for="(slice, index) in actions"
         :key="`navigation-slice-right-${index}`"
-        class="navigation-slice-zone-content__right-side"
+        class="navigation-slice-zone-v2-content__right-side"
       >
         <slices-actions-zone-v2 :slice="slice" />
       </section>
@@ -56,10 +59,20 @@
 <script>
 import { documentFetcher } from '~/services/document-fetcher'
 import SlicesNavigationZoneV2 from '~/components/slices/NavigationZoneV2.vue'
+import BurgerMenuNavV2 from '~/components/BurgerMenuNavV2.vue'
+import SlicesLogosZone from '~/components/slices/LogosZone.vue'
+import SlicesActionsZone from '~/components/slices/ActionsZone.vue'
+import SlicesNavigationZone from '~/components/slices/NavigationZone.vue'
+import BurgerMenuNav from '~/components/BurgerMenuNav.vue'
 
 export default {
   name: 'NavigationSliceZone',
   components: {
+    BurgerMenuNav,
+    SlicesNavigationZone,
+    SlicesActionsZone,
+    SlicesLogosZone,
+    BurgerMenuNavV2,
     SlicesNavigationZoneV2,
   },
   data() {
@@ -94,14 +107,39 @@ export default {
       )
     },
 
-    burgerMenuLinks() {
+    burgerMenuLinksV2() {
+      const logosZone = this.usedMainNavigation.find(
+        (slice) => slice.slice_type === 'logos_zone'
+      ) || { items: [] }
       const navigationZone = this.usedMainNavigation.find(
         (slice) => slice.slice_type === 'navigation_zone'
       ) || { items: [] }
       const actionsZone = this.usedMainNavigation.find(
         (slice) => slice.slice_type === 'actions_zone'
       ) || { items: [] }
+
+      const reversedActionsZoneItems = [...actionsZone.items].reverse()
+
       return {
+        logosZone: logosZone.items,
+        navigationZone: navigationZone.items,
+        actionsZone: reversedActionsZoneItems,
+      }
+    },
+
+    burgerMenuLinks() {
+      const logosZone = this.usedMainNavigation.find(
+        (slice) => slice.slice_type === 'logos_zone'
+      ) || { items: [] }
+      const navigationZone = this.usedMainNavigation.find(
+        (slice) => slice.slice_type === 'navigation_zone'
+      ) || { items: [] }
+      const actionsZone = this.usedMainNavigation.find(
+        (slice) => slice.slice_type === 'actions_zone'
+      ) || { items: [] }
+
+      return {
+        logosZone: logosZone.items,
         navigationZone: navigationZone.items,
         actionsZone: actionsZone.items,
       }
@@ -139,23 +177,8 @@ export default {
     justify-content: center;
   }
 
-  .navigation-slice-zone-content-v2__bottom-side {
-    height: 4.5rem;
-    padding: 0 5rem;
-    border-top: 1px solid $grey-15;
-    display: none;
-
-    @include device-is('large-screen') {
-      display: flex;
-    }
-  }
-
   @include device-is('large-screen') {
     .burger-menu {
-      display: none;
-    }
-
-    .new-burger-menu {
       display: none;
     }
 
@@ -169,6 +192,54 @@ export default {
       &__left-side {
         display: flex;
       }
+    }
+  }
+}
+
+.navigation-slice-zone-v2 {
+  box-shadow: -1px 9px 29px -16px rgba(199, 191, 199, 0.9);
+
+  .navigation-slice-zone-v2__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    margin: 0 1rem;
+  }
+
+  .navigation-slice-zone-v2-content {
+    &__bottom-side {
+      border-top: 1px solid $grey-15;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__left-side {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .navigation-slice-zone-content-v2__bottom-side {
+    height: 4.5rem;
+    padding: 0 5rem;
+    border-top: 1px solid $grey-15;
+    display: none;
+
+    @include device-is('large-screen') {
+      display: flex;
+    }
+  }
+
+  @include device-is('large-screen') {
+    .burger-menu-v2 {
+      display: none;
+    }
+
+    .navigation-slice-zone-v2__content {
+      justify-content: space-between;
+      margin: 0 5rem;
+      padding-right: 0;
     }
   }
 }

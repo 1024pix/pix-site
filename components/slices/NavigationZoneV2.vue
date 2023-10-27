@@ -3,7 +3,7 @@
     <ul>
       <li
         v-for="(menuItem, index) in navigationLinks"
-        :key="`item-${menuItem.name}`"
+        :key="`item-${index}`"
         class="navigation-zone-v2__list"
         :class="menuItem.separator ? 'navigation-separator' : ''"
       >

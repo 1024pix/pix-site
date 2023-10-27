@@ -66,4 +66,15 @@ export default {
     '<a href="https://support.pix.org/fr/support/home">support</a>.' +
     '</p>',
   'locale-suggestion-banner-text': `Vous semblez ne pas être en France. Voulez-vous accéder au <a href="https://${process.env.DOMAIN_ORG}">site Pix international</a> ?`,
+  'burger-menu': {
+    name: 'Navigation principale',
+    open: 'Ouvrir le menu',
+    close: 'Fermer le menu',
+    'open-category': 'Ouvrir la catégorie',
+    'close-category': 'Fermer la catégorie',
+    'open-locale-switcher': 'Ouvrir le changement de langue',
+    'close-locale-switcher': 'Fermer le changement de langue',
+    'change-locale-switcher': 'Changer la langue',
+    'change-locale-switcher-button': 'Changer',
+  },
 }
