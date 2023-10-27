@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.16.0 (27/10/2023)
+
+
+### :rocket: Amélioration
+- [#586](https://github.com/1024pix/pix-site/pull/586) [FEATURE] Créer le nouveau burger menu (PIX-8996).
+
 ## v4.15.0 (16/10/2023)
 
 
