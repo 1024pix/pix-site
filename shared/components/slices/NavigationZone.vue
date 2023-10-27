@@ -18,15 +18,15 @@
             class="navigation-zone__sub-menu"
           >
             <li v-for="(subItem, index) in menuItem.subItems">
-              <a :href="getEnvironmentUrl(subItem.link.url)">
+              <nuxt-link :to="getEnvironmentUrl(subItem.link.url)">
                 {{ subItem.name[0].text }}
-              </a>
+              </nuxt-link>
             </li>
           </ul>
         </template>
-        <a v-else :href="getEnvironmentUrl(menuItem.link.url)">
+        <nuxt-link v-else :to="getEnvironmentUrl(menuItem.link.url)">
           {{ menuItem.name[0].text }}
-        </a>
+        </nuxt-link>
       </li>
     </ul>
   </nav>

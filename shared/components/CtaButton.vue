@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="link.url" exact class="cta-button">
+  <nuxt-link :to="link" exact class="cta-button">
     {{ name }}
   </nuxt-link>
 </template>
@@ -9,7 +9,7 @@ export default {
   name: "CtaButton",
   props: {
     link: {
-      type: Object,
+      type: String,
       default: null,
     },
     name: {

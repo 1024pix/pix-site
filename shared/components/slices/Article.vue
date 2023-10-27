@@ -35,12 +35,12 @@
         <div v-if="content.article_link_type !== 'none'">
           <cta-button
             v-if="content.article_link_type === 'call-to-action'"
-            :link="content.article_link_url"
+            :link="getEnvironmentUrl(content.article_link_url.url)"
             :name="content.article_link_name"
           />
           <nuxt-link
             v-else-if="content.article_link_type === 'link-to'"
-            :to="content.article_link_url.url"
+            :to="getEnvironmentUrl(content.article_link_url.url)"
             class="article-content__link-to"
           >
             {{ content.article_link_name }}
@@ -78,6 +78,7 @@ import { computed } from "vue";
 const img = useImage();
 
 const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
+const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const props = defineProps({
   slice: {
