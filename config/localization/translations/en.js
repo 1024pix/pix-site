@@ -77,4 +77,5 @@ export default {
     'change-locale-switcher': 'Change language',
     'change-locale-switcher-button': 'Change',
   },
+  'skip-link': 'Skip to content',
 }

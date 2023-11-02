@@ -22,6 +22,7 @@ describe('Default layout', () => {
   let $i18n, wrapper, processEnvBackup
 
   const stubs = {
+    SkipLink: true,
     HotNewsBanner: true,
     NavigationSliceZone: true,
     LocaleSuggestionBanner: true,

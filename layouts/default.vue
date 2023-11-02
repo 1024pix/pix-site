@@ -1,12 +1,13 @@
 <template>
   <div id="app" class="app-viewport">
+    <skip-link />
     <hot-news-banner />
     <locale-suggestion-banner
       :is-open="showOutOfFranceBanner"
       @handleCloseBanner="closeLocaleSuggestionBanner"
     />
     <navigation-slice-zone />
-    <main role="main">
+    <main id="main" role="main" tabindex="-1">
       <nuxt />
     </main>
     <footer-slice-zone />
@@ -16,8 +17,20 @@
 <script>
 import { shouldShowOutOfFranceBanner } from '~/services/should-show-out-of-france-banner'
 import { getBaseUrl } from '~/config/url'
+import SkipLink from '~/components/SkipLink.vue'
+import HotNewsBanner from '~/components/HotNewsBanner.vue'
+import LocaleSuggestionBanner from '~/components/LocaleSuggestionBanner.vue'
+import NavigationSliceZone from '~/components/NavigationSliceZone.vue'
+import FooterSliceZone from '~/components/FooterSliceZone.vue'
 
 export default {
+  components: {
+    FooterSliceZone,
+    NavigationSliceZone,
+    LocaleSuggestionBanner,
+    HotNewsBanner,
+    SkipLink,
+  },
   /**  When building with nuxt generate on target static mode,
    * fetch lifecycle is only called during build process and not on runtime
    * (see {@link https://nuxtjs.org/announcements/going-full-static/#crazy-fast-static-applications}).
