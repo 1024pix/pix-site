@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v4.19.0 (03/11/2023)
+
+
+### :rocket: Amélioration
+- [#588](https://github.com/1024pix/pix-site/pull/588) [FEATURE] Créer le lien d'évitement (PIX-9637).
+
 ## v4.16.0 (27/10/2023)
 
 
