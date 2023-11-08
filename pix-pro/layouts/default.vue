@@ -2,7 +2,7 @@
   <div id="app" class="app-viewport">
     <skip-link />
     <hot-news-banner />
-    <shared-navigation-slice-zone />
+    <navigation-slice-zone />
     <main id="main" role="main" tabindex="-1">
       <slot />
     </main>
