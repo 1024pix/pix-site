@@ -121,7 +121,9 @@ function updateLocaleCookie(localeCode) {
 onClickOutside(
   languagesMenuRef,
   () => {
-    toggleLanguagesMenu();
+    if(isLanguagesMenuVisible.value) {
+      toggleLanguagesMenu();
+    }
   },
   { ignore: [buttonRef] }
 );
