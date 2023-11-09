@@ -1,13 +1,20 @@
 import { test, expect } from "@playwright/test";
 
+test.use({
+  viewport: { width: 1600, height: 1200 },
+});
+
 test.describe("layout/header", () => {
-  test("elements visible in header", async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     await page.goto("/", {
       waitUntil: "networkidle",
     });
+
     await page.getByText("France").click();
     await page.waitForLoadState("networkidle");
+  });
 
+  test("elements visible in header", async ({ page }) => {
     const siteHeader = page.getByRole("banner");
 
     // Logos zone
@@ -34,22 +41,22 @@ test.describe("layout/header", () => {
     ).toBeVisible();
   });
 
-  test("main navigation behaviour", async ({ page }) => {
-    await page.goto("/", {
-      waitUntil: "networkidle",
-    });
-    await page.getByText("France").click();
-    await page.waitForLoadState("networkidle");
-
+  test("main navigation behaviour", async ({ page, context }) => {
     await page.getByRole("button", { name: "Découvrir Pix" }).click();
 
-    await page.getByText("Défis et compétences").click();
+    expect(
+      await page.locator('css=[aria-describedby="description-1"]')
+    ).toBeVisible();
+    expect(await page.locator("css=#description-1")).toBeVisible();
+    expect(await page.getByText("Évaluer", { exact: true })).toBeVisible();
+
+    await page.getByRole("link", { name: "Les tests Pix" }).click();
 
     await expect(page).toHaveURL(/.*les-tests/);
+    await expect(page).toHaveTitle("Les tests | Pix");
+    expect(await page.getByText("Découvrir Pix",{ exact: true })).toHaveClass(/current-active-link/);
 
-    await page.getByText("Accueil").click();
-
-    await expect(page).toHaveURL(/.*/);
+    expect(await page.getByText("Évaluer", { exact: true })).toBeHidden();
   });
 
   test("skip link", async ({ page }) => {
