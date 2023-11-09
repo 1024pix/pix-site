@@ -30,4 +30,8 @@ const { data: indexContent } = await useAsyncData(async () => {
 
   return currentSiteIndexPage;
 });
+
+useHead({
+  title: `${indexContent.value.data.title[0].text}`,
+});
 </script>

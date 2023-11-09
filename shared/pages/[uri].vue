@@ -47,4 +47,8 @@ const { data } = await useAsyncData(async () => {
 
   if (slicesPage.total_results_size > 0) return slicesPage.results[0];
 });
+
+useHead({
+  title: `${data.value.data.title[0].text}`,
+});
 </script>
