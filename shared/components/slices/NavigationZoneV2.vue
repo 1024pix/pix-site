@@ -73,80 +73,7 @@ const props = defineProps({
 
 const openDropdownIndex = ref(-1);
 
-const navigationLinks = computed(() => {
-  if (props.navigationZoneItems.length === 0) {
-    return null;
-  }
-
-  return props.navigationZoneItems.reduce((formattedData, currentItem) => {
-    const isCategory =
-      currentItem.categoryName.length > 0 && currentItem.categoryName[0].text;
-
-    if (!isCategory) {
-      formattedData.push({
-        name: getTextFromArray(currentItem.menuName),
-        beforeIcon: currentItem.beforeIcon,
-        alternativeTextForBeforeIcon: currentItem
-          .alternativeTextForBeforeIcon[0]
-          ? currentItem.alternativeTextForBeforeIcon[0].text
-          : "",
-        afterIcon: currentItem.afterIcon,
-        alternativeTextForAfterIcon: currentItem.alternativeTextForAfterIcon[0]
-          ? currentItem.alternativeTextForAfterIcon[0].text
-          : "",
-        url: currentItem.menuLink.url,
-        separator: currentItem.separator,
-        sections: [],
-      });
-
-      return formattedData;
-    }
-
-    const currentCategoryName = getTextFromArray(currentItem.categoryName);
-    const lastCategoryIndex = formattedData.length - 1;
-    const isDifferentCategory =
-      lastCategoryIndex === -1 ||
-      formattedData[lastCategoryIndex].name !== currentCategoryName;
-
-    if (isDifferentCategory) {
-      formattedData.push(
-        createCategory(
-          currentCategoryName,
-          currentItem.separator,
-          getTextFromArray(currentItem.descriptionCategoryTitle),
-          getTextFromArray(currentItem.descriptionCategoryText),
-          getTextFromArray(currentItem.menuSectionTitle),
-          getTextFromArray(currentItem.menuName),
-          currentItem.menuLink.url
-        )
-      );
-
-      return formattedData;
-    }
-
-    const currentCategory = formattedData[lastCategoryIndex];
-    const currentTitle = getTextFromArray(currentItem.menuSectionTitle);
-    const existingSectionIndex = currentCategory.sections.findIndex(
-      (section) => section.title === currentTitle
-    );
-
-    if (existingSectionIndex !== -1) {
-      currentCategory.sections[existingSectionIndex].links.push({
-        name: getTextFromArray(currentItem.menuName),
-        url: currentItem.menuLink.url,
-      });
-    } else {
-      currentCategory.sections.push(
-        createSection(
-          currentTitle,
-          getTextFromArray(currentItem.menuName),
-          currentItem.menuLink.url
-        )
-      );
-    }
-    return formattedData;
-  }, []);
-});
+const navigationLinks = useMainNavigationLinks(props.navigationZoneItems);
 
 onMounted(() => {
   const page = document.getElementsByTagName("body")[0];
@@ -157,37 +84,6 @@ onBeforeUnmount(() => {
   const page = document.getElementsByTagName("body")[0];
   page.removeEventListener("click", toggleDropdown);
 });
-
-const createSection = (menuSectionTitle, menuName, menuLink) => {
-  return {
-    title: menuSectionTitle,
-    links: [{ name: menuName, url: menuLink }],
-  };
-};
-
-const createCategory = (
-  categoryName,
-  separator,
-  descriptionCategoryTitle,
-  descriptionCategoryText,
-  menuSectionTitle,
-  menuName,
-  menuLink
-) => {
-  return {
-    name: categoryName,
-    separator,
-    description: {
-      title: descriptionCategoryTitle,
-      text: descriptionCategoryText,
-    },
-    sections: [createSection(menuSectionTitle, menuName, menuLink)],
-  };
-};
-
-const getTextFromArray = (array) => {
-  return array.length ? array[0].text : "";
-};
 
 const isOpenDropdown = (dropdownIndex) => {
   return openDropdownIndex.value === dropdownIndex;
