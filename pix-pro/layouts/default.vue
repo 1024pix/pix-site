@@ -1,8 +1,9 @@
 <template>
   <div id="app" class="app-viewport">
+    <skip-link />
     <hot-news-banner />
     <shared-navigation-slice-zone />
-    <main role="main">
+    <main id="main" role="main" tabindex="-1">
       <slot />
     </main>
     <shared-footer-slice-zone />

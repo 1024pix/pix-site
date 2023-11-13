@@ -51,4 +51,25 @@ test.describe("layout/header", () => {
 
     await expect(page).toHaveURL(/.*/);
   });
+
+  test("skip link", async ({ page }) => {
+    await page.goto("/", {
+      waitUntil: "networkidle",
+    });
+    await page.getByText("France").click();
+    await page.waitForLoadState("networkidle");
+
+    const skipLink = await page.getByText("Aller au contenu");
+    expect(skipLink).not.toBeInViewport();
+
+    await page.keyboard.down("Tab");
+    await page.waitForTimeout(500);
+
+    expect(skipLink).toBeInViewport();
+
+    await page.waitForTimeout(500);
+    await page.keyboard.down("Enter");
+
+    expect(page).toHaveURL(/#main/);
+  });
 });
