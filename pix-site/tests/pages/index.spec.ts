@@ -35,7 +35,9 @@ test("Demo block", async ({ page }) => {
 });
 
 test("News block", async ({ page }) => {
-  expect(page.getByText("Nos actualités")).toBeVisible();
+  expect(
+    await page.getByRole("heading", { name: "Nos actualités" })
+  ).toBeVisible();
 
   await page.locator(".news-item-card__link").first().click();
   await page.waitForURL("**/actualites/**");

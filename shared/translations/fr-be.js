@@ -71,4 +71,15 @@ export default {
     </p>`,
   "locale-suggestion-banner-text": `Vous semblez ne pas être en France. Voulez-vous accéder au <a href="${process.env.DOMAIN_ORG}">site Pix international</a> ?`,
   "skip-link": "Aller au contenu",
+  'burger-menu': {
+    name: 'Navigation principale',
+    open: 'Ouvrir le menu',
+    close: 'Fermer le menu',
+    'open-category': 'Ouvrir la catégorie',
+    'close-category': 'Fermer la catégorie',
+    'open-locale-switcher': 'Ouvrir le changement de langue',
+    'close-locale-switcher': 'Fermer le changement de langue',
+    'change-locale-switcher': 'Changer la langue',
+    'change-locale-switcher-button': 'Changer',
+  },
 };

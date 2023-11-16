@@ -2,12 +2,7 @@
   <header v-if="isNewMenuAvailable" class="navigation-slice-zone-v2">
     <div class="navigation-slice-zone-v2__content">
       <div class="navigation-slice-zone-v2-content__left-side">
-        <!-- <client-only>
-          <burger-menu-nav-v2
-            class="burger-menu-v2"
-            :items="burgerMenuLinksV2"
-          />
-        </client-only> -->
+        <burger-menu class="burger-menu" :items="burgerMenuLinks()" />
         <section
           v-for="(slice, index) in logos"
           :key="`navigation-slice-left-${index}`"
@@ -80,6 +75,26 @@ const navigation = mainNav.value.filter(
 );
 
 const isNewMenuAvailable = appConfig.isNewMenuAvailable === "true";
+
+const burgerMenuLinks = () => {
+  const logosZone = mainNav.value.find(
+    (slice) => slice.slice_type === "logos_zone"
+  ) || { items: [] };
+  const navigationZone = mainNav.value.find(
+    (slice) => slice.slice_type === "navigation_zone"
+  ) || { items: [] };
+  const actionsZone = mainNav.value.find(
+    (slice) => slice.slice_type === "actions_zone"
+  ) || { items: [] };
+
+  const reversedActionsZoneItems = [...actionsZone.items].reverse();
+
+  return {
+    logosZone: logosZone.items,
+    navigationZone: navigationZone.items,
+    actionsZone: reversedActionsZoneItems,
+  };
+};
 </script>
 
 <style lang="scss">
@@ -165,7 +180,7 @@ const isNewMenuAvailable = appConfig.isNewMenuAvailable === "true";
   }
 
   @include device-is("large-screen") {
-    .burger-menu-v2 {
+    .burger-menu {
       display: none;
     }
 

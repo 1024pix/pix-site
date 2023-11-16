@@ -70,4 +70,15 @@ export default {
     </p>`,
   "locale-suggestion-banner-text": `You don't seem to be in France. Do you want to access the <a href="${process.env.DOMAIN_ORG}">Pix international website</a>?`,
   "skip-link": "Skip to content",
+  'burger-menu': {
+    name: 'Main Navigation',
+    open: 'Open menu',
+    close: 'Close menu',
+    'open-category': 'Open category',
+    'close-category': 'Close Category',
+    'open-locale-switcher': 'Open locale switcher',
+    'close-locale-switcher': 'Close locale switcher',
+    'change-locale-switcher': 'Change language',
+    'change-locale-switcher-button': 'Change',
+  },
 };

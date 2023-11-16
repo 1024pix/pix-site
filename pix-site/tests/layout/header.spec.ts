@@ -1,9 +1,5 @@
 import { test, expect } from "@playwright/test";
 
-test.use({
-  viewport: { width: 1600, height: 1200 },
-});
-
 test.describe("layout/header", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/", {
@@ -14,7 +10,7 @@ test.describe("layout/header", () => {
     await page.waitForLoadState("networkidle");
   });
 
-  test("elements visible in header", async ({ page }) => {
+  test("should display elements visible in header", async ({ page }) => {
     const siteHeader = page.getByRole("banner");
 
     // Logos zone
@@ -41,29 +37,91 @@ test.describe("layout/header", () => {
     ).toBeVisible();
   });
 
-  test("main navigation behaviour", async ({ page, context }) => {
-    await page.getByRole("button", { name: "Découvrir Pix" }).click();
+  test("should display main desktop navigation", async ({ page, context }) => {
+    await page.getByRole("button", { name: "Vous êtes ?" }).click();
 
     expect(
-      await page.locator('css=[aria-describedby="description-1"]')
+      await page.locator('css=[aria-describedby="description-2"]')
     ).toBeVisible();
-    expect(await page.locator("css=#description-1")).toBeVisible();
-    expect(await page.getByText("Évaluer", { exact: true })).toBeVisible();
+    expect(await page.locator("css=#description-2")).toBeVisible();
+    expect(await page.getByText("Éducation", { exact: true })).toBeVisible();
 
-    await page.getByRole("link", { name: "Les tests Pix" }).click();
+    await page.getByRole("link", { name: "Élève, étudiant" }).click();
 
-    await expect(page).toHaveURL(/.*les-tests/);
-    await expect(page).toHaveTitle("Les tests | Pix");
-    expect(await page.getByText("Découvrir Pix",{ exact: true })).toHaveClass(/current-active-link/);
+    await expect(page).toHaveURL(/.*enseignement-scolaire/);
+    await expect(page).toHaveTitle("Enseignement scolaire | Pix");
+    expect(await page.getByRole("button", { name: "Vous êtes ?" })).toHaveClass(
+      /current-active-link/
+    );
 
     expect(await page.getByText("Évaluer", { exact: true })).toBeHidden();
   });
 
-  test("skip link", async ({ page }) => {
+  test.describe("on mobile", () => {
+    test.use({
+      viewport: { width: 360, height: 640 },
+    });
+    test("should display main mobile navigation", async ({ page, context }) => {
+      const burgerMenu = page.locator("#menu");
+
+      await test.step("when burger-button is clicked, it should toggle menu", async () => {
+        await page.getByRole("button", { name: "Ouvrir le menu" }).click();
+        await burgerMenu
+          .getByRole("button", { name: "Fermer le menu" })
+          .click();
+        expect(
+          await burgerMenu.getByRole("button", { name: "Vous êtes ?" })
+        ).toBeHidden();
+      });
+
+      await test.step("when burger-button is clicked, it should display menu", async () => {
+        await page.getByRole("button", { name: "Ouvrir le menu" }).click();
+
+        expect(
+          burgerMenu.getByAltText(
+            "République française, liberté égalité fraternité"
+          )
+        ).toBeVisible();
+        expect(
+          burgerMenu.getByRole("button", { name: "Changer la langue France" })
+        ).toBeVisible();
+        expect(
+          burgerMenu.getByRole("link", { name: "Entrer un code" })
+        ).toBeVisible();
+        expect(
+          burgerMenu.getByRole("link", { name: "Connexion" })
+        ).toBeVisible();
+        expect(
+          burgerMenu.getByRole("link", { name: "Inscription" })
+        ).toBeVisible();
+      });
+
+      await test.step("when burger-button is clicked, it should display sections and links", async () => {
+        await burgerMenu.getByRole("button", { name: "Vous êtes ?" }).click();
+
+        expect(await burgerMenu.getByText("Éducation")).toBeVisible();
+        expect(
+          await burgerMenu.getByRole("link", { name: "Élève, étudiant" })
+        ).toBeVisible();
+      });
+
+      await test.step("when link is clicked, it should redirect and close menu", async () => {
+        await burgerMenu.getByRole("link", { name: "Élève, étudiant" }).click();
+
+        await expect(page).toHaveURL(/.*enseignement-scolaire/);
+        await expect(page).toHaveTitle("Enseignement scolaire | Pix");
+
+        expect(
+          await page.getByLabel("Navigation principale").getByText("Éducation")
+        ).toBeHidden();
+      });
+    });
+  });
+
+  test("should display skip link", async ({ page }) => {
     await page.goto("/", {
       waitUntil: "networkidle",
     });
-    await page.getByText("France").click();
     await page.waitForLoadState("networkidle");
 
     const skipLink = await page.getByText("Aller au contenu");
