@@ -131,9 +131,14 @@ onClickOutside(
 
 <style lang="scss">
 .locale-switcher {
-  position: relative;
-  border-right: 1px solid $grey-20;
-  padding-right: 1.5em;
+  display: none;
+}
+
+@include device-is('large-screen') {
+  .locale-switcher {
+    display: block;
+    position: relative;
+  }
 }
 
 .locale-switcher__button {
@@ -148,7 +153,6 @@ onClickOutside(
   letter-spacing: 0.008rem;
   line-height: 1.375rem;
   border: none;
-  outline: inherit;
   background-color: transparent;
   background-size: 1.3rem;
   background-position: 5% 50%;
