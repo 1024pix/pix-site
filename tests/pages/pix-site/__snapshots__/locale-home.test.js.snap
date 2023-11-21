@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`LocaleHome Page renders properly 1`] = `
-"<div class="index">
-  <prismic-custom-slice-zone-stub slices="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]"></prismic-custom-slice-zone-stub>
-</div>"
-`;
