@@ -12,7 +12,6 @@
             :src="`/images/${slice.primary.helperIcon}`"
             class="actions-zone-item-helper__icon"
             alt=""
-            role="presentation"
             width="16"
             height="16"
           />
@@ -37,7 +36,6 @@
             :src="`/images/${menuItem.icon}`"
             class="actions-zone-item__icon"
             alt=""
-            role="presentation"
             width="15"
             height="14"
           />

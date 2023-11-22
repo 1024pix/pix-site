@@ -109,16 +109,20 @@ watch(
 }
 
 .burger-menu-locales-list__items {
-  padding: 1.25rem 1.5rem;
-
-  li:not(:first-child) {
-    margin-top: 1rem;
-  }
-
   a {
     display: flex;
     align-items: center;
     color: $grey-90;
+    padding: 0.5rem 1.5rem;
+
+    &:hover,
+    &:focus {
+      background-color: $grey-10;
+    }
+
+    &:active {
+      background-color: $grey-15;
+    }
   }
 
   img {

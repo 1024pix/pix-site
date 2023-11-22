@@ -45,7 +45,6 @@
             v-if="item.beforeIcon"
             :src="`/images/${item.beforeIcon}`"
             :alt="item.alternativeTextForBeforeIcon"
-            role="presentation"
             width="22"
             height="18"
           />
@@ -54,7 +53,6 @@
             v-if="item.afterIcon"
             :src="`/images/${item.afterIcon}`"
             :alt="item.alternativeTextForAfterIcon"
-            role="presentation"
             width="22"
             height="18"
           />

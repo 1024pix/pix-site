@@ -28,7 +28,6 @@
             v-if="hasImage(item)"
             :src="item.item_image.url"
             alt=""
-            role="presentation"
           />
         </div>
         <div :class="`${blockClass}-wrapper-item__content`">

@@ -39,7 +39,6 @@
               :src="`/images/${menuItem.beforeIcon}`"
               class="navigation-zone-list-item__link-icon--before-name"
               :alt="menuItem.alternativeTextForBeforeIcon"
-              role="presentation"
               width="22"
               height="18"
             />
@@ -49,7 +48,6 @@
               :src="`/images/${menuItem.afterIcon}`"
               class="navigation-zone-list-item__link-icon--after-name"
               :alt="menuItem.alternativeTextForAfterIcon"
-              role="presentation"
               width="22"
               height="18"
             />

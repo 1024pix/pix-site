@@ -9,7 +9,7 @@
       aria-haspopup="menu"
       :aria-expanded="isLanguagesMenuVisible"
     >
-      <img :src="`/images/${localeProperties.icon}`" />
+      <img :src="`/images/${localeProperties.icon}`" alt=""/>
       <span>{{ localeProperties.name }}</span>
     </button>
     <ul
@@ -23,7 +23,7 @@
           @click="toggleInternationalLanguages"
           :aria-label="t('locale-switcher.button.international-label')"
         >
-          <img :src="`/images/${frLocale.icon}`" />
+          <img :src="`/images/${frLocale.icon}`" alt=""/>
           <span>{{ t("locale-switcher.locales.international") }}</span>
         </button>
         <ul v-show="isInternationalLanguagesVisible" class="sub-menu">
@@ -62,7 +62,7 @@
           :aria-current="localeProperties.code === frBeLocale.code && 'page'"
           @click="updateLocaleCookie(frBeLocale.code)"
         >
-          <img :src="`/images/${frBeLocale.icon}`" />
+          <img :src="`/images/${frBeLocale.icon}`" alt="" />
           <span>{{ frBeLocale.name }}</span>
         </a>
       </li>
@@ -75,7 +75,7 @@
           :aria-current="localeProperties.code === frFrLocale.code && 'page'"
           @click="updateLocaleCookie(frFrLocale.code)"
         >
-          <img :src="`/images/${frFrLocale.icon}`" />
+          <img :src="`/images/${frFrLocale.icon}`" alt="" />
           <span>{{ frFrLocale.name }}</span>
         </a>
       </li>

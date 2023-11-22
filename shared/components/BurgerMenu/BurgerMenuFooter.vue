@@ -13,7 +13,6 @@
             v-if="item.icon"
             :src="`/images/${item.icon}`"
             alt=""
-            role="presentation"
           />
           {{ item.name[0].text }}
         </nuxt-link>

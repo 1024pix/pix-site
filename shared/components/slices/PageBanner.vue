@@ -44,7 +44,6 @@
         class="row-block__side-content"
         :src="slice.primary.banner_image.url"
         alt=""
-        role="presentation"
       />
     </section>
   </div>

@@ -6,7 +6,6 @@
         class="content-description__image"
         :src="content.image.url"
         alt=""
-        role="presentation"
       />
 
       <header class="content-description__title">
