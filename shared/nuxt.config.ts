@@ -4,7 +4,6 @@ import i18nConfig from "./i18n.config";
 export default {
   appConfig: {
     site: process.env.SITE,
-    isNewMenuAvailable: process.env.FT_IS_NEW_MENU_AVAILABLE,
   },
   alias: {
     "@shared": resolve(__dirname, "../shared"),

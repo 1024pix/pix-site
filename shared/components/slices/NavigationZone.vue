@@ -1,40 +1,67 @@
 <template>
-  <nav ref="navigationZoneRef" class="navigation-zone" role="navigation">
-    <ul class="navigation-zone__main">
+  <nav class="navigation-zone" role="navigation">
+    <ul>
       <li
-        v-for="(menuItem, index) in menuLinks"
+        v-for="(menuItem, index) in navigationLinks"
         :key="`item-${index}`"
-        class="navigation-zone__item"
-        :class="{
-          'navigation-zone__item--active': activeSubMenu === index,
-        }"
+        class="navigation-zone__list"
+        :class="menuItem.separator ? 'navigation-separator' : ''"
       >
-        <template v-if="menuItem.subItems && menuItem.subItems.length > 0">
-          <button @click.stop.prevent="toggleSubMenu(index)">
+        <div v-if="menuItem.sections.length > 0">
+          <button
+            class="dropdown-toggle navigation-zone-list__item links-group"
+            :class="{
+              'current-active-link': subIsActive(menuItem.sections),
+              'dropdown-toggle--open': isOpenDropdown(`${index}`),
+            }"
+            @click.stop="toggleDropdown(`${index}`)"
+          >
             {{ menuItem.name }}
           </button>
-          <ul
-            v-show="activeSubMenu === index"
-            class="navigation-zone__sub-menu"
+          <navigation-dropdown
+            v-show="isOpenDropdown(`${index}`)"
+            type="button"
+            :sections="menuItem.sections"
+            :description="menuItem.description"
+            :dropdown-index="`${index}`"
+            @sublink-click="handleSubLinkClick"
           >
-            <li v-for="(subItem, index) in menuItem.subItems">
-              <nuxt-link :to="getEnvironmentUrl(subItem.link.url)">
-                {{ subItem.name[0].text }}
-              </nuxt-link>
-            </li>
-          </ul>
-        </template>
-        <nuxt-link v-else :to="getEnvironmentUrl(menuItem.link.url)">
-          {{ menuItem.name[0].text }}
-        </nuxt-link>
+          </navigation-dropdown>
+        </div>
+        <div v-else class="navigation-zone-list__link">
+          <nuxt-link
+            class="navigation-zone-list-link__item"
+            :to="getEnvironmentUrl(menuItem.url)"
+            activeClass="current-active-link"
+          >
+            <img
+              v-if="menuItem.beforeIcon"
+              :src="`/images/${menuItem.beforeIcon}`"
+              class="navigation-zone-list-item__link-icon--before-name"
+              :alt="menuItem.alternativeTextForBeforeIcon"
+              role="presentation"
+              width="22"
+              height="18"
+            />
+            {{ menuItem.name }}
+            <img
+              v-if="menuItem.afterIcon"
+              :src="`/images/${menuItem.afterIcon}`"
+              class="navigation-zone-list-item__link-icon--after-name"
+              :alt="menuItem.alternativeTextForAfterIcon"
+              role="presentation"
+              width="22"
+              height="18"
+            />
+          </nuxt-link>
+        </div>
       </li>
     </ul>
   </nav>
 </template>
 
 <script setup>
-import { onClickOutside } from "@vueuse/core";
-
+const route = useRoute();
 const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const props = defineProps({
@@ -44,146 +71,225 @@ const props = defineProps({
   },
 });
 
-const navigationZoneRef = ref(null);
+const openDropdownIndex = ref(-1);
 
-const activeSubMenu = ref(undefined);
+const navigationLinks = useMainNavigationLinks(props.navigationZoneItems);
 
-/* Generate menu */
-const menuLinks = props.navigationZoneItems[0].items.reduce(
-  (accumulator, currentMenuItem) => {
-    if (!currentMenuItem.group.length) {
-      return [...accumulator, currentMenuItem];
-    }
+onMounted(() => {
+  const page = document.getElementsByTagName("body")[0];
+  page.addEventListener("click", toggleDropdown);
+});
 
-    const existingGroup = accumulator.find(
-      (item) => item.name === currentMenuItem.group[0].text
-    );
-    if (existingGroup) {
-      existingGroup.subItems.push(currentMenuItem);
-      return accumulator;
-    } else {
-      return [
-        ...accumulator,
-        {
-          name: currentMenuItem.group[0].text,
-          subItems: [currentMenuItem],
-        },
-      ];
-    }
-  },
-  []
-);
+onBeforeUnmount(() => {
+  const page = document.getElementsByTagName("body")[0];
+  page.removeEventListener("click", toggleDropdown);
+});
 
-/* Methods */
-function toggleSubMenu(subMenuIndex) {
-  if (activeSubMenu.value === subMenuIndex) {
-    activeSubMenu.value = undefined;
+const isOpenDropdown = (dropdownIndex) => {
+  return openDropdownIndex.value === dropdownIndex;
+};
+
+const toggleDropdown = (dropdownIndex) => {
+  if (isOpenDropdown(dropdownIndex)) {
+    openDropdownIndex.value = -1;
   } else {
-    activeSubMenu.value = subMenuIndex;
+    openDropdownIndex.value = dropdownIndex;
   }
-}
+};
 
-onClickOutside(
-  navigationZoneRef,
-  () => {
-    toggleSubMenu();
-  }
-  // { ignore: [buttonRef] }
-);
+const subIsActive = (subNavigationLinks) => {
+  const paths = subNavigationLinks
+    .flatMap((subNavigationLink) =>
+      subNavigationLink.links.map((link) => link.url)
+    )
+    .map((subNavigationLink) => {
+      const splittedLink = subNavigationLink.split("/");
+      const linkIndex = splittedLink.length - 1;
+      return splittedLink[linkIndex];
+    });
+  return paths.some((path) => {
+    return route.path.includes(path);
+  });
+};
+
+const handleSubLinkClick = () => {
+  toggleDropdown(-1);
+};
 </script>
 
 <style scoped lang="scss">
-.navigation-zone {
-  font-family: $font-roboto;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.5em;
+@mixin active-link() {
+  border-bottom: 2px solid $blue;
+  color: $blue;
 
+  img {
+    filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg)
+      brightness(103%) contrast(101%);
+  }
+}
+
+.navigation-zone {
   ul {
     list-style: none;
-    padding-left: 0;
-  }
-
-  li {
+    display: flex;
+    align-items: center;
     padding: 0;
 
-    &::before {
+    li::before {
       content: none;
     }
-  }
-}
 
-.navigation-zone__main {
-  display: flex;
-  margin: 0;
-}
+    li:first-of-type {
+      a {
+        margin-left: 0;
+      }
+    }
 
-.navigation-zone__item {
-  position: relative;
-
-  & + .navigation-zone__item {
-    margin-left: 1.5em;
+    li {
+      align-self: center;
+      padding: 0;
+    }
   }
 
-  button {
+  &__list {
+    height: 1.5rem;
+    display: inline-flex;
     align-items: center;
-    appearance: none;
-    padding: 0;
-    background: transparent;
-    border: none;
-    font: inherit;
-    line-height: inherit;
-    cursor: pointer;
-
-    &::after {
-      content: "";
-      display: block;
-      width: 0.5em;
-      height: 0.5em;
-      margin-left: 0.75em;
-      border-bottom: 2px solid currentColor;
-      border-right: 2px solid currentColor;
-      transform: translateY(-0.15em) rotate(45deg);
-    }
   }
 
-  a,
-  button {
+  .navigation-separator {
+    margin: auto 2rem;
+    height: 54px;
+    border-left: 1px solid $grey-20;
+  }
+
+  @include device-is("desktop") {
     display: flex;
-    color: $grey-60;
+    align-items: center;
+    height: 100%;
 
-    &:hover,
-    &:focus {
+    .dropdown-toggle {
+      display: flex;
+      align-items: center;
+      height: 1.875rem;
+      padding: 0;
+
+      &::after {
+        content: "";
+        width: 0.5em;
+        height: 0.5em;
+        margin-left: 0.75em;
+        border-bottom: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        transform: translateY(-0.15em) rotate(45deg);
+      }
+
+      &--open::after {
+        transform: translateY(0.15em) rotate(-135deg);
+      }
+
+      &.current-active-link {
+        @include active-link;
+      }
+    }
+  }
+}
+
+.navigation-zone-list {
+  &__item {
+    padding: 0 0 26px 0;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
+  @include device-is("desktop") {
+    &__item {
+      margin: 0 0 0 2rem;
+      color: $grey-70;
+      font-family: $font-roboto;
+      font-size: 0.875rem;
+      font-weight: $font-medium;
+      height: 1.375rem;
+      letter-spacing: 0.13px;
+      line-height: 22px;
+      cursor: pointer;
+      white-space: nowrap;
+
+      &:hover {
+        color: $blue;
+      }
+
+      &.current-active-link {
+        color: $grey-90;
+        @include active-link;
+      }
+
+      &.links-group {
+        border: none;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.navigation-zone-list-item {
+  &__icon {
+    padding-left: 0.25rem;
+  }
+
+  &__link-icon {
+    width: auto;
+
+    &--before-name {
+      padding-right: 0.5rem;
+    }
+
+    &--after-name {
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+.navigation-zone-list-link {
+  &__item {
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
       color: $blue;
+
+      img {
+        filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg)
+          brightness(103%) contrast(101%);
+      }
     }
   }
 
-  & > a,
-  & > button {
-    padding: 1.5em 0;
-  }
-}
+  @include device-is("desktop") {
+    &__item {
+      margin: 0 0 0 2rem;
+      color: $grey-70;
+      font-family: $font-roboto;
+      font-size: 0.875rem;
+      font-weight: $font-medium;
+      height: 1.375rem;
+      letter-spacing: 0.13px;
+      line-height: 22px;
+      cursor: pointer;
+      white-space: nowrap;
 
-.navigation-zone__item--active {
-  button::after {
-    transform: translateY(0.15em) rotate(-135deg);
-  }
-}
+      &:hover {
+        color: $blue;
+      }
 
-.navigation-zone__sub-menu {
-  position: absolute;
-  z-index: 1;
-  top: calc(100% - 1em);
-  left: -1em;
-  margin: 0;
-  padding: 0.5em 0;
-  background-color: white;
-
-  a {
-    display: block;
-    padding: 0.75em 1em;
-    white-space: nowrap;
-    font-weight: 400;
+      &.current-active-link {
+        color: $grey-90;
+        @include active-link;
+      }
+    }
   }
 }
 </style>
