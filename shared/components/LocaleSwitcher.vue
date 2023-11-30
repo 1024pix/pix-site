@@ -1,4 +1,5 @@
 <template>
+  <client-only>
   <div class="locale-switcher">
     <button
       ref="buttonRef"
@@ -32,7 +33,7 @@
             :class="{ active: localeProperties.code === frLocale.code }"
           >
             <a
-              :href="getEnvironmentUrl(`${frLocale.domain || ''}/fr`)"
+              :href="`${frLocale.newDOmain || ''}/fr`"
               :aria-current="localeProperties.code === frLocale.code && 'page'"
               @click="updateLocaleCookie(frLocale.code)"
             >
@@ -44,7 +45,7 @@
             :class="{ active: localeProperties.code === enLocale.code }"
           >
             <a
-              :href="getEnvironmentUrl(`${enLocale.domain || ''}/en`)"
+              :href="`${enLocale.newDomain || ''}/en`"
               :aria-current="localeProperties.code === enLocale.code && 'page'"
               @click="updateLocaleCookie(enLocale.code)"
             >
@@ -58,7 +59,7 @@
         :class="{ active: localeProperties.code === frBeLocale.code }"
       >
         <a
-          :href="getEnvironmentUrl(`${frBeLocale.domain || ''}/fr-be`)"
+          :href="`${frBeLocale.newDomain || ''}/fr-be`"
           :aria-current="localeProperties.code === frBeLocale.code && 'page'"
           @click="updateLocaleCookie(frBeLocale.code)"
         >
@@ -71,7 +72,7 @@
         :class="{ active: localeProperties.code === frFrLocale.code }"
       >
         <a
-          :href="getEnvironmentUrl(`${frFrLocale.domain || ''}/`)"
+          :href="`${frFrLocale.newDomain || ''}/`"
           :aria-current="localeProperties.code === frFrLocale.code && 'page'"
           @click="updateLocaleCookie(frFrLocale.code)"
         >
@@ -81,6 +82,7 @@
       </li>
     </ul>
   </div>
+  </client-only>
 </template>
 
 <script setup>
