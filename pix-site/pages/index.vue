@@ -15,13 +15,12 @@ const route = useRoute();
 
 const hasLocale = computed(() => {
   const hasLocaleUrl = route.path !== "/";
-
-  return localeCookie || hasLocaleUrl;
+  return localeCookie || hasLocaleUrl || process.env.SITE_DOMAIN === "FR";
 });
 
 const { data: indexContent } = await useAsyncData(async () => {
   const indexPages = await client.getAllByTag("index", {
-    lang: i18nLocale.value,
+    lang: i18nLocale.value
   });
 
   const currentSiteIndexPage = indexPages.find((page) =>
@@ -32,6 +31,6 @@ const { data: indexContent } = await useAsyncData(async () => {
 });
 
 useHead({
-  title: `${indexContent.value.data.title[0].text}`,
+  title: `${indexContent.value.data.title[0].text}`
 });
 </script>
