@@ -6,12 +6,16 @@
     "node": "^18.18.0"
   },
   "scripts": {
-    "build": "nuxt build --prerender",
+    "build": "npm run generate",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate-fr": "SITE_DOMAIN=FR nuxt generate && cp -R ./.output/public ./build/fr ",
+    "generate-org": "SITE_DOMAIN=ORG nuxt generate && cp -R ./.output/public  ./build/org ",
+    "generate": "rm -rf ./build && mkdir build && npm run generate-fr && npm run generate-org",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "slicemachine": "start-slicemachine"
+    "slicemachine": "start-slicemachine",
+    "test:e2e": "npx playwright test --ui",
+    "start:nginx": "PORT=80 erb servers.conf.erb > nginx.conf && docker-compose up"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
