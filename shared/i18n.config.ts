@@ -44,4 +44,8 @@ if (process.env.SITE === "pix-site") {
   });
 }
 
+if (process.env.SITE_DOMAIN === 'FR') {
+  config.locales = config.locales.filter((locale) => locale.code === 'fr-fr');
+}
+
 export default { ...config };
