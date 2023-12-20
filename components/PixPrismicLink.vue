@@ -17,6 +17,7 @@ export default {
       default: null,
     },
   },
+
   computed: {
     linkComponent() {
       if (!this.field) {
@@ -28,6 +29,10 @@ export default {
       url = removeHostIfCurrentSite(url, this.$i18n.locale)
 
       if (this.field.link_type === 'Document') {
+        console.log('PixPrimicLink', {
+          page: this.$route,
+          field: this.field,
+        })
         const localeURL = getLocaleURL(url, this.$i18n, this.localePath)
         template = `
           <nuxt-link to="${localeURL}" exact>
