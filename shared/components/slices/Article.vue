@@ -38,13 +38,13 @@
             :link="getEnvironmentUrl(content.article_link_url.url)"
             :name="content.article_link_name"
           />
-          <nuxt-link
+          <pix-prismic-link
             v-else-if="content.article_link_type === 'link-to'"
-            :to="getEnvironmentUrl(content.article_link_url.url)"
+            :field="content.article_link_url"
             class="article-content__link-to"
           >
             {{ content.article_link_name }}
-          </nuxt-link>
+          </pix-prismic-link>
         </div>
       </div>
       <img
@@ -75,6 +75,7 @@
 
 <script setup>
 import { computed } from "vue";
+
 const img = useImage();
 
 const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
@@ -83,12 +84,12 @@ const { getEnvironmentUrl } = useEnvironmentUrl();
 const props = defineProps({
   slice: {
     type: Object,
-    default: null,
+    default: null
   },
   indexForId: {
     type: Number,
-    default: 0,
-  },
+    default: 0
+  }
 });
 
 const content = props.slice.primary;
@@ -105,7 +106,7 @@ const background = computed(() => {
     style = {
       background: `no-repeat url(${img(content.article_background.url)})`,
       backgroundSize: "100%",
-      backgroundPosition: "top right",
+      backgroundPosition: "top right"
     };
   }
   style["background-color"] = `${content.article_background_color}`;
@@ -117,7 +118,7 @@ const isOnlyTextLayout = content.article_layout === "only-text";
 const isMediaLayout = [
   "text-image",
   "image-text",
-  "vertical-text-image",
+  "vertical-text-image"
 ].includes(content.article_layout);
 
 const shouldBeReversed = content.article_layout === "image-text";
@@ -283,6 +284,7 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
     &--reverse {
       grid-template-areas: "b b b . a a a a";
     }
+
     &--vertical {
       grid-template-areas:
         ". a a a a a a ."
@@ -333,7 +335,7 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
 }
 
 .article.article--reverse
-  .article__secondary-content.article-secondary-content__background {
+.article__secondary-content.article-secondary-content__background {
   grid-column-start: b-start;
   grid-column-end: b-end;
 
@@ -345,7 +347,7 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
 }
 
 .article.article--reverse
-  .article__secondary-content.article-secondary-content__image {
+.article__secondary-content.article-secondary-content__image {
   grid-column-start: b-start;
   grid-column-end: b-end;
 
