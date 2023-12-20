@@ -1,0 +1,24 @@
+{
+  "name": "Pix Site Review App",
+  "env": {
+    "REVIEW_APP": {
+      "description": "Indicates that the application is a review app",
+      "value": "true"
+    },
+    "DOMAIN_ORG": {
+      "generator": "template",
+      "template": "pix-pro-review-pr%PR_NUMBER%.review.pix.org"
+    },
+    "DOMAIN_FR": {
+      "generator": "template",
+      "template": "pix-pro-review-pr%PR_NUMBER%.review.pix.fr"
+    }
+  },
+  "addons": [],
+  "formation": {
+    "web": {
+      "amount": 1,
+      "size": "S"
+    }
+  }
+}
