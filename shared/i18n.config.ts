@@ -7,21 +7,21 @@ const config = {
       file: "en.js",
       name: "English",
       icon: "globe-europe.svg",
-      domain: `http://${process.env.DOMAIN_ORG}`
+      domain: `https://${process.env.DOMAIN_ORG}`
     },
     {
       code: "fr",
       file: "fr.js",
       name: "Français",
       icon: "globe-europe.svg",
-      domain: `http://${process.env.DOMAIN_ORG}`
+      domain: `https://${process.env.DOMAIN_ORG}`
     },
     {
       code: "fr-fr",
       file: "fr-fr.js",
       name: "France",
       icon: "flag-fr.svg",
-      domain: `http://${process.env.DOMAIN_FR}`
+      domain: `https://${process.env.DOMAIN_FR}`
     }
   ],
   strategy: "prefix_except_default",
@@ -40,7 +40,7 @@ if (process.env.SITE === "pix-site") {
     file: "fr-be.js",
     name: "Fédération Wallonie-Bruxelles",
     icon: "flag-be.svg",
-    domain: `http://${process.env.DOMAIN_ORG}`
+    domain: `https://${process.env.DOMAIN_ORG}`
   });
 }
 
