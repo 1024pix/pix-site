@@ -7,46 +7,55 @@ jobs:
       - image: cimg/node:20.6.0
     steps:
       - checkout
-      - run: cat package*.json > cachekey
+      - run:
+          working_directory: ./shared
+          command: |
+            cat package*.json > cachekey
       - restore_cache:
+          working_directory: ./shared
           keys:
-            - pix-site-npm-{{ checksum "cachekey" }}
-      - run: npm ci
+            - pix-site-shared-npm-{{ checksum "cachekey" }}
+      - run:
+          working_directory: ./shared
+          command: |
+            npm ci
       - save_cache:
-          key: pix-site-npm-{{ checksum "cachekey" }}
+          working_directory: ./shared
+          key: pix-site-shared-npm-{{ checksum "cachekey" }}
           paths:
             - ~/.npm
       - run:
+          working_directory: ./shared
           name: Test
           command: |
-            npm run test:ci
-      - run:
-          name: Lint
-          command: |
-            npm run lint
+            npm run test
 
   e2e:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.30.0-focal
+      - image: mcr.microsoft.com/playwright:v1.38.1-focal
     resource_class: medium
     steps:
       - checkout
-      - run: cat package*.json > cachekey
-      - restore_cache:
-          keys:
-            - v2-pix-site-e2e-npm-{{ checksum "cachekey" }}
-      - run: npm ci
-      - save_cache:
-          key: v2-pix-site-e2e-npm-{{ checksum "cachekey" }}
-          paths:
-            - ~/.npm
-            - ~/.cache/ms-playwright
-      - run: npx playwright install --with-deps
+
       - run:
+          working_directory: ./pix-site
+          environment:
+            SITE: pix-site
+          command: |
+              npm ci
+
+      - run:
+          working_directory: ./pix-site
+          command: |
+            npm run test:e2e:install
+
+      - run:
+          working_directory: ./pix-site
           name: Run E2E tests
           environment:
+            SITE: pix-site
             PLAYWRIGHT_JUNIT_OUTPUT_NAME: test-results/e2e-junit-results.xml
-          command: npm run test:e2e:run -- --reporter=junit
+          command: npm run test:e2e:ci -- --reporter=junit
       - store_test_results:
           path: test-results/
 

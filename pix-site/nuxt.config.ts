@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   extends: ["../shared"],
   devServer: {
-    port: 7000,
+    port: Number(process.env.PORT) || 7000,
   },
   runtimeConfig: {
     public: {
@@ -10,3 +10,7 @@ export default defineNuxtConfig({
     },
   },
 });
+
+if (!process.env.SITE) {
+  throw new Error('Missing SITE environment variable');
+}
