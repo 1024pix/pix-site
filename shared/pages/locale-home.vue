@@ -1,26 +1,30 @@
 <template>
-  <prismic-custom-slice-zone
-    v-if="hasLocale"
-    :slices="indexContent.data.body"
-  />
-  <locale-choice v-else />
+  <prismic-custom-slice-zone :slices="indexContent.data.body" />
 </template>
 
 <script setup>
+definePageMeta({
+  layout: 'default'
+})
+
+/* Routes */
+// cf index.vue we declare prefix root path to each locale manually
+defineI18nRoute({
+  paths: {
+    en: "/",
+    fr: "/",
+    "fr-fr": "/",
+    "fr-be": "/",
+  },
+});
+
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
-const { localeCookie } = useLocaleCookie();
-const route = useRoute();
-
-const hasLocale = computed(() => {
-  const hasLocaleUrl = route.path !== "/";
-  return localeCookie || hasLocaleUrl || process.env.SITE_DOMAIN === "FR";
-});
 
 const { data: indexContent } = await useAsyncData(async () => {
   const indexPages = await client.getAllByTag("index", {
-    lang: i18nLocale.value
+    lang: i18nLocale.value,
   });
 
   const currentSiteIndexPage = indexPages.find((page) =>
@@ -31,6 +35,6 @@ const { data: indexContent } = await useAsyncData(async () => {
 });
 
 useHead({
-  title: `${indexContent.value.data.title[0].text}`
+  title: `${indexContent.value.data.title[0].text}`,
 });
 </script>

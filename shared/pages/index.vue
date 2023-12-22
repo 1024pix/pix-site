@@ -1,25 +1,25 @@
 <template>
-  <prismic-custom-slice-zone :slices="indexContent.data.body" />
+  <locale-choice />
 </template>
 
 <script setup>
+
+definePageMeta({
+  layout: 'empty'
+})
+
+// due to i18n strategy prefix, root path `/` redirect to default local page `/fr`
+// we disable i18n route to disable redirect
+defineI18nRoute(false);
+
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
+const { localeCookie } = useLocaleCookie();
+const route = useRoute();
 
-const { data: indexContent } = await useAsyncData(async () => {
-  const indexPages = await client.getAllByTag("index", {
-    lang: i18nLocale.value,
-  });
-
-  const currentSiteIndexPage = indexPages.find((page) =>
-    page.tags.includes(appConfig.site)
-  );
-
-  return currentSiteIndexPage;
-});
-
-useHead({
-  title: `${indexContent.value.data.title[0].text}`,
+const hasLocale = computed(() => {
+  const hasLocaleUrl = route.path !== "/";
+  return localeCookie || hasLocaleUrl || process.env.SITE_DOMAIN === "FR";
 });
 </script>
