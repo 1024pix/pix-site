@@ -1,5 +1,6 @@
 import { resolve } from "path";
 import i18nConfig from "./i18n.config";
+import { filterNuxtPages } from "./services/filter-nuxt-pages";
 
 export default {
   appConfig: {
@@ -20,6 +21,9 @@ export default {
     }
   },
   devtools: { enabled: true },
+  hooks: {
+    'pages:extend': filterNuxtPages
+  },
   i18n: i18nConfig,
   modules: ["@nuxtjs/prismic", "@nuxtjs/i18n", "@vueuse/nuxt", "@nuxt/image"],
   prismic: {
