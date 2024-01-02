@@ -22,16 +22,16 @@ export default {
   },
   devtools: { enabled: true },
   hooks: {
-    'pages:extend': filterNuxtPages
+    "pages:extend": filterNuxtPages
   },
   i18n: i18nConfig,
   modules: ["@nuxtjs/prismic", "@nuxtjs/i18n", "@vueuse/nuxt", "@nuxt/image"],
   prismic: {
     endpoint: "pix-site"
+  },
+  runtimeConfig: {
+    public: {
+      easiwareScriptUrl: process.env.EASIWARE_SCRIPT_URL
+    }
   }
-  // nitro:{
-  //   prerender:{
-  //     ignore:['/en/'],
-  //   }
-  // }
 };

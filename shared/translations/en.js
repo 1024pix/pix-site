@@ -2,7 +2,7 @@ export default {
   "locale-switcher": {
     button: {
       "main-label": "Choice of language",
-      "international-label": "International languages list",
+      "international-label": "International languages list"
     },
     locales: {
       fr: "International FR",
@@ -16,25 +16,25 @@ export default {
       fwb: "Fédération Wallonie-Bruxelles",
       "contact-digital-mediation": {
         "page-title": "Information request",
-        "form-id": "28758",
-      },
-    },
+        "form-id": "28758"
+      }
+    }
   },
   "higher-education-establishment-registration": {
     "page-title": "Pix Orga workspace request",
-    "form-id": "28771",
+    "form-id": "28771"
   },
   "pix-certification-application": {
     "page-title": "Pix certification center agreement request",
-    "form-id": "28773",
+    "form-id": "28773"
   },
   "pix-orga-registration": {
     "page-title": "Information request",
-    "form-id": "28776",
+    "form-id": "28776"
   },
   "pix-orga-higher-school-registration": {
     "page-title": "Finalize your Pix Orga workspace request",
-    "form-id": "28772",
+    "form-id": "28772"
   },
   "news-page-prefix": "news",
   "news-page-title": "News",
@@ -47,7 +47,7 @@ export default {
   society: "Society",
   form: {
     "not-supported":
-      "Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)",
+      "Your browser does not support iframes. The contact form cannot be displayed. Please use another contact method (phone, fax etc)"
   },
   "page-titles": {
     "contact-digital-mediation": "Request for information | Pix",
@@ -59,6 +59,7 @@ export default {
     "pix-orga-higher-school-registration":
       "Finalise slot inquiry | Pix Orga sup",
     "pix-orga-registration": "Request for information | Pix pro",
+    support: "Support | Pix"
   },
   "preview-page-load": "Preview page loading...",
   "home-page-url": `${process.env.DOMAIN_ORG}/en/`,
@@ -70,15 +71,15 @@ export default {
     </p>`,
   "locale-suggestion-banner-text": `You don't seem to be in France. Do you want to access the <a href="${process.env.DOMAIN_ORG}">Pix international website</a>?`,
   "skip-link": "Skip to content",
-  'burger-menu': {
-    name: 'Main Navigation',
-    open: 'Open menu',
-    close: 'Close menu',
-    'open-category': 'Open category',
-    'close-category': 'Close Category',
-    'open-locale-switcher': 'Open locale switcher',
-    'close-locale-switcher': 'Close locale switcher',
-    'change-locale-switcher': 'Change language',
-    'change-locale-switcher-button': 'Change',
-  },
+  "burger-menu": {
+    name: "Main Navigation",
+    open: "Open menu",
+    close: "Close menu",
+    "open-category": "Open category",
+    "close-category": "Close Category",
+    "open-locale-switcher": "Open locale switcher",
+    "close-locale-switcher": "Close locale switcher",
+    "change-locale-switcher": "Change language",
+    "change-locale-switcher-button": "Change"
+  }
 };
