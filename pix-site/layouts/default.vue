@@ -2,6 +2,10 @@
   <div id="app" class="app-viewport">
     <skip-link />
     <hot-news-banner />
+    <locale-suggestion-banner
+      :is-open="showBanner"
+      @handleCloseBanner="closeLocaleSuggestionBanner"
+    />
     <navigation-slice-zone />
     <main id="main" role="main" tabindex="-1">
       <slot />
@@ -11,11 +15,22 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Pix` : "Pix";
-  },
+  }
 });
+
+const { showOutOfFranceBanner } = useShowOutOfFranceBanner();
+const { origin } = useRequestURL();
+
+const showBanner = ref(false);
+showBanner.value = await showOutOfFranceBanner(origin, useFetch);
+const closeLocaleSuggestionBanner = () => {
+  showBanner.value = false;
+};
 </script>
 
 <style lang="scss">
@@ -50,6 +65,7 @@ p,
 div {
   word-wrap: break-word;
 }
+
 .app-viewport {
   .app-brand {
     height: 66px;

@@ -16,6 +16,12 @@ export default async () => {
         prerender: {
           crawlLinks: false,
           routes
+        },
+        devProxy: {
+          "/geolocate": {
+            target: `https://${process.env.GEOAPI_HOST}/me`,
+            changeOrigin: true
+          }
         }
       }
     }
