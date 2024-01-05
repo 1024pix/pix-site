@@ -29,9 +29,7 @@ const config = {
   compilation: {
     strictMessage: false
   },
-  detectBrowserLanguage: {
-    useCookie: false
-  }
+  detectBrowserLanguage: false
 };
 
 if (process.env.SITE === "pix-site") {
@@ -53,5 +51,7 @@ if (process.env.SITE_DOMAIN === 'ORG') {
   config.defaultLocale = 'fr'
   config.strategy = 'prefix'
 }
+
+console.log(config);
 
 export default { ...config };
