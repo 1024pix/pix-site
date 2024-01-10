@@ -22,7 +22,7 @@
   "devDependencies": {
     "@nuxt/devtools": "^1.0.6",
     "@nuxt/image": "^1.0.0-rc.2",
-    "@nuxtjs/i18n": "^8.0.0-rc.4",
+    "@nuxtjs/i18n": "^8.0.0",
     "@nuxtjs/prismic": "^3.0.2",
     "@playwright/test": "^1.38.1",
     "@slicemachine/adapter-nuxt": "^0.3.16",
