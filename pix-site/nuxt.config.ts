@@ -9,7 +9,8 @@ export default async () => {
       },
       runtimeConfig: {
         public: {
-          site: "https://pix."
+          site: "https://pix.",
+          formKeysToMap: process.env.FORM_KEYS_TO_MAP || null
         }
       },
       nitro: {

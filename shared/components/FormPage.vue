@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     formUrl() {
-      const mapKeys = this.$config.formKeysToMap;
+      const mapKeys = this.$config.public.formKeysToMap;
       const queryParamsAsObject = this.$route.query;
       const queryParamsAsString = Object.keys(queryParamsAsObject)
         .map((queryParamKey) => {
