@@ -47,11 +47,9 @@ if (process.env.SITE_DOMAIN === 'FR') {
 }
 
 if (process.env.SITE_DOMAIN === 'ORG') {
-  config.locales = config.locales.filter((locale) => locale.code !== 'fr-fr');
-  config.defaultLocale = 'fr'
-  config.strategy = 'prefix'
+  config.locales = config.locales.filter((locale) => locale.code !== "fr-fr");
+  config.defaultLocale = null;
+  config.strategy = 'prefix';
 }
-
-console.log(config);
 
 export default { ...config };
