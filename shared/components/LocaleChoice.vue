@@ -5,10 +5,10 @@
         <img class="logo-pix" src="/images/logo-pix-blanc.svg" alt="Pix" />
       </h1>
       <a
-        v-for="locale in locales"
+        v-for="locale in reachableLocales"
         :key="locale.code"
         class="locale-link"
-        :href="`/${defaultLocale === locale.code ? '' : locale.code}`"
+        :href="`${locale.domain}/${locale.code === 'fr-fr' ? '' : locale.code}`"
         @click="updateLocale(locale.code)"
       >
         <img class="locale-link__icon" :src="'/images/' + locale.icon" alt="" />
@@ -20,12 +20,10 @@
 </template>
 
 <script setup>
+import { reachableLocales } from "../i18n.config.ts";
+
 const { setLocaleCookie } = useLocaleCookie();
 const { locales, defaultLocale } = useI18n();
-
-onBeforeMount(() => {
-  setPageLayout(false);
-});
 
 function updateLocale(localeCode) {
   setLocaleCookie(localeCode);
