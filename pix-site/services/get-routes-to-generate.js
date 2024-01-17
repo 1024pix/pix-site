@@ -1,13 +1,12 @@
 import * as prismic from "@prismicio/client";
-import { locales } from "../../shared/i18n.config.ts";
 import { linkResolver } from "../../shared/services/link-resolver.js";
 
-export const getRoutesToGenerate = async function() {
+export const getRoutesToGenerate = async function({ locales }) {
   const client = await prismic.createClient("https://pix-site.cdn.prismic.io/api/v2");
-  const { routes, totalPages } = await getRoutesInPage(client, 1);
+  const { routes, totalPages } = await getRoutesInPage(client, 1, locales);
 
   for (let page = 2; page <= totalPages; page++) {
-    const { routes: nextPageRoutes } = await getRoutesInPage(client, page);
+    const { routes: nextPageRoutes } = await getRoutesInPage(client, page, locales);
     routes.push(...nextPageRoutes);
   }
 
@@ -15,7 +14,7 @@ export const getRoutesToGenerate = async function() {
   return routes;
 };
 
-async function getRoutesInPage(prismicClient, page) {
+async function getRoutesInPage(prismicClient, page, locales) {
   const { results, total_pages: totalPages } = await prismicClient.get({
       filters: [
         prismic.filter.at("document.tags", ["pix-site"]),
