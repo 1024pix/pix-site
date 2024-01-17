@@ -6,15 +6,15 @@
 defineI18nRoute(false)
 // due to i18n strategy prefix, root path `/` redirect to default local page `/fr`
 // we disable i18n route to disable redirect
-
 definePageMeta({
-  layout: 'empty'
+  layout: 'empty',
 })
 
-
-const appConfig = useAppConfig();
-const { locale: i18nLocale } = useI18n();
-const { client } = usePrismic();
-const { localeCookie } = useLocaleCookie();
-const route = useRoute();
+onBeforeMount(() => {
+  const { localeCookie } = useLocaleCookie();
+  const router = useRouter();
+  if (localeCookie) {
+    return router.replace(`/${localeCookie}/`);
+  }
+})
 </script>
