@@ -78,4 +78,8 @@ export default {
     'change-locale-switcher-button': 'Changer',
   },
   'skip-link': 'Aller au contenu',
+  back: 'Retour',
+  support : {
+    "persona-subtitle": "Choisissez qui vous êtes ?"
+  }
 }

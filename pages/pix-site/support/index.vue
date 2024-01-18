@@ -1,8 +1,15 @@
 <template>
   <div>
-    <div class="support__title" v-for="(item, index) in personas" :key="`persona-${index}`">
-      <h1>{{item.name[0].text}}</h1>
-    </div>
+    <nuxt-link
+      v-for="item in personas"
+      :key="item.uri"
+      :to="`persona/${item.uri}`"
+      class="support__title"
+    >
+      <img v-if="item.icon" :src="item.icon.url" alt="" />
+      <h2>{{ item.name[0].text }}</h2>
+      <p>{{ item.description[0].text }}</p>
+    </nuxt-link>
   </div>
 </template>
 <script>
@@ -30,12 +37,13 @@ export default {
         ],
         { lang: locale }
       )
-      const personas = documents.results.filter((persona) => {
-        return !persona.data.parent_persona?.slug
-      }).map((persona) => {
-        return persona.data
-      })
-      console.log({personas})
+      const personas = documents.results
+        .filter((persona) => {
+          return !persona.data.parent_persona?.slug
+        })
+        .map((persona) => {
+          return { uri: persona.uid, ...persona.data }
+        })
       return { personas }
     } catch (error) {
       console.error(error)
@@ -44,12 +52,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.support {
-  &__title {
-
-  }
-}
-
-</style>
