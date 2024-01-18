@@ -9,6 +9,9 @@
     <div v-if="type === SLICES_PAGE">
       <prismic-custom-slice-zone :slices="slices" />
     </div>
+    <div v-if="type === SUPPORT_PERSONA_PAGE">
+      <prismic-custom-slice-zone :slices="slices" />
+    </div>
   </div>
 </template>
 

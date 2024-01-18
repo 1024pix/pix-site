@@ -8,6 +8,7 @@ export const DOCUMENTS = {
   FORM_PAGE: 'form_page',
   EASIWARE_FORM_PAGE: 'easiware_form',
   SLICES_PAGE: 'slices_page',
+  SUPPORT_PERSONA_PAGE: 'support_persona',
   STATISTIQUES: 'statistiques',
 }
 
