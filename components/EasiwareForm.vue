@@ -31,5 +31,6 @@ export default {
   padding: 40px;
   display: flex;
   justify-content: center;
+  background-color: #452d9d;
 }
 </style>
