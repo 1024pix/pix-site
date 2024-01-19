@@ -78,4 +78,9 @@ export default {
     'change-locale-switcher-button': 'Change',
   },
   'skip-link': 'Skip to content',
+  back: 'Go back',
+  support: {
+    title: 'Who are you?',
+    subtitle: 'Find help adapted to your context.',
+  },
 }
