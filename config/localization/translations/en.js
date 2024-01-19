@@ -79,7 +79,8 @@ export default {
   },
   'skip-link': 'Skip to content',
   back: 'Go back',
-  support : {
-    "persona-subtitle": "Choose who you are?"
-  }
+  support: {
+    title: 'Who are you?',
+    subtitle: 'Find help adapted to your context.',
+  },
 }

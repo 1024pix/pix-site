@@ -17,15 +17,10 @@
         </h1>
       </div>
     </section>
-    <h2 class="persona__subtitle">{{ $t('support.persona-subtitle') }}</h2>
+    <h2 class="persona__subtitle">{{ $t('support.title') }}</h2>
     <ul class="persona__children">
       <li v-for="child in currentPersonaChildren" :key="child.uid">
-        <a :href="child.data.faq_link.url">
-          <img v-if="child.data.icon" :src="child.data.icon.url" alt="" />
-          <h3>
-            {{ child.data.name[0].text }}
-          </h3>
-        </a>
+        <support-persona-card :data="child.data" />
       </li>
     </ul>
   </div>
@@ -33,8 +28,13 @@
 
 <script>
 import { DOCUMENTS } from '~/services/document-fetcher'
+import SupportPersonaCard from '~/components/SupportPersonaCard.vue'
 
 export default {
+  name: 'SupportPersona',
+  components: {
+    SupportPersonaCard,
+  },
   nuxtI18n: {
     paths: {
       en: '/support/persona/:uri',
@@ -74,8 +74,13 @@ export default {
 </script>
 
 <style lang="scss">
+.persona {
+  padding-bottom: 2rem;
+  background-color: $grey-10;
+}
+
 .persona__header {
-  background-color: #613FDD;
+  background-color: #613fdd;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
@@ -87,7 +92,7 @@ export default {
   align-items: center;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem 1rem 3rem 1rem;
+  padding: 1.5rem 1rem 2.5rem 1rem;
   color: white;
 }
 
@@ -99,16 +104,17 @@ export default {
 
 .persona-header__icon {
   filter: brightness(0) invert(1);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   width: 60px;
-  height: auto;
+  height: 60px;
+  object-fit: contain;
 }
 
 .persona-header__back-button {
   align-self: flex-start;
   color: white;
   font-family: $font-roboto;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 
   &:hover {
     text-decoration: underline;
@@ -126,10 +132,10 @@ export default {
 
 .persona__children {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
   gap: 1rem;
   max-width: 1280px;
-  margin: 1.5rem auto 2rem;
+  margin: 1.5rem auto 0;
   padding: 0 16px;
   list-style: none;
 

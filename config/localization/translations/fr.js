@@ -79,7 +79,8 @@ export default {
   },
   'skip-link': 'Aller au contenu',
   back: 'Retour',
-  support : {
-    "persona-subtitle": "Choisissez qui vous êtes ?"
-  }
+  support: {
+    title: 'Vous êtes ?',
+    subtitle: 'Trouvez de l’aide adapté à votre contexte.',
+  },
 }
