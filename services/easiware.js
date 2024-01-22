@@ -120,8 +120,31 @@ export function create(params) {
   color: var(--pix-neutral-60);
 }
 
+.easiformKBZoneArticle {
+  padding: 0.5rem 0;
+}
+
+.easiformKBZoneArticle div {
+  display: inline;
+  color: var(--pix-primary-700);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.easiformKBZoneArticle div:active {
+  color: var(--pix-primary-900);
+}
+
+ .easiformKBZoneArticle::after {
+  display: inline-block;
+  content: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_5_2)'%3E%3Cpath d='M320 0C302.3 0 288 14.3 288 32C288 49.7 302.3 64 320 64H402.7L201.4 265.4C188.9 277.9 188.9 298.2 201.4 310.7C213.9 323.2 234.2 323.2 246.7 310.7L448 109.3V192C448 209.7 462.3 224 480 224C497.7 224 512 209.7 512 192V32C512 14.3 497.7 0 480 0H320ZM80 32C35.8 32 0 67.8 0 112V432C0 476.2 35.8 512 80 512H400C444.2 512 480 476.2 480 432V320C480 302.3 465.7 288 448 288C430.3 288 416 302.3 416 320V432C416 440.8 408.8 448 400 448H80C71.2 448 64 440.8 64 432V112C64 103.2 71.2 96 80 96H192C209.7 96 224 81.7 224 64C224 46.3 209.7 32 192 32H80Z' fill='%23452D9D'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_5_2'%3E%3Crect width='512' height='512' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  width: 0.875rem;
+  height: auto;
+  margin: 0 0.25rem;
+}
+
 [id^="easi_fielhelpspan"] .easitoolTipText {
- font-size: 0.875rem;
+  font-size: 0.875rem;
   color: var(--pix-neutral-60);
 }
 
