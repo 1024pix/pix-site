@@ -105,3 +105,6 @@ workflows:
           context: pix-site
           requires:
               - checkout
+          env:
+            DOMAIN_ORG=http://localhost:7001
+            DOMAIN_FR=http://localhost:7001
