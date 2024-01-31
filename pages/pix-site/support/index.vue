@@ -9,8 +9,8 @@
       </div>
     </section>
     <ul class="support__personas">
-      <li v-for="item in personas" :key="item.uri">
-        <support-persona-card :data="item" />
+      <li v-for="persona in mainPersonas" :key="persona.uri">
+        <support-persona-card :data="persona" />
       </li>
     </ul>
   </div>
@@ -35,23 +35,17 @@ export default {
   async asyncData({ app, error, req }) {
     try {
       const locale = app.i18n.locale || app.i18n.defaultLocale
-      const documents = await app.$prismic.api.query(
-        [
-          app.$prismic.predicates.at(
-            'document.type',
-            DOCUMENTS.SUPPORT_PERSONA_PAGE
-          ),
-        ],
+
+      const supportPage = await app.$prismic.api.getSingle(
+        DOCUMENTS.SUPPORT_PERSONA_PAGE,
         { lang: locale }
       )
-      const personas = documents.results
-        .filter((persona) => {
-          return !persona.data.parent_persona?.slug
-        })
-        .map((persona) => {
-          return { uri: persona.uid, ...persona.data }
-        })
-      return { personas }
+
+      const mainPersonas = supportPage.data.body.map(
+        (persona) => persona.primary
+      )
+
+      return { mainPersonas }
     } catch (error) {
       console.error(error)
       error({ statusCode: 404, message: 'Page not found' })

@@ -7,20 +7,23 @@
           {{ $t('back') }}
         </nuxt-link>
         <img
-          v-if="currentPersona.data.icon"
+          v-if="currentPersona.icon"
           class="persona-header__icon"
-          :src="currentPersona.data.icon.url"
+          :src="currentPersona.icon.url"
           alt=""
         />
         <h1 class="persona-header__title">
-          {{ currentPersona.data.name[0].text }}
+          {{ currentPersona.name[0].text }}
         </h1>
       </div>
     </section>
     <h2 class="persona__subtitle">{{ $t('support.title') }}</h2>
     <ul class="persona__children">
-      <li v-for="child in currentPersonaChildren" :key="child.uid">
-        <support-persona-card :data="child.data" />
+      <li
+        v-for="personaChild in currentPersonaChildren"
+        :key="personaChild.name"
+      >
+        <support-persona-card :data="personaChild" />
       </li>
     </ul>
   </div>
@@ -46,25 +49,19 @@ export default {
   async asyncData({ app, error, route }) {
     try {
       const locale = app.i18n.locale || app.i18n.defaultLocale
-      const documents = await app.$prismic.api.query(
-        [
-          app.$prismic.predicates.at(
-            'document.type',
-            DOCUMENTS.SUPPORT_PERSONA_PAGE
-          ),
-        ],
+      const parentPersonas = await app.$prismic.api.getSingle(
+        DOCUMENTS.SUPPORT_PERSONA_PAGE,
         { lang: locale }
       )
 
-      const currentPersona = documents.results.find(
-        (item) => item.uid === route.params.uri
-      )
-
-      const currentPersonaChildren = documents.results.filter((item) => {
-        return item.data.parent_persona.slug === currentPersona.uid
+      const parentPersona = parentPersonas.data.body.find((item) => {
+        return item.primary.slug === route.params.uri
       })
 
-      return { currentPersona, currentPersonaChildren }
+      return {
+        currentPersona: parentPersona.primary,
+        currentPersonaChildren: parentPersona.items,
+      }
     } catch (error) {
       console.error(error)
       error({ statusCode: 404, message: 'Page not found' })
