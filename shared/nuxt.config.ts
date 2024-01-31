@@ -1,7 +1,12 @@
 import { resolve } from "path";
 import { filterNuxtPages } from "./services/filter-nuxt-pages";
 
-export default {
+const config = {
+  app: {
+    head: {
+      script: []
+    }
+  },
   appConfig: {
     site: process.env.SITE
   },
@@ -29,7 +34,29 @@ export default {
   },
   runtimeConfig: {
     public: {
-      easiwareScriptUrl: process.env.EASIWARE_SCRIPT_URL
+      easiwareScriptUrl: process.env.EASIWARE_SCRIPT_URL,
+      matomo: {
+        containerUrl: process.env.MATOMO_CONTAINER,
+        debug: process.env.MATOMO_DEBUG || false
+      }
     }
   }
 };
+
+if (config.runtimeConfig.public.matomo.containerUrl) {
+  config.app.head.script.push(
+    {
+      type: "text/javascript",
+      src: config.runtimeConfig.public.matomo.containerUrl,
+      async: true,
+      defer: true
+    },
+    {
+      type: "text/javascript",
+      src: "/scripts/start-matomo-event.js",
+      "data-matomo-debug-mode": config.runtimeConfig.public.matomo.debug
+    }
+  );
+
+}
+export default config;
