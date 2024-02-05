@@ -1,7 +1,7 @@
 <template>
   <article role="article" class="support-persona-card">
     <!-- TODO: When Nuxt 3 update, switch to a nuxt-link component -->
-    <a class="support-persona-card__link" :href="cardLink">
+    <nuxt-link class="support-persona-card__link" :to="cardLink">
       <img
         v-if="data.icon"
         :src="data.icon.url"
@@ -12,11 +12,14 @@
         <h3 class="support-persona-card__name">
           {{ data.name[0].text }}
         </h3>
-        <p v-if="data.description[0]" class="support-persona-card__description">
+        <p
+          v-if="data.description?.[0]"
+          class="support-persona-card__description"
+        >
           {{ data.description[0].text }}
         </p>
       </div>
-    </a>
+    </nuxt-link>
   </article>
 </template>
 
@@ -30,9 +33,7 @@ export default {
   },
   computed: {
     cardLink() {
-      return this.data.faq_link.url
-        ? this.data.faq_link.url
-        : `/support/persona/${this.data.uri}`
+      return this.data.slug ? `/support/persona/${this.data.slug}` : '#'
     },
   },
 }
