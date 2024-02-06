@@ -10,6 +10,7 @@ export const DOCUMENTS = {
   SLICES_PAGE: 'slices_page',
   STATISTIQUES: 'statistiques',
   SUPPORT_PERSONA_PAGE: 'personas_list',
+  SUPPORT_FAQ_PERSONA: 'support__persona_faq',
   SUPPORT_FAQ_POST: 'support__faq_post',
 }
 
