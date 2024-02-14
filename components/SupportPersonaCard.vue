@@ -33,7 +33,9 @@ export default {
   },
   computed: {
     cardLink() {
-      return this.data.slug ? `/support/persona/${this.data.slug}` : '#'
+      return this.data.slug
+        ? `/support/${this.data.slug}`
+        : `/support/${this.$nuxt.$route.params.parent_persona_name}/${this.data.sub_slug}`
     },
   },
 }

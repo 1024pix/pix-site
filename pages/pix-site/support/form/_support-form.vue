@@ -8,10 +8,10 @@ export default {
   name: 'SupportForm',
   nuxtI18n: {
     paths: {
-      en: '/support/:slug',
-      fr: '/support/:slug',
-      'fr-fr': '/support/:slug',
-      'fr-be': '/support/:slug',
+      en: '/support/form/:slug',
+      fr: '/support/form/:slug',
+      'fr-fr': '/support/form/:slug',
+      'fr-be': '/support/form/:slug',
     },
   },
   async asyncData({ app, error, route }) {
@@ -31,8 +31,8 @@ export default {
         { lang: locale }
       )
       return documents.results[0].data
-    } catch (error) {
-      console.error({ error })
+    } catch (err) {
+      console.error(err)
       error({ statusCode: 404, message: 'Page not found' })
     }
   },

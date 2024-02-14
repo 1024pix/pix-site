@@ -41,13 +41,13 @@ export default {
         { lang: locale }
       )
 
-      const mainPersonas = supportPage.data.body.map(
+      const mainPersonas = supportPage?.data.body.map(
         (persona) => persona.primary
       )
 
       return { mainPersonas }
-    } catch (error) {
-      console.error(error)
+    } catch (err) {
+      console.error({ err })
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
