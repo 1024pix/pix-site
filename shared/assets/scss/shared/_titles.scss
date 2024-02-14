@@ -2,7 +2,6 @@
   &--big h1 {
     color: $grey-80;
     font-size: 2.125rem;
-    line-height: 2.75rem;
     font-weight: 400;
   }
 
@@ -18,12 +17,10 @@
 @include device-is('large-mobile') {
   .text--normal p {
     font-size: 1.25rem;
-    line-height: 2rem;
   }
 
   .title--big h1 {
     font-size: 2.875rem;
-    line-height: 3.813rem;
     font-weight: 300;
     letter-spacing: -0.15px;
   }
@@ -33,7 +30,6 @@
   .title--big h1 {
     font-weight: normal;
     font-size: 3rem;
-    line-height: 4.125rem;
     letter-spacing: -0.5px;
   }
 }
