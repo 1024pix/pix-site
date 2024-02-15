@@ -165,6 +165,8 @@ export default {
   }
 
   a {
+    display: block;
+    padding: 0.125em 0;
     font-size: 1.125rem;
     color: $blue;
 
@@ -239,7 +241,7 @@ export default {
 .faq-persona-posts__secondary-list {
   margin: 0;
   padding: 1.5rem 0;
-  background: #e6f2fe;
+  background: white;
   border-top: 1px solid $grey-22;
 
   .sub-category {
@@ -257,7 +259,7 @@ export default {
 
   a {
     display: block;
-    padding: 0.25rem 1rem;
+    padding: 0.375rem 1rem;
     font-size: 1rem;
     font-weight: 500;
     color: $communication-dark;
