@@ -80,6 +80,9 @@ export default {
   'skip-link': 'Skip to content',
   back: 'Go back',
   support: {
+    form: {
+      'required-info': 'All <span>*</span> fields are required',
+    },
     faq: {
       'more-help': 'Do you need more help?',
       'contact-text': 'You can contact us',

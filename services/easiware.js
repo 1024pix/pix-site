@@ -49,10 +49,6 @@ export function create(params) {
  #easiformarea {
   font-family: 'Roboto', Arial, sans-serif;
   line-height: 1.25;
-  background-color: white;
-  border-radius: 16px;
-  padding:32px;
-  max-width: 34rem;
 }
 
 [id^="easi_fielddiv"] {
