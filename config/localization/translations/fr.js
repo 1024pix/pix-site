@@ -80,8 +80,6 @@ export default {
   'skip-link': 'Aller au contenu',
   back: 'Retour',
   support: {
-    title: 'Vous êtes ?',
-    subtitle: 'Trouvez de l’aide adapté à votre contexte.',
     faq: {
       'more-help': "Besoin de plus d'aide ?",
       'contact-text': 'Vous pouvez nous contacter',

@@ -2,10 +2,18 @@
   <div class="support">
     <section class="support__header">
       <div class="support-header__wrapper">
-        <h1 class="support-header__title">
-          {{ $t('support.title') }}
+        <h1
+          v-if="supportPageData?.header_title?.length"
+          class="support-header__title"
+        >
+          {{ supportPageData?.header_title?.[0].text }}
         </h1>
-        <p class="support-header__subtitle">{{ $t('support.subtitle') }}</p>
+        <p
+          v-if="supportPageData?.['header_sub-title']?.length"
+          class="support-header__subtitle"
+        >
+          {{ supportPageData?.['header_sub-title']?.[0].text }}
+        </p>
       </div>
     </section>
     <ul class="support__personas">
@@ -45,7 +53,10 @@ export default {
         (persona) => persona.primary
       )
 
-      return { mainPersonas }
+      return {
+        supportPageData: supportPage?.data,
+        mainPersonas,
+      }
     } catch (err) {
       console.error({ err })
       error({ statusCode: 404, message: 'Page not found' })
@@ -90,16 +101,25 @@ export default {
 }
 
 .support__personas {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   max-width: 1280px;
   margin: 1.5rem auto 0;
-  padding: 0 16px;
+  padding: 0 0.5rem;
   list-style: none;
 
   li {
-    padding: 0;
+    width: 33.33%;
+    padding: 0.5rem;
+
+    @media (max-width: 1280px) {
+      width: min(400px, 50%);
+    }
+
+    @media (max-width: 800px) {
+      width: min(400px, 100%);
+    }
   }
 
   li::before {

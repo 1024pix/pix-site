@@ -80,8 +80,6 @@ export default {
   'skip-link': 'Skip to content',
   back: 'Go back',
   support: {
-    title: 'Who are you?',
-    subtitle: 'Find help adapted to your context.',
     faq: {
       'more-help': 'Do you need more help?',
       'contact-text': 'You can contact us',
