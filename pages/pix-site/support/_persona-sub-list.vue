@@ -5,7 +5,9 @@
       :icon="currentPersona.icon.url"
       back-link="/support"
     />
-    <h2 class="personas-sub-list__subtitle">{{ $t('support.title') }}</h2>
+    <h2 class="personas-sub-list__subtitle">
+      {{ currentPersona.sub_persona_title[0].text }}
+    </h2>
     <ul class="personas-sub-list__children">
       <li
         v-for="personaChild in currentPersonaChildren"
@@ -92,16 +94,25 @@ export default {
 }
 
 .personas-sub-list__children {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   max-width: 1280px;
   margin: 1.5rem auto 0;
-  padding: 0 16px;
+  padding: 0 0.5rem;
   list-style: none;
 
   li {
-    padding: 0;
+    width: 33.33%;
+    padding: 0.5rem;
+
+    @media (max-width: 1280px) {
+      width: min(400px, 50%);
+    }
+
+    @media (max-width: 800px) {
+      width: min(400px, 100%);
+    }
   }
 
   li::before {

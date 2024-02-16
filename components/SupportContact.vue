@@ -1,11 +1,8 @@
 <template>
   <div class="support-contact">
     <h2 class="support-contact__title">
-      {{ $t('support.faq.more-help') }}
+      {{ $t('support.faq.contact-title') }}
     </h2>
-    <p class="support-contact__text">
-      {{ $t('support.faq.contact-text') }}
-    </p>
     <nuxt-link :to="contactLink" class="support-contact__link">
       {{ $t('support.faq.contact-cta') }}
     </nuxt-link>
@@ -35,13 +32,9 @@ export default {
 }
 
 .support-contact__title {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin: 0;
-}
-
-.support-contact__text {
-  font-size: 1.125rem;
+  margin: 0 0 1rem;
 }
 
 .support-contact__link {
@@ -51,7 +44,7 @@ export default {
   border-radius: 2rem;
   color: white;
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 500;
 
   &:hover {
     background: $blue;
