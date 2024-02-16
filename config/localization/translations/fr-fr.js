@@ -85,8 +85,7 @@ export default {
         "Tous les champs marqués d'une <span>*</span> sont obligatoires",
     },
     faq: {
-      'more-help': "Besoin de plus d'aide ?",
-      'contact-text': 'Vous pouvez nous contacter',
+      'contact-title': 'Vous ne trouvez pas la réponse à votre question ?',
       'contact-cta': 'Contacter le support',
     },
   },
