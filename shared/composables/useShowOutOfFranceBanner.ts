@@ -19,7 +19,7 @@ const COUNTRIES_WHERE_BANNER_SHOULD_NOT_BE_SHOWN = [
 ];
 
 async function _getUserCountryFromGeolocationService(baseUrl, useFetch) {
-  const url = new URL("http/geolocate", baseUrl);
+  const url = new URL("/geolocate", baseUrl);
 
   const response = await useFetch(url, { server: false });
   if (!response) return undefined;
@@ -32,7 +32,9 @@ function _shouldShowBannerForCountry(country) {
 
 export default function useShowOutOfFranceBanner() {
   const showOutOfFranceBanner = async (baseUrl, useFetch) => {
-    if (process.env.SITE_DOMAIN !== "FR") return false;
+    const config = useRuntimeConfig();
+    if (config.public.siteDomain !== "FR") return false;
+
 
     const country = await _getUserCountryFromGeolocationService(baseUrl, useFetch);
 

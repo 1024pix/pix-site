@@ -10,6 +10,7 @@ export default async () => {
       runtimeConfig: {
         public: {
           site: "https://pix.",
+          siteDomain: process.env.SITE_DOMAIN,
           formKeysToMap: process.env.FORM_KEYS_TO_MAP || null
         }
       },
