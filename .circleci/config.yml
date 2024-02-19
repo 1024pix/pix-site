@@ -30,7 +30,7 @@ jobs:
 
   test:
     executor:
-        name: node-docker
+      name: node-docker
     working_directory: ~/pix-site/shared
     steps:
       - attach_workspace:
@@ -54,7 +54,7 @@ jobs:
 
   e2e-pix-site:
     executor:
-        name: playwright
+      name: playwright
     working_directory: ~/pix-site/pix-site
     steps:
       - attach_workspace:
@@ -68,7 +68,7 @@ jobs:
           environment:
             SITE: pix-site
           command: |
-              npm ci
+            npm ci
       - save_cache:
           key: v2-pix-site-e2e-pix-site-npm-{{ checksum "cachekey" }}
           paths:
@@ -104,7 +104,4 @@ workflows:
       - e2e-pix-site:
           context: pix-site
           requires:
-              - checkout
-          env:
-            DOMAIN_ORG=http://localhost:7001
-            DOMAIN_FR=http://localhost:7001
+            - checkout
