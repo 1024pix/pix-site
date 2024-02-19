@@ -7,11 +7,11 @@
     },
     "DOMAIN_ORG": {
       "generator": "template",
-      "template": "pix-pro-review-pr%PR_NUMBER%.review.pix.org"
+      "template": "https://pix-pro-review-pr%PR_NUMBER%.review.pix.org"
     },
     "DOMAIN_FR": {
       "generator": "template",
-      "template": "pix-pro-review-pr%PR_NUMBER%.review.pix.fr"
+      "template": "https://pix-pro-review-pr%PR_NUMBER%.review.pix.fr"
     }
   },
   "addons": [],

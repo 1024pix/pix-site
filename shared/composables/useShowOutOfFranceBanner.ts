@@ -18,12 +18,14 @@ const COUNTRIES_WHERE_BANNER_SHOULD_NOT_BE_SHOWN = [
   ...DOM_TOM_COUNTRY_CODES
 ];
 
-async function _getUserCountryFromGeolocationService(baseUrl, useFetch) {
+async function _getUserCountryFromGeolocationService(baseUrl, $fetch) {
   const url = new URL("/geolocate", baseUrl);
 
-  const response = await useFetch(url, { server: false });
-  if (!response) return undefined;
-  return response.country;
+  const data = await $fetch(url);
+
+  if (!data) return undefined;
+
+  return data.country;
 }
 
 function _shouldShowBannerForCountry(country) {
@@ -37,6 +39,7 @@ export default function useShowOutOfFranceBanner() {
 
 
     const country = await _getUserCountryFromGeolocationService(baseUrl, useFetch);
+    console.log({country});
 
     if (!country) return false;
 

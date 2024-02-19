@@ -17,17 +17,20 @@
 <script setup>
 import { ref } from "vue";
 
+const showBanner = ref(false);
+const { origin } = useRequestURL();
+
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Pix` : "Pix";
   }
 });
 
-const { showOutOfFranceBanner } = useShowOutOfFranceBanner();
-const { origin } = useRequestURL();
+onMounted(async () => {
+  const { showOutOfFranceBanner } = useShowOutOfFranceBanner();
+  showBanner.value = await showOutOfFranceBanner(origin, $fetch);
+})
 
-const showBanner = ref(false);
-showBanner.value = await showOutOfFranceBanner(origin, useFetch);
 const closeLocaleSuggestionBanner = () => {
   showBanner.value = false;
 };
