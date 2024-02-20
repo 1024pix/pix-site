@@ -8,7 +8,9 @@ const config = {
     }
   },
   appConfig: {
-    site: process.env.SITE
+    site: process.env.SITE,
+    domainFr: process.env.DOMAIN_FR,
+    domainOrg: process.env.DOMAIN_ORG
   },
   alias: {
     "@shared": resolve(__dirname, "../shared")
