@@ -1,52 +1,91 @@
 ---
-version: 2.0
+version: 2.1
+
+executors:
+  node-docker:
+    parameters:
+      node-version:
+        # renovate datasource=node-version depName=node
+        default: 20.10.0
+        type: string
+    docker:
+      - image: cimg/node:<<parameters.node-version>>
+    resource_class: small
+  playwright:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.38.1-focal
+    resource_class: medium+
 
 jobs:
-  test:
-    docker:
-      - image: cimg/node:20.6.0
+  checkout:
+    executor:
+      name: node-docker
+    working_directory: ~/pix-site
     steps:
       - checkout
+      - persist_to_workspace:
+          root: ~/pix-site
+          paths:
+            - .
+
+  test:
+    executor:
+      name: node-docker
+    working_directory: ~/pix-site/shared
+    steps:
+      - attach_workspace:
+          at: ~/pix-site
       - run: cat package*.json > cachekey
       - restore_cache:
           keys:
-            - pix-site-npm-{{ checksum "cachekey" }}
-      - run: npm ci
+            - v1-pix-site-shared-npm-{{ checksum "cachekey" }}
+      - run:
+          name: Install dependencies
+          command: |
+            npm ci
       - save_cache:
-          key: pix-site-npm-{{ checksum "cachekey" }}
+          key: v1-pix-site-shared-npm-{{ checksum "cachekey" }}
           paths:
             - ~/.npm
       - run:
           name: Test
           command: |
-            npm run test:ci
-      - run:
-          name: Lint
-          command: |
-            npm run lint
+            npm run test
 
-  e2e:
-    docker:
-      - image: mcr.microsoft.com/playwright:v1.30.0-focal
-    resource_class: medium
+  e2e-pix-site:
+    executor:
+      name: playwright
+    working_directory: ~/pix-site/pix-site
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/pix-site
       - run: cat package*.json > cachekey
       - restore_cache:
           keys:
-            - v2-pix-site-e2e-npm-{{ checksum "cachekey" }}
-      - run: npm ci
+            - v2-pix-site-e2e-pix-site-npm-{{ checksum "cachekey" }}
+      - run:
+          name: Install dependencies
+          environment:
+            SITE: pix-site
+          command: |
+            npm ci
       - save_cache:
-          key: v2-pix-site-e2e-npm-{{ checksum "cachekey" }}
+          key: v2-pix-site-e2e-pix-site-npm-{{ checksum "cachekey" }}
           paths:
             - ~/.npm
             - ~/.cache/ms-playwright
-      - run: npx playwright install --with-deps
+
+      - run:
+          name: Install E2E dependencies
+          command: |
+            npm run test:e2e:install
+
       - run:
           name: Run E2E tests
           environment:
+            SITE: pix-site
             PLAYWRIGHT_JUNIT_OUTPUT_NAME: test-results/e2e-junit-results.xml
-          command: npm run test:e2e:run -- --reporter=junit
+          command: npm run test:e2e:ci -- --reporter=junit
       - store_test_results:
           path: test-results/
 
@@ -54,5 +93,15 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - test
-      - e2e
+      - checkout:
+          context: pix-site
+
+      - test:
+          context: pix-site
+          requires:
+            - checkout
+
+      - e2e-pix-site:
+          context: pix-site
+          requires:
+            - checkout

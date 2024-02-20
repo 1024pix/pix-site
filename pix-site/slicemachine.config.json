@@ -1,0 +1,6 @@
+{
+  "repositoryName": "pix-site",
+  "adapter": "@slicemachine/adapter-nuxt",
+  "libraries": ["./slices"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}
