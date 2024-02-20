@@ -33,7 +33,7 @@
               :class="{ active: localeProperties.code === frLocale.code }"
             >
               <a
-                :href="`${frLocale.domain || ''}/fr`"
+                :href="`${ domainOrg || ''}/fr`"
                 :aria-current="localeProperties.code === frLocale.code && 'page'"
                 @click="updateLocaleCookie(frLocale.code)"
               >
@@ -45,7 +45,7 @@
               :class="{ active: localeProperties.code === enLocale.code }"
             >
               <a
-                :href="`${enLocale.domain || ''}/en`"
+                :href="`${ domainOrg || ''}/en`"
                 :aria-current="localeProperties.code === enLocale.code && 'page'"
                 @click="updateLocaleCookie(enLocale.code)"
               >
@@ -59,7 +59,7 @@
           :class="{ active: localeProperties.code === frBeLocale.code }"
         >
           <a
-            :href="`${frBeLocale.domain || ''}/fr-be`"
+            :href="`${ domainOrg || ''}/fr-be`"
             :aria-current="localeProperties.code === frBeLocale.code && 'page'"
             @click="updateLocaleCookie(frBeLocale.code)"
           >
@@ -72,7 +72,7 @@
           :class="{ active: localeProperties.code === frFrLocale.code }"
         >
           <a
-            :href="`${frFrLocale.domain || ''}/`"
+            :href="`${ domainFr || ''}/`"
             :aria-current="localeProperties.code === frFrLocale.code && 'page'"
             @click="updateLocaleCookie(frFrLocale.code)"
           >
@@ -103,6 +103,10 @@ const buttonRef = ref(null);
 const languagesMenuRef = ref(null);
 const isLanguagesMenuVisible = ref(false);
 const isInternationalLanguagesVisible = ref(false);
+
+const config = useAppConfig();
+const domainFr = config.domainFr;
+const domainOrg = config.domainOrg;
 
 function toggleLanguagesMenu() {
   isLanguagesMenuVisible.value = !isLanguagesMenuVisible.value;
