@@ -9,7 +9,7 @@
         :key="locale.code"
         class="locale-link"
         :href="`${locale.domain}/${locale.code === 'fr-fr' ? '' : locale.code}`"
-        @click="updateLocale(locale.code)"
+        @click="locale.code !== 'fr-fr' && updateLocale(locale.code)"
       >
         <img class="locale-link__icon" :src="'/images/' + locale.icon" alt="" />
         <span class="locale-link__text">{{ locale.name }}</span>
