@@ -1,32 +1,23 @@
 <template>
   <div class="faq-persona">
-    <support-header
-      :title="currentPersona.faq_page_title[0].text"
-      :icon="currentPersona.icon.url"
-      :back-link="`/support/${$nuxt.$route.params.parent_persona}`"
-    />
+    <support-header :title="data.currentPersona.faq_page_title[0].text" :icon="data.currentPersona.icon.url"
+      :back-link="backLink" />
     <div class="faq-persona__content-wrapper">
-      <section
-        v-if="currentPersona.popular_posts.length"
-        class="faq-persona__popular-posts"
-      >
+      <section v-if="data.currentPersona.popular_posts.length" class="faq-persona__popular-posts">
         <h2 class="faq-persona-popular-posts__title">
-          {{ currentPersona.popular_posts_title[0]?.text }}
+          {{ data.currentPersona.popular_posts_title[0]?.text }}
         </h2>
         <ul class="faq-persona-popular-posts-list">
-          <li
-            v-for="popularPost in currentPersona.popular_posts"
-            :key="popularPost.post.slug"
-          >
-            <nuxt-link :to="`${$nuxt.$route.path}/${popularPost.post.uid}`">
+          <li v-for="popularPost in data.currentPersona.popular_posts" :key="popularPost.post.slug">
+            <nuxt-link :to="`${route.path}/${popularPost.post.uid}`">
               {{ getPostTitle(popularPost.post.uid) }}
             </nuxt-link>
           </li>
         </ul>
       </section>
-      <section v-if="currentPersona.body" class="faq-persona__posts">
+      <section v-if="data.currentPersona.body" class="faq-persona__posts">
         <ul class="faq-persona-posts__primary-list">
-          <li v-for="category in currentPersona.body" :key="category.id">
+          <li v-for="category in data.currentPersona.body" :key="category.id">
             <details>
               <summary>
                 <h3 class="title">
@@ -41,7 +32,7 @@
                   <h4 v-if="post.sub_category" class="sub-category">
                     {{ post.sub_category }}
                   </h4>
-                  <nuxt-link :to="`${$nuxt.$route.path}/${post.post.uid}`">
+                  <nuxt-link :to="`${route.path}/${post.post.uid}`">
                     {{ getPostTitle(post.post.uid) }}
                   </nuxt-link>
                 </li>
@@ -50,75 +41,66 @@
           </li>
         </ul>
       </section>
-      <support-contact
-        v-if="contactForm"
-        :contact-link="`/support/form/${contactForm.uid}`"
-      />
+      <support-contact v-if="data.contactForm" :contact-link="`/support/form/${data.contactForm.uid}`" />
     </div>
   </div>
 </template>
 
-<script>
-import { DOCUMENTS } from '~/services/document-fetcher'
-import SupportHeader from '~/components/SupportHeader.vue'
-import SupportContact from '~/components/SupportContact.vue'
+<script setup>
+const { client } = usePrismic();
+const { locale: i18nLocale } = useI18n();
+const route = useRoute();
 
-export default {
-  name: 'SupportPersona',
-  components: { SupportHeader, SupportContact },
-  nuxtI18n: {
-    paths: {
-      en: '/support/:parent_persona/:current_persona',
-      fr: '/support/:parent_persona/:current_persona',
-      'fr-fr': '/support/:parent_persona/:current_persona',
-      'fr-be': '/support/:parent_persona/:current_persona',
-    },
+/* I18n Routes */
+defineI18nRoute({
+  paths: {
+    en: '/support/[parent_persona]/[current_persona]',
+    fr: '/support/[parent_persona]/[current_persona]',
+    'fr-fr': '/support/[parent_persona]/[current_persona]',
+    'fr-be': '/support/[parent_persona]/[current_persona]',
   },
-  async asyncData({ app, error, route }) {
-    try {
-      const locale = app.i18n.locale || app.i18n.defaultLocale
+});
 
-      const queryPersona = await app.$prismic.api.getByUID(
-        DOCUMENTS.SUPPORT_FAQ_PERSONA,
-        route.params.current_persona,
-        { lang: locale }
-      )
+const backLink = computed(() => {
+  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : ''
+  return `${localeUrl}/support/${route.params.parent_persona}`
+})
 
-      const queryPosts = await app.$prismic.api.query(
-        [
-          app.$prismic.predicates.at(
-            'document.type',
-            DOCUMENTS.SUPPORT_FAQ_POST
-          ),
-        ],
-        { lang: locale }
-      )
+/* Fetch persona data */
+const { data } = await useAsyncData(async () => {
+  try {
+    const queryPersona = await client.getByUID(
+      'support__persona_faq',
+      route.params.current_persona,
+      { lang: i18nLocale.value }
+    )
 
-      const contactForm = queryPersona.data.contact_form_link.id
-        ? await app.$prismic.api.getByID(queryPersona.data.contact_form_link.id)
-        : null
+    const queryPosts = await client.getAllByType('support__faq_post', { lang: i18nLocale.value })
 
-      return {
-        currentPersona: {
-          uid: queryPersona.uid,
-          ...queryPersona.data,
-        },
-        personaPosts: queryPosts.results,
-        contactForm,
-      }
-    } catch (err) {
-      console.error(err)
-      error({ statusCode: 404, message: 'Page not found' })
+    const contactForm = queryPersona.data.contact_form_link.id
+      ? await client.getByID(queryPersona.data.contact_form_link.id)
+      : null
+
+    return {
+      currentPersona: {
+        uid: queryPersona.uid,
+        ...queryPersona.data,
+      },
+      personaPosts: queryPosts,
+      contactForm,
     }
-  },
-  methods: {
-    getPostTitle(uid) {
-      const post = this.personaPosts.find((post) => {
-        return post.uid === uid
-      })
-      return post?.data.title[0].text
-    },
-  },
+  } catch (err) {
+    console.error(err)
+    error({ statusCode: 404, message: 'Page not found' })
+  }
+});
+
+/* Methods */
+const getPostTitle = (uid) => {
+  const post = data.value.personaPosts?.find((post) => {
+    return post.uid === uid
+  })
+  return post?.data.title[0].text
 }
 </script>
 
@@ -160,7 +142,7 @@ export default {
   margin: 1rem 0 2rem;
   padding-left: 0;
 
-  li + li {
+  li+li {
     margin-top: 0.5rem;
   }
 
@@ -181,7 +163,7 @@ export default {
   margin: 0;
   padding-left: 0;
 
-  & > li + li {
+  &>li+li {
     margin-top: 0.75rem;
   }
 

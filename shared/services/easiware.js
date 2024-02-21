@@ -1,250 +1,195 @@
 const buildRequestUrl = (easiConnectUrl, params) => {
-  return `${easiConnectUrl}/webforms/2.0/script/1.0/${params.solutionId}/${params.formId}/${params.language}.js`;
-};
+  return `${easiConnectUrl}/webforms/2.0/script/1.0/${params.solutionId}/${params.formId}/${params.language}.js`
+}
 
 export function create(params) {
-  const easiConnectUrl = params.easiwareScriptUrl;
+  const runtimeConfig = useRuntimeConfig()
+  const easiConnectUrl = runtimeConfig.public.easiwareScriptUrl
 
-  const formFetchData = params;
+  const formFetchData = params
 
   if (!formFetchData.elementToBuildIn) {
-    throw new Error("No element selected for Easiware form");
+    throw new Error('No element selected for Easiware form')
   }
 
   const targetElementForForm = document.getElementById(
     formFetchData.elementToBuildIn
-  );
+  )
 
-  if (params.callback && typeof params.callback === "function") {
-    window["fn_callback_easiwebform" + params.formId + params.solutionId] =
-      params.callback;
+  if (params.callback && typeof params.callback === 'function') {
+    window['fn_callback_easiwebform' + params.formId + params.solutionId] =
+      params.callback
   }
 
   targetElementForForm.innerHTML = `
-    <div id="easiformarea" />
-    <div class="easiformWaiting" id="easiformWaiting">
-      <div class="easiformWaitingCont" id="easiformWaitingCont">
-        <div class="easiformWaitingMsg" id="easiformWaitingMsg" />
-      </div>
-    </div>
-  `;
+  <div id="easiformarea"></div>
+`
   targetElementForForm.innerHTML +=
-    "<div id=\"easiformarea\"></div>" +
-    "<div class=\"easiformWaiting\" id=\"easiformWaiting\">" +
-    "<div class=\"easiformWaitingCont\" id=\"easiformWaitingCont\"><div class=\"easiformWaitingMsg\" id=\"easiformWaitingMsg\"></div></div>" +
     `<style type="text/css">
-      #test {
-    color: red;
-  }
-
-  /*Style globale appliqué sur la zone qui encapsule le formulaire*/
-#easiformarea {
-    margin: 20px;
+:root {
+--pix-neutral-900: #122647;
+--pix-neutral-60: #5E6C84;
+--pix-error-5: #FBECEC;
+--pix-error-70: #952E2E;
+--pix-error-500: #D24140;
+--pix-neutral-45: #5E6C84;
+--pix-primary-50: #613FDD;
+--pix-primary-700: #452d9d;
+--pix-primary-900: #291a5d;
 }
 
-/*Style générique pour les balises span et div de la zone easiformarea*/
-#easiformarea > form > div {
-    position: relative;
-    display: table;
-    margin-bottom: 15px;
-}
-#easiformarea span {
-    display: table-cell;
-    vertical-align: top;
-    color : #c561bb;
-}
-#easiformarea span:first-child {
-    width: 180px;
+[id^="easi_fielddiv"] {
+display: flex;
+flex-wrap: wrap;
 }
 
-/*Style pour les titre et les libellés des champs*/
-#easiformarea label {
-    font: 0.88889em / 32px "Avenir45Book", Arial, Verdana, Helvetica, sans-serif;
-    text-transform: uppercase;
+[id^="easi_fielddiv"]:not(:first-child) {
+margin-top: 1rem;
 }
 
-.easifilefieldlabel {
-    text-transform: inherit !important;
-    color: black !important;
-}
-
-.easifilefielderrormessage {
-color: #f2679e !important;
-}
-
-/*Style du champs de type text, liste déroulante et bloc de text*/
 #easiformarea input[type="text"],
 #easiformarea input[type="number"],
 #easiformarea select,
 #easiformarea textarea {
-    width: 340px;
-    border: 1px solid #bbb;
-    color: #574d4d;
-    font: 0.88889em "Avenir35Light", Arial, Verdana, Helvetica, sans-serif;
-    padding: 0 5px;
+max-width: 100%;
+padding: 0.5rem 0.75rem;
+border: 1px solid var(--pix-neutral-45);
+border-radius: 0.25rem;
+font-size: 1rem;
+color: var(--pix-neutral-900);
 }
-#easiformarea input[type="text"],
+
 #easiformarea select {
-    height: 32px;
-    line-height: 32px;
-}
-#easiformarea textarea {
-    height: 200px;
-}
-/*Style appliqué à l'étoile des champs obligatoires*/
-#easiformarea .mandatory {
-    position: absolute;
-    left: -10px;
-    top: 5px;
-    color: #e74890;
+background: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0Ljk1IDEwIj48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2ZmZjt9LmNscy0ye2ZpbGw6IzQ0NDt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPmFycm93czwvdGl0bGU+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNC45NSIgaGVpZ2h0PSIxMCIvPjxwb2x5Z29uIGNsYXNzPSJjbHMtMiIgcG9pbnRzPSIxLjQxIDQuNjcgMi40OCAzLjE4IDMuNTQgNC42NyAxLjQxIDQuNjciLz48cG9seWdvbiBjbGFzcz0iY2xzLTIiIHBvaW50cz0iMy41NCA1LjMzIDIuNDggNi44MiAxLjQxIDUuMzMgMy41NCA1LjMzIi8+PC9zdmc+) no-repeat;
+background-position: right 5px top;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
-/*Style appliqué au bouton de validation du formulaire*/
-#easiformarea .validatebutton {
-    color: #fff;
-    display: inline-block;
-    font: 1.11111em/38px "Avenir35Light", Arial, Verdana, Helvetica, sans-serif;
-    height: 42px;
-    padding: 0 40px 0 40px;
-    position: relative;
-    background: #e74890;
-    border: none;
-    margin-right: 290px;
-    cursor:pointer;
-    margin-top: 10px;
-}
-#easiformarea .validatebutton:after {
-    font-size: 0.8em;
-    height: 16px;
-    background-color: #dedede;
-}
-#easiformarea .validatebutton:hover {
-    background: #f2006d;
+.mandatory {
+order: 1;
+min-width: 0.75em;
+flex-shrink: 0;
+color: var(--pix-error-500);
 }
 
-#easiformarea .validatebutton:disabled {
-    background: #574d4d;
-    cursor: unset;
+[id^="easi_labelspan"] {
+color: var(--pix-neutral-900);
+order: 2;
+flex-grow: 1;
+font-weight: 500;
+margin-bottom: 0.5rem;
 }
 
-#easiformarea .disabled-validatebutton {
-    background: #574d4d !important;
+[id^="easi_fieldspan"] {
+order: 4;
+min-width: 100%;
 }
 
-/*Style appliqué la zone expliquant l'obligation sur les dits champs obligatoires*/
-#easiformarea .mandatoryfieldmention {
-    color: #4a4a4a;
-    font: 0.66667em "Avenir35Light", Arial, Verdana, Helvetica, sans-serif;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+[id^="easi_fieldspan"] > * {
+min-width: 100%;
 }
 
-/*Style appliqué sur le sablier après la saisie du formulaire*/
-#easiformWaiting {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba( 255, 255, 255, .8) 50% 50% no-repeat;
+[id^="easi_fielhelpspan"] {
+order: 3;
+min-width: 100%;
+font-size: 0;
+margin-bottom: 0.5rem;
 }
 
-.easiformWaitingCont {
-    width: 100%;
-    height: 100%;
-    display: table;
-}
-
-/*Style appliqué au message d'attente en dessous du sablier */
-.easiformWaitingMsg {
-    color: #000000;
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
-    padding-top: 5%; }
-
-/*Style appliqué à la zone globale qui encapsule les propositions de la base de connaissance */
 #easiformKBzone {
-    border-bottom: 1px solid #dedede;
-    width: 520px;
-    font: 0.88889em / 32px "Avenir45Book", Arial, Verdana, Helvetica, sans-serif;
-    text-transform: uppercase;
-    color : #c561bb;
-    margin-bottom: 0px;
+font-size: 0.875rem;
+color: var(--pix-neutral-60);
 }
 
-/*Style appliqué à la zone qui encapsule que les articles proposés*/
-.easiformKBZoneArticle{
-    /*border-bottom: 1px solid #dedede;*/
-    background-color: rgba(240, 214, 237, 1);
-    cursor: pointer;
-    font-family: sans-serif;
-    font-size: 8pt;
-    color: #574d4d;
-    width: 100%;
-    padding-left: 5px;
-    margin-bottom: 5px;
+.easiformKBZoneArticle {
+padding: 0.5rem 0;
 }
 
-/*Style appliqué à chaque titre de  la base*/
-.easiformKBZoneTitle {
-    color : #c561bb;
-    font: 0.88889em / 32px "Avenir45Book", Arial, Verdana, Helvetica, sans-serif;
-    text-transform: uppercase;
+.easiformKBZoneArticle div {
+display: inline;
+color: var(--pix-primary-700);
+text-decoration: underline;
+cursor: pointer;
 }
 
-/*Style appliqué à la zone affichant le message d'information supplémentaire*/
-#easiformarea .additionnalInformation {
- margin-bottom: 20px;
-}
-#easiformarea .additionnalInformation span {
-    width: 100%;
-}
-.easitoolTipButton {
-    padding-left: 10px !important;
-    padding-top: 5px;
-    cursor: help !important;
-    margin-right: 30px;
+.easiformKBZoneArticle div:active {
+color: var(--pix-primary-900);
 }
 
-.easitoolTipButton .easitoolTipText {
-    visibility: hidden;
-    width: 120px;
-    background-color: #574d4d;
-    color: #fff !important;
-    /*text-align: center;*/
-    border-radius: 6px;
-    padding: 5px 0;
-    font: 0.88889em / 32px "Avenir45Book", Arial, Verdana, Helvetica, sans-serif;
-    padding : 5px 0 5px 10px;
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
+.easiformKBZoneArticle::after {
+display: inline-block;
+content: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_5_2)'%3E%3Cpath d='M320 0C302.3 0 288 14.3 288 32C288 49.7 302.3 64 320 64H402.7L201.4 265.4C188.9 277.9 188.9 298.2 201.4 310.7C213.9 323.2 234.2 323.2 246.7 310.7L448 109.3V192C448 209.7 462.3 224 480 224C497.7 224 512 209.7 512 192V32C512 14.3 497.7 0 480 0H320ZM80 32C35.8 32 0 67.8 0 112V432C0 476.2 35.8 512 80 512H400C444.2 512 480 476.2 480 432V320C480 302.3 465.7 288 448 288C430.3 288 416 302.3 416 320V432C416 440.8 408.8 448 400 448H80C71.2 448 64 440.8 64 432V112C64 103.2 71.2 96 80 96H192C209.7 96 224 81.7 224 64C224 46.3 209.7 32 192 32H80Z' fill='%23452D9D'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_5_2'%3E%3Crect width='512' height='512' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+width: 0.875rem;
+height: auto;
+margin: 0 0.25rem;
 }
 
-.easitoolTipButton:hover .easitoolTipText {
-    visibility: visible;
+[id^="easi_fielhelpspan"] .easitoolTipText {
+font-size: 0.875rem;
+color: var(--pix-neutral-60);
 }
 
-@-webkit-keyframes easirotating {
-    from{
-        -webkit-transform: rotate(0deg);
-    }
-    to{
-        -webkit-transform: rotate(360deg);
-    }
+
+.validatebutton {
+background-color: var(--pix-primary-50);
+color: white;
+font-family: inherit;
+border-radius: 100px;
+padding: 0.75rem 1.25rem;
+border: 2px solid transparent;
+font-size: 1.125rem;
+margin-top: 1.5rem;
+cursor: pointer;
 }
 
-.easirotating {
-    -webkit-animation: easirotating 2s linear infinite;
-}
-    </style>` +
-    "</div>";
+.validatebutton:hover {
+background-color: var(--pix-primary-700);
 
-  const asyncScript = document.createElement("script");
-  asyncScript.type = "text/javascript";
-  asyncScript.src = buildRequestUrl(easiConnectUrl, params);
-  targetElementForForm.appendChild(asyncScript);
+}
+
+.validatebutton:active {
+background-color: var(--pix-primary-900);
+}
+
+.mandatoryfieldmention {
+display: none;
+}
+
+#fld_CS_StudentBirth {
+color: var(--pix-neutral-60);
+text-transform: uppercase;
+padding: 0.5rem 0.75rem;
+border: 1px solid var(--pix-neutral-45);
+border-radius: 0.25rem;
+font-size: 1rem;
+}
+
+#fld_AttachedFiles {
+color: var(--pix-neutral-60);
+}
+
+[id^="recaptcha_message"] {
+color: var(--pix-error-70);
+background-color: var(--pix-error-5);
+border: 1px solid var(--pix-error-70);
+border-radius: 4px;
+padding: 0.75rem 1rem;
+font-weight: 500;
+}
+#easiformarea:empty::after {
+  content: '⏳ Chargement du formulaire...';
+  display: block;
+  text-align: center;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+  </style>` + '</div>'
+
+  const asyncScript = document.createElement('script')
+  asyncScript.type = 'text/javascript'
+  asyncScript.src = buildRequestUrl(easiConnectUrl, params)
+  targetElementForForm.appendChild(asyncScript)
 }
