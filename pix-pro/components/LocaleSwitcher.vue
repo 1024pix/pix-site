@@ -1,5 +1,73 @@
 <template>
   <client-only>
+    <div class="locale-switcher">
+      <button
+        ref="buttonRef"
+        class="locale-switcher__button"
+        @click="toggleLanguagesMenu"
+        @keyup.esc="isLanguagesMenuVisible && toggleLanguagesMenu()"
+        :aria-label="t('locale-switcher.button.main-label')"
+        aria-haspopup="menu"
+        :aria-expanded="isLanguagesMenuVisible"
+      >
+        <img :src="`/images/${localeProperties.icon}`" alt="" />
+        <span>{{ localeProperties.name }}</span>
+      </button>
+      <ul
+        v-show="isLanguagesMenuVisible"
+        ref="languagesMenuRef"
+        class="locale-switcher__languages-menu"
+      >
+        <li>
+          <button
+            class="sub-menu-toggler"
+            @click="toggleInternationalLanguages"
+            :aria-label="t('locale-switcher.button.international-label')"
+          >
+            <img :src="`/images/${frLocale.icon}`" alt="" />
+            <span>{{ t("locale-switcher.locales.international") }}</span>
+          </button>
+          <ul v-show="isInternationalLanguagesVisible" class="sub-menu">
+            <li
+              v-if="frLocale"
+              :class="{ active: localeProperties.code === frLocale.code }"
+            >
+              <a
+                :href="`${ domainOrg || ''}/fr`"
+                :aria-current="localeProperties.code === frLocale.code && 'page'"
+                @click="updateLocaleCookie(frLocale.code)"
+              >
+                {{ frLocale.name }}
+              </a>
+            </li>
+            <li
+              v-if="enLocale"
+              :class="{ active: localeProperties.code === enLocale.code }"
+            >
+              <a
+                :href="`${ domainOrg || ''}/en`"
+                :aria-current="localeProperties.code === enLocale.code && 'page'"
+                @click="updateLocaleCookie(enLocale.code)"
+              >
+                {{ enLocale.name }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          v-if="frFrLocale"
+          :class="{ active: localeProperties.code === frFrLocale.code }"
+        >
+          <a
+            :href="`${ domainFr || ''}/`"
+            :aria-current="localeProperties.code === frFrLocale.code && 'page'"
+          >
+            <img :src="`/images/${frFrLocale.icon}`" alt="" />
+            <span>{{ frFrLocale.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </client-only>
 </template>
 
@@ -15,12 +83,15 @@ const { localeProperties, locales, t } = useI18n();
 const frLocale = reachableLocales.find((l) => l.code === "fr");
 const enLocale = reachableLocales.find((l) => l.code === "en");
 const frFrLocale = reachableLocales.find((l) => l.code === "fr-fr");
-const frBeLocale = reachableLocales.find((l) => l.code === "fr-be");
 
 const buttonRef = ref(null);
 const languagesMenuRef = ref(null);
 const isLanguagesMenuVisible = ref(false);
 const isInternationalLanguagesVisible = ref(false);
+
+const config = useAppConfig();
+const domainFr = config.domainFr;
+const domainOrg = config.domainOrg;
 
 function toggleLanguagesMenu() {
   isLanguagesMenuVisible.value = !isLanguagesMenuVisible.value;
