@@ -74,7 +74,6 @@
           <a
             :href="`${ domainFr || ''}/`"
             :aria-current="localeProperties.code === frFrLocale.code && 'page'"
-            @click="updateLocaleCookie(frFrLocale.code)"
           >
             <img :src="`/images/${frFrLocale.icon}`" alt="" />
             <span>{{ frFrLocale.name }}</span>
