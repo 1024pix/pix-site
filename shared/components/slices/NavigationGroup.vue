@@ -11,7 +11,7 @@
           :key="`link-${index}`"
           class="navigation-group-link"
         >
-          <nuxt-link :to="getEnvironmentUrl(link.link_url.url)">
+          <nuxt-link v-if="link.link_url?.url" :to="getEnvironmentUrl(link.link_url.url)">
             <prismic-rich-text :field="link.link_name" />
           </nuxt-link>
         </li>

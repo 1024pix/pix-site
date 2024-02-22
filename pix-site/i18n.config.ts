@@ -27,6 +27,13 @@ const reachableLocales = [
     name: "Belgique (Français)",
     icon: "flag-be.svg",
     domain: process.env.DOMAIN_ORG
+  },
+  {
+    code: "nl-be",
+    file: "nl-be.js",
+    name: "België (Nederlands)",
+    icon: "flag-be.svg",
+    domain: process.env.DOMAIN_ORG
   }
 ];
 
