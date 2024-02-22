@@ -13,35 +13,28 @@
   </div>
 </template>
 
-<script>
-import { documentFetcher } from "@shared/services/document-fetcher";
+<script setup>
+import { ref } from "vue";
+const { client, filter } = usePrismic();
+const { locale: i18nLocale } = useI18n();
 
-export default {
-  name: "HotNewsBanner",
-  data() {
-    return {
-      isOpen: true,
-      hotNews: null,
-    };
-  },
-  async fetch() {
-    const hotNews = await documentFetcher(
-      this.$prismic,
-      this.$i18n
-    ).findHotNewsBanner();
+const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
+const isOpen = ref(true);
 
-    this.hotNews = hotNews?.data?.description;
-  },
-  setup() {
-    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
-    return { customPrismicRichTextSerializer };
-  },
-  methods: {
-    closeBanner() {
-      this.isOpen = false;
-    },
-  },
-};
+const { data: hotNews } = await useAsyncData(async () => {
+  const hotNews = await client.get({
+    filters: [
+      filter.at("document.type", 'hot_news'),
+    ],
+    lang: i18nLocale.value,
+  });
+
+  return hotNews?.results[0].data.description
+});
+
+const closeBanner = () => {
+  isOpen.value = false;
+}
 </script>
 
 <style lang="scss">
