@@ -14,12 +14,7 @@
       </h2>
       <ul class="news__list">
         <template v-if="newsItems && newsItems.length">
-          <news-item-card
-            v-for="(item, index) in newsItems"
-            :key="`item-${index}`"
-            :slice="item.data"
-            :uid="item.uid"
-          />
+          <news-item-card v-for="(item, index) in newsItems" :key="`item-${index}`" :slice="item.data" :uid="item.uid" />
         </template>
         <template v-else>
           <p>{{ t("news-page-no-news") }}</p>
@@ -28,6 +23,7 @@
     </main>
   </div>
 </template>
+
 <script setup>
 const { client } = usePrismic();
 const { locale: i18nLocale, t } = useI18n();
@@ -50,6 +46,10 @@ useHead({
 /* Fetch news items */
 const { data: newsItems } = await useAsyncData(() => {
   return client.getAllByType("news_item", {
+    orderings: {
+      field: "my.news_item.date",
+      direction: 'desc',
+    },
     lang: i18nLocale.value,
   });
 });
@@ -57,6 +57,7 @@ const { data: newsItems } = await useAsyncData(() => {
 
 <style lang="scss">
 .news {
+
   h1,
   h2,
   h3,
