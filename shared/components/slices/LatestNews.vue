@@ -1,31 +1,12 @@
 <template>
-  <section
-    v-if="latestNews.length"
-    :id="`slice-${indexForId}`"
-    class="latest-news"
-  >
-    <prismic-rich-text
-      v-if="shouldDisplayTitle && hasTitle"
-      class="latest-news__title"
-      :field="slice.primary.latest_news_title"
-    />
-    <prismic-rich-text
-      v-else
-      class="sr-only"
-      :field="slice.primary.latest_news_title"
-    />
+  <section v-if="latestNews.length" :id="`slice-${indexForId}`" class="latest-news">
+    <prismic-rich-text v-if="shouldDisplayTitle && hasTitle" class="latest-news__title"
+      :field="slice.primary.latest_news_title" />
+    <prismic-rich-text v-else class="sr-only" :field="slice.primary.latest_news_title" />
     <ul class="latest-news__list">
-      <news-item-card
-        v-for="(item, index) in latestNews"
-        :key="`item-${index}`"
-        :slice="item.data"
-        :uid="item.uid"
-      />
+      <news-item-card v-for="(item, index) in latestNews" :key="`item-${index}`" :slice="item.data" :uid="item.uid" />
     </ul>
-    <nuxt-link
-      class="latest-news__link-to"
-      :to="localePath(`/${t('news-page-prefix')}`, i18nLocale)"
-    >
+    <nuxt-link class="latest-news__link-to" :to="localePath(`/${t('news-page-prefix')}`, i18nLocale)">
       {{ slice.primary.latest_news_redirection_link_text }}
     </nuxt-link>
   </section>
@@ -51,6 +32,10 @@ const props = defineProps({
 const latestNews = await client.getAllByType("news_item", {
   lang: i18nLocale.value,
   limit: 3,
+  orderings: {
+    field: "my.news_item.date",
+    direction: 'desc',
+  },
 });
 
 /* Computed */
