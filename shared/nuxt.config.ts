@@ -32,7 +32,10 @@ const config = {
   },
   modules: ["@nuxtjs/prismic", "@nuxtjs/i18n", "@vueuse/nuxt", "@nuxt/image"],
   prismic: {
-    endpoint: "pix-site"
+    endpoint: "pix-site",
+    clientConfig: {
+      accessToken: process.env.PRISMIC_API_TOKEN,
+    },
   },
   runtimeConfig: {
     public: {
