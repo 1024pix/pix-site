@@ -24,7 +24,7 @@ const reachableLocales = [
   {
     code: "fr-be",
     file: "fr-be.js",
-    name: "Fédération Wallonie-Bruxelles",
+    name: "Belgique (Français)",
     icon: "flag-be.svg",
     domain: process.env.DOMAIN_ORG
   }
