@@ -5,20 +5,12 @@ export default {
       'international-label': 'International languages list',
     },
     locales: {
-      fr: 'International FR',
-      'fr-fr': 'France',
-      en: 'International EN',
-      'fr-be': 'Fédération Wallonie-Bruxelles',
-      france: 'France',
-      english: 'English',
-      french: 'Français',
-      international: 'International',
-      fwb: 'Fédération Wallonie-Bruxelles',
-      'contact-digital-mediation': {
-        'page-title': 'Information request',
-        'form-id': '28758',
-      },
-    },
+      international: "International",
+      "contact-digital-mediation": {
+        "page-title": "Information request",
+        "form-id": "28758"
+      }
+    }
   },
   'higher-education-establishment-registration': {
     'page-title': 'Pix Orga workspace request',
