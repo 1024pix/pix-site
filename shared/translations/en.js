@@ -5,15 +5,7 @@ export default {
       "international-label": "International languages list"
     },
     locales: {
-      fr: "International FR",
-      "fr-fr": "France",
-      en: "International EN",
-      "fr-be": "Fédération Wallonie-Bruxelles",
-      france: "France",
-      english: "English",
-      french: "Français",
       international: "International",
-      fwb: "Fédération Wallonie-Bruxelles",
       "contact-digital-mediation": {
         "page-title": "Information request",
         "form-id": "28758"
