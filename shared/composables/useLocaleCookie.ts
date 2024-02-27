@@ -1,5 +1,4 @@
 export default function useLocaleCookie() {
-  const appConfig = useAppConfig();
 
   const localeCookie = useCookie("locale", {
     maxAge: 31536000,
@@ -7,7 +6,7 @@ export default function useLocaleCookie() {
   });
 
   function setLocaleCookie(
-    selectedLocale: "fr" | "fr-fr" | "fr-be" | "en",
+    selectedLocale: string,
     callback?: Function
   ): void {
     localeCookie.value = selectedLocale;
@@ -15,7 +14,7 @@ export default function useLocaleCookie() {
   }
 
   return {
-    localeCookie: localeCookie.value,
+    localeCookie,
     setLocaleCookie,
   };
 }
