@@ -30,7 +30,7 @@ const config = {
   hooks: {
     "pages:extend": filterNuxtPages
   },
-  modules: [],
+  modules: ["@nuxt/test-utils/module"],
   prismic: {
     endpoint: "pix-site",
     clientConfig: {
