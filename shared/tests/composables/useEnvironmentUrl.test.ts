@@ -1,5 +1,5 @@
 import useEnvironmentUrl from "../../composables/useEnvironmentUrl";
-
+import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const DOMAIN = "https://pro.pix";
@@ -7,17 +7,15 @@ const DOMAIN = "https://pro.pix";
 describe("#getEnvironmentUrl", () => {
   describe("on Dev or Test environment", () => {
     beforeEach(() => {
-      vi.mock("#imports", () => {
-        return {
-          useRuntimeConfig: () => {
-            return {
-              public: {
-                site: `${DOMAIN}.`,
-              },
-            };
-          },
-        };
-      });
+      mockNuxtImport('useRuntimeConfig', () => {
+        return () => {
+          return {
+            public: {
+              site: `${DOMAIN}.`,
+            }
+          }
+        }
+      })
     });
 
     test(".fr", () => {
@@ -41,16 +39,14 @@ describe("#getEnvironmentUrl", () => {
     beforeEach(() => {
       vi.stubEnv("NODE_ENV", "production");
 
-      vi.doMock("#imports", () => {
-        return {
-          useRuntimeConfig: () => {
-            return {
-              public: {
-                site: `${DOMAIN}.`,
-              },
-            };
-          },
-        };
+      mockNuxtImport('useRuntimeConfig', () => {
+        return () => {
+          return {
+            public: {
+              site: `${DOMAIN}.`,
+            }
+          }
+        }
       });
     });
 
@@ -73,3 +69,4 @@ describe("#getEnvironmentUrl", () => {
     });
   });
 });
+

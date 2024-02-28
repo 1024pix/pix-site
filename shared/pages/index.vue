@@ -13,8 +13,8 @@ definePageMeta({
 onBeforeMount(() => {
   const { localeCookie } = useLocaleCookie();
   const router = useRouter();
-  if (localeCookie) {
-    return router.replace(`/${localeCookie}/`);
+  if (localeCookie.value) {
+    return router.replace(`/${localeCookie.value}/`);
   }
 })
 </script>

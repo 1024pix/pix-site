@@ -1,5 +1,3 @@
-import { useRuntimeConfig } from "#imports";
-
 export default function useEnvironmentUrl() {
   const getEnvironmentUrl = (url: string) => {
     const runtimeConfig = useRuntimeConfig();
