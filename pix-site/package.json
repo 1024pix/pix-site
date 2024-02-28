@@ -13,6 +13,7 @@
     "generate": "rm -rf ./build && mkdir build && npm run generate-fr && npm run generate-org",
     "preview": "nuxt preview",
     "slicemachine": "start-slicemachine",
+    "test": "NODE_ENV=test vitest",
     "test:e2e": "npx playwright test --ui",
     "test:e2e:install": "playwright install",
     "test:e2e:ci": "playwright test",
