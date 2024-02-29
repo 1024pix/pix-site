@@ -68,6 +68,19 @@
           </a>
         </li>
         <li
+          v-if="nlBeLocale"
+          :class="{ active: localeProperties.code === nlBeLocale.code }"
+        >
+          <a
+            :href="`${ domainOrg || ''}/nl-be`"
+            :aria-current="localeProperties.code === nlBeLocale.code && 'page'"
+            @click="updateLocaleCookie(nlBeLocale.code)"
+          >
+            <img :src="`/images/${nlBeLocale.icon}`" alt="" />
+            <span>{{ nlBeLocale.name }}</span>
+          </a>
+        </li>
+        <li
           v-if="frFrLocale"
           :class="{ active: localeProperties.code === frFrLocale.code }"
         >
@@ -97,6 +110,7 @@ const frLocale = reachableLocales.find((l) => l.code === "fr");
 const enLocale = reachableLocales.find((l) => l.code === "en");
 const frFrLocale = reachableLocales.find((l) => l.code === "fr-fr");
 const frBeLocale = reachableLocales.find((l) => l.code === "fr-be");
+const nlBeLocale = reachableLocales.find((l) => l.code === "nl-be");
 
 const buttonRef = ref(null);
 const languagesMenuRef = ref(null);
