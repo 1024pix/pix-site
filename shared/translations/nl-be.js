@@ -5,15 +5,7 @@ export default {
       "international-label": "Liste des sites internationaux"
     },
     locales: {
-      fr: "International FR",
-      "fr-fr": "France",
-      en: "International EN",
-      "nl-be": "Fédération Wallonie-Bruxelles",
-      france: "France",
-      english: "English",
-      french: "Français",
       international: "International",
-      fwb: "Fédération Wallonie-Bruxelles"
     }
   },
   "contact-digital-mediation": {
