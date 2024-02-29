@@ -36,6 +36,7 @@ const config = {
     clientConfig: {
       accessToken: process.env.PRISMIC_API_TOKEN,
     },
+    linkResolver: '../shared/services/link-resolver.js',
   },
   runtimeConfig: {
     public: {

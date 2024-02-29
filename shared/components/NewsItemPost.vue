@@ -31,6 +31,7 @@
 
 <script setup>
 import { useDateFormat } from "@vueuse/core";
+const { locale: i18nLocale } = useI18n();
 
 const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 

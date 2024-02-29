@@ -31,12 +31,10 @@ async function getRoutesInPage(prismicClient, page, locales) {
     ({ code }) => code
   )
 
-  const filteredRoutesPromise = results
+  const routes = results
     .filter(({ uid }) => Boolean(uid))
     .filter(({ lang }) => localesToBuild.includes(lang))
     .map(linkResolver)
-
-  const routes = await Promise.all(filteredRoutesPromise)
 
   return { totalPages, routes }
 }
