@@ -1,58 +1,44 @@
 <template>
-  <component :is="linkComponent">
+  <nuxt-link :to="formattedUrl" :target="field.target">
     <slot />
-  </component>
+  </nuxt-link>
 </template>
 
-<script>
-export default {
-  name: 'PixPrismicLink',
-  props: {
-    field: {
-      required: true,
-      type: Object,
-      default: null,
-    },
-  },
-  computed: {
-    linkComponent() {
-      if (!this.field) {
-        return null
-      }
-      let template = ''
-      const url = removeHostIfCurrentSite(this.field.url, this.$i18n.locale)
+<script setup>
+const $i18n = useI18n();
 
-      if (isCurrentLocaleURL(url, this.$i18n)) {
-        template = `
-          <nuxt-link to="${url}" exact>
-            <slot/>
-          </nuxt-link>
-        `
-      } else {
-        const target = this.field.target
-          ? `target="'${this.field.target}'" rel="noopener"`
-          : ''
-        template = `
-          <a href="${url}" ${target}>
-            <slot/>
-          </a>
-        `
-      }
-      return { template }
-    },
+const props = defineProps({
+  field: {
+    required: true,
+    type: Object,
   },
+})
+
+const formattedUrl = computed(() => {
+  return removeHostIfCurrentSite(props.field.url)
+})
+
+function removeHostIfCurrentSite(url) {
+  try {
+    if (!isCurrentLocaleURL(url)) return url
+
+    const parsedURL = new URL(url)
+    return parsedURL.pathname + parsedURL.search + parsedURL.hash
+  } catch (e) {
+    // relative URL
+    return url
+  }
 }
 
-export function isCurrentLocaleURL(url, $i18n) {
+function isCurrentLocaleURL(url) {
   if (!url.startsWith('/')) return false
 
-  const locale = getPathLocale(url, $i18n) ?? $i18n.defaultLocale
+  const locale = getPathLocale(url) ?? $i18n.defaultLocale
   return locale === $i18n.locale
 }
 
-export function getPathLocale(path, $i18n) {
-  console.log('i18n locales', $i18n.localeCodes)
-  const localeCodesWithoutDefault = $i18n.localeCodes.filter(
+function getPathLocale(path) {
+  const localeCodesWithoutDefault = $i18n.localeCodes.value.filter(
     (code) => code !== $i18n.defaultLocale
   )
 
@@ -65,18 +51,5 @@ export function getPathLocale(path, $i18n) {
   if (rootMatch != null) return rootMatch[1]
 
   return undefined
-}
-
-export function removeHostIfCurrentSite(url, locale) {
-  try {
-    const parsedURL = new URL(url)
-
-    if (!isCurrentLocaleURL(parsedURL, locale)) return url
-
-    return parsedURL.pathname + parsedURL.search + parsedURL.hash
-  } catch (e) {
-    // relative URL
-    return url
-  }
 }
 </script>
