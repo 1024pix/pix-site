@@ -21,9 +21,9 @@ describe('linkResolver', () => {
   ]
 
   testCases.forEach(({ lang, uid, expectedUrl }) => {
-    test(`it should return ${expectedUrl}`, async () => {
+    test(`it should return ${expectedUrl}`, () => {
       // when
-      const result = await linkResolver({ type: 'anything', lang, uid })
+      const result = linkResolver({ type: 'anything', lang, uid })
 
       // then
       expect(result).toEqual(expectedUrl)
@@ -50,9 +50,9 @@ describe('linkResolver', () => {
     ]
 
     testCases.forEach(({ lang, uid, expectedUrl }) => {
-      test(`it should add prefix for lang ${lang}`, async () => {
+      test(`it should add prefix for lang ${lang}`, () => {
         // when
-        const result = await linkResolver({ type: DOCUMENTS.NEWS_ITEM, lang, uid })
+        const result = linkResolver({ type: DOCUMENTS.NEWS_ITEM, lang, uid })
 
         // then
         expect(result).toEqual(expectedUrl)
@@ -80,9 +80,9 @@ describe('linkResolver', () => {
     ]
 
     testCases.forEach(({ tags, lang, expectedUrl }) => {
-      test(`it should return root url for lang ${lang} when one of tag is index`, async () => {
+      test(`it should return root url for lang ${lang} when one of tag is index`, () => {
         // when
-        const result = await linkResolver({ tags, lang })
+        const result = linkResolver({ tags, lang })
 
         // then
         expect(result).toEqual(expectedUrl)
