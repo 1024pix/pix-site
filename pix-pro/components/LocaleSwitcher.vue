@@ -4,18 +4,18 @@
       <button
         ref="buttonRef"
         class="locale-switcher__button"
-        @click="toggleLanguagesMenu"
-        @keyup.esc="isLanguagesMenuVisible && toggleLanguagesMenu()"
+        @click="toggleLocalesMenu"
+        @keyup.esc="isLocalesMenuVisible && toggleLocalesMenu()"
         :aria-label="t('locale-switcher.button.main-label')"
         aria-haspopup="menu"
-        :aria-expanded="isLanguagesMenuVisible"
+        :aria-expanded="isLocalesMenuVisible"
       >
         <img :src="`/images/${localeProperties.icon}`" alt="" />
         <span>{{ localeProperties.name }}</span>
       </button>
       <ul
-        v-show="isLanguagesMenuVisible"
-        ref="languagesMenuRef"
+        v-show="isLocalesMenuVisible"
+        ref="localesMenuRef"
         class="locale-switcher__languages-menu"
       >
         <li>
@@ -27,7 +27,7 @@
             <img :src="`/images/${frLocale.icon}`" alt="" />
             <span>{{ t("locale-switcher.locales.international") }}</span>
           </button>
-          <ul v-show="isInternationalLanguagesVisible" class="sub-menu">
+          <ul v-show="isInternationalLocalesVisible" class="sub-menu">
             <li
               v-if="frLocale"
               :class="{ active: localeProperties.code === frLocale.code }"
@@ -85,25 +85,25 @@ const enLocale = reachableLocales.find((l) => l.code === "en");
 const frFrLocale = reachableLocales.find((l) => l.code === "fr-fr");
 
 const buttonRef = ref(null);
-const languagesMenuRef = ref(null);
-const isLanguagesMenuVisible = ref(false);
-const isInternationalLanguagesVisible = ref(false);
+const localesMenuRef = ref(null);
+const isLocalesMenuVisible = ref(false);
+const isInternationalLocalesVisible = ref(false);
 
 const config = useAppConfig();
 const domainFr = config.domainFr;
 const domainOrg = config.domainOrg;
 
-function toggleLanguagesMenu() {
-  isLanguagesMenuVisible.value = !isLanguagesMenuVisible.value;
+function toggleLocalesMenu() {
+  isLocalesMenuVisible.value = !isLocalesMenuVisible.value;
 
-  if (!isLanguagesMenuVisible.value) {
-    isInternationalLanguagesVisible.value = false;
+  if (!isLocalesMenuVisible.value) {
+    isInternationalLocalesVisible.value = false;
   }
 }
 
 function toggleInternationalLanguages() {
-  isInternationalLanguagesVisible.value =
-    !isInternationalLanguagesVisible.value;
+  isInternationalLocalesVisible.value =
+    !isInternationalLocalesVisible.value;
 }
 
 function updateLocaleCookie(localeCode) {
@@ -111,10 +111,10 @@ function updateLocaleCookie(localeCode) {
 }
 
 onClickOutside(
-  languagesMenuRef,
+  localesMenuRef,
   () => {
-    if (isLanguagesMenuVisible.value) {
-      toggleLanguagesMenu();
+    if (isLocalesMenuVisible.value) {
+      toggleLocalesMenu();
     }
   },
   { ignore: [buttonRef] }
