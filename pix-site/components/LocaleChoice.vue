@@ -23,7 +23,6 @@
 import { reachableLocales } from "../i18n.config.ts";
 
 const { setLocaleCookie } = useLocaleCookie();
-const { locales, defaultLocale } = useI18n();
 
 function updateLocale(localeCode) {
   setLocaleCookie(localeCode);
