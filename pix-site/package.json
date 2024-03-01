@@ -27,6 +27,7 @@
     "@nuxtjs/prismic": "^3.0.2",
     "@playwright/test": "^1.38.1",
     "@slicemachine/adapter-nuxt": "^0.3.16",
+    "@testing-library/vue": "^8.0.2",
     "@types/node": "^20.8.2",
     "@vue/test-utils": "^2.4.4",
     "@vueuse/core": "^10.4.1",
