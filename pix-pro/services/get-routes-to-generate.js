@@ -1,14 +1,18 @@
 import * as prismic from '@prismicio/client'
 import { linkResolver } from '../../shared/services/link-resolver.js'
 
-export const getRoutesToGenerate = async function({ locales }) {
-  const client = await prismic.createClient(process.env.PRISMIC_API_ENDPOINT, {
-    accessToken: process.env.PRISMIC_API_TOKEN
-  })
+export const getRoutesToGenerate = async function ({ locales }) {
+  const client = await prismic.createClient(
+    'https://pix-site.cdn.prismic.io/api/v2',
+  )
   const { routes, totalPages } = await getRoutesInPage(client, 1, locales)
 
   for (let page = 2; page <= totalPages; page++) {
-    const { routes: nextPageRoutes } = await getRoutesInPage(client, page, locales)
+    const { routes: nextPageRoutes } = await getRoutesInPage(
+      client,
+      page,
+      locales,
+    )
     routes.push(...nextPageRoutes)
   }
 
@@ -18,18 +22,15 @@ export const getRoutesToGenerate = async function({ locales }) {
 
 async function getRoutesInPage(prismicClient, page, locales) {
   const { results, total_pages: totalPages } = await prismicClient.get({
-      filters: [
-        prismic.filter.at('document.tags', ['pix-pro']),
-        prismic.filter.not('document.tags', ['fragment'])
-      ],
-      pageSize: 100,
-      page,
-      lang: '*'
-    }
-  )
-  const localesToBuild = locales.map(
-    ({ code }) => code
-  )
+    filters: [
+      prismic.filter.at('document.tags', ['pix-pro']),
+      prismic.filter.not('document.tags', ['fragment']),
+    ],
+    pageSize: 100,
+    page,
+    lang: '*',
+  })
+  const localesToBuild = locales.map(({ code }) => code)
 
   const routes = results
     .filter(({ uid }) => Boolean(uid))
