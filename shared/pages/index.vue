@@ -10,12 +10,4 @@ definePageMeta({
   layout: 'empty',
   middleware: ['locale-cookie']
 })
-
-onBeforeMount(() => {
-  const { localeCookie } = useLocaleCookie();
-  const router = useRouter();
-  if (localeCookie.value) {
-    return router.replace(`/${localeCookie.value}/`);
-  }
-})
 </script>
