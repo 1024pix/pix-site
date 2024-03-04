@@ -28,7 +28,7 @@ jobs:
           paths:
             - .
 
-  test:
+  test-shared:
     executor:
       name: node-docker
     working_directory: ~/pix-site/shared
@@ -51,6 +51,33 @@ jobs:
           name: Test
           command: |
             npm run test
+
+  test-pix-site:
+    executor:
+      name: node-docker
+    working_directory: ~/pix-site/pix-site
+    steps:
+      - attach_workspace:
+          at: ~/pix-site
+      - run: cat package*.json > cachekey
+      - restore_cache:
+          keys:
+            - v1-pix-site-pix-site-npm-{{ checksum "cachekey" }}
+      - run:
+          name: Install dependencies
+          command: |
+            npm ci
+      - save_cache:
+          key: v1-pix-site-pix-site-npm-{{ checksum "cachekey" }}
+          paths:
+            - ~/.npm
+      - run:
+          name: Test
+          environment:
+            SITE: pix-site
+            SITE_DOMAIN: 'ORG'
+          command: |
+            npm test
 
   e2e-pix-site:
     executor:
@@ -96,7 +123,12 @@ workflows:
       - checkout:
           context: pix-site
 
-      - test:
+      - test-shared:
+          context: pix-site
+          requires:
+            - checkout
+
+      - test-pix-site:
           context: pix-site
           requires:
             - checkout
