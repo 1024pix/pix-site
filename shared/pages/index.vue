@@ -1,5 +1,5 @@
 <template>
-  <locale-choice />
+  <locale-choice v-if="!locale"/>
 </template>
 
 <script setup>
@@ -10,11 +10,12 @@ definePageMeta({
   layout: 'empty',
 })
 
+const { localeCookie } = useLocaleCookie();
+const locale = localeCookie.value;
 onBeforeMount(() => {
-  const { localeCookie } = useLocaleCookie();
   const router = useRouter();
-  if (localeCookie.value) {
-    return router.replace(`/${localeCookie.value}/`);
+  if (locale) {
+    return router.replace(`/${locale}/`);
   }
 })
 </script>
