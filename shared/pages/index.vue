@@ -8,6 +8,7 @@ defineI18nRoute(false)
 // we disable i18n route to disable redirect
 definePageMeta({
   layout: 'empty',
+  middleware: ['locale-cookie']
 })
 
 onBeforeMount(() => {
