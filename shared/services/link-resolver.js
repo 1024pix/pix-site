@@ -20,19 +20,56 @@ const newsPagePrefixes = {
   'fr-fr':
     frFr.default['news-page-prefix'].body?.static ||
     frFr.default['news-page-prefix'].b?.s ||
-    frFr.default['news-page-prefix'],
+    frFr.default['news-page-prefix']
 }
 
 export function linkResolver(doc) {
   const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : ''
 
+  // News
   if (doc.type === DOCUMENTS.NEWS_ITEM) {
     const newsPagePrefix = newsPagePrefixes[doc.lang]
     return `${locale}/${newsPagePrefix}/${doc.uid}`
   }
+
+  // Support pages
+  if (doc.type === 'personas_list') {
+    if (!doc.data.body.length) return
+
+    return doc.data.body.flatMap(({ primary: parentPersona, items }) => {
+      const parentPersonaUrl = `${locale}/support/${parentPersona.slug}`
+      const subPersonaUrls = items
+        .filter((item) => item.sub_persona.uid)
+        .map((item) => `${parentPersonaUrl}/${item.sub_persona.uid}`)
+      return [parentPersonaUrl, ...subPersonaUrls]
+    })
+  }
+
+  if (doc.type === 'support__persona_faq') {
+    const urls = new Set()
+
+    doc.data.popular_posts.forEach(({ post }) => {
+      urls.add(`${locale}/support/post/${doc.uid}/${post.uid}`)
+    })
+
+    doc.data.body
+      .flatMap((category) => category.items)
+      .forEach(({ post }) => {
+        urls.add(`${locale}/support/post/${doc.uid}/${post.uid}`)
+      })
+
+    return [...urls]
+  }
+
+  if (doc.type === 'easiware_form') {
+    return `${locale}/support/form/${doc.uid}`
+  }
+
+  // Hompepage
   if (doc.tags?.includes(TAGS.INDEX)) {
     return `${locale}/`
   }
+
   return `${locale}/${doc.uid}`
 }
 

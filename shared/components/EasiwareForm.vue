@@ -1,37 +1,50 @@
 <template>
-  <div id="easiwareform"></div>
+  <section class="easiware-form">
+    <div class="easiware-form__container">
+      <slot></slot>
+      <div id="easiwareform"></div>
+    </div>
+  </section>
 </template>
 
 <script setup>
-import { create } from "../services/easiware.js";
+import { create as createEasiwareForm } from "@shared/services/easiware";
 
-const config = useRuntimeConfig();
 const props = defineProps({
-  "solutionId": {
+  solutionId: {
     type: String,
-    default: null
+    default: null,
   },
-  "formId": {
-    type: String,
-    default: null
-  }
-});
+  formId: {
+    type: Number,
+    default: null,
+  },
+})
 
 onMounted(() => {
-  create({
-    easiwareScriptUrl: config.public.easiwareScriptUrl,
+  createEasiwareForm({
     solutionId: props.solutionId,
     formId: props.formId,
-    language: "fr",
-    elementToBuildIn: "easiwareform"
-  });
-});
+    language: 'fr',
+    elementToBuildIn: 'easiwareform',
+  })
+})
 </script>
 
 <style lang="scss" scoped>
-#easiwareform {
-  padding: 40px;
+.easiware-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+  background-color: #452d9d;
+}
+
+.easiware-form__container {
+  max-width: 34rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  line-height: 1.25;
 }
 </style>

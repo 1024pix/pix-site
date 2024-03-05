@@ -30,9 +30,11 @@ async function getRoutesInPage(prismicClient, page, locales) {
   );
 
   const routes = results
-    .filter(({ uid }) => Boolean(uid))
+    .filter(({ uid, type }) => {
+      return Boolean(uid) || type === 'personas_list'
+    })
     .filter(({ lang }) => localesToBuild.includes(lang))
-    .map(linkResolver);
+    .flatMap(linkResolver)
 
   return { totalPages, routes }
 }
