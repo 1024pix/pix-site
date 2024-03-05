@@ -3,21 +3,24 @@
     <h2 class="support-contact__title">
       {{ t('support.faq.contact-title') }}
     </h2>
-    <nuxt-link :to="contactLink" class="support-contact__link">
+    <nuxt-link :to="formUrl" class="support-contact__link">
       {{ t('support.faq.contact-cta') }}
     </nuxt-link>
   </div>
 </template>
 
 <script setup>
-const { t } = useI18n();
+const { locale: i18nLocale, t } = useI18n();
 
-defineProps({
-  contactLink: {
+const props = defineProps({
+  contactFormId: {
     type: String,
     required: true,
   },
 })
+
+const urlLocale = i18nLocale.value === 'fr-fr' ? '' : `/${i18nLocale.value}`
+const formUrl = `${urlLocale}/support/form/${props.contactFormId}`
 </script>
 
 <style scoped lang="scss">

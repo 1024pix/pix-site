@@ -5,7 +5,7 @@
     <section class="faq-post__content-wrapper">
       <h1 class="faq-post__title">{{ data.content.title[0].text }}</h1>
       <prismic-rich-text class="faq-post__content" :field="data.content.content" />
-      <support-contact v-if="data.contactForm" :contact-link="`/support/form/${data.contactForm.uid}`" />
+      <support-contact v-if="data.contactForm" :contact-form-id="data.contactForm.uid" />
     </section>
   </div>
 </template>
@@ -46,7 +46,7 @@ const { data } = await useAsyncData(async () => {
     )
 
     const contactForm = document.data.contact_form_link.id
-      ? await client.getByID(document.data.contact_form_link.id)
+      ? await client.getByID(document.data.contact_form_link.id, { lang: i18nLocale.value })
       : null
 
     return {

@@ -41,7 +41,7 @@
           </li>
         </ul>
       </section>
-      <support-contact v-if="data.contactForm" :contact-link="`/support/form/${data.contactForm.uid}`" />
+      <support-contact v-if="data.contactForm" :contact-form-id="data.contactForm.uid" />
     </div>
   </div>
 </template>
@@ -78,7 +78,7 @@ const { data } = await useAsyncData(async () => {
     const queryPosts = await client.getAllByType('support__faq_post', { lang: i18nLocale.value })
 
     const contactForm = queryPersona.data.contact_form_link.id
-      ? await client.getByID(queryPersona.data.contact_form_link.id)
+      ? await client.getByID(queryPersona.data.contact_form_link.id, { lang: i18nLocale.value })
       : null
 
     return {
