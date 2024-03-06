@@ -37,6 +37,10 @@ html {
   margin: 0;
 }
 
+body {
+  line-height: 1.5;
+}
+
 h1,
 h2,
 h3,
@@ -44,12 +48,14 @@ h4,
 h5,
 h6 {
   font-family: $font-open-sans;
+  line-height: 1.2;
 }
 
 p,
 div {
   word-wrap: break-word;
 }
+
 .app-viewport {
   .app-brand {
     height: 66px;

@@ -9,6 +9,10 @@
     padding: 100px 0 0;
   }
 
+  &__subtitle {
+    text-align: center;
+  }
+
   &__wrapper {
     padding: 60px 10%;
     display: flex;
@@ -57,6 +61,12 @@
         font-size: 0.875rem;
         letter-spacing: 0.15px;
         line-height: 24px;
+
+        ul,
+        ol {
+          list-style: none;
+          padding-left: 0;
+        }
       }
     }
   }

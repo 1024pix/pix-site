@@ -2,10 +2,7 @@
   <div id="app" class="app-viewport">
     <skip-link />
     <hot-news-banner />
-    <locale-suggestion-banner
-      :is-open="showBanner"
-      @handleCloseBanner="closeLocaleSuggestionBanner"
-    />
+    <locale-suggestion-banner :is-open="showBanner" @handleCloseBanner="closeLocaleSuggestionBanner" />
     <navigation-slice-zone />
     <main id="main" role="main" tabindex="-1">
       <slot />
@@ -55,6 +52,10 @@ html {
   margin: 0;
 }
 
+body {
+  line-height: 1.5;
+}
+
 h1,
 h2,
 h3,
@@ -62,6 +63,7 @@ h4,
 h5,
 h6 {
   font-family: $font-open-sans;
+  line-height: 1.2;
 }
 
 p,

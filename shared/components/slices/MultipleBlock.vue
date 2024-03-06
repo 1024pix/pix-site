@@ -40,6 +40,22 @@
             :field="item.item_description"
             :serializer="customPrismicRichTextSerializer"
           />
+          <template v-if="item.item_link_url && item.item_link_label">
+            <cta-button
+              v-if="item.item_link_style"
+              :link="item.item_link_url"
+              :name="item.item_link_label"
+              is-small
+              class="process-wrapper-item-content__button"
+            />
+            <nuxt-link
+              v-else
+              :to="item.item_link_url"
+              class="process-wrapper-item-content__link"
+            >
+              &#10132;&nbsp;{{ item.item_link_label }}
+            </nuxt-link>
+          </template>
         </div>
       </div>
     </div>
