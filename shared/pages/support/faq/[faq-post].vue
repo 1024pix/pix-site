@@ -22,6 +22,7 @@ defineI18nRoute({
     fr: '/support/[parent_persona]/[current_persona]/[post_uid]',
     'fr-fr': '/support/[parent_persona]/[current_persona]/[post_uid]',
     'fr-be': '/support/[parent_persona]/[current_persona]/[post_uid]',
+    'nl-be': '/support/[parent_persona]/[current_persona]/[post_uid]',
   },
 });
 

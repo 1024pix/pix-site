@@ -24,7 +24,8 @@ defineI18nRoute({
     en: '/support/[parent_persona_name]',
     fr: '/support/[parent_persona_name]',
     'fr-fr': '/support/[parent_persona_name]',
-    'fr-be': '/support/[parent_persona_name]'
+    'fr-be': '/support/[parent_persona_name]',
+    'nl-be': '/support/[parent_persona_name]',
   }
 })
 
