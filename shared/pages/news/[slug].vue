@@ -21,6 +21,7 @@ defineI18nRoute({
     fr: "/actualites/[slug]",
     "fr-fr": "/actualites/[slug]",
     "fr-be": "/actualites/[slug]",
+    "nl-be": "/actualites/[slug]",
   },
 });
 
