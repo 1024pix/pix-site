@@ -34,15 +34,30 @@ describe("#useLocaleCookie", () => {
       });
     });
 
-    test('sets cookie with the value passed in parameter', () => {
-      // given
-      const { localeCookie, setLocaleCookie } = useLocaleCookie();
+    describe('when passed argument is a locale in BCP 47 canonical format', () => {
+      test('sets the cookie with the value', () => {
+        // given
+        const { localeCookie, setLocaleCookie } = useLocaleCookie();
 
-      // when
-      setLocaleCookie('nl-BE');
+        // when
+        setLocaleCookie('nl-BE');
 
-      // then
-      expect(localeCookie.value).toEqual('nl-BE');
+        // then
+        expect(localeCookie.value).toEqual('nl-BE');
+      })
+    })
+
+    describe('when passed argument is a locale not in BCP 47 canonical format', () => {
+      test('sets the cookie with a normalized value', () => {
+        // given
+        const { localeCookie, setLocaleCookie } = useLocaleCookie();
+
+        // when
+        setLocaleCookie('nl-be');
+
+        // then
+        expect(localeCookie.value).toEqual('nl-BE');
+      })
     })
   })
 })
