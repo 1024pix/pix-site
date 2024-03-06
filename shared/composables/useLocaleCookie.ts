@@ -6,10 +6,11 @@ export default function useLocaleCookie() {
   });
 
   function setLocaleCookie(
-    selectedLocale: string,
+    locale: string,
     callback?: Function
   ): void {
-    localeCookie.value = selectedLocale;
+    const localeCanonicalName = Intl.getCanonicalLocales(locale)?.[0]
+    localeCookie.value = localeCanonicalName;
     if (callback) callback();
   }
 
