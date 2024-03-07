@@ -23,7 +23,15 @@
       tabindex="0"
     >
       <li v-for="locale in locales">
-        <a
+        <a v-if="locale.code === 'fr-fr'"
+          :href="getEnvironmentUrl(`${locale.domain || ''}/`)"
+          :aria-current="localeProperties.code === locale.code && 'page'"
+          @click="updateLocaleCookie(locale.code)"
+        >
+          <img :src="`/images/${locale.icon}`" alt="" />
+          {{ locale.name }}
+        </a>
+        <a v-else
           :href="getEnvironmentUrl(`${locale.domain || ''}/${locale.code}`)"
           :aria-current="localeProperties.code === locale.code && 'page'"
           @click="updateLocaleCookie(locale.code)"
