@@ -21,6 +21,7 @@ defineI18nRoute({
     fr: '/support/form/[slug]',
     'fr-fr': '/support/form/[slug]',
     'fr-be': '/support/form/[slug]',
+    'nl-be': '/support/form/[slug]',
   },
 });
 

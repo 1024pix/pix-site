@@ -35,6 +35,7 @@ defineI18nRoute({
     fr: "/actualites",
     "fr-fr": "/actualites",
     "fr-be": "/actualites",
+    "nl-be": "/actualites",
   },
 });
 
