@@ -1,5 +1,5 @@
 import { getRoutesToGenerate } from "./services/get-routes-to-generate";
-import i18nConfig from "./i18n.config";
+import i18nConfig, { reachableLocales} from "./i18n.config";
 
 export default async () => {
   return defineNuxtConfig({
@@ -7,7 +7,19 @@ export default async () => {
       hooks: {
         async 'nitro:config' (nitroConfig) {
           if (process.env.NODE_ENV === 'test') return;
-          const routes = await getRoutesToGenerate({ locales: i18nConfig.locales });
+          let localesToGenerate = [];
+
+          if (process.env.SITE_DOMAIN === 'FR') {
+            localesToGenerate = reachableLocales.filter((locale) => locale.code === "fr-fr");
+          } else {
+            localesToGenerate = reachableLocales.filter((locale) => locale.code !== "fr-fr");
+          }
+
+          console.log({ localesToGenerate });
+
+          const routes = await getRoutesToGenerate({ locales: localesToGenerate });
+
+          console.log({ length: routes.length, routes });
           // @ts-ignore
           nitroConfig.prerender.routes = routes;
         },
