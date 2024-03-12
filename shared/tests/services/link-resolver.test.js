@@ -88,5 +88,22 @@ describe('linkResolver', () => {
         expect(result).toEqual(expectedUrl);
       });
     });
+
+    describe("when document does not have 'tags', 'type' and 'uid'", () => {
+      test('it returns locale root url', () => {
+        // given
+        const locale = 'nl-be';
+        const doc = {
+          lang: locale,
+        };
+
+        // when
+        const result = linkResolver(doc);
+
+        // then
+        const expectedUrl = `/${locale}/`;
+        expect(result).toEqual(expectedUrl);
+      });
+    });
   });
 });
