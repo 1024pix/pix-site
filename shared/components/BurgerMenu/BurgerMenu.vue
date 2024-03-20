@@ -170,6 +170,7 @@ const toggleLocaleSwitcher = async () => {
   flex-direction: column;
   width: 20rem;
   height: 100vh;
+  height: 100svh;
   background-color: $white;
   overflow-y: auto;
 }
