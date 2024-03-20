@@ -1,17 +1,9 @@
 import { getRoutesToGenerate } from "./services/get-routes-to-generate";
 import i18nConfig from "./i18n.config";
-
 export default async () => {
+  const routes = process.env.NODE_ENV !== 'test' ? await getRoutesToGenerate({ locales: i18nConfig.locales }) : [];
   return defineNuxtConfig({
       extends: ["../shared"],
-      hooks: {
-        async 'nitro:config' (nitroConfig) {
-          if (process.env.NODE_ENV === 'test') return;
-          const routes = await getRoutesToGenerate({ locales: i18nConfig.locales });
-          // @ts-ignore
-          nitroConfig.prerender.routes = routes;
-        },
-      },
       devServer: {
         port: Number(process.env.PORT) || 7000
       },
@@ -26,6 +18,7 @@ export default async () => {
       nitro: {
         prerender: {
           crawlLinks: false,
+          routes
         },
         devProxy: {
           "/geolocate": {
@@ -42,5 +35,4 @@ export default async () => {
 if (!process.env.SITE) {
   throw new Error("Missing SITE environment variable");
 }
-
 

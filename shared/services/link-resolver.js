@@ -45,22 +45,6 @@ export function linkResolver(doc) {
     })
   }
 
-  if (doc.type === 'support__persona_faq') {
-    const urls = new Set()
-
-    doc.data.popular_posts.forEach(({ post }) => {
-      urls.add(`${locale}/support/post/${doc.uid}/${post.uid}`)
-    })
-
-    doc.data.body
-      .flatMap((category) => category.items)
-      .forEach(({ post }) => {
-        urls.add(`${locale}/support/post/${doc.uid}/${post.uid}`)
-      })
-
-    return [...urls]
-  }
-
   if (doc.type === 'easiware_form') {
     return `${locale}/support/form/${doc.uid}`
   }
