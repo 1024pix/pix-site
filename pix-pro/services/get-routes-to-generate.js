@@ -21,10 +21,16 @@ export const getRoutesToGenerate = async function ({ locales }) {
 }
 
 async function getRoutesInPage(prismicClient, page, locales) {
+  const supportPageFilter = [
+    prismic.filter.not("document.type", "support__faq_post"),
+    prismic.filter.not("document.type", "support__persona_faq")
+  ];
+
   const { results, total_pages: totalPages } = await prismicClient.get({
     filters: [
       prismic.filter.at('document.tags', ['pix-pro']),
       prismic.filter.not('document.tags', ['fragment']),
+      ...supportPageFilter
     ],
     pageSize: 100,
     page,
