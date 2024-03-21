@@ -12,18 +12,18 @@
 </template>
 
 <script setup>
-const { locale: i18nLocale, t } = useI18n();
+const { locale: i18nLocale, t } = useI18n()
 
 const props = defineProps({
   error: Object,
-});
+})
 
 useHead({
-  title: "Error | Pix",
+  title: 'Error | Pix',
   htmlAttrs: {
     lang: i18nLocale,
   },
-});
+})
 </script>
 
 <style lang="scss">
@@ -32,7 +32,7 @@ useHead({
   margin-left: auto;
   margin-right: auto;
 
-  @include device-is("tablet") {
+  @include device-is('tablet') {
     width: 500px;
   }
 

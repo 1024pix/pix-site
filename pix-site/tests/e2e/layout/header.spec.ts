@@ -1,10 +1,9 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('layout/header', () => {
-
   test('should display elements visible in header', async ({ page }) => {
     await page.goto('http://localhost:7002/', {
-      waitUntil: 'networkidle'
+      waitUntil: 'networkidle',
     })
 
     const siteHeader = page.getByRole('banner')
@@ -12,8 +11,8 @@ test.describe('layout/header', () => {
     // Logos zone
     expect(
       siteHeader.getByAltText(
-        'République française, liberté égalité fraternité'
-      )
+        'République française, liberté égalité fraternité',
+      ),
     ).toBeVisible()
     expect(siteHeader.getByAltText('Pix')).toBeVisible()
 
@@ -23,14 +22,14 @@ test.describe('layout/header', () => {
     // Navigation zone
     expect(
       siteHeader.locator('nav').filter({
-        hasText: 'Accueil'
-      })
+        hasText: 'Accueil',
+      }),
     ).toBeVisible()
   })
 
   test('should display skip link', async ({ page }) => {
     await page.goto('/fr', {
-      waitUntil: 'networkidle'
+      waitUntil: 'networkidle',
     })
 
     const skipLink = await page.getByText('Aller au contenu')

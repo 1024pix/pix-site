@@ -5,7 +5,7 @@ test.describe('component/locale-choice', () => {
     test('the locale choice should be visible', async ({ page }) => {
       // when
       await page.goto('/', {
-        waitUntil: 'networkidle'
+        waitUntil: 'networkidle',
       })
 
       await page.getByText('English').click()
@@ -21,21 +21,23 @@ test.describe('component/locale-choice', () => {
   })
 
   test.describe('[En] when the user visits the locale home page', () => {
-    test('the locale choice should not be visible and locale cookie should not be set', async ({ page }) => {
+    test('the locale choice should not be visible and locale cookie should not be set', async ({
+      page,
+    }) => {
       // when
       await page.goto('/en', {
-        waitUntil: 'networkidle'
+        waitUntil: 'networkidle',
       })
 
       await page.waitForLoadState('networkidle')
 
       // then
       expect(await page.getByLabel('Choice of language').innerText()).toBe(
-        'English'
+        'English',
       )
 
       expect(
-        page.getByRole('link', { name: 'English', includeHidden: true })
+        page.getByRole('link', { name: 'English', includeHidden: true }),
       ).toHaveAttribute('aria-current', 'page')
 
       const cookies = await page.context().cookies()
