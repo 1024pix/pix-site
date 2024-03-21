@@ -39,7 +39,6 @@ export default function useShowOutOfFranceBanner() {
 
 
     const country = await _getUserCountryFromGeolocationService(baseUrl, useFetch);
-    console.log({country});
 
     if (!country) return false;
 
