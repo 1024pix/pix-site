@@ -1,7 +1,7 @@
 <template>
   <div v-if="isOpen" class="locale-suggestion-banner">
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <p v-html="$t('locale-suggestion-banner-text')"></p>
+    <p v-html="$t('locale-suggestion-banner-text', {domainOrgUrl: domainOrg})"></p>
     <img
       class="close"
       src="/images/close-icon.svg"
@@ -19,6 +19,10 @@ export default {
       required: true,
       type: Boolean,
       default: false,
+    },
+    domainOrg: {
+      required: true,
+      type: String,
     },
   },
 }
