@@ -2,7 +2,7 @@
   <div id='app' class='app-viewport'>
     <skip-link />
     <hot-news-banner />
-    <locale-suggestion-banner :is-open='showBanner' @handleCloseBanner='closeLocaleSuggestionBanner' />
+    <locale-suggestion-banner :is-open='showBanner' :domain-org='domainOrg' @handleCloseBanner='closeLocaleSuggestionBanner' />
     <navigation-slice-zone />
     <main id='main' role='main' tabindex='-1'>
       <slot />
@@ -17,6 +17,9 @@ import { ref } from 'vue'
 const showBanner = ref(false)
 const { origin } = useRequestURL()
 
+const config = useAppConfig()
+const domainOrg = config.domainOrg
+
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Pix` : 'Pix'
@@ -24,8 +27,8 @@ useHead({
 })
 
 onMounted(async () => {
-  // const { showOutOfFranceBanner } = useShowOutOfFranceBanner();
-  // showBanner.value = await showOutOfFranceBanner(origin, $fetch);
+  const { showOutOfFranceBanner } = useShowOutOfFranceBanner();
+  showBanner.value = await showOutOfFranceBanner(origin, $fetch);
 })
 
 const closeLocaleSuggestionBanner = () => {
