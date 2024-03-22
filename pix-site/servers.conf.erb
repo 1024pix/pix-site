@@ -67,6 +67,7 @@ server {
 
   rewrite ^/en-gb(.*)$ /en$1 permanent;
   rewrite ^/(aide|help)$ https://support.pix.org redirect;
+  rewrite ^/support/(enseignement-scolaire|enseignement-superieur|mediation-numerique|centre-de-certification|professionnel)$ https://support.pix.org redirect;
   rewrite ^/employeurs$ https://pro.pix.fr redirect;
 
   error_page 400 401 403 404 418 500 502 503 504 /404.html;
