@@ -4,11 +4,11 @@
       <button
         ref="buttonRef"
         class="locale-switcher__button"
-        @click="toggleLocalesMenu"
-        @keyup.esc="isLocalesMenuVisible && toggleLocalesMenu()"
         :aria-label="t('locale-switcher.button.main-label')"
         aria-haspopup="menu"
         :aria-expanded="isLocalesMenuVisible"
+        @click="toggleLocalesMenu"
+        @keyup.esc="isLocalesMenuVisible && toggleLocalesMenu()"
       >
         <img :src="`/images/${localeProperties.icon}`" alt="" />
         <span>{{ localeProperties.name }}</span>
@@ -21,11 +21,11 @@
         <li>
           <button
             class="sub-menu-toggler"
-            @click="toggleInternationalLocales"
             :aria-label="t('locale-switcher.button.international-label')"
+            @click="toggleInternationalLocales"
           >
             <img :src="`/images/${frLocale.icon}`" alt="" />
-            <span>{{ t("locale-switcher.locales.international") }}</span>
+            <span>{{ t('locale-switcher.locales.international') }}</span>
           </button>
           <ul v-show="isInternationalLocalesVisible" class="sub-menu">
             <li
@@ -33,8 +33,10 @@
               :class="{ active: localeProperties.code === frLocale.code }"
             >
               <a
-                :href="`${ domainOrg || ''}/fr`"
-                :aria-current="localeProperties.code === frLocale.code && 'page'"
+                :href="`${domainOrg || ''}/fr`"
+                :aria-current="
+                  localeProperties.code === frLocale.code && 'page'
+                "
                 @click="updateLocaleCookie(frLocale.code)"
               >
                 {{ frLocale.name }}
@@ -45,8 +47,10 @@
               :class="{ active: localeProperties.code === enLocale.code }"
             >
               <a
-                :href="`${ domainOrg || ''}/en`"
-                :aria-current="localeProperties.code === enLocale.code && 'page'"
+                :href="`${domainOrg || ''}/en`"
+                :aria-current="
+                  localeProperties.code === enLocale.code && 'page'
+                "
                 @click="updateLocaleCookie(enLocale.code)"
               >
                 {{ enLocale.name }}
@@ -59,7 +63,7 @@
           :class="{ active: localeProperties.code === frBeLocale.code }"
         >
           <a
-            :href="`${ domainOrg || ''}/fr-be`"
+            :href="`${domainOrg || ''}/fr-be`"
             :aria-current="localeProperties.code === frBeLocale.code && 'page'"
             @click="updateLocaleCookie(frBeLocale.code)"
           >
@@ -72,7 +76,7 @@
           :class="{ active: localeProperties.code === nlBeLocale.code }"
         >
           <a
-            :href="`${ domainOrg || ''}/nl-be`"
+            :href="`${domainOrg || ''}/nl-be`"
             :aria-current="localeProperties.code === nlBeLocale.code && 'page'"
             @click="updateLocaleCookie(nlBeLocale.code)"
           >
@@ -85,7 +89,7 @@
           :class="{ active: localeProperties.code === frFrLocale.code }"
         >
           <a
-            :href="`${ domainFr || ''}/`"
+            :href="`${domainFr || ''}/`"
             :aria-current="localeProperties.code === frFrLocale.code && 'page'"
           >
             <img :src="`/images/${frFrLocale.icon}`" alt="" />
@@ -98,55 +102,54 @@
 </template>
 
 <script setup>
-import { reachableLocales }  from "../i18n.config";
-import { onClickOutside } from "@vueuse/core";
+import { reachableLocales } from '../i18n.config'
+import { onClickOutside } from '@vueuse/core'
 
-const { getEnvironmentUrl } = useEnvironmentUrl();
-const { setLocaleCookie } = useLocaleCookie();
+const { getEnvironmentUrl } = useEnvironmentUrl()
+const { setLocaleCookie } = useLocaleCookie()
 
-const { localeProperties, locales, t } = useI18n();
+const { localeProperties, locales, t } = useI18n()
 
-const frLocale = reachableLocales.find((l) => l.code === "fr");
-const enLocale = reachableLocales.find((l) => l.code === "en");
-const frFrLocale = reachableLocales.find((l) => l.code === "fr-fr");
-const frBeLocale = reachableLocales.find((l) => l.code === "fr-be");
-const nlBeLocale = reachableLocales.find((l) => l.code === "nl-be");
+const frLocale = reachableLocales.find((l) => l.code === 'fr')
+const enLocale = reachableLocales.find((l) => l.code === 'en')
+const frFrLocale = reachableLocales.find((l) => l.code === 'fr-fr')
+const frBeLocale = reachableLocales.find((l) => l.code === 'fr-be')
+const nlBeLocale = reachableLocales.find((l) => l.code === 'nl-be')
 
-const buttonRef = ref(null);
-const localesMenuRef = ref(null);
-const isLocalesMenuVisible = ref(false);
-const isInternationalLocalesVisible = ref(false);
+const buttonRef = ref(null)
+const localesMenuRef = ref(null)
+const isLocalesMenuVisible = ref(false)
+const isInternationalLocalesVisible = ref(false)
 
-const config = useAppConfig();
-const domainFr = config.domainFr;
-const domainOrg = config.domainOrg;
+const config = useAppConfig()
+const domainFr = config.domainFr
+const domainOrg = config.domainOrg
 
 function toggleLocalesMenu() {
-  isLocalesMenuVisible.value = !isLocalesMenuVisible.value;
+  isLocalesMenuVisible.value = !isLocalesMenuVisible.value
 
   if (!isLocalesMenuVisible.value) {
-    isInternationalLocalesVisible.value = false;
+    isInternationalLocalesVisible.value = false
   }
 }
 
 function toggleInternationalLocales() {
-  isInternationalLocalesVisible.value =
-    !isInternationalLocalesVisible.value;
+  isInternationalLocalesVisible.value = !isInternationalLocalesVisible.value
 }
 
 function updateLocaleCookie(localeCode) {
-  setLocaleCookie(localeCode);
+  setLocaleCookie(localeCode)
 }
 
 onClickOutside(
   localesMenuRef,
   () => {
     if (isLocalesMenuVisible.value) {
-      toggleLocalesMenu();
+      toggleLocalesMenu()
     }
   },
-  { ignore: [buttonRef] }
-);
+  { ignore: [buttonRef] },
+)
 </script>
 
 <style lang="scss">
@@ -183,7 +186,7 @@ onClickOutside(
   }
 
   &::after {
-    content: "";
+    content: '';
     width: 0.5em;
     height: 0.5em;
     margin-left: 0.75em;
@@ -272,7 +275,7 @@ onClickOutside(
     cursor: pointer;
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       width: 0.6em;
       height: 0.6em;
