@@ -28,12 +28,12 @@
 </template>
 
 <script setup>
-const props = defineProps(["sections"]);
+const props = defineProps(['sections']);
 const emits = defineEmits();
 const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const handleLinkClick = () => {
-  emits("close-menu");
+  emits('close-menu');
 };
 </script>
 

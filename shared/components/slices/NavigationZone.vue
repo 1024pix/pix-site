@@ -32,7 +32,7 @@
           <nuxt-link
             class="navigation-zone-list-link__item"
             :to="getEnvironmentUrl(menuItem.url)"
-            activeClass="current-active-link"
+            active-class="current-active-link"
           >
             <img
               v-if="menuItem.beforeIcon"
@@ -74,13 +74,13 @@ const openDropdownIndex = ref(-1);
 const navigationLinks = useMainNavigationLinks(props.navigationZoneItems);
 
 onMounted(() => {
-  const page = document.getElementsByTagName("body")[0];
-  page.addEventListener("click", toggleDropdown);
+  const page = document.getElementsByTagName('body')[0];
+  page.addEventListener('click', toggleDropdown);
 });
 
 onBeforeUnmount(() => {
-  const page = document.getElementsByTagName("body")[0];
-  page.removeEventListener("click", toggleDropdown);
+  const page = document.getElementsByTagName('body')[0];
+  page.removeEventListener('click', toggleDropdown);
 });
 
 const isOpenDropdown = (dropdownIndex) => {
@@ -97,11 +97,9 @@ const toggleDropdown = (dropdownIndex) => {
 
 const subIsActive = (subNavigationLinks) => {
   const paths = subNavigationLinks
-    .flatMap((subNavigationLink) =>
-      subNavigationLink.links.map((link) => link.url)
-    )
+    .flatMap((subNavigationLink) => subNavigationLink.links.map((link) => link.url))
     .map((subNavigationLink) => {
-      const splittedLink = subNavigationLink.split("/");
+      const splittedLink = subNavigationLink.split('/');
       const linkIndex = splittedLink.length - 1;
       return splittedLink[linkIndex];
     });
@@ -121,8 +119,7 @@ const handleSubLinkClick = () => {
   color: $blue;
 
   img {
-    filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg)
-      brightness(103%) contrast(101%);
+    filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg) brightness(103%) contrast(101%);
   }
 }
 
@@ -161,7 +158,7 @@ const handleSubLinkClick = () => {
     border-left: 1px solid $grey-20;
   }
 
-  @include device-is("desktop") {
+  @include device-is('desktop') {
     display: flex;
     align-items: center;
     height: 100%;
@@ -173,7 +170,7 @@ const handleSubLinkClick = () => {
       padding: 0;
 
       &::after {
-        content: "";
+        content: '';
         width: 0.5em;
         height: 0.5em;
         margin-left: 0.75em;
@@ -203,7 +200,7 @@ const handleSubLinkClick = () => {
     align-items: center;
   }
 
-  @include device-is("desktop") {
+  @include device-is('desktop') {
     &__item {
       margin: 0 0 0 2rem;
       color: $grey-70;
@@ -260,13 +257,12 @@ const handleSubLinkClick = () => {
       color: $blue;
 
       img {
-        filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg)
-          brightness(103%) contrast(101%);
+        filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg) brightness(103%) contrast(101%);
       }
     }
   }
 
-  @include device-is("desktop") {
+  @include device-is('desktop') {
     &__item {
       margin: 0 0 0 2rem;
       color: $grey-70;

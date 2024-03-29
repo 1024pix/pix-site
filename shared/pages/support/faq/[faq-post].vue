@@ -1,7 +1,10 @@
 <template>
   <div class="faq-post">
-    <support-header :title="data.currentPersona.faq_page_title[0].text" :icon="data.currentPersona.icon.url"
-      :back-link="backLink" />
+    <support-header
+      :title="data.currentPersona.faq_page_title[0].text"
+      :icon="data.currentPersona.icon.url"
+      :back-link="backLink"
+    />
     <section class="faq-post__content-wrapper">
       <h1 class="faq-post__title">{{ data.content.title[0].text }}</h1>
       <prismic-rich-text class="faq-post__content" :field="data.content.content" />
@@ -27,28 +30,22 @@ defineI18nRoute({
 });
 
 const backLink = computed(() => {
-  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : ''
-  return `${localeUrl}/support/${route.params.parent_persona}/${route.params.current_persona}`
-})
+  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
+  return `${localeUrl}/support/${route.params.parent_persona}/${route.params.current_persona}`;
+});
 
 /* Fetch post data */
 const { data } = await useAsyncData(async () => {
   try {
-    const document = await client.getByUID(
-      'support__faq_post',
-      route.params.post_uid,
-      { lang: i18nLocale.value }
-    )
+    const document = await client.getByUID('support__faq_post', route.params.post_uid, { lang: i18nLocale.value });
 
-    const currentPersona = await client.getByUID(
-      'support__persona_faq',
-      route.params.current_persona,
-      { lang: i18nLocale.value }
-    )
+    const currentPersona = await client.getByUID('support__persona_faq', route.params.current_persona, {
+      lang: i18nLocale.value,
+    });
 
     const contactForm = document.data.contact_form_link.id
       ? await client.getByID(document.data.contact_form_link.id, { lang: i18nLocale.value })
-      : null
+      : null;
 
     return {
       content: document.data,
@@ -57,10 +54,10 @@ const { data } = await useAsyncData(async () => {
         ...currentPersona.data,
       },
       contactForm,
-    }
+    };
   } catch (err) {
-    console.error(err)
-    error({ statusCode: 404, message: 'Page not found' })
+    console.error(err);
+    error({ statusCode: 404, message: 'Page not found' });
   }
 });
 </script>

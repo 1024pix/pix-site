@@ -4,18 +4,18 @@
 
 <script setup>
 definePageMeta({
-  layout: 'default'
-})
+  layout: 'default',
+});
 
 /* Routes */
 // cf index.vue we declare prefix root path to each locale manually
 defineI18nRoute({
   paths: {
-    en: "/",
-    fr: "/",
-    "fr-fr": "/",
-    "fr-be": "/",
-    "nl-be": "/"
+    en: '/',
+    fr: '/',
+    'fr-fr': '/',
+    'fr-be': '/',
+    'nl-be': '/',
   },
 });
 
@@ -24,13 +24,11 @@ const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
 
 const { data: indexContent } = await useAsyncData(async () => {
-  const indexPages = await client.getAllByTag("index", {
+  const indexPages = await client.getAllByTag('index', {
     lang: i18nLocale.value,
   });
 
-  const currentSiteIndexPage = indexPages.find((page) =>
-    page.tags.includes(appConfig.site)
-  );
+  const currentSiteIndexPage = indexPages.find((page) => page.tags.includes(appConfig.site));
 
   return currentSiteIndexPage;
 });

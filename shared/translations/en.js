@@ -5,12 +5,12 @@ export default {
       'international-label': 'International languages list',
     },
     locales: {
-      international: "International",
-      "contact-digital-mediation": {
-        "page-title": "Information request",
-        "form-id": "28758"
-      }
-    }
+      international: 'International',
+      'contact-digital-mediation': {
+        'page-title': 'Information request',
+        'form-id': '28758',
+      },
+    },
   },
   'higher-education-establishment-registration': {
     'page-title': 'Pix Orga workspace request',
@@ -43,13 +43,10 @@ export default {
   },
   'page-titles': {
     'contact-digital-mediation': 'Request for information | Pix',
-    'higher-education-establishment-registration':
-      'Slot inquiry | Pix Orga sup',
+    'higher-education-establishment-registration': 'Slot inquiry | Pix Orga sup',
     news: 'News | Pix',
-    'pix-certification-application':
-      'Application for accreditation as a certification center | Pix',
-    'pix-orga-higher-school-registration':
-      'Finalise slot inquiry | Pix Orga sup',
+    'pix-certification-application': 'Application for accreditation as a certification center | Pix',
+    'pix-orga-higher-school-registration': 'Finalise slot inquiry | Pix Orga sup',
     'pix-orga-registration': 'Request for information | Pix pro',
     support: 'Support | Pix',
   },
@@ -84,4 +81,4 @@ export default {
       'contact-cta': 'Contact the support',
     },
   },
-}
+};

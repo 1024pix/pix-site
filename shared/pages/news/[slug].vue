@@ -17,17 +17,17 @@ const route = useRoute();
 /* Routes */
 defineI18nRoute({
   paths: {
-    en: "/news/[slug]",
-    fr: "/actualites/[slug]",
-    "fr-fr": "/actualites/[slug]",
-    "fr-be": "/actualites/[slug]",
-    "nl-be": "/actualites/[slug]",
+    en: '/news/[slug]',
+    fr: '/actualites/[slug]',
+    'fr-fr': '/actualites/[slug]',
+    'fr-be': '/actualites/[slug]',
+    'nl-be': '/actualites/[slug]',
   },
 });
 
 /* Fetch news item */
 const { data: newsItem } = await useAsyncData(() => {
-  return client.getByUID("news_item", route.params.slug, {
+  return client.getByUID('news_item', route.params.slug, {
     lang: i18nLocale.value,
   });
 });

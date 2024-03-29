@@ -1,4 +1,4 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
@@ -10,7 +10,7 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./tests/e2e",
+  testDir: './tests/e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -20,24 +20,24 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: "html",
+  reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "http://localhost:7001",
+    baseURL: 'http://localhost:7001',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    trace: 'on-first-retry',
 
     /* Locale */
-    locale: "fr-fr",
+    locale: 'fr-fr',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"], viewport: { width: 1600, height: 1200 }, },
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'], viewport: { width: 1600, height: 1200 } },
     },
     /* Test against mobile viewports. */
     // {
@@ -63,14 +63,14 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: "PORT=7001 SITE_DOMAIN=ORG DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev",
+      command: 'PORT=7001 SITE_DOMAIN=ORG DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
       url: 'http://localhost:7001',
       reuseExistingServer: !process.env.CI,
     },
     {
-      command: "PORT=7002 SITE_DOMAIN=FR DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev",
+      command: 'PORT=7002 SITE_DOMAIN=FR DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
       url: 'http://localhost:7002',
       reuseExistingServer: !process.env.CI,
-    }
+    },
   ],
 });

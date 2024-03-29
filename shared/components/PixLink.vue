@@ -16,27 +16,27 @@ export default {
   },
   computed: {
     linkComponent() {
-      let template = ''
+      let template = '';
       if (this.isOnCurrentDomain(this.href)) {
         template = `
           <nuxt-link to="${this.href}">
             <slot />
           </nuxt-link>
-         `
+         `;
       } else {
         template = `
           <a href="${this.href}">
             <slot />
           </a>
-        `
+        `;
       }
-      return { template }
+      return { template };
     },
   },
   methods: {
     isOnCurrentDomain(targetDomain) {
-      return targetDomain.startsWith('/') && !targetDomain.startsWith('//')
+      return targetDomain.startsWith('/') && !targetDomain.startsWith('//');
     },
   },
-}
+};
 </script>

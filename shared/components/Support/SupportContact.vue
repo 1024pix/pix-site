@@ -17,10 +17,10 @@ const props = defineProps({
     type: String,
     required: true,
   },
-})
+});
 
-const urlLocale = i18nLocale.value === 'fr-fr' ? '' : `/${i18nLocale.value}`
-const formUrl = `${urlLocale}/support/form/${props.contactFormId}`
+const urlLocale = i18nLocale.value === 'fr-fr' ? '' : `/${i18nLocale.value}`;
+const formUrl = `${urlLocale}/support/form/${props.contactFormId}`;
 </script>
 
 <style scoped lang="scss">

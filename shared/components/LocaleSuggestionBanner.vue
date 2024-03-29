@@ -1,13 +1,8 @@
 <template>
   <div v-if="isOpen" class="locale-suggestion-banner">
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <p v-html="$t('locale-suggestion-banner-text', {domainOrgUrl: domainOrg})"></p>
-    <img
-      class="close"
-      src="/images/close-icon.svg"
-      alt="Fermer"
-      @click.stop="$emit('handleCloseBanner')"
-    />
+    <p v-html="$t('locale-suggestion-banner-text', { domainOrgUrl: domainOrg })"></p>
+    <img class="close" src="/images/close-icon.svg" alt="Fermer" @click.stop="$emit('handleCloseBanner')" />
   </div>
 </template>
 
@@ -25,7 +20,7 @@ export default {
       type: String,
     },
   },
-}
+};
 </script>
 
 <style lang="scss">

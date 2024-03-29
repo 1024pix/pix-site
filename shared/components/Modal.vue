@@ -1,11 +1,5 @@
 <template>
-  <div
-    ref="modalRef"
-    tabindex="0"
-    class="modal"
-    @click="$emit('closeModal')"
-    @keydown.esc="$emit('closeModal')"
-  >
+  <div ref="modalRef" tabindex="0" class="modal" @click="$emit('closeModal')" @keydown.esc="$emit('closeModal')">
     <div class="modal__content" @click.stop="">
       <slot />
     </div>
@@ -13,7 +7,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted } from 'vue';
 
 const modalRef = ref(null);
 

@@ -1,10 +1,14 @@
 <template>
-  <div id='app' class='app-viewport'>
+  <div id="app" class="app-viewport">
     <skip-link />
     <hot-news-banner />
-    <locale-suggestion-banner :is-open='showBanner' :domain-org='domainOrg' @handleCloseBanner='closeLocaleSuggestionBanner' />
+    <locale-suggestion-banner
+      :is-open="showBanner"
+      :domain-org="domainOrg"
+      @handle-close-banner="closeLocaleSuggestionBanner"
+    />
     <navigation-slice-zone />
-    <main id='main' role='main' tabindex='-1'>
+    <main id="main" role="main" tabindex="-1">
       <slot />
     </main>
     <shared-footer-slice-zone />
@@ -12,31 +16,31 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-const showBanner = ref(false)
-const { origin } = useRequestURL()
+const showBanner = ref(false);
+const { origin } = useRequestURL();
 
-const config = useAppConfig()
-const domainOrg = config.domainOrg
+const config = useAppConfig();
+const domainOrg = config.domainOrg;
 
 useHead({
   titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} | Pix` : 'Pix'
-  }
-})
+    return titleChunk ? `${titleChunk} | Pix` : 'Pix';
+  },
+});
 
 onMounted(async () => {
   const { showOutOfFranceBanner } = useShowOutOfFranceBanner();
   showBanner.value = await showOutOfFranceBanner(origin, $fetch);
-})
+});
 
 const closeLocaleSuggestionBanner = () => {
-  showBanner.value = false
-}
+  showBanner.value = false;
+};
 </script>
 
-<style lang='scss'>
+<style lang="scss">
 html {
   font-size: 16px;
   word-spacing: 1px;

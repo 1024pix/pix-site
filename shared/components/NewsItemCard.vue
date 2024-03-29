@@ -1,9 +1,6 @@
 <template>
   <li class="news-item-card">
-    <nuxt-link
-      class="news-item-card__link"
-      :to="localePath(`/${t('news-page-prefix')}/${props.uid}`, i18nLocale)"
-    >
+    <nuxt-link class="news-item-card__link" :to="localePath(`/${t('news-page-prefix')}/${props.uid}`, i18nLocale)">
       <div v-if="slice.illustration?.url" class="news-item-card__header">
         <div
           class="news-item-card__illustration"
@@ -24,17 +21,14 @@
 
         <h3 class="news-item-card__title">{{ slice.title[0].text }}</h3>
 
-        <prismic-rich-text
-          :field="slice.excerpt"
-          class="news-item-card__excerpt"
-        />
+        <prismic-rich-text :field="slice.excerpt" class="news-item-card__excerpt" />
       </div>
     </nuxt-link>
   </li>
 </template>
 
 <script setup>
-import { useDateFormat } from "@vueuse/core";
+import { useDateFormat } from '@vueuse/core';
 
 const { locale: i18nLocale, t } = useI18n();
 const localePath = useLocalePath();
@@ -56,7 +50,7 @@ const categoryClassName = `news-item-card__category--${props.slice.category.toLo
 
 const categoryLabel = props.slice.category.toLowerCase();
 
-const date = useDateFormat(props.slice.date, "DD MMMM YYYY", {
+const date = useDateFormat(props.slice.date, 'DD MMMM YYYY', {
   locales: i18nLocale.value,
 });
 </script>
@@ -80,12 +74,12 @@ const date = useDateFormat(props.slice.date, "DD MMMM YYYY", {
     font-family: $font-open-sans;
   }
 
-  @include device-is("tablet") {
+  @include device-is('tablet') {
     margin: 20px;
   }
 
   &:hover {
-    @include device-is("desktop") {
+    @include device-is('desktop') {
       box-shadow: 0 30px 30px rgba(0, 0, 0, 0.1);
       transform: translate3D(0, -20px, 0);
     }

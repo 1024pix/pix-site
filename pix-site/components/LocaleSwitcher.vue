@@ -4,48 +4,38 @@
       <button
         ref="buttonRef"
         class="locale-switcher__button"
-        @click="toggleLocalesMenu"
-        @keyup.esc="isLocalesMenuVisible && toggleLocalesMenu()"
         :aria-label="t('locale-switcher.button.main-label')"
         aria-haspopup="menu"
         :aria-expanded="isLocalesMenuVisible"
+        @click="toggleLocalesMenu"
+        @keyup.esc="isLocalesMenuVisible && toggleLocalesMenu()"
       >
         <img :src="`/images/${localeProperties.icon}`" alt="" />
         <span>{{ localeProperties.name }}</span>
       </button>
-      <ul
-        v-show="isLocalesMenuVisible"
-        ref="localesMenuRef"
-        class="locale-switcher__languages-menu"
-      >
+      <ul v-show="isLocalesMenuVisible" ref="localesMenuRef" class="locale-switcher__languages-menu">
         <li>
           <button
             class="sub-menu-toggler"
-            @click="toggleInternationalLocales"
             :aria-label="t('locale-switcher.button.international-label')"
+            @click="toggleInternationalLocales"
           >
             <img :src="`/images/${frLocale.icon}`" alt="" />
-            <span>{{ t("locale-switcher.locales.international") }}</span>
+            <span>{{ t('locale-switcher.locales.international') }}</span>
           </button>
           <ul v-show="isInternationalLocalesVisible" class="sub-menu">
-            <li
-              v-if="frLocale"
-              :class="{ active: localeProperties.code === frLocale.code }"
-            >
+            <li v-if="frLocale" :class="{ active: localeProperties.code === frLocale.code }">
               <a
-                :href="`${ domainOrg || ''}/fr`"
+                :href="`${domainOrg || ''}/fr`"
                 :aria-current="localeProperties.code === frLocale.code && 'page'"
                 @click="updateLocaleCookie(frLocale.code)"
               >
                 {{ frLocale.name }}
               </a>
             </li>
-            <li
-              v-if="enLocale"
-              :class="{ active: localeProperties.code === enLocale.code }"
-            >
+            <li v-if="enLocale" :class="{ active: localeProperties.code === enLocale.code }">
               <a
-                :href="`${ domainOrg || ''}/en`"
+                :href="`${domainOrg || ''}/en`"
                 :aria-current="localeProperties.code === enLocale.code && 'page'"
                 @click="updateLocaleCookie(enLocale.code)"
               >
@@ -54,12 +44,9 @@
             </li>
           </ul>
         </li>
-        <li
-          v-if="frBeLocale"
-          :class="{ active: localeProperties.code === frBeLocale.code }"
-        >
+        <li v-if="frBeLocale" :class="{ active: localeProperties.code === frBeLocale.code }">
           <a
-            :href="`${ domainOrg || ''}/fr-be`"
+            :href="`${domainOrg || ''}/fr-be`"
             :aria-current="localeProperties.code === frBeLocale.code && 'page'"
             @click="updateLocaleCookie(frBeLocale.code)"
           >
@@ -67,12 +54,9 @@
             <span>{{ frBeLocale.name }}</span>
           </a>
         </li>
-        <li
-          v-if="nlBeLocale"
-          :class="{ active: localeProperties.code === nlBeLocale.code }"
-        >
+        <li v-if="nlBeLocale" :class="{ active: localeProperties.code === nlBeLocale.code }">
           <a
-            :href="`${ domainOrg || ''}/nl-be`"
+            :href="`${domainOrg || ''}/nl-be`"
             :aria-current="localeProperties.code === nlBeLocale.code && 'page'"
             @click="updateLocaleCookie(nlBeLocale.code)"
           >
@@ -80,14 +64,8 @@
             <span>{{ nlBeLocale.name }}</span>
           </a>
         </li>
-        <li
-          v-if="frFrLocale"
-          :class="{ active: localeProperties.code === frFrLocale.code }"
-        >
-          <a
-            :href="`${ domainFr || ''}/`"
-            :aria-current="localeProperties.code === frFrLocale.code && 'page'"
-          >
+        <li v-if="frFrLocale" :class="{ active: localeProperties.code === frFrLocale.code }">
+          <a :href="`${domainFr || ''}/`" :aria-current="localeProperties.code === frFrLocale.code && 'page'">
             <img :src="`/images/${frFrLocale.icon}`" alt="" />
             <span>{{ frFrLocale.name }}</span>
           </a>
@@ -98,19 +76,19 @@
 </template>
 
 <script setup>
-import { reachableLocales }  from "../i18n.config";
-import { onClickOutside } from "@vueuse/core";
+import { reachableLocales } from '../i18n.config';
+import { onClickOutside } from '@vueuse/core';
 
 const { getEnvironmentUrl } = useEnvironmentUrl();
 const { setLocaleCookie } = useLocaleCookie();
 
 const { localeProperties, locales, t } = useI18n();
 
-const frLocale = reachableLocales.find((l) => l.code === "fr");
-const enLocale = reachableLocales.find((l) => l.code === "en");
-const frFrLocale = reachableLocales.find((l) => l.code === "fr-fr");
-const frBeLocale = reachableLocales.find((l) => l.code === "fr-be");
-const nlBeLocale = reachableLocales.find((l) => l.code === "nl-be");
+const frLocale = reachableLocales.find((l) => l.code === 'fr');
+const enLocale = reachableLocales.find((l) => l.code === 'en');
+const frFrLocale = reachableLocales.find((l) => l.code === 'fr-fr');
+const frBeLocale = reachableLocales.find((l) => l.code === 'fr-be');
+const nlBeLocale = reachableLocales.find((l) => l.code === 'nl-be');
 
 const buttonRef = ref(null);
 const localesMenuRef = ref(null);
@@ -130,8 +108,7 @@ function toggleLocalesMenu() {
 }
 
 function toggleInternationalLocales() {
-  isInternationalLocalesVisible.value =
-    !isInternationalLocalesVisible.value;
+  isInternationalLocalesVisible.value = !isInternationalLocalesVisible.value;
 }
 
 function updateLocaleCookie(localeCode) {
@@ -145,7 +122,7 @@ onClickOutside(
       toggleLocalesMenu();
     }
   },
-  { ignore: [buttonRef] }
+  { ignore: [buttonRef] },
 );
 </script>
 
@@ -183,7 +160,7 @@ onClickOutside(
   }
 
   &::after {
-    content: "";
+    content: '';
     width: 0.5em;
     height: 0.5em;
     margin-left: 0.75em;
@@ -272,7 +249,7 @@ onClickOutside(
     cursor: pointer;
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       width: 0.6em;
       height: 0.6em;

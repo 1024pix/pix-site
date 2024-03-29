@@ -1,9 +1,5 @@
 <template>
-  <nav
-    class="burger-menu"
-    role="navigation"
-    :aria-label="t('burger-menu.name')"
-  >
+  <nav class="burger-menu" role="navigation" :aria-label="t('burger-menu.name')">
     <button
       class="burger-menu__toggle"
       :aria-label="isMenuOpen ? t('burger-menu.close') : t('burger-menu.open')"
@@ -11,21 +7,18 @@
       aria-controls="menu"
       @click="toggleMenu"
     >
-      <span class="burger-menu-toggle__icon"/>
-      <span class="burger-menu-toggle__icon"/>
-      <span class="burger-menu-toggle__icon"/>
+      <span class="burger-menu-toggle__icon" />
+      <span class="burger-menu-toggle__icon" />
+      <span class="burger-menu-toggle__icon" />
     </button>
     <UseFocusTrap v-if="isMenuOpen" @keydown.esc="toggleMenu">
       <div class="burger-menu__overlay" @click="toggleMenu"></div>
       <div id="menu" class="burger-menu__container" @click.stop>
-        <burger-menu-header
-          :logos-zone="items.logosZone"
-          @close-menu="toggleMenu"
-        />
+        <burger-menu-header :logos-zone="items.logosZone" @close-menu="toggleMenu" />
         <div class="burger-menu__content">
           <burger-menu-locales-list
             v-show="isLocaleSwitcherOpen"
-            :isLocaleSwitcherOpen="isLocaleSwitcherOpen"
+            :is-locale-switcher-open="isLocaleSwitcherOpen"
             @close="toggleLocaleSwitcher"
           />
           <burger-menu-first-level-list
@@ -35,17 +28,14 @@
             @close-menu="toggleMenu"
           />
         </div>
-        <burger-menu-footer
-          :actions="items.actionsZone"
-          @toggle-locale-switcher="toggleLocaleSwitcher"
-        />
+        <burger-menu-footer :actions="items.actionsZone" @toggle-locale-switcher="toggleLocaleSwitcher" />
       </div>
     </UseFocusTrap>
   </nav>
 </template>
 
 <script setup>
-import { UseFocusTrap } from "@vueuse/integrations/useFocusTrap/component";
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 
 const { t } = useI18n();
 
@@ -61,9 +51,9 @@ const isLocaleSwitcherOpen = ref(false);
 
 watch(isMenuOpen, () => {
   if (isMenuOpen && isMenuOpen.value) {
-    document.body.style.position = "fixed";
+    document.body.style.position = 'fixed';
   } else {
-    document.body.style.position = "static";
+    document.body.style.position = 'static';
   }
 });
 
@@ -95,7 +85,7 @@ const toggleLocaleSwitcher = async () => {
     padding: 0;
 
     &::before {
-      content: "";
+      content: '';
       margin-right: 0;
     }
   }
@@ -150,7 +140,7 @@ const toggleLocaleSwitcher = async () => {
 .burger-menu-toggle {
   &__icon {
     background: $grey-90;
-    display:block;
+    display: block;
     width: 22px;
     height: 3px;
     border-radius: 3px;

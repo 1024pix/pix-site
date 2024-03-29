@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "CtaButton",
+  name: 'CtaButton',
   props: {
     link: {
       type: String,
@@ -14,7 +14,7 @@ export default {
     },
     name: {
       type: String,
-      default: "",
+      default: '',
     },
     isSmall: {
       type: Boolean,

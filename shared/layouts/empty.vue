@@ -6,8 +6,8 @@
 const { fallbackLocale } = useI18n();
 
 useHead({
-    htmlAttrs: {
-      lang: fallbackLocale,
-    }
-})
+  htmlAttrs: {
+    lang: fallbackLocale,
+  },
+});
 </script>

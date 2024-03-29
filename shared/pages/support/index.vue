@@ -36,22 +36,17 @@ defineI18nRoute({
 /* Fetch personas list */
 const { data } = await useAsyncData(async () => {
   try {
-    const supportPage = await client.getSingle(
-      'personas_list',
-      { lang: i18nLocale.value }
-    )
+    const supportPage = await client.getSingle('personas_list', { lang: i18nLocale.value });
 
-    const mainPersonas = supportPage?.data.body.map(
-      (persona) => persona.primary
-    )
+    const mainPersonas = supportPage?.data.body.map((persona) => persona.primary);
 
     return {
       supportPageData: supportPage?.data,
       mainPersonas,
-    }
+    };
   } catch (err) {
-    console.error({ err })
-    error({ statusCode: 404, message: 'Page not found' })
+    console.error({ err });
+    error({ statusCode: 404, message: 'Page not found' });
   }
 });
 </script>

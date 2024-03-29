@@ -1,14 +1,9 @@
 <template>
   <div class="news-item-post">
     <header class="news-item-post__header">
-      <prismic-rich-text
-        class="news-item-post__title"
-        :field="newsItem.data.title"
-      />
+      <prismic-rich-text class="news-item-post__title" :field="newsItem.data.title" />
       <p class="news-item-post__meta">
-        <span
-          :class="`news-item-post__category ${`news-item-card__category--${categoryLabel}`}`"
-        >
+        <span :class="`news-item-post__category ${`news-item-card__category--${categoryLabel}`}`">
           {{ $t(categoryLabel) }}
         </span>
         •
@@ -18,10 +13,7 @@
 
     <div class="news-item-post__body">
       <div class="news-item-post__excerpt">
-        <prismic-rich-text
-          :field="newsItem.data.body"
-          :serializer="customPrismicRichTextSerializer"
-        />
+        <prismic-rich-text :field="newsItem.data.body" :serializer="customPrismicRichTextSerializer" />
         <prismic-custom-slice-zone :slices="newsItem.data.slices" />
       </div>
     </div>
@@ -30,7 +22,7 @@
 </template>
 
 <script setup>
-import { useDateFormat } from "@vueuse/core";
+import { useDateFormat } from '@vueuse/core';
 const { locale: i18nLocale } = useI18n();
 
 const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
@@ -45,8 +37,8 @@ const props = defineProps({
 const categoryLabel = props.newsItem.data.category.toLowerCase();
 
 const date = props.newsItem.first_publication_date
-  ? "Preview"
-  : useDateFormat(props.newsItem.data.date, "DD MMMM YYYY", {
+  ? 'Preview'
+  : useDateFormat(props.newsItem.data.date, 'DD MMMM YYYY', {
       locales: i18nLocale.value,
     });
 </script>
@@ -78,7 +70,7 @@ const date = props.newsItem.first_publication_date
     padding: 30px;
     text-align: center;
 
-    @include device-is("tablet") {
+    @include device-is('tablet') {
       padding: 70px 150px 30px;
     }
   }
@@ -86,7 +78,7 @@ const date = props.newsItem.first_publication_date
   &__body {
     padding: 0 30px 30px;
 
-    @include device-is("tablet") {
+    @include device-is('tablet') {
       padding: 0 150px 70px;
     }
 
@@ -238,7 +230,7 @@ const date = props.newsItem.first_publication_date
     font-size: 1.875rem;
     line-height: 2.375rem;
 
-    @include device-is("tablet") {
+    @include device-is('tablet') {
       font-size: 2.875rem;
       line-height: 3.875rem;
     }
@@ -262,7 +254,7 @@ const date = props.newsItem.first_publication_date
 .multiple-column {
   margin: 0 -10px;
 
-  @include device-is("large-mobile") {
+  @include device-is('large-mobile') {
     display: flex;
     justify-content: space-between;
   }

@@ -3,5 +3,5 @@ module.exports = {
     jest: true,
   },
   root: true,
-  extends: ['@nuxt/eslint-config', 'plugin:prettier/recommended']
-}
+  extends: ['@nuxt/eslint-config', 'plugin:prettier/recommended'],
+};

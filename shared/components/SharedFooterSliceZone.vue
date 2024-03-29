@@ -1,16 +1,9 @@
 <template>
   <footer class="footer" role="contentinfo">
     <div class="footer__left">
-      <div
-        v-for="(slice, index) in mainFooter"
-        :key="`footer-slice-left-${index}`"
-      >
+      <div v-for="(slice, index) in mainFooter" :key="`footer-slice-left-${index}`">
         <template v-if="slice.slice_type === 'logos_zone'">
-          <slices-logos-zone
-            :slice="slice"
-            class="footer-left__logos"
-            :max-height="96"
-          />
+          <slices-logos-zone :slice="slice" class="footer-left__logos" :max-height="96" />
         </template>
         <prismic-rich-text
           v-if="slice.slice_type === 'text'"
@@ -18,23 +11,10 @@
           :field="slice.primary.text"
           :serializer="customPrismicRichTextSerializer"
         />
-        <ul
-          v-if="slice.slice_type === 'social_media'"
-          class="footer-left__social-media"
-        >
-          <li
-            v-for="(socialMedia, socialMediaIndex) in slice.items"
-            :key="`socialMedia-${socialMediaIndex}`"
-          >
-            <nuxt-link
-              :to="socialMedia.socialmedia_url.url"
-              exact
-              class="footer-social-media__icon"
-            >
-              <img
-                :src="socialMedia.socialmedia_image.url"
-                :alt="socialMedia.socialmedia_image.alt"
-              />
+        <ul v-if="slice.slice_type === 'social_media'" class="footer-left__social-media">
+          <li v-for="(socialMedia, socialMediaIndex) in slice.items" :key="`socialMedia-${socialMediaIndex}`">
+            <nuxt-link :to="socialMedia.socialmedia_url.url" exact class="footer-social-media__icon">
+              <img :src="socialMedia.socialmedia_image.url" :alt="socialMedia.socialmedia_image.alt" />
             </nuxt-link>
           </li>
         </ul>
@@ -59,17 +39,15 @@ const { client, filter } = usePrismic();
 const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 
 const { data: mainFooter } = await useAsyncData(async () => {
-  const { results: footer } = await client.getByType("main_footer", {
-    filters: [filter.at("my.main_footer.footer_for", appConfig.site)],
+  const { results: footer } = await client.getByType('main_footer', {
+    filters: [filter.at('my.main_footer.footer_for', appConfig.site)],
     lang: i18nLocale.value,
   });
 
   return footer[0].data.body;
 });
 
-const navigationGroups = mainFooter.value.filter(
-  (slice) => slice.slice_type === "navigation_group"
-);
+const navigationGroups = mainFooter.value.filter((slice) => slice.slice_type === 'navigation_group');
 </script>
 
 <style lang="scss">
@@ -127,7 +105,7 @@ const navigationGroups = mainFooter.value.filter(
   }
 }
 
-@include device-is("tablet") {
+@include device-is('tablet') {
   .footer {
     &__right {
       display: flex;
@@ -150,7 +128,7 @@ const navigationGroups = mainFooter.value.filter(
   }
 }
 
-@include device-is("large-screen") {
+@include device-is('large-screen') {
   .footer {
     display: flex;
     padding: 47px 98px;

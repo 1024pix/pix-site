@@ -1,11 +1,7 @@
 <template>
   <div class="error">
     <a :href="t('home-page-url')">
-      <img
-        class="logo"
-        src="/images/pix-logo.svg"
-        alt="Lien pour revenir à l'accueil"
-      />
+      <img class="logo" src="/images/pix-logo.svg" alt="Lien pour revenir à l'accueil" />
     </a>
     <div v-html="t('error-content')" />
   </div>
@@ -19,7 +15,7 @@ const props = defineProps({
 });
 
 useHead({
-  title: "Error | Pix",
+  title: 'Error | Pix',
   htmlAttrs: {
     lang: i18nLocale,
   },
@@ -32,7 +28,7 @@ useHead({
   margin-left: auto;
   margin-right: auto;
 
-  @include device-is("tablet") {
+  @include device-is('tablet') {
     width: 500px;
   }
 

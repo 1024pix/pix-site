@@ -1,37 +1,37 @@
 <template>
-  <section class='easiware-form'>
-    <div class='easiware-form__container'>
+  <section class="easiware-form">
+    <div class="easiware-form__container">
       <slot></slot>
-      <div id='easiwareform'></div>
+      <div id="easiwareform"></div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { create as createEasiwareForm } from '@shared/services/easiware'
+import { create as createEasiwareForm } from '@shared/services/easiware';
 
 const props = defineProps({
   solutionId: {
     type: String,
-    default: null
+    default: null,
   },
   formId: {
     type: Number,
-    default: null
-  }
-})
+    default: null,
+  },
+});
 
 onMounted(() => {
   createEasiwareForm({
     solutionId: props.solutionId,
     formId: props.formId,
     language: 'fr',
-    elementToBuildIn: 'easiwareform'
-  })
-})
+    elementToBuildIn: 'easiwareform',
+  });
+});
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .easiware-form {
   display: flex;
   flex-direction: column;

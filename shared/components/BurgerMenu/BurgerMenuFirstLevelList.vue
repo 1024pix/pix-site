@@ -1,14 +1,7 @@
 <template>
   <ul class="burger-menu__nav-list">
-    <li
-      v-for="(item, index) in navigationLinks"
-      :key="`navigation-links-${index}`"
-      class="burger-menu-nav-list__item"
-    >
-      <div
-        v-if="item.sections.length > 0"
-        v-show="isCategoryOpen(index) || openDropdownIndex === -1"
-      >
+    <li v-for="(item, index) in navigationLinks" :key="`navigation-links-${index}`" class="burger-menu-nav-list__item">
+      <div v-if="item.sections.length > 0" v-show="isCategoryOpen(index) || openDropdownIndex === -1">
         <div class="burger-menu-nav-list-item__category">
           <button
             class="burger-menu-nav-list-item-category__button"
@@ -19,9 +12,7 @@
                 : `${$t('burger-menu.open-category')} ${item.name}`
             "
             :style="{
-              justifyContent: isCategoryOpen(index)
-                ? 'flex-start'
-                : 'space-between',
+              justifyContent: isCategoryOpen(index) ? 'flex-start' : 'space-between',
             }"
             @click="toggleCategory(index)"
           >
@@ -29,10 +20,7 @@
           </button>
         </div>
         <div v-show="isCategoryOpen(index)">
-          <burger-menu-sections
-            :sections="item.sections"
-            @close-menu="handleLinkClick"
-          />
+          <burger-menu-sections :sections="item.sections" @close-menu="handleLinkClick" />
         </div>
       </div>
       <div v-else v-show="openDropdownIndex === -1" @click="handleLinkClick">
@@ -96,7 +84,7 @@ watch(
   () => props.isLocaleSwitcherOpen,
   (newValue) => {
     isLocaleSwitcherOpenLocal.value = newValue;
-  }
+  },
 );
 const isCategoryOpen = (categoryDropdownIndex) => {
   return openDropdownIndex.value === categoryDropdownIndex;
@@ -120,7 +108,7 @@ const toggleCategory = (categoryDropdownIndex) => {
 const emits = defineEmits();
 
 const handleLinkClick = () => {
-  emits("close-menu");
+  emits('close-menu');
   openDropdownIndex.value = -1;
 };
 </script>
@@ -184,14 +172,14 @@ const handleLinkClick = () => {
       transform-origin: center center;
     }
 
-    &[aria-expanded="false"]::after {
-      content: "";
+    &[aria-expanded='false']::after {
+      content: '';
       border-right: 2px solid currentColor;
       transform: rotate(45deg) translate(-25%, 15%);
     }
 
-    &[aria-expanded="true"]::before {
-      content: "";
+    &[aria-expanded='true']::before {
+      content: '';
       margin-right: 0.75em;
       border-left: 2px solid currentColor;
       transform-origin: center center;
@@ -204,8 +192,7 @@ const handleLinkClick = () => {
   color: $blue;
 
   img {
-    filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg)
-      brightness(103%) contrast(101%);
+    filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg) brightness(103%) contrast(101%);
   }
 
   &:hover,
@@ -213,8 +200,7 @@ const handleLinkClick = () => {
     color: $blue-hover;
 
     img {
-      filter: invert(18%) sepia(100%) saturate(7289%) hue-rotate(233deg)
-        brightness(98%) contrast(110%);
+      filter: invert(18%) sepia(100%) saturate(7289%) hue-rotate(233deg) brightness(98%) contrast(110%);
     }
   }
 }

@@ -1,10 +1,6 @@
 <template>
   <div class="logos-zone">
-    <div
-      v-for="(logo, index) in slice.items"
-      :key="`logo-${index}`"
-      class="logos-zone__content"
-    >
+    <div v-for="(logo, index) in slice.items" :key="`logo-${index}`" class="logos-zone__content">
       <nuxt-link v-if="hasLink(logo)" :to="logo.url.url">
         <img :src="logo.image.url" :alt="logo.image.alt" />
       </nuxt-link>
@@ -26,7 +22,7 @@ defineProps({
 });
 
 function hasLink(item) {
-  return item.url.link_type !== "Any";
+  return item.url.link_type !== 'Any';
 }
 </script>
 
@@ -38,7 +34,7 @@ function hasLink(item) {
   .logos-zone__content {
     margin-right: 12px;
 
-    @include device-is("large-screen") {
+    @include device-is('large-screen') {
       margin-right: 24px;
     }
 
@@ -51,11 +47,11 @@ function hasLink(item) {
       margin-right: 0;
     }
   }
-  @include device-is("desktop") {
+  @include device-is('desktop') {
     justify-content: flex-start;
   }
 
-  @include device-is("large-screen") {
+  @include device-is('large-screen') {
     margin-right: 40px;
   }
 }
