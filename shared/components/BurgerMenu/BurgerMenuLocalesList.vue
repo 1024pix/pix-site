@@ -16,7 +16,7 @@
       {{ localeProperties.name }}
     </button>
     <ul ref="localeSwitcher" class="burger-menu-locales-list__items" tabindex="0">
-      <li v-for="locale in locales">
+      <li v-for="locale in locales" :key="locale.code">
         <a
           :href="getEnvironmentUrl(`${locale.domain || ''}/${locale.code}`)"
           :aria-current="localeProperties.code === locale.code && 'page'"
