@@ -105,7 +105,7 @@ const toggleCategory = (categoryDropdownIndex) => {
   }
 };
 
-const emits = defineEmits();
+const emits = defineEmits(['close-menu']);
 
 const handleLinkClick = () => {
   emits('close-menu');

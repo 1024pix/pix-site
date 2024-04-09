@@ -29,7 +29,7 @@
 
 <script setup>
 const props = defineProps(['sections']);
-const emits = defineEmits();
+const emits = defineEmits(['close-menu']);
 const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const handleLinkClick = () => {
