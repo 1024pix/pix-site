@@ -1,3 +1,5 @@
+import { useRuntimeConfig } from '#imports';
+
 const buildRequestUrl = (easiConnectUrl, params) => {
   return `${easiConnectUrl}/webforms/2.0/script/1.0/${params.solutionId}/${params.formId}/${params.language}.js`;
 };

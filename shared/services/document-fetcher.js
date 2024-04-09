@@ -13,7 +13,7 @@ export const TAGS = {
   INDEX: 'index',
 };
 
-export function documentFetcher(prismic, i18n = { defaultLocale: 'fr-fr' }, req) {
+export function documentFetcher(prismic, i18n = { defaultLocale: 'fr-fr' }) {
   const locale = i18n.locale || i18n.defaultLocale;
   return {
     get: getSingle,
