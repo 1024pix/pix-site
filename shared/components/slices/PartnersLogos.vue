@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "SlicesPartnersLogosSlice",
+  name: 'SlicesPartnersLogosSlice',
   props: {
     slice: {
       type: Object,
@@ -33,10 +33,7 @@ export default {
       return this.slice.primary.logos_should_display_title;
     },
     hasTitle() {
-      return (
-        this.slice.primary.logos_title.length &&
-        this.slice.primary.logos_title[0].text.length
-      );
+      return this.slice.primary.logos_title.length && this.slice.primary.logos_title[0].text.length;
     },
     title() {
       return this.slice.primary.logos_title;
@@ -78,13 +75,13 @@ export default {
   }
 }
 
-@include device-is("tablet") {
+@include device-is('tablet') {
   .partners-logos {
     margin: 0 32px;
   }
 }
 
-@include device-is("desktop") {
+@include device-is('desktop') {
   .partners-logos {
     &__title h2 {
       margin-bottom: 48px;
@@ -104,7 +101,7 @@ export default {
   }
 }
 
-@include device-is("large-screen") {
+@include device-is('large-screen') {
   .partners-logos {
     max-width: 1920px;
     margin: 0 auto;

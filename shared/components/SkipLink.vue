@@ -1,6 +1,6 @@
 <template>
   <a class="skip-link" href="#main">
-    {{ t("skip-link") }}
+    {{ t('skip-link') }}
   </a>
 </template>
 

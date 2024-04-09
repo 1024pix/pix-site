@@ -3,8 +3,11 @@
     <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
       {{ data.supportForm.form_title?.[0].text }}
     </h1>
-    <prismic-rich-text v-if="data.supportForm.form_introduction?.length" :field="data.supportForm.form_introduction"
-      class="easiware-form__introduction" />
+    <prismic-rich-text
+      v-if="data.supportForm.form_introduction?.length"
+      :field="data.supportForm.form_introduction"
+      class="easiware-form__introduction"
+    />
     <p class="easiware-form__required-info" v-html="t('support.form.required-info')" />
   </easiware-form>
 </template>
@@ -28,17 +31,13 @@ defineI18nRoute({
 /* Fetch form data */
 const { data } = await useAsyncData(async () => {
   try {
-    const supportForm = await client.getByUID(
-      'easiware_form',
-      route.params.slug,
-      {
-        lang: i18nLocale.value,
-      }
-    )
-    return { supportForm: supportForm.data }
+    const supportForm = await client.getByUID('easiware_form', route.params.slug, {
+      lang: i18nLocale.value,
+    });
+    return { supportForm: supportForm.data };
   } catch (err) {
-    console.error(err)
-    error({ statusCode: 404, message: 'Page not found' })
+    console.error(err);
+    error({ statusCode: 404, message: 'Page not found' });
   }
 });
 </script>

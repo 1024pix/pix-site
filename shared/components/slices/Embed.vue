@@ -6,9 +6,9 @@
 defineProps({
   src: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>
 
 <style lang="scss">

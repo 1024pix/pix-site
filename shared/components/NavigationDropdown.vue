@@ -1,25 +1,15 @@
 <template>
   <div class="btn-group navigation-dropdown" @click.stop>
     <div class="navigation-dropdown__description">
-      <p
-        class="navigation-dropdown-description__title"
-        :aria-describedby="`description-${dropdownIndex}`"
-      >
+      <p class="navigation-dropdown-description__title" :aria-describedby="`description-${dropdownIndex}`">
         {{ description.title }}
       </p>
-      <p
-        :id="`description-${dropdownIndex}`"
-        class="navigation-dropdown-description__text"
-      >
+      <p :id="`description-${dropdownIndex}`" class="navigation-dropdown-description__text">
         {{ description.text }}
       </p>
     </div>
     <ul class="navigation-dropdown__list">
-      <li
-        v-for="(section, index) in sections"
-        :key="`section-${index}`"
-        class="navigation-dropdown-list__item"
-      >
+      <li v-for="(section, index) in sections" :key="`section-${index}`" class="navigation-dropdown-list__item">
         <div class="navigation-dropdown-list-item__text">
           {{ section.title }}
         </div>
@@ -105,7 +95,7 @@ defineProps({
     text-align: left;
 
     &::before {
-      content: "";
+      content: '';
       margin-right: 0;
     }
   }

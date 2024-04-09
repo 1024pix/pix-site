@@ -10,10 +10,7 @@
       <section class="page-section">
         <div class="container md padding-container">
           <div class="page-section__description">
-            <prismic-rich-text
-              :field="content.body"
-              :serializer="customPrismicRichTextSerializer"
-            />
+            <prismic-rich-text :field="content.body" :serializer="customPrismicRichTextSerializer" />
           </div>
         </div>
       </section>

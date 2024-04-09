@@ -1,7 +1,10 @@
 <template>
   <div class="faq-persona">
-    <support-header :title="data.currentPersona.faq_page_title[0].text" :icon="data.currentPersona.icon.url"
-      :back-link="backLink" />
+    <support-header
+      :title="data.currentPersona.faq_page_title[0].text"
+      :icon="data.currentPersona.icon.url"
+      :back-link="backLink"
+    />
     <div class="faq-persona__content-wrapper">
       <section v-if="data.currentPersona.popular_posts.length" class="faq-persona__popular-posts">
         <h2 class="faq-persona-popular-posts__title">
@@ -63,24 +66,22 @@ defineI18nRoute({
 });
 
 const backLink = computed(() => {
-  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : ''
-  return `${localeUrl}/support/${route.params.parent_persona}`
-})
+  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
+  return `${localeUrl}/support/${route.params.parent_persona}`;
+});
 
 /* Fetch persona data */
 const { data } = await useAsyncData(async () => {
   try {
-    const queryPersona = await client.getByUID(
-      'support__persona_faq',
-      route.params.current_persona,
-      { lang: i18nLocale.value }
-    )
+    const queryPersona = await client.getByUID('support__persona_faq', route.params.current_persona, {
+      lang: i18nLocale.value,
+    });
 
-    const queryPosts = await client.getAllByType('support__faq_post', { lang: i18nLocale.value })
+    const queryPosts = await client.getAllByType('support__faq_post', { lang: i18nLocale.value });
 
     const contactForm = queryPersona.data.contact_form_link.id
       ? await client.getByID(queryPersona.data.contact_form_link.id, { lang: i18nLocale.value })
-      : null
+      : null;
 
     return {
       currentPersona: {
@@ -89,20 +90,20 @@ const { data } = await useAsyncData(async () => {
       },
       personaPosts: queryPosts,
       contactForm,
-    }
+    };
   } catch (err) {
-    console.error(err)
-    error({ statusCode: 404, message: 'Page not found' })
+    console.error(err);
+    error({ statusCode: 404, message: 'Page not found' });
   }
 });
 
 /* Methods */
 const getPostTitle = (uid) => {
   const post = data.value.personaPosts?.find((post) => {
-    return post.uid === uid
-  })
-  return post?.data.title[0].text
-}
+    return post.uid === uid;
+  });
+  return post?.data.title[0].text;
+};
 </script>
 
 <style lang="scss">
@@ -143,7 +144,7 @@ const getPostTitle = (uid) => {
   margin: 1rem 0 2rem;
   padding-left: 0;
 
-  li+li {
+  li + li {
     margin-top: 0.5rem;
   }
 
@@ -164,7 +165,7 @@ const getPostTitle = (uid) => {
   margin: 0;
   padding-left: 0;
 
-  &>li+li {
+  & > li + li {
     margin-top: 0.75rem;
   }
 

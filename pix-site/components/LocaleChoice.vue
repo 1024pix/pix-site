@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { reachableLocales } from "../i18n.config.ts";
+import { reachableLocales } from '../i18n.config.ts';
 
 const { setLocaleCookie } = useLocaleCookie();
 
@@ -39,9 +39,11 @@ function updateLocale(localeCode) {
   justify-content: center;
   align-items: center;
   padding: 5rem 1rem 0;
-  background: url("/images/stars.svg") repeat, $default-gradient;
+  background:
+    url('/images/stars.svg') repeat,
+    $default-gradient;
 
-  @include device-is("large-mobile") {
+  @include device-is('large-mobile') {
     padding: 0;
   }
 }
@@ -103,14 +105,14 @@ function updateLocale(localeCode) {
   }
 }
 
-[href$="/fr"],
-[href$="/en"] {
+[href$='/fr'],
+[href$='/en'] {
   .locale-link__icon {
     filter: brightness(50%);
   }
 }
 
-@include device-is("large-mobile") {
+@include device-is('large-mobile') {
   .locale-choice {
     position: relative;
   }

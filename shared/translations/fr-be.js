@@ -5,8 +5,8 @@ export default {
       'international-label': 'Liste des sites internationaux',
     },
     locales: {
-      international: "International"
-    }
+      international: 'International',
+    },
   },
   'contact-digital-mediation': {
     'page-title': "Demande d'information",
@@ -43,13 +43,10 @@ export default {
   },
   'page-titles': {
     'contact-digital-mediation': "Demande d'information | Pix",
-    'higher-education-establishment-registration':
-      "Demande d'espace | Pix Orga sup",
+    'higher-education-establishment-registration': "Demande d'espace | Pix Orga sup",
     news: 'Actualités | Pix',
-    'pix-certification-application':
-      "Demande d'agrément comme centre de certification | Pix",
-    'pix-orga-higher-school-registration':
-      "Finaliser la demande d'espace | Pix Orga sup",
+    'pix-certification-application': "Demande d'agrément comme centre de certification | Pix",
+    'pix-orga-higher-school-registration': "Finaliser la demande d'espace | Pix Orga sup",
     'pix-orga-registration': "Demande d'information | Pix pro",
     support: 'Support | Pix',
   },
@@ -78,12 +75,11 @@ export default {
   back: 'Retour',
   support: {
     form: {
-      'required-info':
-        "Tous les champs marqués d'une <span>*</span> sont obligatoires",
+      'required-info': "Tous les champs marqués d'une <span>*</span> sont obligatoires",
     },
     faq: {
       'contact-title': 'Vous ne trouvez pas la réponse à votre question ?',
       'contact-cta': 'Contacter le support',
     },
   },
-}
+};

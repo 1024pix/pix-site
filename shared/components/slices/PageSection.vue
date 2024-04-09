@@ -3,27 +3,13 @@
     <div class="background"></div>
     <div :class="containerClass">
       <template v-if="hasImage">
-        <img
-          :src="image.url"
-          :alt="image.alt || ''"
-          :role="!!image.alt ? undefined : 'presentation'"
-        />
+        <img :src="image.url" :alt="image.alt || ''" :role="!!image.alt ? undefined : 'presentation'" />
       </template>
       <prismic-rich-text :field="title" />
-      <prismic-rich-text
-        :field="description"
-        :serializer="customPrismicRichTextSerializer"
-      />
+      <prismic-rich-text :field="description" :serializer="customPrismicRichTextSerializer" />
       <div :class="flexContainerClass">
-        <div
-          v-for="(item, index) in paragraphs"
-          :key="`item-${index}`"
-          :class="flexContentClass"
-        >
-          <prismic-rich-text
-            :field="item.paragraph"
-            :serializer="customPrismicRichTextSerializer"
-          />
+        <div v-for="(item, index) in paragraphs" :key="`item-${index}`" :class="flexContentClass">
+          <prismic-rich-text :field="item.paragraph" :serializer="customPrismicRichTextSerializer" />
         </div>
       </div>
       <nuxt-link v-if="hasButton" :to="buttonLink" :class="buttonClass">
@@ -35,7 +21,7 @@
 
 <script>
 export default {
-  name: "SlicesPageSection",
+  name: 'SlicesPageSection',
   props: {
     slice: {
       type: Object,
@@ -47,23 +33,23 @@ export default {
     },
     sectionClass: {
       type: String,
-      default: "section",
+      default: 'section',
     },
     containerClass: {
       type: String,
-      default: "section__container",
+      default: 'section__container',
     },
     flexContainerClass: {
       type: String,
-      default: "section__flex-container",
+      default: 'section__flex-container',
     },
     flexContentClass: {
       type: String,
-      default: "section__flex-content",
+      default: 'section__flex-content',
     },
     buttonClass: {
       type: String,
-      default: "section__button",
+      default: 'section__button',
     },
   },
   setup() {
@@ -105,7 +91,7 @@ export default {
   text-align: center;
   margin: 0 auto;
   padding: 32px 0;
-  @include device-is("large-mobile") {
+  @include device-is('large-mobile') {
     padding: 64px 0;
   }
 
@@ -120,7 +106,7 @@ export default {
     align-items: center;
     flex-direction: column;
 
-    @include device-is("large-mobile") {
+    @include device-is('large-mobile') {
       flex-direction: row;
     }
   }
@@ -131,7 +117,7 @@ export default {
     flex-direction: column;
     max-width: 80%;
 
-    @include device-is("large-mobile") {
+    @include device-is('large-mobile') {
       max-width: 45%;
     }
 

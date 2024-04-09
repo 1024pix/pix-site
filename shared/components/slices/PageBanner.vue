@@ -39,12 +39,7 @@
           </div>
         </div>
       </div>
-      <img
-        v-if="hasImage"
-        class="row-block__side-content"
-        :src="slice.primary.banner_image.url"
-        alt=""
-      />
+      <img v-if="hasImage" class="row-block__side-content" :src="slice.primary.banner_image.url" alt="" />
     </section>
   </div>
 </template>
@@ -66,31 +61,26 @@ const props = defineProps({
 });
 
 /* Background */
-const hasBackgroundImage =
-  props.slice.primary.banner_background &&
-  props.slice.primary.banner_background.url;
+const hasBackgroundImage = props.slice.primary.banner_background && props.slice.primary.banner_background.url;
 
 let background = {};
 if (hasBackgroundImage) {
   background = {
     // Use @nuxt/image to download image during static build
-    background: `no-repeat url(${img(
-      props.slice.primary.banner_background.url
-    )})`,
-    backgroundSize: "cover",
-    backgroundPosition: "bottom",
+    background: `no-repeat url(${img(props.slice.primary.banner_background.url)})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'bottom',
   };
 } else {
   background.backgroundColor = props.slice.primary.banner_background_color;
 }
 
 /* Image */
-const hasImage =
-  props.slice.primary.banner_image && props.slice.primary.banner_image.url;
+const hasImage = props.slice.primary.banner_image && props.slice.primary.banner_image.url;
 
 /* Video */
 function isVideo(link) {
-  return link?.banner_link_url?.url?.includes("pix-videos/");
+  return link?.banner_link_url?.url?.includes('pix-videos/');
 }
 
 /* Modal */
@@ -124,8 +114,8 @@ function toggleModal() {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
-      "a a a a"
-      "b b b b";
+      'a a a a'
+      'b b b b';
     grid-gap: 16px;
 
     font-family: $font-open-sans;
@@ -147,7 +137,7 @@ function toggleModal() {
   }
 }
 
-@include device-is("tablet") {
+@include device-is('tablet') {
   .banner {
     padding: 80px 0;
 
@@ -164,19 +154,19 @@ function toggleModal() {
       margin: 0 32px;
       grid-template-columns: repeat(8, 1fr);
       grid-template-areas:
-        "a a a a a a a a"
-        "b b b b b b b b";
+        'a a a a a a a a'
+        'b b b b b b b b';
     }
   }
 }
 
-@include device-is("desktop") {
+@include device-is('desktop') {
   .banner.row-block {
     margin: 0 32px;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas:
-      "a a a a a a a a a a a a"
-      ". . . b b b b b b . . .";
+      'a a a a a a a a a a a a'
+      '. . . b b b b b b . . .';
 
     .row-block__side-content {
       display: initial;
@@ -186,11 +176,11 @@ function toggleModal() {
   }
 }
 
-@include device-is("large-screen") {
+@include device-is('large-screen') {
   .banner.row-block {
     margin: 0 auto;
     grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
-    grid-template-areas: ". a a a a a a . b b b b b .";
+    grid-template-areas: '. a a a a a a . b b b b b .';
     grid-gap: 24px;
 
     .row-block__main-content {

@@ -1,25 +1,9 @@
-const FRANCE_COUNTRY_CODE = "FR";
-const DOM_TOM_COUNTRY_CODES = [
-  "GA",
-  "GF",
-  "MQ",
-  "RE",
-  "YT",
-  "NC",
-  "PF",
-  "BL",
-  "MF",
-  "PM",
-  "TF",
-  "WF"
-];
-const COUNTRIES_WHERE_BANNER_SHOULD_NOT_BE_SHOWN = [
-  FRANCE_COUNTRY_CODE,
-  ...DOM_TOM_COUNTRY_CODES
-];
+const FRANCE_COUNTRY_CODE = 'FR';
+const DOM_TOM_COUNTRY_CODES = ['GA', 'GF', 'MQ', 'RE', 'YT', 'NC', 'PF', 'BL', 'MF', 'PM', 'TF', 'WF'];
+const COUNTRIES_WHERE_BANNER_SHOULD_NOT_BE_SHOWN = [FRANCE_COUNTRY_CODE, ...DOM_TOM_COUNTRY_CODES];
 
 async function _getUserCountryFromGeolocationService(baseUrl, $fetch) {
-  const url = new URL("/geolocate", baseUrl);
+  const url = new URL('/geolocate', baseUrl);
 
   const data = await $fetch(url);
 
@@ -35,8 +19,7 @@ function _shouldShowBannerForCountry(country) {
 export default function useShowOutOfFranceBanner() {
   const showOutOfFranceBanner = async (baseUrl, useFetch) => {
     const config = useRuntimeConfig();
-    if (config.public.siteDomain !== "FR") return false;
-
+    if (config.public.siteDomain !== 'FR') return false;
 
     const country = await _getUserCountryFromGeolocationService(baseUrl, useFetch);
 
@@ -46,8 +29,6 @@ export default function useShowOutOfFranceBanner() {
   };
 
   return {
-    showOutOfFranceBanner
+    showOutOfFranceBanner,
   };
 }
-
-

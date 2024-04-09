@@ -1,40 +1,15 @@
 <template>
-  <section
-    :id="`slice-${indexForId}`"
-    :class="blockClass"
-    :style="[background]"
-  >
-    <prismic-rich-text
-      v-if="hasTitle && shouldDisplayTitle"
-      :class="`${blockClass}__title`"
-      :field="title"
-    />
+  <section :id="`slice-${indexForId}`" :class="blockClass" :style="[background]">
+    <prismic-rich-text v-if="hasTitle && shouldDisplayTitle" :class="`${blockClass}__title`" :field="title" />
     <prismic-rich-text v-else class="sr-only" :field="title" />
-    <prismic-rich-text
-      v-if="shouldUseSubtitle && hasSubtitle"
-      :class="`${blockClass}__subtitle`"
-      :field="subtitle"
-    />
-    <div
-      :class="`${blockClass}__wrapper ${blockClass}__wrapper-${items.length}-items`"
-    >
-      <div
-        v-for="(item, itemIndex) in items"
-        :key="`item-${itemIndex}`"
-        :class="`${blockClass}-wrapper__item`"
-      >
+    <prismic-rich-text v-if="shouldUseSubtitle && hasSubtitle" :class="`${blockClass}__subtitle`" :field="subtitle" />
+    <div :class="`${blockClass}__wrapper ${blockClass}__wrapper-${items.length}-items`">
+      <div v-for="(item, itemIndex) in items" :key="`item-${itemIndex}`" :class="`${blockClass}-wrapper__item`">
         <div :class="`${blockClass}-wrapper-item__image`">
-          <img
-            v-if="hasImage(item)"
-            :src="item.item_image.url"
-            alt=""
-          />
+          <img v-if="hasImage(item)" :src="item.item_image.url" alt="" />
         </div>
         <div :class="`${blockClass}-wrapper-item__content`">
-          <prismic-rich-text
-            :class="`${blockClass}-wrapper-item-content__title`"
-            :field="item.item_title"
-          />
+          <prismic-rich-text :class="`${blockClass}-wrapper-item-content__title`" :field="item.item_title" />
           <prismic-rich-text
             :class="`${blockClass}-wrapper-item-content__description`"
             :field="item.item_description"
@@ -48,11 +23,7 @@
               is-small
               class="process-wrapper-item-content__button"
             />
-            <nuxt-link
-              v-else
-              :to="item.item_link_url"
-              class="process-wrapper-item-content__link"
-            >
+            <nuxt-link v-else :to="item.item_link_url" class="process-wrapper-item-content__link">
               &#10132;&nbsp;{{ item.item_link_label }}
             </nuxt-link>
           </template>
@@ -64,7 +35,7 @@
 
 <script>
 export default {
-  name: "SlicesMultipleBlock",
+  name: 'SlicesMultipleBlock',
   props: {
     slice: {
       type: Object,
@@ -75,14 +46,14 @@ export default {
       default: 0,
     },
   },
+  setup() {
+    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
+    return { customPrismicRichTextSerializer };
+  },
   data() {
     return {
       rows: [],
     };
-  },
-  setup() {
-    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
-    return { customPrismicRichTextSerializer };
   },
   computed: {
     background() {
@@ -135,7 +106,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/components/slices/features.scss";
-@import "../../assets/scss/components/slices/process.scss";
-@import "../../assets/scss/components/slices/statistics.scss";
+@import '../../assets/scss/components/slices/features.scss';
+@import '../../assets/scss/components/slices/process.scss';
+@import '../../assets/scss/components/slices/statistics.scss';
 </style>

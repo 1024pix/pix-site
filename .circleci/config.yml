@@ -28,6 +28,32 @@ jobs:
           paths:
             - .
 
+
+  lint:
+    executor:
+      name: node-docker
+    working_directory: ~/pix-site
+    steps:
+      - attach_workspace:
+          at: ~/pix-site
+      - run: cat package*.json > cachekey
+      - restore_cache:
+          keys:
+            - v1-pix-site-lint-npm-{{ checksum "cachekey" }}
+      - run:
+          name: Install dependencies
+          command: |
+            npm ci
+      - save_cache:
+          key: v1-pix-site-lint-npm-{{ checksum "cachekey" }}
+          paths:
+            - ~/.npm
+      - run:
+          name: Lint
+          command: |
+            npm run lint
+  
+  
   test-shared:
     executor:
       name: node-docker
@@ -122,6 +148,11 @@ workflows:
     jobs:
       - checkout:
           context: pix-site
+
+      - lint:
+          context: pix-site
+          requires:
+            - checkout
 
       - test-shared:
           context: pix-site

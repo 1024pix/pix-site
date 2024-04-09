@@ -1,20 +1,12 @@
 <template>
   <div v-if="isOpen && hotNews" class="hot-news">
-    <prismic-rich-text
-      :field="hotNews"
-      :serializer="customPrismicRichTextSerializer"
-    />
-    <img
-      class="close"
-      src="/images/close-icon.svg"
-      alt="Fermer"
-      @click.stop="closeBanner"
-    />
+    <prismic-rich-text :field="hotNews" :serializer="customPrismicRichTextSerializer" />
+    <img class="close" src="/images/close-icon.svg" alt="Fermer" @click.stop="closeBanner" />
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 const { client, filter } = usePrismic();
 const { locale: i18nLocale } = useI18n();
 
@@ -23,18 +15,16 @@ const isOpen = ref(true);
 
 const { data: hotNews } = await useAsyncData(async () => {
   const hotNews = await client.get({
-    filters: [
-      filter.at("document.type", 'hot_news'),
-    ],
+    filters: [filter.at('document.type', 'hot_news')],
     lang: i18nLocale.value,
   });
 
-  return hotNews?.results[0].data.description
+  return hotNews?.results[0].data.description;
 });
 
 const closeBanner = () => {
   isOpen.value = false;
-}
+};
 </script>
 
 <style lang="scss">

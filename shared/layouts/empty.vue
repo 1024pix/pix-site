@@ -1,13 +1,15 @@
 <template>
-  <slot />
+  <div>
+    <slot />
+  </div>
 </template>
 
 <script setup>
 const { fallbackLocale } = useI18n();
 
 useHead({
-    htmlAttrs: {
-      lang: fallbackLocale,
-    }
-})
+  htmlAttrs: {
+    lang: fallbackLocale,
+  },
+});
 </script>

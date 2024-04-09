@@ -1,22 +1,25 @@
 <template>
-  <div class='personas-sub-list'>
-    <support-header :title='data.currentPersona.name[0].text' :icon='data.currentPersona.icon.url'
-      :back-link="backLink" />
-    <h2 class='personas-sub-list__subtitle'>
+  <div class="personas-sub-list">
+    <support-header
+      :title="data.currentPersona.name[0].text"
+      :icon="data.currentPersona.icon.url"
+      :back-link="backLink"
+    />
+    <h2 class="personas-sub-list__subtitle">
       {{ data.currentPersona.sub_persona_title[0].text }}
     </h2>
-    <ul v-if='data.currentPersonaChildren.length' class='personas-sub-list__children'>
-      <li v-for='personaChild in data.currentPersonaChildren' :key='personaChild.slug'>
-        <support-persona-card :content='personaChild' />
+    <ul v-if="data.currentPersonaChildren.length" class="personas-sub-list__children">
+      <li v-for="personaChild in data.currentPersonaChildren" :key="personaChild.slug">
+        <support-persona-card :content="personaChild" />
       </li>
     </ul>
   </div>
 </template>
 
 <script setup>
-const route = useRoute()
-const { client } = usePrismic()
-const { locale: i18nLocale } = useI18n()
+const route = useRoute();
+const { client } = usePrismic();
+const { locale: i18nLocale } = useI18n();
 
 /* I18n Routes */
 defineI18nRoute({
@@ -26,55 +29,49 @@ defineI18nRoute({
     'fr-fr': '/support/[parent_persona_name]',
     'fr-be': '/support/[parent_persona_name]',
     'nl-be': '/support/[parent_persona_name]',
-  }
-})
+  },
+});
 
 const backLink = computed(() => {
-  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : ''
-  return `${localeUrl}/support`
-})
+  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
+  return `${localeUrl}/support`;
+});
 
 /* Fetch personas list */
 const { data } = await useAsyncData(async () => {
   try {
-    const queryCurrentPersona = await client.getSingle(
-      'personas_list',
-      { lang: i18nLocale.value }
-    )
+    const queryCurrentPersona = await client.getSingle('personas_list', { lang: i18nLocale.value });
 
     const currentPersonaData = queryCurrentPersona.data.body.find((item) => {
-      return item.primary.slug === route.params.parent_persona_name
-    })
+      return item.primary.slug === route.params.parent_persona_name;
+    });
 
     const currentPersonaChildren = currentPersonaData.items
       .filter((item) => item.sub_persona.id)
-      .map((persona) => persona.sub_persona.id)
+      .map((persona) => persona.sub_persona.id);
 
-    const queryChildrenPersona = await client.getByIDs(
-      currentPersonaChildren,
-      { lang: i18nLocale.value }
-    )
+    const queryChildrenPersona = await client.getByIDs(currentPersonaChildren, { lang: i18nLocale.value });
 
     const subPersonas = queryChildrenPersona.results.map((persona) => {
       return {
         sub_slug: persona.uid,
         icon: persona.data.icon,
-        name: persona.data.persona_name
-      }
-    })
+        name: persona.data.persona_name,
+      };
+    });
 
     return {
       currentPersona: currentPersonaData.primary,
-      currentPersonaChildren: subPersonas
-    }
+      currentPersonaChildren: subPersonas,
+    };
   } catch (err) {
-    console.error(err)
-    error({ statusCode: 404, message: 'Page not found' })
+    console.error(err);
+    error({ statusCode: 404, message: 'Page not found' });
   }
-})
+});
 </script>
 
-<style lang='scss'>
+<style lang="scss">
 .personas-sub-list {
   padding-bottom: 2rem;
   background-color: $grey-10;

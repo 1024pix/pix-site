@@ -1,16 +1,9 @@
 <template>
   <div class="navigation-group">
-    <prismic-rich-text
-      :field="slice.primary.title"
-      class="navigation-group__title"
-    />
+    <prismic-rich-text :field="slice.primary.title" class="navigation-group__title" />
     <div class="navigation-group__wrapper">
       <ul>
-        <li
-          v-for="(link, index) in slice.items"
-          :key="`link-${index}`"
-          class="navigation-group-link"
-        >
+        <li v-for="(link, index) in slice.items" :key="`link-${index}`" class="navigation-group-link">
           <nuxt-link v-if="link.link_url?.url" :to="getEnvironmentUrl(link.link_url.url)">
             <prismic-rich-text :field="link.link_name" />
           </nuxt-link>
@@ -70,7 +63,7 @@ defineProps({
   }
 }
 
-@include device-is("tablet") {
+@include device-is('tablet') {
   .navigation-group {
     width: 224px;
     padding: 16px 32px;

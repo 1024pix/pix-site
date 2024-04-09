@@ -12,44 +12,40 @@ const props = defineProps({
     required: true,
     type: Object,
   },
-})
+});
 
 const formattedUrl = computed(() => {
-  return removeHostIfCurrentSite(props.field.url)
-})
+  return removeHostIfCurrentSite(props.field.url);
+});
 
 function removeHostIfCurrentSite(url) {
   try {
-    if (!isCurrentLocaleURL(url)) return url
+    if (!isCurrentLocaleURL(url)) return url;
 
-    const parsedURL = new URL(url)
-    return parsedURL.pathname + parsedURL.search + parsedURL.hash
+    const parsedURL = new URL(url);
+    return parsedURL.pathname + parsedURL.search + parsedURL.hash;
   } catch (e) {
     // relative URL
-    return url
+    return url;
   }
 }
 
 function isCurrentLocaleURL(url) {
-  if (!url.startsWith('/')) return false
+  if (!url.startsWith('/')) return false;
 
-  const locale = getPathLocale(url) ?? $i18n.defaultLocale
-  return locale === $i18n.locale
+  const locale = getPathLocale(url) ?? $i18n.defaultLocale;
+  return locale === $i18n.locale;
 }
 
 function getPathLocale(path) {
-  const localeCodesWithoutDefault = $i18n.localeCodes.value.filter(
-    (code) => code !== $i18n.defaultLocale
-  )
+  const localeCodesWithoutDefault = $i18n.localeCodes.value.filter((code) => code !== $i18n.defaultLocale);
 
   // When fr-fr, no other locale is available, so return undefined
-  if (localeCodesWithoutDefault.length === 0) return undefined
+  if (localeCodesWithoutDefault.length === 0) return undefined;
 
-  const rootMatch = new RegExp(
-    `^/(${localeCodesWithoutDefault.join('|')})?($|\\/)`
-  ).exec(path)
-  if (rootMatch != null) return rootMatch[1]
+  const rootMatch = new RegExp(`^/(${localeCodesWithoutDefault.join('|')})?($|\\/)`).exec(path);
+  if (rootMatch != null) return rootMatch[1];
 
-  return undefined
+  return undefined;
 }
 </script>

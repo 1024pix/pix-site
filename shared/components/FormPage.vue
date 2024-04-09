@@ -1,22 +1,14 @@
 <template>
   <div class="content">
     <div v-if="hasDescription" class="content__description">
-      <img
-        v-if="hasImage"
-        class="content-description__image"
-        :src="content.image.url"
-        alt=""
-      />
+      <img v-if="hasImage" class="content-description__image" :src="content.image.url" alt="" />
 
       <header class="content-description__title">
         <prismic-rich-text :field="content.title" />
       </header>
 
       <section class="content-description__body">
-        <prismic-rich-text
-          :field="content.body"
-          :serializer="customPrismicRichTextSerializer"
-        />
+        <prismic-rich-text :field="content.body" :serializer="customPrismicRichTextSerializer" />
       </section>
     </div>
 
@@ -30,7 +22,7 @@
 
 <script>
 export default {
-  name: "FormPage",
+  name: 'FormPage',
   props: {
     content: {
       type: Object,
@@ -47,15 +39,12 @@ export default {
       const queryParamsAsObject = this.$route.query;
       const queryParamsAsString = Object.keys(queryParamsAsObject)
         .map((queryParamKey) => {
-          const key = Object.prototype.hasOwnProperty.call(
-            mapKeys,
-            queryParamKey
-          )
+          const key = Object.prototype.hasOwnProperty.call(mapKeys, queryParamKey)
             ? mapKeys[queryParamKey]
             : queryParamKey;
           return `${key}=${queryParamsAsObject[queryParamKey]}`;
         })
-        .join("&");
+        .join('&');
       return `${this.content.formbuilder_url.url}?${queryParamsAsString}`;
     },
     hasDescription() {
@@ -69,7 +58,7 @@ export default {
     },
     heightForIframe() {
       const style = {};
-      style.minHeight = (this.content.minimum_height || "650") + "px";
+      style.minHeight = (this.content.minimum_height || '650') + 'px';
       return style;
     },
   },
@@ -83,12 +72,12 @@ export default {
   padding: 30px 15px;
   justify-content: space-between;
 
-  @include device-is("desktop") {
+  @include device-is('desktop') {
     flex-direction: row;
     padding: 60px 30px;
   }
 
-  @include device-is("large-screen") {
+  @include device-is('large-screen') {
     flex-direction: row;
     padding: 60px 90px;
   }
@@ -98,27 +87,28 @@ export default {
     flex-direction: column;
     margin: 0 10px;
 
-    @include device-is("desktop") {
+    @include device-is('desktop') {
       margin: 0 15px;
     }
 
-    @include device-is("large-screen") {
+    @include device-is('large-screen') {
       margin: 0 38px;
     }
   }
 
   &__form {
-    box-shadow: 0 24px 32px 0 rgba($grey-200, 0.03),
+    box-shadow:
+      0 24px 32px 0 rgba($grey-200, 0.03),
       0 8px 32px 0 rgba($grey-200, 0.06);
     border-radius: 20px;
     margin: 0 10px;
     height: 100%;
 
-    @include device-is("desktop") {
+    @include device-is('desktop') {
       margin: 0 15px;
     }
 
-    @include device-is("large-screen") {
+    @include device-is('large-screen') {
       width: 640px;
       margin: 0 38px;
     }
@@ -184,11 +174,11 @@ export default {
   overflow: auto;
   border: none;
 
-  @include device-is("desktop") {
+  @include device-is('desktop') {
     width: 480px;
   }
 
-  @include device-is("large-screen") {
+  @include device-is('large-screen') {
     width: 640px;
   }
 }

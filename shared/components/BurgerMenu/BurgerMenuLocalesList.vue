@@ -4,9 +4,7 @@
       class="burger-menu-locales-list__back-button"
       :aria-expanded="isLocaleSwitcherOpen"
       :aria-label="
-        isLocaleSwitcherOpen
-          ? t('burger-menu.close-locale-switcher')
-          : t('burger-menu.open-locale-switcher')
+        isLocaleSwitcherOpen ? t('burger-menu.close-locale-switcher') : t('burger-menu.open-locale-switcher')
       "
       @click="$emit('close')"
     >
@@ -17,12 +15,8 @@
       />
       {{ localeProperties.name }}
     </button>
-    <ul
-      class="burger-menu-locales-list__items"
-      ref="localeSwitcher"
-      tabindex="0"
-    >
-      <li v-for="locale in locales">
+    <ul ref="localeSwitcher" class="burger-menu-locales-list__items" tabindex="0">
+      <li v-for="locale in locales" :key="locale.code">
         <a
           :href="getEnvironmentUrl(`${locale.domain || ''}/${locale.code}`)"
           :aria-current="localeProperties.code === locale.code && 'page'"
@@ -62,7 +56,7 @@ watch(
       await nextTick();
       localeSwitcher.value.focus();
     }
-  }
+  },
 );
 </script>
 
@@ -97,7 +91,7 @@ watch(
   }
 
   &::before {
-    content: "";
+    content: '';
     width: 0.5rem;
     height: 0.5rem;
     margin-right: 0.75rem;

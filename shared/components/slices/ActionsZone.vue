@@ -3,11 +3,8 @@
     <locale-switcher />
     <ul>
       <li v-if="slice.primary.helperLink" class="actions-zone__item-helper">
-        <a
-          :href="slice.primary.helperLink.url"
-          class="actions-zone-item-helper__link"
-        >
-           <img
+        <a :href="slice.primary.helperLink.url" class="actions-zone-item-helper__link">
+          <img
             v-if="slice.primary.helperIcon"
             :src="`/images/${slice.primary.helperIcon}`"
             class="actions-zone-item-helper__icon"
@@ -18,11 +15,7 @@
           {{ $prismic.asText(slice.primary.helperName) }}
         </a>
       </li>
-      <li
-        v-for="(menuItem, index) in slice.items"
-        :key="`item-${index}`"
-        class="actions-zone__item"
-      >
+      <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`" class="actions-zone__item">
         <a
           :href="menuItem.link.url"
           class="actions-zone-item__link"
@@ -84,8 +77,7 @@ defineProps({
         color: $blue;
       }
       img {
-        filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg)
-          brightness(103%) contrast(101%);
+        filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg) brightness(103%) contrast(101%);
       }
     }
   }
@@ -108,7 +100,7 @@ defineProps({
       display: none;
     }
 
-    @include device-is("tablet") {
+    @include device-is('tablet') {
       padding: 0.5rem 1rem;
       font-size: 0.875rem;
       &.link {
@@ -140,7 +132,7 @@ defineProps({
       }
     }
 
-    @include device-is("desktop") {
+    @include device-is('desktop') {
       &.button {
         display: flex;
         color: $white;
@@ -161,7 +153,7 @@ defineProps({
     font-family: $font-roboto;
     font-weight: $font-medium;
 
-    @include device-is("tablet") {
+    @include device-is('tablet') {
       display: flex;
       align-items: center;
       height: 36px;

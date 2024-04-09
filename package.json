@@ -1,0 +1,21 @@
+{
+  "name": "pix-site",
+  "version": "5.4.0",
+  "description": "Site vitrine de Pix",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "license": "ISC",
+  "private": true,
+  "engines": {
+    "node": "^18.18.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.2.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.2.5"
+  }
+}

@@ -9,26 +9,20 @@
             link: item.style === 'link',
           }"
         >
-          <img
-            v-if="item.icon"
-            :src="`/images/${item.icon}`"
-            alt=""
-          />
+          <img v-if="item.icon" :src="`/images/${item.icon}`" alt="" />
           {{ item.name[0].text }}
         </nuxt-link>
       </li>
     </ul>
     <button
       class="burger-menu-footer__locale"
-      :aria-label="
-        t('burger-menu.change-locale-switcher') + ' ' + localeProperties.name
-      "
+      :aria-label="t('burger-menu.change-locale-switcher') + ' ' + localeProperties.name"
       @click="$emit('toggleLocaleSwitcher')"
     >
       <img :src="`/images/${localeProperties.icon}`" alt="" />
       {{ localeProperties.name }}
       <span>
-        {{ t("burger-menu.change-locale-switcher-button") }}
+        {{ t('burger-menu.change-locale-switcher-button') }}
       </span>
     </button>
   </footer>

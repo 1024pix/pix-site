@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "NavPrincipal",
+  name: 'NavPrincipal',
   props: {
     mainNavItems: {
       type: Array,

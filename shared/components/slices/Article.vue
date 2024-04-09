@@ -74,7 +74,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed } from 'vue';
 
 const img = useImage();
 
@@ -84,46 +84,40 @@ const { getEnvironmentUrl } = useEnvironmentUrl();
 const props = defineProps({
   slice: {
     type: Object,
-    default: null
+    default: null,
   },
   indexForId: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 });
 
 const content = props.slice.primary;
 
-const containsVideo =
-  content.article_video && content.article_video.link_type !== "Any";
+const containsVideo = content.article_video && content.article_video.link_type !== 'Any';
 
-const hasBackgroundImage =
-  content.article_background && content.article_background.url;
+const hasBackgroundImage = content.article_background && content.article_background.url;
 
 const background = computed(() => {
   let style = {};
   if (isOnlyTextLayout && hasBackgroundImage) {
     style = {
       background: `no-repeat url(${img(content.article_background.url)})`,
-      backgroundSize: "100%",
-      backgroundPosition: "top right"
+      backgroundSize: '100%',
+      backgroundPosition: 'top right',
     };
   }
-  style["background-color"] = `${content.article_background_color}`;
+  style['background-color'] = `${content.article_background_color}`;
   return style;
 });
 
-const isOnlyTextLayout = content.article_layout === "only-text";
+const isOnlyTextLayout = content.article_layout === 'only-text';
 
-const isMediaLayout = [
-  "text-image",
-  "image-text",
-  "vertical-text-image"
-].includes(content.article_layout);
+const isMediaLayout = ['text-image', 'image-text', 'vertical-text-image'].includes(content.article_layout);
 
-const shouldBeReversed = content.article_layout === "image-text";
+const shouldBeReversed = content.article_layout === 'image-text';
 
-const shouldBeVertical = content.article_layout === "vertical-text-image";
+const shouldBeVertical = content.article_layout === 'vertical-text-image';
 </script>
 
 <style lang="scss">
@@ -131,8 +125,8 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    "a a a a"
-    "b b b b";
+    'a a a a'
+    'b b b b';
   grid-gap: 16px;
 
   font-family: $font-open-sans;
@@ -170,14 +164,14 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
 
   &--reverse {
     grid-template-areas:
-      "b b b b"
-      "a a a a";
+      'b b b b'
+      'a a a a';
   }
 
   &--vertical {
     grid-template-areas:
-      "a a a a"
-      "b b b b";
+      'a a a a'
+      'b b b b';
   }
 
   &--only-text {
@@ -254,61 +248,61 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
   }
 }
 
-@include device-is("tablet") {
+@include device-is('tablet') {
   .article {
     margin: 0 32px;
     grid-template-columns: repeat(8, 1fr);
     grid-template-areas:
-      "a a a a a a a a"
-      "b b b b b b b b";
+      'a a a a a a a a'
+      'b b b b b b b b';
 
     &--reverse {
       grid-template-areas:
-        "b b b b b b b b"
-        "a a a a a a a a";
+        'b b b b b b b b'
+        'a a a a a a a a';
     }
 
     &--vertical {
       grid-template-areas:
-        "a a a a a a a a"
-        "b b b b b b b b";
+        'a a a a a a a a'
+        'b b b b b b b b';
     }
   }
 }
 
-@include device-is("desktop") {
+@include device-is('desktop') {
   .article {
     grid-template-columns: repeat(8, 1fr);
-    grid-template-areas: "a a a a . b b b";
+    grid-template-areas: 'a a a a . b b b';
 
     &--reverse {
-      grid-template-areas: "b b b . a a a a";
+      grid-template-areas: 'b b b . a a a a';
     }
 
     &--vertical {
       grid-template-areas:
-        ". a a a a a a ."
-        ". b b b b b b .";
+        '. a a a a a a .'
+        '. b b b b b b .';
     }
   }
 }
 
-@include device-is("large-screen") {
+@include device-is('large-screen') {
   .article {
     max-width: 1920px;
     margin: 0 auto;
     grid-template-columns: 1.2fr repeat(12, 1fr) 1.2fr;
-    grid-template-areas: ". a a a a a a . b b b b b .";
+    grid-template-areas: '. a a a a a a . b b b b b .';
     grid-gap: 24px;
 
     &--reverse {
-      grid-template-areas: ". b b b b b . a a a a a a .";
+      grid-template-areas: '. b b b b b . a a a a a a .';
     }
 
     &--vertical {
       grid-template-areas:
-        ". . a a a a a a a a a a . ."
-        ". . b b b b b b b b b b . .";
+        '. . a a a a a a a a a a . .'
+        '. . b b b b b b b b b b . .';
     }
   }
 }
@@ -317,7 +311,7 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
   grid-column-start: b-start;
   grid-column-end: b-end;
 
-  @include device-is("large-screen") {
+  @include device-is('large-screen') {
     grid-column-start: 10;
     width: 100%;
   }
@@ -334,24 +328,22 @@ const shouldBeVertical = content.article_layout === "vertical-text-image";
   cursor: pointer;
 }
 
-.article.article--reverse
-.article__secondary-content.article-secondary-content__background {
+.article.article--reverse .article__secondary-content.article-secondary-content__background {
   grid-column-start: b-start;
   grid-column-end: b-end;
 
-  @include device-is("large-screen") {
+  @include device-is('large-screen') {
     grid-column-start: b-start;
     grid-column-end: 6;
     width: 100%;
   }
 }
 
-.article.article--reverse
-.article__secondary-content.article-secondary-content__image {
+.article.article--reverse .article__secondary-content.article-secondary-content__image {
   grid-column-start: b-start;
   grid-column-end: b-end;
 
-  @include device-is("large-screen") {
+  @include device-is('large-screen') {
     justify-self: flex-end;
   }
 }
