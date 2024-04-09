@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v5.5.0 (09/04/2024)
+
+
+### :building_construction: Tech
+- [#644](https://github.com/1024pix/pix-site/pull/644) [TECH] Ajouter un linter (PIX-11730).
+
+### :bug: Correction
+- [#643](https://github.com/1024pix/pix-site/pull/643) [BUGFIX] Réparer le lien pour passer sur le site international (PIX-11655).
+
 ## v4.19.0 (03/11/2023)
 
 
