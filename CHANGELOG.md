@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.6.0 (12/04/2024)
+
+
+### :coffee: Autre
+- [#650](https://github.com/1024pix/pix-site/pull/650) [Tech] Rediriger la page enseignement-scolaire/enseignant-ou-personnel-de-direction vers la page support.
+
 ## v5.5.0 (09/04/2024)
 
 
