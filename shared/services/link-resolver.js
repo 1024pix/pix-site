@@ -49,12 +49,12 @@ export function linkResolver(doc) {
     return `${locale}/support/form/${doc.uid}`;
   }
 
-  // Hompepage
+  // Homepage
   if (doc.tags?.includes(TAGS.INDEX)) {
     return `${locale}/`;
   }
 
-  return `${locale}/${doc.uid}`;
+  return `${locale}/${doc.uid ?? ''}`;
 }
 
 export default linkResolver;
