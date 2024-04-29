@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v5.7.0 (29/04/2024)
+
+
+### :building_construction: Tech
+- [#651](https://github.com/1024pix/pix-site/pull/651) [TECH] : Delete enseignement-scolaire/enseignant-ou-personnel-de-direction redirection to support.pix.org.
+
+### :bug: Correction
+- [#637](https://github.com/1024pix/pix-site/pull/637) [BUGFIX] Corriger la preview Prismic sur les fragments de documents (PIX-11601).
+
 ## v5.6.0 (12/04/2024)
 
 
