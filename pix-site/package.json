@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": "^18.18.0"
+    "node": "^18.20.2"
   },
   "scripts": {
     "build": "npm run generate",
