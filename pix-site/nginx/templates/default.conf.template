@@ -9,17 +9,14 @@ log_format keyvalue
   ' duration=${request_time}s'
   ' bytes=$bytes_sent'
   ' referer="$http_referer"'
-  ' user_agent="$http_user_agent"'<%#
-    To allow dynamic logging format for nginx,
-    create a json that contains the key/value pairs
-    you want to add to nginx logging.
-    For the logs to be correctly parsed, use the nginx_logger_version parameter.
-    For example:
-    ADDITIONAL_NGINX_LOGS='{"nginx_logger_version":"1", "my_custom_header":"$http_my_custom_header"}'
-  %><%
-    require 'json';
-    JSON.parse(ENV['ADDITIONAL_NGINX_LOGS']||'{}').each do |nginx_key,value| %>
-  ' <%= nginx_key %>="<%= value %>"'<% end %>;
+  ' user_agent="$http_user_agent"'
+  ' nginx_logger_version="1"'
+  ' bln_ja3="$http_bln_ssl_ja3_hash"'
+  ' bln_fate="$http_bln_request_fate"'
+  ' bln_fate_action="$http_bln_request_fate_action"'
+  ' bln_debug_path="$http_bln_debug_path"'
+  ' cookie_locale="$cookie_locale"'
+  ' nuxt-version="3"';
 
 # In order to avoid logging access twice per request
 # it is necessary to turn off the top-level (e.g. http) buildpack default access_log
@@ -28,16 +25,15 @@ access_log off;
 
 port_in_redirect off;
 
-<% if ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>
 upstream api {
-  server <%= ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>:443 max_fails=<%= ENV['NGINX_GEOAPI_UPSTREAM_MAX_FAILS'] || 3 %> fail_timeout=<%= ENV['NGINX_GEOAPI_UPSTREAM_FAIL_TIMEOUT'] || '5s' %>;
+  server ${NGINX_GEOAPI_UPSTREAM_HOST}:443 max_fails=3 fail_timeout=5s;
 }
-<% end %>
 
 server {
-  # access_log logs/access.log keyvalue;
+  error_log /dev/stderr info;
+  access_log /dev/stdout;
 
-  listen <%= ENV['PORT'] %>;
+  listen ${PORT};
 
   server_name ~(?<extension>(fr|org))$;
   if ($extension = '') {
@@ -48,14 +44,13 @@ server {
     set $extension 'org';
   }
 
-<% if ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>
+
   location /geolocate {
     proxy_pass https://api/me;
     proxy_redirect default;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header Host <%= ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>;
+    proxy_set_header Host pix-geoapi-production.osc-secnum-fr1.scalingo.io;
   }
-<% end %>
 
   charset utf-8;
 
@@ -63,9 +58,9 @@ server {
   gzip off;
 
   # Serve from dist/pix.fr or dist/pix.org depending on the extension
-  root /app/build/$extension;
+  root /usr/share/nginx/html/$extension;
 
-  include /app/nginx/includes/rewrites.conf;
+  include includes/rewrites.conf;
 
   error_page 400 401 403 404 418 500 502 503 504 /404.html;
 
