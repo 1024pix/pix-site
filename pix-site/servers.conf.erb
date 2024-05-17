@@ -35,7 +35,7 @@ upstream api {
 <% end %>
 
 server {
-  # access_log logs/access.log keyvalue;
+  access_log logs/access.log keyvalue;
 
   listen <%= ENV['PORT'] %>;
 
