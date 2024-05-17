@@ -53,27 +53,6 @@ If not present, nuxt-matomo is not in debug mode
 - type: Boolean
 - default: false
 
-`METABASE_API_URL`
-If not present, Metabase cards will not be loaded.
-
-- presence: optional
-- type: Url
-- default: none
-
-`METABASE_USERNAME`
-If not present, Metabase cards will not be loaded.
-
-- presence: optional
-- type: String
-- default: none
-
-`METABASE_PASSWORD`
-If not present, Metabase cards will not be loaded.
-
-- presence: optional
-- type: String
-- default: none
-
 ---
 
 `NGINX_GEOAPI_UPSTREAM_HOST`
