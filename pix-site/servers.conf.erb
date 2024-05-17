@@ -65,10 +65,7 @@ server {
   # Serve from dist/pix.fr or dist/pix.org depending on the extension
   root /app/build/$extension;
 
-  rewrite ^/en-gb(.*)$ /en$1 permanent;
-  rewrite ^/(aide|help)$ https://support.pix.org redirect;
-  rewrite ^/support/(enseignement-superieur|mediation-numerique|centre-de-certification|professionnel)$ https://support.pix.org redirect;
-  rewrite ^/employeurs$ https://pro.pix.fr redirect;
+  include /app/nginx/includes/rewrites.conf;
 
   error_page 400 401 403 404 418 500 502 503 504 /404.html;
 

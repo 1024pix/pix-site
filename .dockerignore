@@ -1,0 +1,9 @@
+**/node_modules
+*~
+*.bak
+*.swp
+.cache/
+tmp/
+temp/
+.npm/
+npm-debug.log
