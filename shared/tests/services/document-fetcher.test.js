@@ -134,7 +134,6 @@ describe('DocumentFetcher', () => {
       vi.resetModules(); // nettoye le cache pour mocker process.env
       process.env = {
         SITE: 'pix-site',
-        FT_IS_NEW_MENU_AVAILABLE: 'true',
       };
       const expectedValue = [
         {
