@@ -1,5 +1,17 @@
 # pix-site Changelog
 
+## v5.8.0 (27/05/2024)
+
+
+### :building_construction: Tech
+- [#652](https://github.com/1024pix/pix-site/pull/652) [TECH] Initial Dockerfile to host pix-site in scaleway.
+
+### :arrow_up: Montée de version
+- [#600](https://github.com/1024pix/pix-site/pull/600) [BUMP] Update node.
+
+### :coffee: Autre
+- [#656](https://github.com/1024pix/pix-site/pull/656) modif redirections pour le support.
+
 ## v5.7.0 (29/04/2024)
 
 
