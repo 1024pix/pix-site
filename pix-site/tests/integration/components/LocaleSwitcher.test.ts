@@ -10,6 +10,19 @@ mockNuxtImport('useI18n', () => {
     return { localeProperties, t: (str) => str };
   };
 });
+mockNuxtImport('useAppConfig', () => {
+  return () => ({
+    domainFr: 'https://example.fr',
+    domainOrg: 'https://example.org',
+  });
+});
+mockNuxtImport('useRuntimeConfig', () => {
+  return () => ({
+    public: {
+      siteDomain: 'ORG',
+    },
+  });
+});
 
 describe('LocaleSwitcher', () => {
   beforeEach(() => {
