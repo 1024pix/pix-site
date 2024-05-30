@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v5.8.1 (30/05/2024)
+
+
+### :building_construction: Tech
+- [#655](https://github.com/1024pix/pix-site/pull/655) [TECH] Créer une Github action pour permettre le déploiement de pix-site et pix-pro sur Scaleway.
+
+### :bug: Correction
+- [#659](https://github.com/1024pix/pix-site/pull/659) [BUGFIX] Améliorer le style de la grille de statistiques présentes en accueil (PIX-12737).
+- [#660](https://github.com/1024pix/pix-site/pull/660) [BUGFIX] Enlever l'appel Prismic pour récupérer les dernières actualités en production (PIX-12739).
+
 ## v5.8.0 (27/05/2024)
 
 
