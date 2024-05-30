@@ -32,13 +32,15 @@ const props = defineProps({
 });
 
 /* Fetch last news */
-const latestNews = await client.getAllByType('news_item', {
-  lang: i18nLocale.value,
-  limit: 3,
-  orderings: {
-    field: 'my.news_item.date',
-    direction: 'desc',
-  },
+const { data: latestNews } = await useAsyncData(async () => {
+  return await client.getAllByType('news_item', {
+    lang: i18nLocale.value,
+    limit: 3,
+    orderings: {
+      field: 'my.news_item.date',
+      direction: 'desc',
+    },
+  });
 });
 
 /* Computed */
