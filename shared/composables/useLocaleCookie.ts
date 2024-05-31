@@ -4,6 +4,11 @@ export default function useLocaleCookie() {
   const domainFrUrl = new URL(appConfig.domainFr);
   const domainOrgUrl = new URL(appConfig.domainOrg);
 
+  const previousLocaleCookie = useCookie('locale', {
+    maxAge: 31536000,
+    sameSite: 'strict',
+  });
+
   const localeCookie = useCookie('locale', {
     domain: runtimeConfig.public.siteDomain === 'ORG' ? domainOrgUrl.hostname : domainFrUrl.hostname,
     maxAge: 31536000,
@@ -12,6 +17,9 @@ export default function useLocaleCookie() {
 
   function setLocaleCookie(locale: string, callback?: Function): void {
     const localeCanonicalName = Intl.getCanonicalLocales(locale)?.[0];
+    if (previousLocaleCookie.value) {
+      previousLocaleCookie.value = null;
+    }
     localeCookie.value = localeCanonicalName;
     if (callback) callback();
   }
