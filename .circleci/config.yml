@@ -52,8 +52,8 @@ jobs:
           name: Lint
           command: |
             npm run lint
-  
-  
+
+
   test-shared:
     executor:
       name: node-docker
@@ -75,6 +75,9 @@ jobs:
             - ~/.npm
       - run:
           name: Test
+          environment:
+            DOMAIN_FR: 'https://example.fr'
+            DOMAIN_ORG: 'https://example.org'
           command: |
             npm test
 
@@ -102,6 +105,8 @@ jobs:
           environment:
             SITE: pix-site
             SITE_DOMAIN: 'ORG'
+            DOMAIN_FR: 'https://example.fr'
+            DOMAIN_ORG: 'https://example.org'
           command: |
             npm test
 
