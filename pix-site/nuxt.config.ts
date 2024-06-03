@@ -1,7 +1,9 @@
 import { getRoutesToGenerate } from './services/get-routes-to-generate';
-import i18nConfig from './i18n.config';
+import i18nConfig, { reachableLocales } from './i18n.config';
+
 export default async () => {
   const routes = process.env.NODE_ENV !== 'test' ? await getRoutesToGenerate({ locales: i18nConfig.locales }) : [];
+
   return defineNuxtConfig({
     extends: ['../shared'],
     devServer: {
@@ -13,6 +15,7 @@ export default async () => {
         site: 'https://pix.',
         siteDomain: process.env.SITE_DOMAIN,
         formKeysToMap: process.env.FORM_KEYS_TO_MAP || null,
+        availableLocales: reachableLocales,
       },
     },
     nitro: {

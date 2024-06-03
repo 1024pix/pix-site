@@ -1,5 +1,5 @@
 import { getRoutesToGenerate } from './services/get-routes-to-generate';
-import i18nConfig from './i18n.config';
+import i18nConfig, { reachableLocales } from './i18n.config';
 
 export default async () => {
   return defineNuxtConfig({
@@ -19,6 +19,7 @@ export default async () => {
     runtimeConfig: {
       public: {
         site: 'https://pro.pix.',
+        availableLocales: reachableLocales,
       },
     },
     nitro: {

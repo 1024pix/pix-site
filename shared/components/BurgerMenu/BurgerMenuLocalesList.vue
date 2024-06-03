@@ -16,14 +16,14 @@
       {{ localeProperties.name }}
     </button>
     <ul ref="localeSwitcher" class="burger-menu-locales-list__items" tabindex="0">
-      <li v-for="locale in locales" :key="locale.code">
+      <li v-for="locale in availableLocales" :key="locale.code">
         <a
-          :href="getEnvironmentUrl(`${locale.domain || ''}/${locale.code}`)"
+          :href="getEnvironmentUrl(`${locale.domain || ''}/${locale.code === frFrLocale.code ? '' : locale.code}`)"
           :aria-current="localeProperties.code === locale.code && 'page'"
           @click="updateLocaleCookie(locale.code)"
         >
           <img :src="`/images/${locale.icon}`" alt="" />
-          {{ locale.name }}
+          <span>{{ locale.name }}</span>
         </a>
       </li>
     </ul>
@@ -33,8 +33,12 @@
 <script setup>
 const { getEnvironmentUrl } = useEnvironmentUrl();
 const { setLocaleCookie } = useLocaleCookie();
+const runtimeConfig = useRuntimeConfig();
+const { localeProperties, t } = useI18n();
 
-const { localeProperties, locales, t } = useI18n();
+const availableLocales = runtimeConfig.public.availableLocales;
+
+const frFrLocale = availableLocales.find((l) => l.code === 'fr-fr');
 
 const props = defineProps({
   isLocaleSwitcherOpen: {

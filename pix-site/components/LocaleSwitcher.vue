@@ -79,10 +79,9 @@
 import { reachableLocales } from '../i18n.config';
 import { onClickOutside } from '@vueuse/core';
 
-const { getEnvironmentUrl } = useEnvironmentUrl();
 const { setLocaleCookie } = useLocaleCookie();
 
-const { localeProperties, locales, t } = useI18n();
+const { localeProperties, t } = useI18n();
 
 const frLocale = reachableLocales.find((l) => l.code === 'fr');
 const enLocale = reachableLocales.find((l) => l.code === 'en');
