@@ -8,6 +8,19 @@ mockNuxtImport('useCookie', () => {
     value: '',
   });
 });
+mockNuxtImport('useAppConfig', () => {
+  return () => ({
+    domainFr: 'https://example.fr',
+    domainOrg: 'https://example.org',
+  });
+});
+mockNuxtImport('useRuntimeConfig', () => {
+  return () => ({
+    public: {
+      siteDomain: 'ORG',
+    },
+  });
+});
 
 describe('#useLocaleCookie', () => {
   test('returns a locale cookie and a "setLocaleCookie" function', () => {
