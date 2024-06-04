@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v5.8.2 (04/06/2024)
+
+
+### :bug: Correction
+- [#658](https://github.com/1024pix/pix-site/pull/658) [BUGFIX] Rendre accessible le cookie "locale" pour tous les sous domaines pix.org  (PIX-12448).
+- [#657](https://github.com/1024pix/pix-site/pull/657) [BUGFIX] Afficher la liste complète des locales disponibles sur mobile (PIX-12477).
+
 ## v5.8.1 (30/05/2024)
 
 
