@@ -159,15 +159,15 @@ SITE=pix-pro
 
 ## NGINX
 
-La configuration NGINX a besoin de la variable NGINX_GEOAPI_UPSTREAM_HOST (ne pas la définir cause une erreur) :
+La configuration NGINX a besoin de la variable `NGINX_GEOAPI_UPSTREAM_HOST` (ne pas la définir cause une erreur) :
 
-```
+```shell
 export NGINX_GEOAPI_UPSTREAM_HOST=example.net # remplacer example.net par le host name du service de geolocalisation
 ```
 
 Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
 
-```
+```shell
 # Build site et site:org puis lance Nginx sur le port 80
 npm run dev:site:e2e
 npm run dev:pro:e2e
