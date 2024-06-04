@@ -81,9 +81,26 @@ This variable is used only in the nginx configuration.
 - default: 5s
 
 
+## Tests
+
+Copier le fichier `sample.env.test` vers un `.env.test` (et
+si besoin remplacer les valeurs, mais normalement pas nécessaire) :
+
+    cp sample.env.test .env.test
+
+Exécuter les tests :
+
+    npm t
+
+    npm run test:e2e
+
+
 ## Build Setup
 
-En dev, copier le fichier `sample.env` vers un `.env` et remplacer les valeurs.
+En dev, copier le fichier `sample.env` à la racine du repo vers un `.env` et
+remplacer les valeurs :
+
+    cp ../sample.env .env
 
 ### pix-site
 
@@ -130,13 +147,47 @@ $ npm run build
 $ npm run start
 ```
 
-La variable d'environnement `SITE` doit être assignée en fonction du site à déployer
+La variable d'environnement `SITE` doit être assignée en fonction du site à
+déployer :
 
 ```bash
 SITE=pix-site
 # ou
 SITE=pix-pro
 ```
+
+
+## NGINX
+
+La configuration NGINX a besoin de la variable NGINX_GEOAPI_UPSTREAM_HOST (ne pas la définir cause une erreur) :
+
+```
+export NGINX_GEOAPI_UPSTREAM_HOST=example.net # remplacer example.net par le host name du service de geolocalisation
+```
+
+Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
+
+```
+# Build site et site:org puis lance Nginx sur le port 80
+npm run dev:site:e2e
+npm run dev:pro:e2e
+
+# Rebuilder suite à des modifs en dev
+npm run build:site:e2e
+npm run build:pro:e2e
+
+# Pour des modifs de conf Nginx il faut recompiler le servers.conf.erb (nginx.conf) puis relancer Nginx
+npm run start:nginx:e2e
+```
+
+Aller sur `http://localhost.fr` ou `http://localhost.org`
+
+Pour que localhost.org soit fonctionnel, il faut éditer votre fichier `/etc/hosts` en y créant/modifiant la ligne du localhost pour y ajouter les domaines `.fr` et `.org`:
+
+```
+127.0.0.1 localhost localhost.fr localhost.org
+```
+
 
 ## Conventions de nommage
 
@@ -213,40 +264,3 @@ Le contenu d'une slice est passé _en entier_ et tel-quel au composant Vue équi
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-### NGINX
-
-La configuration NGINX a besoin de la variable NGINX_GEOAPI_UPSTREAM_HOST (ne pas la définir cause une erreur) :
-
-```
-export NGINX_GEOAPI_UPSTREAM_HOST=example.net # remplacer example.net par le host name du service de geolocalisation
-```
-
-Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
-
-```
-# Build site et site:org puis lance Nginx sur le port 80
-npm run dev:site:e2e
-npm run dev:pro:e2e
-
-# Rebuilder suite à des modifs en dev
-npm run build:site:e2e
-npm run build:pro:e2e
-
-# Pour des modifs de conf Nginx il faut recompiler le servers.conf.erb (nginx.conf) puis relancer Nginx
-npm run start:nginx:e2e
-```
-
-Aller sur `http://localhost.fr` ou `http://localhost.org`
-
-Pour que localhost.org soit fonctionnel, il faut éditer votre fichier `/etc/hosts` en y créant/modifiant la ligne du localhost pour y ajouter les domaines `.fr` et `.org`:
-
-```
-127.0.0.1 localhost localhost.fr localhost.org
-```
-
-Des tests unitaires existent dans `tests.sh`.
-Pour les lancer il faut exécuter la commande:
-
-```
-bash tests.sh
-```
