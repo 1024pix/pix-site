@@ -104,7 +104,7 @@ remplacer les valeurs :
 
 ### pix-site
 
-```bash
+```shell
 # install dependencies
 $ npm install
 
@@ -121,7 +121,7 @@ $ npm run start:site
 
 ### pix-pro
 
-```bash
+```shell
 # install dependencies
 $ npm install
 
@@ -138,7 +138,7 @@ $ npm run start:pro
 
 ### Scalingo
 
-```bash
+```shell
 # install dependencies
 $ npm install
 
@@ -150,7 +150,7 @@ $ npm run start
 La variable d'environnement `SITE` doit être assignée en fonction du site à
 déployer :
 
-```bash
+```shell
 SITE=pix-site
 # ou
 SITE=pix-pro
