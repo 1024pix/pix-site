@@ -9,7 +9,7 @@
   "license": "ISC",
   "private": true,
   "engines": {
-    "node": "^18.20.2"
+    "node": "^18.20.3"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",
