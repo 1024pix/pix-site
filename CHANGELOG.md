@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.9.1 (13/06/2024)
+
+
+### :coffee: Autre
+- [#665](https://github.com/1024pix/pix-site/pull/665) Revert "[BUGFIX] Inclure les images dans les builds".
+
 ## v5.9.0 (13/06/2024)
 
 
