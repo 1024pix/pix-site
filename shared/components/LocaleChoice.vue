@@ -19,14 +19,25 @@
   </main>
 </template>
 
-<script setup>
-import { reachableLocales } from '../i18n.config.ts';
-
-const { setLocaleCookie } = useLocaleCookie();
-
-function updateLocale(localeCode) {
-  setLocaleCookie(localeCode);
-}
+<script>
+export default {
+  name: 'LocaleChoice',
+  props: {
+    reachableLocales: {
+      type: Object,
+      default: null,
+    },
+  },
+  setup() {
+    const { setLocaleCookie } = useLocaleCookie();
+    return { setLocaleCookie };
+  },
+  methods: {
+    updateLocale(localeCode) {
+      setLocaleCookie(localeCode);
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>

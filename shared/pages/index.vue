@@ -1,5 +1,5 @@
 <template>
-  <locale-choice v-if="!locale" />
+  <locale-choice v-if="!locale" availableLocales="availableLocales" />
 </template>
 
 <script setup>
@@ -9,6 +9,10 @@ defineI18nRoute(false);
 definePageMeta({
   layout: 'empty',
 });
+
+const runtimeConfig = useRuntimeConfig();
+const availableLocales = runtimeConfig.public.availableLocales;
+console.log({availableLocales]);
 
 const { localeCookie } = useLocaleCookie();
 const locale = localeCookie.value;

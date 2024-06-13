@@ -12,7 +12,9 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.8",
+    "@nuxt/image": "^1.7.0",
     "@nuxt/test-utils": "^3.11.0",
+    "@testing-library/vue": "^8.0.2",
     "@vue/test-utils": "^2.4.4",
     "happy-dom": "^13.6.2",
     "nuxt": "^3.7.3",
