@@ -31,6 +31,9 @@ const config = {
     'pages:extend': filterNuxtPages,
   },
   modules: ['@nuxt/test-utils/module'],
+  image: {
+    domains: ['pix-site.cdn.prismic.io', 'storage.gra.cloud.ovh.net', 'prismic-io.s3.amazonaws.com'],
+  },
   prismic: {
     endpoint: 'pix-site',
     clientConfig: {
