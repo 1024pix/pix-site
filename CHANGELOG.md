@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v5.9.0 (13/06/2024)
+
+
+### :bug: Correction
+- [#661](https://github.com/1024pix/pix-site/pull/661) [BUGFIX] Inclure les images dans les builds.
+
+### :arrow_up: Montée de version
+- [#663](https://github.com/1024pix/pix-site/pull/663) [BUMP] Update node.
+
 ## v5.8.2 (04/06/2024)
 
 
