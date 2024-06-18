@@ -1,7 +1,7 @@
 <template>
   <article role="article" class="support-persona-card">
     <a class="support-persona-card__link" :href="cardLink">
-      <img v-if="content.icon" :src="content.icon.url" alt="" class="support-persona-card__icon" />
+      <nuxt-img v-if="content.icon" :src="content.icon.url" alt="" class="support-persona-card__icon" />
       <div class="support-persona-card__wrapper">
         <h3 class="support-persona-card__name">
           {{ content.name[0].text }}
