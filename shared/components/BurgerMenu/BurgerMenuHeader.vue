@@ -3,9 +3,9 @@
     <ul class="burger-menu-header__logos">
       <li v-for="(item, index) in logosZone" :key="`logo-${index}`">
         <nuxt-link v-if="hasLink(item)" :to="item.url">
-          <img :src="item.image.url" :alt="item.image.alt" />
+          <nuxt-img :src="item.image.url" :alt="item.image.alt" />
         </nuxt-link>
-        <img v-else :src="item.image.url" :alt="item.image.alt" />
+        <nuxt-img v-else :src="item.image.url" :alt="item.image.alt" />
       </li>
     </ul>
     <button

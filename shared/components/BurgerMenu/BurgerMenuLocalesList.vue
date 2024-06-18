@@ -8,7 +8,7 @@
       "
       @click="$emit('close')"
     >
-      <img
+      <nuxt-img
         class="burger-menu-nav-container-content-locale-switcher-button__icon"
         :src="`/images/${localeProperties.icon}`"
         alt=""
@@ -22,7 +22,7 @@
           :aria-current="localeProperties.code === locale.code && 'page'"
           @click="updateLocaleCookie(locale.code)"
         >
-          <img :src="`/images/${locale.icon}`" alt="" />
+          <nuxt-img :src="`/images/${locale.icon}`" alt="" />
           <span>{{ locale.name }}</span>
         </a>
       </li>

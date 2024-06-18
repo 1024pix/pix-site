@@ -29,7 +29,7 @@
           class="burger-menu-nav-list-item__link"
           :class="{ 'blue-link': shouldApplyBlueClass(item.url) }"
         >
-          <img
+          <nuxt-img
             v-if="item.beforeIcon"
             :src="`/images/${item.beforeIcon}`"
             :alt="item.alternativeTextForBeforeIcon"
@@ -37,7 +37,7 @@
             height="18"
           />
           {{ item.name }}
-          <img
+          <nuxt-img
             v-if="item.afterIcon"
             :src="`/images/${item.afterIcon}`"
             :alt="item.alternativeTextForAfterIcon"
