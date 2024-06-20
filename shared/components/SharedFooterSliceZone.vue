@@ -14,7 +14,7 @@
         <ul v-if="slice.slice_type === 'social_media'" class="footer-left__social-media">
           <li v-for="(socialMedia, socialMediaIndex) in slice.items" :key="`socialMedia-${socialMediaIndex}`">
             <nuxt-link :to="socialMedia.socialmedia_url.url" exact class="footer-social-media__icon">
-              <img :src="socialMedia.socialmedia_image.url" :alt="socialMedia.socialmedia_image.alt" />
+              <nuxt-img :src="socialMedia.socialmedia_image.url" :alt="socialMedia.socialmedia_image.alt" />
             </nuxt-link>
           </li>
         </ul>

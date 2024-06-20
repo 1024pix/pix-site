@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <img v-if="hasImage" class="row-block__side-content" :src="slice.primary.banner_image.url" alt="" />
+      <nuxt-img v-if="hasImage" class="row-block__side-content" :src="slice.primary.banner_image.url" alt="" />
     </section>
   </div>
 </template>

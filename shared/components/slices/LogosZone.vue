@@ -2,9 +2,9 @@
   <div class="logos-zone">
     <div v-for="(logo, index) in slice.items" :key="`logo-${index}`" class="logos-zone__content">
       <nuxt-link v-if="hasLink(logo)" :to="logo.url.url">
-        <img :src="logo.image.url" :alt="logo.image.alt" />
+        <nuxt-img :src="logo.image.url" :alt="logo.image.alt" />
       </nuxt-link>
-      <img v-else :src="logo.image.url" :alt="logo.image.alt" />
+      <nuxt-img v-else :src="logo.image.url" :alt="logo.image.alt" />
     </div>
   </div>
 </template>

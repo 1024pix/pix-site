@@ -6,7 +6,7 @@
     <div :class="`${blockClass}__wrapper ${blockClass}__wrapper-${items.length}-items`">
       <div v-for="(item, itemIndex) in items" :key="`item-${itemIndex}`" :class="`${blockClass}-wrapper__item`">
         <div :class="`${blockClass}-wrapper-item__image`">
-          <img v-if="hasImage(item)" :src="item.item_image.url" alt="" />
+          <nuxt-img v-if="hasImage(item)" :src="item.item_image.url" alt="" />
         </div>
         <div :class="`${blockClass}-wrapper-item__content`">
           <prismic-rich-text :class="`${blockClass}-wrapper-item-content__title`" :field="item.item_title" />

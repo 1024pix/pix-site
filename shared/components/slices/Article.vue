@@ -47,14 +47,14 @@
           </pix-prismic-link>
         </div>
       </div>
-      <img
+      <nuxt-img
         v-if="isMediaLayout && content.article_background.url && !containsVideo"
         :src="content.article_background.url"
         :alt="content.article_background.alt || ''"
         :role="!!content.article_background.alt ? undefined : 'presentation'"
         class="article__secondary-content article-secondary-content__background"
       />
-      <img
+      <nuxt-img
         v-if="isMediaLayout && !containsVideo"
         :src="content.article_image.url"
         :alt="content.article_image.alt || ''"

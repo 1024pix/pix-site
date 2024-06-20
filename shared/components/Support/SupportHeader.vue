@@ -4,7 +4,7 @@
       <a v-if="backLink" :href="backLink" class="persona-header__back-button">
         <span>{{ $t('back') }}</span>
       </a>
-      <img v-if="icon" class="persona-header__icon" :src="icon" alt="" />
+      <nuxt-img v-if="icon" class="persona-header__icon" :src="icon" alt="" />
       <h1 class="persona-header__title">
         {{ title }}
       </h1>

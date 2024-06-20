@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div v-if="hasDescription" class="content__description">
-      <img v-if="hasImage" class="content-description__image" :src="content.image.url" alt="" />
+      <nuxt-img v-if="hasImage" class="content-description__image" :src="content.image.url" alt="" />
 
       <header class="content-description__title">
         <prismic-rich-text :field="content.title" />

@@ -3,7 +3,7 @@
     <div class="background"></div>
     <div :class="containerClass">
       <template v-if="hasImage">
-        <img :src="image.url" :alt="image.alt || ''" :role="!!image.alt ? undefined : 'presentation'" />
+        <nuxt-img :src="image.url" :alt="image.alt || ''" :role="!!image.alt ? undefined : 'presentation'" />
       </template>
       <prismic-rich-text :field="title" />
       <prismic-rich-text :field="description" :serializer="customPrismicRichTextSerializer" />
