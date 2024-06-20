@@ -32,7 +32,12 @@ const config = {
   },
   modules: ['@nuxt/test-utils/module'],
   image: {
-    domains: ['pix-site.cdn.prismic.io', 'storage.gra.cloud.ovh.net', 'prismic-io.s3.amazonaws.com'],
+    domains: [
+      'pix-site.cdn.prismic.io',
+      'storage.gra.cloud.ovh.net',
+      'prismic-io.s3.amazonaws.com',
+      'images.prismic.io',
+    ],
   },
   prismic: {
     endpoint: 'pix-site',

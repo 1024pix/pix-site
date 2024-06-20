@@ -9,7 +9,7 @@ export default async () => {
     devServer: {
       port: Number(process.env.PORT) || 7000,
     },
-    modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', '@nuxt/image'],
+    modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-image-prismic-fix'],
     runtimeConfig: {
       public: {
         site: 'https://pix.',
