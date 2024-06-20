@@ -10,6 +10,14 @@ export default async () => {
       port: Number(process.env.PORT) || 7000,
     },
     modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-image-prismic-fix'],
+    image: {
+      domains: [
+        'pix-site.cdn.prismic.io',
+        'storage.gra.cloud.ovh.net',
+        'prismic-io.s3.amazonaws.com',
+        'images.prismic.io',
+      ],
+    },
     runtimeConfig: {
       public: {
         site: 'https://pix.',
