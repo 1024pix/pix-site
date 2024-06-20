@@ -11,12 +11,7 @@ export default async () => {
     },
     modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-image-prismic-fix'],
     image: {
-      domains: [
-        'pix-site.cdn.prismic.io',
-        'storage.gra.cloud.ovh.net',
-        'prismic-io.s3.amazonaws.com',
-        'images.prismic.io',
-      ],
+      domains: ['pix-site.cdn.prismic.io', 'storage.gra.cloud.ovh.net', 'prismic-io.s3.amazonaws.com'],
     },
     runtimeConfig: {
       public: {

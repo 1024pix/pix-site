@@ -2,7 +2,10 @@
   <li class="news-item-card">
     <nuxt-link class="news-item-card__link" :to="localePath(`/${t('news-page-prefix')}/${props.uid}`, i18nLocale)">
       <div v-if="slice.illustration?.url" class="news-item-card__header">
-        <div class="news-item-card__illustration" :style="`background-image: url(${slice.illustration.url})`"></div>
+        <div
+          class="news-item-card__illustration"
+          :style="`background-image: url(${img(slice.illustration.url)})`"
+        ></div>
       </div>
 
       <div class="news-item-card__body">
@@ -29,6 +32,8 @@ import { useDateFormat } from '@vueuse/core';
 
 const { locale: i18nLocale, t } = useI18n();
 const localePath = useLocalePath();
+
+const img = useImage();
 
 const props = defineProps({
   slice: {
