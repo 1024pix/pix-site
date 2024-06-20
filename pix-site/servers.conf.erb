@@ -75,3 +75,16 @@ server {
     add_header ETag "";
   }
 }
+server {
+    listen <%= ENV['PORT'] %>;
+    server_name support.pix.org;
+
+    location /fr {
+      rewrite ^/fr$ https://pix.fr/support permanent;
+      rewrite ^/fr/(.*)$ https://pix.fr/support/$1 permanent;
+    }
+    location /en {
+      rewrite ^/en$ https://pix.org/en/support permanent;
+      rewrite ^/en/(.*)$ https://pix.org/en/support/$1 permanent;
+    }
+}
