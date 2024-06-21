@@ -24,9 +24,14 @@ const { origin } = useRequestURL();
 const config = useAppConfig();
 const domainOrg = config.domainOrg;
 
+const i18nHead = useLocaleHead();
+
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Pix` : 'Pix';
+  },
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs?.lang,
   },
 });
 

@@ -11,9 +11,14 @@
 </template>
 
 <script setup>
+const i18nHead = useLocaleHead();
+
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Pix Pro` : 'Pix Pro';
+  },
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs?.lang,
   },
 });
 </script>
