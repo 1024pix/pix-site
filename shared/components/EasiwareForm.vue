@@ -25,7 +25,6 @@ onMounted(() => {
   createEasiwareForm({
     solutionId: props.solutionId,
     formId: props.formId,
-    language: 'fr',
     elementToBuildIn: 'easiwareform',
   });
 });
