@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v5.11.0 (21/06/2024)
+
+
+### :rocket: Amélioration
+- [#675](https://github.com/1024pix/pix-site/pull/675) [FEATURE] Réduire la taille des assets.
+
+### :bug: Correction
+- [#669](https://github.com/1024pix/pix-site/pull/669) [BUGFIX] Rendre les formulaires support multilingues(PIX-12765).
+
 ## v5.10.3 (21/06/2024)
 
 
