@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.10.3 (21/06/2024)
+
+
+### :bug: Correction
+- [#674](https://github.com/1024pix/pix-site/pull/674) [BUGFIX] Télécharger tous les assets disponibles.
+
 ## v5.10.1 (21/06/2024)
 
 
