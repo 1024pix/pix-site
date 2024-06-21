@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.11.1 (21/06/2024)
+
+
+### :building_construction: Tech
+- [#676](https://github.com/1024pix/pix-site/pull/676) [TECH] : Add default redirection for support.pix.org.
+
 ## v5.11.0 (21/06/2024)
 
 
