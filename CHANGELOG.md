@@ -1,5 +1,20 @@
 # pix-site Changelog
 
+## v5.10.0 (21/06/2024)
+
+
+### :building_construction: Tech
+- [#672](https://github.com/1024pix/pix-site/pull/672) [TECH] : Update redirect to support.
+- [#662](https://github.com/1024pix/pix-site/pull/662) [TECH] Utiliser la librairie @nuxt/eslint au lieu de @nuxt/eslint-config.
+
+### :bug: Correction
+- [#671](https://github.com/1024pix/pix-site/pull/671) [BUGFIX] Ne pas rappatrier les assets de `images.prismic.io` du tout.
+- [#670](https://github.com/1024pix/pix-site/pull/670) [BUGFIX] Ne pas rappatrier les assets de `images.prismic.io` sur Pix Pro.
+- [#668](https://github.com/1024pix/pix-site/pull/668) [BUGFIX] Inclure les images dans les builds, deuxième essai.
+
+### :coffee: Autre
+- [#667](https://github.com/1024pix/pix-site/pull/667) Revert "[TECH] Utiliser la librairie @nuxt/eslint au lieu de @nuxt/eslint-config".
+
 ## v5.9.1 (13/06/2024)
 
 
