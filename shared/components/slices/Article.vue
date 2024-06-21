@@ -52,6 +52,7 @@
         :src="content.article_background.url"
         :alt="content.article_background.alt || ''"
         :role="!!content.article_background.alt ? undefined : 'presentation'"
+        width="960"
         class="article__secondary-content article-secondary-content__background"
       />
       <nuxt-img
@@ -59,6 +60,7 @@
         :src="content.article_image.url"
         :alt="content.article_image.alt || ''"
         :role="!!content.article_image.alt ? undefined : 'presentation'"
+        width="960"
         class="article__secondary-content article-secondary-content__image"
       />
       <video

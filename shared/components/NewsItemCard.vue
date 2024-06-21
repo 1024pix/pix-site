@@ -4,7 +4,7 @@
       <div v-if="slice.illustration?.url" class="news-item-card__header">
         <div
           class="news-item-card__illustration"
-          :style="`background-image: url(${img(slice.illustration.url)})`"
+          :style="`background-image: url(${img(slice.illustration.url, { width: 340 })})`"
         ></div>
       </div>
 
