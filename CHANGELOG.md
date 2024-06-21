@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v5.11.2 (21/06/2024)
+
+
+### :building_construction: Tech
+- [#681](https://github.com/1024pix/pix-site/pull/681) [TECH] : Fix redirection with slug.
+- [#666](https://github.com/1024pix/pix-site/pull/666) [TECH] Amélioration de l'expérience développeur : MAJ doc et npm scripts.
+
 ## v5.11.1 (21/06/2024)
 
 
