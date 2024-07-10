@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
     <div v-if="data.type === 'form_page'">
       <form-page :content="data.data" />
     </div>
@@ -9,12 +9,17 @@
     <div v-if="data.type === 'slices_page'">
       <prismic-custom-slice-zone :slices="data.data.body" />
     </div>
-  </div>
+  </Html>
 </template>
 
 <script setup>
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
+const head = useLocaleHead({
+  addDirAttribute: true,
+  identifierAttribute: 'id',
+  addSeoAttributes: true,
+});
 const { client, filter } = usePrismic();
 const route = useRoute();
 
