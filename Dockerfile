@@ -33,7 +33,7 @@ COPY ${SITE}/ /code/${SITE}
 # Build de l'application 
 RUN npm run build
 
-FROM nginx:1.26.0-alpine AS run-stage
+FROM nginx:1.27.0-alpine AS run-stage
 ARG SITE
 
 ENV NGINX_GEOAPI_UPSTREAM_HOST=localhost
