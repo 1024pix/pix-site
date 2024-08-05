@@ -1,5 +1,5 @@
 ARG SITE=pix-site
-FROM node:18.20.2-alpine AS install-stage
+FROM node:18.20.4-alpine AS install-stage
 ARG SITE
 # Installation des dépendances 
 
