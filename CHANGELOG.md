@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.12.1 (13/08/2024)
+
+
+### :rocket: Amélioration
+- [#682](https://github.com/1024pix/pix-site/pull/682) [FEATURE] Positionner la métadonnée de la langue dans les pages (PIX-13360).
+
 ## v5.11.2 (21/06/2024)
 
 
