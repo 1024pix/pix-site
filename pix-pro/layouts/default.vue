@@ -1,13 +1,15 @@
 <template>
-  <div id="app" class="app-viewport">
-    <skip-link />
-    <hot-news-banner />
-    <navigation-slice-zone />
-    <main id="main" role="main" tabindex="-1">
-      <slot />
-    </main>
-    <shared-footer-slice-zone />
-  </div>
+  <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
+    <div id="app" class="app-viewport">
+      <skip-link />
+      <hot-news-banner />
+      <navigation-slice-zone />
+      <main id="main" role="main" tabindex="-1">
+        <slot />
+      </main>
+      <shared-footer-slice-zone />
+    </div>
+  </Html>
 </template>
 
 <script setup>
@@ -15,6 +17,11 @@ useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} | Pix Pro` : 'Pix Pro';
   },
+});
+
+const head = useLocaleHead({
+  addSeoAttributes: true,
+  addDirAttribute: true,
 });
 </script>
 
