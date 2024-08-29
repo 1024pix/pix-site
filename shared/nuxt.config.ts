@@ -38,6 +38,9 @@ const config = {
     },
     linkResolver: '../shared/services/link-resolver.js',
   },
+  image: {
+    provider: 'prismic',
+  },
   runtimeConfig: {
     public: {
       easiwareScriptUrl: process.env.EASIWARE_SCRIPT_URL,
