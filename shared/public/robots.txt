@@ -1,6 +1,1 @@
 User-agent: *
-Disallow: /support/*
-Disallow: /en/support/*
-Disallow: /fr/support/*
-Disallow: /fr-be/support/*
-Disallow: /nl-be/support/*
