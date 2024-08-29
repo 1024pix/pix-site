@@ -1,5 +1,16 @@
 # pix-site Changelog
 
+## v5.13.0 (29/08/2024)
+
+
+### :rocket: Amélioration
+- [#697](https://github.com/1024pix/pix-site/pull/697) [FEATURE] Mettre à jour le fichier robots.txt (PIX-14053).
+
+### :arrow_up: Montée de version
+- [#695](https://github.com/1024pix/pix-site/pull/695) [BUMP] Update dependency nuxt to v3.12.4 [SECURITY].
+- [#694](https://github.com/1024pix/pix-site/pull/694) [BUMP] Update dependency nuxt to v3.12.4 [SECURITY].
+- [#696](https://github.com/1024pix/pix-site/pull/696) [BUMP] Update dependency nuxt to v3.12.4 [SECURITY].
+
 ## v5.12.1 (13/08/2024)
 
 
