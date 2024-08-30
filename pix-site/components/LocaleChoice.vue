@@ -14,7 +14,7 @@
         <img class="locale-link__icon" :src="'/images/' + locale.icon" alt="" />
         <span class="locale-link__text">{{ locale.name }}</span>
       </a>
-      <nuxt-img class="planet" src="/images/planet.svg" />
+      <img class="planet" src="/images/planet.svg" />
     </div>
   </main>
 </template>
