@@ -7,6 +7,9 @@ const config = {
       script: [],
     },
   },
+  image: {
+    provider: process.env.IS_BUILTIN_IMAGES_ENABLED ? undefined : 'prismic',
+  },
   appConfig: {
     domainFr: process.env.DOMAIN_FR,
     domainOrg: process.env.DOMAIN_ORG,
@@ -32,10 +35,10 @@ const config = {
   },
   modules: ['@nuxt/test-utils/module'],
   prismic: {
-    endpoint: 'pix-site',
     clientConfig: {
       accessToken: process.env.PRISMIC_API_TOKEN,
     },
+    endpoint: 'pix-site',
     linkResolver: '../shared/services/link-resolver.js',
   },
   runtimeConfig: {
