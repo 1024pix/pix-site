@@ -2,9 +2,9 @@
   <div class="logos-zone">
     <div v-for="(logo, index) in slice.items" :key="`logo-${index}`" class="logos-zone__content">
       <nuxt-link v-if="hasLink(logo)" :to="logo.url.url">
-        <nuxt-img :src="logo.image.url" :alt="logo.image.alt" />
+        <PrismicNuxtImg :src="logo.image.url" :alt="logo.image.alt" />
       </nuxt-link>
-      <nuxt-img v-else :src="logo.image.url" :alt="logo.image.alt" />
+      <PrismicNuxtImg v-else :src="logo.image.url" :alt="logo.image.alt" />
     </div>
   </div>
 </template>
@@ -47,6 +47,7 @@ function hasLink(item) {
       margin-right: 0;
     }
   }
+
   @include device-is('desktop') {
     justify-content: flex-start;
   }
