@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/vue';
 
 import LocaleChoice from '~/components/LocaleChoice.vue';
-import { reachableLocales } from '~/i18n.config.ts';
+
+const localeNames = ['English', 'Français'];
 
 describe('LocaleChoice', () => {
   beforeEach(() => {
@@ -16,8 +17,8 @@ describe('LocaleChoice', () => {
 
   test('displays the name of each locale', () => {
     // then
-    reachableLocales.forEach((locale) => {
-      expect(screen.findByText(locale.name)).toBeTruthy();
+    localeNames.forEach((localeName) => {
+      expect(screen.findByText(localeName)).toBeTruthy();
     });
   });
 });
