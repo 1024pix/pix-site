@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v5.13.1 (03/09/2024)
+
+
+### :bug: Correction
+- [#703](https://github.com/1024pix/pix-site/pull/703) [BUGFIX] Corriger les liens sur la page de choix de locale (PIX-14127).
+- [#700](https://github.com/1024pix/pix-site/pull/700) [BUGFIX] Réparer le lien de l'image de planète sur la page de choix de locale.
+
 ## v5.13.0 (29/08/2024)
 
 
