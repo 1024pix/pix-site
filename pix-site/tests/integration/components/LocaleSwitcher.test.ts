@@ -4,7 +4,48 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 import LocaleSwitcher from '~/components/LocaleSwitcher.vue';
 
 const localeProperties = { code: 'fr-fr', name: 'Français', icon: 'fr' };
-
+const availableLocales = [
+  {
+    code: 'en',
+    iso: 'en',
+    file: 'en.js',
+    name: 'English',
+    icon: 'globe-europe.svg',
+    domain: 'https://example.org/',
+  },
+  {
+    code: 'fr',
+    iso: 'fr',
+    file: 'fr.js',
+    name: 'Français',
+    icon: 'globe-europe.svg',
+    domain: 'https://example.org/',
+  },
+  {
+    code: 'fr-fr',
+    iso: 'fr-fr',
+    file: 'fr-fr.js',
+    name: 'France',
+    icon: 'flag-fr.svg',
+    domain: 'https://example.fr/',
+  },
+  {
+    code: 'fr-be',
+    iso: 'fr-be',
+    file: 'fr-be.js',
+    name: 'Belgique (Français)',
+    icon: 'flag-be.svg',
+    domain: 'https://example.org/',
+  },
+  {
+    code: 'nl-be',
+    iso: 'nl-be',
+    file: 'nl-be.js',
+    name: 'België (Nederlands)',
+    icon: 'flag-be.svg',
+    domain: 'https://example.org/',
+  },
+];
 mockNuxtImport('useI18n', () => {
   return () => {
     return { localeProperties, t: (str) => str };
@@ -20,6 +61,7 @@ mockNuxtImport('useRuntimeConfig', () => {
   return () => ({
     public: {
       siteDomain: 'ORG',
+      availableLocales,
     },
   });
 });
