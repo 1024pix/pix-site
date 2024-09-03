@@ -5,7 +5,7 @@
         <img class="logo-pix" src="/images/logo-pix-blanc.svg" alt="Pix" />
       </h1>
       <a
-        v-for="locale in reachableLocales"
+        v-for="locale in availableLocales"
         :key="locale.code"
         class="locale-link"
         :href="`${locale.domain}/${locale.code === 'fr-fr' ? '' : locale.code}`"
@@ -20,7 +20,8 @@
 </template>
 
 <script setup>
-import { reachableLocales } from '../i18n.config.ts';
+const runtimeConfig = useRuntimeConfig();
+const availableLocales = runtimeConfig.public.availableLocales;
 
 const { setLocaleCookie } = useLocaleCookie();
 
