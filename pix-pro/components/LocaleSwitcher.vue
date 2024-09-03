@@ -56,16 +56,18 @@
 </template>
 
 <script setup>
-import { reachableLocales } from '../i18n.config';
 import { onClickOutside } from '@vueuse/core';
+
+const runtimeConfig = useRuntimeConfig();
+const availableLocales = runtimeConfig.public.availableLocales;
 
 const { setLocaleCookie } = useLocaleCookie();
 
 const { localeProperties, t } = useI18n();
 
-const frLocale = reachableLocales.find((l) => l.code === 'fr');
-const enLocale = reachableLocales.find((l) => l.code === 'en');
-const frFrLocale = reachableLocales.find((l) => l.code === 'fr-fr');
+const frLocale = availableLocales.find((l) => l.code === 'fr');
+const enLocale = availableLocales.find((l) => l.code === 'en');
+const frFrLocale = availableLocales.find((l) => l.code === 'fr-fr');
 
 const buttonRef = ref(null);
 const localesMenuRef = ref(null);
