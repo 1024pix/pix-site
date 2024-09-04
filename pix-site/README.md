@@ -108,10 +108,10 @@ remplacer les valeurs :
 # install dependencies
 $ npm install
 
-# serve french site with hot reload at localhost:7000
-$ npm run dev:site
+# serve french site with hot reload at localhost:6001
+$ npm run dev:site:fr
 
-# serve international site with hot reload at localhost:8000
+# serve international site with hot reload at localhost:7001
 $ npm run dev:site:org
 
 # build for production and launch server
@@ -125,11 +125,11 @@ $ npm run start:site
 # install dependencies
 $ npm install
 
-# serve french pro site with hot reload at localhost:7000
-$ npm run dev:pro
+# serve french pro site with hot reload at localhost:6001
+$ npm run dev:site:fr
 
-# serve international pro site with hot reload at localhost:8000
-$ npm run dev:pro:org
+# serve international pro site with hot reload at localhost:7001
+$ npm run dev:site:org
 
 # build for production and launch server
 $ npm run build:pro
