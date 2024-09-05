@@ -18,7 +18,7 @@
     "preview": "nuxt preview",
     "slicemachine": "start-slicemachine",
     "test": "NODE_ENV=test vitest",
-    "test:e2e": "npx playwright test --ui",
+    "test:e2e": "playwright test --ui",
     "start:nginx": "PORT=80 erb servers.conf.erb > nginx.conf && docker-compose up"
   },
   "devDependencies": {
