@@ -10,7 +10,7 @@ definePageMeta({
   layout: 'empty',
 });
 
-const { localeCookie } = useLocaleCookie();
+const { localeCookie, setLocaleCookie } = useLocaleCookie();
 const locale = localeCookie.value;
 onBeforeMount(() => {
   const router = useRouter();
@@ -26,6 +26,7 @@ const currentUrl = useRequestURL();
 onMounted(async () => {
   const { shouldRedirectToFrFr } = await useGeolocationActions(currentUrl, $fetch);
   if (shouldRedirectToFrFr) {
+    setLocaleCookie('fr-fr');
     window.location = `${domainOrg || ''}/fr-fr`;
   }
 });
