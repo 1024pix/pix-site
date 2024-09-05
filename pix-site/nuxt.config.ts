@@ -7,7 +7,7 @@ export default async () => {
   return defineNuxtConfig({
     extends: ['../shared'],
     devServer: {
-      port: Number(process.env.PORT) || 7000,
+      port: Number(process.env.PORT) || 6001,
     },
     modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-image-prismic-fix'],
     image: {
