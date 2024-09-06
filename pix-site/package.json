@@ -22,7 +22,7 @@
     "test": "NODE_ENV=test vitest",
     "test:e2e:install": "playwright install",
     "test:e2e": "playwright test --ui",
-    "test:e2e:ci": "playwright test",
+    "test:e2e:ci": "CI=true playwright test",
     "start:nginx": "PORT=80 erb servers.conf.erb > nginx.conf && docker-compose up"
   },
   "devDependencies": {
