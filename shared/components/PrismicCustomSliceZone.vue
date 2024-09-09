@@ -30,7 +30,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   slices: {
     type: Array,
     default: null,

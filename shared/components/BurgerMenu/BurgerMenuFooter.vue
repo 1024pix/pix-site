@@ -31,12 +31,14 @@
 <script setup>
 const { localeProperties, t } = useI18n();
 
-const props = defineProps({
+defineProps({
   actions: {
     type: Array,
     default: null,
   },
 });
+
+defineEmits(['toggleLocaleSwitcher']);
 </script>
 
 <style lang="scss" scoped>

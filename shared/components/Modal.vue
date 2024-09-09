@@ -9,6 +9,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+defineEmits(['closeModal']);
+
 const modalRef = ref(null);
 
 onMounted(() => {
