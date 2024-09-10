@@ -28,7 +28,12 @@
 </template>
 
 <script setup>
-const props = defineProps(['sections']);
+defineProps({
+  field: {
+    type: Object,
+    required: true,
+  },
+});
 const emits = defineEmits(['close-menu']);
 const { getEnvironmentUrl } = useEnvironmentUrl();
 

@@ -15,8 +15,8 @@
         </div>
         <ul class="navigation-dropdown__sub-list">
           <li
-            v-for="(link, index) in section.links"
-            :key="`link-${index}`"
+            v-for="(link, linkIndex) in section.links"
+            :key="`link-${linkIndex}`"
             class="navigation-dropdown-sub-list__sub-item"
           >
             <nuxt-link
@@ -50,6 +50,8 @@ defineProps({
     default: null,
   },
 });
+
+defineEmits(['sublink-click']);
 </script>
 
 <style scoped lang="scss">

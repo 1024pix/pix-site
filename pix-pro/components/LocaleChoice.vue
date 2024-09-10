@@ -24,7 +24,6 @@ const runtimeConfig = useRuntimeConfig();
 const availableLocales = runtimeConfig.public.availableLocales;
 
 const { setLocaleCookie } = useLocaleCookie();
-const { locales, defaultLocale } = useI18n();
 
 function updateLocale(localeCode) {
   setLocaleCookie(localeCode);

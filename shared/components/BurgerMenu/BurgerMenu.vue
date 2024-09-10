@@ -39,7 +39,7 @@ import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 
 const { t } = useI18n();
 
-const props = defineProps({
+defineProps({
   items: {
     type: Object,
     default: null,

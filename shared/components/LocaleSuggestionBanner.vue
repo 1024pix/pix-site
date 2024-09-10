@@ -20,6 +20,7 @@ export default {
       type: String,
     },
   },
+  emits: ['handleCloseBanner'],
 };
 </script>
 

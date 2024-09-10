@@ -27,6 +27,8 @@ defineProps({
   },
 });
 
+defineEmits(['closeMenu']);
+
 const hasLink = (item) => {
   return item.url.link_type !== 'Any';
 };

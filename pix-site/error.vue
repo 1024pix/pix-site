@@ -3,16 +3,13 @@
     <a :href="t('home-page-url')">
       <img class="logo" src="/images/pix-logo.svg" alt="Lien pour revenir à l'accueil" />
     </a>
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="t('error-content')" />
   </div>
 </template>
 
 <script setup>
 const { locale: i18nLocale, t } = useI18n();
-
-const props = defineProps({
-  error: Object,
-});
 
 useHead({
   title: 'Error | Pix',
