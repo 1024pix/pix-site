@@ -6,7 +6,7 @@ describe('linkResolver', () => {
     {
       lang: 'fr-fr',
       uid: 'test-uid',
-      expectedUrl: '/test-uid',
+      expectedUrl: '/fr-fr/test-uid',
     },
     {
       lang: 'fr-be',
@@ -35,7 +35,7 @@ describe('linkResolver', () => {
       {
         lang: 'fr-fr',
         uid: 'test-uid',
-        expectedUrl: '/actualites/test-uid',
+        expectedUrl: '/fr-fr/actualites/test-uid',
       },
       {
         lang: 'fr-be',
@@ -65,7 +65,7 @@ describe('linkResolver', () => {
       {
         tags: [TAGS.INDEX, 'another-tag'],
         lang: 'fr-fr',
-        expectedUrl: '/',
+        expectedUrl: '/fr-fr/',
       },
       {
         tags: [TAGS.INDEX],
