@@ -18,4 +18,15 @@ onBeforeMount(() => {
     return router.replace(`/${locale}/`);
   }
 });
+
+const config = useAppConfig();
+const domainOrg = config.domainOrg;
+const currentUrl = useRequestURL();
+
+onMounted(async () => {
+  const { shouldRedirectToFrFr } = await useGeolocationActions(currentUrl, $fetch);
+  if (shouldRedirectToFrFr) {
+    window.location = `${domainOrg || ''}/fr-fr`;
+  }
+});
 </script>
