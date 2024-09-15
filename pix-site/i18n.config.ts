@@ -22,7 +22,7 @@ const reachableLocales = [
     file: 'fr-fr.js',
     name: 'France',
     icon: 'flag-fr.svg',
-    domain: process.env.DOMAIN_FR,
+    domain: process.env.DOMAIN_ORG,
   },
   {
     code: 'fr-be',
