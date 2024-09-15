@@ -43,6 +43,8 @@ const reachableLocales = [
   },
 ];
 
+const reachableLocaleCodes = reachableLocales.map(reachableLocale => reachableLocale.code);
+
 const config = generateConfig(reachableLocales);
 export default { ...config };
-export { reachableLocales };
+export { reachableLocales, reachableLocaleCodes };
