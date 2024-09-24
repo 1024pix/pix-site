@@ -1,5 +1,5 @@
-import { filterNuxtPages } from '../../services/filter-nuxt-pages';
 import { vi } from 'vitest';
+import { filterNuxtPages } from '../../services/filter-nuxt-pages';
 
 describe('FilterNuxtPages', () => {
   describe('when is french domain', () => {

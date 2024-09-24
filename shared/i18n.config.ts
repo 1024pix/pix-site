@@ -14,11 +14,11 @@ export function generateConfig(reachableLocales) {
   const config = { ...baseConfig };
 
   if (process.env.SITE_DOMAIN === 'FR') {
-    config.locales = reachableLocales.filter((locale) => locale.code === 'fr-fr');
+    config.locales = reachableLocales.filter(locale => locale.code === 'fr-fr');
   }
 
   if (process.env.SITE_DOMAIN === 'ORG') {
-    config.locales = reachableLocales.filter((locale) => locale.code !== 'fr-fr');
+    config.locales = reachableLocales.filter(locale => locale.code !== 'fr-fr');
     config.defaultLocale = null;
     config.strategy = 'prefix';
   }

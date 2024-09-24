@@ -1,26 +1,26 @@
-import { DOCUMENTS, TAGS } from './document-fetcher';
 import * as en from '../translations/en.js';
 import * as fr from '../translations/fr.js';
 import * as frBe from '../translations/fr-be.js';
 import * as frFr from '../translations/fr-fr.js';
+import { DOCUMENTS, TAGS } from './document-fetcher';
 
 const newsPagePrefixes = {
   en:
-    en.default['news-page-prefix'].body?.static ||
-    en.default['news-page-prefix'].b?.s ||
-    en.default['news-page-prefix'],
+    en.default['news-page-prefix'].body?.static
+    || en.default['news-page-prefix'].b?.s
+    || en.default['news-page-prefix'],
   fr:
-    fr.default['news-page-prefix'].body?.static ||
-    fr.default['news-page-prefix'].b?.s ||
-    fr.default['news-page-prefix'],
+    fr.default['news-page-prefix'].body?.static
+    || fr.default['news-page-prefix'].b?.s
+    || fr.default['news-page-prefix'],
   'fr-be':
-    frBe.default['news-page-prefix'].body?.static ||
-    frBe.default['news-page-prefix'].b?.s ||
-    frBe.default['news-page-prefix'],
+    frBe.default['news-page-prefix'].body?.static
+    || frBe.default['news-page-prefix'].b?.s
+    || frBe.default['news-page-prefix'],
   'fr-fr':
-    frFr.default['news-page-prefix'].body?.static ||
-    frFr.default['news-page-prefix'].b?.s ||
-    frFr.default['news-page-prefix'],
+    frFr.default['news-page-prefix'].body?.static
+    || frFr.default['news-page-prefix'].b?.s
+    || frFr.default['news-page-prefix'],
 };
 
 export function linkResolver(doc) {
@@ -39,8 +39,8 @@ export function linkResolver(doc) {
     return doc.data.body.flatMap(({ primary: parentPersona, items }) => {
       const parentPersonaUrl = `${locale}/support/${parentPersona.slug}`;
       const subPersonaUrls = items
-        .filter((item) => item.sub_persona.uid)
-        .map((item) => `${parentPersonaUrl}/${item.sub_persona.uid}`);
+        .filter(item => item.sub_persona.uid)
+        .map(item => `${parentPersonaUrl}/${item.sub_persona.uid}`);
       return [parentPersonaUrl, ...subPersonaUrls];
     });
   }

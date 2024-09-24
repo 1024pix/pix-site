@@ -1,4 +1,5 @@
 import { generateConfig } from '../shared/i18n.config';
+
 const reachableLocales = [
   {
     code: 'en',

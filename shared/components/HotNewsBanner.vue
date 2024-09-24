@@ -7,6 +7,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 const { client, filter } = usePrismic();
 const { locale: i18nLocale } = useI18n();
 

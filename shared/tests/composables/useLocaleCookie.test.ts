@@ -36,7 +36,8 @@ describe('#useLocaleCookie', () => {
     describe('when callback is passed in parameter', () => {
       test('calls callback', () => {
         // given
-        const callback = vi.fn(() => {}) as Function;
+        const callback = vi.fn(() => {}) as Function; // eslint-disable-line @typescript-eslint/no-unsafe-function-type
+
         const { setLocaleCookie } = useLocaleCookie();
 
         // when

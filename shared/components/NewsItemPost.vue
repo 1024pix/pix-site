@@ -23,6 +23,7 @@
 
 <script setup>
 import { useDateFormat } from '@vueuse/core';
+
 const { locale: i18nLocale } = useI18n();
 
 const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
@@ -39,8 +40,8 @@ const categoryLabel = props.newsItem.data.category.toLowerCase();
 const date = props.newsItem.first_publication_date
   ? 'Preview'
   : useDateFormat(props.newsItem.data.date, 'DD MMMM YYYY', {
-      locales: i18nLocale.value,
-    });
+    locales: i18nLocale.value,
+  });
 </script>
 
 <style lang="scss">

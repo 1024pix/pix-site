@@ -8,7 +8,7 @@ export default async () => {
       async 'nitro:config'(nitroConfig) {
         if (process.env.NODE_ENV === 'test') return;
         const routes = await getRoutesToGenerate({ locales: i18nConfig.locales });
-        // @ts-ignore
+        // @ts-expect-error TODO define the typing
         nitroConfig.prerender.routes = routes;
       },
     },

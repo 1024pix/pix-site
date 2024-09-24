@@ -38,7 +38,7 @@ const { localeProperties, t } = useI18n();
 
 const availableLocales = runtimeConfig.public.availableLocales;
 
-const frFrLocale = availableLocales.find((l) => l.code === 'fr-fr');
+const frFrLocale = availableLocales.find(l => l.code === 'fr-fr');
 
 const props = defineProps({
   isLocaleSwitcherOpen: {

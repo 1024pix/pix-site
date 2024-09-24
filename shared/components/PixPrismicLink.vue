@@ -24,7 +24,7 @@ function removeHostIfCurrentSite(url) {
 
     const parsedURL = new URL(url);
     return parsedURL.pathname + parsedURL.search + parsedURL.hash;
-  } catch (e) {
+  } catch (e) { // eslint-disable-line @typescript-eslint/no-unused-vars
     // relative URL
     return url;
   }
@@ -38,7 +38,7 @@ function isCurrentLocaleURL(url) {
 }
 
 function getPathLocale(path) {
-  const localeCodesWithoutDefault = $i18n.localeCodes.value.filter((code) => code !== $i18n.defaultLocale);
+  const localeCodesWithoutDefault = $i18n.localeCodes.value.filter(code => code !== $i18n.defaultLocale);
 
   // When fr-fr, no other locale is available, so return undefined
   if (localeCodesWithoutDefault.length === 0) return undefined;
