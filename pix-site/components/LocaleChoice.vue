@@ -5,7 +5,7 @@
         <img class="logo-pix" src="/images/logo-pix-blanc.svg" alt="Pix" />
       </h1>
       <a
-        v-for="locale in reachableLocales"
+        v-for="locale in availableLocales"
         :key="locale.code"
         class="locale-link"
         :href="`${locale.domain}/${locale.code === 'fr-fr' ? '' : locale.code}`"
@@ -14,13 +14,14 @@
         <img class="locale-link__icon" :src="'/images/' + locale.icon" alt="" />
         <span class="locale-link__text">{{ locale.name }}</span>
       </a>
-      <nuxt-img class="planet" src="/images/planet.svg" />
+      <img class="planet" src="/images/planet.svg" />
     </div>
   </main>
 </template>
 
 <script setup>
-import { reachableLocales } from '../i18n.config.ts';
+const runtimeConfig = useRuntimeConfig();
+const availableLocales = runtimeConfig.public.availableLocales;
 
 const { setLocaleCookie } = useLocaleCookie();
 

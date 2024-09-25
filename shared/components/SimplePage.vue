@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   content: {
     type: Object,
     default: null,

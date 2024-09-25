@@ -8,6 +8,7 @@
       :field="data.supportForm.form_introduction"
       class="easiware-form__introduction"
     />
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <p class="easiware-form__required-info" v-html="t('support.form.required-info')" />
   </easiware-form>
 </template>

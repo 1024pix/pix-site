@@ -13,7 +13,7 @@ export default async () => {
       },
     },
     devServer: {
-      port: 7001,
+      port: Number(process.env.PORT) || 6001,
     },
     modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-image-prismic-fix'],
     image: {

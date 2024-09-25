@@ -32,13 +32,6 @@ Domain name for `.org` extension.
 - type: String
 - default: none
 
-`GEOAPI_HOST`
-Host for Pix Geo-api which is only used in local dev mode.
-
-- presence: optional
-- type: String
-- default: none
-
 `MATOMO_CONTAINER`
 If not present, nuxt-matomo will not be loaded and tag managers will not be active
 
@@ -52,6 +45,16 @@ If not present, nuxt-matomo is not in debug mode
 - presence: optional
 - type: Boolean
 - default: false
+
+---
+
+`GEOAPI_HOST`
+Host for Pix Geo-api which is only used in local dev mode
+(`npm run dev:site:fr`, `npm run dev:site:org`)
+
+- presence: optional
+- type: String
+- default: none
 
 ---
 
@@ -81,6 +84,29 @@ This variable is used only in the nginx configuration.
 - default: 5s
 
 
+## Dev
+
+En dev, copier le fichier `sample.env` à la racine du repo vers un `.env` et
+remplacer les valeurs :
+
+    cp ../sample.env .env
+
+Note : La géolocalisation fonctionne aussi en mode dev en définissant la
+variable d'environnement `GEOAPI_HOST` grâce à la propriété `devProxy` définie
+dans `nuxt.config.ts`.
+
+```shell
+# install dependencies
+npm ci
+
+# serve french site with hot reload at localhost:6001
+npm run dev:site:fr
+
+# serve international site with hot reload at localhost:7001
+npm run dev:site:org
+```
+
+
 ## Tests
 
 Copier le fichier `sample.env.test` vers un `.env.test` (et
@@ -95,52 +121,21 @@ Exécuter les tests :
     npm run test:e2e
 
 
-## Build Setup
-
-En dev, copier le fichier `sample.env` à la racine du repo vers un `.env` et
-remplacer les valeurs :
-
-    cp ../sample.env .env
-
-### pix-site
+## Build
 
 ```shell
 # install dependencies
-$ npm install
-
-# serve french site with hot reload at localhost:7000
-$ npm run dev:site
-
-# serve international site with hot reload at localhost:8000
-$ npm run dev:site:org
+npm ci
 
 # build for production and launch server
-$ npm run build:site
-$ npm run start:site
-```
-
-### pix-pro
-
-```shell
-# install dependencies
-$ npm install
-
-# serve french pro site with hot reload at localhost:7000
-$ npm run dev:pro
-
-# serve international pro site with hot reload at localhost:8000
-$ npm run dev:pro:org
-
-# build for production and launch server
-$ npm run build:pro
-$ npm run start:pro
+npm run build
 ```
 
 ### Scalingo
 
 ```shell
 # install dependencies
-$ npm install
+$ npm ci
 
 # build for production and launch server
 $ npm run build

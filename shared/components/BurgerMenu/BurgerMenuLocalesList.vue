@@ -47,6 +47,8 @@ const props = defineProps({
   },
 });
 
+defineEmits(['close']);
+
 const localeSwitcher = ref(null);
 
 const updateLocaleCookie = (localeCode) => {

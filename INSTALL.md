@@ -11,7 +11,7 @@ Deux répertoires :
 
 ## Docker
 
-Un dockerfile est diposible à la racine du projet, pour pix-site et pix-pro
+Un dockerfile est disponible à la racine du projet, pour pix-site et pix-pro
 
 ### Build pix-site
 
