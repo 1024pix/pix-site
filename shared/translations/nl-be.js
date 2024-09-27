@@ -71,4 +71,14 @@ export default {
     'change-locale-switcher': 'Changer la langue',
     'change-locale-switcher-button': 'Changer',
   },
+back: 'Retour',
+  support: {
+    form: {
+      'required-info': "Tous les champs marqués d'une <span>*</span> sont obligatoires",
+    },
+    faq: {
+      'contact-title': 'Vous ne trouvez pas la réponse à votre question ?',
+      'contact-cta': 'Contacter le support',
+    },
+  },
 };
