@@ -79,5 +79,10 @@ export default {
       'contact-title': "Can't find the answer to your question?",
       'contact-cta': 'Contact the support',
     },
+    meta: {
+      title: 'Help Center and Contact',
+      description:
+        'Any question? Do you need help? Check out our FAQ or contact our support using the form dedicated to your situation.',
+    },
   },
 };

@@ -71,7 +71,7 @@ export default {
     'change-locale-switcher': 'Changer la langue',
     'change-locale-switcher-button': 'Changer',
   },
-back: 'Retour',
+  back: 'Retour',
   support: {
     form: {
       'required-info': "Tous les champs marqués d'une <span>*</span> sont obligatoires",
@@ -79,6 +79,11 @@ back: 'Retour',
     faq: {
       'contact-title': 'Vous ne trouvez pas la réponse à votre question ?',
       'contact-cta': 'Contacter le support',
+    },
+    meta: {
+      title: 'Helpcentrum & Contact',
+      description:
+        'Heb je een vraag? Heb je hulp nodig? Vind je antwoord in de FAQ of neem contact met ons op via het formulier dat is aangepast aan jouw situatie.',
     },
   },
 };
