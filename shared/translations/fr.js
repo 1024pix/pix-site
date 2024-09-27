@@ -44,7 +44,6 @@ export default {
     'pix-certification-application': "Demande d'agrément comme centre de certification | Pix",
     'pix-orga-higher-school-registration': "Finaliser la demande d'espace | Pix Orga sup",
     'pix-orga-registration': "Demande d'information | Pix pro",
-    support: 'Support | Pix',
   },
   form: {
     'not-supported':

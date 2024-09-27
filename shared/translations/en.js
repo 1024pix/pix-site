@@ -48,7 +48,6 @@ export default {
     'pix-certification-application': 'Application for accreditation as a certification center | Pix',
     'pix-orga-higher-school-registration': 'Finalise slot inquiry | Pix Orga sup',
     'pix-orga-registration': 'Request for information | Pix pro',
-    support: 'Support | Pix',
   },
   'preview-page-load': 'Preview page loading...',
   'home-page-url': `${process.env.DOMAIN_ORG}/en/`,
