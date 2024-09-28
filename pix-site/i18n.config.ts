@@ -22,7 +22,7 @@ const reachableLocales = [
     file: 'fr-fr.js',
     name: 'France',
     icon: 'flag-fr.svg',
-    domain: process.env.DOMAIN_FR,
+    domain: process.env.DOMAIN_ORG,
   },
   {
     code: 'fr-be',
@@ -42,6 +42,8 @@ const reachableLocales = [
   },
 ];
 
+const reachableLocaleCodes = reachableLocales.map((reachableLocale) => reachableLocale.code);
+
 const config = generateConfig(reachableLocales);
 export default { ...config };
-export { reachableLocales };
+export { reachableLocales, reachableLocaleCodes };

@@ -39,13 +39,11 @@ server {
 
   listen <%= ENV['PORT'] %>;
 
-  server_name ~(?<extension>(fr|org))$;
-  if ($extension = '') {
-    set $extension 'fr';
-  }
+  server_name ~^(?<basehostname>.+)\.(?<extension>(fr|org))$;
 
-  if ($http_x_forwarded_host ~ \.org) {
-    set $extension 'org';
+  if ($extension = 'fr') {
+    # Redirect pix.fr/abc → pix.org/fr-fr/abc
+    rewrite ^/(.*)$ $scheme://$basehostname.org/fr-fr/$1 permanent;
   }
 
 <% if ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>
@@ -62,8 +60,11 @@ server {
   # Disable compression that is performed by the Scalingo router anyway
   gzip off;
 
+  # Now only /app/build/org exists. /app/build/fr is not built anymore.
+  #
   # Serve from dist/pix.fr or dist/pix.org depending on the extension
-  root /app/build/$extension;
+  #root /app/build/$extension;
+  root /app/build/org;
 
   include /app/nginx/includes/rewrites.conf;
 

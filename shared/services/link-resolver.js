@@ -24,7 +24,7 @@ const newsPagePrefixes = {
 };
 
 export function linkResolver(doc) {
-  const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : '';
+  const locale = `/${doc.lang}`;
 
   // News
   if (doc.type === DOCUMENTS.NEWS_ITEM) {

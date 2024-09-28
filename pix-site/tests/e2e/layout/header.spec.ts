@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('layout/header', () => {
   test('should display elements visible in header', async ({ page }) => {
-    await page.goto('http://localhost:7002/', {
+    await page.goto('/fr-fr/', {
       waitUntil: 'networkidle',
     });
 

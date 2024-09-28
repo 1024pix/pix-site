@@ -14,7 +14,7 @@
     "generate:prepare": "mkdir -p build",
     "generate:fr": "npm run generate:prepare && SITE_DOMAIN=FR nuxt generate && cp -R ./.output/public ./build/fr",
     "generate:org": "npm run generate:prepare && SITE_DOMAIN=ORG nuxt generate && cp -R ./.output/public ./build/org",
-    "generate": "npm run generate:clean && npm run generate:fr && npm run generate:org",
+    "generate": "npm run generate:clean && npm run generate:org",
     "preview": "nuxt preview",
     "slicemachine": "start-slicemachine",
     "test": "NODE_ENV=test vitest",

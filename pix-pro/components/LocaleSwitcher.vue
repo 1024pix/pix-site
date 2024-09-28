@@ -45,7 +45,11 @@
           </ul>
         </li>
         <li v-if="frFrLocale" :class="{ active: localeProperties.code === frFrLocale.code }">
-          <a :href="`${domainFr || ''}/`" :aria-current="localeProperties.code === frFrLocale.code && 'page'">
+          <a
+            :href="`${domainOrg || ''}/fr-fr`"
+            :aria-current="localeProperties.code === frFrLocale.code && 'page'"
+            @click="updateLocaleCookie(frFrLocale.code)"
+          >
             <img :src="`/images/${frFrLocale.icon}`" alt="" />
             <span>{{ frFrLocale.name }}</span>
           </a>
@@ -75,7 +79,6 @@ const isLocalesMenuVisible = ref(false);
 const isInternationalLocalesVisible = ref(false);
 
 const config = useAppConfig();
-const domainFr = config.domainFr;
 const domainOrg = config.domainOrg;
 
 function toggleLocalesMenu() {

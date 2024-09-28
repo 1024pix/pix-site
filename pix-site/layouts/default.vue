@@ -21,7 +21,7 @@
 import { ref } from 'vue';
 
 const showBanner = ref(false);
-const { origin } = useRequestURL();
+const currentUrl = useRequestURL();
 
 const config = useAppConfig();
 const domainOrg = config.domainOrg;
@@ -38,8 +38,9 @@ const head = useLocaleHead({
 });
 
 onMounted(async () => {
-  const { showOutOfFranceBanner } = useShowOutOfFranceBanner();
-  showBanner.value = await showOutOfFranceBanner(origin, $fetch);
+  const { showOutOfFranceBanner } = await useGeolocationActions(currentUrl, $fetch);
+
+  showBanner.value = showOutOfFranceBanner;
 });
 
 const closeLocaleSuggestionBanner = () => {

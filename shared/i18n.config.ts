@@ -18,7 +18,7 @@ export function generateConfig(reachableLocales) {
   }
 
   if (process.env.SITE_DOMAIN === 'ORG') {
-    config.locales = reachableLocales.filter((locale) => locale.code !== 'fr-fr');
+    config.locales = reachableLocales;
     config.defaultLocale = null;
     config.strategy = 'prefix';
   }

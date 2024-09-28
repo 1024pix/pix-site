@@ -18,7 +18,7 @@
     <ul ref="localeSwitcher" class="burger-menu-locales-list__items" tabindex="0">
       <li v-for="locale in availableLocales" :key="locale.code">
         <a
-          :href="getEnvironmentUrl(`${locale.domain || ''}/${locale.code === frFrLocale.code ? '' : locale.code}`)"
+          :href="getEnvironmentUrl(`${locale.domain || ''}/${locale.code}`)"
           :aria-current="localeProperties.code === locale.code && 'page'"
           @click="updateLocaleCookie(locale.code)"
         >
@@ -37,8 +37,6 @@ const runtimeConfig = useRuntimeConfig();
 const { localeProperties, t } = useI18n();
 
 const availableLocales = runtimeConfig.public.availableLocales;
-
-const frFrLocale = availableLocales.find((l) => l.code === 'fr-fr');
 
 const props = defineProps({
   isLocaleSwitcherOpen: {
