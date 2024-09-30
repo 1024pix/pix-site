@@ -1,5 +1,5 @@
-import { documentFetcher, DOCUMENTS } from '../../services/document-fetcher';
 import { vi } from 'vitest';
+import { documentFetcher, DOCUMENTS } from '../../services/document-fetcher';
 
 describe('DocumentFetcher', () => {
   const SAVED_ENV = process.env;

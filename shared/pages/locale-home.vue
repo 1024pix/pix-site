@@ -28,7 +28,7 @@ const { data: indexContent } = await useAsyncData(async () => {
     lang: i18nLocale.value,
   });
 
-  const currentSiteIndexPage = indexPages.find((page) => page.tags.includes(appConfig.site));
+  const currentSiteIndexPage = indexPages.find(page => page.tags.includes(appConfig.site));
 
   return currentSiteIndexPage;
 });

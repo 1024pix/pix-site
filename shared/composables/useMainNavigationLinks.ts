@@ -1,35 +1,35 @@
 type NavigationZoneItem = {
-  afterIcon: string | null;
-  beforeIcon: string | null;
-  alternativeTextForBeforeIcon: Array<{ text: string }>;
-  alternativeTextForAfterIcon: Array<{ text: string }>;
-  categoryName: Array<{ text: string }>;
-  descriptionCategoryTitle: Array<{ text: string }>;
-  descriptionCategoryText: Array<{ text: string }>;
-  menuLink: { url: string };
-  menuName: Array<{ text: string }>;
-  menuSectionTitle: Array<{ text: string }>;
-  separator: boolean;
+  afterIcon: string | null
+  beforeIcon: string | null
+  alternativeTextForBeforeIcon: Array<{ text: string }>
+  alternativeTextForAfterIcon: Array<{ text: string }>
+  categoryName: Array<{ text: string }>
+  descriptionCategoryTitle: Array<{ text: string }>
+  descriptionCategoryText: Array<{ text: string }>
+  menuLink: { url: string }
+  menuName: Array<{ text: string }>
+  menuSectionTitle: Array<{ text: string }>
+  separator: boolean
 };
 
 type Section = {
-  title: string;
-  links: Array<{ name: string; url: string }>;
+  title: string
+  links: Array<{ name: string, url: string }>
 };
 
 type FormattedMenuItem = {
-  name: string;
-  afterIcon: string | null;
-  beforeIcon: string | null;
-  alternativeTextForAfterIcon?: string;
-  alternativeTextForBeforeIcon?: string;
+  name: string
+  afterIcon: string | null
+  beforeIcon: string | null
+  alternativeTextForAfterIcon?: string
+  alternativeTextForBeforeIcon?: string
   description?: {
-    title: string;
-    text: string;
-  };
-  sections: Array<Section>;
-  separator: boolean;
-  url?: string;
+    title: string
+    text: string
+  }
+  sections: Array<Section>
+  separator: boolean
+  url?: string
 };
 
 export default function useMainNavigationLinks(
@@ -59,8 +59,8 @@ export default function useMainNavigationLinks(
 
     const currentCategoryName = _getTextFromArray(currentItem.categoryName);
     const lastCategoryIndex = formattedData.length - 1;
-    const isDifferentCategory =
-      lastCategoryIndex === -1 || formattedData[lastCategoryIndex].name !== currentCategoryName;
+    const isDifferentCategory
+      = lastCategoryIndex === -1 || formattedData[lastCategoryIndex].name !== currentCategoryName;
 
     if (isDifferentCategory) {
       formattedData.push(

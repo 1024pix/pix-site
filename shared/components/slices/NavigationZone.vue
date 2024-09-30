@@ -97,7 +97,7 @@ const toggleDropdown = (dropdownIndex) => {
 
 const subIsActive = (subNavigationLinks) => {
   const paths = subNavigationLinks
-    .flatMap((subNavigationLink) => subNavigationLink.links.map((link) => link.url))
+    .flatMap(subNavigationLink => subNavigationLink.links.map(link => link.url))
     .map((subNavigationLink) => {
       const splittedLink = subNavigationLink.split('/');
       const linkIndex = splittedLink.length - 1;

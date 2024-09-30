@@ -75,18 +75,18 @@ export default {
     },
     hasTitle() {
       return (
-        this.slice.primary.block_title &&
-        this.slice.primary.block_title.length &&
-        this.slice.primary.block_title[0].text &&
-        this.slice.primary.block_title[0].text.length
+        this.slice.primary.block_title
+        && this.slice.primary.block_title.length
+        && this.slice.primary.block_title[0].text
+        && this.slice.primary.block_title[0].text.length
       );
     },
     hasSubtitle() {
       return (
-        this.slice.primary.block_subtitle &&
-        this.slice.primary.block_subtitle.length &&
-        this.slice.primary.block_subtitle[0].text &&
-        this.slice.primary.block_subtitle[0].text.length
+        this.slice.primary.block_subtitle
+        && this.slice.primary.block_subtitle.length
+        && this.slice.primary.block_subtitle[0].text
+        && this.slice.primary.block_subtitle[0].text.length
       );
     },
     title() {

@@ -35,16 +35,16 @@ const { data: mainNav } = await useAsyncData(async () => {
   return nav[0].data.body;
 });
 
-const logos = mainNav.value.filter((block) => block.slice_type === 'logos_zone');
+const logos = mainNav.value.filter(block => block.slice_type === 'logos_zone');
 
-const actions = mainNav.value.filter((block) => block.slice_type === 'actions_zone');
+const actions = mainNav.value.filter(block => block.slice_type === 'actions_zone');
 
-const navigation = mainNav.value.filter((block) => block.slice_type === 'navigation_zone');
+const navigation = mainNav.value.filter(block => block.slice_type === 'navigation_zone');
 
 const burgerMenuLinks = () => {
-  const logosZone = mainNav.value.find((slice) => slice.slice_type === 'logos_zone') || { items: [] };
-  const navigationZone = mainNav.value.find((slice) => slice.slice_type === 'navigation_zone') || { items: [] };
-  const actionsZone = mainNav.value.find((slice) => slice.slice_type === 'actions_zone') || { items: [] };
+  const logosZone = mainNav.value.find(slice => slice.slice_type === 'logos_zone') || { items: [] };
+  const navigationZone = mainNav.value.find(slice => slice.slice_type === 'navigation_zone') || { items: [] };
+  const actionsZone = mainNav.value.find(slice => slice.slice_type === 'actions_zone') || { items: [] };
 
   const reversedActionsZoneItems = [...actionsZone.items].reverse();
 

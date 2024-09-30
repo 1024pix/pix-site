@@ -25,7 +25,7 @@ test.describe('component/locale-switcher', () => {
       );
 
       const cookies = await page.context().cookies();
-      const localeCookie = cookies.find((c) => c.name == 'locale');
+      const localeCookie = cookies.find(c => c.name == 'locale');
       await expect(localeCookie).toHaveProperty('value', 'en');
     });
   });

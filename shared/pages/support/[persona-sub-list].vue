@@ -47,8 +47,8 @@ const { data } = await useAsyncData(async () => {
     });
 
     const currentPersonaChildren = currentPersonaData.items
-      .filter((item) => item.sub_persona.id)
-      .map((persona) => persona.sub_persona.id);
+      .filter(item => item.sub_persona.id)
+      .map(persona => persona.sub_persona.id);
 
     const queryChildrenPersona = await client.getByIDs(currentPersonaChildren, { lang: i18nLocale.value });
 

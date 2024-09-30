@@ -15,6 +15,7 @@ export default function useLocaleCookie() {
     sameSite: 'strict',
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   function setLocaleCookie(locale: string, callback?: Function): void {
     const localeCanonicalName = Intl.getCanonicalLocales(locale)?.[0];
     if (previousLocaleCookie.value) {

@@ -48,7 +48,7 @@ const availableLocales = [
 ];
 mockNuxtImport('useI18n', () => {
   return () => {
-    return { localeProperties, t: (str) => str };
+    return { localeProperties, t: str => str };
   };
 });
 mockNuxtImport('useAppConfig', () => {

@@ -50,7 +50,7 @@ const isMenuOpen = ref(false);
 const isLocaleSwitcherOpen = ref(false);
 
 watch(isMenuOpen, () => {
-  if (isMenuOpen && isMenuOpen.value) {
+  if (isMenuOpen.value) {
     document.body.style.position = 'fixed';
   } else {
     document.body.style.position = 'static';

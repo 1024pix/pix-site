@@ -47,7 +47,7 @@ const { data: mainFooter } = await useAsyncData(async () => {
   return footer[0].data.body;
 });
 
-const navigationGroups = mainFooter.value.filter((slice) => slice.slice_type === 'navigation_group');
+const navigationGroups = mainFooter.value.filter(slice => slice.slice_type === 'navigation_group');
 </script>
 
 <style lang="scss">

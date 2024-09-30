@@ -1,5 +1,6 @@
-import useEnvironmentUrl from '../../composables/useEnvironmentUrl';
 import { mockNuxtImport } from '@nuxt/test-utils/runtime';
+import useEnvironmentUrl from '../../composables/useEnvironmentUrl';
+
 const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const DOMAIN = 'https://pro.pix';
