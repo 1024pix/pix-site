@@ -10,12 +10,14 @@ definePageMeta({
   layout: 'empty',
 });
 
-const { localeCookie } = useLocaleCookie();
+const { localeCookie, getBestMatchingLocale } = useLocaleCookie();
 const locale = localeCookie.value;
+
 onBeforeMount(() => {
   const router = useRouter();
+
   if (locale) {
-    return router.replace(`/${locale}/`);
+    return router.replace(`/${getBestMatchingLocale(locale)}/`);
   }
 });
 </script>
