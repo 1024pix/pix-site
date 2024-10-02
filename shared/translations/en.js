@@ -48,7 +48,6 @@ export default {
     'pix-certification-application': 'Application for accreditation as a certification center | Pix',
     'pix-orga-higher-school-registration': 'Finalise slot inquiry | Pix Orga sup',
     'pix-orga-registration': 'Request for information | Pix pro',
-    support: 'Support | Pix',
   },
   'preview-page-load': 'Preview page loading...',
   'home-page-url': `${process.env.DOMAIN_ORG}/en/`,
@@ -79,6 +78,11 @@ export default {
     faq: {
       'contact-title': "Can't find the answer to your question?",
       'contact-cta': 'Contact the support',
+    },
+    meta: {
+      title: 'Help Center and Contact',
+      description:
+        'Any question? Do you need help? Check out our FAQ or contact our support using the form dedicated to your situation.',
     },
   },
 };

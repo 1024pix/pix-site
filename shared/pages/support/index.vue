@@ -20,7 +20,7 @@
 
 <script setup>
 const { client } = usePrismic();
-const { locale: i18nLocale } = useI18n();
+const { locale: i18nLocale, t } = useI18n();
 
 /* I18n Routes */
 defineI18nRoute({
@@ -31,6 +31,11 @@ defineI18nRoute({
     'fr-be': '/support',
     'nl-be': '/support',
   },
+});
+
+useHead({
+  title: t('support.meta.title'),
+  meta: [{ name: 'description', content: t('support.meta.description') }],
 });
 
 /* Fetch personas list */

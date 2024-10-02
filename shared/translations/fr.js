@@ -44,7 +44,6 @@ export default {
     'pix-certification-application': "Demande d'agrément comme centre de certification | Pix",
     'pix-orga-higher-school-registration': "Finaliser la demande d'espace | Pix Orga sup",
     'pix-orga-registration': "Demande d'information | Pix pro",
-    support: 'Support | Pix',
   },
   form: {
     'not-supported':
@@ -80,6 +79,11 @@ export default {
     faq: {
       'contact-title': 'Vous ne trouvez pas la réponse à votre question ?',
       'contact-cta': 'Contacter le support',
+    },
+    meta: {
+      title: 'Centre d’aide et contact',
+      description:
+        'Une question ? Besoin d’aide ? Trouvez votre réponse en consultant notre FAQ ou contactez le support via le formulaire adapté à votre situation.',
     },
   },
 };

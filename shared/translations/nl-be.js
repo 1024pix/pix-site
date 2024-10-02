@@ -48,7 +48,6 @@ export default {
     'pix-certification-application': "Demande d'agrément comme centre de certification | Pix",
     'pix-orga-higher-school-registration': "Finaliser la demande d'espace | Pix Orga sup",
     'pix-orga-registration': "Demande d'information | Pix pro",
-    support: 'Support | Pix',
   },
   'preview-page-load': 'Chargement de la page de prévisualisation...',
   'home-page-url': `${process.env.DOMAIN_ORG}/nl-be/`,
@@ -71,5 +70,20 @@ export default {
     'close-locale-switcher': 'Fermer le changement de langue',
     'change-locale-switcher': 'Changer la langue',
     'change-locale-switcher-button': 'Changer',
+  },
+  back: 'Retour',
+  support: {
+    form: {
+      'required-info': "Tous les champs marqués d'une <span>*</span> sont obligatoires",
+    },
+    faq: {
+      'contact-title': 'Vous ne trouvez pas la réponse à votre question ?',
+      'contact-cta': 'Contacter le support',
+    },
+    meta: {
+      title: 'Helpcentrum & Contact',
+      description:
+        'Heb je een vraag? Heb je hulp nodig? Vind je antwoord in de FAQ of neem contact met ons op via het formulier dat is aangepast aan jouw situatie.',
+    },
   },
 };
