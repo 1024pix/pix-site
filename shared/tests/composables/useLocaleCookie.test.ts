@@ -3,6 +3,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import useLocaleCookie from '../../composables/useLocaleCookie';
 
+const availableLocaleCodes = ['en', 'fr', 'fr-fr'];
+
 mockNuxtImport('useCookie', () => {
   return () => ({
     value: '',
@@ -18,6 +20,7 @@ mockNuxtImport('useRuntimeConfig', () => {
   return () => ({
     public: {
       siteDomain: 'ORG',
+      availableLocaleCodes,
     },
   });
 });
@@ -36,7 +39,7 @@ describe('#useLocaleCookie', () => {
     describe('when callback is passed in parameter', () => {
       test('calls callback', () => {
         // given
-        const callback = vi.fn(() => {}) as Function; // eslint-disable-line @typescript-eslint/no-unsafe-function-type
+        const callback = vi.fn(() => { }) as Function; // eslint-disable-line @typescript-eslint/no-unsafe-function-type
 
         const { setLocaleCookie } = useLocaleCookie();
 
@@ -71,6 +74,47 @@ describe('#useLocaleCookie', () => {
 
         // then
         expect(localeCookie.value).toEqual('nl-BE');
+      });
+    });
+  });
+
+  describe('getBestMatchingLocale', () => {
+    describe('when wanted locale is available', () => {
+      test('returns the same locale', () => {
+        // given
+        const { getBestMatchingLocale } = useLocaleCookie();
+
+        // when
+        const matchingLocale = getBestMatchingLocale('fr-fr');
+
+        // then
+        expect(matchingLocale).toEqual('fr-fr');
+      });
+    });
+
+    describe('when wanted locale is unavailable but an available locale with same language is', () => {
+      test('returns the same locale', () => {
+        // given
+        const { getBestMatchingLocale } = useLocaleCookie();
+
+        // when
+        const matchingLocale = getBestMatchingLocale('fr-be');
+
+        // then
+        expect(matchingLocale).toEqual('fr');
+      });
+    });
+
+    describe('when wanted locale is unavailable and no available locale with same language is', () => {
+      test('returns the first available locale', () => {
+        // given
+        const { getBestMatchingLocale } = useLocaleCookie();
+
+        // when
+        const matchingLocale = getBestMatchingLocale('nl-be');
+
+        // then
+        expect(matchingLocale).toEqual('en');
       });
     });
   });
