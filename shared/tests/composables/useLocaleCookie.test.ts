@@ -3,6 +3,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import useLocaleCookie from '../../composables/useLocaleCookie';
 
+const availableLocaleNames = ['en', 'fr', 'fr-fr'];
+
 mockNuxtImport('useCookie', () => {
   return () => ({
     value: '',
@@ -18,6 +20,7 @@ mockNuxtImport('useRuntimeConfig', () => {
   return () => ({
     public: {
       siteDomain: 'ORG',
+      availableLocaleNames,
     },
   });
 });
@@ -71,6 +74,47 @@ describe('#useLocaleCookie', () => {
 
         // then
         expect(localeCookie.value).toEqual('nl-BE');
+      });
+    });
+  });
+
+  describe('getBestMatchingLocaleName', () => {
+    describe('when wanted locale is available', () => {
+      test('returns the same locale name', () => {
+        // given
+        const { getBestMatchingLocaleName } = useLocaleCookie();
+
+        // when
+        const matchingLocaleName = getBestMatchingLocaleName('fr-fr');
+
+        // then
+        expect(matchingLocaleName).toEqual('fr-fr');
+      });
+    });
+
+    describe('when wanted locale is unavailable but an available locale with same language is', () => {
+      test('returns the same locale name', () => {
+        // given
+        const { getBestMatchingLocaleName } = useLocaleCookie();
+
+        // when
+        const matchingLocaleName = getBestMatchingLocaleName('fr-be');
+
+        // then
+        expect(matchingLocaleName).toEqual('fr');
+      });
+    });
+
+    describe('when wanted locale is unavailable and no available locale with same language is', () => {
+      test('returns the first available locale name', () => {
+        // given
+        const { getBestMatchingLocaleName } = useLocaleCookie();
+
+        // when
+        const matchingLocaleName = getBestMatchingLocaleName('nl-be');
+
+        // then
+        expect(matchingLocaleName).toEqual('en');
       });
     });
   });
