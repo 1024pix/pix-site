@@ -1,5 +1,25 @@
 # pix-site Changelog
 
+## v5.14.0 (08/10/2024)
+
+
+### :rocket: Amélioration
+- [#714](https://github.com/1024pix/pix-site/pull/714) [FEATURE] MAJ de la metadescription du Centre d'aide(PIX-14175).
+
+### :building_construction: Tech
+- [#710](https://github.com/1024pix/pix-site/pull/710) [TECH] Mise à jour de la configuration ESLint monorepo.
+- [#708](https://github.com/1024pix/pix-site/pull/708) [TECH] Corriger tous les warnings du linting et interdire les warnings (PIX-14221).
+- [#706](https://github.com/1024pix/pix-site/pull/706) [TECH] Arranger encore l'utilisation de playwright (PIX-4174).
+- [#705](https://github.com/1024pix/pix-site/pull/705) [TECH] Améliorer l'expérience développeur (changer les ports utilisés pour le dev, améliorer la doc, etc.) (PIX-14150).
+
+### :bug: Correction
+- [#718](https://github.com/1024pix/pix-site/pull/718) [BUGFIX] Corriger le problème des locales disponibles non-identiques entre pix-site à pix-pro (PIX-14143).
+- [#709](https://github.com/1024pix/pix-site/pull/709) [BUGFIX] Corriger le docker-compose.yml cassé sur pix-site (PIX-14301).
+
+### :arrow_up: Montée de version
+- [#684](https://github.com/1024pix/pix-site/pull/684) [BUMP] Update nginx Docker tag to v1.27.1.
+- [#711](https://github.com/1024pix/pix-site/pull/711) [BUMP] Update node.
+
 ## v5.13.1 (03/09/2024)
 
 
