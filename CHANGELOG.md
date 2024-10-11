@@ -1,5 +1,15 @@
 # pix-site Changelog
 
+## v5.15.0 (11/10/2024)
+
+
+### :bug: Correction
+- [#720](https://github.com/1024pix/pix-site/pull/720) [BUGFIX] Réparer le burger menu du site vitrine (PIX-14793).
+- [#701](https://github.com/1024pix/pix-site/pull/701) [BUGFIX] Réparer l'affichage des images en preview (PIX-14766).
+
+### :arrow_up: Montée de version
+- [#719](https://github.com/1024pix/pix-site/pull/719) [BUMP] Update dependency node to v20.18.0.
+
 ## v5.14.0 (08/10/2024)
 
 
