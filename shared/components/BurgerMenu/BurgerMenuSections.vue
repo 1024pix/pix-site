@@ -29,6 +29,10 @@
 
 <script setup>
 defineProps({
+  sections: {
+    type: Array,
+    required: true,
+  },
   field: {
     type: Object,
     required: true,
@@ -42,7 +46,7 @@ const handleLinkClick = () => {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .burger-menu-nav-sections-list {
   padding: 0.75rem 0;
   border-bottom: 1px solid $grey-20;
