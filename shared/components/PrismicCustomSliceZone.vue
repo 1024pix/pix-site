@@ -22,6 +22,9 @@
       <template v-if="slice.slice_type === 'embed'">
         <slices-embed :src="slice.primary.iframe_link" />
       </template>
+      <template v-if="slice.slice_type === 'testimonials'">
+        <slices-testimonials :slice="slice" :index-for-id="index" />
+      </template>
       <!-- <template v-if="slice.slice_type === 'stat'">
         <slices-stat :slice="slice" :index-for-id="index" />
       </template> -->

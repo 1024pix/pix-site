@@ -1,0 +1,126 @@
+.slice-testimonials {
+  max-width: 87rem;
+  margin: 4rem auto;
+
+  .el-carousel__arrow {
+    color: $blue;
+    background-color: transparent;
+
+    i {
+      font-size: 2rem;
+    }
+  }
+  .el-carousel__arrow--left {
+    left: 0.25rem;
+  }
+  .el-carousel__arrow--right {
+    right: 0.25rem;
+  }
+}
+
+.slice-testimonials__title {
+  color: $grey-90;
+  font-weight: $font-normal;
+  letter-spacing: 0.00875rem;
+  line-height: 2.875rem;
+  text-align: center;
+  margin-block: 0 2rem;
+}
+
+.slice-testimonials__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: calc(100% - 2rem);
+  margin-block: 1rem;
+  padding: 2rem;
+  background: $grey-5;
+  box-shadow: 0 0.5rem 1rem 0 rgba(112, 128, 175, 0.2);
+  border-radius: 2rem;
+}
+.is-in-stage .slice-testimonials__item {
+  margin-inline: 14% 4rem;
+}
+.is-in-stage[style*="translateX(-"] .slice-testimonials__item {
+  margin-inline: 4rem 14%;
+}
+.is-active .slice-testimonials__item {
+  margin-inline: 10%;
+}
+
+.slice-testimonials__testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+
+  .photo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    object-fit: cover;
+  }
+
+  .infos {
+    font-family: $font-roboto;
+    line-height: 1.1;
+
+    strong {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $blue;
+    }
+
+    small {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.slice-testimonials__testimonial-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  color: $grey-90;
+
+  p {
+    margin: 0;
+
+    &:first-child::before,
+    &:last-child::after {
+      content: '"';
+    }
+  }
+
+  p + p {
+    margin-top: 0.5rem;
+  }
+}
+
+.slice-testimonials__testimonial-link {
+  display: inline-block;
+  color: $blue;
+  border-bottom: 1px solid currentColor;
+
+  &:hover {
+    color: $blue-hover;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 1rem;
+    height: 1rem;
+    background-image: url('/images/icn-external-link.svg');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: invert(30%) sepia(70%) saturate(1972%) hue-rotate(216deg) brightness(103%) contrast(101%);
+  }
+}
