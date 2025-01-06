@@ -109,4 +109,5 @@ export default {
 @import '../../assets/scss/components/slices/features.scss';
 @import '../../assets/scss/components/slices/process.scss';
 @import '../../assets/scss/components/slices/statistics.scss';
+@import '../../assets/scss/components/slices/testimonials.scss';
 </style>
