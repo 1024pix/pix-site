@@ -64,6 +64,9 @@
 </template>
 
 <script setup>
+import { useDebounceFn } from '@vueuse/core';
+
+const { $pushMatomoEvent } = useNuxtApp();
 const { client } = usePrismic();
 const { locale: i18nLocale, t } = useI18n();
 const route = useRoute();
@@ -143,6 +146,15 @@ const displayPost = ({ post }) => {
   return simplifyString(getPostTitle(post.uid)).includes(simplifyString(searchInput.value));
 };
 
+const debouncedMatomoEvent = useDebounceFn((inputValue) => {
+  $pushMatomoEvent(
+    'Support',
+    'FAQ',
+    "Recherche dans la barre d'une FAQ support",
+    `${data.value.currentPersona.faq_page_title[0].text}: '${inputValue}'`,
+  );
+}, 1500);
+
 const handleSearch = async (inputValue) => {
   searchInput.value = inputValue;
 
@@ -160,6 +172,8 @@ const handleSearch = async (inputValue) => {
   });
 
   filteredPostsCount.value = postsCount;
+
+  debouncedMatomoEvent(inputValue);
 };
 </script>
 
