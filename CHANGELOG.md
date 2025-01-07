@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v5.17.0 (07/01/2025)
+
+
+### :rocket: Amélioration
+- [#729](https://github.com/1024pix/pix-site/pull/729) [FEATURE] Ajouter un carrousel de témoignages customisable (PIX-15828).
+
+### :building_construction: Tech
+- [#730](https://github.com/1024pix/pix-site/pull/730) [TECH] Ajouter un tracking Matomo sur les recherches FAQ support (PIX-15433).
+
 ## v5.16.0 (02/12/2024)
 
 
