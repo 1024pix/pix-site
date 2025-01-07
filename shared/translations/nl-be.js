@@ -89,4 +89,10 @@ export default {
         'Heb je een vraag? Heb je hulp nodig? Vind je antwoord in de FAQ of neem contact met ons op via het formulier dat is aangepast aan jouw situatie.',
     },
   },
+  slices: {
+    testimonials: {
+      title: 'Zij zijn degenen die er het beste over praten',
+      link: 'Getuigenislink',
+    },
+  },
 };

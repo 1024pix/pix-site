@@ -88,4 +88,10 @@ export default {
         'Any question? Do you need help? Check out our FAQ or contact our support using the form dedicated to your situation.',
     },
   },
+  slices: {
+    testimonials: {
+      title: 'They are the ones who talk about it best.',
+      link: 'Testimonial link',
+    },
+  },
 };
