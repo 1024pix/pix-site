@@ -1,6 +1,6 @@
 <template>
   <section :id="`slice-${props.indexForId}`" class="slice-testimonials">
-    <h2 class="slice-testimonials__title">Ce sont eux qui en parlent le mieux</h2>
+    <h2 class="slice-testimonials__title">{{ $t('slices.testimonials.title') }}</h2>
     <el-carousel
       ref="carouselElement"
       :type="carouselType"
@@ -27,7 +27,7 @@
             class="slice-testimonials__testimonial-link"
             :field="item.link"
           >
-            Lien témoignage
+            {{ $t('slices.testimonials.link') }}
           </pix-prismic-link>
         </div>
       </el-carousel-item>

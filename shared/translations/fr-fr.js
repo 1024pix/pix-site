@@ -89,4 +89,10 @@ export default {
         'Une question ? Besoin d’aide ? Trouvez votre réponse en consultant notre FAQ ou contactez le support via le formulaire adapté à votre situation.',
     },
   },
+  slices: {
+    testimonials: {
+      title: 'Ce sont eux qui en parlent le mieux',
+      link: 'Lien témoignage',
+    },
+  },
 };
