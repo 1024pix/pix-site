@@ -1,5 +1,29 @@
 # pix-site
 
+## Présentation globale
+
+### Architecture
+
+Il y a 3 dossiers principaux dans ce projet :
+
+- `shared` : contient les composants partagés par les sites pix-site et pix-pro
+- `pix-site` : contient les sources du site vitrine de pix
+- `pix-pro` : contient les sources du site vitrine de la version pro de pix
+
+Cette architecture suit celle des layers de nuxt 3 (
+voir [https://nuxt.com/docs/getting-started/layers](https://nuxt.com/docs/getting-started/layers) ).
+
+Voir également les détails concernant l'utilisation d'un
+dossier `shared` (https://nuxt.com/docs/guide/directory-structure/shared)
+
+### Librairies
+
+#### Element-plus
+
+La librarie element-plus est utilisée pour les composants complexes que l'on ne souhaite pas redévelopper from scratch (
+caroussel, tabs, etc.)
+(voir [https://element-plus.org/en-US/](https://element-plus.org/en-US/))
+
 ## Tests
 
 Il y a des tests à plusieurs endroits dans ce projet.
@@ -29,9 +53,9 @@ Les tests e2e utilisent Playwright.
 #### Erreurs dans les tests e2e
 
 Dans la CI il est surprenant de noter que certaines erreurs ne font pas échouer
-la CI : 
+la CI :
 
-![capture d'écran](./screenshot-test:e2e:ci-error.png) 
+![capture d'écran](./screenshot-test:e2e:ci-error.png)
 
 De plus il est également surprenant de noter qu'en local l'exécution de la
 commande `npm run test:e2e` provoque toujours des erreurs (par exemple `6
