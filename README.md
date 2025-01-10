@@ -13,7 +13,7 @@ Il y a 3 dossiers principaux dans ce projet :
 Cette architecture suit celle des layers de nuxt 3 (
 voir [https://nuxt.com/docs/getting-started/layers](https://nuxt.com/docs/getting-started/layers) ).
 
-Voir égalgement les détails concernant l'utilisation d'un
+Voir également les détails concernant l'utilisation d'un
 dossier `shared` (https://nuxt.com/docs/guide/directory-structure/shared)
 
 ### Librairies
