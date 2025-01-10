@@ -25,6 +25,9 @@
       <template v-if="slice.slice_type === 'testimonials'">
         <slices-testimonials :slice="slice" :index-for-id="index" />
       </template>
+      <template v-if="slice.slice_type === 'tabs'">
+        <slices-tabs :slice="slice" :index-for-id="index" />
+      </template>
       <!-- <template v-if="slice.slice_type === 'stat'">
         <slices-stat :slice="slice" :index-for-id="index" />
       </template> -->
