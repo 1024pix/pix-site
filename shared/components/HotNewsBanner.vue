@@ -1,7 +1,9 @@
 <template>
   <div v-if="isOpen && hotNews" class="hot-news">
     <prismic-rich-text :field="hotNews" :serializer="customPrismicRichTextSerializer" />
-    <img class="close" src="/images/close-icon.svg" alt="Fermer" @click.stop="closeBanner" />
+    <button class="close" type="button">
+      <img src="/images/close-icon.svg" alt="Fermer" @click.stop="closeBanner" />
+    </button>
   </div>
 </template>
 
@@ -59,12 +61,20 @@ const closeBanner = () => {
     text-decoration: underline;
   }
 }
+
 .close {
   margin-right: 20px;
   opacity: 0.5;
   transition: 0.5s;
   cursor: pointer;
-  height: 20px;
+  appearance: none;
+  border: none;
+  background: transparent;
+
+  img {
+    filter: invert(1);
+    height: 20px;
+  }
 
   @media (min-width: 769px) {
     margin-right: 32px;
