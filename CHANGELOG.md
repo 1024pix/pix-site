@@ -1,5 +1,21 @@
 # pix-site Changelog
 
+## v5.18.0 (20/01/2025)
+
+
+### :rocket: Amélioration
+- [#733](https://github.com/1024pix/pix-site/pull/733) [FEATURE] Ajouter un bloc d'onglets (PIX-15825).
+- [#736](https://github.com/1024pix/pix-site/pull/736) [FEATURE] Transformer l'image cliquable de fermeture de la bannière en bouton. (PIX-16144).
+- [#731](https://github.com/1024pix/pix-site/pull/731) [FEATURE] Ajouter les traductions sur le composant Témoignages (PIX-15948).
+
+### :arrow_up: Montée de version
+- [#735](https://github.com/1024pix/pix-site/pull/735) [BUMP] Update node to v22 (major).
+- [#734](https://github.com/1024pix/pix-site/pull/734) [BUMP] Update node to v20 (major).
+
+### :coffee: Autre
+- [#737](https://github.com/1024pix/pix-site/pull/737) [A11Y] Ajouter l'action close banner sur le bouton au lieu de l'image (PIX-16144 bis).
+- [#732](https://github.com/1024pix/pix-site/pull/732) chore: add information in  readme.
+
 ## v5.17.0 (07/01/2025)
 
 
