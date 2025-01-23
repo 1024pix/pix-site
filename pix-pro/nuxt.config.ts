@@ -15,7 +15,7 @@ export default async () => {
     devServer: {
       port: Number(process.env.PORT) || 6001,
     },
-    modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-image-prismic-fix'],
+    modules: ['@nuxtjs/prismic', '@nuxtjs/i18n', '@vueuse/nuxt', 'nuxt-image-prismic-fix', '@element-plus/nuxt'],
     image: {
       domains: [
         'pix-site.cdn.prismic.io',
