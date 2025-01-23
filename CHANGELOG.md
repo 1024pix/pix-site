@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.19.0 (23/01/2025)
+
+
+### :bug: Correction
+- [#738](https://github.com/1024pix/pix-site/pull/738) [BUGFIX] Rendre les blocs témoignages et onglets utilisables sur pix-pro (PIX-16238).
+
 ## v5.18.0 (20/01/2025)
 
 
