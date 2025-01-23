@@ -5,6 +5,7 @@
   .el-carousel__arrow {
     color: $blue;
     background-color: transparent;
+    transform: translateY(-50%);
 
     i {
       font-size: 2rem;

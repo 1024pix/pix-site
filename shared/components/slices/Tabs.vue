@@ -51,12 +51,14 @@ const activeTab = ref(0);
 
 .slice-tabs :deep(.el-tabs__header) {
   display: inline-flex;
+  max-width: 100%;
   margin: 0 auto 2rem;
   background-color: transparent;
 }
 
 .slice-tabs :deep(.el-tabs__item) {
-  padding: 2rem !important;
+  height: auto;
+  padding: 1rem !important;
   background: $grey-5;
   border-radius: 2rem;
   border: 1px solid $grey-15;
@@ -95,5 +97,39 @@ const activeTab = ref(0);
     flex: 1;
     flex-basis: max(calc(50% - 1rem), 30rem);
   }
+}
+
+.slice-tabs :deep(.el-tabs__nav-wrap.is-scrollable) {
+  margin-inline: -1rem;
+  padding-inline: 2.5rem;
+}
+
+.slice-tabs :deep(.el-tabs__nav-next),
+.slice-tabs :deep(.el-tabs__nav-prev) {
+  width: auto;
+  height: 100%;
+  font-size: 2rem;
+  color: $blue;
+
+  &.is-disabled {
+    visibility: hidden;
+  }
+
+  .el-icon {
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      background: $grey-20;
+      border-radius: 50%;
+    }
+  }
+}
+
+.slice-tabs :deep(.el-tabs__nav-prev) {
+  left: 0.25rem;
+}
+.slice-tabs :deep(.el-tabs__nav-next) {
+  right: 0.25rem;
 }
 </style>
