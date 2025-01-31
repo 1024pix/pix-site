@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v5.20.0 (31/01/2025)
+
+
+### :rocket: Amélioration
+- [#740](https://github.com/1024pix/pix-site/pull/740) [FEATURE] Ajouter un 2eme lien dans les sous-bloc de la slice MultipleBlocs (PIX-16162).
+
+### :bug: Correction
+- [#739](https://github.com/1024pix/pix-site/pull/739) [BUGFIX] Améliorer le style responsive de la slice Onglets (PIX-16246).
+
 ## v5.19.0 (23/01/2025)
 
 
