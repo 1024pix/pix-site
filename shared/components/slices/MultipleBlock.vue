@@ -27,6 +27,19 @@
               &#10132;&nbsp;{{ item.item_link_label }}
             </nuxt-link>
           </template>
+          <template v-if="item.item_link2_url && item.item_link2_label">
+            <br />
+            <cta-button
+              v-if="item.item_link2_style"
+              :link="item.item_link2_url"
+              :name="item.item_link2_label"
+              is-small
+              class="process-wrapper-item-content__button"
+            />
+            <nuxt-link v-else :to="item.item_link2_url" class="process-wrapper-item-content__link">
+              &#10132;&nbsp;{{ item.item_link2_label }}
+            </nuxt-link>
+          </template>
         </div>
       </div>
     </div>
