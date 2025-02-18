@@ -6,9 +6,9 @@
 
 Il y a 3 dossiers principaux dans ce projet :
 
-- `shared` : contient les composants partagés par les sites pix-site et pix-pro
-- `pix-site` : contient les sources du site vitrine de pix
-- `pix-pro` : contient les sources du site vitrine de la version pro de pix
+- [`shared`](shared/README.md) : contient les composants partagés par les sites pix-site et pix-pro
+- [`pix-site`](pix-site/README.md) : contient les sources du site vitrine de pix
+- [`pix-pro`](pix-pro/README.md) : contient les sources du site vitrine de la version pro de pix
 
 Cette architecture suit celle des layers de nuxt 3 (
 voir [https://nuxt.com/docs/getting-started/layers](https://nuxt.com/docs/getting-started/layers) ).
