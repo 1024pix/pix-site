@@ -3,7 +3,8 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import useLocaleCookie from '../../composables/useLocaleCookie';
 
-const availableLocaleNames = ['en', 'fr', 'fr-fr'];
+const availableLocaleNames = ['en', 'fr', 'fr-fr', 'fr-be'];
+const availableLocaleCanonicalNames = availableLocaleNames.map(localeName => new Intl.Locale(localeName).toString());
 
 mockNuxtImport('useCookie', () => {
   return () => ({
@@ -21,6 +22,7 @@ mockNuxtImport('useRuntimeConfig', () => {
     public: {
       siteDomain: 'ORG',
       availableLocaleNames,
+      availableLocaleCanonicalNames,
     },
   });
 });
@@ -91,6 +93,18 @@ describe('#useLocaleCookie', () => {
         expect(matchingLocaleName).toEqual('fr-fr');
       });
     });
+    describe('when wanted locale is available but not written in canonical form', () => {
+      test('returns the same locale name', () => {
+        // given
+        const { getBestMatchingLocaleName } = useLocaleCookie();
+
+        // when
+        const matchingLocaleName = getBestMatchingLocaleName('fr-BE');
+
+        // then
+        expect(matchingLocaleName).toEqual('fr-BE');
+      });
+    });
 
     describe('when wanted locale is unavailable but an available locale with same language is', () => {
       test('returns the same locale name', () => {
@@ -98,10 +112,10 @@ describe('#useLocaleCookie', () => {
         const { getBestMatchingLocaleName } = useLocaleCookie();
 
         // when
-        const matchingLocaleName = getBestMatchingLocaleName('fr-be');
+        const matchingLocaleName = getBestMatchingLocaleName('en-us');
 
         // then
-        expect(matchingLocaleName).toEqual('fr');
+        expect(matchingLocaleName).toEqual('en');
       });
     });
 

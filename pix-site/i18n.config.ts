@@ -46,7 +46,10 @@ const reachableLocales = [
 ];
 
 const reachableLocaleNames = reachableLocales.map(reachableLocale => reachableLocale.code);
+// When the locales are by default written in their canonical form this reachableLocaleCanonicalNames variable
+// will be useless and thus removed.
+const reachableLocaleCanonicalNames = reachableLocaleNames.map(localeName => new Intl.Locale(localeName).toString());
 
 const config = generateConfig(reachableLocales);
 export default { ...config };
-export { reachableLocales, reachableLocaleNames };
+export { reachableLocales, reachableLocaleNames, reachableLocaleCanonicalNames };

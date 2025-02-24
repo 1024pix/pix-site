@@ -7,7 +7,7 @@ export default function useLocaleCookie() {
   const domainFrUrl = new URL(appConfig.domainFr);
   const domainOrgUrl = new URL(appConfig.domainOrg);
 
-  const availableLocaleNames = runtimeConfig.public.availableLocaleNames as Array<string>;
+  const availableLocaleCanonicalNames = runtimeConfig.public.availableLocaleCanonicalNames as Array<string>;
 
   const previousLocaleCookieToDelete = useCookie(LOCALE_COOKIE_NAME, {
     maxAge: 31536000, // 1 year
@@ -33,16 +33,16 @@ export default function useLocaleCookie() {
   }
 
   function getBestMatchingLocaleName(localeName: string) {
-    if (availableLocaleNames.includes(localeName)) {
+    if (availableLocaleCanonicalNames.includes(new Intl.Locale(localeName).toString())) {
       return localeName;
     }
 
     const languageLocaleName = new Intl.Locale(localeName).language;
-    if (availableLocaleNames.includes(languageLocaleName)) {
+    if (availableLocaleCanonicalNames.includes(languageLocaleName)) {
       return languageLocaleName;
     }
 
-    return availableLocaleNames[0];
+    return availableLocaleCanonicalNames[0];
   }
 
   return {
