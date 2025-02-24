@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.20.1 (24/02/2025)
+
+
+### :bug: Correction
+- [#745](https://github.com/1024pix/pix-site/pull/745) [BUGFIX] Conserver la bonne locale lors du retour sur Pix Site (PIX-16290).
+
 ## v5.20.0 (31/01/2025)
 
 
