@@ -20,9 +20,9 @@ const reachableLocales = [
     domain: process.env.DOMAIN_ORG,
   },
   {
-    code: 'fr-fr',
-    iso: 'fr-fr',
-    file: 'fr-fr.js',
+    code: 'fr-FR',
+    iso: 'fr-FR',
+    file: 'fr-FR.js',
     name: 'France',
     icon: 'flag-fr.svg',
     domain: process.env.DOMAIN_FR,
