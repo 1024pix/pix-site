@@ -25,7 +25,7 @@ const props = defineProps({
   },
 });
 
-const urlLocale = currentLocale.value === 'fr-fr' ? '' : `/${currentLocale.value}`;
+const urlLocale = currentLocale.value === 'fr-FR' ? '' : `/${currentLocale.value}`;
 
 const cardLink = computed(() => {
   if (!props.content.slug) {

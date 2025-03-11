@@ -28,9 +28,9 @@ defineI18nRoute({
   paths: {
     en: '/support/[parent_persona_name]',
     fr: '/support/[parent_persona_name]',
-    'fr-fr': '/support/[parent_persona_name]',
-    'fr-be': '/support/[parent_persona_name]',
-    'nl-be': '/support/[parent_persona_name]',
+    'fr-FR': '/support/[parent_persona_name]',
+    'fr-BE': '/support/[parent_persona_name]',
+    'nl-BE': '/support/[parent_persona_name]',
     es: '/support/[parent_persona_name]',
     it: '/support/[parent_persona_name]',
     'de-AT': '/support/[parent_persona_name]',
@@ -38,7 +38,7 @@ defineI18nRoute({
 });
 
 const backLink = computed(() => {
-  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
+  const localeUrl = i18nLocale.value !== 'fr-FR' ? `/${i18nLocale.value}` : '';
   return `${localeUrl}/support`;
 });
 

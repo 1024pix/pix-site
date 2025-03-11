@@ -3,7 +3,7 @@ const baseConfig = {
   langDir: '../shared/translations',
   locales: [],
   strategy: 'prefix_except_default',
-  defaultLocale: 'fr-fr',
+  defaultLocale: 'fr-FR',
   compilation: {
     strictMessage: false,
   },
@@ -14,11 +14,11 @@ export function generateConfig(reachableLocales) {
   const config = { ...baseConfig };
 
   if (process.env.SITE_DOMAIN === 'FR') {
-    config.locales = reachableLocales.filter(locale => locale.code === 'fr-fr');
+    config.locales = reachableLocales.filter(locale => locale.code === 'fr-FR');
   }
 
   if (process.env.SITE_DOMAIN === 'ORG') {
-    config.locales = reachableLocales.filter(locale => locale.code !== 'fr-fr');
+    config.locales = reachableLocales.filter(locale => locale.code !== 'fr-FR');
     config.defaultLocale = null;
     config.strategy = 'prefix';
   }

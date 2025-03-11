@@ -29,9 +29,9 @@ defineI18nRoute({
   paths: {
     en: '/support',
     fr: '/support',
-    'fr-fr': '/support',
-    'fr-be': '/support',
-    'nl-be': '/support',
+    'fr-FR': '/support',
+    'fr-BE': '/support',
+    'nl-BE': '/support',
     es: '/support',
     it: '/support',
     'de-AT': '/support',

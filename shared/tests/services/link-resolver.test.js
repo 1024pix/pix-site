@@ -4,14 +4,14 @@ import { linkResolver } from '../../services/link-resolver.js';
 describe('linkResolver', () => {
   const testCases = [
     {
-      lang: 'fr-fr',
+      lang: 'fr-FR',
       uid: 'test-uid',
       expectedUrl: '/test-uid',
     },
     {
-      lang: 'fr-be',
+      lang: 'fr-BE',
       uid: 'test-uid',
-      expectedUrl: '/fr-be/test-uid',
+      expectedUrl: '/fr-BE/test-uid',
     },
     {
       lang: 'en',
@@ -33,14 +33,14 @@ describe('linkResolver', () => {
   describe('when document is a news item', () => {
     const testCases = [
       {
-        lang: 'fr-fr',
+        lang: 'fr-FR',
         uid: 'test-uid',
         expectedUrl: '/actualites/test-uid',
       },
       {
-        lang: 'fr-be',
+        lang: 'fr-BE',
         uid: 'test-uid',
-        expectedUrl: '/fr-be/actualites/test-uid',
+        expectedUrl: '/fr-BE/actualites/test-uid',
       },
       {
         lang: 'en',
@@ -64,13 +64,13 @@ describe('linkResolver', () => {
     const testCases = [
       {
         tags: [TAGS.INDEX, 'another-tag'],
-        lang: 'fr-fr',
+        lang: 'fr-FR',
         expectedUrl: '/',
       },
       {
         tags: [TAGS.INDEX],
-        lang: 'fr-be',
-        expectedUrl: '/fr-be/',
+        lang: 'fr-BE',
+        expectedUrl: '/fr-BE/',
       },
       {
         tags: [TAGS.INDEX],
@@ -92,7 +92,7 @@ describe('linkResolver', () => {
     describe("when document does not have 'tags', 'type' and 'uid'", () => {
       test('it returns locale root url', () => {
         // given
-        const locale = 'nl-be';
+        const locale = 'nl-BE';
         const doc = {
           lang: locale,
         };

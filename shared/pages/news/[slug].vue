@@ -19,9 +19,9 @@ defineI18nRoute({
   paths: {
     en: '/news/[slug]',
     fr: '/actualites/[slug]',
-    'fr-fr': '/actualites/[slug]',
-    'fr-be': '/actualites/[slug]',
-    'nl-be': '/actualites/[slug]',
+    'fr-FR': '/actualites/[slug]',
+    'fr-BE': '/actualites/[slug]',
+    'nl-BE': '/actualites/[slug]',
   },
 });
 
