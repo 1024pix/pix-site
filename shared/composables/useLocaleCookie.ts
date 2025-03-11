@@ -22,13 +22,11 @@ export default function useLocaleCookie() {
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   function setLocaleCookie(localeName: string, callback?: Function): void {
-    const localeCanonicalName = Intl.getCanonicalLocales(localeName)?.[0];
-
     if (previousLocaleCookieToDelete.value) {
       previousLocaleCookieToDelete.value = null;
     }
 
-    localeCookie.value = localeCanonicalName;
+    localeCookie.value = localeName;
     if (callback) callback();
   }
 
