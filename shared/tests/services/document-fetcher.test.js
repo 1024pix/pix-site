@@ -16,7 +16,7 @@ describe('DocumentFetcher', () => {
     const result = await documentFetcher(prismic).getEmployers();
     // Then
     expect(prismicApi.getSingle).toBeCalledWith('employers', {
-      lang: 'fr-fr',
+      lang: 'fr-FR',
       fetchLinks: [
         'distributor_item.description',
         'distributor_item.footer',
@@ -55,7 +55,7 @@ describe('DocumentFetcher', () => {
 
     // Then
     expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
-      lang: 'fr-fr',
+      lang: 'fr-FR',
     });
     expect(prismicPredicates.at).toBeCalledWith(`my.${DOCUMENTS.SIMPLE_PAGE}.uid`, uid);
     expect(prismicPredicates.at).toBeCalledWith(`my.${DOCUMENTS.SLICES_PAGE}.uid`, uid);
@@ -83,7 +83,7 @@ describe('DocumentFetcher', () => {
 
     // Then
     expect(prismicApi.query).toBeCalledWith(expectedPredicatesAtValue, {
-      lang: 'fr-fr',
+      lang: 'fr-FR',
     });
     expect(prismicPredicates.at).toBeCalledWith('document.type', DOCUMENTS.HOT_NEWS);
     expect(response).toEqual(expectedValue[0]);
@@ -117,7 +117,7 @@ describe('DocumentFetcher', () => {
 
       // Then
       expect(prismicApi.query).toBeCalledWith([expectedPredicatesAtValue, expectedPredicatesAtValue], {
-        lang: 'fr-fr',
+        lang: 'fr-FR',
       });
       expect(prismicPredicates.at).toHaveBeenNthCalledWith(1, 'document.type', DOCUMENTS.MAIN_NAVIGATION);
       expect(prismicPredicates.at).toHaveBeenNthCalledWith(
@@ -158,7 +158,7 @@ describe('DocumentFetcher', () => {
 
       // Then
       expect(prismicApi.query).toBeCalledWith([expectedPredicatesAtValue, expectedPredicatesAtValue], {
-        lang: 'fr-fr',
+        lang: 'fr-FR',
       });
       expect(prismicPredicates.at).toHaveBeenNthCalledWith(1, 'document.type', DOCUMENTS.MAIN_NAVIGATION);
       expect(prismicPredicates.at).toHaveBeenNthCalledWith(
@@ -193,7 +193,7 @@ describe('DocumentFetcher', () => {
 
     // Then
     expect(prismicApi.query).toBeCalledWith([expectedPredicatesAtValue, expectedPredicatesAtValue], {
-      lang: 'fr-fr',
+      lang: 'fr-FR',
     });
     expect(prismicPredicates.at).toHaveBeenNthCalledWith(1, 'document.type', DOCUMENTS.MAIN_FOOTER);
     expect(prismicPredicates.at).toHaveBeenNthCalledWith(2, `my.${DOCUMENTS.MAIN_FOOTER}.footer_for`, 'pix-pro');

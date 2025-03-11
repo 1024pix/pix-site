@@ -50,11 +50,11 @@ export default {
     'pix-orga-registration': "Demande d'information | Pix pro",
   },
   'preview-page-load': 'Chargement de la page de prévisualisation...',
-  'home-page-url': `${process.env.DOMAIN_ORG}/nl-be/`,
+  'home-page-url': `${process.env.DOMAIN_ORG}/fr-BE/`,
   'error-content': `
     <p>Oups ! Un problème est survenu, mais pas de panix !</p>
     <p>Vous pouvez revenir sur la
-    <a href="${process.env.DOMAIN_FR}/nl-be/">page d'accueil</a>.
+    <a href="${process.env.DOMAIN_FR}/fr-BE/">page d'accueil</a>.
     <br/>Si vous avez besoin d’aide, vous pouvez consulter le
     <a href="https://support.pix.org/fr/support/home">support</a>.
     </p>`,
@@ -78,22 +78,22 @@ export default {
       'required-info': "Tous les champs marqués d'une <span>*</span> sont obligatoires",
     },
     faq: {
-      'contact-title': 'Kun je het antwoord op je vraag niet vinden?',
-      'contact-cta': 'Contact opnemen met ondersteuning',
-      'search-placeholder': 'Zoek tussen de titels van de berichten',
-      'no-result': 'Geen resultaten gevonden voor « {searchInput} »',
-      'results-count': '{count} resultaat(en) met « {searchInput} »',
+      'contact-title': 'Vous ne trouvez pas la réponse à votre question ?',
+      'contact-cta': 'Contacter le support',
+      'search-placeholder': 'Rechercher parmi les titres des articles',
+      'no-result': 'Aucun résultat trouvé pour « {searchInput} »',
+      'results-count': '{count} résultat(s) contenant « {searchInput} »',
     },
     meta: {
-      title: 'Helpcentrum & Contact',
+      title: 'Centre d’aide et contact',
       description:
-        'Heb je een vraag? Heb je hulp nodig? Vind je antwoord in de FAQ of neem contact met ons op via het formulier dat is aangepast aan jouw situatie.',
+        'Une question ? Besoin d’aide ? Trouvez votre réponse en consultant notre FAQ ou contactez le support via le formulaire adapté à votre situation.',
     },
   },
   slices: {
     testimonials: {
-      title: 'Zij zijn degenen die er het beste over praten',
-      link: 'Getuigenislink',
+      title: 'Ce sont eux qui en parlent le mieux',
+      link: 'Lien témoignage',
     },
   },
 };

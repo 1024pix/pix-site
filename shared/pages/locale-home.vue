@@ -15,9 +15,9 @@ defineI18nRoute({
     fr: '/',
     it: '/',
     es: '/',
-    'fr-fr': '/',
-    'fr-be': '/',
-    'nl-be': '/',
+    'fr-FR': '/',
+    'fr-BE': '/',
+    'nl-BE': '/',
     'de-AT': '/',
   },
 });

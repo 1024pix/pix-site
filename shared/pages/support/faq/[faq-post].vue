@@ -23,14 +23,14 @@ defineI18nRoute({
   paths: {
     en: '/support/[parent_persona]/[current_persona]/[post_uid]',
     fr: '/support/[parent_persona]/[current_persona]/[post_uid]',
-    'fr-fr': '/support/[parent_persona]/[current_persona]/[post_uid]',
-    'fr-be': '/support/[parent_persona]/[current_persona]/[post_uid]',
-    'nl-be': '/support/[parent_persona]/[current_persona]/[post_uid]',
+    'fr-FR': '/support/[parent_persona]/[current_persona]/[post_uid]',
+    'fr-BE': '/support/[parent_persona]/[current_persona]/[post_uid]',
+    'nl-BE': '/support/[parent_persona]/[current_persona]/[post_uid]',
   },
 });
 
 const backLink = computed(() => {
-  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
+  const localeUrl = i18nLocale.value !== 'fr-FR' ? `/${i18nLocale.value}` : '';
   return `${localeUrl}/support/${route.params.parent_persona}/${route.params.current_persona}`;
 });
 
