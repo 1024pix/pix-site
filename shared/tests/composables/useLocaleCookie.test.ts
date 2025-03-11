@@ -3,8 +3,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import useLocaleCookie from '../../composables/useLocaleCookie';
 
-const availableLocaleNames = ['en', 'fr', 'fr-fr', 'fr-be'];
-const availableLocaleCanonicalNames = availableLocaleNames.map(localeName => new Intl.Locale(localeName).toString());
+const availableLocaleNames = ['en', 'fr', 'fr-FR', 'fr-BE'];
 
 mockNuxtImport('useCookie', () => {
   return () => ({
@@ -22,7 +21,6 @@ mockNuxtImport('useRuntimeConfig', () => {
     public: {
       siteDomain: 'ORG',
       availableLocaleNames,
-      availableLocaleCanonicalNames,
     },
   });
 });
@@ -81,51 +79,52 @@ describe('#useLocaleCookie', () => {
   });
 
   describe('getBestMatchingLocaleName', () => {
-    describe('when wanted locale is available', () => {
+    describe('when a wanted locale, written in canonical form, is available', () => {
       test('returns the same locale name', () => {
         // given
         const { getBestMatchingLocaleName } = useLocaleCookie();
 
         // when
-        const matchingLocaleName = getBestMatchingLocaleName('fr-fr');
+        const matchingLocaleName = getBestMatchingLocaleName('fr-FR');
 
         // then
-        expect(matchingLocaleName).toEqual('fr-fr');
+        expect(matchingLocaleName).toEqual('fr-FR');
       });
     });
-    describe('when wanted locale is available but not written in canonical form', () => {
-      test('returns the same locale name', () => {
+
+    describe('when a wanted locale, NOT written in canonical form, is available', () => {
+      test('returns the locale name written in canonical form', () => {
         // given
         const { getBestMatchingLocaleName } = useLocaleCookie();
 
         // when
-        const matchingLocaleName = getBestMatchingLocaleName('fr-BE');
+        const matchingLocaleName = getBestMatchingLocaleName('fr-be');
 
         // then
         expect(matchingLocaleName).toEqual('fr-BE');
       });
     });
 
-    describe('when wanted locale is unavailable but an available locale with same language is', () => {
-      test('returns the same locale name', () => {
+    describe('when a wanted locale is unavailable but an available locale with the same primary language is', () => {
+      test('returns the available locale name', () => {
         // given
         const { getBestMatchingLocaleName } = useLocaleCookie();
 
         // when
-        const matchingLocaleName = getBestMatchingLocaleName('en-us');
+        const matchingLocaleName = getBestMatchingLocaleName('en-US');
 
         // then
         expect(matchingLocaleName).toEqual('en');
       });
     });
 
-    describe('when wanted locale is unavailable and no available locale with same language is', () => {
-      test('returns the first available locale name', () => {
+    describe('when a wanted locale is unavailable and no available locale with same primary language is', () => {
+      test('returns the first available locale name which is "en"', () => {
         // given
         const { getBestMatchingLocaleName } = useLocaleCookie();
 
         // when
-        const matchingLocaleName = getBestMatchingLocaleName('nl-be');
+        const matchingLocaleName = getBestMatchingLocaleName('nl-BE');
 
         // then
         expect(matchingLocaleName).toEqual('en');
