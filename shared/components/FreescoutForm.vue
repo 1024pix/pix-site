@@ -2,31 +2,33 @@
   <section class="freescout-form">
     <div class="freescout-form__container">
       <slot></slot>
-      <iframe ref="iframeRef" class="freescout-form__iframe" :src="freescoutUrl" @load="resizeIframe()">
+      <iframe ref="iframeRef" class="freescout-form__iframe" :src="freescoutUrl" :style="[iframeHeight]">
         {{ $t(`form.not-supported`) }}
       </iframe>
     </div>
   </section>
 </template>
 
-<script setup>
-const iframeRef = ref(null);
-defineProps({
-  freescoutUrl: {
-    type: String,
-    default: null,
+<script>
+export default {
+  name: 'FreescoutForm',
+  props: {
+    freescoutUrl: {
+      type: String,
+      default: null,
+    },
+    heightForIframe: {
+      type: String,
+      default: null,
+    },
   },
-});
-
-const resizeIframe = () => {
-  if (!iframeRef.value) return;
-
-  try {
-    const height = iframeRef.value.contentWindow.document.documentElement.scrollHeight;
-    iframeRef.value.style.height = `${height}px`;
-  } catch (e) {
-    console.warn('Cannot access iframe content:', e);
-  }
+  computed: {
+    iframeHeight() {
+      const style = {};
+      style.minHeight = (this.heightForIframe || '900') + 'px';
+      return style;
+    },
+  },
 };
 </script>
 

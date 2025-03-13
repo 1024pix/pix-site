@@ -11,7 +11,7 @@
     <!-- eslint-disable-next-line vue/no-v-html -->
     <p class="easiware-form__required-info" v-html="t('support.form.required-info')" />
   </easiware-form>
-  <freescout-form v-else :freescout-url="data.supportForm.freescout_url.url">
+  <freescout-form v-else :freescout-url="data.supportForm.freescout_url.url" :height-for-iframe="data.supportForm.freescout_height">
     <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
       {{ data.supportForm.form_title?.[0].text }}
     </h1>
