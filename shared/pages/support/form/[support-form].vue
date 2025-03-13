@@ -1,5 +1,5 @@
 <template>
-  <easiware-form :solution-id="data.supportForm.solution_id" :form-id="data.supportForm.form_id">
+  <easiware-form v-if="data.supportForm.useEasiwareForm" :solution-id="data.supportForm.solution_id" :form-id="data.supportForm.form_id">
     <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
       {{ data.supportForm.form_title?.[0].text }}
     </h1>
@@ -11,6 +11,16 @@
     <!-- eslint-disable-next-line vue/no-v-html -->
     <p class="easiware-form__required-info" v-html="t('support.form.required-info')" />
   </easiware-form>
+  <freescout-form v-else :freescout-url="data.supportForm.freescout_url.url">
+    <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
+      {{ data.supportForm.form_title?.[0].text }}
+    </h1>
+    <prismic-rich-text
+      v-if="data.supportForm.form_introduction?.length"
+      :field="data.supportForm.form_introduction"
+      class="easiware-form__introduction"
+    />
+  </freescout-form>
 </template>
 
 <script setup>
@@ -35,6 +45,7 @@ const { data } = await useAsyncData(async () => {
     const supportForm = await client.getByUID('easiware_form', route.params.slug, {
       lang: i18nLocale.value,
     });
+    supportForm.data.useEasiwareForm = !supportForm.data.freescout_url.url;
     return { supportForm: supportForm.data };
   } catch (err) {
     console.error(err);
