@@ -1,5 +1,18 @@
 # pix-site Changelog
 
+## v5.21.0 (17/03/2025)
+
+
+### :rocket: Amélioration
+- [#747](https://github.com/1024pix/pix-site/pull/747) [FEATURE] Ajout de formulaire Freescout pour remplacer les formulaires Easiware.
+
+### :arrow_up: Montée de version
+- [#742](https://github.com/1024pix/pix-site/pull/742) [BUMP] Update dependency vitest to v1.6.1 [SECURITY].
+- [#743](https://github.com/1024pix/pix-site/pull/743) [BUMP] Update dependency vitest to v1.6.1 [SECURITY].
+
+### :coffee: Autre
+- [#744](https://github.com/1024pix/pix-site/pull/744) [DOC] Harmoniser la documentation du dépôt.
+
 ## v5.20.1 (24/02/2025)
 
 
