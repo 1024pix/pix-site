@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.22.0 (26/03/2025)
+
+
+### :coffee: Autre
+- [#751](https://github.com/1024pix/pix-site/pull/751) Ajout d'url de redirection de formulaire du support .
+
 ## v5.21.0 (17/03/2025)
 
 
