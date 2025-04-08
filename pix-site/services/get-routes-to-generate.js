@@ -14,6 +14,10 @@ export const getRoutesToGenerate = async function ({ locales }) {
     routes.push('/support/');
   }
 
+  if (process.env.SITE_DOMAIN === 'ORG') {
+    routes.push('/');
+  }
+
   console.info(`${routes.length} routes will be generated`);
   return routes;
 };
