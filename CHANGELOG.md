@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.22.1 (08/04/2025)
+
+
+### :coffee: Autre
+- [#752](https://github.com/1024pix/pix-site/pull/752) [HOTFIX] Forcer la génération de la page index.html pour la route /support.
+
 ## v5.22.0 (26/03/2025)
 
 
