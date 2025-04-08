@@ -3,7 +3,7 @@ import { linkResolver } from '../../shared/services/link-resolver.js';
 
 export const getRoutesToGenerate = async function ({ locales }) {
   const client = await prismic.createClient('https://pix-site.cdn.prismic.io/api/v2');
-  const { routes, totalPages } = await getRoutesInPage(client, 1, locales);
+  let { routes, totalPages } = await getRoutesInPage(client, 1, locales);
 
   for (let page = 2; page <= totalPages; page++) {
     const { routes: nextPageRoutes } = await getRoutesInPage(client, page, locales);
@@ -16,10 +16,9 @@ export const getRoutesToGenerate = async function ({ locales }) {
 
   if (process.env.SITE_DOMAIN === 'ORG') {
     routes.push('/');
-    routes.push('/fr/support/');
-    routes.push('/fr-be/support/');
-    routes.push('/en/support/');
-    routes.push('/nl-be/support/');
+
+    const supportRoutesToGenerate = locales.map(({ code }) => `/${code}/support/`);
+    routes = routes.concat(supportRoutesToGenerate);
   }
 
   console.info(`${routes.length} routes will be generated`);
