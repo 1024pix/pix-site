@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.22.2 (08/04/2025)
+
+
+### :coffee: Autre
+- [#753](https://github.com/1024pix/pix-site/pull/753) Réparer la home de pix site org.
+
 ## v5.22.1 (08/04/2025)
 
 
