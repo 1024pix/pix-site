@@ -64,6 +64,7 @@ server {
 
   # Serve from dist/pix.fr or dist/pix.org depending on the extension
   root /app/build/$extension;
+  index index.html;
 
   include /app/nginx/includes/rewrites.conf;
 
