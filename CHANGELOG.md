@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.22.4 (08/04/2025)
+
+
+### :coffee: Autre
+- [#754](https://github.com/1024pix/pix-site/pull/754) Réparer les pages d'accueil de support pour chaque locale.
+
 ## v5.22.2 (08/04/2025)
 
 
