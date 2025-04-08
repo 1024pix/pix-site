@@ -10,6 +10,10 @@ export const getRoutesToGenerate = async function ({ locales }) {
     routes.push(...nextPageRoutes);
   }
 
+  if (process.env.SITE_DOMAIN === 'FR') {
+    routes.push('/support/');
+  }
+
   console.info(`${routes.length} routes will be generated`);
   return routes;
 };
