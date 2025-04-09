@@ -12,14 +12,20 @@ export const getRoutesToGenerate = async function ({ locales }) {
 
   if (process.env.SITE_DOMAIN === 'FR') {
     routes.push('/support/');
+    routes.push('/actualites/');
   }
 
   if (process.env.SITE_DOMAIN === 'ORG') {
     routes.push('/');
+
     routes.push('/fr/support/');
     routes.push('/fr-be/support/');
     routes.push('/en/support/');
     routes.push('/nl-be/support/');
+
+    routes.push('/fr/actualites/');
+    routes.push('/fr-be/actualites/');
+    routes.push('/en/news/');
   }
 
   console.info(`${routes.length} routes will be generated`);
