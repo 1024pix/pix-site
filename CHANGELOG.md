@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.22.5 (09/04/2025)
+
+
+### :bug: Correction
+- [#756](https://github.com/1024pix/pix-site/pull/756) [BUGFIX] Ajouter les pages actualites en dur pour la generation statique.
+
 ## v5.22.4 (08/04/2025)
 
 
