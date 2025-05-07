@@ -49,8 +49,8 @@ const config = {
         debug: process.env.MATOMO_DEBUG || false,
       },
       plausible: {
-        scriptUrl: process.env.PLAUSIBLE_SCRIPT_URL,
-        siteId: process.env.PLAUSIBLE_SITE_ID,
+        scriptUrl: process.env.ANALYTICS_SCRIPT_URL,
+        siteId: process.env.ANALYTICS_SITE_ID,
       },
       application: process.env.SITE,
     },
