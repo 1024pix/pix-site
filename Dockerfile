@@ -22,7 +22,6 @@ FROM install-stage AS build-stage
 # Mandatory build args 
 ARG DOMAIN_FR=localhost
 ARG DOMAIN_ORG=localhost
-ARG MATOMO_CONTAINER
 ARG EASIWARE_SCRIPT_URL
 ARG FORM_KEYS_TO_MAP={"masteryPercentage":"control1808388","stage":"control1808389"}
 
