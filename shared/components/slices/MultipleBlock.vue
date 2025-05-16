@@ -21,7 +21,7 @@
               :link="item.item_link_url"
               :name="item.item_link_label"
               is-small
-              class="process-wrapper-item-content__button"
+              :class="['process-wrapper-item-content__button', item.item_plausible_class]"
             />
             <nuxt-link v-else :to="item.item_link_url" class="process-wrapper-item-content__link">
               &#10132;&nbsp;{{ item.item_link_label }}
@@ -34,7 +34,7 @@
               :link="item.item_link2_url"
               :name="item.item_link2_label"
               is-small
-              class="process-wrapper-item-content__button"
+              :class="['process-wrapper-item-content__button', item.item_plausible_class]"
             />
             <nuxt-link v-else :to="item.item_link2_url" class="process-wrapper-item-content__link">
               &#10132;&nbsp;{{ item.item_link2_label }}

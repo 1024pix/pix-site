@@ -48,6 +48,11 @@ const config = {
         containerUrl: process.env.MATOMO_CONTAINER,
         debug: process.env.MATOMO_DEBUG || false,
       },
+      plausible: {
+        scriptUrl: process.env.ANALYTICS_SCRIPT_URL,
+        siteId: process.env.ANALYTICS_SITE_ID,
+      },
+      application: process.env.SITE,
     },
   },
 };
@@ -67,4 +72,24 @@ if (config.runtimeConfig.public.matomo.containerUrl) {
     },
   );
 }
+
+if (config.runtimeConfig.public.plausible.siteId) {
+  if (process.env.NODE_ENV === 'production') {
+    config.app.head.script.push({
+      type: 'text/javascript',
+      src: '/analytics/script.js',
+      'data-api': '/analytics/event',
+      defer: true,
+      'data-domain': config.runtimeConfig.public.plausible.siteId,
+    });
+  } else {
+    config.app.head.script.push({
+      type: 'text/javascript',
+      src: config.runtimeConfig.public.plausible.scriptUrl,
+      defer: true,
+      'data-domain': config.runtimeConfig.public.plausible.siteId,
+    });
+  }
+}
+
 export default config;
