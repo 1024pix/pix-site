@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.23.0 (16/05/2025)
+
+
+### :rocket: Amélioration
+- [#757](https://github.com/1024pix/pix-site/pull/757) [FEATURE] Mise en place de Plausible sur pix-site.
+
 ## v5.22.5 (09/04/2025)
 
 
