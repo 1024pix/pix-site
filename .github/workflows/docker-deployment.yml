@@ -29,10 +29,12 @@ jobs:
             domain-url-fr: ${{ vars.PIX_SITE_DOMAIN_FR }}
             domain-url-org: ${{ vars.PIX_SITE_DOMAIN_ORG }}
             matomo-container: ${{ vars.PIX_SITE_MATOMO_CONTAINER }}
+            analytics_script_url: https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js
           - site: pix-pro
             domain-url-fr: ${{ vars.PIX_PRO_DOMAIN_FR }}
             domain-url-org: ${{ vars.PIX_PRO_DOMAIN_ORG }}
             matomo-container: ${{ vars.PIX_PRO_MATOMO_CONTAINER }}
+            analytics_script_url: https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js
     runs-on: ubuntu-latest
     needs: get-last-tag
     env:
@@ -53,7 +55,7 @@ jobs:
         with:
           push: true
           # Tag image with short sha
-          tags: ${{ secrets.CONTAINER_REGISTRY_PRODUCTION_ENDPOINT }}/${{ env.build_site }}:poc-support-bot-${{ github.sha }}
+          tags: ${{ secrets.CONTAINER_REGISTRY_PRODUCTION_ENDPOINT }}/${{ env.build_site }}:dev-${{ github.ref_name }}-${{ github.run_number }}
           context: .
           build-args: |
             SITE=${{ matrix.site }}
