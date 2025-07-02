@@ -15,10 +15,13 @@
         <support-persona-card :content="persona" />
       </li>
     </ul>
+    <div id="hb-chat-widget"></div>
   </div>
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+
 const { client } = usePrismic();
 const { locale: i18nLocale, t } = useI18n();
 
@@ -36,8 +39,36 @@ defineI18nRoute({
 useHead({
   title: t('support.meta.title'),
   meta: [{ name: 'description', content: t('support.meta.description') }],
+  script: [{ crossorigin: '', src: 'https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js' },
+    { crossorigin: '', src: 'https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js' },
+    { src: 'https://cdn.jsdelivr.net/npm/hexabot-chat-widget@2/dist/hexabot-widget.umd.js' }],
 });
 
+onMounted(() => {
+  const createElement = (tag, props = {}) => Object.assign(document.createElement(tag), props);
+  const shadowContainer = createElement('div');
+  console.log(shadowContainer);
+  document
+    .getElementById('hb-chat-widget')
+    .attachShadow({ mode: 'open' })
+    .append(
+      shadowContainer,
+      createElement('link', {
+        rel: 'stylesheet',
+        href: 'https://cdn.jsdelivr.net/npm/hexabot-chat-widget@2/dist/style.css',
+      }),
+    );
+
+  // Render the widget inside the shadow root
+  ReactDOM.render(
+    React.createElement(HexabotWidget, {
+      apiUrl: 'https://chatbot-support.pocllm.pix.digital/api',
+      channel: 'web-channel',
+      language: i18nLocale?.value?.substr(0, 2) || 'fr',
+    }),
+    shadowContainer,
+  );
+});
 /* Fetch personas list */
 const { data } = await useAsyncData(async () => {
   try {

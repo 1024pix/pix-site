@@ -22,9 +22,8 @@ FROM install-stage AS build-stage
 # Mandatory build args 
 ARG DOMAIN_FR=localhost
 ARG DOMAIN_ORG=localhost
-ARG MATOMO_CONTAINER
-ARG EASIWARE_SCRIPT_URL
 ARG FORM_KEYS_TO_MAP={"masteryPercentage":"control1808388","stage":"control1808389"}
+ARG analytics_script_url="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js"
 
 # Copy du code
 COPY shared /code/shared
@@ -33,7 +32,7 @@ COPY ${SITE}/ /code/${SITE}
 # Build de l'application 
 RUN npm run build
 
-FROM nginx:1.27.1-alpine AS run-stage
+FROM nginx:1.29-alpine AS run-stage
 ARG SITE
 
 ENV NGINX_GEOAPI_UPSTREAM_HOST=localhost
