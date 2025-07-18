@@ -66,7 +66,7 @@
 <script setup>
 import { useDebounceFn } from '@vueuse/core';
 
-const { $pushPlausibleEvent, $pushMatomoEvent } = useNuxtApp();
+const { $pushPlausibleEvent } = useNuxtApp();
 const { client } = usePrismic();
 const { locale: i18nLocale, t } = useI18n();
 const route = useRoute();
@@ -147,13 +147,6 @@ const displayPost = ({ post }) => {
 };
 
 const debouncedTrackingEvent = useDebounceFn((inputValue) => {
-  $pushMatomoEvent(
-    'Support',
-    'FAQ',
-    "Recherche dans la barre d'une FAQ support",
-    `${data.value.currentPersona.faq_page_title[0].text}: '${inputValue}'`,
-  );
-
   $pushPlausibleEvent({
     eventName: "Recherche dans la barre d'une FAQ support".replaceAll(' ', '+'),
     props: {

@@ -44,10 +44,6 @@ const config = {
   runtimeConfig: {
     public: {
       easiwareScriptUrl: process.env.EASIWARE_SCRIPT_URL,
-      matomo: {
-        containerUrl: process.env.MATOMO_CONTAINER,
-        debug: process.env.MATOMO_DEBUG || false,
-      },
       plausible: {
         scriptUrl: process.env.ANALYTICS_SCRIPT_URL,
         siteId: process.env.ANALYTICS_SITE_ID,
@@ -56,22 +52,6 @@ const config = {
     },
   },
 };
-
-if (config.runtimeConfig.public.matomo.containerUrl) {
-  config.app.head.script.push(
-    {
-      type: 'text/javascript',
-      src: config.runtimeConfig.public.matomo.containerUrl,
-      async: true,
-      defer: true,
-    },
-    {
-      type: 'text/javascript',
-      src: '/scripts/start-matomo-event.js',
-      'data-matomo-debug-mode': config.runtimeConfig.public.matomo.debug,
-    },
-  );
-}
 
 if (config.runtimeConfig.public.plausible.siteId) {
   if (process.env.NODE_ENV === 'production') {
