@@ -9,7 +9,15 @@
         :label="item.tab_title"
         :name="index"
       >
-        <prismic-rich-text :field="item.tab_textual_content" class="slice-tabs__item-text" />
+        <div>
+          <prismic-rich-text :field="item.tab_textual_content" class="slice-tabs__item-text" />
+          <div v-if="item.tab_action_url?.link_type === 'Web'">
+            <cta-button
+              :link="getEnvironmentUrl(item.tab_action_url.url)"
+              :name="item.tab_action_name"
+            />
+          </div>
+        </div>
         <div>
           <nuxt-img :src="item.tab_image.url" :alt="item.tab_image.alt" class="slice-tabs__item-image" />
         </div>
@@ -19,6 +27,7 @@
 </template>
 
 <script setup>
+const { getEnvironmentUrl } = useEnvironmentUrl();
 const props = defineProps({
   slice: {
     type: Object,
@@ -43,6 +52,12 @@ const activeTab = ref(0);
 .slice-tabs :deep(.el-tabs__nav) {
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.slice-tabs :deep(.el-tabs__content) {
+  padding: inherit;
+  padding-left: .2rem;
+  padding-right: .2rem;
 }
 
 .slice-tabs__title {
