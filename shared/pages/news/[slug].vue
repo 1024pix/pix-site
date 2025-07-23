@@ -32,9 +32,11 @@ const { data: newsItem } = await useAsyncData(() => {
   });
 });
 
-/* Metadata */
-useHead({
-  meta: newsItem.value.data.meta,
-  title: `${newsItem.value.data.title[0].text} | Pix`,
+useSeoMeta({
+  title: newsItem.value.data.title[0]?.text,
+  ogTitle: newsItem.value.data.title[0]?.text,
+  description: newsItem.value.data.excerpt[0]?.text,
+  ogDescription: newsItem.value.data.excerpt[0]?.text,
+  ogImage: newsItem.value.data.illustration?.url,
 });
 </script>
