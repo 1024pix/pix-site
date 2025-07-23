@@ -33,7 +33,11 @@ const { data: indexContent } = await useAsyncData(async () => {
   return currentSiteIndexPage;
 });
 
-useHead({
-  title: `${indexContent.value.data.title[0].text}`,
+useSeoMeta({
+  title: indexContent.value.data.title[0]?.text,
+  ogTitle: indexContent.value.data.title[0]?.text,
+  description: indexContent.value.data.seo_description?.[0]?.text,
+  ogDescription: indexContent.value.data.seo_description?.[0]?.text,
+  ogImage: indexContent.value.data?.seo_image?.url,
 });
 </script>
