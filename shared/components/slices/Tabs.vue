@@ -40,6 +40,11 @@ const activeTab = ref(0);
   padding-inline: 1rem;
 }
 
+.slice-tabs :deep(.el-tabs__nav) {
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 .slice-tabs__title {
   color: $grey-90;
   font-weight: $font-normal;
@@ -64,10 +69,6 @@ const activeTab = ref(0);
   border: 1px solid $grey-15;
   font-size: 1rem;
   color: $grey-70;
-
-  &:not(:last-child) {
-    margin-right: 0.5rem;
-  }
 
   &:hover {
     background: $grey-10;
