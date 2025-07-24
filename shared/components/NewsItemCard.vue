@@ -9,6 +9,7 @@
       </div>
 
       <div class="news-item-card__body">
+
         <p class="news-item-card__meta">
           <span :class="`news-item-card__category ${categoryClassName}`">
             {{ t(categoryLabel) }}
@@ -22,6 +23,9 @@
         <h3 class="news-item-card__title">{{ slice.title[0].text }}</h3>
 
         <prismic-rich-text :field="slice.excerpt" class="news-item-card__excerpt" />
+        <ul v-if="showTags" class="tags">
+          <li v-for="(tag, index) in filteredTags" :key="`tags-${index}`"><tag :label="tag"></tag></li>
+        </ul>
       </div>
     </nuxt-link>
   </li>
@@ -44,6 +48,10 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  tags: {
+    type: Array,
+    default: null,
+  },
 });
 
 const categoryClassName = `news-item-card__category--${props.slice.category.toLowerCase()}`;
@@ -53,9 +61,20 @@ const categoryLabel = props.slice.category.toLowerCase();
 const date = useDateFormat(props.slice.date, 'DD MMMM YYYY', {
   locales: i18nLocale.value,
 });
+const filteredTags = props?.tags?.filter(tag => tag.startsWith('tag-')).map(tag => tag.replace('tag-', '')) ?? [];
+const showTags = filteredTags.length > 0;
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+.tags {
+  display: inline-flex;
+  gap: .5rem;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+  font-weight: $font-semi-bold;
+  font-size: .75rem;
+}
 .news-item-card {
   max-width: 340px;
   margin: 20px auto;

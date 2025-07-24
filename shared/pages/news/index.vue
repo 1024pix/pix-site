@@ -18,6 +18,7 @@
             v-for="(item, index) in newsItems"
             :key="`item-${index}`"
             :slice="item.data"
+            :tags="item.tags"
             :uid="item.uid"
           />
         </template>
