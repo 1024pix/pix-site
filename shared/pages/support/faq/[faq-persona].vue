@@ -175,6 +175,14 @@ const handleSearch = async (inputValue) => {
   filteredPostsCount.value = postsCount;
   debouncedTrackingEvent(inputValue);
 };
+
+useSeoMeta({
+  title: data.value.currentPersona.faq_page_title[0]?.text,
+  ogTitle: data.value.currentPersona.faq_page_title[0]?.text,
+  description: data.value.currentPersona.seo_description?.[0]?.text,
+  ogDescription: data.value.currentPersona.seo_description?.[0]?.text,
+  ogImage: data.value.currentPersona.icon?.url,
+});
 </script>
 
 <style lang="scss">

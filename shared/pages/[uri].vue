@@ -46,7 +46,13 @@ const { data } = await useAsyncData(async () => {
   if (slicesPage.total_results_size > 0) return slicesPage.results[0];
 });
 
-useHead({
-  title: `${data.value.data.title[0].text}`,
+console.log({ description: data.value.data.seo_description?.[0]?.text });
+
+useSeoMeta({
+  title: data.value.data.title[0]?.text,
+  ogTitle: data.value.data.title[0]?.text,
+  description: data.value.data.seo_description?.[0]?.text,
+  ogDescription: data.value.data.seo_description?.[0]?.text,
+  ogImage: data.value.data.seo_image?.url,
 });
 </script>

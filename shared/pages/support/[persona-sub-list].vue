@@ -69,6 +69,14 @@ const { data } = await useAsyncData(async () => {
     error({ statusCode: 404, message: 'Page not found' });
   }
 });
+
+useSeoMeta({
+  title: data.value.currentPersona.name[0]?.text,
+  ogTitle: data.value.currentPersona.name[0]?.text,
+  description: data.value.currentPersona.seo_description?.[0]?.text,
+  ogDescription: data.value.currentPersona.seo_description?.[0]?.text,
+  ogImage: data.value.currentPersona.icon?.url,
+});
 </script>
 
 <style lang="scss">
