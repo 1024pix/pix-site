@@ -15,7 +15,7 @@ defineProps({
 <style lang="scss" scoped>
 .tag {
   border-radius: 2rem;
-  background: $default-gradient;
+  background: $blue;
   color: $grey-5;
   padding: .5rem 1rem;
 }
