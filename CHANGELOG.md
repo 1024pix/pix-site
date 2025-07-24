@@ -1,5 +1,26 @@
 # pix-site Changelog
 
+## v5.24.0 (24/07/2025)
+
+
+### :rocket: Amélioration
+- [#768](https://github.com/1024pix/pix-site/pull/768) [FEATURE] Ajouter des tag dans la liste des actualités (PIX-18408).
+- [#766](https://github.com/1024pix/pix-site/pull/766) [FEATURE] permettre au composant tab d'aller à la ligne si la place n'est pas suffisante (PIX-18410).
+- [#767](https://github.com/1024pix/pix-site/pull/767) [FEATURE] ajouter un cta dans le composant tabs (PIX-18409).
+- [#765](https://github.com/1024pix/pix-site/pull/765) [FEATURE] Ajouter la prise en compte du SEO .
+
+### :building_construction: Tech
+- [#758](https://github.com/1024pix/pix-site/pull/758) [TECH] Suppression de Matomo.
+
+### :bug: Correction
+- [#769](https://github.com/1024pix/pix-site/pull/769) [BUGFIX] Réparer les icones des pages supports sur Pix Pro (PIX-18207).
+
+### :arrow_up: Montée de version
+- [#762](https://github.com/1024pix/pix-site/pull/762) [BUMP] Update node.
+
+### :coffee: Autre
+- [#759](https://github.com/1024pix/pix-site/pull/759) feature: add http headers auto.
+
 ## v5.23.0 (16/05/2025)
 
 
