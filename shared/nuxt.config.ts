@@ -7,9 +7,6 @@ const config = {
       script: [],
     },
   },
-  image: {
-    provider: process.env.IS_BUILTIN_IMAGES_ENABLED ? undefined : 'prismic',
-  },
   appConfig: {
     domainFr: process.env.DOMAIN_FR,
     domainOrg: process.env.DOMAIN_ORG,

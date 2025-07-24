@@ -10,6 +10,22 @@ export const getRoutesToGenerate = async function ({ locales }) {
     routes.push(...nextPageRoutes);
   }
 
+  if (process.env.SITE_DOMAIN === 'FR') {
+    routes.push('/support/');
+    routes.push('/support/professionnel(le)');
+    routes.push('/actualites/');
+  }
+
+  if (process.env.SITE_DOMAIN === 'ORG') {
+    routes.push('/');
+
+    routes.push('/fr/support/');
+    routes.push('/en/support/');
+
+    routes.push('/fr/actualites/');
+    routes.push('/en/news/');
+  }
+
   console.info(`${routes.length} routes will be generated`);
   return routes;
 };
