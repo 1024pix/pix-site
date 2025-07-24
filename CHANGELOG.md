@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.24.1 (24/07/2025)
+
+
+### :bug: Correction
+- [#770](https://github.com/1024pix/pix-site/pull/770) [BUGFIX] utiliser une couleur unie pour les tag.
+
 ## v5.24.0 (24/07/2025)
 
 
