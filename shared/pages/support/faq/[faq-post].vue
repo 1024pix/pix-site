@@ -45,7 +45,7 @@ const { data } = await useAsyncData(async () => {
 
     const contactForm = document.data.contact_form_link.id
       ? await client.getByID(document.data.contact_form_link.id, { lang: i18nLocale.value })
-      : null;
+      : currentPersona.data.contact_form_link;
 
     return {
       content: document.data,
