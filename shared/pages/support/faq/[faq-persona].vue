@@ -86,17 +86,17 @@ defineI18nRoute({
   },
 });
 
-const backLink = computed(() => {
-  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
-  return `${localeUrl}/support/${route.params.parent_persona}`;
-});
-
 /* Fetch persona data */
 const { data } = await useAsyncData(async () => {
   try {
     const queryPersona = await client.getByUID('support__persona_faq', route.params.current_persona, {
       lang: i18nLocale.value,
     });
+
+    const queryCurrentParentPersona = await client.getSingle('personas_list', { lang: i18nLocale.value });
+    const parentPersonaChildrenCount = queryCurrentParentPersona.data.body.find((item) => {
+      return item.primary.slug === route.params.parent_persona;
+    }).items.length;
 
     const queryPosts = await client.getAllByType('support__faq_post', { lang: i18nLocale.value });
 
@@ -110,6 +110,7 @@ const { data } = await useAsyncData(async () => {
         ...queryPersona.data,
       },
       personaPosts: queryPosts,
+      parentPersonaChildrenCount,
       contactForm,
     };
   } catch (err) {
@@ -121,6 +122,13 @@ const { data } = await useAsyncData(async () => {
 /* Computed */
 const displayPopularPosts = computed(() => {
   return !searchInput.value?.length && data.value.currentPersona.popular_posts.length;
+});
+
+const backLink = computed(() => {
+  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
+  const parentPersonaHasOnlyOneChild = data.value.parentPersonaChildrenCount === 1;
+
+  return parentPersonaHasOnlyOneChild ? `${localeUrl}/support` : `${localeUrl}/support/${route.params.parent_persona}`;
 });
 
 /* Methods */

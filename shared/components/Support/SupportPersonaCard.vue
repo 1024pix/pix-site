@@ -28,9 +28,15 @@ const props = defineProps({
 const urlLocale = currentLocale.value === 'fr-fr' ? '' : `/${currentLocale.value}`;
 
 const cardLink = computed(() => {
-  return props.content.slug
-    ? `${urlLocale}/support/${props.content.slug}`
-    : `${urlLocale}/support/${route.params.parent_persona_name}/${props.content.sub_slug}`;
+  if (!props.content.slug) {
+    return `${urlLocale}/support/${route.params.parent_persona_name}/${props.content.sub_slug}`;
+  }
+
+  if (props.content.subPersonas.length > 1) {
+    return `${urlLocale}/support/${props.content.slug}`;
+  }
+
+  return `${urlLocale}/support/${props.content.slug}/${props.content.subPersonas[0]}`;
 });
 </script>
 
