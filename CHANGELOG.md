@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v5.25.0 (06/08/2025)
+
+
+### :rocket: Amélioration
+- [#771](https://github.com/1024pix/pix-site/pull/771) [FEATURE] Ne plus passer par une page intercalaire si un seul persona dans contexte (PIX-18014).
+- [#772](https://github.com/1024pix/pix-site/pull/772) [FEATURE] Ajouter par défaut le form d'un persona dans un article de FAQ (PIX-18017).
+
 ## v5.24.1 (24/07/2025)
 
 
