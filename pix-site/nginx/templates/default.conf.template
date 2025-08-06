@@ -74,7 +74,7 @@ server {
 
   # Plausible config
   location = /analytics/script.js {
-      proxy_pass ${ANALYTICS_SCRIPT_URL};
+      proxy_pass https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.tagged-events.js;
       proxy_set_header Host plausible.io;
 
 
@@ -82,7 +82,6 @@ server {
       proxy_buffering on;
 
       # Cache the script for 6 hours, as long as plausible.io returns a valid response
-      proxy_cache jscache;
       proxy_cache_valid 200 6h;
       proxy_cache_use_stale updating error timeout invalid_header http_500;
 
