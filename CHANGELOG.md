@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.25.1 (29/08/2025)
+
+
+### :bug: Correction
+- [#774](https://github.com/1024pix/pix-site/pull/774) [BUGFIX] Utiliser l'uid pour générer la liste des personas du support.
+
 ## v5.25.0 (06/08/2025)
 
 

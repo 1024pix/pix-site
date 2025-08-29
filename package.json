@@ -1,6 +1,6 @@
 {
   "name": "pix-site",
-  "version": "5.25.0",
+  "version": "5.25.1",
   "description": "Site vitrine de Pix",
   "scripts": {
     "lint": "eslint . --max-warnings 0",
