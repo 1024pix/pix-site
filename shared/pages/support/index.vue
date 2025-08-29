@@ -45,7 +45,7 @@ const { data } = await useAsyncData(async () => {
 
     const mainPersonas = supportPage?.data.body.map(persona => ({
       ...persona.primary,
-      subPersonas: persona.items.map(item => item.sub_persona.slug),
+      subPersonas: persona.items.map(item => item.sub_persona.uid),
     }));
 
     return {
