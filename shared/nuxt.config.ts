@@ -2,6 +2,7 @@ import { resolve } from 'path';
 import { filterNuxtPages } from './services/filter-nuxt-pages';
 
 const config = {
+  compatibilityDate: '2025-09-29',
   app: {
     head: {
       script: [],
