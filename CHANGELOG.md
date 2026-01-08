@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.29.0 (08/01/2026)
+
+
+### :building_construction: Tech
+- [#786](https://github.com/1024pix/pix-site/pull/786) [TECH] Supprimer certaines redirections pour le support.
+
 ## v5.25.1 (29/08/2025)
 
 
