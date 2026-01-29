@@ -26,7 +26,7 @@ const config = {
       },
     },
   },
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   hooks: {
     'pages:extend': filterNuxtPages,
   },

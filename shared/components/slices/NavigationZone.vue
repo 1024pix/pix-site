@@ -1,5 +1,5 @@
 <template>
-  <nav class="navigation-zone" role="navigation">
+  <nav class="navigation-zone" role="navigation" :aria-label="t('menu.name')">
     <ul>
       <li
         v-for="(menuItem, index) in navigationLinks"
@@ -61,6 +61,7 @@
 <script setup>
 const route = useRoute();
 const { getEnvironmentUrl } = useEnvironmentUrl();
+const { t } = useI18n();
 
 const props = defineProps({
   navigationZoneItems: {

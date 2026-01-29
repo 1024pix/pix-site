@@ -71,6 +71,9 @@ export default {
     'change-locale-switcher-button': 'Change',
   },
   back: 'Go back',
+  menu: {
+    name: 'Main Navigation',
+  },
   support: {
     form: {
       'required-info': 'All <span>*</span> fields are required',

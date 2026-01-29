@@ -73,6 +73,9 @@ export default {
     'change-locale-switcher-button': 'Changer',
   },
   back: 'Retour',
+  menu: {
+    name: 'Navigation principale',
+  },
   support: {
     form: {
       'required-info': "Tous les champs marqués d'une <span>*</span> sont obligatoires",

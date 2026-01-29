@@ -5,9 +5,9 @@
         <h1 v-if="data.supportPageData?.header_title?.length" class="support-header__title">
           {{ data.supportPageData?.header_title?.[0].text }}
         </h1>
-        <p v-if="data.supportPageData?.['header_sub-title']?.length" class="support-header__subtitle">
+        <h2 v-if="data.supportPageData?.['header_sub-title']?.length" class="support-header__subtitle">
           {{ data.supportPageData?.['header_sub-title']?.[0].text }}
-        </p>
+        </h2>
       </div>
     </section>
     <ul class="support__personas">
