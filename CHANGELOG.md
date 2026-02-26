@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.29.1 (26/02/2026)
+
+
+### :bug: Correction
+- [#788](https://github.com/1024pix/pix-site/pull/788) [BUGFIX] Chargement du bon contenu des articles (PIX-21734).
+
 ## v5.29.0 (08/01/2026)
 
 
