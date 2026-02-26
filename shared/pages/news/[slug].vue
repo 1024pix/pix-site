@@ -26,11 +26,13 @@ defineI18nRoute({
 });
 
 /* Fetch news item */
-const { data: newsItem } = await useAsyncData(() => {
-  return client.getByUID('news_item', route.params.slug, {
-    lang: i18nLocale.value,
+const { data: newsItem } = await useAsyncData(
+  `news-item-${route.params.slug}`,
+  () => {
+    return client.getByUID('news_item', route.params.slug, {
+      lang: i18nLocale.value,
+    });
   });
-});
 
 useSeoMeta({
   title: newsItem.value.data.title[0]?.text,
