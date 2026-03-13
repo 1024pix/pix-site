@@ -239,7 +239,7 @@ useSeoMeta({
     display: block;
     padding: 0.125em 0;
     font-size: 1.125rem;
-    color: $blue;
+    color: $primary-500;
 
     &:hover {
       text-decoration: underline;
