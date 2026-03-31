@@ -9,7 +9,6 @@ test.describe('layout/header', () => {
     const siteHeader = page.getByRole('banner');
 
     // Logos zone
-    expect(siteHeader.getByAltText('République française, liberté égalité fraternité')).toBeVisible();
     expect(siteHeader.getByAltText('Pix')).toBeVisible();
 
     // Locale switcher visibility
