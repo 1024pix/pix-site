@@ -4,14 +4,13 @@
 ## Builpack
 
 Ce projet est compatible avec les buildpacks de scalingo.
-Deux répertoires :
+Un répertoire :
 - pix-site
-- pix-pro
 
 
 ## Docker
 
-Un dockerfile est disponible à la racine du projet, pour pix-site et pix-pro
+Un dockerfile est disponible à la racine du projet, pour pix-site
 
 ### Build pix-site
 
@@ -27,21 +26,5 @@ docker build \
 
 ```shell
 docker run -ti -p 8080:80 pix-site
-```
-
-### Build pix-pro
-
-```shell
-docker build \
---build-arg "DOMAIN_FR=localhost:8080" \
---build-arg "DOMAIN_ORG=localhost:8080" \
---build-arg "SITE=pix-pro" \
--t pix-pro .
-```
-
-### Run pix-pro
-
-```shell
-docker run -ti -p 8080:80 pix-pro
 ```
 
