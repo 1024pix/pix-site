@@ -1,4 +1,4 @@
-name: Build & Deploy Pix Site and Pix pro to Scaleway
+name: Build & Deploy Pix Site to Scaleway
 on:
   workflow_dispatch:
   push:
@@ -27,9 +27,6 @@ jobs:
           - site: pix-site
             domain-url-fr: ${{ vars.PIX_SITE_DOMAIN_FR }}
             domain-url-org: ${{ vars.PIX_SITE_DOMAIN_ORG }}
-          - site: pix-pro
-            domain-url-fr: ${{ vars.PIX_PRO_DOMAIN_FR }}
-            domain-url-org: ${{ vars.PIX_PRO_DOMAIN_ORG }}
     runs-on: ubuntu-latest
     needs: get-last-tag
     env:
@@ -78,7 +75,3 @@ jobs:
       name: update pix-site container tag
       with:
         args: container container update "${{ secrets.SCW_PRODUCTION_PIX_SITE_CONTAINER_ID }}" registry-image=${{ secrets.CONTAINER_REGISTRY_PRODUCTION_ENDPOINT }}/pix-site:${{ needs.get-last-tag.outputs.last_tag }} "${{ env.custom-args}}"
-    - uses: scaleway/action-scw@v0
-      name: update pix-pro container tag
-      with:
-        args: container container update "${{ secrets.SCW_PRODUCTION_PIX_PRO_CONTAINER_ID }}" registry-image=${{ secrets.CONTAINER_REGISTRY_PRODUCTION_ENDPOINT }}/pix-pro:${{ needs.get-last-tag.outputs.last_tag }} "${{ env.custom-args}}"
