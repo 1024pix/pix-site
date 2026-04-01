@@ -4,11 +4,10 @@
 
 ### Architecture
 
-Il y a 3 dossiers principaux dans ce projet :
+Il y a 2 dossiers principaux dans ce projet :
 
-- [`shared`](shared/README.md) : contient les composants partagés par les sites pix-site et pix-pro
+- [`shared`](shared/README.md) : contient les composants partagés
 - [`pix-site`](pix-site/README.md) : contient les sources du site vitrine de pix
-- [`pix-pro`](pix-pro/README.md) : contient les sources du site vitrine de la version pro de pix
 
 Cette architecture suit celle des layers de nuxt 3 (
 voir [https://nuxt.com/docs/getting-started/layers](https://nuxt.com/docs/getting-started/layers) ).
@@ -39,10 +38,6 @@ Il y a des tests à plusieurs endroits dans ce projet.
 Lire la documentation dans ce répertoire.
 
 ### Possiblement dans le sous-répertoire `pix-site`
-
-Lire la documentation dans ce répertoire.
-
-### Possiblement dans le sous-répertoire `pix-pro`
 
 Lire la documentation dans ce répertoire.
 

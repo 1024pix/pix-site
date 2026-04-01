@@ -133,8 +133,6 @@ déployer :
 
 ```shell
 SITE=pix-site
-# ou
-SITE=pix-pro
 ```
 
 
@@ -151,11 +149,9 @@ Pour tester la configuration NGINX des sites statiques en local, il suffit de fa
 ```shell
 # Build site et site:org puis lance Nginx sur le port 80
 npm run dev:site:e2e
-npm run dev:pro:e2e
 
 # Rebuilder suite à des modifs en dev
 npm run build:site:e2e
-npm run build:pro:e2e
 
 # Pour des modifs de conf Nginx il faut recompiler le servers.conf.erb (nginx.conf) puis relancer Nginx
 npm run start:nginx:e2e
@@ -196,16 +192,14 @@ Exemples :
 
 ### Fichier spécifique pour chaque site
 
-Seul les pages et les middlewares sont spécifiques à chaque site (pix-site et pix-pro), le reste est commun.
+Seul les pages et les middlewares sont spécifiques au site, le reste est commun.
 Par conséquent, on va retrouver cette architecture de répertoire:
 
 ```
 middleware/
    pix-site/
-   pix-pro/
 pages/
    pix-site/
-   pix-pro/
 ```
 
 ### Composants
