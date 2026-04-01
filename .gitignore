@@ -6,9 +6,7 @@
 .cache
 dist
 /pix-site/build/
-/pix-pro/build/
 /pix-site/nginx.conf
-/pix-pro/nginx.conf
 
 # Node dependencies
 node_modules
