@@ -174,8 +174,8 @@ describe('DocumentFetcher', () => {
   test('#findMainFooter', async () => {
     // Given
     vi.resetModules(); // nettoie le cache pour mocker process.env
-    process.env = { SITE: 'pix-pro' };
-    const expectedValue = [{ type: DOCUMENTS.MAIN_FOOTER, footer_for: 'pix-pro' }];
+    process.env = { SITE: 'pix-site' };
+    const expectedValue = [{ type: DOCUMENTS.MAIN_FOOTER, footer_for: 'pix-site' }];
     const expectedPredicatesAtValue = Symbol('AT');
     const findMock = () => ({ results: expectedValue });
     const prismicApi = {
@@ -196,7 +196,7 @@ describe('DocumentFetcher', () => {
       lang: 'fr-fr',
     });
     expect(prismicPredicates.at).toHaveBeenNthCalledWith(1, 'document.type', DOCUMENTS.MAIN_FOOTER);
-    expect(prismicPredicates.at).toHaveBeenNthCalledWith(2, `my.${DOCUMENTS.MAIN_FOOTER}.footer_for`, 'pix-pro');
+    expect(prismicPredicates.at).toHaveBeenNthCalledWith(2, `my.${DOCUMENTS.MAIN_FOOTER}.footer_for`, 'pix-site');
     expect(response).toEqual(expectedValue[0]);
     process.env = { ...SAVED_ENV };
   });
