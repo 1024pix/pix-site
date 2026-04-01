@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.30.0 (01/04/2026)
+
+
+### :coffee: Autre
+- [#789](https://github.com/1024pix/pix-site/pull/789) [tech] add plausible redirection for pro.pix.fr to proxy pix.fr.
+
 ## v5.29.1 (26/02/2026)
 
 
