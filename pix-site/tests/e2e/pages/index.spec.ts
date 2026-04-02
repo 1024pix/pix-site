@@ -19,6 +19,6 @@ test('Popup video in banner', async ({ page }) => {
     // When
     await page.keyboard.down('Escape');
 
-    expect(page.locator('video')).not.toBeVisible();
+    expect(await page.locator('video').isVisible()).toBe(false);
   });
 });

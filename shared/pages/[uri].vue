@@ -1,5 +1,5 @@
 <template>
-  <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
+  <Html :lang="head?.htmlAttrs?.lang" :dir="head?.htmlAttrs?.dir">
     <div v-if="data.type === 'form_page'">
       <form-page :content="data.data" />
     </div>
