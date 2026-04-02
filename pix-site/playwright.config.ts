@@ -63,12 +63,12 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: 'PORT=7001 SITE_DOMAIN=ORG DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
+      command: 'SITE=pix-site PORT=7001 SITE_DOMAIN=ORG DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
       url: 'http://localhost:7001',
       reuseExistingServer: !process.env.CI,
     },
     {
-      command: 'PORT=7002 SITE_DOMAIN=FR DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
+      command: 'SITE=pix-site PORT=7002 SITE_DOMAIN=FR DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
       url: 'http://localhost:7002',
       reuseExistingServer: !process.env.CI,
     },

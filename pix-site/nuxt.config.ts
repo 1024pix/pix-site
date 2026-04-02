@@ -33,12 +33,14 @@ export default async () => {
         crawlLinks: false,
         routes,
       },
-      devProxy: {
-        '/geolocate': {
-          target: `https://${process.env.GEOAPI_HOST}/me`,
-          changeOrigin: true,
-        },
-      },
+      devProxy: process.env.GEOAPI_HOST
+        ? {
+            '/geolocate': {
+              target: `https://${process.env.GEOAPI_HOST}/me`,
+              changeOrigin: true,
+            },
+          }
+        : {},
     },
     i18n: i18nConfig,
   });
