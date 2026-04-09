@@ -9,13 +9,13 @@ test.describe('layout/header', () => {
     const siteHeader = page.getByRole('banner');
 
     // Logos zone
-    expect(siteHeader.getByAltText('Pix')).toBeVisible();
+    await expect(siteHeader.getByAltText('Pix')).toBeVisible();
 
     // Locale switcher visibility
-    expect(siteHeader.getByLabel('Choix de la langue')).toBeVisible();
+    await expect(siteHeader.getByLabel('Choix de la langue')).toBeVisible();
 
     // Navigation zone
-    expect(
+    await expect(
       siteHeader.locator('nav').filter({
         hasText: 'Accueil',
       }),
@@ -38,6 +38,6 @@ test.describe('layout/header', () => {
 
     await page.waitForLoadState('networkidle');
 
-    expect(page).toHaveURL(/#main/);
+    await expect(page).toHaveURL(/#main/);
   });
 });

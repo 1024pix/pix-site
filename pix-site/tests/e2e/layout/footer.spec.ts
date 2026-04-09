@@ -10,6 +10,6 @@ test.describe('layout/footer', () => {
 
     const siteFooter = page.getByRole('contentinfo');
 
-    expect(siteFooter).toBeVisible();
+    await expect(siteFooter).toBeVisible();
   });
 });
