@@ -13,7 +13,7 @@ executors:
     resource_class: small
   playwright:
     docker:
-      - image: mcr.microsoft.com/playwright:v1.38.1-focal
+      - image: mcr.microsoft.com/playwright:v1.59.1-noble
     resource_class: medium+
 
 jobs:
