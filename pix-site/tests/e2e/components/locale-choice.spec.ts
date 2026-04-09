@@ -32,7 +32,7 @@ test.describe('component/locale-choice', () => {
       // then
       expect(await page.getByLabel('Choice of language').innerText()).toBe('English');
 
-      expect(page.getByRole('link', { name: 'English', includeHidden: true })).toHaveAttribute('aria-current', 'page');
+      await expect(page.getByRole('link', { name: 'English', includeHidden: true })).toHaveAttribute('aria-current', 'page');
 
       const cookies = await page.context().cookies();
       await expect(cookies).not.toContain('locale');
