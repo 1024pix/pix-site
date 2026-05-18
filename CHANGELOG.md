@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.30.1 (18/05/2026)
+
+
+### :building_construction: Tech
+- [#791](https://github.com/1024pix/pix-site/pull/791) [TECH] Mettre à jour playwright.
+
 ## v5.30.0 (01/04/2026)
 
 
