@@ -23,11 +23,13 @@ log_format keyvalue
 # as we are about to override it in the server directive here below
 access_log off;
 
-port_in_redirect off;
+port_in_redirect on;
 
 upstream api {
   server ${NGINX_GEOAPI_UPSTREAM_HOST}:443 max_fails=3 fail_timeout=5s;
 }
+
+proxy_cache_path /tmp/nginx-cache/jscache levels=1:2 keys_zone=jscache:100m inactive=30d  use_temp_path=off max_size=100m;
 
 server {
   error_log /dev/stderr info;
@@ -43,7 +45,6 @@ server {
   if ($http_x_forwarded_host ~ \.org) {
     set $extension 'org';
   }
-
 
   location /geolocate {
     proxy_pass https://api/me;
