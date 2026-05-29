@@ -1,5 +1,12 @@
 # pix-site Changelog
 
+## v5.31.0 (29/05/2026)
+
+
+### :building_construction: Tech
+- [#796](https://github.com/1024pix/pix-site/pull/796) [TECH] Redirection well-known pour matrix.
+- [#795](https://github.com/1024pix/pix-site/pull/795) [TECH] Fix du build de l'image docker.
+
 ## v5.30.1 (18/05/2026)
 
 

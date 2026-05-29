@@ -1,6 +1,6 @@
 {
   "name": "shared",
-  "version": "5.30.1",
+  "version": "5.31.0",
   "description": "Pix site main layer",
   "directories": {
     "test": "tests"
