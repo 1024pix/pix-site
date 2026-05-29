@@ -44,6 +44,14 @@ server {
     set $extension 'fr';
   }
 
+  location ^~ /.well-known/matrix/ {
+    if ($extension = 'org') {
+      return 301 https://matrix.pix.org$request_uri;
+    }
+
+    return 404;
+  }
+
   if ($http_x_forwarded_host ~ \.org) {
     set $extension 'org';
   }

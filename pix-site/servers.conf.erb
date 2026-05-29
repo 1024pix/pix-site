@@ -48,6 +48,14 @@ server {
     set $extension 'org';
   }
 
+  location ^~ /.well-known/matrix/ {
+    if ($extension = 'org') {
+      return 301 https://matrix.pix.org$request_uri;
+    }
+
+    return 404;
+  }
+
 <% if ENV['NGINX_GEOAPI_UPSTREAM_HOST'] %>
   location /geolocate {
     proxy_pass https://api/me;
