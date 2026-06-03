@@ -19,8 +19,23 @@ jobs:
         semver_only: true
     - name: Compute tag based on the date
       id: compute-date-tag
-      run: echo "tag=${{ steps.last-release.outputs.tag }}.$(date +'%Y.%m.%d').$(printf '%03d' ${{ github.run_number }})" >> $GITHUB_OUTPUT
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        TODAY_API=$(date +'%Y-%m-%d')
+        DAILY_RUN_COUNT=$(gh run list --workflow "${{ github.workflow }}" --created "$TODAY_API" -L 1000 --json databaseId -q 'length')
 
+        if [ -z "$DAILY_RUN_COUNT" ]; then
+          DAILY_RUN_COUNT=0
+        fi
+
+        DAILY_RUN_COUNT=$(( DAILY_RUN_COUNT + 1 ))
+
+        FORMATTED_COUNT=$(printf '%03d' $DAILY_RUN_COUNT)
+
+        TODAY_TAG=$(date +'%Y.%m.%d')
+        FINAL_TAG="${{ steps.last-release.outputs.tag }}.$TODAY_TAG.$FORMATTED_COUNT"
+        echo "tag=$FINAL_TAG" >> $GITHUB_OUTPUT
   build-and-push-image:
     strategy:
       matrix:
