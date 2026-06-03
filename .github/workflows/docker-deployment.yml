@@ -12,6 +12,7 @@ jobs:
     outputs:
       last_tag: ${{ steps.compute-date-tag.outputs.tag }}
     steps:
+    - uses: actions/checkout@v4
     - name: Get latest release
       id: last-release
       uses: actions-ecosystem/action-get-latest-tag@v1
