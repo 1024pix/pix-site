@@ -104,7 +104,7 @@ const subIsActive = (subNavigationLinks) => {
       return splittedLink[linkIndex];
     });
   return paths.some((path) => {
-    return route.path.includes(path);
+    return path.length && route.path.includes(path);
   });
 };
 
