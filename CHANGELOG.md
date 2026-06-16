@@ -1,5 +1,14 @@
 # pix-site Changelog
 
+## v5.33.0 (16/06/2026)
+
+
+### :building_construction: Tech
+- [#803](https://github.com/1024pix/pix-site/pull/803) [TECH] Corrige l'action qui crée l'image docker lors de la création d'un tag.
+
+### :coffee: Autre
+- [#802](https://github.com/1024pix/pix-site/pull/802) Corrige la configuration nginx qui gère mal certain paths.
+
 ## v5.32.0 (16/06/2026)
 
 
