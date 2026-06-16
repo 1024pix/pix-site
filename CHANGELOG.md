@@ -1,5 +1,17 @@
 # pix-site Changelog
 
+## v5.32.0 (16/06/2026)
+
+
+### :building_construction: Tech
+- [#801](https://github.com/1024pix/pix-site/pull/801) [TECH] Corrige la configuration nginx qui retourne des 404 pour toutes les pages.
+- [#799](https://github.com/1024pix/pix-site/pull/799) [TECH] Utilise un compteur journalier pour marquer la version de l'image docker.
+- [#798](https://github.com/1024pix/pix-site/pull/798) [TECH] Corrige le workflow docker-deployment.
+- [#797](https://github.com/1024pix/pix-site/pull/797) [TECH] La version d'image docker est maintenant basée sur la date.
+
+### :bug: Correction
+- [#800](https://github.com/1024pix/pix-site/pull/800) [BUGFIX] Réparer les entrées actives du menu principal (PIX-23171).
+
 ## v5.31.0 (29/05/2026)
 
 
