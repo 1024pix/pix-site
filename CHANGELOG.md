@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.34.0 (19/06/2026)
+
+
+### :building_construction: Tech
+- [#805](https://github.com/1024pix/pix-site/pull/805) [TECH] Supprime la configuration location de niginx.
+
 ## v5.33.0 (16/06/2026)
 
 
