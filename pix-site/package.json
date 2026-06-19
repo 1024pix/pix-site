@@ -6,6 +6,7 @@
     "node": "^22.16.0"
   },
   "scripts": {
+    "clean": "rm -rf .nuxt .output dist build",
     "build": "npm run generate",
     "dev": "nuxt dev",
     "dev:site:fr": "SITE=pix-site SITE_DOMAIN=FR PORT=6001 DOMAIN_FR=http://localhost:6001 DOMAIN_ORG=http://localhost:7001 nuxt dev",
