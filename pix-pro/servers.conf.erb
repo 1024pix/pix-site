@@ -67,10 +67,6 @@ server {
 
   include /app/nginx/includes/rewrites.conf;
 
-  location / {
-    try_files $uri $uri/ $uri/index.html $uri.html /index.html;
-  }
-
   error_page 400 401 403 404 418 500 502 503 504 /404.html;
 
   location ~ ^/(_assets|_nuxt|images|scripts)/ {
