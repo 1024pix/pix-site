@@ -144,14 +144,16 @@ Pour avoir des URL locales, il faut éditer votre fichier `/etc/hosts`:
 127.0.0.1 dev.pix.fr dev.pix.org
 ```
 
-Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
+Pour générer le contenu des sites :
 
 ```shell
-# Build sites
 npm run build
+```
 
-# Compiler nginx.conf et démarrer Nginx
-DOMAIN_FR=http://dev.pix.fr DOMAIN_ORG=http://dev.pix.org npm run start:nginx
+Pour compiler nginx.conf et démarrer Nginx :
+
+```shell
+npm run start:nginx
 ```
 
 Aller sur `http://dev.pix.fr` ou `http://dev.pix.org`
