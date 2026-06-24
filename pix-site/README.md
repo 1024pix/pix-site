@@ -69,7 +69,6 @@ This variable is used only in the nginx configuration.
 - type: String
 - default: 5s
 
-
 ## Dev
 
 En dev, copier le fichier `sample.env` à la racine du repo vers un `.env` et
@@ -92,7 +91,6 @@ npm run dev:site:fr
 npm run dev:site:org
 ```
 
-
 ## Tests
 
 Copier le fichier `sample.env.test` vers un `.env.test` (et
@@ -105,7 +103,6 @@ Exécuter les tests :
     npm t
 
     npm run test:e2e
-
 
 ## Build
 
@@ -137,38 +134,37 @@ SITE=pix-site
 SITE=pix-pro
 ```
 
-
 ## NGINX
 
-La configuration NGINX a besoin de la variable `NGINX_GEOAPI_UPSTREAM_HOST` (ne pas la définir cause une erreur) :
+### NGINX en local
+
+Pour avoir des URL locales, il faut éditer votre fichier `/etc/hosts`:
+
+```
+127.0.0.1 dev.pix.fr dev.pix.org
+```
+
+Pour générer le contenu des sites :
+
+```shell
+npm run build
+```
+
+Pour compiler nginx.conf et démarrer Nginx :
+
+```shell
+npm run start:nginx
+```
+
+Aller sur `http://dev.pix.fr` ou `http://dev.pix.org`
+
+### NGINX en production
+
+La configuration NGINX en production a besoin de la variable `NGINX_GEOAPI_UPSTREAM_HOST` (ne pas la définir cause une erreur) :
 
 ```shell
 export NGINX_GEOAPI_UPSTREAM_HOST=example.net # remplacer example.net par le host name du service de geolocalisation
 ```
-
-Pour tester la configuration NGINX des sites statiques en local, il suffit de faire:
-
-```shell
-# Build site et site:org puis lance Nginx sur le port 80
-npm run dev:site:e2e
-npm run dev:pro:e2e
-
-# Rebuilder suite à des modifs en dev
-npm run build:site:e2e
-npm run build:pro:e2e
-
-# Pour des modifs de conf Nginx il faut recompiler le servers.conf.erb (nginx.conf) puis relancer Nginx
-npm run start:nginx:e2e
-```
-
-Aller sur `http://localhost.fr` ou `http://localhost.org`
-
-Pour que localhost.org soit fonctionnel, il faut éditer votre fichier `/etc/hosts` en y créant/modifiant la ligne du localhost pour y ajouter les domaines `.fr` et `.org`:
-
-```
-127.0.0.1 localhost localhost.fr localhost.org
-```
-
 
 ## Conventions de nommage
 
@@ -244,4 +240,3 @@ Exemples :
 Le contenu d'une slice est passé _en entier_ et tel-quel au composant Vue équivalent via une propriété exposée `:slice`.
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
-
