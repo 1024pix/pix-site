@@ -3,7 +3,7 @@ import { mockNuxtImport } from '@nuxt/test-utils/runtime';
 
 import LocaleSwitcher from '~/components/LocaleSwitcher.vue';
 
-const localeProperties = { code: 'fr-fr', name: 'Français', icon: 'fr' };
+const localeProperties = { code: 'fr-FR', name: 'Français', icon: 'fr' };
 const availableLocales = [
   {
     code: 'en',
@@ -22,25 +22,25 @@ const availableLocales = [
     domain: 'https://example.org/',
   },
   {
-    code: 'fr-fr',
-    iso: 'fr-fr',
-    file: 'fr-fr.js',
+    code: 'fr-FR',
+    iso: 'fr-FR',
+    file: 'fr-FR.js',
     name: 'France',
     icon: 'flag-fr.svg',
     domain: 'https://example.fr/',
   },
   {
-    code: 'fr-be',
-    iso: 'fr-be',
-    file: 'fr-be.js',
+    code: 'fr-BE',
+    iso: 'fr-BE',
+    file: 'fr-BE.js',
     name: 'Belgique (Français)',
     icon: 'flag-be.svg',
     domain: 'https://example.org/',
   },
   {
-    code: 'nl-be',
-    iso: 'nl-be',
-    file: 'nl-be.js',
+    code: 'nl-BE',
+    iso: 'nl-BE',
+    file: 'nl-BE.js',
     name: 'België (Nederlands)',
     icon: 'flag-be.svg',
     domain: 'https://example.org/',
