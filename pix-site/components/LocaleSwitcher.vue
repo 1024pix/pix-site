@@ -37,7 +37,7 @@
         </li>
         <li v-for="localeDefinition in nonInternationalSubmenuLocaleDefinitions" :key="localeDefinition.code" :class="{ active: localeProperties.code === localeDefinition.code }">
           <a
-            :href="`${localeDefinition.domain}/${localeDefinition.code === 'fr-fr' ? '' : localeDefinition.code}`"
+            :href="`${localeDefinition.domain}/${localeDefinition.code === 'fr-FR' ? '' : localeDefinition.code}`"
             :aria-current="localeProperties.code === localeDefinition.code && 'page'"
             @click="updateLocaleCookie(localeDefinition.code)"
           >
@@ -63,7 +63,7 @@ const { localeProperties, t } = useI18n();
 const internationalSubmenuLocaleDefinitions = availableLocales
   .filter(localeDefinition => ['fr', 'en', 'it', 'es', 'de-AT'].includes(localeDefinition.code));
 const nonInternationalSubmenuLocaleDefinitions = availableLocales
-  .filter(localeDefinition => ['fr-fr', 'fr-be', 'nl-be'].includes(localeDefinition.code));
+  .filter(localeDefinition => ['fr-FR', 'fr-BE', 'nl-BE'].includes(localeDefinition.code));
 
 const buttonRef = ref(null);
 const localesMenuRef = ref(null);

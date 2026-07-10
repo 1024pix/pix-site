@@ -19,12 +19,13 @@ export const getRoutesToGenerate = async function ({ locales }) {
     routes.push('/');
 
     routes.push('/fr/support/');
-    routes.push('/fr-be/support/');
+    routes.push('/fr-BE/support/');
+
     routes.push('/en/support/');
-    routes.push('/nl-be/support/');
+    routes.push('/nl-BE/support/');
 
     routes.push('/fr/actualites/');
-    routes.push('/fr-be/actualites/');
+    routes.push('/fr-BE/actualites/');
     routes.push('/en/news/');
   }
 

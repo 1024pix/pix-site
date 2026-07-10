@@ -8,8 +8,8 @@
         v-for="locale in availableLocales"
         :key="locale.code"
         class="locale-link"
-        :href="`${locale.domain}/${locale.code === 'fr-fr' ? '' : locale.code}`"
-        @click="locale.code !== 'fr-fr' && updateLocale(locale.code)"
+        :href="`${locale.domain}/${locale.code === 'fr-FR' ? '' : locale.code}`"
+        @click="locale.code !== 'fr-FR' && updateLocale(locale.code)"
       >
         <img class="locale-link__icon" :src="'/images/' + locale.icon" alt="" />
         <span class="locale-link__text">{{ locale.name }}</span>

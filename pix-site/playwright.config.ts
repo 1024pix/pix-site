@@ -30,7 +30,7 @@ export default defineConfig({
     trace: 'on-first-retry',
 
     /* Locale */
-    locale: 'fr-fr',
+    locale: 'fr-FR',
   },
 
   /* Configure projects for major browsers */
