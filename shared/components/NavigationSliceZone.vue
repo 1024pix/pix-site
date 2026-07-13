@@ -26,7 +26,7 @@ const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client, filter } = usePrismic();
 
-const { data: mainNav } = await useAsyncData(async () => {
+const { data: mainNav, error } = await useAsyncData(async () => {
   const document = await client.getFirst({
     filters: [
       filter.at('document.type', 'main_navigation_v2'),
@@ -37,6 +37,12 @@ const { data: mainNav } = await useAsyncData(async () => {
 
   return document.data.body;
 });
+
+// error is a Vue refs and they should be accessed with .value when used within the <script setup>
+// cf. https://nuxt.com/docs/3.x/api/composables/use-async-data
+if (error.value) {
+  console.warn(error.value);
+}
 
 const logos = mainNav.value.filter(block => block.slice_type === 'logos_zone');
 
