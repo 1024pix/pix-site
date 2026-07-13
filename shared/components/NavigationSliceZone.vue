@@ -27,12 +27,15 @@ const { locale: i18nLocale } = useI18n();
 const { client, filter } = usePrismic();
 
 const { data: mainNav } = await useAsyncData(async () => {
-  const { results: nav } = await client.getByType('main_navigation_v2', {
-    filters: [filter.at('my.main_navigation_v2.navigation_for', appConfig.site)],
+  const document = await client.getFirst({
+    filters: [
+      filter.at('document.type', 'main_navigation_v2'),
+      filter.at('my.main_navigation_v2.navigation_for', appConfig.site),
+    ],
     lang: i18nLocale.value,
   });
 
-  return nav[0].data.body;
+  return document.data.body;
 });
 
 const logos = mainNav.value.filter(block => block.slice_type === 'logos_zone');
