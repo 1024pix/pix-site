@@ -1,23 +1,26 @@
 <template>
   <header class="navigation-slice-zone">
-    <div class="navigation-slice-zone__content">
-      <div class="navigation-slice-zone-content__left-side">
-        <burger-menu class="burger-menu" :items="burgerMenuLinks()" />
-        <section v-for="(slice, index) in logos" :key="`navigation-slice-left-${index}`">
-          <slices-logos-zone :slice="slice" :max-height="48" />
+    <template v-if="mainNav">
+      <div class="navigation-slice-zone__content">
+        <div class="navigation-slice-zone-content__left-side">
+          <burger-menu class="burger-menu" :items="burgerMenuLinks()" />
+
+          <section v-for="(slice, index) in logos" :key="`navigation-slice-left-${index}`">
+            <slices-logos-zone :slice="slice" :max-height="48" />
+          </section>
+        </div>
+        <section
+          v-for="(slice, index) in actions"
+          :key="`navigation-slice-right-${index}`"
+          class="navigation-slice-zone-content__right-side"
+        >
+          <slices-actions-zone :slice="slice" />
         </section>
       </div>
-      <section
-        v-for="(slice, index) in actions"
-        :key="`navigation-slice-right-${index}`"
-        class="navigation-slice-zone-content__right-side"
-      >
-        <slices-actions-zone :slice="slice" />
+      <section class="navigation-slice-zone-content__bottom-side">
+        <slices-navigation-zone :navigation-zone-items="navigation[0].items" />
       </section>
-    </div>
-    <section class="navigation-slice-zone-content__bottom-side">
-      <slices-navigation-zone :navigation-zone-items="navigation[0].items" />
-    </section>
+    </template>
   </header>
 </template>
 
@@ -25,6 +28,10 @@
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client, filter } = usePrismic();
+
+let logos;
+let actions;
+let navigation;
 
 const { data: mainNav, error } = await useAsyncData(async () => {
   const document = await client.getFirst({
@@ -42,13 +49,11 @@ const { data: mainNav, error } = await useAsyncData(async () => {
 // cf. https://nuxt.com/docs/3.x/api/composables/use-async-data
 if (error.value) {
   console.warn(error.value);
+} else {
+  logos = mainNav.value.filter(block => block.slice_type === 'logos_zone');
+  actions = mainNav.value.filter(block => block.slice_type === 'actions_zone');
+  navigation = mainNav.value.filter(block => block.slice_type === 'navigation_zone');
 }
-
-const logos = mainNav.value.filter(block => block.slice_type === 'logos_zone');
-
-const actions = mainNav.value.filter(block => block.slice_type === 'actions_zone');
-
-const navigation = mainNav.value.filter(block => block.slice_type === 'navigation_zone');
 
 const burgerMenuLinks = () => {
   const logosZone = mainNav.value.find(slice => slice.slice_type === 'logos_zone') || { items: [] };

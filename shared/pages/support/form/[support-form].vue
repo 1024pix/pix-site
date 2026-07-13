@@ -1,26 +1,28 @@
 <template>
-  <easiware-form v-if="data.supportForm.useEasiwareForm" :solution-id="data.supportForm.solution_id" :form-id="data.supportForm.form_id">
-    <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
-      {{ data.supportForm.form_title?.[0].text }}
-    </h1>
-    <prismic-rich-text
-      v-if="data.supportForm.form_introduction?.length"
-      :field="data.supportForm.form_introduction"
-      class="easiware-form__introduction"
-    />
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <p class="easiware-form__required-info" v-html="t('support.form.required-info')" />
-  </easiware-form>
-  <freescout-form v-else :freescout-url="data.supportForm.freescout_url.url" :height-for-iframe="data.supportForm.freescout_height">
-    <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
-      {{ data.supportForm.form_title?.[0].text }}
-    </h1>
-    <prismic-rich-text
-      v-if="data.supportForm.form_introduction?.length"
-      :field="data.supportForm.form_introduction"
-      class="easiware-form__introduction"
-    />
-  </freescout-form>
+  <template v-if="data">
+    <easiware-form v-if="data.supportForm.useEasiwareForm" :solution-id="data.supportForm.solution_id" :form-id="data.supportForm.form_id">
+      <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
+        {{ data.supportForm.form_title?.[0].text }}
+      </h1>
+      <prismic-rich-text
+        v-if="data.supportForm.form_introduction?.length"
+        :field="data.supportForm.form_introduction"
+        class="easiware-form__introduction"
+      />
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <p class="easiware-form__required-info" v-html="t('support.form.required-info')" />
+    </easiware-form>
+    <freescout-form v-else :freescout-url="data.supportForm.freescout_url.url" :height-for-iframe="data.supportForm.freescout_height">
+      <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
+        {{ data.supportForm.form_title?.[0].text }}
+      </h1>
+      <prismic-rich-text
+        v-if="data.supportForm.form_introduction?.length"
+        :field="data.supportForm.form_introduction"
+        class="easiware-form__introduction"
+      />
+    </freescout-form>
+  </template>
 </template>
 
 <script setup>
@@ -42,6 +44,10 @@ defineI18nRoute({
 /* Fetch form data */
 const { data } = await useAsyncData(async () => {
   try {
+    if (!route.params.slug) {
+      throw new Error('Missing slug for route:', route.params);
+    }
+
     const supportForm = await client.getByUID('easiware_form', route.params.slug, {
       lang: i18nLocale.value,
     });
