@@ -1,5 +1,6 @@
 import { generateConfig } from '../shared/i18n.config';
 
+// "reachableLocales" should be renamed into "localeDefinitions"
 const reachableLocales = [
   {
     // The "code" property should be renamed into "name": https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale
