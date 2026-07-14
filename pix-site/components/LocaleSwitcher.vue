@@ -20,54 +20,29 @@
             :aria-label="t('locale-switcher.button.international-label')"
             @click="toggleInternationalLocales"
           >
-            <img :src="`/images/${frLocale.icon}`" alt="" />
+            <img src="/images/globe-europe.svg" alt="" />
             <span>{{ t('locale-switcher.locales.international') }}</span>
           </button>
           <ul v-show="isInternationalLocalesVisible" class="sub-menu">
-            <li v-if="frLocale" :class="{ active: localeProperties.code === frLocale.code }">
+            <li v-for="localeDefinition in internationalLocaleDefinitions" :key="localeDefinition.code" :class="{ active: localeProperties.code === localeDefinition.code }">
               <a
-                :href="`${domainOrg || ''}/fr`"
-                :aria-current="localeProperties.code === frLocale.code && 'page'"
-                @click="updateLocaleCookie(frLocale.code)"
+                :href="`${localeDefinition.domain}/${localeDefinition.code}`"
+                :aria-current="localeProperties.code === localeDefinition.code && 'page'"
+                @click="updateLocaleCookie(localeDefinition.code)"
               >
-                {{ frLocale.name }}
-              </a>
-            </li>
-            <li v-if="enLocale" :class="{ active: localeProperties.code === enLocale.code }">
-              <a
-                :href="`${domainOrg || ''}/en`"
-                :aria-current="localeProperties.code === enLocale.code && 'page'"
-                @click="updateLocaleCookie(enLocale.code)"
-              >
-                {{ enLocale.name }}
+                {{ localeDefinition.name }}
               </a>
             </li>
           </ul>
         </li>
-        <li v-if="frBeLocale" :class="{ active: localeProperties.code === frBeLocale.code }">
+        <li v-for="localeDefinition in nonInternationalLocaleDefinitions" :key="localeDefinition.code" :class="{ active: localeProperties.code === localeDefinition.code }">
           <a
-            :href="`${domainOrg || ''}/fr-be`"
-            :aria-current="localeProperties.code === frBeLocale.code && 'page'"
-            @click="updateLocaleCookie(frBeLocale.code)"
+            :href="`${localeDefinition.domain}/${localeDefinition.code === 'fr-fr' ? '' : localeDefinition.code}`"
+            :aria-current="localeProperties.code === localeDefinition.code && 'page'"
+            @click="updateLocaleCookie(localeDefinition.code)"
           >
-            <img :src="`/images/${frBeLocale.icon}`" alt="" />
-            <span>{{ frBeLocale.name }}</span>
-          </a>
-        </li>
-        <li v-if="nlBeLocale" :class="{ active: localeProperties.code === nlBeLocale.code }">
-          <a
-            :href="`${domainOrg || ''}/nl-be`"
-            :aria-current="localeProperties.code === nlBeLocale.code && 'page'"
-            @click="updateLocaleCookie(nlBeLocale.code)"
-          >
-            <img :src="`/images/${nlBeLocale.icon}`" alt="" />
-            <span>{{ nlBeLocale.name }}</span>
-          </a>
-        </li>
-        <li v-if="frFrLocale" :class="{ active: localeProperties.code === frFrLocale.code }">
-          <a :href="`${domainFr || ''}/`" :aria-current="localeProperties.code === frFrLocale.code && 'page'">
-            <img :src="`/images/${frFrLocale.icon}`" alt="" />
-            <span>{{ frFrLocale.name }}</span>
+            <img :src="`/images/${localeDefinition.icon}`" alt="" />
+            <span>{{ localeDefinition.name }}</span>
           </a>
         </li>
       </ul>
@@ -85,20 +60,15 @@ const { setLocaleCookie } = useLocaleCookie();
 
 const { localeProperties, t } = useI18n();
 
-const frLocale = availableLocales.find(l => l.code === 'fr');
-const enLocale = availableLocales.find(l => l.code === 'en');
-const frFrLocale = availableLocales.find(l => l.code === 'fr-fr');
-const frBeLocale = availableLocales.find(l => l.code === 'fr-be');
-const nlBeLocale = availableLocales.find(l => l.code === 'nl-be');
+const internationalLocaleDefinitions = availableLocales
+  .filter(localeDefinition => ['fr', 'en'].includes(localeDefinition.code));
+const nonInternationalLocaleDefinitions = availableLocales
+  .filter(localeDefinition => ['fr-fr', 'fr-be', 'nl-be'].includes(localeDefinition.code));
 
 const buttonRef = ref(null);
 const localesMenuRef = ref(null);
 const isLocalesMenuVisible = ref(false);
 const isInternationalLocalesVisible = ref(false);
-
-const config = useAppConfig();
-const domainFr = config.domainFr;
-const domainOrg = config.domainOrg;
 
 function toggleLocalesMenu() {
   isLocalesMenuVisible.value = !isLocalesMenuVisible.value;
