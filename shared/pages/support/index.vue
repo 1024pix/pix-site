@@ -53,7 +53,7 @@ const { data } = await useAsyncData(async () => {
       mainPersonas,
     };
   } catch (err) {
-    console.error({ err });
+    console.warn(err);
     error({ statusCode: 404, message: 'Page not found' });
   }
 });
