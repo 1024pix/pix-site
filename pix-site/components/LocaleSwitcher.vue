@@ -61,9 +61,9 @@ const { setLocaleCookie } = useLocaleCookie();
 const { localeProperties, t } = useI18n();
 
 const internationalLocaleDefinitions = availableLocales
-  .filter(localeDefinition => ['fr', 'en'].includes(localeDefinition.code));
+  .filter(localeDefinition => ['fr', 'en', 'it', 'es'].includes(localeDefinition.code));
 const nonInternationalLocaleDefinitions = availableLocales
-  .filter(localeDefinition => ['fr-fr', 'fr-be', 'nl-be'].includes(localeDefinition.code));
+  .filter(localeDefinition => ['fr-fr', 'fr-be', 'nl-be', 'de-AT'].includes(localeDefinition.code));
 
 const buttonRef = ref(null);
 const localesMenuRef = ref(null);
