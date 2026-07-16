@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <mask id="mask" x="1" y="1" width="22" height="22" maskUnits="userSpaceOnUse">
+      <g id="mask-2">
+        <circle cx="12" cy="12" r="11" style="fill: #fff;"/>
+      </g>
+    </mask>
+  </defs>
+  <g id="Flag_AT" data-name="Flag AT">
+    <circle cx="12" cy="12" r="11.5" style="fill: none; stroke: #eaecf0;"/>
+    <g style="mask: url(#mask);">
+      <g id="Flag_of_Austria" data-name="Flag of Austria">
+        <polygon points="23 1 23 23 1 23 1 1 23 1" style="fill: #ef3340;"/>
+        <polygon data-name="Path" points="23 1 23 15.67 1 15.67 1 1 23 1" style="fill: #fff;"/>
+        <polygon data-name="Path" points="23 1 23 8.33 1 8.33 1 1 23 1" style="fill: #ef3340;"/>
+      </g>
+    </g>
+  </g>
+</svg>
