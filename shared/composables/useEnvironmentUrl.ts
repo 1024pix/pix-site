@@ -1,4 +1,7 @@
 export default function useEnvironmentUrl() {
+  /**
+   * Returns a working URL for the given URL, based on the environment (dev, static build, etc.).
+   */
   const getEnvironmentUrl = (url: string) => {
     const runtimeConfig = useRuntimeConfig();
 

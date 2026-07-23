@@ -1,5 +1,6 @@
 import { generateConfig } from '../shared/i18n.config';
 
+// "reachableLocales" should be renamed into "localeDefinitions"
 const reachableLocales = [
   {
     // The "code" property should be renamed into "name": https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale
@@ -12,10 +13,26 @@ const reachableLocales = [
     domain: process.env.DOMAIN_ORG,
   },
   {
+    code: 'es',
+    iso: 'es',
+    file: 'es.js',
+    name: 'Español',
+    icon: 'globe-europe.svg',
+    domain: process.env.DOMAIN_ORG,
+  },
+  {
     code: 'fr',
     iso: 'fr',
     file: 'fr.js',
     name: 'Français',
+    icon: 'globe-europe.svg',
+    domain: process.env.DOMAIN_ORG,
+  },
+  {
+    code: 'it',
+    iso: 'it',
+    file: 'it.js',
+    name: 'Italiano',
     icon: 'globe-europe.svg',
     domain: process.env.DOMAIN_ORG,
   },
@@ -41,6 +58,14 @@ const reachableLocales = [
     file: 'nl-be.js',
     name: 'België (Nederlands)',
     icon: 'flag-be.svg',
+    domain: process.env.DOMAIN_ORG,
+  },
+  {
+    code: 'de-AT',
+    iso: 'de-AT',
+    file: 'de-AT.js',
+    name: 'Österreich (Deutsch)',
+    icon: 'flag-de-AT.svg',
     domain: process.env.DOMAIN_ORG,
   },
 ];

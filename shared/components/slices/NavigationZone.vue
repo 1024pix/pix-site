@@ -30,6 +30,7 @@
         </div>
         <div v-else class="navigation-zone-list__link">
           <nuxt-link
+            v-if="menuItem.url"
             class="navigation-zone-list-link__item"
             :to="getEnvironmentUrl(menuItem.url)"
             active-class="current-active-link"
@@ -97,9 +98,17 @@ const toggleDropdown = (dropdownIndex) => {
 
 const subIsActive = (subNavigationLinks) => {
   const paths = subNavigationLinks
-    .flatMap(subNavigationLink => subNavigationLink.links.map(link => link.url))
-    .map((subNavigationLink) => {
-      const splittedLink = subNavigationLink.split('/');
+    .flatMap(subNavigationLink => subNavigationLink.links)
+    .filter((link) => {
+      if (!link.url) {
+        console.warn('Missing url for link', link);
+        return false;
+      }
+
+      return true;
+    })
+    .map((link) => {
+      const splittedLink = link.url.split('/');
       const linkIndex = splittedLink.length - 1;
       return splittedLink[linkIndex];
     });

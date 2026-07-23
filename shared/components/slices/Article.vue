@@ -34,7 +34,7 @@
         />
         <div v-if="content.article_link_type !== 'none'">
           <cta-button
-            v-if="content.article_link_type === 'call-to-action'"
+            v-if="content.article_link_type === 'call-to-action' && content.article_link_url.url"
             :link="getEnvironmentUrl(content.article_link_url.url)"
             :name="content.article_link_name"
           />

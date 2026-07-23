@@ -16,6 +16,7 @@
           @click="handleLinkClick"
         >
           <nuxt-link
+            v-if="link.url"
             :to="getEnvironmentUrl(link.url)"
             class="burger-menu-nav-sections-list-item-sub-list-sub-item__link"
           >

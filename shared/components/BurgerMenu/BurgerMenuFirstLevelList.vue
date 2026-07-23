@@ -25,6 +25,7 @@
       </div>
       <div v-else v-show="openDropdownIndex === -1" @click="handleLinkClick">
         <nuxt-link
+          v-if="item.url"
           :to="getEnvironmentUrl(item.url)"
           class="burger-menu-nav-list-item__link"
           :class="{ 'blue-link': shouldApplyBlueClass(item.url) }"

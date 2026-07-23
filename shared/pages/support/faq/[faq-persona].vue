@@ -1,65 +1,67 @@
 <template>
   <div class="faq-persona">
-    <support-header
-      :title="data.currentPersona.faq_page_title[0].text"
-      :icon="data.currentPersona.icon.url"
-      :back-link-url="backLink"
-      :with-search="true"
-      @handle-search="handleSearch"
-    />
-    <div class="faq-persona__content-wrapper">
-      <section v-if="displayPopularPosts" class="faq-persona__popular-posts">
-        <h2 class="faq-persona-popular-posts__title">
-          {{ data.currentPersona.popular_posts_title[0]?.text }}
-        </h2>
-        <ul class="faq-persona-popular-posts-list">
-          <li v-for="popularPost in data.currentPersona.popular_posts" :key="popularPost.post.slug">
-            <nuxt-link :to="`${route.path}/${popularPost.post.uid}`">
-              {{ getPostTitle(popularPost.post.uid) }}
-            </nuxt-link>
-          </li>
-        </ul>
-      </section>
-      <section v-if="data.currentPersona.body" class="faq-persona__posts">
-        <p v-if="searchInput.length" aria-live="polite">
-          <template v-if="filteredPostsCount === 0">
-            {{ t('support.faq.no-result', { searchInput }) }}
-          </template>
-          <template v-else>
-            {{ t('support.faq.results-count', { count: filteredPostsCount, searchInput }) }}
-          </template>
-        </p>
-        <ul class="faq-persona-posts__primary-list">
-          <template v-for="category in data.currentPersona.body" :key="category.id">
-            <li ref="categoriesRef">
-              <details :open="searchInput?.length">
-                <summary>
-                  <h3 class="title">
-                    {{ category.primary.category_name[0].text }}
-                  </h3>
-                  <p class="description">
-                    {{ category.primary.category_description[0].text }}
-                  </p>
-                </summary>
-                <ul class="faq-persona-posts__secondary-list">
-                  <template v-for="post in category.items" :key="post.post.id">
-                    <li v-if="displayPost(post)">
-                      <h4 v-if="post.sub_category && !searchInput?.length" class="sub-category">
-                        {{ post.sub_category }}
-                      </h4>
-                      <nuxt-link :to="`${route.path}/${post.post.uid}`">
-                        {{ getPostTitle(post.post.uid) }}
-                      </nuxt-link>
-                    </li>
-                  </template>
-                </ul>
-              </details>
+    <template v-if="data">
+      <support-header
+        :title="data.currentPersona.faq_page_title[0].text"
+        :icon="data.currentPersona.icon.url"
+        :back-link-url="backLink"
+        :with-search="true"
+        @handle-search="handleSearch"
+      />
+      <div class="faq-persona__content-wrapper">
+        <section v-if="displayPopularPosts" class="faq-persona__popular-posts">
+          <h2 class="faq-persona-popular-posts__title">
+            {{ data.currentPersona.popular_posts_title[0]?.text }}
+          </h2>
+          <ul class="faq-persona-popular-posts-list">
+            <li v-for="popularPost in data.currentPersona.popular_posts" :key="popularPost.post.slug">
+              <nuxt-link :to="`${route.path}/${popularPost.post.uid}`">
+                {{ getPostTitle(popularPost.post.uid) }}
+              </nuxt-link>
             </li>
-          </template>
-        </ul>
-      </section>
-      <support-contact v-if="data.contactForm && !searchInput.length" :contact-form-id="data.contactForm.uid" />
-    </div>
+          </ul>
+        </section>
+        <section v-if="data.currentPersona.body" class="faq-persona__posts">
+          <p v-if="searchInput.length" aria-live="polite">
+            <template v-if="filteredPostsCount === 0">
+              {{ t('support.faq.no-result', { searchInput }) }}
+            </template>
+            <template v-else>
+              {{ t('support.faq.results-count', { count: filteredPostsCount, searchInput }) }}
+            </template>
+          </p>
+          <ul class="faq-persona-posts__primary-list">
+            <template v-for="category in data.currentPersona.body" :key="category.id">
+              <li ref="categoriesRef">
+                <details :open="searchInput?.length">
+                  <summary>
+                    <h3 class="title">
+                      {{ category.primary.category_name[0].text }}
+                    </h3>
+                    <p class="description">
+                      {{ category.primary.category_description[0].text }}
+                    </p>
+                  </summary>
+                  <ul class="faq-persona-posts__secondary-list">
+                    <template v-for="post in category.items" :key="post.post.id">
+                      <li v-if="displayPost(post)">
+                        <h4 v-if="post.sub_category && !searchInput?.length" class="sub-category">
+                          {{ post.sub_category }}
+                        </h4>
+                        <nuxt-link :to="`${route.path}/${post.post.uid}`">
+                          {{ getPostTitle(post.post.uid) }}
+                        </nuxt-link>
+                      </li>
+                    </template>
+                  </ul>
+                </details>
+              </li>
+            </template>
+          </ul>
+        </section>
+        <support-contact v-if="data.contactForm && !searchInput.length" :contact-form-id="data.contactForm.uid" />
+      </div>
+    </template>
   </div>
 </template>
 
@@ -114,7 +116,7 @@ const { data } = await useAsyncData(async () => {
       contactForm,
     };
   } catch (err) {
-    console.error(err);
+    console.warn(err);
     error({ statusCode: 404, message: 'Page not found' });
   }
 });

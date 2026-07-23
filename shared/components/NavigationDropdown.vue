@@ -20,6 +20,7 @@
             class="navigation-dropdown-sub-list__sub-item"
           >
             <nuxt-link
+              v-if="link.url"
               class="navigation-dropdown-sub-list-sub-item__link"
               :to="getEnvironmentUrl(link.url)"
               @click="$emit('sublink-click')"

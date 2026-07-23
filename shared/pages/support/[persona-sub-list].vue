@@ -1,18 +1,20 @@
 <template>
   <div class="personas-sub-list">
-    <support-header
-      :title="data.currentPersona.name[0].text"
-      :icon="data.currentPersona.icon.url"
-      :back-link-url="backLink"
-    />
-    <h2 class="personas-sub-list__subtitle">
-      {{ data.currentPersona.sub_persona_title[0].text }}
-    </h2>
-    <ul v-if="data.currentPersonaChildren.length" class="personas-sub-list__children">
-      <li v-for="personaChild in data.currentPersonaChildren" :key="personaChild.slug">
-        <support-persona-card :content="personaChild" />
-      </li>
-    </ul>
+    <template v-if="data">
+      <support-header
+        :title="data.currentPersona.name[0].text"
+        :icon="data.currentPersona.icon.url"
+        :back-link-url="backLink"
+      />
+      <h2 class="personas-sub-list__subtitle">
+        {{ data.currentPersona.sub_persona_title[0].text }}
+      </h2>
+      <ul v-if="data.currentPersonaChildren.length" class="personas-sub-list__children">
+        <li v-for="personaChild in data.currentPersonaChildren" :key="personaChild.slug">
+          <support-persona-card :content="personaChild" />
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 
@@ -65,7 +67,7 @@ const { data } = await useAsyncData(async () => {
       currentPersonaChildren: subPersonas,
     };
   } catch (err) {
-    console.error(err);
+    console.warn(err);
     error({ statusCode: 404, message: 'Page not found' });
   }
 });

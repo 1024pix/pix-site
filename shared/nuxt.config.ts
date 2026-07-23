@@ -1,6 +1,11 @@
 import { resolve } from 'path';
 import { filterNuxtPages } from './services/filter-nuxt-pages';
 
+// This is the same Prismic Repository used for both pix-site and pix-pro.
+// The situation is error prone because the Prismic Repository has the same name
+// as the pix-site site.
+const prismicRepositoryName = 'pix-site';
+
 const config = {
   app: {
     head: {
@@ -35,7 +40,7 @@ const config = {
     clientConfig: {
       accessToken: process.env.PRISMIC_API_TOKEN,
     },
-    endpoint: 'pix-site',
+    endpoint: prismicRepositoryName,
     linkResolver: '../shared/services/link-resolver.js',
   },
   runtimeConfig: {

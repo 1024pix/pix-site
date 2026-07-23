@@ -1,20 +1,22 @@
 <template>
   <div class="support">
-    <section class="support__header">
-      <div class="support-header__wrapper">
-        <h1 v-if="data.supportPageData?.header_title?.length" class="support-header__title">
-          {{ data.supportPageData?.header_title?.[0].text }}
-        </h1>
-        <p v-if="data.supportPageData?.['header_sub-title']?.length" class="support-header__subtitle">
-          {{ data.supportPageData?.['header_sub-title']?.[0].text }}
-        </p>
-      </div>
-    </section>
-    <ul class="support__personas">
-      <li v-for="persona in data.mainPersonas" :key="persona.uri">
-        <support-persona-card :content="persona" />
-      </li>
-    </ul>
+    <template v-if="data">
+      <section class="support__header">
+        <div class="support-header__wrapper">
+          <h1 v-if="data.supportPageData?.header_title?.length" class="support-header__title">
+            {{ data.supportPageData?.header_title?.[0].text }}
+          </h1>
+          <p v-if="data.supportPageData?.['header_sub-title']?.length" class="support-header__subtitle">
+            {{ data.supportPageData?.['header_sub-title']?.[0].text }}
+          </p>
+        </div>
+      </section>
+      <ul class="support__personas">
+        <li v-for="persona in data.mainPersonas" :key="persona.uri">
+          <support-persona-card :content="persona" />
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 
@@ -53,7 +55,7 @@ const { data } = await useAsyncData(async () => {
       mainPersonas,
     };
   } catch (err) {
-    console.error({ err });
+    console.warn(err);
     error({ statusCode: 404, message: 'Page not found' });
   }
 });
