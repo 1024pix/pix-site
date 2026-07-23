@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.36.0 (23/07/2026)
+
+
+### :rocket: Amélioration
+- [#808](https://github.com/1024pix/pix-site/pull/808) [FEATURE] Ajouter les locales 'it', 'es' et 'de-AT' sur Pix Site (PIX-23367).
+
 ## v5.35.0 (23/07/2026)
 
 
