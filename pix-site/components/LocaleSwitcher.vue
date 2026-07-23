@@ -24,7 +24,7 @@
             <span>{{ t('locale-switcher.locales.international') }}</span>
           </button>
           <ul v-show="isInternationalLocalesVisible" class="sub-menu">
-            <li v-for="localeDefinition in internationalLocaleDefinitions" :key="localeDefinition.code" :class="{ active: localeProperties.code === localeDefinition.code }">
+            <li v-for="localeDefinition in internationalSubmenuLocaleDefinitions" :key="localeDefinition.code" :class="{ active: localeProperties.code === localeDefinition.code }">
               <a
                 :href="`${localeDefinition.domain}/${localeDefinition.code}`"
                 :aria-current="localeProperties.code === localeDefinition.code && 'page'"
@@ -35,7 +35,7 @@
             </li>
           </ul>
         </li>
-        <li v-for="localeDefinition in nonInternationalLocaleDefinitions" :key="localeDefinition.code" :class="{ active: localeProperties.code === localeDefinition.code }">
+        <li v-for="localeDefinition in nonInternationalSubmenuLocaleDefinitions" :key="localeDefinition.code" :class="{ active: localeProperties.code === localeDefinition.code }">
           <a
             :href="`${localeDefinition.domain}/${localeDefinition.code === 'fr-fr' ? '' : localeDefinition.code}`"
             :aria-current="localeProperties.code === localeDefinition.code && 'page'"
@@ -60,10 +60,10 @@ const { setLocaleCookie } = useLocaleCookie();
 
 const { localeProperties, t } = useI18n();
 
-const internationalLocaleDefinitions = availableLocales
-  .filter(localeDefinition => ['fr', 'en', 'it', 'es'].includes(localeDefinition.code));
-const nonInternationalLocaleDefinitions = availableLocales
-  .filter(localeDefinition => ['fr-fr', 'fr-be', 'nl-be', 'de-AT'].includes(localeDefinition.code));
+const internationalSubmenuLocaleDefinitions = availableLocales
+  .filter(localeDefinition => ['fr', 'en', 'it', 'es', 'de-AT'].includes(localeDefinition.code));
+const nonInternationalSubmenuLocaleDefinitions = availableLocales
+  .filter(localeDefinition => ['fr-fr', 'fr-be', 'nl-be'].includes(localeDefinition.code));
 
 const buttonRef = ref(null);
 const localesMenuRef = ref(null);
