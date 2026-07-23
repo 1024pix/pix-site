@@ -1,5 +1,16 @@
 # pix-site Changelog
 
+## v5.35.0 (23/07/2026)
+
+
+### :rocket: Amélioration
+- [#806](https://github.com/1024pix/pix-site/pull/806) [FEATURE] Mettre en place des URL canoniques pour les CGU de Pix App (PIX-22587).
+
+### :building_construction: Tech
+- [#810](https://github.com/1024pix/pix-site/pull/810) [TECH] Augmenter la sécurité en rendant plus large le motif de nom de fichiers .env à ignorer.
+- [#807](https://github.com/1024pix/pix-site/pull/807) [TECH] Suppression de la variable d’environnement PRISMIC_API_ENDPOINT_URL inutilisée et sans intérêt (PIX-23338).
+- [#804](https://github.com/1024pix/pix-site/pull/804) [TECH] Améliorer et corriger la config et doc PixSite (PIX-23267).
+
 ## v5.34.0 (19/06/2026)
 
 
