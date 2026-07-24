@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.37.0 (24/07/2026)
+
+
+### :rocket: Amélioration
+- [#811](https://github.com/1024pix/pix-site/pull/811) [FEATURE] Déplacer la locale de-AT dans le sous-menu International du LocaleSwitcher (PIX-23673).
+
 ## v5.36.0 (23/07/2026)
 
 
