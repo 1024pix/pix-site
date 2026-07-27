@@ -1,15 +1,17 @@
 <template>
   <div class="faq-post">
-    <support-header
-      :title="data.currentPersona.faq_page_title[0].text"
-      :icon="data.currentPersona.icon.url"
-      :back-link-url="backLink"
-    />
-    <section class="faq-post__content-wrapper">
-      <h1 class="faq-post__title">{{ data.content.title[0].text }}</h1>
-      <prismic-rich-text class="faq-post__content" :field="data.content.content" />
-      <support-contact v-if="data.contactForm" :contact-form-id="data.contactForm.uid" />
-    </section>
+    <template v-if="data">
+      <support-header
+        :title="data.currentPersona.faq_page_title[0].text"
+        :icon="data.currentPersona.icon.url"
+        :back-link-url="backLink"
+      />
+      <section class="faq-post__content-wrapper">
+        <h1 class="faq-post__title">{{ data.content.title[0].text }}</h1>
+        <prismic-rich-text class="faq-post__content" :field="data.content.content" />
+        <support-contact v-if="data.contactForm" :contact-form-id="data.contactForm.uid" />
+      </section>
+    </template>
   </div>
 </template>
 
