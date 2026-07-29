@@ -26,6 +26,9 @@ defineI18nRoute({
     'fr-fr': '/support/[parent_persona]/[current_persona]/[post_uid]',
     'fr-be': '/support/[parent_persona]/[current_persona]/[post_uid]',
     'nl-be': '/support/[parent_persona]/[current_persona]/[post_uid]',
+    es: '/support/[parent_persona]/[current_persona]/[post_uid]',
+    it: '/support/[parent_persona]/[current_persona]/[post_uid]',
+    'de-AT': '/support/[parent_persona]/[current_persona]/[post_uid]',
   },
 });
 
