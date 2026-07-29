@@ -1,5 +1,11 @@
 # pix-site Changelog
 
+## v5.38.0 (29/07/2026)
+
+
+### :bug: Correction
+- [#814](https://github.com/1024pix/pix-site/pull/814) [BUGFIX] Correction des liens vers les personas support.
+
 ## v5.37.0 (24/07/2026)
 
 
