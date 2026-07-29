@@ -1,16 +1,16 @@
 <template>
   <header class="navigation-slice-zone">
-    <template v-if="mainNav">
+    <template v-if="data">
       <div class="navigation-slice-zone__content">
         <div class="navigation-slice-zone-content__left-side">
-          <burger-menu class="burger-menu" :items="burgerMenuLinks()" />
+          <burger-menu class="burger-menu" :items="burgerMenuLinks(data)" />
 
-          <section v-for="(slice, index) in logos" :key="`navigation-slice-left-${index}`">
+          <section v-for="(slice, index) in data.logos" :key="`navigation-slice-left-${index}`">
             <slices-logos-zone :slice="slice" :max-height="48" />
           </section>
         </div>
         <section
-          v-for="(slice, index) in actions"
+          v-for="(slice, index) in data.actions"
           :key="`navigation-slice-right-${index}`"
           class="navigation-slice-zone-content__right-side"
         >
@@ -18,7 +18,7 @@
         </section>
       </div>
       <section class="navigation-slice-zone-content__bottom-side">
-        <slices-navigation-zone :navigation-zone-items="navigation[0].items" />
+        <slices-navigation-zone :navigation-zone-items="data.navigation[0].items" />
       </section>
     </template>
   </header>
@@ -29,42 +29,37 @@ const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client, filter } = usePrismic();
 
-let logos;
-let actions;
-let navigation;
+const { data } = await useAsyncData(async () => {
+  try {
+    const document = await client.getFirst({
+      filters: [
+        filter.at('document.type', 'main_navigation_v2'),
+        filter.at('my.main_navigation_v2.navigation_for', appConfig.site),
+      ],
+      lang: i18nLocale.value,
+    });
 
-const { data: mainNav, error } = await useAsyncData(async () => {
-  const document = await client.getFirst({
-    filters: [
-      filter.at('document.type', 'main_navigation_v2'),
-      filter.at('my.main_navigation_v2.navigation_for', appConfig.site),
-    ],
-    lang: i18nLocale.value,
-  });
+    const mainNav = document.data.body;
 
-  return document.data.body;
+    const logos = mainNav.filter(block => block.slice_type === 'logos_zone');
+    const actions = mainNav.filter(block => block.slice_type === 'actions_zone');
+    const navigation = mainNav.filter(block => block.slice_type === 'navigation_zone');
+    const navigationSlices = { logos, actions, navigation };
+    return navigationSlices;
+  } catch (err) {
+    console.warn(err);
+  }
 });
 
-// error is a Vue refs and they should be accessed with .value when used within the <script setup>
-// cf. https://nuxt.com/docs/3.x/api/composables/use-async-data
-if (error.value) {
-  console.warn(error.value);
-} else {
-  logos = mainNav.value.filter(block => block.slice_type === 'logos_zone');
-  actions = mainNav.value.filter(block => block.slice_type === 'actions_zone');
-  navigation = mainNav.value.filter(block => block.slice_type === 'navigation_zone');
-}
-
-const burgerMenuLinks = () => {
-  const logosZone = mainNav.value.find(slice => slice.slice_type === 'logos_zone') || { items: [] };
-  const navigationZone = mainNav.value.find(slice => slice.slice_type === 'navigation_zone') || { items: [] };
-  const actionsZone = mainNav.value.find(slice => slice.slice_type === 'actions_zone') || { items: [] };
-
-  const reversedActionsZoneItems = [...actionsZone.items].reverse();
+const burgerMenuLinks = (navigationSlices) => {
+  const logosZoneItems = navigationSlices.logos[0]?.items ?? [];
+  const navigationZoneItems = navigationSlices.navigation[0]?.items ?? [];
+  const actionsZoneItems = navigationSlices.actions[0]?.items ?? [];
+  const reversedActionsZoneItems = [...actionsZoneItems].reverse();
 
   return {
-    logosZone: logosZone.items,
-    navigationZone: navigationZone.items,
+    logosZone: logosZoneItems,
+    navigationZone: navigationZoneItems,
     actionsZone: reversedActionsZoneItems,
   };
 };
