@@ -32,6 +32,9 @@ defineI18nRoute({
     'fr-fr': '/support',
     'fr-be': '/support',
     'nl-be': '/support',
+    es: '/support',
+    it: '/support',
+    'de-AT': '/support',
   },
 });
 

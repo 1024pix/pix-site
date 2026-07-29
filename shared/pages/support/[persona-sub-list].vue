@@ -31,6 +31,9 @@ defineI18nRoute({
     'fr-fr': '/support/[parent_persona_name]',
     'fr-be': '/support/[parent_persona_name]',
     'nl-be': '/support/[parent_persona_name]',
+    es: '/support/[parent_persona_name]',
+    it: '/support/[parent_persona_name]',
+    'de-AT': '/support/[parent_persona_name]',
   },
 });
 

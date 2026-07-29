@@ -85,6 +85,9 @@ defineI18nRoute({
     'fr-fr': '/support/[parent_persona]/[current_persona]',
     'fr-be': '/support/[parent_persona]/[current_persona]',
     'nl-be': '/support/[parent_persona]/[current_persona]',
+    es: '/support/[parent_persona]/[current_persona]',
+    it: '/support/[parent_persona]/[current_persona]',
+    'de-AT': '/support/[parent_persona]/[current_persona]',
   },
 });
 
