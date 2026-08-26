@@ -1,5 +1,5 @@
 ARG SITE=pix-site
-FROM node:22.16.0-alpine AS install-stage
+FROM node:22.16.0-alpine@sha256:41e4389f3d988d2ed55392df4db1420ad048ae53324a8e2b7c6d19508288107e AS install-stage
 ARG SITE
 # Installation des dépendances
 
@@ -33,7 +33,7 @@ COPY ${SITE}/ /code/${SITE}
 # Build de l'application
 RUN npm run build
 
-FROM nginx:1.27.1-alpine AS run-stage
+FROM nginx:1.27.1-alpine@sha256:a5127daff3d6f4606be3100a252419bfa84fd6ee5cd74d0feaca1a5068f97dcf AS run-stage
 ARG SITE
 
 ENV NGINX_GEOAPI_UPSTREAM_HOST=localhost
