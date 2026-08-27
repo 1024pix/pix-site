@@ -11,7 +11,7 @@
     "init": "nuxi prepare"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^1.0.8",
+    "@nuxt/devtools": "^3.0.0",
     "@nuxt/test-utils": "^3.11.0",
     "@vue/test-utils": "^2.4.4",
     "happy-dom": "^13.6.2",
