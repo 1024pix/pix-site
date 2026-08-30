@@ -40,7 +40,7 @@ function isCurrentLocaleURL(url) {
 function getPathLocale(path) {
   const localeCodesWithoutDefault = $i18n.localeCodes.value.filter(code => code !== $i18n.defaultLocale);
 
-  // When fr-fr, no other locale is available, so return undefined
+  // When fr-FR, no other locale is available, so return undefined
   if (localeCodesWithoutDefault.length === 0) return undefined;
 
   const rootMatch = new RegExp(`^/(${localeCodesWithoutDefault.join('|')})?($|\\/)`).exec(path);

@@ -1,7 +1,7 @@
 import * as en from '../translations/en.js';
 import * as fr from '../translations/fr.js';
-import * as frBe from '../translations/fr-be.js';
-import * as frFr from '../translations/fr-fr.js';
+import * as frBe from '../translations/fr-BE.js';
+import * as frFr from '../translations/fr-FR.js';
 import { DOCUMENTS, TAGS } from './document-fetcher';
 
 const newsPagePrefixes = {
@@ -13,18 +13,18 @@ const newsPagePrefixes = {
     fr.default['news-page-prefix'].body?.static
     || fr.default['news-page-prefix'].b?.s
     || fr.default['news-page-prefix'],
-  'fr-be':
+  'fr-BE':
     frBe.default['news-page-prefix'].body?.static
     || frBe.default['news-page-prefix'].b?.s
     || frBe.default['news-page-prefix'],
-  'fr-fr':
+  'fr-FR':
     frFr.default['news-page-prefix'].body?.static
     || frFr.default['news-page-prefix'].b?.s
     || frFr.default['news-page-prefix'],
 };
 
 export function linkResolver(doc) {
-  const locale = doc.lang !== 'fr-fr' ? `/${doc.lang}` : '';
+  const locale = doc.lang !== 'fr-FR' ? `/${doc.lang}` : '';
 
   // News
   if (doc.type === DOCUMENTS.NEWS_ITEM) {

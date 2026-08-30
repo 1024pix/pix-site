@@ -19,7 +19,7 @@ const props = defineProps({
   },
 });
 
-const urlLocale = i18nLocale.value === 'fr-fr' ? '' : `/${i18nLocale.value}`;
+const urlLocale = i18nLocale.value === 'fr-FR' ? '' : `/${i18nLocale.value}`;
 const formUrl = `${urlLocale}/support/form/${props.contactFormId}`;
 </script>
 

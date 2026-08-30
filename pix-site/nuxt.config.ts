@@ -1,5 +1,5 @@
 import { getRoutesToGenerate } from './services/get-routes-to-generate';
-import i18nConfig, { reachableLocales, reachableLocaleNames, reachableLocaleCanonicalNames } from './i18n.config';
+import i18nConfig, { reachableLocales, reachableLocaleNames } from './i18n.config';
 
 export default async () => {
   const routes = process.env.NODE_ENV !== 'test' ? await getRoutesToGenerate({ locales: i18nConfig.locales }) : [];
@@ -25,7 +25,6 @@ export default async () => {
         formKeysToMap: process.env.FORM_KEYS_TO_MAP || null,
         availableLocales: reachableLocales,
         availableLocaleNames: reachableLocaleNames,
-        availableLocaleCanonicalNames: reachableLocaleCanonicalNames,
       },
     },
     nitro: {

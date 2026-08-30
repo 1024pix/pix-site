@@ -35,9 +35,9 @@ defineI18nRoute({
   paths: {
     en: '/support/form/[slug]',
     fr: '/support/form/[slug]',
-    'fr-fr': '/support/form/[slug]',
-    'fr-be': '/support/form/[slug]',
-    'nl-be': '/support/form/[slug]',
+    'fr-FR': '/support/form/[slug]',
+    'fr-BE': '/support/form/[slug]',
+    'nl-BE': '/support/form/[slug]',
     es: '/support/form/[slug]',
     it: '/support/form/[slug]',
     'de-AT': '/support/form/[slug]',

@@ -7,7 +7,7 @@ export default function useLocaleCookie() {
   const domainFrUrl = new URL(appConfig.domainFr);
   const domainOrgUrl = new URL(appConfig.domainOrg);
 
-  const availableLocaleCanonicalNames = runtimeConfig.public.availableLocaleCanonicalNames as Array<string>;
+  const availableLocaleNames = runtimeConfig.public.availableLocaleNames as Array<string>;
 
   const previousLocaleCookieToDelete = useCookie(LOCALE_COOKIE_NAME, {
     maxAge: 31536000, // 1 year
@@ -21,28 +21,28 @@ export default function useLocaleCookie() {
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
-  function setLocaleCookie(locale: string, callback?: Function): void {
-    const localeCanonicalName = Intl.getCanonicalLocales(locale)?.[0];
-
+  function setLocaleCookie(localeName: string, callback?: Function): void {
     if (previousLocaleCookieToDelete.value) {
       previousLocaleCookieToDelete.value = null;
     }
 
-    localeCookie.value = localeCanonicalName;
+    localeCookie.value = localeName;
     if (callback) callback();
   }
 
   function getBestMatchingLocaleName(localeName: string) {
-    if (availableLocaleCanonicalNames.includes(new Intl.Locale(localeName).toString())) {
-      return localeName;
+    const localeCanonicalName = Intl.getCanonicalLocales(localeName)?.[0];
+
+    if (availableLocaleNames.includes(localeCanonicalName)) {
+      return localeCanonicalName;
     }
 
-    const languageLocaleName = new Intl.Locale(localeName).language;
-    if (availableLocaleCanonicalNames.includes(languageLocaleName)) {
-      return languageLocaleName;
+    const localeCanonicalNameLanguage = new Intl.Locale(localeCanonicalName).language;
+    if (availableLocaleNames.includes(localeCanonicalNameLanguage)) {
+      return localeCanonicalNameLanguage;
     }
 
-    return availableLocaleCanonicalNames[0];
+    return availableLocaleNames[0];
   }
 
   return {

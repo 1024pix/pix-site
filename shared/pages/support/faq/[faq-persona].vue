@@ -82,9 +82,9 @@ defineI18nRoute({
   paths: {
     en: '/support/[parent_persona]/[current_persona]',
     fr: '/support/[parent_persona]/[current_persona]',
-    'fr-fr': '/support/[parent_persona]/[current_persona]',
-    'fr-be': '/support/[parent_persona]/[current_persona]',
-    'nl-be': '/support/[parent_persona]/[current_persona]',
+    'fr-FR': '/support/[parent_persona]/[current_persona]',
+    'fr-BE': '/support/[parent_persona]/[current_persona]',
+    'nl-BE': '/support/[parent_persona]/[current_persona]',
     es: '/support/[parent_persona]/[current_persona]',
     it: '/support/[parent_persona]/[current_persona]',
     'de-AT': '/support/[parent_persona]/[current_persona]',
@@ -130,7 +130,7 @@ const displayPopularPosts = computed(() => {
 });
 
 const backLink = computed(() => {
-  const localeUrl = i18nLocale.value !== 'fr-fr' ? `/${i18nLocale.value}` : '';
+  const localeUrl = i18nLocale.value !== 'fr-FR' ? `/${i18nLocale.value}` : '';
   const parentPersonaHasOnlyOneChild = data.value.parentPersonaChildrenCount === 1;
 
   return parentPersonaHasOnlyOneChild ? `${localeUrl}/support` : `${localeUrl}/support/${route.params.parent_persona}`;

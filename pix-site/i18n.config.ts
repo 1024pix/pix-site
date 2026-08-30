@@ -45,25 +45,25 @@ const reachableLocales = [
     domain: process.env.DOMAIN_ORG,
   },
   {
-    code: 'fr-fr',
-    iso: 'fr-fr',
-    file: 'fr-fr.js',
+    code: 'fr-FR',
+    iso: 'fr-FR',
+    file: 'fr-FR.js',
     name: 'France',
     icon: 'flag-fr.svg',
     domain: process.env.DOMAIN_FR,
   },
   {
-    code: 'fr-be',
-    iso: 'fr-be',
-    file: 'fr-be.js',
+    code: 'fr-BE',
+    iso: 'fr-BE',
+    file: 'fr-BE.js',
     name: 'Belgique (Français)',
     icon: 'flag-be.svg',
     domain: process.env.DOMAIN_ORG,
   },
   {
-    code: 'nl-be',
-    iso: 'nl-be',
-    file: 'nl-be.js',
+    code: 'nl-BE',
+    iso: 'nl-BE',
+    file: 'nl-BE.js',
     name: 'België (Nederlands)',
     icon: 'flag-be.svg',
     domain: process.env.DOMAIN_ORG,
@@ -71,10 +71,7 @@ const reachableLocales = [
 ];
 
 const reachableLocaleNames = reachableLocales.map(reachableLocale => reachableLocale.code);
-// When the locales are by default written in their canonical form this reachableLocaleCanonicalNames variable
-// will be useless and thus removed.
-const reachableLocaleCanonicalNames = reachableLocaleNames.map(localeName => new Intl.Locale(localeName).toString());
 
 const config = generateConfig(reachableLocales);
 export default { ...config };
-export { reachableLocales, reachableLocaleNames, reachableLocaleCanonicalNames };
+export { reachableLocales, reachableLocaleNames };
