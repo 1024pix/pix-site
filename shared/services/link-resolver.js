@@ -2,6 +2,9 @@ import * as en from '../translations/en.js';
 import * as fr from '../translations/fr.js';
 import * as frBe from '../translations/fr-be.js';
 import * as frFr from '../translations/fr-fr.js';
+import * as es from '../translations/es.js';
+import * as it from '../translations/it.js';
+import * as deAt from '../translations/de-AT.js';
 import { DOCUMENTS, TAGS } from './document-fetcher';
 
 const newsPagePrefixes = {
@@ -19,6 +22,18 @@ const newsPagePrefixes = {
     || frBe.default['news-page-prefix'],
   'fr-fr':
     frFr.default['news-page-prefix'].body?.static
+    || frFr.default['news-page-prefix'].b?.s
+    || frFr.default['news-page-prefix'],
+  es:
+    es.default['news-page-prefix'].body?.static
+    || frFr.default['news-page-prefix'].b?.s
+    || frFr.default['news-page-prefix'],
+  it:
+    it.default['news-page-prefix'].body?.static
+    || frFr.default['news-page-prefix'].b?.s
+    || frFr.default['news-page-prefix'],
+  'de-AT':
+    deAt.default['news-page-prefix'].body?.static
     || frFr.default['news-page-prefix'].b?.s
     || frFr.default['news-page-prefix'],
 };
