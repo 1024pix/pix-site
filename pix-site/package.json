@@ -27,7 +27,7 @@
     "start:nginx": "export $(grep -v '^#' .env | xargs) && PORT=80 erb servers.conf.erb > nginx.conf && docker compose up"
   },
   "devDependencies": {
-    "@element-plus/icons-vue": "^2.3.1",
+    "@element-plus/icons-vue": "^2.3.2",
     "@element-plus/nuxt": "^1.1.1",
     "@nuxt/devtools": "^1.0.6",
     "@nuxt/test-utils": "^3.11.0",
