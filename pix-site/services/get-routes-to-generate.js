@@ -10,11 +10,13 @@ export const getRoutesToGenerate = async function ({ locales }) {
     routes.push(...nextPageRoutes);
   }
 
+  // Is it really needed?
   if (process.env.SITE_DOMAIN === 'FR') {
     routes.push('/support/');
     routes.push('/actualites/');
   }
 
+  // Is it really needed?
   if (process.env.SITE_DOMAIN === 'ORG') {
     routes.push('/');
 
@@ -26,6 +28,11 @@ export const getRoutesToGenerate = async function ({ locales }) {
     routes.push('/fr/actualites/');
     routes.push('/fr-be/actualites/');
     routes.push('/en/news/');
+
+    // Added for consistency but it doesn’t seem to be needed
+    routes.push('/es/actualidad/');
+    routes.push('/it/notizie/');
+    routes.push('/de-AT/aktuelles/');
   }
 
   console.info(`${routes.length} routes will be generated`);
