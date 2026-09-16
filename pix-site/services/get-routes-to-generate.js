@@ -3,8 +3,11 @@ import { linkResolver } from '../../shared/services/link-resolver.js';
 
 export const getRoutesToGenerate = async function ({ locales }) {
   const client = await prismic.createClient('https://pix-site.cdn.prismic.io/api/v2');
+
+  // Fetching the first page to get the total page count
   const { routes, totalPages } = await getRoutesInPage(client, 1, locales);
 
+  // … then fetching as many pages as needed based on total page count
   for (let page = 2; page <= totalPages; page++) {
     const { routes: nextPageRoutes } = await getRoutesInPage(client, page, locales);
     routes.push(...nextPageRoutes);
