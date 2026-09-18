@@ -1,5 +1,16 @@
 # pix-site Changelog
 
+## v5.38.1 (18/09/2026)
+
+
+### :building_construction: Tech
+- [#830](https://github.com/1024pix/pix-site/pull/830) [TECH] Supprimer la surcharge du schedule.
+- [#821](https://github.com/1024pix/pix-site/pull/821) [TECH] Use js-project renovate config and lower schedule.
+- [#815](https://github.com/1024pix/pix-site/pull/815) [TECH] Mise en cohérence de tous les codes récupérant des données Prismic + ajout de fichiers .nvmrc manquants.
+
+### :bug: Correction
+- [#831](https://github.com/1024pix/pix-site/pull/831) [BUGFIX] Corriger la gestion des news dans les nouvelles locales (PIX-24139).
+
 ## v5.38.0 (29/07/2026)
 
 
