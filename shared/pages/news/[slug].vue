@@ -22,6 +22,9 @@ defineI18nRoute({
     'fr-fr': '/actualites/[slug]',
     'fr-be': '/actualites/[slug]',
     'nl-be': '/actualites/[slug]',
+    es: '/actualidad/[slug]',
+    it: '/notizie/[slug]',
+    'de-AT': '/aktuelles/[slug]',
   },
 });
 

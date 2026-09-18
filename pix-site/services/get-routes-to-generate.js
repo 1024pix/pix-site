@@ -3,18 +3,23 @@ import { linkResolver } from '../../shared/services/link-resolver.js';
 
 export const getRoutesToGenerate = async function ({ locales }) {
   const client = await prismic.createClient('https://pix-site.cdn.prismic.io/api/v2');
+
+  // Fetching the first page to get the total page count
   const { routes, totalPages } = await getRoutesInPage(client, 1, locales);
 
+  // … then fetching as many pages as needed based on total page count
   for (let page = 2; page <= totalPages; page++) {
     const { routes: nextPageRoutes } = await getRoutesInPage(client, page, locales);
     routes.push(...nextPageRoutes);
   }
 
+  // Is it really needed?
   if (process.env.SITE_DOMAIN === 'FR') {
     routes.push('/support/');
     routes.push('/actualites/');
   }
 
+  // Is it really needed?
   if (process.env.SITE_DOMAIN === 'ORG') {
     routes.push('/');
 
@@ -26,6 +31,11 @@ export const getRoutesToGenerate = async function ({ locales }) {
     routes.push('/fr/actualites/');
     routes.push('/fr-be/actualites/');
     routes.push('/en/news/');
+
+    // Added for consistency but it doesn’t seem to be needed
+    routes.push('/es/actualidad/');
+    routes.push('/it/notizie/');
+    routes.push('/de-AT/aktuelles/');
   }
 
   console.info(`${routes.length} routes will be generated`);
