@@ -45,7 +45,7 @@
     "element-plus": "^2.9.1",
     "focus-trap": "^7.5.4",
     "happy-dom": "^13.6.2",
-    "nuxt": "^3.7.3",
+    "nuxt": "^3.21.10",
     "nuxt-image-prismic-fix": "^1.7.2",
     "playwright": "^1.59.1",
     "prismic-dom": "^2.2.7",
