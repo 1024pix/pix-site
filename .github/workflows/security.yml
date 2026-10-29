@@ -1,0 +1,56 @@
+name: "Security Checks"
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  upload_sboms:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install Cyclone DX
+        run: npm install @cyclonedx/cyclonedx-npm@4.2.0
+
+      - name: Pix Site Monorepo - Create SBOM
+        run: npm ci && npx @cyclonedx/cyclonedx-npm --output-file pix-site-repo-sbom.json package.json && [ -e "pix-site-repo-sbom.json" ] && echo '[+] SBOM created' || echo '[!] Fail to create SBOM'
+
+      - name: Pix Site Monorepo - Upload BOM to Dependency-Track
+        uses: DependencyTrack/gh-upload-sbom@48feab3080ff9e8f51f4d21861d9fc914eb744f5
+        with:
+          serverHostname: ${{ secrets.DEPENDENCYTRACK_HOSTNAME }}
+          apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
+          projectName: Pix Site Monorepo
+          projectVersion: dev
+          bomFilename: "pix-site-repo-sbom.json"
+          autoCreate: true
+
+      - name: Pix Site front - Create SBOM
+        run: npm ci --prefix pix-site/ && npx @cyclonedx/cyclonedx-npm --output-file pix-site-front-sbom.json pix-site/package.json && [ -e "pix-site-front-sbom.json" ] && echo '[+] SBOM created' || echo '[!] Fail to create SBOM'
+
+      - name: Pix Site front - Upload BOM to Dependency-Track
+        uses: DependencyTrack/gh-upload-sbom@48feab3080ff9e8f51f4d21861d9fc914eb744f5
+        with:
+          serverHostname: ${{ secrets.DEPENDENCYTRACK_HOSTNAME }}
+          apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
+          projectName: Pix Site front
+          projectVersion: dev
+          bomFilename: "pix-site-front-sbom.json"
+          autoCreate: true
+
+      - name: Pix Site API - Create SBOM
+        run: npm ci --prefix shared/ && npx @cyclonedx/cyclonedx-npm --output-file pix-site-api-sbom.json shared/package.json && [ -e "pix-site-api-sbom.json" ] && echo '[+] SBOM created' || echo '[!] Fail to create SBOM'
+
+      - name: Pix Site API - Upload BOM to Dependency-Track
+        uses: DependencyTrack/gh-upload-sbom@48feab3080ff9e8f51f4d21861d9fc914eb744f5
+        with:
+          serverHostname: ${{ secrets.DEPENDENCYTRACK_HOSTNAME }}
+          apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
+          projectName: Pix Site API
+          projectVersion: dev
+          bomFilename: "pix-site-api-sbom.json"
+          autoCreate: true
+
+      # Pix-Pro est en cours de décommissionnement
