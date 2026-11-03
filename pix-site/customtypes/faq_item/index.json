@@ -1,0 +1,33 @@
+{
+  "format": "custom",
+  "id": "faq_item",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI",
+          "placeholder": "Ex : ma-question"
+        },
+        "type": "UID"
+      },
+      "question": {
+        "config": {
+          "label": "Question",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "answer": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Answer",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "FAQ item",
+  "repeatable": true,
+  "status": false
+}

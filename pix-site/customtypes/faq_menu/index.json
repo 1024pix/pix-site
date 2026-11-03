@@ -1,0 +1,36 @@
+{
+  "format": "custom",
+  "id": "faq_menu",
+  "json": {
+    "Main": {
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "faq_categories": {
+        "config": {
+          "fields": {
+            "faq_category": {
+              "config": {
+                "customtypes": [
+                  "faq_category"
+                ],
+                "label": "FAQ category",
+                "select": "document"
+              },
+              "type": "Link"
+            }
+          },
+          "label": "FAQ categories"
+        },
+        "type": "Group"
+      }
+    }
+  },
+  "label": "FAQ menu",
+  "repeatable": false,
+  "status": false
+}

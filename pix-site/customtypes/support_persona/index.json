@@ -1,0 +1,58 @@
+{
+  "format": "custom",
+  "id": "support_persona",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      },
+      "name": {
+        "config": {
+          "label": "Name",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "description": {
+        "config": {
+          "label": "Description",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "icon": {
+        "config": {
+          "constraint": {},
+          "label": "Icon",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "parent_persona": {
+        "config": {
+          "customtypes": [
+            "support_persona"
+          ],
+          "label": "Parent persona",
+          "placeholder": "Leave empty if current persona is a parent",
+          "select": "document"
+        },
+        "type": "Link"
+      },
+      "faq_link": {
+        "config": {
+          "label": "FAQ link",
+          "placeholder": "Fill the field if you want to redirect to a FAQ",
+          "select": null
+        },
+        "type": "Link"
+      }
+    }
+  },
+  "label": "Support persona",
+  "repeatable": true,
+  "status": false
+}

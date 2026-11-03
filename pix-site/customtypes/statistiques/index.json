@@ -1,0 +1,126 @@
+{
+  "format": "custom",
+  "id": "statistiques",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "uid"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "title",
+          "placeholder": "Titre",
+          "single": "heading1,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "accounts": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "accounts",
+          "labels": [
+            "blue"
+          ],
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,o-list-item",
+          "placeholder": "Comptes utilisateurs"
+        },
+        "type": "StructuredText"
+      },
+      "campaigns": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "campaigns",
+          "labels": [
+            "blue"
+          ],
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,o-list-item",
+          "placeholder": "Evaluation des compétences numériques"
+        },
+        "type": "StructuredText"
+      },
+      "certifications": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "certifications",
+          "labels": [
+            "blue"
+          ],
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,o-list-item",
+          "placeholder": "Certifications Pix"
+        },
+        "type": "StructuredText"
+      },
+      "organizations": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "organizations",
+          "labels": [
+            "blue"
+          ],
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item,o-list-item",
+          "placeholder": "Déploiement"
+        },
+        "type": "StructuredText"
+      },
+      "stats": {
+        "config": {
+          "choices": {
+            "stats": {
+              "description": "Stats for one month",
+              "display": "list",
+              "fieldset": "Stats",
+              "icon": "insert_chart",
+              "non-repeat": {
+                "date": {
+                  "config": {
+                    "label": "date",
+                    "placeholder": "mm-yyyy"
+                  },
+                  "type": "Date"
+                },
+                "accounts": {
+                  "config": {
+                    "label": "accounts",
+                    "placeholder": "300 000"
+                  },
+                  "type": "Number"
+                },
+                "campaigns": {
+                  "config": {
+                    "label": "Evaluation Campaigns",
+                    "placeholder": "5 000"
+                  },
+                  "type": "Number"
+                },
+                "certifications": {
+                  "config": {
+                    "label": "Certifications",
+                    "placeholder": "50 000"
+                  },
+                  "type": "Number"
+                },
+                "organizations": {
+                  "config": {
+                    "label": "Organizations partners",
+                    "placeholder": "1 800"
+                  },
+                  "type": "Number"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Statistiques",
+  "repeatable": false,
+  "status": false
+}

@@ -1,0 +1,60 @@
+{
+  "format": "custom",
+  "id": "simple_page",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "seo_description": {
+        "config": {
+          "label": "seo description",
+          "multi": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "seo_image": {
+        "config": {
+          "constraint": {},
+          "label": "seo image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "body": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Body",
+          "labels": [
+            "center-align",
+            "call-to-action",
+            "bold-and-blue"
+          ],
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "slices": {
+        "config": {
+          "choices": {},
+          "labels": {}
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Simple page",
+  "repeatable": true,
+  "status": true
+}

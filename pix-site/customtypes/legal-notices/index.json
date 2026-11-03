@@ -1,0 +1,190 @@
+{
+  "format": "custom",
+  "id": "legal-notices",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "uid"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "section": {
+              "description": "standard section",
+              "display": "list",
+              "fieldset": "section",
+              "icon": "face",
+              "non-repeat": {
+                "logo": {
+                  "config": {
+                    "constraint": {},
+                    "label": "logo",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_title": {
+                  "config": {
+                    "label": "button_title",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_link": {
+                  "config": {
+                    "label": "button_link"
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {
+                "paragraph": {
+                  "config": {
+                    "label": "paragraph",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "text": {
+              "description": "Rich Text Section",
+              "fieldset": "Text",
+              "icon": "text_fields",
+              "non-repeat": {
+                "text": {
+                  "config": {
+                    "label": "text",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item",
+                    "placeholder": "Your content here"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    },
+    "Social Cards": {
+      "meta": {
+        "config": {
+          "choices": {
+            "general_card": {
+              "description": "General Social card for Facebook, LinkedIn, Google+, etc.",
+              "fieldset": "General Card",
+              "icon": "art_track",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Title...",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 650,
+                      "width": 1200
+                    },
+                    "label": "Image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "twitter_card": {
+              "description": "Twitter summary card with image",
+              "fieldset": "Twitter Card",
+              "icon": "subtitles",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Twitter Card Title...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Twitter Card Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 300,
+                      "width": 300
+                    },
+                    "label": "Image",
+                    "thumbnails": [
+                      {
+                        "height": 314,
+                        "name": "large_image",
+                        "width": 600
+                      }
+                    ]
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "legal-notices",
+  "repeatable": false,
+  "status": false
+}

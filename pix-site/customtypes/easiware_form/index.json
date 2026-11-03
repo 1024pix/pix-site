@@ -1,0 +1,62 @@
+{
+  "format": "custom",
+  "id": "easiware_form",
+  "json": {
+    "Main": {
+      "form_title": {
+        "config": {
+          "label": "Form Title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "form_introduction": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Form introduction",
+          "multi": "paragraph,strong,em,hyperlink"
+        },
+        "type": "StructuredText"
+      },
+      "form_id": {
+        "config": {
+          "label": "Form Id",
+          "placeholder": "47"
+        },
+        "type": "Number"
+      },
+      "solution_id": {
+        "config": {
+          "label": "Solution Id",
+          "placeholder": "b8180205275577508f752848298a7e148204adde"
+        },
+        "type": "Text"
+      },
+      "freescout_url": {
+        "config": {
+          "label": "freescout_url",
+          "select": null
+        },
+        "type": "Link"
+      },
+      "freescout_height": {
+        "config": {
+          "label": "Freescout Height",
+          "placeholder": "900"
+        },
+        "type": "Number"
+      }
+    },
+    "SEO": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      }
+    }
+  },
+  "label": "Support : Easiware Form",
+  "repeatable": true,
+  "status": true
+}

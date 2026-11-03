@@ -1,0 +1,378 @@
+{
+  "format": "custom",
+  "id": "employers",
+  "json": {
+    "Main": {
+      "distributors_section_logo": {
+        "config": {
+          "constraint": {},
+          "label": "Distributors section logo",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "uid": {
+        "config": {
+          "label": "uid"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "hero-banner": {
+              "description": "Content of hero banner",
+              "display": "list",
+              "fieldset": "hero-banner",
+              "icon": "face",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_title": {
+                  "config": {
+                    "label": "button_title",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_link": {
+                  "config": {
+                    "label": "button_link"
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "section": {
+              "description": "standard section",
+              "display": "list",
+              "fieldset": "section",
+              "icon": "face",
+              "non-repeat": {
+                "logo": {
+                  "config": {
+                    "constraint": {},
+                    "label": "logo",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_title": {
+                  "config": {
+                    "label": "button_title",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_link": {
+                  "config": {
+                    "label": "button_link"
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {
+                "paragraph": {
+                  "config": {
+                    "label": "paragraph",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "button": {
+              "description": "classic button",
+              "display": "list",
+              "fieldset": "button",
+              "icon": "face",
+              "non-repeat": {
+                "title1": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "link": {
+                  "config": {
+                    "label": "link"
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "card-section": {
+              "description": "section with card ",
+              "display": "list",
+              "fieldset": "card-section",
+              "icon": "face",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "card_title": {
+                  "config": {
+                    "label": "card title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "card_description": {
+                  "config": {
+                    "label": "card description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "ressource": {
+              "description": "Get other document",
+              "display": "list",
+              "fieldset": "ressource",
+              "icon": "face",
+              "non-repeat": {
+                "ressources_content": {
+                  "config": {
+                    "label": "ressources content",
+                    "select": "document"
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "left-section1": {
+              "description": "section with text on left",
+              "display": "list",
+              "fieldset": "left-section",
+              "icon": "face",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {},
+                    "label": "image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {
+                "paragraph": {
+                  "config": {
+                    "label": "paragraph",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "distributors-section": {
+              "description": "list of distributor cards",
+              "display": "grid",
+              "fieldset": "distributors-section",
+              "icon": "account_balance",
+              "non-repeat": {
+                "distributors_section_logo1": {
+                  "config": {
+                    "constraint": {},
+                    "label": "Distributors section logo",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "distributors_section_title": {
+                  "config": {
+                    "label": "Distributors section title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "distributors_section_description": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Distributors section description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "distributors_section_footer": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Distributors section footer",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "distributors_section_items": {
+                  "config": {
+                    "customtypes": [
+                      "distributor_item"
+                    ],
+                    "label": "Distributors section items",
+                    "select": "document"
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            }
+          },
+          "labels": {
+            "distributors-section": []
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    },
+    "Social Cards": {
+      "meta": {
+        "config": {
+          "choices": {
+            "general_card": {
+              "description": "General Social card for Facebook, LinkedIn, Google+, etc.",
+              "fieldset": "General Card",
+              "icon": "art_track",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Title...",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 650,
+                      "width": 1200
+                    },
+                    "label": "Image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "twitter_card": {
+              "description": "Twitter summary card with image",
+              "fieldset": "Twitter Card",
+              "icon": "subtitles",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Twitter Card Title...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Twitter Card Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 300,
+                      "width": 300
+                    },
+                    "label": "Image",
+                    "thumbnails": [
+                      {
+                        "height": 314,
+                        "name": "large_image",
+                        "width": 600
+                      }
+                    ]
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "employers",
+  "repeatable": false,
+  "status": false
+}

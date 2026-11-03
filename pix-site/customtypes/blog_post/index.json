@@ -1,0 +1,94 @@
+{
+  "format": "custom",
+  "id": "blog_post",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "content": {
+              "description": "Text",
+              "display": "list",
+              "fieldset": "Text",
+              "icon": "format_color_text",
+              "non-repeat": {
+                "text_content": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Text content",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "quote": {
+              "description": "Quote",
+              "display": "list",
+              "fieldset": "Quote",
+              "icon": "format_quote",
+              "non-repeat": {
+                "quote_content": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Quote content",
+                    "multi": "paragraph,preformatted,strong,em,hyperlink"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "image": {
+              "description": "Image",
+              "display": "list",
+              "fieldset": "Image",
+              "icon": "image",
+              "non-repeat": {
+                "image_content": {
+                  "config": {
+                    "constraint": {},
+                    "label": "Image content",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "image_legend": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Image legend",
+                    "multi": "paragraph,preformatted,strong,em,hyperlink"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Blog post",
+  "repeatable": true,
+  "status": false
+}

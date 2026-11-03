@@ -1,0 +1,10 @@
+{
+  "format": "custom",
+  "id": "index",
+  "json": {
+    "Main": {}
+  },
+  "label": "Index",
+  "repeatable": true,
+  "status": true
+}

@@ -1,0 +1,137 @@
+{
+  "format": "custom",
+  "id": "support__persona_faq",
+  "json": {
+    "Main": {
+      "persona_name": {
+        "config": {
+          "label": "Persona name",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "seo_description": {
+        "config": {
+          "label": "seo description",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "faq_page_title": {
+        "config": {
+          "label": "FAQ page title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "icon": {
+        "config": {
+          "constraint": {},
+          "label": "Icon",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "contact_form_link": {
+        "config": {
+          "customtypes": [
+            "easiware_form"
+          ],
+          "label": "Contact form link",
+          "select": "document"
+        },
+        "type": "Link"
+      }
+    },
+    "Popular posts": {
+      "popular_posts_title": {
+        "config": {
+          "label": "Popular article title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "popular_posts": {
+        "config": {
+          "fields": {
+            "post": {
+              "config": {
+                "customtypes": [
+                  "support__faq_post"
+                ],
+                "label": "Article",
+                "select": "document"
+              },
+              "type": "Link"
+            }
+          },
+          "label": "Articles"
+        },
+        "type": "Group"
+      }
+    },
+    "Posts list": {
+      "body": {
+        "config": {
+          "choices": {
+            "category": {
+              "description": "Posts main category",
+              "display": "list",
+              "fieldset": "Category",
+              "icon": "folder",
+              "non-repeat": {
+                "category_name": {
+                  "config": {
+                    "label": "Category name",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "category_description": {
+                  "config": {
+                    "label": "Category description",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "sub_category": {
+                  "config": {
+                    "label": "Sub category"
+                  },
+                  "type": "Text"
+                },
+                "post": {
+                  "config": {
+                    "customtypes": [
+                      "support__faq_post"
+                    ],
+                    "label": "Post",
+                    "select": "document"
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            }
+          },
+          "labels": null
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    },
+    "SEO": {
+      "uid": {
+        "config": {
+          "label": "uid"
+        },
+        "type": "UID"
+      }
+    }
+  },
+  "label": "Support : FAQ Sub Persona ",
+  "repeatable": true,
+  "status": true
+}

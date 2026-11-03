@@ -1,0 +1,40 @@
+{
+  "format": "custom",
+  "id": "privacy_policy_page",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "header": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Header",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "body": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Body",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "privacy policy page",
+  "repeatable": false,
+  "status": false
+}

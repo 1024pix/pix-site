@@ -1,0 +1,80 @@
+{
+  "format": "custom",
+  "id": "navigation",
+  "json": {
+    "Navigation": {
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "uid": {
+        "config": {
+          "label": "uid"
+        },
+        "type": "UID"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "element": {
+              "description": "Part of menu",
+              "display": "list",
+              "fieldset": "Element",
+              "icon": "menu",
+              "non-repeat": {
+                "type": {
+                  "config": {
+                    "default_value": "main-nav",
+                    "label": "Element of nav",
+                    "options": [
+                      "organizations-nav",
+                      "main-nav",
+                      "about-nav",
+                      "ressources-nav",
+                      "burger-menu-top",
+                      "burger-menu-bottom",
+                      "pix-pro-organizations-nav",
+                      "pix-pro-burger-menu-bottom",
+                      "pix-pro-burger-menu-middle"
+                    ]
+                  },
+                  "type": "Select"
+                },
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "labels": [
+                      "btn-nav",
+                      "btn-nav-mobile",
+                      "link-separator-left"
+                    ]
+                  },
+                  "type": "StructuredText"
+                },
+                "link": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "link",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          },
+          "labels": {}
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Navigation",
+  "repeatable": false,
+  "status": true
+}

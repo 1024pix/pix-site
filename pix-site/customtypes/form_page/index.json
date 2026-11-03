@@ -1,0 +1,52 @@
+{
+  "format": "custom",
+  "id": "form_page",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "body": {
+        "config": {
+          "label": "Body",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        },
+        "type": "StructuredText"
+      },
+      "formbuilder_url": {
+        "config": {
+          "label": "Formbuilder URL"
+        },
+        "type": "Link"
+      },
+      "minimum_height": {
+        "config": {
+          "label": "Minimum Height",
+          "placeholder": "650 if you do not know"
+        },
+        "type": "Number"
+      },
+      "image": {
+        "config": {
+          "constraint": {},
+          "label": "Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  },
+  "label": "Form page",
+  "repeatable": true,
+  "status": true
+}

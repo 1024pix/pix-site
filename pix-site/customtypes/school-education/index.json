@@ -1,0 +1,389 @@
+{
+  "format": "custom",
+  "id": "school-education",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "uid"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "hero-section": {
+              "description": "section with background",
+              "display": "list",
+              "fieldset": "hero-section",
+              "icon": "face",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_text": {
+                  "config": {
+                    "label": "button text",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_link": {
+                  "config": {
+                    "label": "button link"
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {
+                "column_number": {
+                  "config": {
+                    "label": "column number",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "column_title": {
+                  "config": {
+                    "label": "column title",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "column_description": {
+                  "config": {
+                    "label": "column description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "card-section": {
+              "description": "section with card ",
+              "display": "list",
+              "fieldset": "card-section",
+              "icon": "face",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "card_title": {
+                  "config": {
+                    "label": "card title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "card_description": {
+                  "config": {
+                    "label": "card description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "section": {
+              "description": "standard section",
+              "display": "list",
+              "fieldset": "section",
+              "icon": "face",
+              "non-repeat": {
+                "logo": {
+                  "config": {
+                    "constraint": {},
+                    "label": "logo",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "paragraph": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "paragraph",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "hero-banner1": {
+              "description": "Content of hero banner",
+              "display": "list",
+              "fieldset": "hero-banner",
+              "icon": "face",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_title": {
+                  "config": {
+                    "label": "button_title",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_link": {
+                  "config": {
+                    "label": "button_link"
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "left-section1": {
+              "description": "section with text on left",
+              "display": "list",
+              "fieldset": "left-section",
+              "icon": "face",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {},
+                    "label": "image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {
+                "paragraph": {
+                  "config": {
+                    "label": "paragraph",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "type": "Slice"
+            },
+            "banner1": {
+              "description": "A header banner",
+              "display": "list",
+              "fieldset": "Banner",
+              "icon": "view_day",
+              "non-repeat": {
+                "banner_title": {
+                  "config": {
+                    "label": "banner_title",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "banner_content": {
+                  "config": {
+                    "label": "banner_content",
+                    "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "banner_font_contrast": {
+                  "config": {
+                    "default_value": "light",
+                    "label": "banner_font_contrast",
+                    "options": [
+                      "light",
+                      "dark"
+                    ]
+                  },
+                  "type": "Select"
+                },
+                "banner_background_color": {
+                  "config": {
+                    "label": "banner_background_color"
+                  },
+                  "type": "Color"
+                },
+                "banner_background": {
+                  "config": {
+                    "constraint": {},
+                    "label": "banner_background",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "banner_image": {
+                  "config": {
+                    "constraint": {},
+                    "label": "banner_image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {
+                "banner_link_text": {
+                  "config": {
+                    "label": "banner_link_text"
+                  },
+                  "type": "Text"
+                },
+                "banner_link_url": {
+                  "config": {
+                    "label": "banner_link_url"
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            }
+          },
+          "labels": {
+            "article-text-left": []
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    },
+    "Social Cards": {
+      "meta": {
+        "config": {
+          "choices": {
+            "general_card": {
+              "description": "General Social card for Facebook, LinkedIn, Google+, etc.",
+              "fieldset": "General Card",
+              "icon": "art_track",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Title...",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 650,
+                      "width": 1200
+                    },
+                    "label": "Image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "twitter_card": {
+              "description": "Twitter summary card with image",
+              "fieldset": "Twitter Card",
+              "icon": "subtitles",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Twitter Card Title...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Twitter Card Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 300,
+                      "width": 300
+                    },
+                    "label": "Image",
+                    "thumbnails": [
+                      {
+                        "height": 314,
+                        "name": "large_image",
+                        "width": 600
+                      }
+                    ]
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "school-education",
+  "repeatable": false,
+  "status": false
+}
