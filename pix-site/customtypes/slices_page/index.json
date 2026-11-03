@@ -240,41 +240,7 @@
               "type": "Slice"
             },
             "latest_news": {
-              "description": "The 4 latest Pix's news",
-              "display": "list",
-              "fieldset": "latest_news",
-              "icon": "radio",
-              "non-repeat": {
-                "latest_news_should_display_title": {
-                  "config": {
-                    "default_value": true,
-                    "label": "latest_news_should_display_title"
-                  },
-                  "type": "Boolean"
-                },
-                "latest_news_title": {
-                  "config": {
-                    "label": "latest_news_title",
-                    "single": "heading2,heading3"
-                  },
-                  "type": "StructuredText"
-                },
-                "latest_news_redirection_link_text": {
-                  "config": {
-                    "label": "latest_news_redirection_link_text"
-                  },
-                  "type": "Text"
-                },
-                "latest_news_redirection_link_url": {
-                  "config": {
-                    "label": "latest_news_redirection_link_url",
-                    "select": null
-                  },
-                  "type": "Link"
-                }
-              },
-              "repeat": {},
-              "type": "Slice"
+              "type": "SharedSlice"
             },
             "multiple_block": {
               "description": "Slice for multiple use cases (eg: Feature, Process, Stats)",

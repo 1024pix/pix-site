@@ -5429,57 +5429,6 @@ export interface SlicesPageDocumentDataBodyPartnersLogosSliceItem {
 export type SlicesPageDocumentDataBodyPartnersLogosSlice = prismic.Slice<"partners_logos", Simplify<SlicesPageDocumentDataBodyPartnersLogosSlicePrimary>, Simplify<SlicesPageDocumentDataBodyPartnersLogosSliceItem>>
 
 /**
- * Primary content in *Slices page → Slice zone → latest_news → Primary*
- */
-export interface SlicesPageDocumentDataBodyLatestNewsSlicePrimary {
-	/**
-	 * latest_news_should_display_title field in *Slices page → Slice zone → latest_news → Primary*
-	 *
-	 * - **Field Type**: Boolean
-	 * - **Placeholder**: *None*
-	 * - **Default Value**: true
-	 * - **API ID Path**: slices_page.body[].latest_news.primary.latest_news_should_display_title
-	 * - **Documentation**: https://prismic.io/docs/fields/boolean
-	 */
-	latest_news_should_display_title: prismic.BooleanField;
-	
-	/**
-	 * latest_news_title field in *Slices page → Slice zone → latest_news → Primary*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: slices_page.body[].latest_news.primary.latest_news_title
-	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
-	 */
-	latest_news_title: prismic.RichTextField;
-	
-	/**
-	 * latest_news_redirection_link_text field in *Slices page → Slice zone → latest_news → Primary*
-	 *
-	 * - **Field Type**: Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: slices_page.body[].latest_news.primary.latest_news_redirection_link_text
-	 * - **Documentation**: https://prismic.io/docs/fields/text
-	 */
-	latest_news_redirection_link_text: prismic.KeyTextField;
-	
-	/**
-	 * latest_news_redirection_link_url field in *Slices page → Slice zone → latest_news → Primary*
-	 *
-	 * - **Field Type**: Link
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: slices_page.body[].latest_news.primary.latest_news_redirection_link_url
-	 * - **Documentation**: https://prismic.io/docs/fields/link
-	 */
-	latest_news_redirection_link_url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
- * Slice for *Slices page → Slice zone*
- */
-export type SlicesPageDocumentDataBodyLatestNewsSlice = prismic.Slice<"latest_news", Simplify<SlicesPageDocumentDataBodyLatestNewsSlicePrimary>, never>
-
-/**
  * Primary content in *Slices page → Slice zone → multiple_block → Primary*
  */
 export interface SlicesPageDocumentDataBodyMultipleBlockSlicePrimary {
@@ -5954,7 +5903,7 @@ export interface SlicesPageDocumentDataBodyTabsSliceItem {
  */
 export type SlicesPageDocumentDataBodyTabsSlice = prismic.Slice<"tabs", Simplify<SlicesPageDocumentDataBodyTabsSlicePrimary>, Simplify<SlicesPageDocumentDataBodyTabsSliceItem>>
 
-type SlicesPageDocumentDataBodySlice = SlicesPageDocumentDataBodyBannerSlice | SlicesPageDocumentDataBodyArticleSlice | SlicesPageDocumentDataBodyPartnersLogosSlice | SlicesPageDocumentDataBodyLatestNewsSlice | SlicesPageDocumentDataBodyMultipleBlockSlice | SlicesPageDocumentDataBodyStatSlice | SlicesPageDocumentDataBodyPopInSlice | SlicesPageDocumentDataBodyEmbedSlice | SlicesPageDocumentDataBodyTestimonialsSlice | SlicesPageDocumentDataBodyTabsSlice
+type SlicesPageDocumentDataBodySlice = SlicesPageDocumentDataBodyBannerSlice | SlicesPageDocumentDataBodyArticleSlice | SlicesPageDocumentDataBodyPartnersLogosSlice | LatestNewsSlice | SlicesPageDocumentDataBodyMultipleBlockSlice | SlicesPageDocumentDataBodyStatSlice | SlicesPageDocumentDataBodyPopInSlice | SlicesPageDocumentDataBodyEmbedSlice | SlicesPageDocumentDataBodyTestimonialsSlice | SlicesPageDocumentDataBodyTabsSlice
 
 /**
  * Primary content in *Slices page → Slice zone → General Card → Primary*
@@ -6701,6 +6650,75 @@ export type TestDocument<Lang extends string = string> = prismic.PrismicDocument
 
 export type AllDocumentTypes = AboutDocument | BlogPostDocument | CguPageDocument | CompetencesDocument | DistributorItemDocument | EasiwareFormDocument | EasiwareFormPageDocument | EmployersDocument | FaqCategoryDocument | FaqItemDocument | FaqMenuDocument | FormPageDocument | HigherEducationDocument | HotNewsDocument | IndexDocument | JobOfferDocument | KeyNumbersDocument | LegalNoticesDocument | LoremIpsumDolorDocument | MainFooterDocument | MainNavigationDocument | MainNavigationV2Document | MediationDocument | MentionDpDetailleeDocument | NavigationDocument | NewsItemDocument | PartnersPageDocument | PersonasListDocument | PrivacyPolicyPageDocument | SchoolEducationDocument | SimplePageDocument | SlicesPageDocument | SocialCardsDocument | StatistiquesDocument | SupportFaqPostDocument | SupportPersonaFaqDocument | SupportPersonaDocument | TestDocument;
 
+/**
+ * Primary content in *LatestNews → Default → Primary*
+ */
+export interface LatestNewsSliceDefaultPrimary {
+	/**
+	 * latest_news_should_display_title field in *LatestNews → Default → Primary*
+	 *
+	 * - **Field Type**: Boolean
+	 * - **Placeholder**: *None*
+	 * - **Default Value**: true
+	 * - **API ID Path**: latest_news.default.primary.latest_news_should_display_title
+	 * - **Documentation**: https://prismic.io/docs/fields/boolean
+	 */
+	latest_news_should_display_title: prismic.BooleanField;
+	
+	/**
+	 * latest_news_title field in *LatestNews → Default → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: latest_news.default.primary.latest_news_title
+	 * - **Documentation**: https://prismic.io/docs/fields/rich-text
+	 */
+	latest_news_title: prismic.RichTextField;
+	
+	/**
+	 * latest_news_redirection_link_text field in *LatestNews → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: latest_news.default.primary.latest_news_redirection_link_text
+	 * - **Documentation**: https://prismic.io/docs/fields/text
+	 */
+	latest_news_redirection_link_text: prismic.KeyTextField;
+	
+	/**
+	 * latest_news_redirection_link_url field in *LatestNews → Default → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: latest_news.default.primary.latest_news_redirection_link_url
+	 * - **Documentation**: https://prismic.io/docs/fields/link
+	 */
+	latest_news_redirection_link_url: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for LatestNews Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LatestNewsSliceDefault = prismic.SharedSliceVariation<"default", Simplify<LatestNewsSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *LatestNews*
+ */
+type LatestNewsSliceVariation = LatestNewsSliceDefault
+
+/**
+ * LatestNews Shared Slice
+ *
+ * - **API ID**: `latest_news`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type LatestNewsSlice = prismic.SharedSlice<"latest_news", LatestNewsSliceVariation>;
+
 declare module "@prismicio/client" {
 	interface CreateClient {
 		(repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
@@ -6912,7 +6930,6 @@ declare module "@prismicio/client" {
 			SlicesPageDocumentDataBodyArticleSlicePrimary,
 			SlicesPageDocumentDataBodyPartnersLogosSlicePrimary,
 			SlicesPageDocumentDataBodyPartnersLogosSliceItem,
-			SlicesPageDocumentDataBodyLatestNewsSlicePrimary,
 			SlicesPageDocumentDataBodyMultipleBlockSlicePrimary,
 			SlicesPageDocumentDataBodyMultipleBlockSliceItem,
 			SlicesPageDocumentDataBodyStatSlicePrimary,
@@ -6946,7 +6963,11 @@ declare module "@prismicio/client" {
 			SupportPersonaDocumentData,
 			TestDocument,
 			TestDocumentData,
-			AllDocumentTypes
+			AllDocumentTypes,
+			LatestNewsSlice,
+			LatestNewsSliceDefaultPrimary,
+			LatestNewsSliceVariation,
+			LatestNewsSliceDefault
 		}
 	}
 }

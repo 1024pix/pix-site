@@ -1,0 +1,48 @@
+{
+  "id": "latest_news",
+  "legacyPaths": {
+    "slices_page::body::latest_news": "default"
+  },
+  "name": "LatestNews",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "items": {},
+      "name": "Default",
+      "primary": {
+        "latest_news_should_display_title": {
+          "config": {
+            "default_value": true,
+            "label": "latest_news_should_display_title"
+          },
+          "type": "Boolean"
+        },
+        "latest_news_title": {
+          "config": {
+            "label": "latest_news_title",
+            "single": "heading2,heading3"
+          },
+          "type": "StructuredText"
+        },
+        "latest_news_redirection_link_text": {
+          "config": {
+            "label": "latest_news_redirection_link_text"
+          },
+          "type": "Text"
+        },
+        "latest_news_redirection_link_url": {
+          "config": {
+            "label": "latest_news_redirection_link_url",
+            "select": null
+          },
+          "type": "Link"
+        }
+      },
+      "version": "initial"
+    }
+  ]
+}
