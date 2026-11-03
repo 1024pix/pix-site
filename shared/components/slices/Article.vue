@@ -16,7 +16,7 @@
           'article__primary-content': isMediaLayout,
         }"
       >
-        <prismic-rich-text
+        <pix-rich-text
           :field="content.article_title"
           class="article-content__title"
           :class="{
@@ -24,9 +24,9 @@
             'article-content__title--vertical': shouldBeVertical,
           }"
         />
-        <prismic-rich-text
+        <pix-rich-text
           :field="content.article_description"
-          :serializer="customPrismicRichTextSerializer"
+          localized-links
           class="article-content__description"
           :class="{
             'article-content__description--only-text': isOnlyTextLayout,
@@ -80,7 +80,6 @@ import { computed } from 'vue';
 
 const img = useImage();
 
-const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 const { getEnvironmentUrl } = useEnvironmentUrl();
 
 const props = defineProps({

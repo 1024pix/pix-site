@@ -22,7 +22,7 @@
 
         <h3 class="news-item-card__title">{{ slice.title[0].text }}</h3>
 
-        <prismic-rich-text :field="slice.excerpt" class="news-item-card__excerpt" />
+        <pix-rich-text :field="slice.excerpt" class="news-item-card__excerpt" />
         <ul v-if="showTags" class="tags">
           <li v-for="(tag, index) in filteredTags" :key="`tags-${index}`"><tag :label="tag"></tag></li>
         </ul>

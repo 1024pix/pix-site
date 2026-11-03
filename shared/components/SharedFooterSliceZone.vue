@@ -5,11 +5,11 @@
         <template v-if="slice.slice_type === 'logos_zone'">
           <slices-logos-zone :slice="slice" class="footer-left__logos" :max-height="96" />
         </template>
-        <prismic-rich-text
+        <pix-rich-text
           v-if="slice.slice_type === 'text'"
           class="footer-left__description"
           :field="slice.primary.text"
-          :serializer="customPrismicRichTextSerializer"
+          localized-links
         />
         <ul v-if="slice.slice_type === 'social_media'" class="footer-left__social-media">
           <li v-for="(socialMedia, socialMediaIndex) in slice.items" :key="`socialMedia-${socialMediaIndex}`">
@@ -37,8 +37,6 @@ import { filter } from '@prismicio/client';
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
-
-const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 
 const { data: mainFooter } = await useAsyncData(async () => {
   const { results: footer } = await client.getByType('main_footer', {

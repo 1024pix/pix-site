@@ -1,17 +1,17 @@
 export default function usePrismicRichTextSerializer() {
   const localeRoute = useLocaleRoute();
 
-  const customPrismicRichTextSerializer = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    hyperlink: ({ node }: any) => {
-      if (node.type === 'hyperlink' && node.data.link_type === 'Document') {
-        const localeUrl = localeRoute(`/${node.data.uid}`, node.data.lang);
-        node.data.url = localeUrl?.fullPath;
-      }
-    },
+  // Utilisé par <pix-rich-text localized-links /> pour résoudre les liens vers des documents Prismic
+  // en tenant compte de la locale (remplace l'ancien serializer, non supporté par @prismicio/vue v6).
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const localizedLinkResolver = (link: any) => {
+    if (link.link_type === 'Document' && link.uid) {
+      return localeRoute(`/${link.uid}`, link.lang)?.fullPath;
+    }
+    return undefined;
   };
 
   return {
-    customPrismicRichTextSerializer,
+    localizedLinkResolver,
   };
 }

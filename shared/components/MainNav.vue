@@ -30,6 +30,7 @@ export default {
       default: null,
     },
   },
+  methods: { asText },
 };
 </script>
 
