@@ -13,13 +13,15 @@
         </div>
       </div>
       <nuxt-link v-if="hasButton" :to="buttonLink" :class="buttonClass">
-        {{ $prismic.asText(buttonText) }}
+        {{ asText(buttonText) }}
       </nuxt-link>
     </div>
   </section>
 </template>
 
 <script>
+import { asText } from '@prismicio/client';
+
 export default {
   name: 'SlicesPageSection',
   props: {
