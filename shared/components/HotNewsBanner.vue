@@ -9,8 +9,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { filter } from '@prismicio/client';
 
-const { client, filter } = usePrismic();
+const { client } = usePrismic();
 const { locale: i18nLocale } = useI18n();
 
 const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();

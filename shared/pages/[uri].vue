@@ -13,6 +13,8 @@
 </template>
 
 <script setup>
+import { filter } from '@prismicio/client';
+
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const head = useLocaleHead({
@@ -20,7 +22,7 @@ const head = useLocaleHead({
   identifierAttribute: 'id',
   addSeoAttributes: true,
 });
-const { client, filter } = usePrismic();
+const { client } = usePrismic();
 const route = useRoute();
 
 const { data } = await useAsyncData(async () => {
