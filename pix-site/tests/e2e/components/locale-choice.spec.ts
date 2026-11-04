@@ -32,7 +32,8 @@ test.describe('component/locale-choice', () => {
       // then
       expect(await page.getByLabel('Choice of language').innerText()).toBe('English');
 
-      await expect(page.getByRole('link', { name: 'English', exact: true, includeHidden: true })).toHaveAttribute(
+      const localeSwitcher = page.locator('.locale-switcher');
+      await expect(localeSwitcher.getByRole('link', { name: 'English', includeHidden: true })).toHaveAttribute(
         'aria-current',
         'page',
       );
