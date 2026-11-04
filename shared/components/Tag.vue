@@ -7,7 +7,6 @@ defineProps({
   label: {
     required: true,
     type: String,
-    default: null,
   },
 });
 </script>

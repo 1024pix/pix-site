@@ -12,8 +12,8 @@
     "node": "^22.16.0"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^0.5.7",
-    "@vitest/eslint-plugin": "^1.1.4",
-    "eslint": "^9.0.0"
+    "@nuxt/eslint": "^1.17.0",
+    "@vitest/eslint-plugin": "^1.6.28",
+    "eslint": "^9.39.5"
   }
 }

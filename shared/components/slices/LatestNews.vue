@@ -48,9 +48,9 @@ const shouldDisplayTitle = props.slice.primary.latest_news_should_display_title;
 
 const hasTitle
   = props.slice.primary.latest_news_title
-  && props.slice.primary.latest_news_title.length
-  && props.slice.primary.latest_news_title[0].text
-  && props.slice.primary.latest_news_title[0].text.length;
+    && props.slice.primary.latest_news_title.length
+    && props.slice.primary.latest_news_title[0].text
+    && props.slice.primary.latest_news_title[0].text.length;
 </script>
 
 <style lang="scss">
