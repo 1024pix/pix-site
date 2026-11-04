@@ -12,11 +12,19 @@
       <h2 class="sr-only">
         {{ t('news-page-title-level-two') }}
       </h2>
+      <ul v-if="tagNames.length" class="news__filters" :aria-label="t('news-page-filter-label')">
+        <li v-for="tag in tagNames" :key="tag">
+          <button type="button" class="news__filter" :aria-pressed="selectedTag === tag" @click="toggleTag(tag)">
+            <tag :label="tag" :class="{ 'tag--active': selectedTag === tag }" />
+          </button>
+        </li>
+      </ul>
+
       <ul class="news__list">
-        <template v-if="newsItems && newsItems.length">
+        <template v-if="filteredNewsItems.length">
           <news-item-card
-            v-for="(item, index) in newsItems"
-            :key="`item-${index}`"
+            v-for="item in filteredNewsItems"
+            :key="item.uid"
             :slice="item.data"
             :tags="item.tags"
             :uid="item.uid"
@@ -63,6 +71,28 @@ const { data: newsItems } = await useAsyncData(() => {
     lang: i18nLocale.value,
   });
 });
+
+const prefixTag = 'tag-';
+
+const tagNames = computed(() =>
+  (newsItems.value ?? [])
+    .flatMap(item => item.tags ?? [])
+    .filter(tag => tag.startsWith(prefixTag))
+    .map(tag => tag.slice(prefixTag.length))
+    .filter((tag, index, tags) => tags.indexOf(tag) === index),
+);
+
+const selectedTag = ref(null);
+
+function toggleTag(tag) {
+  selectedTag.value = selectedTag.value === tag ? null : tag;
+}
+
+const filteredNewsItems = computed(() => {
+  const items = newsItems.value ?? [];
+  if (!selectedTag.value) return items;
+  return items.filter(item => item.tags?.includes(`${prefixTag}${selectedTag.value}`));
+});
 </script>
 
 <style lang="scss">
@@ -94,6 +124,32 @@ const { data: newsItems } = await useAsyncData(() => {
       &::before {
         content: none;
       }
+    }
+  }
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 1140px;
+    margin: 10px auto 2rem;
+    padding: 0;
+    list-style: none;
+
+    li::before {
+      content: none;
+    }
+  }
+
+  &__filter {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin: 0.5rem 0;
+
+    .tag:not(.tag--active) {
+      background-color: $dark-blue-pro;
     }
   }
 }
