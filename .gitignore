@@ -21,6 +21,7 @@ logs
 .DS_Store
 .fleet
 .idea
+screenshot-test:e2e:ci-error.png
 
 # Local env files
 .env*

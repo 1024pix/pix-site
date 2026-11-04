@@ -19,7 +19,7 @@ test.describe('component/locale-switcher', () => {
       // Then
       await expect(page).toHaveURL(/.*en/);
 
-      await expect(page.getByRole('link', { name: 'English', includeHidden: true })).toHaveAttribute(
+      await expect(page.getByRole('link', { name: 'English', exact: true, includeHidden: true })).toHaveAttribute(
         'aria-current',
         'page',
       );
