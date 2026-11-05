@@ -11,7 +11,6 @@ export default {
     href: {
       required: true,
       type: String,
-      default: '',
     },
   },
   computed: {

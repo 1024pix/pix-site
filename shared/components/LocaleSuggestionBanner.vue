@@ -13,7 +13,6 @@ export default {
     isOpen: {
       required: true,
       type: Boolean,
-      default: false,
     },
     domainOrg: {
       required: true,
