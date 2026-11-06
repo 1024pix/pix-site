@@ -6,6 +6,7 @@
     "node": "^22.16.0"
   },
   "scripts": {
+    "pretest": "NODE_ENV=test nuxt prepare",
     "clean": "rm -rf .nuxt .output dist build",
     "build": "npm run generate",
     "dev": "nuxt dev",
