@@ -27,5 +27,5 @@ export default createConfigForNuxt({
     },
   })
   .append({
-    ignores: ['**/playwright-report/'],
+    ignores: ['**/playwright-report/', '**/prismicio-types.d.ts'],
   });
