@@ -1,0 +1,7 @@
+{
+  "repositoryName": "pix-site",
+  "libraries": [
+    "./slices"
+  ],
+  "routes": []
+}

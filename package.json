@@ -13,7 +13,9 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.17.0",
+    "@nuxtjs/prismic": "^5.3.1",
+    "@prismicio/client": "^7.23.0",
     "@vitest/eslint-plugin": "^1.6.28",
-    "eslint": "^9.39.5"
+    "eslint": "^10.14.0"
   }
 }

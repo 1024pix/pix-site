@@ -1,0 +1,202 @@
+{
+  "format": "custom",
+  "id": "partners_page",
+  "json": {
+    "Main": {
+      "page_title": {
+        "config": {
+          "label": "Page title",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "page_description": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Page description (optionnel)",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "organizations_section_title": {
+        "config": {
+          "label": "Organizations section title",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "organizations_section_description": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Organizations section description (optionnel)",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "organizations": {
+        "config": {
+          "fields": {
+            "organization_logo": {
+              "config": {
+                "constraint": {},
+                "label": "Organization logo",
+                "thumbnails": []
+              },
+              "type": "Image"
+            },
+            "organization_name": {
+              "config": {
+                "label": "Organization name"
+              },
+              "type": "Text"
+            },
+            "organization_website": {
+              "config": {
+                "allowTargetBlank": true,
+                "label": "Organization website"
+              },
+              "type": "Link"
+            }
+          },
+          "label": "Organizations"
+        },
+        "type": "Group"
+      },
+      "schools_section_title": {
+        "config": {
+          "label": "Schools section title",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "schools_section_description": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Schools section description (optionnel)",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "schools": {
+        "config": {
+          "fields": {
+            "school_logo": {
+              "config": {
+                "constraint": {},
+                "label": "School logo",
+                "thumbnails": []
+              },
+              "type": "Image"
+            },
+            "school_name": {
+              "config": {
+                "label": "School name"
+              },
+              "type": "Text"
+            },
+            "school_link": {
+              "config": {
+                "allowTargetBlank": true,
+                "label": "School link"
+              },
+              "type": "Link"
+            }
+          },
+          "label": "Schools"
+        },
+        "type": "Group"
+      }
+    },
+    "Social Cards": {
+      "meta": {
+        "config": {
+          "choices": {
+            "general_card": {
+              "description": "General Social card for Facebook, LinkedIn, Google+, etc.",
+              "fieldset": "General Card",
+              "icon": "art_track",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Title...",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 650,
+                      "width": 1200
+                    },
+                    "label": "Image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "twitter_card": {
+              "description": "Twitter summary card with image",
+              "fieldset": "Twitter Card",
+              "icon": "subtitles",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Twitter Card Title...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Twitter Card Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 300,
+                      "width": 300
+                    },
+                    "label": "Image",
+                    "thumbnails": [
+                      {
+                        "height": 314,
+                        "name": "large_image",
+                        "width": 600
+                      }
+                    ]
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Partners page",
+  "repeatable": false,
+  "status": false
+}

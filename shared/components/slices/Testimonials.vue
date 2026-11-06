@@ -20,7 +20,7 @@
             </div>
           </div>
           <blockquote class="slice-testimonials__testimonial-content">
-            <prismic-rich-text :field="item.testimonial" />
+            <pix-rich-text :field="item.testimonial" />
           </blockquote>
           <pix-prismic-link
             v-if="item.link?.link_type === 'Web'"

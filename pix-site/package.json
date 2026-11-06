@@ -6,6 +6,7 @@
     "node": "^22.16.0"
   },
   "scripts": {
+    "pretest": "NODE_ENV=test nuxt prepare",
     "clean": "rm -rf .nuxt .output dist build",
     "build": "npm run generate",
     "dev": "nuxt dev",
@@ -32,9 +33,8 @@
     "@nuxt/devtools": "^1.0.6",
     "@nuxt/test-utils": "^3.11.0",
     "@nuxtjs/i18n": "^8.0.0",
-    "@nuxtjs/prismic": "^3.0.2",
+    "@nuxtjs/prismic": "^5.3.1",
     "@playwright/test": "^1.59.1",
-    "@slicemachine/adapter-nuxt": "^0.3.16",
     "@testing-library/vue": "^8.0.2",
     "@types/node": "^20.8.2",
     "@vue/test-utils": "^2.4.4",
@@ -50,9 +50,11 @@
     "playwright": "^1.59.1",
     "prismic-dom": "^2.2.7",
     "sass": "^1.67.0",
-    "slice-machine-ui": "^1.14.0",
     "vitest": "^1.3.1",
     "vue-chartjs": "^5.2.0"
   },
-  "version": "5.38.1"
+  "version": "5.38.1",
+  "dependencies": {
+    "@prismicio/client": "^7.23.0"
+  }
 }

@@ -1,0 +1,153 @@
+{
+  "format": "custom",
+  "id": "mention_dp_detaillee",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI",
+          "placeholder": "mention-dp-<traitement>"
+        },
+        "type": "UID"
+      },
+      "titre_mention_dp_detaillee": {
+        "config": {
+          "label": "Titre Mention DP détaillée",
+          "placeholder": "\"Données personnelles - <traitement>\"",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "texte_intro": {
+        "config": {
+          "label": "Texte Intro",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "donnees": {
+        "config": {
+          "label": "Données",
+          "placeholder": "Données",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_donnees": {
+        "config": {
+          "label": "Texte Données",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "finalite": {
+        "config": {
+          "label": "Finalité",
+          "placeholder": "Finalité du traitement de vos données à caractère personnel",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_finalite": {
+        "config": {
+          "label": "Texte Finalité",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "duree_de_conservation": {
+        "config": {
+          "label": "durée de conservation",
+          "placeholder": "Durée de conservation de vos données à caractère personnel",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_duree_de_conservation": {
+        "config": {
+          "label": "Texte Durée de conservation",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "destinataires": {
+        "config": {
+          "label": "Destinataires",
+          "placeholder": "Destinataires de vos données à caractère personnel",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_destinataires": {
+        "config": {
+          "label": "Texte Destinataires",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "base_juridique": {
+        "config": {
+          "label": "Base juridique",
+          "placeholder": "Base juridique du traitement de vos données à caractère personnel",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_base_juridique": {
+        "config": {
+          "label": "Texte Base juridique",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "securite": {
+        "config": {
+          "label": "Sécurité",
+          "placeholder": "Sécurité de vos données à caractère personnel",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_securite": {
+        "config": {
+          "label": "Texte Sécurité",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "personnes_concernees": {
+        "config": {
+          "label": "personnes concernées",
+          "placeholder": "Personnes concernées",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_personnes_concernees": {
+        "config": {
+          "label": "Texte Personnes concernées",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "vos_droits": {
+        "config": {
+          "label": "Vos droits",
+          "placeholder": "Vos droits sur vos données à caractère personnel",
+          "single": "heading2"
+        },
+        "type": "StructuredText"
+      },
+      "texte_vos_droits": {
+        "config": {
+          "label": "Texte Vos droits",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "Mention DP détaillée",
+  "repeatable": true,
+  "status": false
+}

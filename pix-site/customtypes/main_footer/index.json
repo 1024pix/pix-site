@@ -1,0 +1,136 @@
+{
+  "format": "custom",
+  "id": "main_footer",
+  "json": {
+    "Main": {
+      "footer_for": {
+        "config": {
+          "default_value": "pix-site",
+          "label": "footer for",
+          "options": [
+            "pix-site",
+            "pix-pro"
+          ]
+        },
+        "type": "Select"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "social_media": {
+              "description": "Social media icons",
+              "display": "list",
+              "fieldset": "social_media",
+              "icon": "supervisor_account",
+              "non-repeat": {},
+              "repeat": {
+                "socialmedia_image": {
+                  "config": {
+                    "constraint": {
+                      "height": 50,
+                      "width": 50
+                    },
+                    "label": "social media image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "socialmedia_url": {
+                  "config": {
+                    "label": "socialmedia url",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            },
+            "logos_zone": {
+              "description": "Navigation zone with logos",
+              "display": "list",
+              "fieldset": "logos_zone",
+              "icon": "image",
+              "non-repeat": {},
+              "repeat": {
+                "image": {
+                  "config": {
+                    "constraint": {},
+                    "label": "image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "url": {
+                  "config": {
+                    "label": "url",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            },
+            "text": {
+              "description": "Rich Text Section",
+              "fieldset": "Text",
+              "icon": "text_fields",
+              "non-repeat": {
+                "text": {
+                  "config": {
+                    "label": "text",
+                    "multi": "paragraph",
+                    "placeholder": "Your content here"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "navigation_group": {
+              "description": "Group of navigation links in footer",
+              "display": "list",
+              "fieldset": "navigation_group",
+              "icon": "insert_link",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "title",
+                    "single": "heading2"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "link_name": {
+                  "config": {
+                    "label": "link name",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "link_url": {
+                  "config": {
+                    "label": "link url",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            }
+          },
+          "labels": {
+            "navigation_group": [],
+            "social_media": []
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Main Footer",
+  "repeatable": true,
+  "status": true
+}

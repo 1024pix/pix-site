@@ -1,7 +1,7 @@
 <template>
   <section :id="`slice-${indexForId}`" class="partners-logos">
-    <prismic-rich-text v-if="hasTitle && shouldDisplayTitle" class="partners-logos__title" :field="title" />
-    <prismic-rich-text v-else class="sr-only" :field="title" />
+    <pix-rich-text v-if="hasTitle && shouldDisplayTitle" class="partners-logos__title" :field="title" />
+    <pix-rich-text v-else class="sr-only" :field="title" />
     <div class="partners-logos__wrapper">
       <template v-for="(item, itemIndex) in items">
         <div v-if="item.logos_image?.url" :key="`item-${itemIndex}`" class="partners-logos-wrapper__item">

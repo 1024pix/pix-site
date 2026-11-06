@@ -1,0 +1,97 @@
+{
+  "format": "custom",
+  "id": "personas_list",
+  "json": {
+    "Main": {
+      "header_title": {
+        "config": {
+          "label": "Header title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "header_sub-title": {
+        "config": {
+          "label": "Header sub-title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "persona": {
+              "description": "Persona card",
+              "display": "list",
+              "fieldset": "Persona",
+              "icon": "assignment_ind",
+              "non-repeat": {
+                "name": {
+                  "config": {
+                    "label": "Name",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "seo_description": {
+                  "config": {
+                    "label": "seo description",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "slug": {
+                  "config": {
+                    "label": "Unique identifier"
+                  },
+                  "type": "Text"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "icon": {
+                  "config": {
+                    "constraint": {},
+                    "label": "Icon",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "sub_persona_title": {
+                  "config": {
+                    "label": "Sub persona title",
+                    "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "sub_persona": {
+                  "config": {
+                    "customtypes": [
+                      "support__persona_faq"
+                    ],
+                    "label": "Sub Persona",
+                    "select": "document"
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            }
+          },
+          "labels": null
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Support : Personas list",
+  "repeatable": false,
+  "status": true
+}

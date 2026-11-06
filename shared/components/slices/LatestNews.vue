@@ -1,11 +1,11 @@
 <template>
   <section v-if="latestNews.length" :id="`slice-${indexForId}`" class="latest-news">
-    <prismic-rich-text
+    <pix-rich-text
       v-if="shouldDisplayTitle && hasTitle"
       class="latest-news__title"
       :field="slice.primary.latest_news_title"
     />
-    <prismic-rich-text v-else class="sr-only" :field="slice.primary.latest_news_title" />
+    <pix-rich-text v-else class="sr-only" :field="slice.primary.latest_news_title" />
     <ul class="latest-news__list">
       <news-item-card v-for="(item, index) in latestNews" :key="`item-${index}`" :slice="item.data" :uid="item.uid" />
     </ul>

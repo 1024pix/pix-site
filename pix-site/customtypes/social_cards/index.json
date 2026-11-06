@@ -1,0 +1,108 @@
+{
+  "format": "custom",
+  "id": "social_cards",
+  "json": {
+    "Main": {
+      "meta_for": {
+        "config": {
+          "default_value": "pix-site",
+          "label": "meta for",
+          "options": [
+            "pix-site",
+            "pix-pro"
+          ]
+        },
+        "type": "Select"
+      },
+      "meta": {
+        "config": {
+          "choices": {
+            "general_card": {
+              "description": "General Social card for Facebook, LinkedIn, Google+, etc.",
+              "fieldset": "General Card",
+              "icon": "art_track",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Title...",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 650,
+                      "width": 1200
+                    },
+                    "label": "Image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "twitter_card": {
+              "description": "Twitter summary card with image",
+              "fieldset": "Twitter Card",
+              "icon": "subtitles",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Twitter Card Title...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Twitter Card Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 300,
+                      "width": 300
+                    },
+                    "label": "Image",
+                    "thumbnails": [
+                      {
+                        "height": 314,
+                        "name": "large_image",
+                        "width": 600
+                      }
+                    ]
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Social Cards",
+  "repeatable": true,
+  "status": true
+}

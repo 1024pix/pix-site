@@ -1,0 +1,10 @@
+{
+  "format": "custom",
+  "id": "easiware_form_page",
+  "json": {
+    "Main": {}
+  },
+  "label": "easiware_form_page",
+  "repeatable": true,
+  "status": false
+}

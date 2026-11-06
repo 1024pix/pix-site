@@ -1,0 +1,49 @@
+{
+  "format": "custom",
+  "id": "distributor_item",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      },
+      "name": {
+        "config": {
+          "label": "Name",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "logo": {
+        "config": {
+          "constraint": {
+            "width": 360
+          },
+          "label": "Logo",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "description": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Description",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "link": {
+        "config": {
+          "label": "Link",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "Distributeur",
+  "repeatable": true,
+  "status": false
+}

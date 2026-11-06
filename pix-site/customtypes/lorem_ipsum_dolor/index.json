@@ -1,0 +1,18 @@
+{
+  "format": "custom",
+  "id": "lorem_ipsum_dolor",
+  "json": {
+    "Main": {
+      "title": {
+        "config": {
+          "label": "title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "Loe vijr fje",
+  "repeatable": false,
+  "status": false
+}

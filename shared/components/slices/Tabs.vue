@@ -10,7 +10,7 @@
         :name="index"
       >
         <div>
-          <prismic-rich-text :field="item.tab_textual_content" class="slice-tabs__item-text" />
+          <pix-rich-text :field="item.tab_textual_content" class="slice-tabs__item-text" />
           <div v-if="item.tab_action_url?.link_type === 'Web'">
             <cta-button
               v-if="item.tab_action_url.url"

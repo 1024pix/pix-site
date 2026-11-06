@@ -1,0 +1,58 @@
+{
+  "format": "custom",
+  "id": "support__faq_post",
+  "json": {
+    "Main": {
+      "contact_form_link": {
+        "config": {
+          "customtypes": [
+            "easiware_form"
+          ],
+          "label": "Contact form link",
+          "select": "document"
+        },
+        "type": "Link"
+      },
+      "title": {
+        "config": {
+          "label": "title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "seo_description": {
+        "config": {
+          "label": "seo description",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "seo_image": {
+        "config": {
+          "constraint": {},
+          "label": "seo image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "content": {
+        "config": {
+          "label": "content",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        },
+        "type": "StructuredText"
+      }
+    },
+    "SEO": {
+      "uid": {
+        "config": {
+          "label": "uid"
+        },
+        "type": "UID"
+      }
+    }
+  },
+  "label": "Support : FAQ Article",
+  "repeatable": true,
+  "status": true
+}

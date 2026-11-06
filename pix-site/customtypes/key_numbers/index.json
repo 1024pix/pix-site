@@ -1,0 +1,40 @@
+{
+  "format": "custom",
+  "id": "key_numbers",
+  "json": {
+    "Main": {
+      "title": {
+        "config": {
+          "label": "title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "column": {
+        "config": {
+          "fields": {
+            "number": {
+              "config": {
+                "label": "number",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+              },
+              "type": "StructuredText"
+            },
+            "description": {
+              "config": {
+                "label": "description",
+                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+              },
+              "type": "StructuredText"
+            }
+          },
+          "label": "column"
+        },
+        "type": "Group"
+      }
+    }
+  },
+  "label": "key-numbers",
+  "repeatable": false,
+  "status": false
+}

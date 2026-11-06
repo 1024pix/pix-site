@@ -1,0 +1,693 @@
+{
+  "format": "custom",
+  "id": "slices_page",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "seo_description": {
+        "config": {
+          "label": "seo description",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "seo_image": {
+        "config": {
+          "constraint": {},
+          "label": "seo image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "body": {
+        "config": {
+          "choices": {
+            "banner": {
+              "description": "A header banner",
+              "display": "list",
+              "fieldset": "Banner",
+              "icon": "view_day",
+              "non-repeat": {
+                "banner_title": {
+                  "config": {
+                    "label": "banner_title",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "banner_content": {
+                  "config": {
+                    "label": "banner_content",
+                    "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "banner_font_contrast": {
+                  "config": {
+                    "default_value": "light",
+                    "label": "banner_font_contrast",
+                    "options": [
+                      "light",
+                      "dark"
+                    ]
+                  },
+                  "type": "Select"
+                },
+                "banner_background_color": {
+                  "config": {
+                    "label": "banner_background_color"
+                  },
+                  "type": "Color"
+                },
+                "banner_background": {
+                  "config": {
+                    "constraint": {},
+                    "label": "banner_background",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "banner_image": {
+                  "config": {
+                    "constraint": {},
+                    "label": "banner_image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {
+                "banner_link_text": {
+                  "config": {
+                    "label": "banner_link_text"
+                  },
+                  "type": "Text"
+                },
+                "banner_link_url": {
+                  "config": {
+                    "label": "banner_link_url",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            },
+            "article": {
+              "description": "Display an image with a text",
+              "display": "list",
+              "fieldset": "Article",
+              "icon": "art_track",
+              "non-repeat": {
+                "article_layout": {
+                  "config": {
+                    "label": "article_layout",
+                    "options": [
+                      "only-text",
+                      "text-image",
+                      "image-text",
+                      "vertical-text-image"
+                    ],
+                    "placeholder": "Choose whether you want only text, text on left and image on right or text on right and image on left"
+                  },
+                  "type": "Select"
+                },
+                "article_title": {
+                  "config": {
+                    "label": "article_title",
+                    "single": "heading2,heading3"
+                  },
+                  "type": "StructuredText"
+                },
+                "article_description": {
+                  "config": {
+                    "label": "article_description",
+                    "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "article_background_color": {
+                  "config": {
+                    "label": "article_background_color"
+                  },
+                  "type": "Color"
+                },
+                "article_background": {
+                  "config": {
+                    "constraint": {},
+                    "label": "article_background",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "article_image": {
+                  "config": {
+                    "constraint": {},
+                    "label": "article_image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "article_video": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "article_video",
+                    "select": null
+                  },
+                  "type": "Link"
+                },
+                "article_video_poster": {
+                  "config": {
+                    "constraint": {},
+                    "label": "article_video_poster",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "article_link_type": {
+                  "config": {
+                    "default_value": "none",
+                    "label": "article_link_type",
+                    "options": [
+                      "none",
+                      "call-to-action",
+                      "link-to"
+                    ],
+                    "placeholder": "Define the type of display you want for your link"
+                  },
+                  "type": "Select"
+                },
+                "article_link_name": {
+                  "config": {
+                    "label": "article_link_name"
+                  },
+                  "type": "Text"
+                },
+                "article_link_url": {
+                  "config": {
+                    "label": "article_link_url",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "partners_logos": {
+              "description": "partners_logos",
+              "display": "list",
+              "fieldset": "partners_logos",
+              "icon": "image",
+              "non-repeat": {
+                "logos_should_display_title": {
+                  "config": {
+                    "default_value": true,
+                    "label": "logos_should_display_title"
+                  },
+                  "type": "Boolean"
+                },
+                "logos_title": {
+                  "config": {
+                    "label": "logos_title",
+                    "single": "heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                }
+              },
+              "repeat": {
+                "logos_image": {
+                  "config": {
+                    "constraint": {},
+                    "label": "logos_image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "type": "Slice"
+            },
+            "latest_news": {
+              "type": "SharedSlice"
+            },
+            "multiple_block": {
+              "description": "Slice for multiple use cases (eg: Feature, Process, Stats)",
+              "display": "list",
+              "fieldset": "multiple_block",
+              "icon": "face",
+              "non-repeat": {
+                "block_style": {
+                  "config": {
+                    "default_value": "process",
+                    "label": "Style du bloc",
+                    "options": [
+                      "process",
+                      "features",
+                      "statistics"
+                    ],
+                    "placeholder": "Style to apply"
+                  },
+                  "type": "Select"
+                },
+                "block_title": {
+                  "config": {
+                    "label": "Titre du bloc",
+                    "single": "heading2"
+                  },
+                  "type": "StructuredText"
+                },
+                "block_should_display_title": {
+                  "config": {
+                    "default_value": true,
+                    "label": "Afficher le titre ?"
+                  },
+                  "type": "Boolean"
+                },
+                "block_subtitle": {
+                  "config": {
+                    "label": "Sous-titre",
+                    "single": "heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "block_should_use_subtitle": {
+                  "config": {
+                    "default_value": false,
+                    "label": "Afficher le sous-titre ?"
+                  },
+                  "type": "Boolean"
+                },
+                "block_background_color": {
+                  "config": {
+                    "label": "Couleur de background"
+                  },
+                  "type": "Color"
+                }
+              },
+              "repeat": {
+                "item_image": {
+                  "config": {
+                    "constraint": {
+                      "height": null,
+                      "width": null
+                    },
+                    "label": "item_image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                },
+                "item_title": {
+                  "config": {
+                    "label": "Titre du sous-bloc",
+                    "single": "heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "item_description": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Description du sous-bloc",
+                    "multi": "paragraph,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  },
+                  "type": "StructuredText"
+                },
+                "item_link_label": {
+                  "config": {
+                    "label": "Lien 1 : label"
+                  },
+                  "type": "Text"
+                },
+                "item_link_url": {
+                  "config": {
+                    "label": "Lien 1 : URL"
+                  },
+                  "type": "Text"
+                },
+                "item_link_style": {
+                  "config": {
+                    "default_value": false,
+                    "label": "Lien 1 : style",
+                    "placeholder_false": "Arrow link",
+                    "placeholder_true": "Button"
+                  },
+                  "type": "Boolean"
+                },
+                "item_link2_label": {
+                  "config": {
+                    "label": "Lien 2 : label"
+                  },
+                  "type": "Text"
+                },
+                "item_link2_url": {
+                  "config": {
+                    "label": "Lien 2 : URL"
+                  },
+                  "type": "Text"
+                },
+                "item_link2_style": {
+                  "config": {
+                    "default_value": false,
+                    "label": "Lien 2 : style",
+                    "placeholder_false": "Arrow link",
+                    "placeholder_true": "Button"
+                  },
+                  "type": "Boolean"
+                },
+                "item_plausible_class": {
+                  "config": {
+                    "label": "Plausible",
+                    "placeholder": "classes personnalisées pour le tracking"
+                  },
+                  "type": "Text"
+                }
+              },
+              "type": "Slice"
+            },
+            "stat": {
+              "description": "Add a graph of data",
+              "display": "list",
+              "fieldset": "stat",
+              "icon": "equalizer",
+              "non-repeat": {
+                "block_title": {
+                  "config": {
+                    "label": "block_title",
+                    "single": "heading2,heading3,heading4,heading5,heading6"
+                  },
+                  "type": "StructuredText"
+                },
+                "block_presentation": {
+                  "config": {
+                    "label": "block_presentation",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  },
+                  "type": "StructuredText"
+                },
+                "block_data_name": {
+                  "config": {
+                    "label": "block_data_name",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "block_graph_color": {
+                  "config": {
+                    "label": "block_graph_color"
+                  },
+                  "type": "Color"
+                },
+                "metabase_card_id": {
+                  "config": {
+                    "label": "metabase_card_id"
+                  },
+                  "type": "Number"
+                },
+                "metabase_x_axis_label": {
+                  "config": {
+                    "label": "metabase_x_axis_label"
+                  },
+                  "type": "Text"
+                },
+                "metabase_y_axis_label": {
+                  "config": {
+                    "label": "metabase_y_axis_label"
+                  },
+                  "type": "Text"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "pop-in": {
+              "description": "Pop-in content for index",
+              "display": "list",
+              "fieldset": "pop-in",
+              "icon": "live_help",
+              "non-repeat": {
+                "description": {
+                  "config": {
+                    "label": "description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "short_description": {
+                  "config": {
+                    "label": "short_description",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_title": {
+                  "config": {
+                    "label": "button_title",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+                  },
+                  "type": "StructuredText"
+                },
+                "button_link": {
+                  "config": {
+                    "label": "button_link",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "embed": {
+              "description": "Embed",
+              "display": "list",
+              "fieldset": "embed",
+              "icon": "add_to_queue",
+              "non-repeat": {
+                "iframe_link": {
+                  "config": {
+                    "label": "Iframe Link"
+                  },
+                  "type": "Text"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "testimonials": {
+              "description": "Liste de témoignages",
+              "display": "list",
+              "fieldset": "Testimonials",
+              "icon": "accessibility",
+              "non-repeat": {},
+              "repeat": {
+                "name": {
+                  "config": {
+                    "label": "First and last names"
+                  },
+                  "type": "Text"
+                },
+                "photo": {
+                  "config": {
+                    "label": "Photo",
+                    "select": "media"
+                  },
+                  "type": "Link"
+                },
+                "job": {
+                  "config": {
+                    "label": "Job"
+                  },
+                  "type": "Text"
+                },
+                "company": {
+                  "config": {
+                    "label": "Company"
+                  },
+                  "type": "Text"
+                },
+                "testimonial": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Testimonial",
+                    "multi": "paragraph,strong,em,hyperlink"
+                  },
+                  "type": "StructuredText"
+                },
+                "link": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Link",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            },
+            "tabs": {
+              "description": "Onglets d'affichages de contenus ",
+              "display": "list",
+              "fieldset": "Tabs",
+              "icon": "tab",
+              "non-repeat": {
+                "block_title": {
+                  "config": {
+                    "label": "Block title",
+                    "placeholder": "Titre du bloc"
+                  },
+                  "type": "Text"
+                }
+              },
+              "repeat": {
+                "tab_title": {
+                  "config": {
+                    "label": "Tab title",
+                    "placeholder": "Titre de l'onglet"
+                  },
+                  "type": "Text"
+                },
+                "tab_textual_content": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "Tab textual content",
+                    "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item",
+                    "placeholder": "Contenu textuel"
+                  },
+                  "type": "StructuredText"
+                },
+                "tab_image": {
+                  "config": {
+                    "label": "Tab image",
+                    "placeholder": "Contenu visuel",
+                    "select": "media"
+                  },
+                  "type": "Link"
+                },
+                "tab_action_name": {
+                  "config": {
+                    "label": "tab action name"
+                  },
+                  "type": "Text"
+                },
+                "tab_action_url": {
+                  "config": {
+                    "allowTargetBlank": true,
+                    "label": "tab action url",
+                    "select": null
+                  },
+                  "type": "Link"
+                }
+              },
+              "type": "Slice"
+            }
+          },
+          "labels": null
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    },
+    "Social Cards": {
+      "meta": {
+        "config": {
+          "choices": {
+            "general_card": {
+              "description": "General Social card for Facebook, LinkedIn, Google+, etc.",
+              "fieldset": "General Card",
+              "icon": "art_track",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Title...",
+                    "single": "heading1"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 650,
+                      "width": 1200
+                    },
+                    "label": "Image",
+                    "thumbnails": []
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            },
+            "twitter_card": {
+              "description": "Twitter summary card with image",
+              "fieldset": "Twitter Card",
+              "icon": "subtitles",
+              "non-repeat": {
+                "title": {
+                  "config": {
+                    "label": "Title",
+                    "placeholder": "Twitter Card Title...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "description": {
+                  "config": {
+                    "label": "Description",
+                    "placeholder": "Twitter Card Description...",
+                    "single": "paragraph"
+                  },
+                  "type": "StructuredText"
+                },
+                "image": {
+                  "config": {
+                    "constraint": {
+                      "height": 300,
+                      "width": 300
+                    },
+                    "label": "Image",
+                    "thumbnails": [
+                      {
+                        "height": 314,
+                        "name": "large_image",
+                        "width": 600
+                      }
+                    ]
+                  },
+                  "type": "Image"
+                }
+              },
+              "repeat": {},
+              "type": "Slice"
+            }
+          }
+        },
+        "fieldset": "Slice zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Slices page",
+  "repeatable": true,
+  "status": true
+}

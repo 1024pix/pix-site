@@ -1,0 +1,19 @@
+{
+  "format": "custom",
+  "id": "hot_news",
+  "json": {
+    "Main": {
+      "description": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "description",
+          "multi": "paragraph,strong,em,hyperlink"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "Hot News",
+  "repeatable": false,
+  "status": true
+}

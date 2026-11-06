@@ -1,0 +1,54 @@
+{
+  "format": "custom",
+  "id": "job_offer",
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "URI",
+          "placeholder": "Ex: ingenieur-logiciel"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Title",
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6"
+        },
+        "type": "StructuredText"
+      },
+      "description": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Description",
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "location": {
+        "config": {
+          "label": "Location",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "contract": {
+        "config": {
+          "label": "Contract",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "salary": {
+        "config": {
+          "label": "Salary",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "Job offer",
+  "repeatable": true,
+  "status": false
+}

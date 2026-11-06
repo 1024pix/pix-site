@@ -2,12 +2,12 @@
   <div :id="`slice-${indexForId}`" :style="[background]">
     <section class="banner row-block">
       <div class="row-block__main-content">
-        <prismic-rich-text
+        <pix-rich-text
           :field="slice.primary.banner_title"
           class="title--big"
           :class="`title--${slice.primary.banner_font_contrast}`"
         />
-        <prismic-rich-text
+        <pix-rich-text
           :field="slice.primary.banner_content"
           class="text--normal"
           :class="`text--${slice.primary.banner_font_contrast}`"

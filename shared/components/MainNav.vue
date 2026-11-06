@@ -14,12 +14,14 @@
         { 'button btn-nav': index === mainNavItems.length - 1 },
       ]"
     >
-      {{ $prismic.asText(item.primary.title) }}
+      {{ asText(item.primary.title) }}
     </nuxt-link>
   </div>
 </template>
 
 <script>
+import { asText } from '@prismicio/client';
+
 export default {
   name: 'NavPrincipal',
   props: {
@@ -28,6 +30,7 @@ export default {
       default: null,
     },
   },
+  methods: { asText },
 };
 </script>
 
