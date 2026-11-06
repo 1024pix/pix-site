@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-const { client } = usePrismic();
+const { client, filter } = usePrismic();
 const { locale: i18nLocale, t } = useI18n();
 const localePath = useLocalePath();
 
@@ -30,12 +30,16 @@ const props = defineProps({
     default: 0,
   },
 });
+const filter_by_tag = props.slice.primary.filter_by_tag;
+const filters = [];
+if (filter_by_tag) filters.push(filter.at('document.tags', [filter_by_tag]));
 
 /* Fetch last news */
-const { data: latestNews } = await useAsyncData(async () => {
+const { data: latestNews } = await useAsyncData(`latest-news-${i18nLocale.value}-${filter_by_tag}`, async () => {
   return await client.getAllByType('news_item', {
     lang: i18nLocale.value,
     limit: 3,
+    filters,
     orderings: {
       field: 'my.news_item.date',
       direction: 'desc',
