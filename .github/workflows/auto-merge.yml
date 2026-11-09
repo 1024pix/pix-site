@@ -16,6 +16,6 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - uses: 1024pix/pix-actions/auto-merge@v0
+      - uses: 1024pix/pix-actions/auto-merge@44ba0bb3203afb06ac7236c7ada6d46df4df22e8 # v0.23.12
         with:
           auto_merge_token: "${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}"
