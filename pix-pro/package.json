@@ -43,10 +43,5 @@
     "slice-machine-ui": "1.26.0",
     "vitest": "3.2.7"
   },
-  "overrides": {
-    "@element-plus/nuxt": {
-      "@nuxt/kit": "3.14.1592"
-    }
-  },
   "version": "5.39.0"
 }
