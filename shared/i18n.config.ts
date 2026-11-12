@@ -1,6 +1,7 @@
 const baseConfig = {
-  lazy: true,
-  langDir: '../shared/translations',
+  // Locale messages are always lazy-loaded since @nuxtjs/i18n v10 (the "lazy" option was removed).
+  // Since v9, langDir is resolved from the "<rootDir>/i18n" directory (restructureDir).
+  langDir: '../../shared/translations',
   locales: [],
   strategy: 'prefix_except_default',
   defaultLocale: 'fr-fr',

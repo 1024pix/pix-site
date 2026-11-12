@@ -16,9 +16,8 @@
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: 'id',
-  addSeoAttributes: true,
+  dir: true,
+  seo: true,
 });
 const { client, filter } = usePrismic();
 const route = useRoute();
