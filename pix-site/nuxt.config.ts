@@ -33,12 +33,16 @@ export default async () => {
         crawlLinks: false,
         routes,
       },
-      devProxy: {
-        '/geolocate': {
-          target: `https://${process.env.GEOAPI_HOST}/me`,
-          changeOrigin: true,
-        },
-      },
+      // Without GEOAPI_HOST the proxy would target "https://undefined/me" and the request would
+      // hang forever with recent Nitro versions; without proxy /geolocate fails fast instead.
+      devProxy: process.env.GEOAPI_HOST
+        ? {
+            '/geolocate': {
+              target: `https://${process.env.GEOAPI_HOST}/me`,
+              changeOrigin: true,
+            },
+          }
+        : {},
     },
     i18n: i18nConfig,
   });
