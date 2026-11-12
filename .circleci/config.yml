@@ -88,13 +88,15 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/pix-site
-      - run: cat package*.json > cachekey
+      - run: cat package*.json ../shared/package*.json > cachekey
       - restore_cache:
           keys:
             - v1-pix-site-pix-site-npm-{{ checksum "cachekey" }}
       - run:
           name: Install dependencies
           command: |
+            # shared postinstall runs "nuxi prepare", which generates shared/.nuxt/tsconfig.json
+            (cd ../shared && npm ci)
             npm ci
       - save_cache:
           key: v1-pix-site-pix-site-npm-{{ checksum "cachekey" }}
@@ -117,7 +119,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/pix-site
-      - run: cat package*.json > cachekey
+      - run: cat package*.json ../shared/package*.json > cachekey
       - restore_cache:
           keys:
             - v2-pix-site-e2e-pix-site-npm-{{ checksum "cachekey" }}
@@ -126,6 +128,8 @@ jobs:
           environment:
             SITE: pix-site
           command: |
+            # shared postinstall runs "nuxi prepare", which generates shared/.nuxt/tsconfig.json
+            (cd ../shared && npm ci)
             npm ci
       - save_cache:
           key: v2-pix-site-e2e-pix-site-npm-{{ checksum "cachekey" }}

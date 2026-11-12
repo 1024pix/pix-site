@@ -30,6 +30,10 @@ ARG FORM_KEYS_TO_MAP={"masteryPercentage":"control1808388","stage":"control18083
 COPY shared /code/shared
 COPY ${SITE}/ /code/${SITE}
 
+# Génération des types du layer shared (shared/.nuxt/tsconfig.json, requis par Vite)
+# maintenant que ses sources sont copiées
+RUN npm --prefix /code/shared run init
+
 # Build de l'application
 RUN npm run build
 
