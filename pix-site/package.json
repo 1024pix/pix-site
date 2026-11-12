@@ -41,7 +41,7 @@
     "@vueuse/core": "10.9.0",
     "@vueuse/integrations": "10.9.0",
     "@vueuse/nuxt": "10.9.0",
-    "element-plus": "2.9.3",
+    "element-plus": "2.14.8",
     "focus-trap": "7.5.4",
     "happy-dom": "^13.6.2",
     "nuxt": "^3.7.3",
