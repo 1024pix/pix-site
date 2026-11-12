@@ -1,5 +1,6 @@
 import { resolve } from 'path';
 import { filterNuxtPages } from './services/filter-nuxt-pages';
+import { allowRootPagePrerender } from './services/allow-root-page-prerender';
 
 // This is the same Prismic Repository used for both pix-site and pix-pro.
 // The situation is error prone because the Prismic Repository has the same name
@@ -34,6 +35,8 @@ const config = {
   devtools: { enabled: true },
   hooks: {
     'pages:extend': filterNuxtPages,
+    // runs after @nuxtjs/i18n has set up the prerender options, right before prerendering
+    'nitro:build:before': allowRootPagePrerender,
   },
   modules: ['@nuxt/test-utils/module'],
   prismic: {
