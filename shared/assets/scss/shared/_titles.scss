@@ -1,3 +1,5 @@
+@use '../globals' as *;
+
 .title {
   &--big h1 {
     color: $grey-80;
