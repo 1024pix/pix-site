@@ -1,5 +1,32 @@
 # pix-site Changelog
 
+## v5.39.0 (12/11/2026)
+
+
+### :rocket: Amélioration
+- [#847](https://github.com/1024pix/pix-site/pull/847) [FEATURE] Ajout des filtres sur les pages Actualités (PIX-24979).
+- [#845](https://github.com/1024pix/pix-site/pull/845) [FEATURE] Ajouter un filtre sur le Slice LatestNews (PIX-24977).
+
+### :building_construction: Tech
+- [#846](https://github.com/1024pix/pix-site/pull/846) [TECH] Correctif des tests et lint du repository.
+- [#839](https://github.com/1024pix/pix-site/pull/839) [TECH] Update Renovate configuration to include js-app.
+
+### :bug: Correction
+- [#848](https://github.com/1024pix/pix-site/pull/848) [BUGFIX] Problème de déploiement sur integration par rapport à un paquet nuxt.
+
+### :arrow_up: Montée de version
+- [#856](https://github.com/1024pix/pix-site/pull/856) [BUMP] Update dependency @element-plus/nuxt to v1.1.5 (pix-site).
+- [#855](https://github.com/1024pix/pix-site/pull/855) [BUMP] Update dependency @element-plus/nuxt to v1.1.5 (pix-pro).
+- [#854](https://github.com/1024pix/pix-site/pull/854) [BUMP] Update dependency @element-plus/icons-vue to v2.3.2 (pix-site).
+- [#853](https://github.com/1024pix/pix-site/pull/853) [BUMP] Update dependency @element-plus/icons-vue to v2.3.2 (pix-pro).
+- [#850](https://github.com/1024pix/pix-site/pull/850) [BUMP] Pin dependency @vitest/eslint-plugin to 1.6.28 (dossier racine).
+- [#849](https://github.com/1024pix/pix-site/pull/849) [BUMP] Pin dependency @testing-library/vue to 8.0.2 (pix-site).
+- [#851](https://github.com/1024pix/pix-site/pull/851) [BUMP] Pin dependency eslint to 9.39.5 (dossier racine).
+- [#840](https://github.com/1024pix/pix-site/pull/840) [BUMP] Pin dependencies (pix-pro).
+- [#843](https://github.com/1024pix/pix-site/pull/843) [BUMP] Pin dependencies (workflows).
+- [#841](https://github.com/1024pix/pix-site/pull/841) [BUMP] Pin dependencies (pix-site).
+- [#842](https://github.com/1024pix/pix-site/pull/842) [BUMP] Pin dependencies (shared).
+
 ## v5.38.1 (18/09/2026)
 
 
