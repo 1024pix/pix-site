@@ -1,13 +1,13 @@
 // Fonts (emitted once here rather than in globals.scss, which is injected into every component style)
-@import './globals/google-font';
+@use './globals/google-font';
 
-@import './shared/buttons';
-@import './shared/container';
-@import './shared/margins';
-@import './shared/normalize';
-@import './shared/pages';
-@import './shared/text';
-@import './shared/titles';
+@use './shared/buttons';
+@use './shared/container';
+@use './shared/margins';
+@use './shared/normalize';
+@use './shared/pages';
+@use './shared/text';
+@use './shared/titles';
 
 // Components
-@import './components';
+@use './components';
