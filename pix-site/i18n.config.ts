@@ -6,6 +6,7 @@ const reachableLocales = [
     // The "code" property should be renamed into "name": https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale
     code: 'en',
     iso: 'en',
+    language: 'en',
     file: 'en.js',
     // The "name" property should be renamed into "displayName": https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/DisplayNames
     name: 'English',
@@ -15,6 +16,7 @@ const reachableLocales = [
   {
     code: 'fr',
     iso: 'fr',
+    language: 'fr',
     file: 'fr.js',
     name: 'Français',
     icon: 'globe-europe.svg',
@@ -23,6 +25,7 @@ const reachableLocales = [
   {
     code: 'es',
     iso: 'es',
+    language: 'es',
     file: 'es.js',
     name: 'Español',
     icon: 'globe-europe.svg',
@@ -31,6 +34,7 @@ const reachableLocales = [
   {
     code: 'it',
     iso: 'it',
+    language: 'it',
     file: 'it.js',
     name: 'Italiano',
     icon: 'globe-europe.svg',
@@ -39,6 +43,7 @@ const reachableLocales = [
   {
     code: 'de-AT',
     iso: 'de-AT',
+    language: 'de-AT',
     file: 'de-AT.js',
     name: 'Deutsch',
     icon: 'globe-europe.svg',
@@ -47,6 +52,7 @@ const reachableLocales = [
   {
     code: 'fr-fr',
     iso: 'fr-fr',
+    language: 'fr-fr',
     file: 'fr-fr.js',
     name: 'France',
     icon: 'flag-fr.svg',
@@ -55,6 +61,7 @@ const reachableLocales = [
   {
     code: 'fr-be',
     iso: 'fr-be',
+    language: 'fr-be',
     file: 'fr-be.js',
     name: 'Belgique (Français)',
     icon: 'flag-be.svg',
@@ -63,6 +70,7 @@ const reachableLocales = [
   {
     code: 'nl-be',
     iso: 'nl-be',
+    language: 'nl-be',
     file: 'nl-be.js',
     name: 'België (Nederlands)',
     icon: 'flag-be.svg',
