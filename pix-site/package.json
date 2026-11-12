@@ -37,7 +37,7 @@
     "@slicemachine/adapter-nuxt": "0.3.38",
     "@testing-library/vue": "8.0.2",
     "@types/node": "20.19.43",
-    "@vue/test-utils": "2.4.5",
+    "@vue/test-utils": "2.5.1",
     "@vueuse/core": "10.9.0",
     "@vueuse/integrations": "10.9.0",
     "@vueuse/nuxt": "10.9.0",
