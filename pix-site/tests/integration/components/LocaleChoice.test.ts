@@ -6,7 +6,7 @@ import LocaleChoice from '~/components/LocaleChoice.vue';
 const availableLocales = [
   {
     code: 'en',
-    iso: 'en',
+    language: 'en',
     file: 'en.js',
     name: 'English',
     icon: 'globe-europe.svg',
@@ -14,7 +14,7 @@ const availableLocales = [
   },
   {
     code: 'fr',
-    iso: 'fr',
+    language: 'fr',
     file: 'fr.js',
     name: 'Français',
     icon: 'globe-europe.svg',
@@ -22,7 +22,7 @@ const availableLocales = [
   },
   {
     code: 'fr-fr',
-    iso: 'fr-fr',
+    language: 'fr-fr',
     file: 'fr-fr.js',
     name: 'France',
     icon: 'flag-fr.svg',
@@ -30,7 +30,7 @@ const availableLocales = [
   },
   {
     code: 'fr-be',
-    iso: 'fr-be',
+    language: 'fr-be',
     file: 'fr-be.js',
     name: 'Belgique (Français)',
     icon: 'flag-be.svg',
@@ -38,7 +38,7 @@ const availableLocales = [
   },
   {
     code: 'nl-be',
-    iso: 'nl-be',
+    language: 'nl-be',
     file: 'nl-be.js',
     name: 'België (Nederlands)',
     icon: 'flag-be.svg',

@@ -5,7 +5,6 @@ const reachableLocales = [
   {
     // The "code" property should be renamed into "name": https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale
     code: 'en',
-    iso: 'en',
     language: 'en',
     file: 'en.js',
     // The "name" property should be renamed into "displayName": https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames/DisplayNames
@@ -15,7 +14,6 @@ const reachableLocales = [
   },
   {
     code: 'fr',
-    iso: 'fr',
     language: 'fr',
     file: 'fr.js',
     name: 'Français',
@@ -24,7 +22,6 @@ const reachableLocales = [
   },
   {
     code: 'es',
-    iso: 'es',
     language: 'es',
     file: 'es.js',
     name: 'Español',
@@ -33,7 +30,6 @@ const reachableLocales = [
   },
   {
     code: 'it',
-    iso: 'it',
     language: 'it',
     file: 'it.js',
     name: 'Italiano',
@@ -42,7 +38,6 @@ const reachableLocales = [
   },
   {
     code: 'de-AT',
-    iso: 'de-AT',
     language: 'de-AT',
     file: 'de-AT.js',
     name: 'Deutsch',
@@ -51,7 +46,6 @@ const reachableLocales = [
   },
   {
     code: 'fr-fr',
-    iso: 'fr-fr',
     language: 'fr-fr',
     file: 'fr-fr.js',
     name: 'France',
@@ -60,7 +54,6 @@ const reachableLocales = [
   },
   {
     code: 'fr-be',
-    iso: 'fr-be',
     language: 'fr-be',
     file: 'fr-be.js',
     name: 'Belgique (Français)',
@@ -69,7 +62,6 @@ const reachableLocales = [
   },
   {
     code: 'nl-be',
-    iso: 'nl-be',
     language: 'nl-be',
     file: 'nl-be.js',
     name: 'België (Nederlands)',
