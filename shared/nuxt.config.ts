@@ -56,7 +56,7 @@ const config = {
       application: process.env.SITE,
     },
   },
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2026-11-12',
 };
 
 if (config.runtimeConfig.public.plausible.siteId) {
