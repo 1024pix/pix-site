@@ -119,8 +119,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../assets/scss/components/slices/features.scss';
-@import '../../assets/scss/components/slices/process.scss';
-@import '../../assets/scss/components/slices/statistics.scss';
-@import '../../assets/scss/components/slices/testimonials.scss';
+@use '../../assets/scss/components/slices/features.scss';
+@use '../../assets/scss/components/slices/process.scss';
+@use '../../assets/scss/components/slices/statistics.scss';
+@use '../../assets/scss/components/slices/testimonials.scss';
 </style>
