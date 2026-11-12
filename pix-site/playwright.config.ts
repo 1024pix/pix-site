@@ -61,14 +61,15 @@ export default defineConfig({
   ],
 
   /* Run your local dev server before starting the tests */
+  /* NUXT_IGNORE_LOCK: Nuxt CLI only allows one dev server per project by default, we need two (ORG and FR) */
   webServer: [
     {
-      command: 'PORT=7001 SITE_DOMAIN=ORG DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
+      command: 'NUXT_IGNORE_LOCK=1 PORT=7001 SITE_DOMAIN=ORG DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
       url: 'http://localhost:7001',
       reuseExistingServer: !process.env.CI,
     },
     {
-      command: 'PORT=7002 SITE_DOMAIN=FR DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
+      command: 'NUXT_IGNORE_LOCK=1 PORT=7002 SITE_DOMAIN=FR DOMAIN_ORG=http://localhost:7001 DOMAIN_FR=http://localhost:7002 npm run dev',
       url: 'http://localhost:7002',
       reuseExistingServer: !process.env.CI,
     },
