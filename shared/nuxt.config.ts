@@ -26,7 +26,7 @@ const config = {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@shared/assets/scss/globals.scss";',
+          additionalData: '@use "@shared/assets/scss/globals.scss" as *;',
         },
       },
     },

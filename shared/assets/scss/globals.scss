@@ -1,4 +1,4 @@
 // Globals
-@import './globals/fonts';
-@import './globals/breakpoints';
-@import './globals/colors';
+@forward './globals/fonts';
+@forward './globals/breakpoints';
+@forward './globals/colors';
