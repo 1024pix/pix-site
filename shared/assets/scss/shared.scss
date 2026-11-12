@@ -1,3 +1,6 @@
+// Fonts (emitted once here rather than in globals.scss, which is injected into every component style)
+@import './globals/google-font';
+
 @import './shared/buttons';
 @import './shared/container';
 @import './shared/margins';
