@@ -3,20 +3,17 @@ import useEnvironmentUrl from '../../composables/useEnvironmentUrl';
 
 const SITE_URL_START = 'https://pix.';
 
+// mockNuxtImport is hoisted and applies to the whole file, including the Nuxt app initialization:
+// keep the real runtime config and only override what the composable needs
+mockNuxtImport('useRuntimeConfig', (original) => {
+  return () => {
+    const config = original();
+    return { ...config, public: { ...config.public, site: SITE_URL_START } };
+  };
+});
+
 describe('getEnvironmentUrl', () => {
   describe('on development and test environments', () => {
-    beforeEach(() => {
-      mockNuxtImport('useRuntimeConfig', () => {
-        return () => {
-          return {
-            public: {
-              site: `${SITE_URL_START}`,
-            },
-          };
-        };
-      });
-    });
-
     test('.fr', () => {
       // when
       const { getEnvironmentUrl } = useEnvironmentUrl();
@@ -69,16 +66,6 @@ describe('getEnvironmentUrl', () => {
   describe('on production environment', () => {
     beforeEach(() => {
       vi.stubEnv('NODE_ENV', 'production');
-
-      mockNuxtImport('useRuntimeConfig', () => {
-        return () => {
-          return {
-            public: {
-              site: `${SITE_URL_START}`,
-            },
-          };
-        };
-      });
     });
 
     test('.fr', () => {

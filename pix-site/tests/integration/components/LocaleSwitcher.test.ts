@@ -57,13 +57,11 @@ mockNuxtImport('useAppConfig', () => {
     domainOrg: 'https://example.org',
   });
 });
-mockNuxtImport('useRuntimeConfig', () => {
-  return () => ({
-    public: {
-      siteDomain: 'ORG',
-      availableLocales,
-    },
-  });
+mockNuxtImport('useRuntimeConfig', (original) => {
+  return () => {
+    const config = original();
+    return { ...config, public: { ...config.public, siteDomain: 'ORG', availableLocales } };
+  };
 });
 
 describe('LocaleSwitcher', () => {

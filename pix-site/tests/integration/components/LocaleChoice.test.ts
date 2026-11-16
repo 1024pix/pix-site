@@ -46,19 +46,14 @@ const availableLocales = [
   },
 ];
 
-describe('LocaleChoice', () => {
-  beforeEach(() => {
-    mockNuxtImport('useRuntimeConfig', () => {
-      return () => {
-        return {
-          public: {
-            availableLocales,
-          },
-        };
-      };
-    });
-  });
+mockNuxtImport('useRuntimeConfig', (original) => {
+  return () => {
+    const config = original();
+    return { ...config, public: { ...config.public, availableLocales } };
+  };
+});
 
+describe('LocaleChoice', () => {
   test('displays a link for each locale', () => {
     // when
     render(LocaleChoice);
