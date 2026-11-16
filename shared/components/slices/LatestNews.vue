@@ -16,7 +16,9 @@
 </template>
 
 <script setup>
-const { client, filter } = usePrismic();
+import { filter } from '@prismicio/client';
+
+const { client } = usePrismic();
 const { locale: i18nLocale, t } = useI18n();
 const localePath = useLocalePath();
 

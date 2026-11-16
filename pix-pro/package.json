@@ -31,6 +31,7 @@
     "@nuxt/test-utils": "4.3.4",
     "@nuxtjs/i18n": "10.6.0",
     "@nuxtjs/prismic": "3.1.0",
+    "@prismicio/client": "7.23.0",
     "@slicemachine/adapter-nuxt": "0.3.38",
     "@vue/test-utils": "2.5.1",
     "@vueuse/core": "15.0.0",

@@ -25,9 +25,11 @@
 </template>
 
 <script setup>
+import { filter } from '@prismicio/client';
+
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
-const { client, filter } = usePrismic();
+const { client } = usePrismic();
 
 const { data } = await useAsyncData(async () => {
   try {
