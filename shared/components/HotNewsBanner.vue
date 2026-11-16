@@ -1,6 +1,6 @@
 <template>
   <div v-if="isOpen && hotNews" class="hot-news">
-    <pix-rich-text :field="hotNews" localized-links />
+    <pix-rich-text :field="hotNews" />
     <button class="close" type="button" @click="closeBanner">
       <img src="/images/close-icon.svg" alt="Fermer" />
     </button>

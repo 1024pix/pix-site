@@ -9,7 +9,6 @@
           v-if="slice.slice_type === 'text'"
           class="footer-left__description"
           :field="slice.primary.text"
-          localized-links
         />
         <ul v-if="slice.slice_type === 'social_media'" class="footer-left__social-media">
           <li v-for="(socialMedia, socialMediaIndex) in slice.items" :key="`socialMedia-${socialMediaIndex}`">

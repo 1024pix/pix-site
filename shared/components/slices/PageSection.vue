@@ -6,10 +6,10 @@
         <nuxt-img :src="image.url" :alt="image.alt || ''" :role="!!image.alt ? undefined : 'presentation'" />
       </template>
       <pix-rich-text :field="title" />
-      <pix-rich-text :field="description" localized-links />
+      <pix-rich-text :field="description" />
       <div :class="flexContainerClass">
         <div v-for="(item, index) in paragraphs" :key="`item-${index}`" :class="flexContentClass">
-          <pix-rich-text :field="item.paragraph" localized-links />
+          <pix-rich-text :field="item.paragraph" />
         </div>
       </div>
       <nuxt-link v-if="hasButton" :to="buttonLink" :class="buttonClass">

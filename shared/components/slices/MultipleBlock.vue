@@ -13,7 +13,6 @@
           <pix-rich-text
             :class="`${blockClass}-wrapper-item-content__description`"
             :field="item.item_description"
-            localized-links
           />
           <template v-if="item.item_link_url && item.item_link_label">
             <cta-button

@@ -33,7 +33,7 @@
     "@element-plus/nuxt": "1.1.5",
     "@nuxt/test-utils": "4.3.4",
     "@nuxtjs/i18n": "10.6.0",
-    "@nuxtjs/prismic": "3.1.0",
+    "@nuxtjs/prismic": "5.3.1",
     "@playwright/test": "1.64.1",
     "@prismicio/client": "7.23.0",
     "@slicemachine/adapter-nuxt": "0.3.38",

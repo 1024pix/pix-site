@@ -26,7 +26,6 @@
         />
         <pix-rich-text
           :field="content.article_description"
-          localized-links
           class="article-content__description"
           :class="{
             'article-content__description--only-text': isOnlyTextLayout,

@@ -10,7 +10,7 @@
       <section class="page-section">
         <div class="container md padding-container">
           <div class="page-section__description">
-            <pix-rich-text :field="content.body" localized-links />
+            <pix-rich-text :field="content.body" />
           </div>
         </div>
       </section>

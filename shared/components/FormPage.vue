@@ -8,7 +8,7 @@
       </header>
 
       <section class="content-description__body">
-        <pix-rich-text :field="content.body" localized-links />
+        <pix-rich-text :field="content.body" />
       </section>
     </div>
 

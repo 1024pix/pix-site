@@ -13,7 +13,7 @@
 
     <div class="news-item-post__body">
       <div class="news-item-post__excerpt">
-        <pix-rich-text :field="newsItem.data.body" localized-links />
+        <pix-rich-text :field="newsItem.data.body" />
         <prismic-custom-slice-zone :slices="newsItem.data.slices" />
       </div>
     </div>
