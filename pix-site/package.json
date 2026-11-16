@@ -48,7 +48,7 @@
     "nuxt": "^3.21.11",
     "nuxt-image-prismic-fix": "1.7.2",
     "playwright": "1.64.1",
-    "sass": "1.106.1",
+    "sass": "1.107.1",
     "slice-machine-ui": "1.26.0",
     "vitest": "3.2.7"
   },
