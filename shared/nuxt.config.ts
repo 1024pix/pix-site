@@ -59,9 +59,6 @@ const config = {
     },
   },
   compatibilityDate: '2026-11-12',
-  future: {
-    compatibilityVersion: 4,
-  },
 };
 
 if (config.runtimeConfig.public.plausible.siteId) {
