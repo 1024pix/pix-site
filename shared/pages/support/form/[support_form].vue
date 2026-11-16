@@ -45,7 +45,7 @@ defineI18nRoute({
 });
 
 /* Fetch form data */
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`support-form-${i18nLocale.value}-${route.params.slug}`, async () => {
   try {
     if (!route.params.slug) {
       throw new Error('Missing slug for route:', route.params);

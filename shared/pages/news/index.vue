@@ -62,7 +62,7 @@ useHead({
 });
 
 /* Fetch news items */
-const { data: newsItems } = await useAsyncData(() => {
+const { data: newsItems } = await useAsyncData(`news-items-${i18nLocale.value}`, () => {
   return client.getAllByType('news_item', {
     orderings: {
       field: 'my.news_item.date',

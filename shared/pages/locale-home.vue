@@ -26,7 +26,7 @@ const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
 
-const { data: indexContent } = await useAsyncData(async () => {
+const { data: indexContent } = await useAsyncData(`index-page-${appConfig.site}-${i18nLocale.value}`, async () => {
   const indexPages = await client.getAllByTag('index', {
     lang: i18nLocale.value,
   });

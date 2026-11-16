@@ -38,7 +38,7 @@ const backLink = computed(() => {
 });
 
 /* Fetch post data */
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`support-faq-post-${i18nLocale.value}-${route.params.current_persona}-${route.params.post_uid}`, async () => {
   try {
     const document = await client.getByUID('support__faq_post', route.params.post_uid, { lang: i18nLocale.value });
 

@@ -44,7 +44,7 @@ useHead({
 });
 
 /* Fetch personas list */
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`support-personas-${i18nLocale.value}`, async () => {
   try {
     const supportPage = await client.getSingle('personas_list', { lang: i18nLocale.value });
 

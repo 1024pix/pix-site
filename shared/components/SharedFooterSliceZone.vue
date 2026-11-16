@@ -37,7 +37,7 @@ const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
 
-const { data: mainFooter } = await useAsyncData(async () => {
+const { data: mainFooter } = await useAsyncData(`main-footer-${appConfig.site}-${i18nLocale.value}`, async () => {
   const { results: footer } = await client.getByType('main_footer', {
     filters: [filter.at('my.main_footer.footer_for', appConfig.site)],
     lang: i18nLocale.value,

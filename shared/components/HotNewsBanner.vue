@@ -16,7 +16,7 @@ const { locale: i18nLocale } = useI18n();
 
 const isOpen = ref(true);
 
-const { data: hotNews } = await useAsyncData(async () => {
+const { data: hotNews } = await useAsyncData(`hot-news-${i18nLocale.value}`, async () => {
   const hotNews = await client.get({
     filters: [filter.at('document.type', 'hot_news')],
     lang: i18nLocale.value,

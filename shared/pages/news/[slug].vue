@@ -30,7 +30,7 @@ defineI18nRoute({
 
 /* Fetch news item */
 const { data: newsItem } = await useAsyncData(
-  `news-item-${route.params.slug}`,
+  `news-item-${i18nLocale.value}-${route.params.slug}`,
   () => {
     return client.getByUID('news_item', route.params.slug, {
       lang: i18nLocale.value,

@@ -43,7 +43,7 @@ const backLink = computed(() => {
 });
 
 /* Fetch personas list */
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`support-persona-${i18nLocale.value}-${route.params.parent_persona_name}`, async () => {
   try {
     const queryCurrentPersona = await client.getSingle('personas_list', { lang: i18nLocale.value });
 

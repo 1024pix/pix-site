@@ -31,7 +31,7 @@ const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const { client } = usePrismic();
 
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`main-navigation-${appConfig.site}-${i18nLocale.value}`, async () => {
   try {
     const document = await client.getFirst({
       filters: [

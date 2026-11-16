@@ -24,7 +24,7 @@ const head = useLocaleHead({
 const { client } = usePrismic();
 const route = useRoute();
 
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`page-${appConfig.site}-${i18nLocale.value}-${route.params.uri}`, async () => {
   const formPage = await client.get({
     filters: [filter.at('my.form_page.uid', route.params.uri), filter.any('document.tags', [appConfig.site])],
     lang: i18nLocale.value,
