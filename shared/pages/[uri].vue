@@ -13,17 +13,18 @@
 </template>
 
 <script setup>
+import { filter } from '@prismicio/client';
+
 const appConfig = useAppConfig();
 const { locale: i18nLocale } = useI18n();
 const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: 'id',
-  addSeoAttributes: true,
+  dir: true,
+  seo: true,
 });
-const { client, filter } = usePrismic();
+const { client } = usePrismic();
 const route = useRoute();
 
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`page-${appConfig.site}-${i18nLocale.value}-${route.params.uri}`, async () => {
   const formPage = await client.get({
     filters: [filter.at('my.form_page.uid', route.params.uri), filter.any('document.tags', [appConfig.site])],
     lang: i18nLocale.value,

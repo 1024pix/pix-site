@@ -1,3 +1,5 @@
+@use '../../globals' as *;
+
 .features {
   &__title h2 {
     color: $grey-80;

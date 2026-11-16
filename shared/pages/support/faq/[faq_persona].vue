@@ -92,7 +92,7 @@ defineI18nRoute({
 });
 
 /* Fetch persona data */
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData(`support-faq-persona-${i18nLocale.value}-${route.params.parent_persona}-${route.params.current_persona}`, async () => {
   try {
     const queryPersona = await client.getByUID('support__persona_faq', route.params.current_persona, {
       lang: i18nLocale.value,

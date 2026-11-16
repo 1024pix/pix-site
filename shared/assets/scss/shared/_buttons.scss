@@ -1,3 +1,5 @@
+@use '../globals' as *;
+
 @mixin colorizeButton(
   $fontColor,
   $borderColor,

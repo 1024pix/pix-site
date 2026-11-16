@@ -1,3 +1,6 @@
+@use 'sass:map';
+@use 'sass:meta';
+
 $breakpoints: (
   'large-mobile': (
     min-width: 600px,
@@ -19,12 +22,12 @@ $breakpoints: (
 */
 
 @mixin device-is($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media #{meta.inspect(map.get($breakpoints, $breakpoint))} {
       @content;
     }
   } @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+        + "Available breakpoints are: #{map.keys($breakpoints)}.";
   }
 }

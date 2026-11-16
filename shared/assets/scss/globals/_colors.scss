@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 // primary
 $blue: #3d68ff;
 $blue-zodiac: #505f79;
@@ -5,17 +7,17 @@ $white: #ffffff;
 $black: #000;
 
 // secondary
-$blue-hover: darken($blue, 12%);
+$blue-hover: color.adjust($blue, $lightness: -12%);
 $dark-blue-pro: #1a38a0;
 $green-certif: #1a8c89;
 $dark-orga: #0095c0;
 $orga: #00ddff;
 $green: #038a25;
-$green-hover: darken($green, 4%);
+$green-hover: color.adjust($green, $lightness: -4%);
 $red: #d63f00;
-$red-hover: darken($red, 4%);
+$red-hover: color.adjust($red, $lightness: -4%);
 $yellow: #ffbe00;
-$yellow-hover: lighten($yellow, 12%);
+$yellow-hover: color.adjust($yellow, $lightness: 12%);
 $light-blue: #388aff;
 $pure-orange: #f45c00;
 
@@ -67,8 +69,8 @@ $security-light: #ff3f94;
 
 // status
 $error: #ff4b00;
-$light-red: lighten($error, 8%);
-$dark-error: darken($error, 8%);
+$light-red: color.adjust($error, $lightness: 8%);
+$dark-error: color.adjust($error, $lightness: -8%);
 $success: #57c884;
 $warning: #ffbe00;
 

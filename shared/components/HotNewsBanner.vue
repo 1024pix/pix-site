@@ -1,6 +1,6 @@
 <template>
   <div v-if="isOpen && hotNews" class="hot-news">
-    <prismic-rich-text :field="hotNews" :serializer="customPrismicRichTextSerializer" />
+    <pix-rich-text :field="hotNews" />
     <button class="close" type="button" @click="closeBanner">
       <img src="/images/close-icon.svg" alt="Fermer" />
     </button>
@@ -8,15 +8,15 @@
 </template>
 
 <script setup>
+import { filter } from '@prismicio/client';
 import { ref } from 'vue';
 
-const { client, filter } = usePrismic();
+const { client } = usePrismic();
 const { locale: i18nLocale } = useI18n();
 
-const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 const isOpen = ref(true);
 
-const { data: hotNews } = await useAsyncData(async () => {
+const { data: hotNews } = await useAsyncData(`hot-news-${i18nLocale.value}`, async () => {
   const hotNews = await client.get({
     filters: [filter.at('document.type', 'hot_news')],
     lang: i18nLocale.value,

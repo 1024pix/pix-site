@@ -1,5 +1,7 @@
-import { resolve } from 'path';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { filterNuxtPages } from './services/filter-nuxt-pages';
+import { allowRootPagePrerender } from './services/allow-root-page-prerender';
 
 // This is the same Prismic Repository used for both pix-site and pix-pro.
 // The situation is error prone because the Prismic Repository has the same name
@@ -18,7 +20,8 @@ const config = {
     site: process.env.SITE,
   },
   alias: {
-    '@shared': resolve(__dirname, '../shared'),
+    // this layer directory (__dirname is not available in ES modules)
+    '@shared': dirname(fileURLToPath(import.meta.url)),
   },
   components: ['@/components', '@shared/components'],
   css: ['@shared/assets/scss/shared.scss'],
@@ -26,7 +29,7 @@ const config = {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@shared/assets/scss/globals.scss";',
+          additionalData: '@use "@shared/assets/scss/globals.scss" as *;',
         },
       },
     },
@@ -34,6 +37,8 @@ const config = {
   devtools: { enabled: true },
   hooks: {
     'pages:extend': filterNuxtPages,
+    // runs after @nuxtjs/i18n has set up the prerender options, right before prerendering
+    'nitro:build:before': allowRootPagePrerender,
   },
   modules: ['@nuxt/test-utils/module'],
   prismic: {
@@ -53,7 +58,7 @@ const config = {
       application: process.env.SITE,
     },
   },
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: '2026-11-12',
 };
 
 if (config.runtimeConfig.public.plausible.siteId) {

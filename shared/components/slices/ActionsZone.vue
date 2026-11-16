@@ -12,7 +12,7 @@
             width="16"
             height="16"
           />
-          {{ $prismic.asText(slice.primary.helperName) }}
+          {{ asText(slice.primary.helperName) }}
         </a>
       </li>
       <li v-for="(menuItem, index) in slice.items" :key="`item-${index}`" class="actions-zone__item">
@@ -32,7 +32,7 @@
             width="15"
             height="14"
           />
-          {{ $prismic.asText(menuItem.name) }}
+          {{ asText(menuItem.name) }}
         </a>
       </li>
     </ul>
@@ -40,6 +40,8 @@
 </template>
 
 <script setup>
+import { asText } from '@prismicio/client';
+
 defineProps({
   slice: {
     type: Object,

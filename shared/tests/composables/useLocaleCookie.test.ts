@@ -17,14 +17,11 @@ mockNuxtImport('useAppConfig', () => {
     domainOrg: 'https://example.org',
   });
 });
-mockNuxtImport('useRuntimeConfig', () => {
-  return () => ({
-    public: {
-      siteDomain: 'ORG',
-      availableLocaleNames,
-      availableLocaleCanonicalNames,
-    },
-  });
+mockNuxtImport('useRuntimeConfig', (original) => {
+  return () => {
+    const config = original();
+    return { ...config, public: { ...config.public, siteDomain: 'ORG', availableLocaleNames, availableLocaleCanonicalNames } };
+  };
 });
 
 describe('#useLocaleCookie', () => {

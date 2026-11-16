@@ -20,8 +20,8 @@ useHead({
 });
 
 const head = useLocaleHead({
-  addSeoAttributes: true,
-  addDirAttribute: true,
+  seo: true,
+  dir: true,
 });
 </script>
 

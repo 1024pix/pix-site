@@ -33,8 +33,8 @@ useHead({
 });
 
 const head = useLocaleHead({
-  addDirAttribute: true,
-  addSeoAttributes: true,
+  dir: true,
+  seo: true,
 });
 
 onMounted(async () => {

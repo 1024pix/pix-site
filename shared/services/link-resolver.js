@@ -5,7 +5,7 @@ import * as frFr from '../translations/fr-fr.js';
 import * as es from '../translations/es.js';
 import * as it from '../translations/it.js';
 import * as deAt from '../translations/de-AT.js';
-import { DOCUMENTS, TAGS } from './document-fetcher';
+import { DOCUMENTS, TAGS } from './prismic-documents';
 
 const newsPagePrefixes = {
   en:

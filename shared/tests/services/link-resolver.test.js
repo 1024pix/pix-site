@@ -1,4 +1,4 @@
-import { DOCUMENTS, TAGS } from '../../services/document-fetcher.js';
+import { DOCUMENTS, TAGS } from '../../services/prismic-documents.js';
 import { linkResolver } from '../../services/link-resolver.js';
 
 describe('linkResolver', () => {
