@@ -1,4 +1,5 @@
-import { resolve } from 'path';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { filterNuxtPages } from './services/filter-nuxt-pages';
 import { allowRootPagePrerender } from './services/allow-root-page-prerender';
 
@@ -19,7 +20,8 @@ const config = {
     site: process.env.SITE,
   },
   alias: {
-    '@shared': resolve(__dirname, '../shared'),
+    // this layer directory (__dirname is not available in ES modules)
+    '@shared': dirname(fileURLToPath(import.meta.url)),
   },
   components: ['@/components', '@shared/components'],
   css: ['@shared/assets/scss/shared.scss'],
