@@ -2,7 +2,7 @@
   <div class="page">
     <header class="page-header">
       <div class="container md padding-container">
-        <prismic-rich-text :field="content.title" class="page-header__title" />
+        <pix-rich-text :field="content.title" class="page-header__title" />
       </div>
     </header>
 
@@ -10,7 +10,7 @@
       <section class="page-section">
         <div class="container md padding-container">
           <div class="page-section__description">
-            <prismic-rich-text :field="content.body" :serializer="customPrismicRichTextSerializer" />
+            <pix-rich-text :field="content.body" localized-links />
           </div>
         </div>
       </section>
@@ -25,8 +25,6 @@ defineProps({
     default: null,
   },
 });
-
-const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 </script>
 
 <style lang="scss">

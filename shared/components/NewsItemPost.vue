@@ -1,7 +1,7 @@
 <template>
   <div class="news-item-post">
     <header class="news-item-post__header">
-      <prismic-rich-text class="news-item-post__title" :field="newsItem.data.title" />
+      <pix-rich-text class="news-item-post__title" :field="newsItem.data.title" />
       <p class="news-item-post__meta">
         <span :class="`news-item-post__category ${`news-item-card__category--${categoryLabel}`}`">
           {{ $t(categoryLabel) }}
@@ -13,7 +13,7 @@
 
     <div class="news-item-post__body">
       <div class="news-item-post__excerpt">
-        <prismic-rich-text :field="newsItem.data.body" :serializer="customPrismicRichTextSerializer" />
+        <pix-rich-text :field="newsItem.data.body" localized-links />
         <prismic-custom-slice-zone :slices="newsItem.data.slices" />
       </div>
     </div>
@@ -25,8 +25,6 @@
 import { useDateFormat } from '@vueuse/core';
 
 const { locale: i18nLocale } = useI18n();
-
-const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 
 const props = defineProps({
   newsItem: {

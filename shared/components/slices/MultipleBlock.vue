@@ -1,19 +1,19 @@
 <template>
   <section :id="`slice-${indexForId}`" :class="blockClass" :style="[background]">
-    <prismic-rich-text v-if="hasTitle && shouldDisplayTitle" :class="`${blockClass}__title`" :field="title" />
-    <prismic-rich-text v-else class="sr-only" :field="title" />
-    <prismic-rich-text v-if="shouldUseSubtitle && hasSubtitle" :class="`${blockClass}__subtitle`" :field="subtitle" />
+    <pix-rich-text v-if="hasTitle && shouldDisplayTitle" :class="`${blockClass}__title`" :field="title" />
+    <pix-rich-text v-else class="sr-only" :field="title" />
+    <pix-rich-text v-if="shouldUseSubtitle && hasSubtitle" :class="`${blockClass}__subtitle`" :field="subtitle" />
     <div :class="`${blockClass}__wrapper ${blockClass}__wrapper-${items.length}-items`">
       <div v-for="(item, itemIndex) in items" :key="`item-${itemIndex}`" :class="`${blockClass}-wrapper__item`">
         <div :class="`${blockClass}-wrapper-item__image`">
           <nuxt-img v-if="hasImage(item)" :src="item.item_image.url" alt="" />
         </div>
         <div :class="`${blockClass}-wrapper-item__content`">
-          <prismic-rich-text :class="`${blockClass}-wrapper-item-content__title`" :field="item.item_title" />
-          <prismic-rich-text
+          <pix-rich-text :class="`${blockClass}-wrapper-item-content__title`" :field="item.item_title" />
+          <pix-rich-text
             :class="`${blockClass}-wrapper-item-content__description`"
             :field="item.item_description"
-            :serializer="customPrismicRichTextSerializer"
+            localized-links
           />
           <template v-if="item.item_link_url && item.item_link_label">
             <cta-button
@@ -58,10 +58,6 @@ export default {
       type: Number,
       default: 0,
     },
-  },
-  setup() {
-    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
-    return { customPrismicRichTextSerializer };
   },
   data() {
     return {

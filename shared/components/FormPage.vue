@@ -4,11 +4,11 @@
       <nuxt-img v-if="hasImage" class="content-description__image" :src="content.image.url" alt="" />
 
       <header class="content-description__title">
-        <prismic-rich-text :field="content.title" />
+        <pix-rich-text :field="content.title" />
       </header>
 
       <section class="content-description__body">
-        <prismic-rich-text :field="content.body" :serializer="customPrismicRichTextSerializer" />
+        <pix-rich-text :field="content.body" localized-links />
       </section>
     </div>
 
@@ -28,10 +28,6 @@ export default {
       type: Object,
       default: null,
     },
-  },
-  setup() {
-    const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
-    return { customPrismicRichTextSerializer };
   },
   computed: {
     formUrl() {

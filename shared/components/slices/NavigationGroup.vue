@@ -1,6 +1,6 @@
 <template>
   <div class="navigation-group">
-    <prismic-rich-text :field="slice.primary.title" class="navigation-group__title" />
+    <pix-rich-text :field="slice.primary.title" class="navigation-group__title" />
     <div class="navigation-group__wrapper">
       <ul>
         <li v-for="(link, index) in slice.items" :key="`link-${index}`" class="navigation-group-link">
@@ -8,7 +8,7 @@
             v-if="link.link_url?.url"
             :to="getEnvironmentUrl(link.link_url.url)"
           >
-            <prismic-rich-text :field="link.link_name" />
+            <pix-rich-text :field="link.link_name" />
           </nuxt-link>
         </li>
       </ul>

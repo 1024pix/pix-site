@@ -4,7 +4,7 @@
       <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
         {{ data.supportForm.form_title?.[0].text }}
       </h1>
-      <prismic-rich-text
+      <pix-rich-text
         v-if="data.supportForm.form_introduction?.length"
         :field="data.supportForm.form_introduction"
         class="easiware-form__introduction"
@@ -16,7 +16,7 @@
       <h1 v-if="data.supportForm.form_title?.length" class="easiware-form__title">
         {{ data.supportForm.form_title?.[0].text }}
       </h1>
-      <prismic-rich-text
+      <pix-rich-text
         v-if="data.supportForm.form_introduction?.length"
         :field="data.supportForm.form_introduction"
         class="easiware-form__introduction"

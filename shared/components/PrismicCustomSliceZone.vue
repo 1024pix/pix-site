@@ -2,7 +2,7 @@
   <div class="slice-zone">
     <section v-for="(slice, index) in slices" :key="`slice-${index}`">
       <template v-if="slice.slice_type === 'rich_text'">
-        <prismic-rich-text :field="slice.primary.text" :serializer="customPrismicRichTextSerializer" />
+        <pix-rich-text :field="slice.primary.text" localized-links />
       </template>
       <template v-if="slice.slice_type === 'banner'">
         <slices-page-banner :slice="slice" :index-for-id="index" />
@@ -42,6 +42,4 @@ defineProps({
     default: null,
   },
 });
-
-const { customPrismicRichTextSerializer } = usePrismicRichTextSerializer();
 </script>
