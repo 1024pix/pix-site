@@ -20,7 +20,6 @@
     "generate:org": "npm run generate:prepare && SITE_DOMAIN=ORG nuxt generate && cp -R ./.output/public ./build/org",
     "generate": "npm run generate:clean && npm run generate:fr && npm run generate:org",
     "preview": "nuxt preview",
-    "slicemachine": "start-slicemachine",
     "pretest": "NODE_ENV=test nuxi prepare",
     "test": "NODE_ENV=test vitest",
     "test:e2e:install": "playwright install",
@@ -36,7 +35,6 @@
     "@nuxtjs/prismic": "5.3.1",
     "@playwright/test": "1.64.1",
     "@prismicio/client": "7.23.0",
-    "@slicemachine/adapter-nuxt": "0.3.38",
     "@testing-library/vue": "8.1.0",
     "@types/node": "22.20.5",
     "@vue/test-utils": "2.5.1",
@@ -50,7 +48,6 @@
     "nuxt-image-prismic-fix": "1.7.2",
     "playwright": "1.64.1",
     "sass": "1.107.1",
-    "slice-machine-ui": "1.26.0",
     "vitest": "5.0.5"
   },
   "version": "5.39.0"
