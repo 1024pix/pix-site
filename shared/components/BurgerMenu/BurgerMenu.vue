@@ -11,7 +11,7 @@
       <span class="burger-menu-toggle__icon" />
       <span class="burger-menu-toggle__icon" />
     </button>
-    <UseFocusTrap v-if="isMenuOpen" @keydown.esc="toggleMenu">
+    <UseFocusTrap v-if="isMenuOpen" :options="{ immediate: true }" @keydown.esc="toggleMenu">
       <div class="burger-menu__overlay" @click="toggleMenu"></div>
       <div id="menu" class="burger-menu__container" @click.stop>
         <burger-menu-header :logos-zone="items.logosZone" @close-menu="toggleMenu" />
