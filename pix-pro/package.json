@@ -6,6 +6,7 @@
     "node": "^22.16.0"
   },
   "scripts": {
+    "prebuild": "cd ../shared && if [ -d node_modules ]; then npm run init; else npm ci --include=dev; fi",
     "build": "npm run generate",
     "dev": "nuxt dev",
     "dev:site:fr": "SITE=pix-pro SITE_DOMAIN=FR PORT=6001 DOMAIN_FR=http://localhost:6001 DOMAIN_ORG=http://localhost:7001 nuxt dev",
