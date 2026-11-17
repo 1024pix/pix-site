@@ -4,12 +4,16 @@
 //   while the IPX provider only encodes it once, so escape sequences are lost: Prismic URLs of files
 //   with a "+" in their name contain "%2B", downloaded as "+", that Prismic CDNs read as a space
 //   (403 Forbidden). Escaping "%" once more makes IPX download the exact Prismic URL.
+// - "+" (a space in the file names of older Prismic uploads) is replaced with a space: the IPX
+//   provider encodes "+" as "%2B", that Nitro keeps in the name of the prerendered file while
+//   nginx decodes it (404); a space is encoded as "%20", decoded by both, and IPX then downloads
+//   "%20", which Prismic CDNs accept as well as "+".
 // - the query string added by Prismic (e.g. "?auto=compress,format") is dropped: IPX resizes and
 //   compresses the original image itself, and generated file names keep no "?".
 const PRISMIC_IMAGE_HOSTS = ['images.prismic.io', 'pix-site.cdn.prismic.io', 'prismic-io.s3.amazonaws.com'];
 
 export function prepareImageSourceForIpx(src) {
-  if (typeof src !== 'string' || !/[%?]/.test(src)) return src;
+  if (typeof src !== 'string' || !/[%?+]/.test(src)) return src;
 
   let url;
   try {
@@ -21,5 +25,5 @@ export function prepareImageSourceForIpx(src) {
 
   const queryIndex = src.indexOf('?');
   const path = queryIndex === -1 ? src : src.slice(0, queryIndex);
-  return path.replaceAll('%', '%25');
+  return path.replaceAll('%', '%25').replaceAll('+', ' ');
 }
