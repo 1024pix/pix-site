@@ -8,6 +8,16 @@ import { allowRootPagePrerender } from './services/allow-root-page-prerender';
 // as the pix-site site.
 const prismicRepositoryName = 'pix-site';
 
+const sharedDir = dirname(fileURLToPath(import.meta.url));
+
+// Hosts of the images resized by IPX (@nuxt/image)
+const imageDomains = [
+  'pix-site.cdn.prismic.io',
+  'storage.gra.cloud.ovh.net',
+  'prismic-io.s3.amazonaws.com',
+  'images.prismic.io',
+];
+
 const config = {
   app: {
     head: {
@@ -21,7 +31,7 @@ const config = {
   },
   alias: {
     // this layer directory (__dirname is not available in ES modules)
-    '@shared': dirname(fileURLToPath(import.meta.url)),
+    '@shared': sharedDir,
   },
   components: ['@/components', '@shared/components'],
   css: ['@shared/assets/scss/shared.scss'],
@@ -35,6 +45,17 @@ const config = {
     },
   },
   devtools: { enabled: true },
+  // @nuxt/image (module declared by each site): images resized by IPX, with Prismic image URLs
+  // prepared for IPX by the provider, and served by our own /_ipx handler (see serverHandlers)
+  image: {
+    domains: imageDomains,
+    provider: 'prismicIpx',
+    providers: {
+      prismicIpx: { provider: `${sharedDir}/providers/prismic-ipx.ts` },
+    },
+  },
+  // replaces the /_ipx route of @nuxt/image, to retry the downloads of source images
+  serverHandlers: [{ route: '/_ipx/**', handler: `${sharedDir}/server/ipx-handler.ts` }],
   hooks: {
     'pages:extend': filterNuxtPages,
     // runs after @nuxtjs/i18n has set up the prerender options, right before prerendering
@@ -49,6 +70,13 @@ const config = {
     linkResolver: '../shared/services/link-resolver.js',
   },
   runtimeConfig: {
+    // options of the /_ipx handler
+    pixIpx: {
+      domains: imageDomains,
+      // SVGs are only sanitized (scripts removed), as IPX 2 did: the default svgo optimization of
+      // IPX 4 blocks the prerender for seconds per SVG (about 900 of them), delaying other images.
+      svg: { optimize: { plugins: [] } },
+    },
     public: {
       easiwareScriptUrl: process.env.EASIWARE_SCRIPT_URL,
       plausible: {

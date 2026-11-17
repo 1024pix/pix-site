@@ -30,6 +30,7 @@
   "devDependencies": {
     "@element-plus/icons-vue": "2.3.2",
     "@element-plus/nuxt": "1.1.5",
+    "@nuxt/image": "2.2.1",
     "@nuxt/test-utils": "4.3.4",
     "@nuxtjs/i18n": "10.6.0",
     "@nuxtjs/prismic": "5.3.1",
@@ -45,7 +46,6 @@
     "focus-trap": "8.2.4",
     "happy-dom": "21.0.4",
     "nuxt": "4.6.4",
-    "nuxt-image-prismic-fix": "1.7.2",
     "playwright": "1.64.1",
     "sass": "1.107.1",
     "vitest": "5.0.5"
