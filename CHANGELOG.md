@@ -1,5 +1,17 @@
 # pix-site Changelog
 
+## v5.40.0 (17/11/2026)
+
+
+### :rocket: Amélioration
+- [#852](https://github.com/1024pix/pix-site/pull/852) [FEATURE] Mettre en place des URL canoniques pour les politiques de confidentialité de Pix App (PIX-24845).
+
+### :bug: Correction
+- [#859](https://github.com/1024pix/pix-site/pull/859) [BUGFIX] Corrige le fallback nginx de l'image Docker qui servait la page d'accueil.
+
+### :arrow_up: Montée de version
+- [#861](https://github.com/1024pix/pix-site/pull/861) [BUMP] Update dependency vue-chartjs to v5.3.4 (pix-pro).
+
 ## v5.39.0 (12/11/2026)
 
 
