@@ -38,12 +38,13 @@ jobs:
 
       - name: Generates base repo SBoM and upload to OWASP DTrack
         id: riskscoreBaseRepo
-        uses: 1024pix/check-dependency-track-action/node@9bdd04f2d831bb1309fdaf46c6518f42a76670c0 # v1.1.3
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
         with:
           url: '${{ secrets.DEPENDENCYTRACK_URL }}'
           key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
           directory: '.'
           wait_for_status: 'false'
+          ignore_npm_errors: 'true'
           basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
           basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
 
@@ -61,12 +62,13 @@ jobs:
 
       - name: Generates Pix Site SBoM and upload to OWASP DTrack
         id: riskscorePixSite
-        uses: 1024pix/check-dependency-track-action/node@9bdd04f2d831bb1309fdaf46c6518f42a76670c0 # v1.1.3
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
         with:
           url: '${{ secrets.DEPENDENCYTRACK_URL }}'
           key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
           directory: 'pix-site/'
           wait_for_status: 'false'
+          ignore_npm_errors: 'true'
           basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
           basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
 
@@ -84,7 +86,7 @@ jobs:
 
       - name: Generates Pix Pro SBoM and upload to OWASP DTrack
         id: riskscorePixPro
-        uses: 1024pix/check-dependency-track-action/node@9bdd04f2d831bb1309fdaf46c6518f42a76670c0 # v1.1.3
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
         with:
           url: '${{ secrets.DEPENDENCYTRACK_URL }}'
           key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
@@ -107,7 +109,7 @@ jobs:
 
       - name: Generates Pix Pro SBoM and upload to OWASP DTrack
         id: riskscoreShared
-        uses: 1024pix/check-dependency-track-action/node@9bdd04f2d831bb1309fdaf46c6518f42a76670c0 # v1.1.3
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
         with:
           url: '${{ secrets.DEPENDENCYTRACK_URL }}'
           key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
@@ -130,7 +132,7 @@ jobs:
       markdown: ${{ steps.fetch_all_scores.outputs.markdown }}
     steps:
       - id: fetch_all_scores
-        uses: 1024pix/check-dependency-track-action/fetch@9bdd04f2d831bb1309fdaf46c6518f42a76670c0 # v1.1.3
+        uses: 1024pix/check-dependency-track-action/fetch@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
         with:
           url: '${{ secrets.DEPENDENCYTRACK_URL }}'
           key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
