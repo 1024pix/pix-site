@@ -116,11 +116,6 @@ jobs:
           basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
           basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
 
-  check_risk_score_base_repo:
-  check_risk_score_pix_site:
-  check_risk_score_pix_pro:
-  check_risk_score_shared:
-
 
   fetch_results:
     runs-on: ubuntu-latest
