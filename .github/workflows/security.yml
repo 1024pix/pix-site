@@ -1,0 +1,177 @@
+name: 'Security Checks'
+
+## For readability and asynchronicity, the code for all 10 jobs is not in a loop
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+    types: [opened, reopened, ready_for_review, labeled]
+    paths: # only loads on changes of dependencies
+      - '**/package-lock.json'
+      - '.github/workflows/security.yml'
+
+permissions: {}
+
+jobs:
+  gate: # runs only for some actions
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.action != 'labeled'
+      || github.event.label.name == '🛡️ security update'
+      || github.event.label.name == 'deptrack-reload'
+    steps:
+      - run: echo "Security scan triggered by ${{ github.event_name }}/${{ github.event.action }}"
+
+  check_risk_score_base_repo:
+    runs-on: ubuntu-latest
+    needs: gate
+    permissions:
+      contents: read
+    outputs:
+      upload: ${{ steps.riskscoreBaseRepo.outputs.upload_json }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Generates base repo SBoM and upload to OWASP DTrack
+        id: riskscoreBaseRepo
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
+        with:
+          url: '${{ secrets.DEPENDENCYTRACK_URL }}'
+          key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
+          directory: '.'
+          wait_for_status: 'false'
+          ignore_npm_errors: 'true'
+          basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
+          basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
+
+  check_risk_score_pix_site:
+    runs-on: ubuntu-latest
+    needs: gate
+    permissions:
+      contents: read
+    outputs:
+      upload: ${{ steps.riskscorePixSite.outputs.upload_json }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Generates Pix Site SBoM and upload to OWASP DTrack
+        id: riskscorePixSite
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
+        with:
+          url: '${{ secrets.DEPENDENCYTRACK_URL }}'
+          key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
+          directory: 'pix-site/'
+          wait_for_status: 'false'
+          ignore_npm_errors: 'true'
+          basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
+          basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
+
+  check_risk_score_pix_pro:
+    runs-on: ubuntu-latest
+    needs: gate
+    permissions:
+      contents: read
+    outputs:
+      upload: ${{ steps.riskscorePixPro.outputs.upload_json }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Generates Pix Pro SBoM and upload to OWASP DTrack
+        id: riskscorePixPro
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
+        with:
+          url: '${{ secrets.DEPENDENCYTRACK_URL }}'
+          key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
+          directory: 'pix-pro/'
+          wait_for_status: 'false'
+          basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
+          basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
+
+  check_risk_score_shared:
+    runs-on: ubuntu-latest
+    needs: gate
+    permissions:
+      contents: read
+    outputs:
+      upload: ${{ steps.riskscoreShared.outputs.upload_json }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Generates Pix Pro SBoM and upload to OWASP DTrack
+        id: riskscoreShared
+        uses: 1024pix/check-dependency-track-action/node@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
+        with:
+          url: '${{ secrets.DEPENDENCYTRACK_URL }}'
+          key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
+          directory: 'shared/'
+          wait_for_status: 'false'
+          basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
+          basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
+
+  fetch_results:
+    runs-on: ubuntu-latest
+    needs:
+      - gate
+      - check_risk_score_base_repo
+      - check_risk_score_pix_site
+      - check_risk_score_pix_pro
+      - check_risk_score_shared
+    if: ${{ !cancelled() && github.event_name == 'pull_request' && needs.gate.result == 'success' }}
+    outputs:
+      status: ${{ steps.fetch_all_scores.outputs.status }}
+      markdown: ${{ steps.fetch_all_scores.outputs.markdown }}
+    steps:
+      - id: fetch_all_scores
+        uses: 1024pix/check-dependency-track-action/fetch@26edcba957161daf3a5d381f68db571fd45c3b30 # v1.2.1
+        with:
+          url: '${{ secrets.DEPENDENCYTRACK_URL }}'
+          key: '${{ secrets.DEPENDENCYTRACK_APIKEY }}'
+          basic_user: '${{ vars.DEPENDENCYTRACK_BASIC_USER }}'
+          basic_password: '${{ secrets.DEPENDENCYTRACK_BASIC_PASSWORD }}'
+          projects: |
+            ${{ needs.check_risk_score_base_repo.outputs.upload }}
+            ${{ needs.check_risk_score_pix_site.outputs.upload }}
+            ${{ needs.check_risk_score_pix_pro.outputs.upload }}
+            ${{ needs.check_risk_score_shared.outputs.upload }}
+
+
+  comment_on_pr:
+    runs-on: ubuntu-latest
+    needs:
+      - gate
+      - fetch_results
+    if: ${{ !cancelled() && needs.fetch_results.outputs.status != '' }}
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Comment on the PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MARKDOWN_TABLE: ${{ needs.fetch_results.outputs.markdown }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          printf '%s\n' "$MARKDOWN_TABLE" > "$RUNNER_TEMP/body.md"
+          echo "> Les status (pass/warn/fail) sont le résultat des policies appliquées aux différents dépots de code [sur la plateforme Deptrack](https://deptrack.pto2ls.pix.digital/dashboard)." >> "$RUNNER_TEMP/body.md"
+          echo "> Pour relancer l’analyse, appliquer le label _deptrack-reload_" >> "$RUNNER_TEMP/body.md"
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none \
+            --body-file "$RUNNER_TEMP/body.md"
+
+      - name: Fail on policy violation
+        env:
+          STATUS: ${{ needs.fetch_results.outputs.status }}
+        run: |
+          case "$STATUS" in
+            pass|warn) echo "Dependency-Track status: $STATUS" ;;
+            fail)      echo "::error::Dependency-Track policy violation (fail)"; exit 1 ;;
+            *)         echo "::error::Unknown or missing status: '$STATUS'"; exit 1 ;;
+          esac
