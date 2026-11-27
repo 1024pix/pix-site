@@ -56,7 +56,7 @@
   },
   "overrides": {
     "@element-plus/nuxt": {
-      "@nuxt/kit": "3.14.1592"
+      "@nuxt/kit": "3.21.11"
     }
   },
   "version": "5.40.0"
